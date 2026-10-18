@@ -1,0 +1,27 @@
+{
+  "title": "Pancreas anatomy: ducts, acini and islets",
+  "description": "A dual gland: digestive enzymes from acini, hormones from the islets of Langerhans.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What does the pancreas do?",
+      "answer": "Its exocrine tissue releases digestive enzymes into the small intestine. Endocrine islets release hormones such as insulin and glucagon into the blood."
+    },
+    {
+      "question": "Where is the pancreas located?",
+      "answer": "It lies behind the stomach across the upper abdomen. Its head sits near the duodenum, while its tail reaches toward the spleen."
+    },
+    {
+      "question": "Where is the head of the pancreas?",
+      "answer": "The broad end nestled in the C-loop of the duodenum, with the uncinate process hooking behind the superior mesenteric vessels. Function: Houses much of the exocrine tissue and the terminal duct."
+    },
+    {
+      "question": "Where is the main pancreatic duct located?",
+      "answer": "Runs the length of the gland from tail to head, joining the common bile duct at the ampulla in the second part of duodenum. Function: Delivers ~1.5 L of enzyme- and bicarbonate-rich juice daily."
+    },
+    {
+      "question": "What is the function of the acinar cells & ductules?",
+      "answer": "Function: Secrete the pro-enzymes for digesting protein, fat and carbohydrate. Grape-like clusters of enzyme-packed cells draining into centroacinar cells and ductules."
+    }
+  ]
+}

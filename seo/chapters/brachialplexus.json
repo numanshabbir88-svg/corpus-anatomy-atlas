@@ -1,0 +1,27 @@
+{
+  "title": "Brachial plexus anatomy: roots to terminal nerves",
+  "description": "Trace the arm nerve network from spinal roots through trunks, divisions and cords to five terminal nerves.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "Which spinal nerves form the brachial plexus?",
+      "answer": "Its main roots usually arise from ventral rami C5 through T1. They organize into trunks, divisions, cords and terminal branches."
+    },
+    {
+      "question": "What are the five major terminal branches of the brachial plexus?",
+      "answer": "Musculocutaneous, axillary, radial, median and ulnar nerves are the five commonly taught terminal branches."
+    },
+    {
+      "question": "What is the C5–T1 ventral rami?",
+      "answer": "Five spinal nerve ventral rami build the typical plexus; not the intrathecal dorsal/ventral rootlets. Function: Provide segmental motor and sensory fibers to upper limb."
+    },
+    {
+      "question": "Where is the upper trunk located?",
+      "answer": "Formed by union of C5 and C6 ventral rami. Function: Redistributes upper-root fibers into divisions."
+    },
+    {
+      "question": "What is the function of the lower trunk?",
+      "answer": "Function: Carries lower-root fibers toward hand pathways. Formed by C8 and T1 ventral rami."
+    }
+  ]
+}

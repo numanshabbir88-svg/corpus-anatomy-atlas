@@ -1,0 +1,27 @@
+{
+  "title": "Lung anatomy: lobes, bronchi and alveoli",
+  "description": "Two elastic, pleura-lined organs where air and blood come within 0.5 µm of each other.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "How does oxygen get from the lungs into the blood?",
+      "answer": "Air reaches the alveoli through branching airways. Oxygen diffuses across the thin alveolar-capillary barrier into pulmonary capillaries, while carbon dioxide moves in the opposite direction."
+    },
+    {
+      "question": "Why does the right lung have three lobes and the left have two?",
+      "answer": "The right lung is divided into upper, middle and lower lobes. The left has upper and lower lobes and a cardiac notch that accommodates the heart."
+    },
+    {
+      "question": "What are the bronchioles?",
+      "answer": "Airways under 1 mm with no cartilage and relatively more smooth muscle, ending in terminal then respiratory bronchioles. Function: Regulate airflow resistance and deliver air to the alveolar ducts."
+    },
+    {
+      "question": "Where is the pleura & pleural cavity located?",
+      "answer": "Visceral pleura covers the lung; parietal pleura lines the wall. Between them is a potential space with a film of serous fluid. Function: Surface tension couples the lung to the chest wall so it expands with it, and the fluid lets the layers glide."
+    },
+    {
+      "question": "What is the function of the alveoli & capillary bed?",
+      "answer": "Function: Diffusion of O₂ into blood and CO₂ out of it. Thin-walled sacs of type I pneumocytes wrapped in capillaries; type II pneumocytes secrete surfactant and alveolar macrophages patrol the surface. Together they present ~70 m² of membrane only 0.5 µm thick."
+    }
+  ]
+}

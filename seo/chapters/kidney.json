@@ -1,0 +1,27 @@
+{
+  "title": "Kidney anatomy: cortex, medulla and nephrons",
+  "description": "Coronal section plus a nephron: filtration, reabsorption, secretion and urine concentration.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What do the kidneys do?",
+      "answer": "Kidneys filter blood, return most water and useful solutes to circulation, and excrete wastes in urine. They also help regulate electrolytes, blood pressure and acid-base balance."
+    },
+    {
+      "question": "How does urine travel from the kidney to the bladder?",
+      "answer": "Filtrate passes through nephron tubules into collecting ducts, then through calyces and the renal pelvis. A ureter carries the resulting urine to the bladder."
+    },
+    {
+      "question": "What is the renal cortex?",
+      "answer": "The outer 1 cm, containing all the renal corpuscles, the proximal and distal convoluted tubules, and cortical tissue dipping between pyramids as the renal columns. Function: Site of blood filtration and most solute reabsorption."
+    },
+    {
+      "question": "Where is the glomerulus & Bowman's capsule located?",
+      "answer": "A tuft of fenestrated capillaries invaginating a double-walled capsule. Between them, the filtration barrier: fenestrated endothelium, fused basement membrane and podocyte foot processes with slit diaphragms. Function: Ultrafiltration of plasma — water and small solutes pass; cells and proteins do not."
+    },
+    {
+      "question": "What is the function of the loop of Henle?",
+      "answer": "Function: Countercurrent multiplication builds the medullary osmotic gradient that allows urine to be concentrated. A hairpin with a thin descending limb (water-permeable) and a thick ascending limb (actively pumps out NaCl but is water-impermeable), dipping into the medulla."
+    }
+  ]
+}

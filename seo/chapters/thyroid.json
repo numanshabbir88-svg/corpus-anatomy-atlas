@@ -1,0 +1,27 @@
+{
+  "title": "Thyroid gland anatomy: follicles, vessels and nerves",
+  "description": "A butterfly gland of follicles that sets the body's metabolic rate.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "Where is the thyroid gland located?",
+      "answer": "The thyroid has two lateral lobes joined by an isthmus in the front of the neck, close to the larynx and upper trachea."
+    },
+    {
+      "question": "What do thyroid follicles make?",
+      "answer": "Follicular cells use iodine and stored thyroglobulin in colloid to produce thyroid hormones. Nearby parafollicular cells produce calcitonin."
+    },
+    {
+      "question": "What is the isthmus?",
+      "answer": "The bridge crossing the 2nd–4th tracheal rings, joining the two lobes. Function: Connects the lobes into a single gland."
+    },
+    {
+      "question": "Where is the trachea & larynx located?",
+      "answer": "The gland wraps the airway; the cricoid cartilage and thyroid cartilage lie above. Function: Anatomical landmark and the reason goitres cause compressive symptoms."
+    },
+    {
+      "question": "What is the function of the follicle & colloid?",
+      "answer": "Function: Synthesis and storage of thyroid hormone — the only endocrine gland that stores its product extracellularly. Spheres of follicular cells enclosing colloid (iodinated thyroglobulin). TSH stimulates iodide trapping, organification, coupling, and endocytosis of colloid to release T3/T4."
+    }
+  ]
+}

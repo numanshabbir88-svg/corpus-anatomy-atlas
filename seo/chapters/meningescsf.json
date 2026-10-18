@@ -1,0 +1,27 @@
+{
+  "title": "Meninges, CSF & venous sinuses anatomy",
+  "description": "Follow dura, arachnoid and pia; then CSF from choroid plexus to subarachnoid drainage.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What are the three meninges around the brain?",
+      "answer": "From outside inward they are dura mater, arachnoid mater and pia mater. Cerebrospinal fluid occupies the subarachnoid space."
+    },
+    {
+      "question": "Where does cerebrospinal fluid flow?",
+      "answer": "CSF circulates through the ventricles and subarachnoid spaces before being returned to venous or lymphatic drainage pathways."
+    },
+    {
+      "question": "What is the periosteal cranial dura?",
+      "answer": "Outer cranial dural layer adherent to inner skull. Function: Forms tough outer covering and part of sinus walls."
+    },
+    {
+      "question": "Where is the falx cerebri located?",
+      "answer": "Vertical sickle-shaped dural sheet between hemispheres. Function: Supports superior and inferior sagittal sinuses."
+    },
+    {
+      "question": "What is the function of the superior sagittal sinus?",
+      "answer": "Function: Receives superficial cerebral veins and arachnoid granulation drainage. Midline dural channel at upper attached edge of falx."
+    }
+  ]
+}

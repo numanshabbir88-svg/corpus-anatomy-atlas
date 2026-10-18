@@ -1,0 +1,27 @@
+{
+  "title": "Spinal cord anatomy: grey matter, tracts and roots",
+  "description": "Cross-section: a grey butterfly inside white tracts, wrapped in three meninges.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "Where does the spinal cord end in adults?",
+      "answer": "The spinal cord usually tapers to the conus medullaris near the L1-L2 vertebral level in adults; nerve roots continue below it as the cauda equina."
+    },
+    {
+      "question": "What is the difference between gray and white matter in the spinal cord?",
+      "answer": "Central gray matter contains neuronal cell bodies and local circuits; surrounding white matter carries ascending sensory and descending motor pathways."
+    },
+    {
+      "question": "What is the posterior (dorsal) horn?",
+      "answer": "The slender upper horns receiving sensory afferents; laminae I–VI including the substantia gelatinosa. Function: First synapse for pain, temperature and touch; gate control of nociception happens here."
+    },
+    {
+      "question": "Where is the lateral horn located?",
+      "answer": "Present only in T1–L2, holding preganglionic sympathetic neurons (and S2–S4 parasympathetic equivalents). Function: Origin of the sympathetic outflow."
+    },
+    {
+      "question": "What is the function of the white funiculi & tracts?",
+      "answer": "Function: Highways for sensation upward and motor commands downward. Dorsal columns (fasciculus gracilis & cuneatus), lateral spinothalamic and corticospinal tracts, and spinocerebellar tracts."
+    }
+  ]
+}

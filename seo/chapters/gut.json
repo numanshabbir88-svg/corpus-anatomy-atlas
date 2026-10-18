@@ -1,0 +1,27 @@
+{
+  "title": "Digestive tract anatomy: stomach and intestines",
+  "description": "The gastrointestinal tract from oesophagus to rectum, with the villus that does the absorbing.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What happens to food in the stomach and intestines?",
+      "answer": "The stomach stores and mixes food with acid and enzymes. The small intestine completes much digestion and absorbs nutrients; the large intestine absorbs water and forms stool."
+    },
+    {
+      "question": "How long is the route through the digestive tract?",
+      "answer": "Food moves from oesophagus to stomach, small intestine and large intestine before leaving through the rectum and anal canal. Length varies between people and measurement methods."
+    },
+    {
+      "question": "What is the oesophagus?",
+      "answer": "A 25 cm muscular tube from pharynx to stomach, passing through the diaphragm at T10. Function: Propels the bolus by peristalsis; the lower sphincter prevents reflux."
+    },
+    {
+      "question": "Where is the body of stomach located?",
+      "answer": "The main reservoir between fundus and antrum, lined by acid- and pepsin-secreting mucosa with rugae. Function: Mixes food with acid and pepsin; intrinsic factor for B12 absorption is made here."
+    },
+    {
+      "question": "What is the function of the rugae?",
+      "answer": "Function: Allow expansion and channel the flow of chyme. Longitudinal folds of gastric mucosa that flatten as the stomach distends."
+    }
+  ]
+}

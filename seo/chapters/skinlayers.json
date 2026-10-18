@@ -1,0 +1,27 @@
+{
+  "title": "Skin layers & appendages anatomy",
+  "description": "The five thick-skin epidermal strata, two dermal zones, hypodermis, receptors and follicle–gland units.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What are the five epidermal layers in thick skin?",
+      "answer": "From deep to superficial they are stratum basale, spinosum, granulosum, lucidum and corneum. Thin skin does not have a distinct lucidum."
+    },
+    {
+      "question": "Does the epidermis have its own blood vessels?",
+      "answer": "No. The epidermis receives nutrients by diffusion from capillaries in the underlying dermis."
+    },
+    {
+      "question": "What is the stratum basale?",
+      "answer": "Deep single proliferative keratinocyte layer adjoining basement membrane. Function: Renews overlying epidermis."
+    },
+    {
+      "question": "Where is the stratum granulosum located?",
+      "answer": "Flattened keratinocytes with keratohyalin granules and lipid-releasing lamellar bodies. Function: Builds the water-permeability barrier."
+    },
+    {
+      "question": "What is the function of the stratum corneum?",
+      "answer": "Function: Principal external permeability barrier. Anucleate flattened corneocytes surrounded by intercellular lipid lamellae."
+    }
+  ]
+}

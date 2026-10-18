@@ -1,0 +1,27 @@
+{
+  "title": "Heart anatomy: chambers, valves and blood flow",
+  "description": "A four-chambered muscular pump with four valves and its own electrical conduction system.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "How many chambers does the human heart have?",
+      "answer": "The heart has four chambers: two atria receive blood and two ventricles pump it onward. The right side sends blood to the lungs; the left side supplies the body."
+    },
+    {
+      "question": "What is the path of blood through the heart?",
+      "answer": "Blood enters the right atrium, crosses the tricuspid valve to the right ventricle, reaches the lungs, returns to the left atrium, crosses the mitral valve and leaves the left ventricle through the aorta."
+    },
+    {
+      "question": "What is the myocardium?",
+      "answer": "The thick middle layer of the heart wall, made of branching, interlinked cardiac muscle fibres joined by intercalated discs. Function: Contracts to generate the pressure that ejects blood."
+    },
+    {
+      "question": "Where is the tricuspid valve located?",
+      "answer": "Three cusps (anterior, posterior, septal) between right atrium and right ventricle. Function: Closes at ventricular systole to stop backflow into the right atrium."
+    },
+    {
+      "question": "What is the function of the mitral valve?",
+      "answer": "Function: Closes at ventricular systole to stop backflow into the left atrium. The bicuspid valve between left atrium and left ventricle, with anterior and posterior cusps."
+    }
+  ]
+}

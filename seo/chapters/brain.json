@@ -1,0 +1,27 @@
+{
+  "title": "Brain anatomy: regions, ventricles and pathways",
+  "description": "Midsagittal section: cerebrum, diencephalon, brainstem and cerebellum around the ventricular system.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What are the main parts of the brain?",
+      "answer": "The cerebrum supports complex thought, sensation and voluntary movement; the cerebellum coordinates movement; and the brainstem connects the brain to the spinal cord and helps regulate essential functions."
+    },
+    {
+      "question": "What protects the brain inside the skull?",
+      "answer": "The skull, three meningeal layers and cerebrospinal fluid provide physical protection. Blood vessels supply its metabolically active tissue."
+    },
+    {
+      "question": "What is the frontal lobe?",
+      "answer": "Anterior to the central sulcus and above the lateral sulcus. Contains the primary motor cortex, Broca's area (usually left) and the prefrontal cortex. Function: Planning, judgement, personality, voluntary movement and expressive speech."
+    },
+    {
+      "question": "Where is the thalamus located?",
+      "answer": "Two ovals of grey matter flanking the third ventricle, subdivided into anterior, medial and lateral nuclear groups. Function: The relay station: nearly all sensory information (except smell) is edited and sent on to the cortex. Also involved in arousal."
+    },
+    {
+      "question": "What is the function of the cerebellum?",
+      "answer": "Function: Compares intended movement with actual movement and corrects it: coordination, precision, timing, posture and motor learning. Two hemispheres and a midline vermis, with a densely folded cortex, deep nuclei (dentate, emboliform, globose, fastigial) and branching white matter — the arbor vitae."
+    }
+  ]
+}

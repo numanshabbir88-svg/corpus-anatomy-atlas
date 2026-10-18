@@ -1,0 +1,27 @@
+{
+  "title": "Joints & ligaments anatomy",
+  "description": "Where bones meet: cartilage cushions, capsules contain, ligaments guide — the knee is the classic teaching joint because every principle is visible in it.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What holds a joint together?",
+      "answer": "A joint may be supported by a capsule, ligaments, tendons and nearby muscles. Exact stabilizers vary between joints; the knee also has menisci and cruciate ligaments."
+    },
+    {
+      "question": "What do the ACL and PCL do in the knee?",
+      "answer": "The anterior and posterior cruciate ligaments resist different directions of tibial translation and help stabilize the knee during movement."
+    },
+    {
+      "question": "What is the anterior cruciate ligament?",
+      "answer": "From lateral femoral condyle to anterior tibial plateau. Function: Blocks anterior tibial translation; pivots in rotation."
+    },
+    {
+      "question": "Where is the posterior cruciate ligament located?",
+      "answer": "Medial femoral condyle to posterior tibia. Function: Blocks posterior tibial slide (dashboard injury)."
+    },
+    {
+      "question": "What is the function of the menisci (medial & lateral)?",
+      "answer": "Function: Load sharing, shock absorption, joint lubrication. Fibrocartilage crescents on the tibial plateau."
+    }
+  ]
+}

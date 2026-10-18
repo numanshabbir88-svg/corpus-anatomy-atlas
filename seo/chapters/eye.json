@@ -1,0 +1,27 @@
+{
+  "title": "Eye anatomy: layers, lens and visual pathway",
+  "description": "Sagittal section: an optical instrument that focuses light onto a neural film.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "How does the eye focus light on the retina?",
+      "answer": "The cornea provides much of the eye's focusing power, while the lens changes shape for near and far vision. Light is converted into neural signals by retinal photoreceptors."
+    },
+    {
+      "question": "What is the difference between the retina and the optic nerve?",
+      "answer": "The retina is the light-sensitive neural tissue lining the back of the eye. Its ganglion-cell axons bundle together to form the optic nerve."
+    },
+    {
+      "question": "What is the cornea?",
+      "answer": "Transparent, avascular, five-layered dome at the front of the eye. Provides about two-thirds of the eye's refractive power. Function: Bends and transmits light; its endothelium pumps water out to stay clear."
+    },
+    {
+      "question": "Where is the retina located?",
+      "answer": "Ten-layered neural film: photoreceptors outermost (light must pass through the inner layers first), then bipolar and ganglion cells. Function: Transduces light into nerve impulses."
+    },
+    {
+      "question": "What is the function of the macula & fovea?",
+      "answer": "Function: High-acuity central vision for reading and faces. A 5.5 mm yellow-pigmented area at the posterior pole; its centre, the fovea, contains cones only and no vessels."
+    }
+  ]
+}

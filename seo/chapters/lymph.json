@@ -1,0 +1,27 @@
+{
+  "title": "Lymphatic system anatomy",
+  "description": "The body's drainage and defence network: interstitial fluid returns as lymph, filtered node by node, while immune cells patrol.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What does the lymphatic system do?",
+      "answer": "It returns excess interstitial fluid to the bloodstream, transports absorbed fats from the intestine and supports immune surveillance through nodes and lymphoid organs."
+    },
+    {
+      "question": "Where does lymph drain back into the blood?",
+      "answer": "Large lymphatic ducts empty near the junctions of the internal jugular and subclavian veins. The thoracic duct drains most of the body."
+    },
+    {
+      "question": "What is the cervical nodes?",
+      "answer": "Chains along jugular and spine. Function: Drain head and neck."
+    },
+    {
+      "question": "Where is the inguinal nodes located?",
+      "answer": "Horizontal + vertical groups in the groin. Function: Drain leg, perineum and lower abdominal wall."
+    },
+    {
+      "question": "What is the function of the thymus?",
+      "answer": "Function: T-cell maturation in childhood. Bilobed school for T cells, behind sternum."
+    }
+  ]
+}

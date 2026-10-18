@@ -1,0 +1,27 @@
+{
+  "title": "Cranial nerves anatomy",
+  "description": "Twelve pairs leave the brain directly — smell to tongue movement — and they are examined in strict order in every neurological exam.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "How many cranial nerves are there?",
+      "answer": "There are 12 paired cranial nerves, numbered I through XII. Their functions include smell, vision, eye movement, facial sensation, hearing, swallowing and tongue movement."
+    },
+    {
+      "question": "Which cranial nerve controls facial expression?",
+      "answer": "The facial nerve, cranial nerve VII, supplies most muscles of facial expression. The trigeminal nerve, cranial nerve V, carries most facial skin sensation."
+    },
+    {
+      "question": "What is the olfactory nerve (CN I)?",
+      "answer": "Sensory filaments from nasal epithelium to bulb. Function: Smell."
+    },
+    {
+      "question": "Where does the oculomotor nerve (CN III) originate?",
+      "answer": "Midbrain nerve to four eye muscles + lid + pupil. Function: Eye elevation/adduction, lid lift, pupil constriction."
+    },
+    {
+      "question": "What does the trigeminal nerve (CN V) do?",
+      "answer": "Function: Face sensation + muscles of mastication. Three divisions: ophthalmic, maxillary, mandibular."
+    }
+  ]
+}

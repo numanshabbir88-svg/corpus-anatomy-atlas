@@ -1,0 +1,27 @@
+{
+  "title": "Spleen anatomy: red pulp and white pulp",
+  "description": "The largest lymphoid organ: a blood filter, immune sentinel and red-cell graveyard.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What is the spleen's function?",
+      "answer": "The spleen filters blood, removes aging red blood cells and helps immune cells respond to blood-borne material. Its red and white pulp perform different tasks."
+    },
+    {
+      "question": "Can you feel a normal spleen?",
+      "answer": "A normal adult spleen is usually protected beneath the left lower ribs and is not readily felt on examination; enlargement is a medical finding, not something this atlas can diagnose."
+    },
+    {
+      "question": "What is the capsule & trabeculae?",
+      "answer": "A fibroelastic capsule sending trabeculae into the pulp, carrying the vessels. Function: Structural framework and conduit for vessels."
+    },
+    {
+      "question": "Where is the white pulp located?",
+      "answer": "Periarteriolar lymphoid sheaths (T cells), follicles (B cells) and a marginal zone rich in macrophages. Function: Immune surveillance of blood: antibody and opsonin production, especially against capsules."
+    },
+    {
+      "question": "What is the function of the hilum?",
+      "answer": "Function: Vascular gateway; also the site of accessory spleens in ~15% of people. The notched medial border where splenic vessels enter and the tail of pancreas and stomach fundus relate."
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Built files are generated on Netlify from this repository.
+/site/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.env.*

@@ -1,0 +1,27 @@
+{
+  "title": "Facial nerve: CN VII anatomy",
+  "description": "Track facial motor branches, taste, lacrimation and salivation through the temporal bone and parotid gland.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What does the facial nerve control?",
+      "answer": "Cranial nerve VII supplies muscles of facial expression and also carries taste and parasympathetic fibers through specific branches."
+    },
+    {
+      "question": "Does the facial nerve provide most facial skin sensation?",
+      "answer": "No. Most facial skin sensation travels in branches of the trigeminal nerve; the facial nerve is mainly known for its motor supply to facial expression."
+    },
+    {
+      "question": "What is the facial motor nucleus?",
+      "answer": "Motor cell bodies in pons send axons looping around abducens nucleus before exit. Function: Controls muscles of facial expression."
+    },
+    {
+      "question": "Where is the internal acoustic meatus located?",
+      "answer": "Temporal-bone canal shared by CN VII, CN VIII and labyrinthine artery. Function: Conveys nerve toward facial canal."
+    },
+    {
+      "question": "What is the function of the greater petrosal nerve?",
+      "answer": "Function: Supports lacrimal and nasal/palatine gland secretion. Carries preganglionic fibers toward pterygopalatine ganglion."
+    }
+  ]
+}

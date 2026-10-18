@@ -1,0 +1,27 @@
+{
+  "title": "Endocrine system anatomy",
+  "description": "The body's slow wiring: hormones released straight into blood to tune metabolism, growth, stress, salt, sugar and reproduction.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What organs make up the endocrine system?",
+      "answer": "The endocrine system includes hormone-producing structures such as the pituitary, thyroid, parathyroids, adrenals and pancreatic islets, with other organs also contributing hormones."
+    },
+    {
+      "question": "How do endocrine glands differ from exocrine glands?",
+      "answer": "Endocrine tissue releases hormones into the blood. Exocrine glands deliver products through ducts to a surface or lumen, as pancreatic acini do for digestion."
+    },
+    {
+      "question": "What is the pituitary gland?",
+      "answer": "Pea-sized master gland in the sella turcica. Function: Releases ACTH, TSH, GH, LH/FSH, prolactin, ADH/oxytocin store."
+    },
+    {
+      "question": "Where in the neck is the thyroid gland located?",
+      "answer": "Butterfly gland on the trachea. Function: T3/T4 metabolic rate; calcitonin."
+    },
+    {
+      "question": "What is the function of the adrenal glands?",
+      "answer": "Function: Cortisol, aldosterone, adrenaline. Caps on each kidney: cortex + medulla."
+    }
+  ]
+}

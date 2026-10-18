@@ -1,0 +1,27 @@
+{
+  "title": "Liver anatomy: lobes, vessels and bile ducts",
+  "description": "The body's chemical plant: metabolism, bile, clotting factors, detoxification and storage.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What are the main functions of the liver?",
+      "answer": "The liver processes nutrients, makes bile and many blood proteins, stores glycogen and participates in drug and toxin metabolism. Its blood arrives from both the portal vein and hepatic artery."
+    },
+    {
+      "question": "Where is the liver located?",
+      "answer": "Most of the liver lies beneath the diaphragm in the right upper abdomen, with a smaller part extending across the midline."
+    },
+    {
+      "question": "What is the gallbladder?",
+      "answer": "A 7–10 cm pear-shaped sac on the visceral surface of the right lobe, with fundus, body and neck. Its wall concentrates bile up to tenfold. Function: Stores and concentrates bile, releasing it into the duodenum when fat arrives (CCK-mediated)."
+    },
+    {
+      "question": "Where is the hepatic portal vein located?",
+      "answer": "Formed behind the pancreatic neck by the splenic and superior mesenteric veins; carries nutrient-rich, deoxygenated blood from gut, spleen and pancreas. Function: Delivers 75% of hepatic blood and everything absorbed from the gut for first-pass processing."
+    },
+    {
+      "question": "What is the function of the hepatic lobule & sinusoids?",
+      "answer": "Function: Blood flows from triad to central vein while bile flows the opposite way, from canaliculi to the triad bile duct. Hexagonal units ~1 mm across: plates of hepatocytes radiating from a central vein, separated by sinusoids lined with endothelium and Kupffer macrophages; portal triads (artery, vein, bile duct) sit at the corners."
+    }
+  ]
+}

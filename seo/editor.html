@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Corpus · Chapter SEO editor</title><style>
+:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#19302b;background:#f5f3ec}*{box-sizing:border-box}body{margin:0}.wrap{max-width:980px;margin:auto;padding:32px 20px 70px}h1,h2{font-family:Georgia,serif;letter-spacing:-.02em}h1{font-size:clamp(34px,5vw,54px);margin:8px 0 10px}h2{font-size:25px}p{line-height:1.6;color:#50615a}.eyebrow{color:#17645a;font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.intro{max-width:680px}.panel{background:#fffefa;border:1px solid #dcded5;border-radius:15px;padding:23px;margin-top:22px;box-shadow:0 12px 32px -30px #153d36}.toolbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.button,.file{display:inline-flex;align-items:center;justify-content:center;padding:11px 15px;border-radius:9px;background:#125e58;color:white;border:0;font:700 14px system-ui;cursor:pointer}.file{background:#e4eee8;color:#184e46}.file input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}.button:disabled{opacity:.5;cursor:not-allowed}.hint{font-size:13px}.name{font-size:13px;color:#63776f;font-weight:700}.field{display:block;font-size:13px;font-weight:750;margin:17px 0 0}.field span{display:block;margin-bottom:6px}input[type=text],input[type=date],textarea{width:100%;padding:11px 12px;border:1px solid #cbd3ca;border-radius:8px;background:#fff;color:#203a32;font:15px/1.5 system-ui}textarea{resize:vertical;min-height:88px}.description{min-height:105px}.qa{border-top:1px solid #e3e6df;padding-top:7px;margin-top:15px}.qa h3{margin:10px 0 0;font-size:15px;color:#17645a}.status{font-weight:700;font-size:13px;min-height:22px}.error{color:#a43b30}.success{color:#126255}.disabled{opacity:.65;pointer-events:none}@media(max-width:600px){.wrap{padding-top:22px}.panel{padding:17px}}
+</style></head><body><main class="wrap"><div class="eyebrow">Corpus / private source utility</div><h1>Chapter SEO editor</h1><p class="intro">Open one file from <code>seo/chapters/</code>, edit the page title, description and five visible answers, then download its updated JSON. This page works offline and does not upload your work anywhere.</p><section class="panel"><div class="toolbar"><label class="file">Open chapter JSON <input id="file" type="file" accept=".json,application/json"></label><button class="button" id="download" type="button" disabled>Download updated JSON</button><span class="name" id="name">No chapter loaded</span></div><p class="hint">Replace the old file with the downloaded one and commit it to your Git-connected repository. Netlify will automatically create a new deploy. Publishing changes without a new deploy is not possible for this static edition.</p><p class="status" id="status" role="status" aria-live="polite"></p><form id="form" class="disabled" autocomplete="off"><label class="field"><span>Page title</span><input id="title" type="text" required maxlength="125"></label><label class="field"><span>Visible intro and meta description</span><textarea id="description" class="description" required></textarea></label><label class="field"><span>Actual editorial update date (change only after a real update)</span><input id="updated" type="date" required></label><h2>Five chapter questions</h2><div id="questions"></div></form></section><p class="hint">Educational anatomy must be fact-checked. These are reader-friendly questions, not verified high-volume keyword claims. Neither Google nor Meta AI citations are guaranteed.</p></main><script>
+const byId=id=>document.getElementById(id);let filename='';
+function message(text,isError=false){byId('status').textContent=text;byId('status').className='status '+(isError?'error':'success')}
+byId('file').addEventListener('change',async event=>{
+ const file=event.target.files[0];if(!file)return;
+ try{
+  const data=JSON.parse(await file.text());
+  if(!/^[a-z0-9-]+\.json$/i.test(file.name)||!Array.isArray(data.questions)||data.questions.length!==5||!data.questions.every(item=>typeof item.question==='string'&&typeof item.answer==='string'))throw Error('Choose a valid chapter JSON with exactly five questions and answers.');
+  filename=file.name;byId('name').textContent=filename;byId('title').value=data.title||'';byId('description').value=data.description||'';byId('updated').value=data.updated||'';
+  byId('questions').replaceChildren();
+  data.questions.forEach((item,index)=>{
+   const box=document.createElement('div');box.className='qa';
+   const heading=document.createElement('h3');heading.textContent='Question '+(index+1);box.append(heading);
+   for(const [label,value,type] of [['Question',item.question,'input'],['Answer',item.answer,'textarea']]){
+    const field=document.createElement('label');field.className='field';const caption=document.createElement('span');caption.textContent=label;
+    const control=document.createElement(type);control.className=label.toLowerCase();control.required=true;control.value=value;field.append(caption,control);box.append(field);
+   }
+   byId('questions').append(box);
+  });
+  byId('form').classList.remove('disabled');byId('download').disabled=false;message('Loaded '+filename+'. Your edits stay in this browser until you download the file.');
+ }catch(error){message(error.message,true)}
+});
+byId('download').addEventListener('click',()=>{
+ const form=byId('form');if(!form.reportValidity())return;
+ const questions=[...document.querySelectorAll('.qa')].map(box=>({question:box.querySelector('.question').value.trim(),answer:box.querySelector('.answer').value.trim()}));
+ if(questions.some(x=>x.question.length<12||x.answer.length<30)||new Set(questions.map(x=>x.question.toLowerCase())).size!==5){message('Use five distinct questions (12+ characters) and substantive answers (30+ characters).',true);return}
+ const data={title:byId('title').value.trim(),description:byId('description').value.trim(),updated:byId('updated').value,questions};
+ const blob=new Blob([JSON.stringify(data,null,2)+'\n'],{type:'application/json'});const url=URL.createObjectURL(blob);const link=document.createElement('a');link.href=url;link.download=filename;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);message('Downloaded '+filename+'. Replace the chapter file in your Git repository and commit it.');
+});
+</script></body></html>

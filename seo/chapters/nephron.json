@@ -1,0 +1,27 @@
+{
+  "title": "Nephron anatomy: filtration and tubular segments",
+  "description": "Follow filtration through glomerular barrier, segmented tubules, medullary loop and collecting ducts.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What are the main parts of a nephron?",
+      "answer": "A renal corpuscle filters plasma; proximal tubule, loop of Henle and distal tubule modify filtrate. Collecting ducts receive fluid from multiple nephrons."
+    },
+    {
+      "question": "Where does filtration occur in the kidney?",
+      "answer": "Filtration occurs across the glomerular capillary barrier into Bowman space in the renal corpuscle, mainly in the kidney cortex."
+    },
+    {
+      "question": "What is the bowman capsule?",
+      "answer": "Parietal squamous layer and visceral podocyte layer enclosing Bowman space. Function: Collects primary filtrate from glomerulus."
+    },
+    {
+      "question": "Where are the podocyte foot processes located?",
+      "answer": "Interdigitating podocyte extensions with slit diaphragms over glomerular capillaries. Function: Final cellular component of filtration barrier."
+    },
+    {
+      "question": "What is the function of the collecting duct?",
+      "answer": "Function: ADH-sensitive water reabsorption and acid/base regulation. Receives distal connecting tubules from multiple nephrons and descends through medulla."
+    }
+  ]
+}

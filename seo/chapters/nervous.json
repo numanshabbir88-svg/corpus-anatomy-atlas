@@ -1,0 +1,27 @@
+{
+  "title": "Nervous system: overview anatomy",
+  "description": "One continuous network: the brain and spinal cord compute, and 43 pairs of peripheral nerves carry orders out and reports back.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What are the main divisions of the nervous system?",
+      "answer": "The central nervous system consists of brain and spinal cord. Peripheral nerves and ganglia connect it to the rest of the body; autonomic circuits regulate many involuntary functions."
+    },
+    {
+      "question": "How do nerves carry information between the body and brain?",
+      "answer": "Sensory pathways bring information toward the central nervous system, and motor pathways send commands outward. Spinal and cranial nerves also support reflexes and organ control."
+    },
+    {
+      "question": "What is the brain?",
+      "answer": "Cerebrum, cerebellum and brainstem inside the cranial vault. Function: Integration, consciousness, motor planning and autonomic control."
+    },
+    {
+      "question": "Where is the brainstem located?",
+      "answer": "Midbrain, pons and medulla connecting cord to brain. Function: Vital centres: respiration, heart rate, consciousness."
+    },
+    {
+      "question": "What is the function of the cervical plexus?",
+      "answer": "Function: Neck muscles and skin; phrenic nerve to diaphragm. Nerve network in the posterior triangle of the neck."
+    }
+  ]
+}

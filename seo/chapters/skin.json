@@ -1,0 +1,27 @@
+{
+  "title": "Skin anatomy",
+  "description": "A layered barrier with hair, glands, receptors and its own immune system.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What are the main layers of the skin?",
+      "answer": "The epidermis is the outer epithelial barrier; the vascular dermis contains connective tissue, vessels and nerves. Subcutaneous tissue lies beneath the skin and varies by region."
+    },
+    {
+      "question": "How does skin help protect the body?",
+      "answer": "The keratinized epidermal surface limits water loss and helps block external injury and microbes, while deeper tissue supports sensation, repair and temperature regulation."
+    },
+    {
+      "question": "What is the stratum corneum?",
+      "answer": "15–20 layers of dead, flattened, keratin-filled corneocytes held by lipids — the \"brick and mortar\" barrier. Function: Waterproofing and the main barrier to microbes and chemicals."
+    },
+    {
+      "question": "Where is the dermis (papillary & reticular) located?",
+      "answer": "Papillary layer of loose connective tissue forming dermal papillae; reticular layer of dense irregular collagen and elastin. Function: Strength, elasticity, sensation and the vascular supply of the epidermis."
+    },
+    {
+      "question": "What is the function of the hair shaft & follicle?",
+      "answer": "Function: Protection, sensation and (in other mammals) insulation. A keratinised shaft growing from a follicle that dips into dermis or fat, with a bulb around a dermal papilla and a bulge of stem cells."
+    }
+  ]
+}

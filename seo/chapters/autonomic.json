@@ -1,0 +1,27 @@
+{
+  "title": "Autonomic nervous system anatomy",
+  "description": "The unconscious half of the nervous system: sympathetic accelerator, parasympathetic brake, and the gut's own enteric brain.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What is the difference between sympathetic and parasympathetic nerves?",
+      "answer": "Both are autonomic pathways. Sympathetic activity often prepares organs for exertion; parasympathetic pathways support many resting functions. Their effects depend on the organ and receptor."
+    },
+    {
+      "question": "Where are autonomic ganglia located?",
+      "answer": "Sympathetic ganglia lie in chains beside the spine or in prevertebral groups; many parasympathetic ganglia lie near or within their target organs."
+    },
+    {
+      "question": "What is the sympathetic trunk?",
+      "answer": "Paired chain from neck to sacrum beside vertebrae. Function: Mass fight-or-flight discharge."
+    },
+    {
+      "question": "Where is the coeliac ganglion & plexus located?",
+      "answer": "Largest prevertebral relay at T12/L1, around coeliac trunk. Function: Foregut sympathetic supply."
+    },
+    {
+      "question": "What is the function of the inferior mesenteric ganglion?",
+      "answer": "Function: Hindgut and pelvic sympathetic supply. Relay at IMA origin."
+    }
+  ]
+}

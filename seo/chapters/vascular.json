@@ -1,0 +1,27 @@
+{
+  "title": "Vascular system anatomy",
+  "description": "Two trees from one pump: arteries deliver under pressure, veins return against gravity — with valves, shunts and plexuses throughout.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What is the difference between arteries and veins?",
+      "answer": "Arteries carry blood away from the heart and veins return it. The distinction is direction of flow, not oxygen level: pulmonary arteries carry less-oxygenated blood."
+    },
+    {
+      "question": "What is the aorta's role in circulation?",
+      "answer": "The aorta receives blood from the left ventricle and supplies the systemic arterial tree through branches serving the head, trunk and limbs."
+    },
+    {
+      "question": "What is the aortic arch?",
+      "answer": "Curve giving brachiocephalic, left carotid, left subclavian. Function: Distributes to head and arms."
+    },
+    {
+      "question": "Where is the subclavian artery located?",
+      "answer": "Under clavicle to axillary artery. Function: Arm supply; gives vertebral to brain."
+    },
+    {
+      "question": "What is the function of the descending aorta?",
+      "answer": "Function: Segmental branches to wall and viscera. Thoracic then abdominal aorta."
+    }
+  ]
+}

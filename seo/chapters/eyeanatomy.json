@@ -1,0 +1,27 @@
+{
+  "title": "Eye: microscopic layers anatomy",
+  "description": "Three ocular coats, five classical corneal layers, aqueous route, lens suspension, macula and optic disc.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What are the three main coats of the eyeball?",
+      "answer": "The outer fibrous coat is cornea and sclera; the middle vascular coat is the uvea; the inner neural coat includes the retina."
+    },
+    {
+      "question": "Which layers make up the cornea?",
+      "answer": "Corneal epithelium, stroma and endothelium are major components, with Bowman and Descemet layers between them in standard descriptions."
+    },
+    {
+      "question": "What is the corneal epithelium?",
+      "answer": "Surface stratified nonkeratinizing epithelial layer. Function: Barrier and smooth refractive surface."
+    },
+    {
+      "question": "Where is the corneal stroma located?",
+      "answer": "Organized collagen lamellae form most of corneal thickness. Function: Precise collagen arrangement maintains transparency."
+    },
+    {
+      "question": "What is the function of the corneal endothelium?",
+      "answer": "Function: Pumps fluid from stroma to maintain optical clarity. Single posterior cell layer lining anterior chamber."
+    }
+  ]
+}

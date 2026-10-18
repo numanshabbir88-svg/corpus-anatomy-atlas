@@ -1,0 +1,27 @@
+{
+  "title": "Muscular system anatomy: muscle groups and tendons",
+  "description": "Every movement, every breath, every heartbeat's preload begins as muscle fibres sliding — here the skeletal set in écorché.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "How do skeletal muscles move joints?",
+      "answer": "Skeletal muscles contract and transmit force through tendons or other attachments to bones. Joint movement depends on the muscle's line of pull, attachments and cooperating muscles."
+    },
+    {
+      "question": "What is the difference between a tendon and a ligament?",
+      "answer": "A tendon connects muscle to bone and transfers muscular force. A ligament connects bones across a joint and helps stabilize it."
+    },
+    {
+      "question": "What is the deltoid?",
+      "answer": "Clavicle/scapula to humeral shaft. Function: Arm abduction beyond 15°."
+    },
+    {
+      "question": "Where is the biceps brachii located?",
+      "answer": "Scapula to radial tuberosity. Function: Elbow flexion + supination."
+    },
+    {
+      "question": "What is the function of the patellar tendon?",
+      "answer": "Function: Completes the knee extensor mechanism. Patella to tibial tuberosity."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "title": "Upper airway anatomy",
+  "description": "The conducting corridor: nose conditions the air, pharynx crosses food and air, larynx turns air into voice and guards the lungs, trachea delivers.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What is the path of air through the upper airway?",
+      "answer": "Air enters the nose or mouth, passes through the pharynx and larynx, then moves down the trachea toward the bronchi."
+    },
+    {
+      "question": "What does the epiglottis do during swallowing?",
+      "answer": "The epiglottis is one structure involved in protecting the laryngeal entrance during swallowing; coordinated movement of the larynx and vocal folds also matters."
+    },
+    {
+      "question": "What is the nasal cavity & conchae?",
+      "answer": "Three conchae turbo-charge the surface area. Function: Warms, humidifies and filters inspired air."
+    },
+    {
+      "question": "Where is the nasopharynx & adenoid located?",
+      "answer": "Posterior nasal chamber with lymphoid adenoid. Function: Air passage; immune sampling in childhood."
+    },
+    {
+      "question": "What is the function of the epiglottis?",
+      "answer": "Function: Flips to cover the larynx during swallowing. Elastic leaf above the larynx."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "title": "Cerebral cortex and deep brain pathways",
+  "description": "Trace cortex, white matter, corpus callosum, basal nuclei and thalamus on a realistic coronal section.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What lies beneath the cerebral cortex?",
+      "answer": "Deep white-matter pathways connect cortical regions with each other and with subcortical structures, while deep gray nuclei and ventricles occupy related spaces."
+    },
+    {
+      "question": "Does every part of the cerebral cortex have six layers?",
+      "answer": "Most neocortex has six layers, but cortical regions vary, and older cortical areas such as hippocampal cortex have a different laminar organization."
+    },
+    {
+      "question": "What is the cortical gray matter?",
+      "answer": "Neuronal cell-body sheet folded into gyri and sulci. Function: Integrates sensory, motor and association information."
+    },
+    {
+      "question": "Where is the layer II · external granular located?",
+      "answer": "Small pyramidal and granule-cell zone. Function: Contributes intracortical signaling."
+    },
+    {
+      "question": "What is the function of the layer IV · internal granular?",
+      "answer": "Function: Receives major thalamocortical afferents. Prominent thalamic input layer, particularly in primary sensory cortex."
+    }
+  ]
+}

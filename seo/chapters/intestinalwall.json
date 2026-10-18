@@ -1,0 +1,27 @@
+{
+  "title": "Small intestine wall: villi, crypts and enteric nerves",
+  "description": "Map villus–crypt renewal, epithelial cell types, capillaries and lacteals, plus two enteric nerve plexuses.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What are the layers of the small intestinal wall?",
+      "answer": "From lumen outward they include mucosa, submucosa, muscularis externa and serosa or adventitia depending on the segment."
+    },
+    {
+      "question": "What do intestinal villi and crypts do?",
+      "answer": "Villi expand the absorptive surface. Crypts contain renewing epithelial cells and other specialized cells that help maintain the mucosa."
+    },
+    {
+      "question": "What is the villus?",
+      "answer": "Fingerlike projection of small-intestinal mucosa with epithelial cover and lamina propria core. Function: Expands absorptive surface."
+    },
+    {
+      "question": "Where is the enterocyte located?",
+      "answer": "Absorptive columnar epithelial cell with apical microvilli. Function: Takes up digested nutrients."
+    },
+    {
+      "question": "What is the function of the goblet cell?",
+      "answer": "Function: Lubricates and helps protect mucosal surface. Mucin-producing epithelial cell scattered among enterocytes."
+    }
+  ]
+}

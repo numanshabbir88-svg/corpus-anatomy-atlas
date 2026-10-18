@@ -1,0 +1,27 @@
+{
+  "title": "Ear anatomy: hearing and balance structures",
+  "description": "A pressure-wave collector that turns vibration into nerve impulses and doubles as a gyroscope.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "How do the outer, middle and inner ear work together?",
+      "answer": "The outer ear collects sound, the eardrum and three middle-ear bones transmit vibration, and the cochlea in the inner ear converts movement into nerve signals."
+    },
+    {
+      "question": "Which part of the ear helps with balance?",
+      "answer": "The vestibular organs of the inner ear, including the semicircular canals and otolith organs, detect head rotation and linear movement."
+    },
+    {
+      "question": "What is the tympanic membrane?",
+      "answer": "A 9 × 10 mm cone of three layers, tilted so its umbo points medially; pars tensa below, pars flaccida above. Function: Converts sound pressure into mechanical vibration of the malleus."
+    },
+    {
+      "question": "Where is the stapes located?",
+      "answer": "The stirrup: the smallest bone in the body (~3 mm), its footplate closing the oval window. Function: Delivers amplified vibration into the cochlear fluid."
+    },
+    {
+      "question": "What is the function of the vestibule (utricle & saccule)?",
+      "answer": "Function: Sense linear acceleration and head tilt — gravity sensing. Two otolith organs whose hair cells carry crystals of calcium carbonate."
+    }
+  ]
+}

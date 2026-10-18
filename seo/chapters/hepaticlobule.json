@@ -1,0 +1,27 @@
+{
+  "title": "Hepatic lobule: portal triad and sinusoidal anatomy",
+  "description": "See portal triad, central vein, sinusoidal cells and the opposite directions of blood and bile.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "How does blood flow through a hepatic lobule?",
+      "answer": "Branches of the portal vein and hepatic artery feed sinusoids near portal tracts; blood then drains toward the central vein."
+    },
+    {
+      "question": "Does bile flow in the same direction as blood in a liver lobule?",
+      "answer": "No. Hepatocytes secrete bile into canaliculi that move toward bile ducts in portal tracts, generally opposite the sinusoidal blood flow."
+    },
+    {
+      "question": "What is the portal venule?",
+      "answer": "Small portal vein branch delivering nutrient-rich splanchnic blood to sinusoids. Function: Feeds liver parenchyma."
+    },
+    {
+      "question": "Where is the interlobular bile duct located?",
+      "answer": "Cholangiocyte-lined duct traveling with arterial and portal venous branches. Function: Receives bile from canalicular/ductular route."
+    },
+    {
+      "question": "What is the function of the central vein?",
+      "answer": "Function: Collects sinusoidal blood toward hepatic veins. Terminal hepatic venule at center of classical lobule."
+    }
+  ]
+}

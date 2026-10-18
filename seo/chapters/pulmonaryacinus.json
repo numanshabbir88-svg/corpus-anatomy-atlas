@@ -1,0 +1,27 @@
+{
+  "title": "Pulmonary acinus: alveoli and gas-exchange barrier",
+  "description": "From terminal bronchiole to alveolar sac, type I/II pneumocytes, macrophages and the air–blood barrier.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What is a pulmonary acinus?",
+      "answer": "It is the region distal to a terminal bronchiole containing respiratory bronchioles, alveolar ducts and alveoli where gas exchange occurs."
+    },
+    {
+      "question": "What is the air-blood barrier in an alveolus?",
+      "answer": "The exchange surface includes alveolar epithelium, thin shared basement-membrane regions and capillary endothelium, allowing short diffusion distances."
+    },
+    {
+      "question": "What is the terminal bronchiole?",
+      "answer": "Final nonalveolated conducting airway before respiratory zone. Function: Delivers air to downstream acinus."
+    },
+    {
+      "question": "Where is the alveolar duct located?",
+      "answer": "Distal passage whose walls are largely alveolar openings. Function: Distributes air to multiple alveolar sacs."
+    },
+    {
+      "question": "What is the function of the alveolus?",
+      "answer": "Function: Provides extensive diffusion surface. Tiny airspace lined by specialized epithelium and surrounded by capillaries."
+    }
+  ]
+}

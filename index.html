@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corpus — Interactive Human Anatomy Atlas</title>
+<meta name="description" content="Corpus is a free interactive human anatomy atlas: 58 chapters with at least 20 documented anatomy parts each, realistic digital medical renders, interactive skeletal and muscular atlases, animated schematics and self-test questions. Built for students, teachers and clinicians.">
+<meta name="theme-color" content="#0d3b39">
+<meta property="og:title" content="Corpus — Interactive Human Anatomy Atlas">
+<meta property="og:description" content="58 anatomy chapters: realistic medical renders, 206-bone and full-body muscle atlases, male and female sections, animated schematics and quizzes.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d3b39'/%3E%3Cpath d='M16 26C9 21 5 17 5 12.5 5 9 7.7 6.5 11 6.5c2.2 0 4 1.2 5 2.9 1-1.7 2.8-2.9 5-2.9 3.3 0 6 2.5 6 6C27 17 23 21 16 26z' fill='%23e0645c'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css?v=33">
+<meta name="robots" content="noindex,follow"></head>
+<body>
+
+<a class="skip" href="#app">Skip to content</a>
+
+<div class="shell">
+  <header class="hdr" id="hdr">
+    <div class="wrap hdr-in">
+      <a class="mark" href="#/" data-nav="#/" aria-label="Corpus home">
+        <svg class="mark-glyph" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9"/><path d="M16 26C9 21 5 17 5 12.5 5 9 7.7 6.5 11 6.5c2.2 0 4 1.2 5 2.9 1-1.7 2.8-2.9 5-2.9 3.3 0 6 2.5 6 6C27 17 23 21 16 26z"/></svg>
+        <span class="mark-txt">Corpus<em>Anatomy Atlas</em></span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="#/" data-nav="#/">Home</a>
+        <a href="#/map" data-nav="#/map">Body map</a>
+        <a href="#/organs" data-nav="#/organs">Chapters</a>
+        <a href="#/male" data-nav="#/male">Male</a>
+        <a href="#/female" data-nav="#/female">Female</a>
+        <a href="learn/">Learn</a>
+        <a href="#/quiz" data-nav="#/quiz">Quiz</a>
+      </nav>
+
+      <div class="hdr-tools">
+        <div class="search" id="search">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M13.5 13.5 18 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <input id="q" type="search" placeholder="Find an organ or body part…" autocomplete="off" aria-label="Search organs and structures" role="combobox" aria-expanded="false" aria-controls="qres">
+          <kbd>/</kbd>
+          <div class="qres" id="qres" role="listbox" aria-label="Search results"></div>
+        </div>
+        <button class="icon-btn mobile-search-trigger" id="mobileSearchBtn" type="button" aria-label="Open search" aria-expanded="false">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M13.5 13.5 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <button class="icon-btn" id="motionBtn" aria-pressed="false" title="Reduce motion" aria-label="Reduce motion">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l3-7 4 14 3-7h4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="icon-btn burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="hdr-bar"><i id="readbar"></i></div>
+  </header>
+
+  <main id="app" tabindex="-1">
+    <div class="load-state wrap" role="status" aria-live="polite"><span class="load-symbol" aria-hidden="true">♥</span><h1>Explore the body one part at a time.</h1><p>Illustrated human anatomy, 58 study chapters and an interactive body map.</p><a href="learn/">Read the anatomy study guides →</a><small>Pictures load as you explore.</small></div>
+  </main>
+  <noscript><p class="wrap" style="padding:25px 16px">Please enable JavaScript to explore the interactive atlas.</p></noscript>
+
+  <footer class="ftr">
+    <div class="wrap ftr-grid">
+      <div>
+        <div class="mark small"><span class="mark-txt">Corpus<em>Anatomy Atlas</em></span></div>
+        <p class="ftr-note">An open educational reference for human anatomy. Each chapter pairs a realistic digital medical render (numbered pins for visible structures) with an animated schematic and additional unpinned deep-anatomy notes. Anatomical content follows standard teaching references (Gray's Anatomy, Standring; clinically oriented notes after current curricula). Renders are digital educational illustrations, not patient images or exact localizations for every study note. Not a substitute for medical advice, diagnosis or an authoritative atlas.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="#/organs">All organs</a>
+        <a href="learn/">Anatomy study guides</a>
+        <a href="#/deep">Deep anatomy study path</a>
+        <a href="#/muscle">Muscles &amp; tendons</a>
+        <a href="#/map">Interactive body map</a>
+        <a href="#/explorer">Anatomical layers</a>
+        <a href="#/systems">Body systems</a>
+        <a href="#/male">Male anatomy section</a>
+        <a href="#/female">Female anatomy section</a>
+        <a href="#/gyn">Gynecology study path</a>
+        <a href="#/quiz">Self-test quiz</a>
+        <a href="about.html">About &amp; editorial policy</a>
+        <a href="privacy.html">Privacy policy</a>
+      </div>
+      <div>
+        <h4>Most studied</h4>
+        <a href="#/heart">Heart · Cor</a>
+        <a href="#/brain">Brain · Encephalon</a>
+        <a href="#/lungs">Lungs · Pulmones</a>
+        <a href="#/kidney">Kidney · Ren</a>
+      </div>
+      <div>
+        <h4>Shortcuts</h4>
+        <p class="keys"><kbd>/</kbd> search &nbsp; <kbd>L</kbd> labels &nbsp; <kbd>A</kbd> animate<br><kbd>←</kbd><kbd>→</kbd> browse organs &nbsp; <kbd>Esc</kbd> clear</p>
+      </div>
+    </div>
+    <div class="wrap ftr-base">
+      <span>© <span id="yr"></span> Corpus Anatomy Atlas · Educational use only</span>
+      <span>Realistic renders + animated schematics · v2.2 · No tracking · Works offline</span>
+    </div>
+  </footer>
+</div>
+
+<button class="totop" id="totop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6M6 12l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script src="organs.js?v=33"></script>
+<script src="brain-and-micro-chapters.js?v=33"></script>
+<script src="deep-chapters.js?v=33"></script>
+<script src="part-enrichment-notes.js?v=33"></script>
+<script src="chapter-enrichment.js?v=33"></script>
+<script src="muscle-atlas.js?v=33"></script>
+<script src="app.js?v=33"></script>
+</body>
+</html>

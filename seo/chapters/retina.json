@@ -1,0 +1,27 @@
+{
+  "title": "Retina anatomy: photoreceptors and neural layers",
+  "description": "Rods, cones, bipolar and ganglion circuits; fovea, optic disc, pigment epithelium and dual blood supply.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "Where are rods and cones located in the retina?",
+      "answer": "Photoreceptors lie in the outer neural retina next to retinal pigment epithelium, even though incoming light first passes through more internal layers."
+    },
+    {
+      "question": "What is the difference between rods and cones?",
+      "answer": "Rods are especially sensitive in low light; cones support high-acuity and color vision, particularly near the fovea."
+    },
+    {
+      "question": "What are the photoreceptor segments?",
+      "answer": "Rod and cone inner/outer segments facing RPE. Function: Capture photons and start phototransduction."
+    },
+    {
+      "question": "Where is the retinal pigment epithelium located?",
+      "answer": "Pigmented monolayer adjacent to photoreceptors and Bruch membrane. Function: Recycles visual pigment, phagocytoses shed discs and forms outer blood–retinal barrier."
+    },
+    {
+      "question": "What is the function of the fovea centralis?",
+      "answer": "Function: Peak spatial acuity. Small central pit with closely spaced cones and displaced inner layers."
+    }
+  ]
+}

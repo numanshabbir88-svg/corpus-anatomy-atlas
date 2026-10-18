@@ -1,0 +1,7 @@
+[build]
+  command = "python3 build_seo.py && python3 verify_seo.py"
+  publish = "site"
+
+# The Netlify-provided URL build variable supplies the canonical origin and sitemap.
+# The user-supplied public email is already on About/Privacy; CONTACT_EMAIL can override it.
+# Do not add ad code or a made-up AdSense publisher ID to this configuration.

@@ -1,0 +1,27 @@
+{
+  "title": "Brainstem and cerebellum anatomy",
+  "description": "Locate brainstem levels, cranial-nerve nuclei, pyramids and cerebellar peduncles, cortex and nuclei.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What are the three parts of the brainstem?",
+      "answer": "The brainstem consists of midbrain, pons and medulla. It carries major pathways and houses many cranial-nerve nuclei."
+    },
+    {
+      "question": "What does the cerebellum do?",
+      "answer": "The cerebellum helps coordinate movement, timing and balance by integrating sensory and motor information; it is not the same structure as the brainstem."
+    },
+    {
+      "question": "What is the midbrain?",
+      "answer": "Rostral brainstem around cerebral aqueduct between diencephalon and pons. Function: Hosts III/IV-related nuclei and visual/auditory orienting circuits."
+    },
+    {
+      "question": "Where is the inferior colliculus located?",
+      "answer": "Dorsal caudal midbrain auditory relay structure. Function: Integrates auditory pathway toward thalamus."
+    },
+    {
+      "question": "What is the function of the cerebral peduncles?",
+      "answer": "Function: Transmit corticospinal, corticobulbar and corticopontine signals. Ventral midbrain bundles carrying major descending cortical fibers."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "title": "Trigeminal nerve: CN V anatomy",
+  "description": "Map facial sensation and masticatory motor fibers without confusing trigeminal CN V with facial CN VII.",
+  "updated": "2026-10-18",
+  "questions": [
+    {
+      "question": "What are the three branches of the trigeminal nerve?",
+      "answer": "Ophthalmic V1, maxillary V2 and mandibular V3 supply different facial territories. V3 also carries motor fibers to muscles of mastication."
+    },
+    {
+      "question": "Which nerve supplies sensation to the cornea?",
+      "answer": "The ophthalmic division of the trigeminal nerve, especially through the nasociliary pathway, carries most corneal sensation."
+    },
+    {
+      "question": "What is the trigeminal sensory root?",
+      "answer": "Large sensory root emerges from lateral pons into trigeminal cistern. Function: Conveys facial somatic sensation centrally."
+    },
+    {
+      "question": "Where is the ophthalmic V1 located?",
+      "answer": "Passes superior orbital fissure into orbit; gives frontal, lacrimal and nasociliary branches. Function: Sensation from forehead, upper lid and cornea."
+    },
+    {
+      "question": "What is the function of the nasociliary nerve?",
+      "answer": "Function: Carries corneal sensation through long ciliary nerves. Orbital V1 branch giving long ciliary, ethmoidal and infratrochlear fibers."
+    }
+  ]
+}
