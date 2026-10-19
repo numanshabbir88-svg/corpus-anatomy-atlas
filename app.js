@@ -12,10 +12,12 @@ const liveIds = () => ORG().map(([k])=>k);
 const routeFor = k => '#/'+(k==='male'||k==='female'?k+'overview':k);
 // Same anatomical plates, served as compact WebP; original files remain in img/.
 const imgSrc=(file,small=false)=>'img/'+(small?'thumb':'webp')+'/'+String(file).replace(/\.(jpe?g|png|webp)$/i,'.webp');
+const validHot=(hot,id)=>Array.isArray(hot?.[id])&&hot[id].length===2&&hot[id].every(v=>typeof v==='number'&&Number.isFinite(v)&&v>=0&&v<=1000);
 const svgMedia=art=>art.replace(/img\/([\w.-]+\.(?:jpe?g|png))/gi,(_,file)=>imgSrc(file));
 
 /* ---------- tiny helpers ---------- */
 const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const attr = s => esc(s).replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 function mulberry(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
 function shuffle(a,rng=Math.random){const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
 function countUp(el,to,dur=900){const t0=performance.now();const step=t=>{const p=Math.min(1,(t-t0)/dur);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
@@ -107,11 +109,11 @@ function viewHome(){
           <a class="btn" href="#/organs">Browse chapters</a>
           <a class="btn" href="#/quiz">Try a quiz</a>
         </div>
-        <div class="hero-note">${icon('shield')} Realistic pictures · optional animated diagrams · no account needed</div>
+        <div class="hero-note">${icon('shield')} Realistic pictures · animated focus highlights · no account needed</div>
       </div>
       <div class="showcase rv in" data-d="1">
         <div class="showcase-top">
-          <span class="pill live">Live diagram</span>
+          <span class="pill live">Live anatomy render</span>
           <div class="showcase-tabs" id="scTabs">
             <button class="sc-tab on" data-sc="heart">Heart</button>
             <button class="sc-tab" data-sc="lungs">Lungs</button>
@@ -122,7 +124,7 @@ function viewHome(){
         <div class="sc-stage" id="scStage"></div>
         <div class="sc-foot">
           <div><b id="scName">Heart</b> <span class="latin" id="scLatin">Cor</span><div id="scHint" style="font-size:11.5px;margin-top:2px">click any structure to read about it</div></div>
-          <a class="btn sm sc-open" id="scOpen" href="#/heart">Open + animations ${icon('arrow')}</a>
+          <a class="btn sm sc-open" id="scOpen" href="#/heart">Open chapter ${icon('arrow')}</a>
           <svg class="ecg" viewBox="0 0 300 44" preserveAspectRatio="none"><path d="M0 26 L36 26 L46 26 L52 10 L58 38 L64 20 L70 26 L110 26 L120 26 L126 12 L132 36 L138 22 L144 26 L188 26 L198 26 L204 10 L210 38 L216 20 L222 26 L262 26 L272 26 L278 14 L284 34 L290 24 L300 26"/></svg>
         </div>
       </div>
@@ -162,9 +164,9 @@ function viewHome(){
   <section class="sec wrap">
     <div class="sec-h rv"><div><div class="eyebrow">How it works</div><h2>Three steps to actually remembering it</h2></div></div>
     <div class="steps">
-      <div class="card step rv"><div class="n">1</div><h3>See it move</h3><p>Switch on the cardiac cycle, breathing, peristalsis or a nerve impulse. Motion fixes anatomy in memory far better than a static plate.</p></div>
-      <div class="card step rv" data-d="1"><div class="n">2</div><h3>Go deeper</h3><p>Click an illustrated pin or open an unpinned study note for anatomic detail, function and a clinical pearl.</p></div>
-      <div class="card step rv" data-d="2"><div class="n">3</div><h3>Prove it</h3><p>Finish with the built-in quiz: multiple choice plus spot-the-structure rounds drawn straight from the diagram you just studied.</p></div>
+      <div class="card step rv"><div class="n">1</div><h3>See it clearly</h3><p>Use animated focus highlights on realistic pictures to trace a structure before reading its full explanation.</p></div>
+      <div class="card step rv" data-d="1"><div class="n">2</div><h3>Go deeper</h3><p>Tap a thin label line or open an unpictured study note for anatomical detail, function and clinical context.</p></div>
+      <div class="card step rv" data-d="2"><div class="n">3</div><h3>Prove it</h3><p>Finish with the built-in quiz: multiple choice plus spot-the-structure rounds based on the realistic picture you just studied.</p></div>
     </div>
   </section>
 
@@ -173,7 +175,7 @@ function viewHome(){
       <svg class="deco" viewBox="0 0 200 200" aria-hidden="true"><path d="M100 178 C46 140 16 110 16 76 C16 48 38 28 64 28 C80 28 94 36 100 50 C106 36 120 28 136 28 C162 28 184 48 184 76 C184 110 154 140 100 178 Z" fill="none" stroke="#e8f4f1" stroke-width="6"/></svg>
       <div class="eyebrow" style="color:#8fd8c8">Interactive body map</div>
       <h2>Find any organ on the body in two clicks</h2>
-      <p>An anterior and posterior silhouette with every organ in its real position. Hover to preview, click to open the full diagram — the quickest way in when you don't know the name yet.</p>
+      <p>Front and back educational body renders with approximate region markers and a complete clickable name list. Select a region to open its full chapter.</p>
       <a class="btn primary" href="#/map">Open the body map ${icon('arrow')}</a>
     </div>
   </section>`;
@@ -220,7 +222,14 @@ function viewOrgans(params){
   </section>`;
 }
 
-function miniChip(o,id){if(!o.photo)return '';const h=o.photo.hot?.[id]||[500,500];const context=o.parts[id]?.contextOnly||!o.photo.hot?.[id];return `<span class="mini${context?' reference':''}" ${context?'title="Regional reference plate — not a localized crop of this structure"':''} style="background-image:url(${imgSrc(o.photo.file,true)});${context?'':`background-position:${(h[0]/10).toFixed(1)}% ${(h[1]/10).toFixed(1)}%`}"></span>`}
+function miniChip(o,id){
+ if(!o.photo)return '';
+ const placed=validHot(o.photo.hot,id)&&!o.parts[id]?.contextOnly;
+ const h=placed?o.photo.hot[id]:[500,500];
+ const name=o.parts[id]?.n||o.title;
+ const point=placed?` data-point-x="${h[0]}" data-point-y="${h[1]}"`:'';
+ return `<button class="part-mini-trigger" type="button" data-plate-preview data-plate-src="${attr(imgSrc(o.photo.file))}" data-part-name="${attr(name)}" data-preview-context="${!placed}"${point} aria-label="Enlarge anatomy image for ${attr(name)}"><span class="mini${placed?'':' reference'}" style="background-image:url(${imgSrc(o.photo.file,true)});${placed?`background-position:${(h[0]/10).toFixed(1)}% ${(h[1]/10).toFixed(1)}%`:''}"></span><span class="part-mini-expand" aria-hidden="true">⤢</span></button>`;
+}
 function boneSection(o){
  const tot=o.bones206.reduce((a,g)=>a+g.n,0);
  return `
@@ -301,7 +310,7 @@ function studySection(o,key){
  const cards=o.study.cards.map(([title,text],i)=>`<article class="study-card rv" data-d="${i%4}"><span>${String(i+1).padStart(2,'0')}</span><h3>${esc(title)}</h3><p>${esc(text)}</p></article>`).join('');
  const sources=o.study.sources.map((u,i)=>`<a href="${u}" target="_blank" rel="noopener noreferrer">${i+1}. ${esc(new URL(u).hostname.replace('www.',''))} ↗</a>`).join('');
  return `<section class="sec wrap study-wrap" id="study-map"><div class="sec-h rv"><div><div class="eyebrow">Medical-student study layer</div><h2>Clinical anatomy map</h2><p>${esc(o.study.lead)}</p></div><a class="btn sm" href="#/quiz?o=${key}">Test this chapter →</a></div><div class="study-grid">${cards}</div>
- ${key==='gynvulva'?`<figure class="vulva-ref rv"><img src="img/webp/vulva-reference.webp" alt="Labeled surface anatomy of the vulva: mons pubis, clitoral hood and glans, urethral opening, vaginal opening, labia majora and minora, perineum" loading="lazy"><figcaption><strong>Surface anatomy companion</strong> · Diagram by RWhitwam, <a href="https://commons.wikimedia.org/wiki/File:Female_external_genitalia,_or_vulva.svg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>. PNG preview displayed unmodified. Paired with the realistic sagittal render above.</figcaption></figure>`:''}
+
  <div class="study-sources"><b>Further reading · anatomy references</b>${sources}</div>
  <p class="study-caveat">Educational anatomy only. Digital plates simplify anatomy and may not represent every tissue or surgical variant; clinical decisions require current local guidelines and supervised training.</p>
  </section>`;
@@ -309,7 +318,7 @@ function studySection(o,key){
 function viewGyn(){
  const count=GYN_PATH.reduce((n,k)=>n+Object.keys(ORGANS[k].parts).length,0);
  return `<section class="gyn-hero"><div class="wrap gyn-hero-inner"><div><div class="eyebrow">Clinical anatomy · gynecology study path</div><h1>Learn the pelvis<br><em>from layer to landmark.</em></h1><p>Six focused chapters, ${count} documented parts, realistic regional renders, exam-oriented relations and a quiz for each chapter. Start with the uterus, then follow the tube, cervix, vaginal canal, external genitalia and supporting planes.</p><div class="hero-cta"><a class="btn primary" href="#/gynuterus">Start with uterine layers →</a><a class="btn" href="#/gynsupport">See surgical landmarks</a></div><small>Anatomy reference—not a diagnosis, treatment guide or screening protocol.</small></div><img src="img/webp/gyn-uterus.webp" alt="Realistic uterine section showing endometrium, myometrium, cervix, tubes and ovaries"></div></section>
- <section class="sec wrap gyn-path"><div class="sec-h rv"><div><div class="eyebrow">Your six-module route</div><h2>From tissue to clinical relations</h2><p>Choose a chapter; every structure is named, searchable and linked to its exam relevance. Pins mark visible structures; additional deep notes appear in chapter lists.</p></div></div><div class="gyn-grid">${GYN_PATH.map((k,i)=>{const o=ORGANS[k];return `<a class="gyn-tile rv" data-d="${i%4}" href="${routeFor(k)}"><div class="gyn-tile-pic"><img src="${imgSrc(o.photo.file,true)}" alt="${esc(o.title)} medical render" loading="lazy"><b>${String(i+1).padStart(2,'0')}</b></div><div><span>${Object.keys(o.parts).length} documented parts · ${o.quiz.length} questions</span><h3>${esc(o.title)}</h3><p>${esc(o.blurb)}</p><strong>Open chapter ↗</strong></div></a>`}).join('')}</div></section>
+ <section class="sec wrap gyn-path"><div class="sec-h rv"><div><div class="eyebrow">Your six-module route</div><h2>From tissue to clinical relations</h2><p>Choose a chapter; every structure is named, searchable and linked to its exam relevance. Thin callout lines mark visible structures; additional deep notes appear in chapter lists.</p></div></div><div class="gyn-grid">${GYN_PATH.map((k,i)=>{const o=ORGANS[k];return `<a class="gyn-tile rv" data-d="${i%4}" href="${routeFor(k)}"><div class="gyn-tile-pic"><img src="${imgSrc(o.photo.file,true)}" alt="${esc(o.title)} medical render" loading="lazy"><b>${String(i+1).padStart(2,'0')}</b></div><div><span>${Object.keys(o.parts).length} documented parts · ${o.quiz.length} questions</span><h3>${esc(o.title)}</h3><p>${esc(o.blurb)}</p><strong>Open chapter ↗</strong></div></a>`}).join('')}</div></section>
  <section class="sec wrap"><div class="gyn-clinic rv"><div><span class="eyebrow">High-yield anatomy checkpoints</span><h2>Where to focus</h2><p>Cervical epithelium and transformation zone · ureter under uterine artery · ovarian pedicle and para-aortic lymph · vaginal fornices · vulvar and <a href="#/clitoralcomplex">clitoral erectile anatomy</a> · pelvic support compartments.</p></div><div><a href="#/gyncervix">Cervical histology →</a><a href="#/gynadnexa">Ovary & tube →</a><a href="#/gynsupport">Surgical planes →</a><a href="#/gynvulva">Vulvar landmarks →</a></div></div></section>
  <section class="sec wrap"><div class="sec-h rv"><div><div class="eyebrow">Extend the map</div><h2>Comparative male anatomy</h2></div></div><div class="gyn-compare">${['maletestis','maleprostate','penileerectile'].map(k=>{const o=ORGANS[k];return `<a href="${routeFor(k)}" class="gyn-tile rv"><div class="gyn-tile-pic"><img src="${imgSrc(o.photo.file,true)}" alt="${esc(o.title)} clinical render" loading="lazy"></div><div><span>${Object.keys(o.parts).length} structures</span><h3>${esc(o.title)}</h3><p>${esc(o.blurb)}</p><strong>Open chapter ↗</strong></div></a>`}).join('')}</div></section>`;
 }
@@ -320,10 +329,10 @@ function viewOrgan(key){
   const prev=ids[(i-1+ids.length)%ids.length], next=ids[(i+1)%ids.length];
   const sys=SYSTEMS[o.system];
   const facts=[['System',sys.name],['Location',o.region],['Size / weight',o.size],['Blood supply',o.blood],['Innervation',o.nerve]];
-  const controls=o.anims.map(a=>`<button class="btn sm" data-anim="${a.id}" aria-pressed="false"><span class="dot"></span>${esc(a.label)}</button>`).join('');
+  const controls='<button class="btn sm on" data-focus-pulse aria-pressed="true">Animate selected highlight</button>';
   const parts=Object.entries(o.parts).map(([id,p],idx)=>`
     <div class="part rv${p.contextOnly?' context-entry':''}" data-d="${idx%4}" data-pid="${id}">
-      <button class="part-h" aria-expanded="false">${miniChip(o,id)}<span class="swatch" style="--c:${sys.color}"></span><strong>${esc(p.n)}</strong><span class="pill plan">${p.contextOnly?'Study note':esc(p.t)}</span></button>
+      <div class="part-top">${miniChip(o,id)}<button class="part-h" aria-expanded="false"><span class="swatch" style="--c:${sys.color}"></span><strong>${esc(p.n)}</strong><span class="pill plan">${p.contextOnly?'Study note':esc(p.t)}</span></button></div>
       <div class="part-b">
         <p class="latin">${esc(p.l)}</p>
         <p>${esc(p.d)}</p>
@@ -350,7 +359,7 @@ function viewOrgan(key){
   <div class="viewer wrap">
     <div class="card stage-card rv">
       <div class="ctrl simple-ctrl">
-        ${o.photo?`<button class="btn sm on" data-stage="photo" aria-pressed="true">${icon('eye')} Picture</button><button class="btn sm" data-stage="schema" aria-pressed="false">${icon('play')} Animated diagram</button>`:''}
+        ${o.photo?`<button class="btn sm on" data-stage="photo" aria-pressed="true">${icon('eye')} Picture</button><button class="btn sm" data-stage="focus" aria-pressed="false">${icon('play')} Animated focus</button>`:''}
         <details class="toolbox"><summary>More tools</summary><div class="toolbox-items">
           <span class="animset">${controls}</span>
           <button class="btn sm on" data-labels aria-pressed="true">${icon('tag')} Labels</button>
@@ -360,28 +369,24 @@ function viewOrgan(key){
           <button class="btn sm" data-zoom="0" aria-label="Reset zoom">${icon('reset')}</button></span>
         </div></details>
       </div>
-      <p class="stage-tip">Tap a number to learn that part. Deeper notes are listed below.</p>
+      <p class="stage-tip">Follow a line to a structure; tap a label to learn more. Deeper notes are below.</p>
       <div class="diagram-scroll" id="dscroll"><div class="diagram" id="diagram"></div></div>
       <div class="stage-foot">
         <div class="legend">${o.legend.map(([c,l])=>`<i style="--c:${c}">${esc(l)}</i>`).join('')}</div>
         ${o.photo?`<span class="credit">${esc(o.photo.credit)}</span>`:''}
       </div>
       <div class="stage-foot" style="margin-top:8px">
-        <span>${icon('info')} Pins mark visible structures only; deeper unpinned study notes are in the list below · <kbd>L</kbd> labels · <kbd>A</kbd> animate</span>
+        <span>${icon('info')} Thin lines mark visible structures only; deeper unpictured study notes are in the list below · <kbd>L</kbd> labels · <kbd>A</kbd> animate</span>
       </div>
     </div>
     <aside class="card info rv" data-d="1" id="info">
       <span class="pill" id="iType">Overview</span>
       <h3 id="iName">${esc(o.title)}</h3>
       <div class="latin" id="iLatin">${esc(o.latin)}</div>
-      <p class="desc" id="iDesc">${esc(o.blurb)} Select a pin or open a study note below for anatomy, function and clinical context. Unpinned notes are not highlighted on the image.</p>
+      <p class="desc" id="iDesc">${esc(o.blurb)} Select a label or open a study note below for anatomy, function and clinical context. Unpinned notes are not highlighted on the image.</p>
       <div class="box"><b>Function</b><span id="iFn">${esc(o.region)}</span></div>
       <div class="box clin"><b>Clinical pearl</b><span id="iRel">${esc(o.parts[Object.keys(o.parts)[0]].c)}</span></div>
-      ${o.extra&&o.extra.rate&&o.anims.some(a=>a.cls)?`
-      <div class="rate"><label for="rateIn">${esc(o.extra.rate.label)}</label>
-        <input id="rateIn" type="range" min="${o.extra.rate.min}" max="${o.extra.rate.max}" value="${o.extra.rate.val}">
-        <output id="rateOut">${o.extra.rate.val}${esc(o.extra.rate.unit)}</output></div>`:''}
-      <div class="hint">${icon('bulb')} Tap a numbered pin to read about it, or switch to Animated diagram to see it move.</div>
+      <div class="hint">${icon('bulb')} Tap a label to read about a structure. Focus mode animates the selected highlight over the same realistic image, not the organ itself.</div>
       <div class="info-nav">
         <a class="btn sm" href="#/quiz?o=${key}">${icon('quiz')} Quiz me on this</a>
         <a class="btn sm" href="#/map">${icon('map')} Find on body map</a>
@@ -393,7 +398,7 @@ function viewOrgan(key){
     <div class="facts">${facts.map(([b,v])=>`<div class="fact"><b>${b}</b><span>${esc(v)}</span></div>`).join('')}</div>
   </details>
   <section class="sec wrap" style="padding-top:34px">
-    <div class="sec-h rv"><div><div class="eyebrow">Learn more</div><h2>Parts of the ${esc(o.title.toLowerCase())}</h2><p>Open a part for what it does and why it matters. All ${Object.keys(o.parts).length} entries are here, including ${Object.values(o.parts).filter(p=>p.contextOnly).length} deeper study notes that are not pinned to the picture.</p></div></div>
+    <div class="sec-h rv"><div><div class="eyebrow">Learn more</div><h2>Parts of the ${esc(o.title.toLowerCase())}</h2><p>Tap a small image to enlarge its anatomy plate; tap the part name for its explanation. Open a part for what it does and why it matters. All ${Object.keys(o.parts).length} entries are here, including ${Object.values(o.parts).filter(p=>p.contextOnly).length} deeper study notes that are not pinned to the picture.</p></div></div>
     <div class="parts">${parts}</div>
   </section>
   ${key==='muscle'?muscleAtlasSection():''}
@@ -412,7 +417,7 @@ function viewMap(){
   <section class="hero wrap" style="padding-bottom:14px">
     <div class="eyebrow">Interactive body map</div>
     <h1 style="font-size:clamp(34px,4.6vw,50px);margin-top:12px">Where is it, really?</h1>
-    <p class="lead" style="margin-top:12px">Hover a glowing region to identify it, click to read about it and jump to its full diagram. Switch between anterior and posterior views.</p>
+    <p class="lead" style="margin-top:12px">Explore a realistic body render. Choose a region on the image or from the list to read about it and open its chapter. Switch between front and back views.</p>
   </section>
   <div class="map-wrap wrap">
     <div class="map-card rv">
@@ -428,10 +433,10 @@ function viewMap(){
       <span class="pill">Body map</span>
       <h3 id="mName">Select a region</h3>
       <div class="latin" id="mLatin">Anterior view · 17 regions</div>
-      <p class="desc" id="mDesc">Every glowing shape is an organ in its true position. Hover to see its name; click to open its entry here.</p>
+      <p class="desc" id="mDesc">Tap a small marker or choose a name beside the picture to learn about a region. Markers are approximate, not precise anatomical boundaries.</p>
       <div class="box"><b>System</b><span id="mSys">—</span></div>
-      <div class="info-nav"><a class="btn sm primary" id="mOpen" href="#/heart" style="display:none">Open full diagram ${icon('arrow')}</a></div>
-      <div class="hint" style="margin-top:16px">${icon('bulb')} Positions are schematic but topologically correct: right side of the body appears on your left, as in clinical imaging.</div>
+      <div class="info-nav"><a class="btn sm primary" id="mOpen" href="#/heart" style="display:none">Open full chapter ${icon('arrow')}</a></div>
+      <div class="hint" style="margin-top:16px">${icon('bulb')} This is an educational digital render. Markers show approximate regions; deep organs are not necessarily visible at the skin surface.</div>
     </aside>
   </div>`;
 }
@@ -469,26 +474,26 @@ function viewAbout(){
   <section class="wrap" style="padding-bottom:40px">
     <div class="two">
       <div class="prose rv">
-        <p><b>Corpus began as a single heart diagram</b> and grew into a full teaching atlas: ${STATS.organs} organs, ${STATS.structures} documented anatomy parts, ${STATS.questions} exam-style questions, an interactive body map and a quiz engine — all in one offline-capable web page.</p>
-        <p>Every illustration is <b>hand-authored vector art</b>, drawn in a consistent schematic style: anterior or sectioned views, standard orientation (the body's right on your left), colour-coded vessels and tissues, with leader-line labels laid out automatically so they never collide.</p>
-        <p>The animations are not decoration. The cardiac cycle contracts atria then ventricles in the correct sequence; breathing expands the lungs while the diaphragm descends; peristalsis travels aborally; nerve signals run along real pathways. If a motion would mislead, it isn't there.</p>
+        <p><b>Corpus began as a single heart chapter</b> and grew into a full teaching atlas: ${STATS.organs} organs, ${STATS.structures} documented anatomy parts, ${STATS.questions} exam-style questions, an interactive body map and a quiz engine — all in one offline-capable web page.</p>
+        <p>The interactive edition uses <b>realistic educational digital renders</b> with thin leader lines, clickable labels and paired descriptions. These illustrations simplify anatomy and are not patient photographs.</p>
+        <p>Focus mode animates only a selected marker over the real render; it does not simulate the movement of an organ. Study notes distinguish visible structures from deeper anatomy.</p>
         <h3>What Corpus is for</h3>
         <ul>
           <li><b>First exposure:</b> meet an organ's geography before a textbook chapter.</li>
           <li><b>Revision:</b> label-on/label-off mode doubles as flashcards.</li>
-          <li><b>Teaching:</b> project a diagram, toggle the animation, ask the built-in questions.</li>
+          <li><b>Teaching:</b> show a realistic plate, highlight a structure and ask the built-in questions.</li>
           <li><b>Clinical linking:</b> every documented anatomy part carries a clinical pearl.</li>
         </ul>
         <h3>What Corpus is not</h3>
         <ul>
-          <li>Not a radiological or surgical reference — proportions are deliberately schematic.</li>
+          <li>Not a radiological or surgical reference — image landmarks are approximate.</li>
           <li>Not medical advice, and not a substitute for Gray's, Netter's or your curriculum.</li>
           <li>Not tracked, not gated: no accounts, no analytics, no network calls.</li>
         </ul>
       </div>
       <div class="rv" data-d="1">
-        <div class="callout" style="margin-bottom:14px"><h3>Design notes</h3><p>Paper-and-ink palette, serif display type, dark viewing stage for the diagrams. Labels auto-layout in two columns with collision avoidance; zoom is pure vector scaling.</p></div>
-        <div class="callout" style="margin-bottom:14px;border-color:var(--rust)"><h3>Accessibility</h3><p>Keyboard-navigable structures, ARIA labels, focus rings, reduced-motion support (button and OS preference), and print-friendly diagrams.</p></div>
+        <div class="callout" style="margin-bottom:14px"><h3>Design notes</h3><p>Paper-and-ink palette, serif display type, dark viewing stage for the renders. Thin label lines and a separate mobile list keep images legible.</p></div>
+        <div class="callout" style="margin-bottom:14px;border-color:var(--rust)"><h3>Accessibility</h3><p>Keyboard-navigable structures, ARIA labels, focus rings, reduced-motion support (button and OS preference), and print-friendly study pages.</p></div>
         <div class="callout" style="border-color:var(--gold)"><h3>Shortcuts</h3><p><kbd>/</kbd> search · <kbd>L</kbd> labels · <kbd>A</kbd> animate · <kbd>←</kbd>/<kbd>→</kbd> previous/next organ · <kbd>Esc</kbd> clear selection.</p></div>
       </div>
     </div>
@@ -521,7 +526,7 @@ function viewSection(g){
         <div class="intro-facts">
           <span class="pill live">${ids.length} chapters</span>
           <span class="pill">${ids.reduce((n,k)=>n+Object.keys(ORGANS[k].parts).length,0)} documented parts</span>
-          <span class="pill gold">Animated intro</span>
+          <span class="pill gold">Realistic atlas</span>
         </div>
         <div class="hero-cta" style="margin-top:18px">
           <a class="btn primary" href="#/${male?'malebody':'femalebody'}">Start: body overview</a>
@@ -531,21 +536,12 @@ function viewSection(g){
           ${!male?'<a class="btn" href="#/gyn">Gynecology study path</a>':''}<a class="btn" href="#/deep">Deep anatomy chapters</a>
         </div>
       </div>
-      <div class="intro-fig rv in" data-d="1">
-        <svg viewBox="0 0 420 760" aria-hidden="true">
-          <defs><linearGradient id="sw-${g}" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stop-color="transparent"/><stop offset=".5" stop-color="${male?'rgba(110,231,183,.35)':'rgba(232,146,180,.35)'}"/><stop offset="1" stop-color="transparent"/>
-          </linearGradient></defs>
-          <path class="draw" d="${SILP}" fill="rgba(255,255,255,.03)" stroke="${male?'#8fd8c8':'#e892b4'}" stroke-width="2.4"/>
-          <rect class="sweep" x="0" y="0" width="420" height="150" fill="url(#sw-${g})" opacity=".55"/>
-          <g fill="${male?'#8ff0d8':'#f3b7cb'}">${dots}</g>
-        </svg>
-      </div>
+      <div class="intro-fig rv in" data-d="1"><img src="${imgSrc(male?'malebody.jpg':'femalebody.jpg')}" alt="Realistic ${male?'male':'female'} full-body anatomy illustration" loading="lazy"></div>
     </div>
   </section>
   <section class="sec wrap sex-figure-section"><div class="sex-figure-card rv"><div class="sex-figure-image"><img src="${imgSrc(male?'male-ecorche-reference.png':'female-ecorche-v2.jpg')}" alt="Full-body ${male?'male':'female'} anterior écorché medical illustration on a black background, showing muscles, skeletal thorax, arms, pelvis and legs" loading="lazy"></div><div class="sex-figure-copy"><div class="eyebrow">${male?'Male reference figure':'Female counterpart · matched view'}</div><h2>${male?'The reference, anatomically layered.':'The female figure, at the same depth.'}</h2><p>${male?'This is the supplied male reference figure used to set the visual standard. Compare it with the female view: both retain the frontal stance and black-background écorché look.':'A new female écorché created to match the supplied male reference: same frontal full-body stance, exposed muscular groups and partial rib-cage window, with female proportions and breast tissue represented separately.'} These are illustrative teaching plates, not photographs or a claim that every individual muscle is anatomically visible at once.</p><div class="hero-cta"><a class="btn primary" href="#/muscle">Explore named muscles →</a><a class="btn" href="#/explorer">Peel anatomical layers →</a><a class="btn" href="#/${male?'female':'male'}">Compare ${male?'female':'male'} →</a></div></div></div></section>
   <section class="sec wrap" style="padding-top:26px">
-    <div class="sec-h rv"><div><div class="eyebrow">Chapters</div><h2>${male?'Male':'Female'} anatomy chapters</h2><p>Each chapter opens with a realistic render and numbered pins for visible anatomy; the schematic tab adds motion, while unpinned deep notes explain hidden layers.</p></div>
+    <div class="sec-h rv"><div><div class="eyebrow">Chapters</div><h2>${male?'Male':'Female'} anatomy chapters</h2><p>Each chapter opens with a realistic render with thin label lines for visible anatomy; focus mode highlights selected structures, while deeper study notes explain hidden layers.</p></div>
     <a class="btn sm" href="#/organs">All organs ${icon('arrow')}</a></div>
     <div class="grid">${cards}</div>
   </section>
@@ -562,7 +558,7 @@ function buildQueue(organKey){
   const pool=organKey?[organKey]:liveIds();
   pool.forEach(k=>{ORGANS[k].quiz.forEach(q=>items.push({type:'mc',k,q}))});
   pool.forEach(k=>{
-    const ids=Object.keys(ORGANS[k].parts).filter(id=>!ORGANS[k].parts[id].contextOnly);
+    const ids=Object.keys(ORGANS[k].parts).filter(id=>!ORGANS[k].parts[id].contextOnly&&ORGANS[k].photo&&validHot(ORGANS[k].photo.hot,id));
     shuffle(ids).slice(0,organKey?4:2).forEach(pid=>items.push({type:'id',k,pid}));
   });
   return shuffle(items).slice(0,organKey?8:12);
@@ -573,7 +569,7 @@ function viewQuiz(params){
   return `<section class="hero wrap quiz" style="padding-bottom:16px">
     <div class="eyebrow">Self-test</div>
     <h1 style="font-size:clamp(30px,4vw,44px);margin-top:12px">${QUIZ.organ?`Quiz: ${esc(ORGANS[QUIZ.organ].title)}`:'Quiz yourself'}</h1>
-    <p class="lead" style="margin-top:10px">Twelve mixed questions: clinical multiple-choice plus spot-the-structure rounds using the real diagrams. Explanations after every answer.</p>
+    <p class="lead" style="margin-top:10px">Twelve mixed questions: clinical multiple-choice plus spot-the-structure rounds using the realistic anatomy renders. Explanations after every answer.</p>
   </section>
   <section class="wrap quiz" id="quizBox"></section>`;
 }
@@ -592,26 +588,21 @@ function renderQ(){
     qtext=it.q.q; opts=it.q.opts; explain=it.q.why; QUIZ.answer=it.q.a;
   }else{
     const p=o.parts[it.pid];
-    qtext=`Identify the highlighted structure in the ${o.title.toLowerCase()} diagram.`;
+    qtext=`Identify the highlighted structure in this ${o.title.toLowerCase()} anatomy picture.`;
     const others=shuffle(Object.keys(o.parts).filter(x=>x!==it.pid)).slice(0,3).map(x=>o.parts[x].n);
     opts=shuffle([p.n,...others]); QUIZ.answer=opts.indexOf(p.n); explain=`${p.n} (${p.l}) — ${p.f}`;
   }
   QUIZ.explain=explain; QUIZ.opts=opts;
   box.innerHTML=`<div class="card qcard rv in">
     <div class="qbar"><span class="qmeta">Q ${QUIZ.idx+1} / ${QUIZ.queue.length}</span><div class="prog"><i style="width:${(QUIZ.idx/QUIZ.queue.length)*100}%"></i></div><span class="qmeta">score ${QUIZ.score}</span></div>
-    ${it.type==='id'?`<div class="diagram-scroll" style="max-height:340px;margin-bottom:20px"><div class="diagram">${svgFor(o)}</div></div>`:''}
+    ${it.type==='id'?`<div class="photo-quiz"><div class="photo-quiz-plate"><img src="${imgSrc(o.photo.file)}" alt="Realistic ${esc(o.title)} anatomy render"><span class="quiz-spot" style="left:${(o.photo.hot[it.pid][0]/10).toFixed(2)}%;top:${(o.photo.hot[it.pid][1]/10).toFixed(2)}%" aria-label="Highlighted anatomy region"></span></div></div>`:''}
     <h2 class="qtext">${esc(qtext)}</h2>
     <div class="opts" role="group" aria-label="Answers">${opts.map((t,i)=>`<button class="opt" data-i="${i}"><span class="key">${'ABCD'[i]}</span><span>${esc(t)}</span></button>`).join('')}</div>
     <div class="qexpl" id="qexpl"><b>Why</b><span>${esc(explain)}</span></div>
     <div class="qfoot"><button class="btn primary" id="qnext" disabled>${QUIZ.idx===QUIZ.queue.length-1?'See results':'Next question'} ${icon('arrow')}</button>
     <button class="btn" id="qquit">End quiz</button></div>
   </div>`;
-  if(it.type==='id'){
-    const svg=$('.diagram svg',box);
-    svg.classList.add('dim');
-    $$(`[data-id="${it.pid}"]`,svg).forEach(e=>e.classList.add('sel'));
-    svg.querySelector('.lbl-layer')?.remove();
-  }
+  if(it.type==='id'){const img=$('.photo-quiz img',box),frame=$('.photo-quiz',box),spot=$('.quiz-spot',box);const reveal=()=>{frame.scrollTop=Math.max(0,spot.offsetTop-frame.clientHeight/2)};img.addEventListener('load',reveal,{once:true});if(img.complete)reveal()}
   $$('.opt',box).forEach(b=>b.addEventListener('click',()=>{
     if(QUIZ.picked!==null) return;
     QUIZ.picked=+b.dataset.i;
@@ -637,7 +628,7 @@ function quizResults(){
       <text x="66" y="62" text-anchor="middle" style="font:600 30px var(--serif);fill:var(--ink)">${pct}%</text>
       <text x="66" y="84" text-anchor="middle" style="font:700 11px var(--sans);fill:var(--mute)">${QUIZ.score} / ${QUIZ.queue.length}</text>
     </svg>
-    <h2 style="font-size:26px">${pct>=80?'Outstanding — that is exam-ready.':pct>=60?'Solid. One more pass and it sticks.':pct>=40?'Getting there — revisit the diagrams.':'Worth another lap of the atlas.'}</h2>
+    <h2 style="font-size:26px">${pct>=80?'Outstanding — that is exam-ready.':pct>=60?'Solid. One more pass and it sticks.':pct>=40?'Getting there — revisit the chapter pictures.':'Worth another lap of the atlas.'}</h2>
     <p class="lead" style="margin:10px auto 0">${pct>=60?'Re-run the quiz for a fresh random set, or try the identification-only mode on a single organ.':'Open any organ, switch labels off, and try naming every structure before switching them back on.'}</p>
     <div style="display:flex;gap:10px;justify-content:center;margin-top:22px;flex-wrap:wrap">
       <button class="btn primary" id="qagain">${icon('reset')} Try again</button>
@@ -649,63 +640,44 @@ function quizResults(){
 }
 
 /* ---------- body map ---------- */
-const SILHOUETTE=`M210 14 C232 14 246 30 246 52 C246 70 238 82 228 88 L228 100 C258 106 286 118 298 140 C312 166 318 200 320 236 C322 268 320 300 316 330 C314 352 306 366 296 368 C288 370 282 362 282 348 C282 322 280 292 274 264 L272 300 C274 340 272 380 266 418 C262 448 258 480 256 512 C254 552 252 596 250 640 C249 676 246 706 240 730 C236 744 224 748 218 738 C212 726 210 700 210 672 C210 700 208 726 202 738 C196 748 184 744 180 730 C174 706 171 676 170 640 C168 596 166 552 164 512 C162 480 158 448 154 418 C148 380 146 340 148 300 L146 264 C140 292 138 322 138 348 C138 362 132 370 124 368 C114 366 106 352 104 330 C100 300 98 268 100 236 C102 200 108 166 122 140 C134 118 162 106 192 100 L192 88 C182 82 174 70 174 52 C174 30 188 14 210 14 Z`;
-function mapSVG(view){
-  const items=BODYMAP[view];
-  const shapes=items.map((h,i)=>{
-    const o=ORGANS[h.id]; const c=SYSTEMS[o.system].color;
-    return `<ellipse class="hot" data-id="${h.id}" data-i="${i}" cx="${h.x}" cy="${h.y}" rx="${h.r}" ry="${h.r*0.82}" fill="${c}" fill-opacity=".78" stroke="#dff2ee" stroke-width="1.4"/>`;
-  }).join('');
-  return `<svg viewBox="0 0 ${BODYMAP.vb[0]} ${BODYMAP.vb[1]}" role="img" aria-label="Body map, ${view} view">
-    <defs><linearGradient id="bm-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#17332f"/><stop offset="1" stop-color="#0a1615"/></linearGradient></defs>
-    <rect width="${BODYMAP.vb[0]}" height="${BODYMAP.vb[1]}" fill="url(#bm-bg)" rx="24"/>
-    <g opacity=".5" fill="none" stroke="#7fa39c" stroke-width="1">
-      ${Array.from({length:18},(_,i)=>`<path d="M0 ${(i+1)*40} H${BODYMAP.vb[0]}"/>`).join('')}
-    </g>
-    <path d="${SILHOUETTE}" fill="#0f2321" stroke="#3d6b64" stroke-width="2"/>
-    <path d="${SILHOUETTE}" fill="none" stroke="#8fd8c8" stroke-width="1" opacity=".35"/>
-    <g class="hots">${shapes}</g>
-    <g id="mapTip"></g>
-  </svg>`;
+function mapPhoto(view){
+  const items=BODYMAP[view], seen=new Set();
+  const marks=items.map((h,i)=>`<button type="button" class="map-mark" data-map-i="${i}" data-map-id="${h.id}" style="left:${(h.x/BODYMAP.vb[0]*100).toFixed(2)}%;top:${(h.y/BODYMAP.vb[1]*100).toFixed(2)}%" aria-label="Show ${esc(ORGANS[h.id].title)}" title="${esc(ORGANS[h.id].title)}"></button>`).join('');
+  const list=items.filter(h=>{if(seen.has(h.id))return false;seen.add(h.id);return true}).map(h=>`<button type="button" class="map-region" data-map-id="${h.id}">${esc(ORGANS[h.id].title)}</button>`).join('');
+  const image=view==='anterior'?'malebody.webp':'posterior-body-atlas.webp';
+  return `<div class="map-photo-grid"><div class="map-plate"><img src="img/webp/${image}" alt="Realistic educational ${view} human anatomy render">${marks}</div><div class="map-regions"><p>Select an anatomy region</p><div class="map-region-grid">${list}</div></div></div>`;
 }
 function bindMap(){
   const stage=$('#mapStage'); if(!stage) return;
-  let view='anterior';
-  const draw=()=>{stage.innerHTML=mapSVG(view);wire()};
-  const wire=()=>{
-    const svg=$('svg',stage);
-    $$('.hot',svg).forEach(el=>{
-      el.addEventListener('mouseenter',()=>{
-        const o=ORGANS[el.dataset.id];
-        $('#mapTip').innerHTML=`<text class="map-tip" x="${el.getAttribute('cx')}" y="${+el.getAttribute('cy')-el.getAttribute('ry')-8}" text-anchor="middle">${esc(o.title)}</text>`;
-      });
-      el.addEventListener('mouseleave',()=>{$('#mapTip').innerHTML=''});
-      el.addEventListener('click',()=>{
-        $$('.hot',svg).forEach(h=>h.classList.remove('sel'));
-        el.classList.add('sel'); svg.classList.add('map-dim');
-        const o=ORGANS[el.dataset.id], s=SYSTEMS[o.system];
-        $('#mName').textContent=o.title; $('#mLatin').textContent=o.latin;
-        $('#mDesc').textContent=o.blurb;
-        $('#mSys').textContent=s.name;
-        const open=$('#mOpen'); open.style.display=''; open.href=routeFor(el.dataset.id);
-      });
-    });
-  };
+  let view='anterior',selected=null;
+  function select(id){
+    selected=id;
+    $$('[data-map-id]',stage).forEach(el=>el.classList.toggle('sel',el.dataset.mapId===id));
+    const o=ORGANS[id],sys=SYSTEMS[o.system];
+    $('#mName').textContent=o.title;$('#mLatin').textContent=o.latin;
+    $('#mDesc').textContent=o.blurb;$('#mSys').textContent=sys.name;
+    const open=$('#mOpen');open.style.display='';open.href=routeFor(id);
+  }
+  function reset(){
+    selected=null;
+    $$('[data-map-id]',stage).forEach(el=>el.classList.remove('sel'));
+    $('#mName').textContent='Select a region';
+    $('#mLatin').textContent=(view==='anterior'?'Anterior':'Posterior')+' view · '+BODYMAP[view].length+' regions';
+    $('#mDesc').textContent='Tap a small marker or choose a name beside the picture to learn about a region. Markers are approximate, not precise anatomical boundaries.';
+    $('#mSys').textContent='—';$('#mOpen').style.display='none';
+  }
+  function draw(){
+    stage.innerHTML=mapPhoto(view);
+    $$('[data-map-id]',stage).forEach(el=>el.addEventListener('click',()=>select(el.dataset.mapId)));
+    reset();
+  }
   draw();
   $$('[data-view]').forEach(b=>b.addEventListener('click',()=>{
     view=b.dataset.view;
     $$('[data-view]').forEach(x=>{const on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on)});
-    $('#mapSide').classList.remove('map-dim');
-    $('#mName').textContent='Select a region';$('#mLatin').textContent=(view==='anterior'?'Anterior':'Posterior')+' view';
-    $('#mDesc').textContent='Every glowing shape is an organ in its true position. Hover to see its name; click to open its entry here.';
-    $('#mSys').textContent='—';$('#mOpen').style.display='none';
     draw();
   }));
-  $('[data-mapreset]').addEventListener('click',()=>{
-    const svg=$('svg',stage); svg.classList.remove('map-dim');
-    $$('.hot',svg).forEach(h=>h.classList.remove('sel'));
-    $('#mName').textContent='Select a region';$('#mOpen').style.display='none';$('#mSys').textContent='—';
-  });
+  $('[data-mapreset]').addEventListener('click',reset);
 }
 
 /* ---------- diagram interactions ---------- */
@@ -725,17 +697,32 @@ function bindOrgan(key){
   /* ----- stage renderers ----- */
   function photoWrap(){
     const p=o.photo;
-    const ids=Object.keys(p.hot).filter(pid=>o.parts[pid]);
-    const dense={};
-    ids.forEach((a,i)=>ids.forEach((b,j)=>{
-      if(j<=i) return;
-      const [x1,y1]=p.hot[a],[x2,y2]=p.hot[b];
-      if(Math.hypot(x1-x2,(y1-y2)*.9)<95){dense[a]=1;dense[b]=1}
-    }));
-    const pins=ids.map((pid,i)=>`<button class="pin${dense[pid]?' dense':''}" data-id="${pid}" style="left:${(p.hot[pid][0]/10).toFixed(2)}%;top:${(p.hot[pid][1]/10).toFixed(2)}%" aria-label="${esc(o.parts[pid].n)}"><i>${i+1}</i><span class="pchip">${i+1} · ${esc(o.parts[pid].n)}</span></button>`).join('');
-    const key=`<details class="pinkey"><summary>Pin key — ${ids.length} structures</summary><ol>${ids.map((pid,i)=>`<li><b>${i+1}</b>${esc(o.parts[pid].n)}</li>`).join('')}</ol></details>`;
-    return `<div class="photo-wrap"><img src="${imgSrc(p.file)}" alt="${esc(o.title)} — realistic anatomical render" draggable="false">
-      <div class="pins${labelsOn?' lbls':''}">${pins}</div></div>${key}`;
+    const ids=Object.keys(p.hot).filter(pid=>o.parts[pid]&&validHot(p.hot,pid));
+    const sides={l:[],r:[]};
+    ids.forEach(pid=>{
+      const [x,y]=p.hot[pid];
+      sides[x<500?'l':'r'].push({pid,x,y});
+    });
+    const paths=[],callouts=[],anchors=[];
+    for(const side of ['l','r']){
+      const list=sides[side].sort((a,b)=>a.y-b.y), n=list.length;
+      if(!n) continue;
+      const gap=n>1?Math.min(84,900/(n-1)):0;
+      const slots=list.map((item,i)=>Math.max(42,Math.min(958,item.y)));
+      for(let i=1;i<n;i++) slots[i]=Math.max(slots[i],slots[i-1]+gap);
+      if(slots[n-1]>958){slots[n-1]=958;for(let i=n-2;i>=0;i--)slots[i]=Math.min(slots[i],slots[i+1]-gap)}
+      if(slots[0]<42){const shift=42-slots[0];for(let i=0;i<n;i++)slots[i]+=shift}
+      list.forEach((item,i)=>{
+        const {pid,x,y}=item,slot=slots[i], end=side==='l'?265:735;
+        paths.push(`<path class="photo-leader" data-photo-pid="${pid}" d="M ${x} ${y} L ${end} ${slot}"/><circle class="photo-point" data-photo-pid="${pid}" cx="${x}" cy="${y}" r="3.5"/>`);
+        callouts.push(`<button type="button" class="photo-callout ${side}" data-photo-pid="${pid}" style="top:${(slot/10).toFixed(2)}%" aria-label="Show ${esc(o.parts[pid].n)}">${esc(o.parts[pid].n)}</button>`);
+        anchors.push(`<button type="button" class="photo-hot" data-photo-pid="${pid}" style="left:${(x/10).toFixed(2)}%;top:${(y/10).toFixed(2)}%" aria-label="Show ${esc(o.parts[pid].n)}"></button>`);
+      });
+    }
+    const key=`<details class="photo-key" ${matchMedia('(max-width:620px)').matches?'open':''}><summary>Structure labels — ${ids.length} visible landmarks</summary><div class="photo-key-list">${ids.map(pid=>`<button type="button" data-photo-pid="${pid}">${esc(o.parts[pid].n)}</button>`).join('')}</div></details>`;
+    return `<div class="photo-wrap annotated${labelsOn?' lbls':''}${view==='focus'?' focus-mode':''}${view==='focus'&&$('[data-focus-pulse]')?.getAttribute('aria-pressed')==='true'?' pulse-on':''}"><img src="${imgSrc(p.file)}" alt="${esc(o.title)} — realistic anatomical render" draggable="false">
+      <svg class="photo-leaders" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">${paths.join('')}</svg>
+      ${callouts.join('')}${anchors.join('')}</div>${key}`;
   }
   function buildSvg(){
     diagram.innerHTML=svgFor(o);
@@ -757,8 +744,8 @@ function bindOrgan(key){
     $$('.hoverlab',svg).forEach(el=>el.addEventListener('click',()=>select(el.dataset.id)));
   }
   function renderStage(){
-    if(view==='photo'&&o.photo){ diagram.innerHTML=photoWrap(); svg=null;
-      $$('.pin',diagram).forEach(b=>b.addEventListener('click',()=>select(b.dataset.id)));
+    if(o.photo){ if(view==='focus'&&!selId) selId=Object.keys(o.photo.hot).find(pid=>o.parts[pid]&&validHot(o.photo.hot,pid))||null; diagram.innerHTML=photoWrap(); svg=null;
+      $$('[data-photo-pid]',diagram).filter(b=>b.tagName==='BUTTON').forEach(b=>b.addEventListener('click',()=>select(b.dataset.photoPid)));
     } else buildSvg();
     syncSel();
   }
@@ -782,6 +769,7 @@ function bindOrgan(key){
       pins.classList.toggle('dimmed',!!selId&&!o.parts[selId]?.contextOnly);
       $$('.pin',pins).forEach(p=>p.classList.toggle('sel',p.dataset.id===selId));
     }
+    $$('.annotated [data-photo-pid],.photo-key [data-photo-pid]',diagram).forEach(el=>el.classList.toggle('sel',el.dataset.photoPid===selId));
     $$('.parts .part').forEach(row=>row.classList.toggle('sel',row.dataset.pid===selId));
   }
   function select(id){
@@ -793,12 +781,12 @@ function bindOrgan(key){
   function clearSel(){
     selId=null; syncSel();
     iType.textContent='Overview'; iName.textContent=o.title; iLatin.textContent=o.latin;
-    iDesc.textContent=o.blurb+' Select a pin or open a study note below for anatomy, function and clinical context. Unpinned notes are not highlighted on the image.';
+    iDesc.textContent=o.blurb+' Select a label or open a study note below for anatomy, function and clinical context. Unpinned notes are not highlighted on the image.';
     iFn.textContent=o.region; iRel.textContent=o.parts[Object.keys(o.parts)[0]].c;
     $$('.parts .part').forEach(row=>row.classList.remove('sel'));
   }
 
-  /* ----- anims ----- */
+  /* ----- legacy vector effects are not rendered in the photo-based interface ----- */
   $$('[data-anim]').forEach(btn=>{
     const a=o.anims.find(x=>x.id===btn.dataset.anim);
     btn.addEventListener('click',()=>{
@@ -816,13 +804,14 @@ function bindOrgan(key){
       }
     });
   });
+  $('[data-focus-pulse]')?.addEventListener('click',e=>{const b=e.currentTarget,on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);b.classList.toggle('on',on);$('.photo-wrap.annotated',diagram)?.classList.toggle('pulse-on',on)});
   const lblBtn=$('[data-labels]');
   if(!labelsOn){lblBtn.classList.remove('on');lblBtn.setAttribute('aria-pressed','false')}
   lblBtn.addEventListener('click',()=>{
     labelsOn=lblBtn.getAttribute('aria-pressed')!=='true';
     lblBtn.setAttribute('aria-pressed',labelsOn); lblBtn.classList.toggle('on',labelsOn);
     if(svg) svg.classList.toggle('nolbl',!labelsOn);
-    const pins=$('.pins',diagram); if(pins) pins.classList.toggle('lbls',labelsOn);
+    const photo=$('.photo-wrap.annotated',diagram); if(photo) photo.classList.toggle('lbls',labelsOn);
   });
 
   $$('.parts .part').forEach(row=>{
@@ -848,7 +837,7 @@ function bindOrgan(key){
   function organKeys(e){
     if(e.target.matches('input,textarea')) return;
     if(e.key==='l'||e.key==='L') lblBtn.click();
-    if(e.key==='a'||e.key==='A') $$('[data-anim]')[0]?.click();
+    if(e.key==='a'||e.key==='A') $('[data-focus-pulse]')?.click();
     if(e.key==='Escape') clearSel();
     if(e.key==='ArrowRight') location.hash=routeFor(liveIds()[(liveIds().indexOf(key)+1)%liveIds().length]);
     if(e.key==='ArrowLeft') location.hash=routeFor(liveIds()[(liveIds().indexOf(key)-1+liveIds().length)%liveIds().length]);
@@ -866,14 +855,14 @@ function bindShowcase(){
     stop(); cur=k;
     const o=ORGANS[k];
     if(o.photo){
-      const ids=Object.keys(o.photo.hot).filter(pid=>o.parts[pid]).slice(0,9);
+      const ids=Object.keys(o.photo.hot).filter(pid=>o.parts[pid]&&validHot(o.photo.hot,pid)).slice(0,9);
       stage.innerHTML=`<div class="photo-wrap"><img src="${imgSrc(o.photo.file,true)}" alt="${esc(o.title)} — realistic render">
-        <div class="pins">${ids.map((pid,i)=>`<button class="pin" data-id="${pid}" style="left:${(o.photo.hot[pid][0]/10).toFixed(2)}%;top:${(o.photo.hot[pid][1]/10).toFixed(2)}%"><i>${i+1}</i><span class="pchip">${esc(o.parts[pid].n)}</span></button>`).join('')}</div></div>`;
+        <div class="pins">${ids.map((pid,i)=>`<button class="pin" data-id="${pid}" style="left:${(o.photo.hot[pid][0]/10).toFixed(2)}%;top:${(o.photo.hot[pid][1]/10).toFixed(2)}%"><i></i><span class="pchip">${esc(o.parts[pid].n)}</span></button>`).join('')}</div></div>`;
       const pins=$$('.pin',stage); let idx=-1;
       const step=()=>{
         if(!document.body.contains(stage)){stop();return}
         idx=(idx+1)%pins.length; pins.forEach((p,i)=>p.classList.toggle('sel',i===idx));
-        const h=$('#scHint'); if(h) h.textContent=(idx+1)+'. '+o.parts[pins[idx].dataset.id].n+' — click to preview';};
+        const h=$('#scHint'); if(h) h.textContent=o.parts[pins[idx].dataset.id].n+' — click to preview';};
       step(); timer=setInterval(step,2300);
       pins.forEach(p=>p.addEventListener('click',()=>{stop();pins.forEach(x=>x.classList.toggle('sel',x===p));
         $('#scHint').textContent=o.parts[p.dataset.id].n+' — '+o.parts[p.dataset.id].t;}));
@@ -926,7 +915,7 @@ const INDEX=(()=>{
   ORG().forEach(([k,o])=>{
     const h0=o.photo&&Object.values(o.photo.hot)[0];
     rows.push({k,label:o.title,sub:o.latin+' · organ',hay:(o.title+' '+o.latin+' '+o.blurb+' '+o.summary+' '+(o.study?.cards||[]).map(c=>c.join(' ')).join(' ')).toLowerCase(),detail:o.summary,href:routeFor(k),im:o.photo?[o.photo.file,(h0||[500,400])[0],(h0||[500,400])[1]]:null});
-    Object.entries(o.parts).forEach(([pid,p])=>{const hh=!p.contextOnly&&o.photo&&o.photo.hot&&o.photo.hot[pid];rows.push({k,label:p.n,sub:o.title+' · '+(p.contextOnly?'Deep study note':p.t),hay:(p.n+' '+p.l+' '+o.title+' '+p.t+' '+p.d+' '+p.f+' '+p.c).toLowerCase(),detail:p.d+' '+p.f,href:routeFor(k),part:pid,im:o.photo?[o.photo.file,(hh||[500,500])[0],(hh||[500,500])[1],!!p.contextOnly]:null})});
+    Object.entries(o.parts).forEach(([pid,p])=>{const hh=!p.contextOnly&&o.photo&&validHot(o.photo.hot,pid)?o.photo.hot[pid]:null;rows.push({k,label:p.n,sub:o.title+' · '+(p.contextOnly?'Deep study note':p.t),hay:(p.n+' '+p.l+' '+o.title+' '+p.t+' '+p.d+' '+p.f+' '+p.c).toLowerCase(),detail:p.d+' '+p.f,href:routeFor(k),part:pid,im:o.photo?[o.photo.file,(hh||[500,500])[0],(hh||[500,500])[1],!!p.contextOnly]:null})});
   });
   rows.push({k:'muscle',label:'Female muscle écorché',sub:'Matched full-body female figure · Muscle atlas',hay:'female muscle female muscular full body anatomy ecorche sketch figure',href:'#/female',im:['female-ecorche-v2.jpg',500,440]});
   rows.push({k:'muscle',label:'Male muscle écorché',sub:'Supplied full-body male reference · Muscle atlas',hay:'male muscle male muscular full body anatomy ecorche sketch figure',href:'#/male',im:['male-ecorche-reference.png',500,440]});
@@ -1004,7 +993,7 @@ function viewExplorer(){
  <header class="wrap" style="padding:34px 26px 4px">
    <div class="eyebrow">Layered explorer</div>
    <h1 style="margin-top:10px">Peel the body, layer by layer</h1>
-   <p class="lead">Five anatomical layers — surface, muscle, skeleton, nerves and vessels — stacked on male and female figures. Fade any layer, isolate it, or switch sex: numbered pins open the full structure record.</p>
+   <p class="lead">Five anatomical layers — surface, muscle, skeleton, nerves and vessels — stacked on male and female figures. Fade any layer, isolate it, or switch sex: small interactive markers open the full structure record.</p>
  </header>
  <div class="expl wrap">
    <aside class="ex-side rv">

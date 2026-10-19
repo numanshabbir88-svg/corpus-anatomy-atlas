@@ -62,3 +62,28 @@
 .related-card b{align-self:flex-start;margin:14px 13px 0 auto;color:var(--teal);font-size:16px;font-weight:600}
 @media(max-width:700px){.related-grid{grid-template-columns:1fr}.related-card img{width:90px;height:85px}.related-card strong{font-size:18px}}
 @media(prefers-reduced-motion:reduce){.related-card{transition:none}}
+
+.reading-mini-trigger{flex:none;position:relative;width:49px;height:49px;padding:0;border:1px solid var(--line);border-radius:9px;background:#10231f;overflow:hidden;cursor:zoom-in}
+.reading-mini-trigger img{display:block;width:100%;height:100%;object-fit:cover}
+.reading-mini-trigger::after{content:"⤢";position:absolute;right:0;bottom:0;padding:0 4px;color:#105b54;background:#f8f9f4;font:700 13px var(--sans);border-radius:5px 0 0 0}
+.reading-mini-trigger:hover,.reading-mini-trigger:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.part-head{align-items:center!important;flex-wrap:wrap}
+.part-head .number{width:24px}
+
+/* Shared, accessible full-size anatomy plate preview. */
+.plate-preview{width:min(96vw,1020px);max-width:1020px;max-height:94vh;overflow:auto;padding:17px 20px 20px;border:1px solid #45615b;border-radius:16px;background:#0b1b1a;color:#eff9f6;box-shadow:0 20px 80px rgba(0,0,0,.6);font-family:var(--sans)}
+.plate-preview::backdrop{background:rgba(4,13,12,.84)}
+.plate-preview-close{position:sticky;top:0;float:right;z-index:9;width:36px;height:36px;border:0;border-radius:50%;background:#f8f5eb;color:#19312e;font:700 25px/1 var(--sans);cursor:pointer}
+.plate-preview-title{margin:0 50px 12px 0!important;color:#f6fcfa!important;font:600 clamp(20px,3vw,28px)/1.25 var(--serif)!important;overflow-wrap:anywhere}
+.plate-preview-visual{position:relative;margin:0 auto;max-width:100%;background:#112221;border-radius:10px;overflow:hidden;cursor:zoom-out}
+.plate-preview-visual img{display:block;width:100%;height:100%;object-fit:fill;max-width:none}
+.plate-preview-leader{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.plate-preview-leader path{fill:none;stroke:#ffdb8c;stroke-width:2.1;vector-effect:non-scaling-stroke}
+.plate-preview-leader circle{fill:#ffe59e;stroke:#554015;stroke-width:2;vector-effect:non-scaling-stroke}
+.plate-preview-label{position:absolute;z-index:2;transform:translateY(-50%);max-width:34%;padding:6px 8px;border-radius:6px;background:rgba(7,30,28,.91);color:#fff;font:700 clamp(11px,1.5vw,14px)/1.35 var(--sans);overflow-wrap:anywhere}
+.plate-preview-label.left{left:1.5%}.plate-preview-label.right{right:1.5%}
+.plate-preview-detail{max-width:650px;margin:15px auto 0}
+.plate-preview-detail h3{margin:0 0 8px!important;color:#c4ede3!important;font:700 13px/1.35 var(--sans)!important}
+.plate-preview-detail canvas{display:block;width:100%;height:auto;aspect-ratio:800/420;border-radius:8px;background:#122d28}
+.plate-preview-note{max-width:740px;margin:12px auto 0!important;color:#cbdfd9!important;font:12px/1.6 var(--sans)!important}
+@media(max-width:620px){.plate-preview{padding:12px;width:calc(100vw - 16px)}.plate-preview-label{max-width:42%;padding:3px 5px;font-size:11px}.plate-preview-close{width:33px;height:33px}}
