@@ -1,5 +1,7 @@
 # Corpus release QA — 2026-10-18
 
+*Historical snapshot (58 chapters). For current 60-chapter counts and dental checks see `CORPUS-DENTAL-UPDATE-NOTES.md`.*
+
 ## Is debugging pass mein kya fix hua
 
 1. Invalid interactive hashes (`#/__proto__`, `#/constructor`) pehle atlas ko loading screen par chhor dete thay. Ab unknown routes par **Page not found** render hota hai.

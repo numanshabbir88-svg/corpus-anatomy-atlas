@@ -1,0 +1,27 @@
+{
+  "title": "Zygote to blastocyst: cleavage, morula and hatching",
+  "description": "Explore early conceptus divisions, compaction, blastomeres, blastocoel, inner cell mass, trophoblast and hatching before implantation.",
+  "updated": "2026-10-19",
+  "questions": [
+    {
+      "question": "What does cleavage do to a newly formed zygote?",
+      "answer": "It produces more, initially smaller, blastomeres while the conceptus remains within the zona pellucida. Early divisions do not require the whole sphere to grow much larger at every division."
+    },
+    {
+      "question": "How is a morula different from a blastocyst?",
+      "answer": "A morula is a compact solid cluster. A blastocyst has a fluid-filled blastocoel, an outer cell layer and a localized inner cell mass; the illustration depicts the latter, not every earlier stage."
+    },
+    {
+      "question": "What does the inner cell mass become?",
+      "answer": "Its descendants contribute to the embryo proper and certain extraembryonic structures. A blastocyst cell cluster is not a miniature fully formed fetus."
+    },
+    {
+      "question": "Why does the blastocyst hatch from the zona pellucida?",
+      "answer": "Loss of the extracellular zona permits trophoblast contact with receptive uterine endometrium. A conceptus still enclosed by the zona is not already embedded in uterine tissue."
+    },
+    {
+      "question": "Does a blastocyst in the uterus mean pregnancy has implanted?",
+      "answer": "Not necessarily. Arrival in the uterine cavity and hatching precede attachment to endometrium; implantation is a separate stage with variable timing."
+    }
+  ]
+}

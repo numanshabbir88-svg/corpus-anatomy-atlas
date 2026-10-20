@@ -1,0 +1,12 @@
+{
+  "title": "Four basic tissue types and cell anatomy: illustrated foundations",
+  "description": "Explore cell components and epithelial, connective, skeletal-muscle and nervous examples through four separate microscopic-scale teaching cutaways.",
+  "updated": "2026-10-19",
+  "questions": [
+    {"question": "What are the four basic types of tissue?", "answer": "The broad categories are epithelial, connective, muscle and nervous tissue. Most organs contain multiple types; the images show specific teaching examples, not all subtypes."},
+    {"question": "What makes epithelial tissue different from connective tissue?", "answer": "Epithelia form close-packed sheets with apical and basal surfaces and little extracellular space. Connective-tissue cells are often dispersed in extracellular matrix. Epithelium is generally avascular and nourished from underlying tissues."},
+    {"question": "Are these four pictures actual microscope slides?", "answer": "No. They are digitally generated microscopic-scale educational cutaways rather than histology specimens, patient images, measured magnifications or diagnostic evidence."},
+    {"question": "Which muscle type is shown in the foundation plate?", "answer": "The striated, multinucleated parallel fibers depict a skeletal-muscle example. Smooth muscle is not striated, and cardiac muscle differs in branching and intercalated discs; neither has a dedicated picture in this batch."},
+    {"question": "What structures make up nervous tissue?", "answer": "Nervous tissue contains signaling neurons and supporting glial cells. The example shows a multipolar neuron with dendrites, an axon and myelin on some axon segments, not a map of a named clinical nerve."}
+  ]
+}

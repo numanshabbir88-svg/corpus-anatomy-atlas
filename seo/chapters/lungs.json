@@ -1,27 +1,27 @@
 {
   "title": "Lung anatomy: lobes, bronchi and alveoli",
-  "description": "Two elastic, pleura-lined organs where air and blood come within 0.5 µm of each other.",
-  "updated": "2026-10-18",
+  "description": "Explore lung lobes, airways and alveoli, then compare Type I and II pneumocytes in a separate microscopic-scale teaching illustration.",
+  "updated": "2026-10-19",
   "questions": [
     {
-      "question": "How does oxygen get from the lungs into the blood?",
-      "answer": "Air reaches the alveoli through branching airways. Oxygen diffuses across the thin alveolar-capillary barrier into pulmonary capillaries, while carbon dioxide moves in the opposite direction."
+      "question": "What are the lobes of the right and left lungs?",
+      "answer": "The right lung usually has superior, middle and inferior lobes; the left has superior and inferior lobes with a cardiac notch. Fissures divide the lobes, though normal anatomy can vary."
     },
     {
-      "question": "Why does the right lung have three lobes and the left have two?",
-      "answer": "The right lung is divided into upper, middle and lower lobes. The left has upper and lower lobes and a cardiac notch that accommodates the heart."
+      "question": "Where does air go after the bronchi?",
+      "answer": "Air passes from progressively smaller bronchi to bronchioles, then through the respiratory zone toward alveoli. Exchange of oxygen and carbon dioxide occurs across the very thin alveolar–capillary barrier."
     },
     {
-      "question": "What are the bronchioles?",
-      "answer": "Airways under 1 mm with no cartilage and relatively more smooth muscle, ending in terminal then respiratory bronchioles. Function: Regulate airflow resistance and deliver air to the alveolar ducts."
+      "question": "What is a Type I pneumocyte?",
+      "answer": "A Type I pneumocyte is a very thin squamous cell forming much of the alveolar gas-exchange surface. It can be recognized on the separate microscopic-scale teaching illustration, not on the whole-lung image."
     },
     {
-      "question": "Where is the pleura & pleural cavity located?",
-      "answer": "Visceral pleura covers the lung; parietal pleura lines the wall. Between them is a potential space with a film of serous fluid. Function: Surface tension couples the lung to the chest wall so it expands with it, and the fluid lets the layers glide."
+      "question": "What does a Type II pneumocyte do?",
+      "answer": "A Type II pneumocyte is a plumper alveolar cell that secretes pulmonary surfactant, which helps reduce surface tension. It also contributes to maintenance and repair of the alveolar lining."
     },
     {
-      "question": "What is the function of the alveoli & capillary bed?",
-      "answer": "Function: Diffusion of O₂ into blood and CO₂ out of it. Thin-walled sacs of type I pneumocytes wrapped in capillaries; type II pneumocytes secrete surfactant and alveolar macrophages patrol the surface. Together they present ~70 m² of membrane only 0.5 µm thick."
+      "question": "Is the enlarged alveolar image an actual microscope slide?",
+      "answer": "No. It is a digital educational illustration that shows the thin Type I lining next to a plumper Type II cell. It is not histology or a literal magnification of the macroscopic lung image."
     }
   ]
 }

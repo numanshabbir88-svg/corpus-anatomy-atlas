@@ -1,0 +1,12 @@
+{
+  "title": "Body cavities and abdominal regions: quadrants and nine-region map",
+  "description": "Understand dorsal, ventral, thoracic and abdominopelvic cavities, serous spaces, four quadrants and nine patient-oriented abdominal regions.",
+  "updated": "2026-10-19",
+  "questions": [
+    {"question": "What are the dorsal and ventral body cavities?", "answer": "The dorsal compartment includes cranial and vertebral cavities containing the central nervous system. The ventral compartment is commonly divided by the diaphragm into thoracic and abdominopelvic regions."},
+    {"question": "Which body cavity contains the heart?", "answer": "The heart is in the thorax, in the middle mediastinum. It is enclosed by a pericardial sac; the pericardial cavity is the thin potential space between the serous pericardial layers."},
+    {"question": "Where are the kidneys in relation to the peritoneum?", "answer": "The kidneys lie retroperitoneally, posterior to the parietal peritoneum. They are not floating inside the potential peritoneal cavity."},
+    {"question": "What are the four abdominal quadrants?", "answer": "A vertical and a horizontal line crossing at the umbilicus form the patient's right upper, left upper, right lower and left lower quadrants. These are surface-location guides, not exact organ outlines."},
+    {"question": "How do the nine abdominal regions differ from quadrants?", "answer": "The nine-region system uses a three-by-three arrangement: hypochondriac, epigastric; lumbar, umbilical; and iliac, hypogastric positions. Right and left always refer to the patient, not the person viewing the image."}
+  ]
+}

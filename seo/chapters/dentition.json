@@ -1,0 +1,12 @@
+{
+  "title": "Tooth anatomy: 32 permanent and 20 primary teeth",
+  "description": "Dental anatomy study guide with Universal and FDI tooth numbers, 32 adult and 20 primary positions, enamel, dentin, pulp, roots and dental nerves.",
+  "updated": "2026-10-19",
+  "questions": [
+    {"question":"What are the main layers of a tooth crown and root?","answer":"Crown dentin is covered by enamel; root dentin is covered by cementum. Pulp occupies the central chamber and canals, while the periodontal ligament connects the root to its alveolar socket. These are distinct tissues, not interchangeable layers."},
+    {"question":"Which nerves carry sensation from upper and lower teeth?","answer":"Upper tooth sensory fibers generally travel through superior alveolar branches of maxillary trigeminal CN V2; lower tooth fibers travel through the inferior alveolar branch of mandibular CN V3. Facial CN VII supplies facial-expression muscles, not dental pulp sensation."},
+    {"question":"How are permanent and primary teeth numbered?","answer":"The Universal system labels 32 conventional permanent positions 1–32 and 20 primary positions A–T. The two-digit FDI system uses quadrants 1–4 for permanent teeth and 5–8 for primary teeth, with a second digit for position within each quadrant."},
+    {"question":"Do adults always have 32 teeth and do primary teeth have premolars?","answer":"Thirty-two is the full conventional permanent set including third molars, but actual adult counts vary because third molars may be absent, unerupted or removed. Primary dentition typically has 20 teeth and no premolars; primary molars are succeeded by permanent premolars."},
+    {"question":"Can one molar cutaway show the exact canal and root shape of every tooth?","answer":"No. Root number, canal configuration and cusp morphology vary between tooth classes and individuals. The illustration is a representative digital teaching model; each chart position has a name and class, but is not a patient scan or an individually rendered tooth."}
+  ]
+}

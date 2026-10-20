@@ -1,0 +1,12 @@
+{
+  "title": "Anatomical terminology: position, planes, directions and movement",
+  "description": "Learn anatomical position, sagittal, coronal and transverse planes, directional terms and joint movements using an honest conceptual body model.",
+  "updated": "2026-10-19",
+  "questions": [
+    {"question": "What is the standard anatomical position?", "answer": "The subject stands upright facing forward, with arms at the sides and palms facing anteriorly; thumbs point laterally. Right and left always belong to the subject, even when a patient is lying down."},
+    {"question": "How do sagittal, coronal and transverse planes differ?", "answer": "A sagittal plane separates right from left, a coronal plane separates anterior from posterior, and a transverse plane separates superior from inferior. The median sagittal plane passes through the midline."},
+    {"question": "What is the difference between proximal and distal?", "answer": "Proximal means closer to the point where a limb joins the trunk; distal means farther from that attachment. The elbow is proximal to the wrist in the upper limb."},
+    {"question": "Why does patient right appear on the left side of a front-facing illustration?", "answer": "An anterior image faces the patient. Their right side is therefore on the observer’s left. Anatomical descriptions use the patient’s own side, not the screen’s left or right."},
+    {"question": "Are the colored planes in this atlas real body membranes?", "answer": "No. The translucent sheets are computer-generated reference planes used to explain sections. They are not physical tissues, and the chapter does not place false anatomical pins on them."}
+  ]
+}

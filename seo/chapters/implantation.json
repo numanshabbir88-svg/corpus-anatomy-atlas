@@ -1,0 +1,27 @@
+{
+  "title": "Blastocyst implantation: endometrium, trophoblast and early hCG",
+  "description": "Understand hatching, apposition, attachment, cytotrophoblast, syncytiotrophoblast, decidua and early corpus luteum support.",
+  "updated": "2026-10-19",
+  "questions": [
+    {
+      "question": "Where does a blastocyst normally implant?",
+      "answer": "It typically attaches to receptive uterine endometrium, often in the upper or posterior uterus. Implantation within a uterine tube is ectopic and requires medical assessment."
+    },
+    {
+      "question": "When does implantation begin after fertilization?",
+      "answer": "Attachment commonly begins around the end of the first post-fertilization week, with variation. This is not the same as obstetric weeks counted from the last menstrual period."
+    },
+    {
+      "question": "What is the difference between cytotrophoblast and syncytiotrophoblast?",
+      "answer": "Cytotrophoblast is a cellular proliferative component; the outer syncytiotrophoblast is multinucleated and invades the endometrium. Both are early trophoblastic components, not a mature placenta by themselves."
+    },
+    {
+      "question": "What does early pregnancy hCG support?",
+      "answer": "Trophoblast-derived hCG maintains the ovarian corpus luteum so it continues progesterone production early in pregnancy. Later placental hormone production develops as the pregnancy progresses."
+    },
+    {
+      "question": "Are uterine implantation and tubal fertilization the same event?",
+      "answer": "No. Gamete fusion normally happens in a uterine tube. The conceptus then develops through divisions and reaches the uterus before a hatched blastocyst attaches to endometrium."
+    }
+  ]
+}

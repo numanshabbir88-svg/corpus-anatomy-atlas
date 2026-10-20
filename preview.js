@@ -15,6 +15,8 @@
     if (active) active.close();
     const name = trigger.dataset.partName || 'Anatomy region';
     const source = trigger.dataset.plateSrc;
+    const kind = trigger.dataset.previewKind || 'region';
+    const scope = kind === 'scope';
     if (!source) return;
     const x = Number(trigger.dataset.pointX), y = Number(trigger.dataset.pointY);
     const located = trigger.dataset.previewContext !== 'true' &&
@@ -28,9 +30,12 @@
     close.type = 'button'; close.setAttribute('aria-label', 'Close enlarged image');
     const title = el('h2', 'plate-preview-title', name);
     const visual = el('div', 'plate-preview-visual');
-    const image = el('img'); image.alt = located
-      ? `Realistic anatomy image highlighting the approximate region of ${name}`
-      : `Regional anatomy illustration for the study note ${name}`;
+    const image = el('img'); image.alt = scope
+      ? (located ? `Tissue-scale educational cutaway identifying ${name}`
+        : `Relevant tissue-scale cutaway for ${name}; individual feature not singled out`)
+      : located
+        ? (kind === 'micro' ? `Digital alveolar teaching illustration showing ${name}` : `Anatomy teaching illustration indicating ${name}`)
+        : `Regional anatomy illustration for the study note ${name}`;
     image.decoding = 'async'; image.src = source;
     visual.append(image);
 
@@ -53,13 +58,47 @@
       visual.append(svg, label);
     }
 
-    const note = el('p', 'plate-preview-note', located
-      ? 'Tap the image to close. The line points to an approximate visible region, not a clinical localization.'
-      : 'Tap the image to close. This is a regional reference plate: this deeper or microscopic structure is not separately visible.');
-    modal.append(close, title, visual);
+    const note = el('p', 'plate-preview-note', trigger.dataset.previewNote || (scope
+      ? (located ? 'This is a tissue-scale digital teaching illustration, not a clinical micrograph or an actual zoom from the organ picture. The fine line marks the depicted feature. Tap the lens image to close.'
+        : 'The tissue cutaway depicts a relevant microscopic region, but individual ' + name + ' cannot be reliably distinguished here. No part-specific pointer is shown. This is not a clinical micrograph or a literal zoom of the organ picture.')
+      : kind === 'micro'
+      ? 'Digital microscopic-scale teaching illustration, not a histology micrograph or a literal zoom of the whole lung. The fine line identifies the depicted cell. Tap the image to close.'
+      : located
+        ? 'Tap the image to close. The fine line indicates an approximate visible structure on this teaching plate, not a clinical localization.'
+        : 'Tap the image to close. This is a regional teaching plate; this structure is not separately identifiable here and no pointer is shown.'));
+    modal.append(close, title);
+    if (scope) {
+      const compare = el('div', 'scope-compare');
+      const overview = el('div', 'scope-overview');
+      overview.append(el('small', 'scope-step', '01 · Organ / source region'));
+      const macro = el('div', 'scope-overview-image');
+      const overviewImage = el('img');
+      overviewImage.alt = 'Whole-organ teaching image showing the general source region, not a microscopic cell';
+      overviewImage.loading = 'lazy';
+      overviewImage.src = trigger.dataset.overviewSrc || '';
+      macro.append(overviewImage);
+      const ox = Number(trigger.dataset.originX), oy = Number(trigger.dataset.originY);
+      if (trigger.hasAttribute('data-origin-x') && trigger.hasAttribute('data-origin-y') &&
+          Number.isFinite(ox) && Number.isFinite(oy) && ox >= 0 && ox <= 1000 && oy >= 0 && oy <= 1000) {
+        const ring = el('span', 'scope-sample');
+        ring.style.left = (ox / 10).toFixed(1) + '%';
+        ring.style.top = (oy / 10).toFixed(1) + '%';
+        ring.setAttribute('aria-hidden', 'true');
+        macro.append(ring);
+      }
+      overview.append(macro, el('p', 'scope-origin-note', (trigger.hasAttribute('data-origin-x') && trigger.hasAttribute('data-origin-y') ? 'Ring = representative tissue region, not the location of an individual cell.' : 'No sample ring: this whole-body or earlier-stage image cannot identify an exact microscopic sampling site.')));
+      const bridge = el('div', 'scope-bridge', '→');
+      bridge.setAttribute('aria-hidden', 'true');
+      const lens = el('div', 'scope-lens');
+      lens.append(el('small', 'scope-step', '02 · Under the lens'));
+      lens.append(el('h3', 'scope-lens-heading', trigger.dataset.lensTitle || 'Tissue-level cutaway'));
+      lens.append(visual);
+      compare.append(overview, bridge, lens);
+      modal.append(compare);
+    } else modal.append(visual);
 
     let detail = null;
-    if (located) {
+    if (located && !scope) {
       const section = el('div', 'plate-preview-detail');
       const subtitle = el('h3', '', 'Closer look near ' + name);
       const canvas = el('canvas');
@@ -71,11 +110,30 @@
       detail = canvas;
     }
     modal.append(note);
+    if (scope) {
+      const href=trigger.dataset.sourceUrl;
+      try {
+        const sourceUrl=new URL(href);
+        if (sourceUrl.protocol==='https:' && sourceUrl.hostname==='openstax.org' &&
+            sourceUrl.pathname.startsWith('/books/anatomy-and-physiology-2e/pages/')) {
+          const cite=el('a', 'plate-preview-reference', 'Read the anatomy reference ↗');
+          cite.href=sourceUrl.href;cite.target='_blank';cite.rel='noopener noreferrer';
+          modal.append(cite);
+        }
+      } catch(_) { /* Preview still works if a reference URL is removed. */ }
+    }
+    const link = trigger.dataset.referenceHref;
+    if (link && /^\/learn\/[a-z0-9]+\/$/.test(link)) {
+      const ref = el('a', 'plate-preview-reference', 'Read the focused anatomy guide →');
+      ref.href = link;
+      modal.append(ref);
+    }
     document.body.append(modal);
     active = modal;
     const fit = () => {
       if (!image.naturalWidth || !modal.open) return;
-      const scale = Math.min(1, (innerWidth - 44) / image.naturalWidth,
+      const available = scope ? Math.max(180, visual.parentElement.clientWidth) : innerWidth - 44;
+      const scale = Math.min(1, available / image.naturalWidth,
         Math.max(230, innerHeight * 0.56) / image.naturalHeight);
       visual.style.width = Math.max(1, Math.round(image.naturalWidth * scale)) + 'px';
       visual.style.height = Math.max(1, Math.round(image.naturalHeight * scale)) + 'px';

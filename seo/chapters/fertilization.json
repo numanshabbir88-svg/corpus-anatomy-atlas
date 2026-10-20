@@ -1,0 +1,27 @@
+{
+  "title": "Fertilization in the uterine tube: sperm meets oocyte",
+  "description": "Trace the separate fertilization stage from sperm transit and capacitation through oocyte coats, membrane fusion, cortical reaction and a zygote.",
+  "updated": "2026-10-19",
+  "questions": [
+    {
+      "question": "Where does fertilization normally occur in humans?",
+      "answer": "It usually occurs in the ampulla of a uterine tube near the ovary. The sperm and secondary oocyte meet there; normal later implantation is in the uterine endometrium, not inside the tube."
+    },
+    {
+      "question": "Does intercourse always lead to fertilization?",
+      "answer": "No. Sperm transit, ovulation, timing, gamete function and other conditions affect whether fertilization occurs. Even after fertilization, development and uterine implantation are separate requirements for an ongoing pregnancy."
+    },
+    {
+      "question": "What is the acrosome reaction?",
+      "answer": "After appropriate sperm–oocyte coat interaction, acrosomal membrane changes help sperm cross the zona pellucida. The contact plate shows an earlier sperm at the outer zona, not the reaction at molecular resolution."
+    },
+    {
+      "question": "How is fertilization by more than one sperm limited?",
+      "answer": "After one sperm fuses with the oocyte, cortical-granule changes modify the surrounding zona and help block polyspermy. This is a biological reaction, not a visible colored ring in the image."
+    },
+    {
+      "question": "What is the difference between fertilization and implantation?",
+      "answer": "Fertilization combines gamete genetic material into a zygote, usually in a uterine tube. Implantation happens later when a developing blastocyst attaches to receptive uterine lining."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
-# Corpus on-page SEO editing (58 chapters)
+# Corpus on-page SEO editing (74 chapters)
 
-Is folder mein `chapters/heart.json` jaisi **58 editable files** hain. Har file mein page ka `title`, visible intro + meta `description`, `updated` editorial date, aur **5 visible questions/answers** hain. Build in data ko real HTML pages mein likhta hai; koi client-side API, login, ya JavaScript FAQ loading nahin hai.
+Is folder mein `chapters/heart.json` jaisi **74 editable files** hain. Har file mein page ka `title`, visible intro + meta `description`, `updated` editorial date, aur **5 visible questions/answers** hain. Build in data ko real HTML pages mein likhta hai; koi client-side API, login, ya JavaScript FAQ loading nahin hai.
 
 ## Netlify par live hone ke baad ka asaan tareeqa
 

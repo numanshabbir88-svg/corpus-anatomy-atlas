@@ -1,0 +1,27 @@
+{
+  "title": "Sperm anatomy: parts and production",
+  "description": "Understand sperm structure, production in seminiferous tubules, meiosis, epididymal maturation and capacitation from a realistic digital teaching plate.",
+  "updated": "2026-10-19",
+  "questions": [
+    {
+      "question": "What are the main parts of a human sperm cell?",
+      "answer": "The head houses condensed haploid DNA and an acrosomal cap, the midpiece contains mitochondria, and a single flagellum supports movement. The illustration exaggerates proportions for learning, not semen analysis."
+    },
+    {
+      "question": "Where does human sperm production take place?",
+      "answer": "Developing germ cells reside in the seminiferous tubules of the testes, supported by Sertoli cells. Formed sperm then pass into the epididymis for further functional maturation."
+    },
+    {
+      "question": "How does a spermatid become a spermatozoon?",
+      "answer": "After meiosis has produced haploid spermatids, spermiogenesis remodels the cells: nuclei condense and head, acrosome and flagellum develop. This shaping phase does not itself halve the chromosome number."
+    },
+    {
+      "question": "What does the sperm midpiece do?",
+      "answer": "Mitochondria around the beginning of the tail support motility. A digital drawing cannot tell whether an individual patient’s sperm swim normally."
+    },
+    {
+      "question": "What is sperm capacitation?",
+      "answer": "Capacitation involves functional membrane and motility changes after ejaculation within the reproductive tract. It prepares sperm for effective interaction with the oocyte coverings; it is distinct from the later acrosome reaction."
+    }
+  ]
+}

@@ -1,27 +1,27 @@
 {
   "title": "Nervous system: female anatomy",
-  "description": "The female figure with every nerve pathway highlighted — study pelvic plexus branching on female proportions.",
-  "updated": "2026-10-18",
+  "description": "Female nervous-system overview with focused pelvic nerve notes for uterus, vagina, clitoris and vulva; tiny branches are not falsely pinned.",
+  "updated": "2026-10-19",
   "questions": [
     {
-      "question": "Is the female nervous system different from the male nervous system?",
-      "answer": "The central and most peripheral pathways follow the same basic plan. Pelvic branches follow different organ relationships around the uterus, vagina and external genital region."
+      "question": "Is the female nervous system built differently from the male nervous system?",
+      "answer": "The central and most peripheral pathways share the same basic organization. A female-focused pelvic view discusses branches serving the uterus, vagina, clitoris and vulva without implying a separate female brain or spinal cord."
     },
     {
-      "question": "What nerves supply the female pelvis?",
-      "answer": "Pelvic autonomic plexuses reach pelvic organs; pudendal branches contribute somatic sensation and motor supply in the perineum. These are distinct from the wider limb plexuses."
+      "question": "What carries sensation from the clitoral glans?",
+      "answer": "The dorsal nerve of the clitoris, a terminal branch of the pudendal nerve, conveys much of the somatic sensation. Autonomic nerves influence erectile tissues but should not be confused with that sensory pathway."
     },
     {
-      "question": "What does the brain do in the female nervous system?",
-      "answer": "Cerebrum, cerebellum and brainstem inside the cranial vault. Function: Integration, consciousness, motor planning and autonomic control."
+      "question": "Which nerves supply the vulva and lower vagina?",
+      "answer": "Pudendal branches supply much of the posterior vulva and lower vaginal region. The anterior labia also receive contributions from ilioinguinal and genitofemoral branches, so a single nerve label cannot cover the entire area."
     },
     {
-      "question": "Where is the cervical plexus on the female nerve map?",
-      "answer": "Nerve network in the posterior triangle of the neck. Function: Neck muscles and skin; phrenic nerve to diaphragm."
+      "question": "What is the uterovaginal plexus?",
+      "answer": "It is an autonomic network associated with the cervix and upper vagina that carries branches toward the uterus and upper vagina. It is anatomically distinct from the superficial pudendal branches of the perineum."
     },
     {
-      "question": "What do the intercostal nerves do in the female body?",
-      "answer": "Function: Chest-wall muscles and segmental skin band. Ventral rami running in subcostal grooves."
+      "question": "Does the full-body female nerve plate identify tiny pelvic branches?",
+      "answer": "No. The full-body plate is for orientation to larger pathways. Tiny pelvic autonomic and sensory branches are explained in study entries without pretending they can be seen or precisely localized on this image."
     }
   ]
 }

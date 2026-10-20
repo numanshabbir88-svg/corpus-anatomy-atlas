@@ -91,7 +91,7 @@ function decorateBrain(svg){
 
 /* ---------- views ---------- */
 function viewHome(){
-  const featured=['heart','brain','lungs','kidney','skeleton','muscle','eye','skin','gut','breast','gynuterus','maleprostate'];
+  const featured=['spermanatomy','oocyteanatomy','fertilization','laborfirststage','anatomicallanguage','bodyregions','tissuefoundations','heart','brain','lungs','kidney','skeleton','skullface','dentition','muscle','eye','skin','gut','breast','gynuterus','maleprostate'];
   const tiles=featured.map((k,i)=>tile(k,ORGANS[k],i)).join('');
   const sysChips=Object.entries(SYSTEMS).map(([k,s])=>{
     const n=ORG().filter(([,o])=>o.system===k).length;
@@ -109,7 +109,7 @@ function viewHome(){
           <a class="btn" href="#/organs">Browse chapters</a>
           <a class="btn" href="#/quiz">Try a quiz</a>
         </div>
-        <div class="hero-note">${icon('shield')} Realistic pictures · animated focus highlights · no account needed</div>
+        <div class="hero-note">${icon('shield')} Realistic pictures · animated focus highlights · no account needed · <a href="about.html">About us ↗</a></div>
       </div>
       <div class="showcase rv in" data-d="1">
         <div class="showcase-top">
@@ -130,12 +130,18 @@ function viewHome(){
       </div>
     </div>
     <div class="stats rv" data-d="2">
-      <div class="stat"><b data-count="${STATS.organs}">0</b><span>Interactive organs</span></div>
+      <div class="stat"><b data-count="${STATS.organs}">0</b><span>Interactive chapters</span></div>
       <div class="stat"><b data-count="${STATS.structures}">0</b><span>Documented parts</span></div>
       <div class="stat"><b data-count="${STATS.systems}">0</b><span>Body systems</span></div>
       <div class="stat"><b data-count="${STATS.questions}">0</b><span>Self-test questions</span></div>
     </div>
   </section>
+
+  <section class="wrap about-home-strip" aria-label="About Corpus"><div><small>ABOUT CORPUS</small><strong>Anatomy learning, from organ to tissue.</strong><p>Explore ${STATS.organs} illustrated chapters, focused tissue cutaways and study questions. No account is needed.</p></div><a href="about.html">About us &amp; contact →</a></section>
+
+  <section class="sec wrap foundation-home" aria-label="Anatomy foundations"><div class="foundation-home-inner"><div><span class="eyebrow">NEW · START WITH THE BASICS</span><h2>Anatomy foundations</h2><p>Learn the language, orient the body, then look at cells and tissues. These are teaching models, not patient scans or histology slides.</p></div><nav aria-label="Foundation study guides"><a href="#/anatomicallanguage">Planes &amp; directions →</a><a href="#/bodyregions">Cavities &amp; regions →</a><a href="#/tissuefoundations">Cells &amp; four tissues →</a></nav></div></section>
+
+  <section class="sec wrap repro-home" aria-label="Reproduction and birth pathway"><div class="repro-home-inner"><span class="eyebrow">NEW · 11 SEPARATE CHAPTERS</span><h2>From sperm and egg to childbirth</h2><p>Explore each gamete on its own, then follow fertilization, early development, pregnancy and all three labor stages. Illustrations explain anatomy; they are not clinical scans or delivery instructions.</p><nav aria-label="Start conception and birth study"><a href="#/spermanatomy">Sperm cell →</a><a href="#/oocyteanatomy">Egg cell →</a><a href="#/fertilization">After conception →</a><a href="#/laborfirststage">Childbirth stages →</a></nav></div></section>
 
   <section class="sec wrap start-paths" style="padding-top:32px;padding-bottom:12px">
     <div class="sec-h rv"><div><div class="eyebrow">A good place to begin</div><h2>Choose your way in</h2><p>You can change paths any time. Nothing here needs a medical background.</p></div></div>
@@ -156,7 +162,7 @@ function viewHome(){
 
   <section class="sec wrap" style="padding-top:8px">
     <div class="sec-h rv"><div><div class="eyebrow">A few favorites</div><h2>Popular chapters</h2><p>Start anywhere. Each chapter begins with a picture; the deeper details are there when you want them.</p></div>
-      <a class="btn sm" href="#/organs">All ${STATS.organs} organs ${icon('arrow')}</a></div>
+      <a class="btn sm" href="#/organs">All ${STATS.organs} chapters ${icon('arrow')}</a></div>
     <div class="grid">${tiles}</div>
     <div class="all-chapters-link"><a class="btn primary" href="#/organs">Browse all ${STATS.organs} chapters ${icon('arrow')}</a></div>
   </section>
@@ -222,19 +228,39 @@ function viewOrgans(params){
   </section>`;
 }
 
+// Use a relevant teaching plate for each part; never pin a microscopic cell on a gross image.
+function partPlate(o,id){
+ const p=o.parts[id];
+ if(p.microLens && MICRO_LENS[p.microLens]){
+  const lens=MICRO_LENS[p.microLens];
+  return {file:lens.file,hot:p.microPoint||null,kind:'scope',reference:p.deepRef||'',
+    overview:o.photo.file,origin:p.microOrigin||null,lensTitle:lens.title,sourceUrl:lens.source};
+ }
+ // A contextual sectional plate never invents a pin for an obscured bone.
+ if(p.referencePlate) return {file:p.referencePlate,hot:null,kind:'region',reference:''};
+ let plate=o,part=id,reference='';
+ if(p.contextOnly&&p.deepRef&&ORGANS[p.deepRef]?.photo){
+  const target=ORGANS[p.deepRef];
+  const candidate=id.startsWith('ctx_'+p.deepRef+'_')?id.slice(('ctx_'+p.deepRef+'_').length):'';
+  if(candidate&&target.parts[candidate]?.n===p.n){plate=target;part=candidate;reference=p.deepRef}
+ }
+ const hot=validHot(plate.photo?.hot,part)&&!plate.parts[part]?.contextOnly?plate.photo.hot[part]:null;
+ return {file:plate.photo.file,hot,kind:reference?'detail':'region',reference};
+}
 function miniChip(o,id){
  if(!o.photo)return '';
- const placed=validHot(o.photo.hot,id)&&!o.parts[id]?.contextOnly;
- const h=placed?o.photo.hot[id]:[500,500];
+ const plate=partPlate(o,id),h=plate.hot||[500,500],placed=!!plate.hot;
  const name=o.parts[id]?.n||o.title;
  const point=placed?` data-point-x="${h[0]}" data-point-y="${h[1]}"`:'';
- return `<button class="part-mini-trigger" type="button" data-plate-preview data-plate-src="${attr(imgSrc(o.photo.file))}" data-part-name="${attr(name)}" data-preview-context="${!placed}"${point} aria-label="Enlarge anatomy image for ${attr(name)}"><span class="mini${placed?'':' reference'}" style="background-image:url(${imgSrc(o.photo.file,true)});${placed?`background-position:${(h[0]/10).toFixed(1)}% ${(h[1]/10).toFixed(1)}%`:''}"></span><span class="part-mini-expand" aria-hidden="true">⤢</span></button>`;
+ const ref=plate.reference?` data-reference-href="/learn/${plate.reference}/"`:'';
+ const scope=plate.kind==='scope'?` data-overview-src="${attr(imgSrc(plate.overview))}" data-lens-title="${attr(plate.lensTitle)}" data-source-url="${attr(plate.sourceUrl)}"${plate.origin?` data-origin-x="${plate.origin[0]}" data-origin-y="${plate.origin[1]}"`:''}`:'';
+ return `<button class="part-mini-trigger" type="button" data-plate-preview data-plate-src="${attr(imgSrc(plate.file))}" data-part-name="${attr(name)}" data-preview-kind="${plate.kind}" data-preview-context="${!placed}"${point}${ref}${scope} aria-label="Enlarge anatomy image for ${attr(name)}"><span class="mini${placed?'':' reference'}" style="background-image:url(${imgSrc(plate.file,true)});${placed?`background-position:${(h[0]/10).toFixed(1)}% ${(h[1]/10).toFixed(1)}%`:''}"></span><span class="part-mini-expand" aria-hidden="true">⤢</span></button>`;
 }
 function boneSection(o){
  const tot=o.bones206.reduce((a,g)=>a+g.n,0);
  return `
  <section class="sec wrap" id="bone-atlas" style="padding-top:34px">
-  <div class="sec-h rv"><div><div class="eyebrow">Complete osteology</div><h2>All ${tot} adult bones, individually named</h2><p>Open a region to see every individual bone: left and right sides, each rib and vertebra, and every hand and foot phalanx. The standard adult count includes 6 ear ossicles and excludes variable sesamoid bones.</p></div></div>
+  <div class="sec-h rv"><div><div class="eyebrow">Complete osteology</div><h2>All ${tot} adult bones, individually named</h2><p>Open a region to see every individual bone: left and right sides, each rib and vertebra, and every hand and foot phalanx. The standard adult count includes 6 ear ossicles and excludes variable sesamoid bones. <a href="#/skullface">Explore all 14 facial and 8 cranial skull bones →</a></p></div></div>
   <div class="bgroups">${o.bones206.map((g,gi)=>`<details class="bonegrp rv" id="bg-${gi}"><summary><span class="bgname">${esc(g.g)}</span><i class="bgcount">${g.n} bones</i></summary><div class="bones">${g.named.map((group,ci)=>`<div class="bonesub"><h3>${esc(group.group)} <small>${group.bones.length}</small></h3><div class="bonelist">${group.bones.map((bn,bi)=>`<span class="bone" id="bn-${gi}-${ci}-${bi}">${esc(bn)}</span>`).join('')}</div></div>`).join('')}</div></details>`).join('')}</div>
  </section>`;
 }
@@ -295,7 +321,7 @@ function reproductiveMuscleSection(key){
  return `<section class="sec wrap repro-muscle"><div class="mat-spot rv"><div><span class="eyebrow">Reproductive anatomy · deep muscles</span><h3>${male?'Male':'Female'} pelvic floor &amp; perineum</h3><p>${male?'Puboprostatic fibers, bulbospongiosus, ischiocavernosus and the external urethral sphincter act alongside shared levator ani, coccygeus and anal sphincters.':'Pubovaginal fibers, compressor urethrae, urethrovaginal sphincter, bulbospongiosus and ischiocavernosus act alongside shared levator ani, coccygeus and anal sphincters.'} View the realistic regional plate and open each muscle for its attachments, action and innervation.</p><div><a class="btn sm" href="#/muscle?g=${sex}-pelvis">Explore ${sex} pelvic muscles →</a><a class="btn sm" href="#/muscle?g=pelvic-common">Shared pelvic floor →</a><a class="btn sm" href="#/muscle?g=${sex}-repro-smooth">Organ-wall smooth muscle →</a></div></div><img src="img/muscles-pelvic-${sex}.jpg" alt="${male?'Male':'Female'} pelvic floor regional medical render" loading="lazy"></div></section>`;
 }
 /* ---------- clinical reproductive anatomy study layer ---------- */
-const DEEP_PATH=['clitoralcomplex','penileerectile','skinlayers','facialnerve','trigeminalnerve','eyeanatomy','retina','nephron','brachialplexus','cerebraldeep','meningescsf','brainstemdeep','pulmonaryacinus','hepaticlobule','intestinalwall'];
+const DEEP_PATH=['skullface','dentition','clitoralcomplex','penileerectile','skinlayers','facialnerve','trigeminalnerve','eyeanatomy','retina','nephron','brachialplexus','cerebraldeep','meningescsf','brainstemdeep','pulmonaryacinus','hepaticlobule','intestinalwall'];
 function viewDeep(){
  const count=DEEP_PATH.reduce((n,k)=>n+Object.keys(ORGANS[k].parts).length,0);
  return `<section class="deep-hero"><div class="deep-hero-plate"><img src="img/webp/eye-layers-deep.webp" alt="" aria-hidden="true"></div><div class="wrap deep-head"><div class="eyebrow">Corpus · research-led deep anatomy</div><h1>Look beneath<br><em>the surface.</em></h1><p>${DEEP_PATH.length} focused new chapters, ${count} detailed structures and ${DEEP_PATH.length*2} new self-test questions. Explore erectile tissue, skin strata, facial sensation and motor branches, ocular coats, retinal circuits, nephron, arm nerves, deeper brain anatomy, alveoli, liver and intestine. Images orient; written entries explain the anatomy.</p><div class="hero-cta"><a class="btn primary" href="#/clitoralcomplex">Begin the deep atlas →</a><a class="btn" href="#/skinlayers">See skin layers</a></div><small>Educational models are not patient images, microscopic slides or surgical maps.</small></div></section>
@@ -323,13 +349,62 @@ function viewGyn(){
  <section class="sec wrap"><div class="sec-h rv"><div><div class="eyebrow">Extend the map</div><h2>Comparative male anatomy</h2></div></div><div class="gyn-compare">${['maletestis','maleprostate','penileerectile'].map(k=>{const o=ORGANS[k];return `<a href="${routeFor(k)}" class="gyn-tile rv"><div class="gyn-tile-pic"><img src="${imgSrc(o.photo.file,true)}" alt="${esc(o.title)} clinical render" loading="lazy"></div><div><span>${Object.keys(o.parts).length} structures</span><h3>${esc(o.title)}</h3><p>${esc(o.blurb)}</p><strong>Open chapter ↗</strong></div></a>`}).join('')}</div></section>`;
 }
 
+function microSection(o){
+ if(!o.photo)return '';
+ const first=new Map();
+ for(const [id,p] of Object.entries(o.parts))if(p.microLens&&!first.has(p.microLens))first.set(p.microLens,id);
+ if(!first.size)return '';
+ const tiles=[...first].sort(([a],[b])=>a==='alveolar'?-1:b==='alveolar'?1:0).map(([lensId,id])=>{
+  const lens=MICRO_LENS[lensId];
+  return `<article class="lens-tile"><div class="lens-tile-photo">${miniChip(o,id).replace('class="part-mini-trigger"','class="part-mini-trigger lens-tile-trigger"')}</div><div class="lens-tile-copy"><small>ORGAN → UNDER THE LENS</small><h3>${esc(lens.title)}</h3><p>Explore ${esc(o.parts[id].n)} in its tissue context. The large image opens an organ-to-cutaway teaching view.</p></div></article>`;
+ }).join('');
+ return `<section class="sec wrap lens-library" id="under-the-lens"><div class="sec-h rv"><div><div class="eyebrow">Closer study · ${first.size} tissue ${first.size===1?'view':'views'}</div><h2>See what a whole-organ image cannot show.</h2><p>Follow the organ to a relevant tissue-scale cutaway. A ring marks the general source region—not a microscopic cell on the organ. Illustrations are teaching models, not actual microscope slides.</p></div></div><div class="lens-tiles">${tiles}</div></section>`;
+}
+function skullSection(){
+ const views=[['skull-face-anterior.png','Anterior skull · surface bones','Front view identifies the forehead, cheeks, bony nose, maxillae and lower jaw. Deep bones are intentionally not pinned.'],['skull-face-medial.png','Medial skull · deeper context','Conceptual sagittal cutaway for the bony palate, septum and central skull base; it is not a CT scan or a microscope image.']];
+ const cards=views.map(([file,title,detail])=>`<article class="skull-view-card"><button class="skull-view-trigger" type="button" data-plate-preview data-plate-src="${imgSrc(file)}" data-part-name="${attr(title)}" data-preview-kind="region" data-preview-context="true" aria-label="Enlarge ${attr(title)}"><img src="${imgSrc(file,true)}" alt="${attr(title)} educational skull illustration" loading="lazy"><span aria-hidden="true">⤢</span></button><div><h3>${esc(title)}</h3><p>${esc(detail)}</p></div></article>`).join('');
+ return `<section class="sec wrap skull-views" id="skull-views"><div class="sec-h"><div><div class="eyebrow">Skull perspectives</div><h2>14 facial bones + 8 cranial bones</h2><p>The illustration is a learning model, not a specimen. Only clear front-view bone surfaces have pointer lines. Posterior and deep bones have text and an unpinned sectional reference instead.</p><div class="skull-quick"><a href="#/skeleton">See all 206 adult bones →</a><a href="#/facialnerve">Facial nerve CN VII · separate chapter →</a><a href="#/trigeminalnerve">Facial sensation CN V →</a><a href="#/dentition">Tooth anatomy for dental students →</a></div></div></div><div class="skull-view-grid">${cards}</div></section>`;
+}
+function dentalSection(o){
+ const chart=(items,label)=>{
+  const top=items.slice(0,items.length/2);
+  const bottom=items.slice(items.length/2).reverse();
+  const row=(teeth,name)=>`<div class="tooth-chart-line"><strong>${name}</strong><div class="tooth-chart-row">${teeth.map(t=>`<button class="tooth-position" type="button" data-tooth-scroll="${t.id}" title="${attr(t.n)} · FDI ${t.fdi}" aria-label="Open ${attr(t.n)} FDI ${t.fdi}"><b>${t.number?'#'+t.number:t.letter}</b><small>${t.fdi}</small></button>`).join('')}</div></div>`;
+  return `<div class="tooth-chart-panel"><h3>${label}</h3><p>Viewed facing the patient: patient right appears on your left. Each button opens that named tooth below. On smaller screens each jaw wraps into two patient-side rows. Numbers are positions, not pins on the molar picture.</p>${row(top,'Upper jaw · maxilla')}${row(bottom,'Lower jaw · mandible')}</div>`;
+ };
+ const models=[['incisor','Cutting incisor','tooth-incisor.png'],['canine','Single-cusp canine','tooth-canine.png'],['premolar','Crushing premolar','tooth-premolar.png'],['molar','Sectioned molar','tooth-molar-section.png']].map(([type,title,file])=>`<article class="tooth-type-card"><button class="tooth-type-trigger" type="button" data-plate-preview data-plate-src="${imgSrc(file)}" data-preview-kind="region" data-preview-context="true" data-part-name="${attr(title)} · representative model" aria-label="Enlarge ${attr(title)} example"><img src="${imgSrc(file,true)}" alt="Representative digital ${attr(type)} teaching image" loading="lazy"><span aria-hidden="true">⤢</span></button><strong>${esc(title)}</strong></article>`).join('');
+ return `<section class="sec wrap dental-study" id="dental-chart"><div class="sec-h"><div><div class="eyebrow">Dentistry · tooth map</div><h2>Every position, not a false photo pin.</h2><p>The two charts name 32 conventional permanent and 20 primary positions. Tooth-class images below are representative adult models; they do not depict every individual tooth or a primary crown. Full root and nerve pathways vary between patients.</p><div class="skull-quick"><a href="#/skullface">Upper &amp; lower jaws →</a><a href="#/trigeminalnerve">Dental sensation · CN V →</a><a href="#/facialnerve">Facial movement · CN VII →</a></div></div></div><div class="tooth-charts">${chart(o.dental.permanent,'Permanent · Universal #1–32 / FDI')}${chart(o.dental.primary,'Primary · Universal A–T / FDI')}</div><h3 class="tooth-model-heading">Four representative tooth classes</h3><div class="tooth-type-grid">${models}</div></section>`;
+}
+function foundationSection(key,o){
+ if(key==='bodyregions'){
+  const map=(rows,type)=>`<div class="foundation-chart ${type==='nine'?'nine':'four'}" role="group" aria-label="${type==='nine'?'Nine abdominal regions':'Four abdominal quadrants'}">${rows.map(([id,label])=>`<button type="button" data-region-scroll="${id}" aria-label="Open ${attr(o.parts[id].n)}">${esc(label)}</button>`).join('')}</div>`;
+  return `<section class="sec wrap foundation-study" id="region-chart"><div class="sec-h"><div class="eyebrow">Clinical orientation · not organ localization</div><h2>Map abdominal surface regions</h2><p>Viewed facing the patient. Patient right appears on your left. These maps are conceptual surface divisions, not pins on a specific person or precise organ boundaries. Select a name for its explanation.</p></div><div class="foundation-pair"><article class="foundation-panel"><h3>Four quadrants</h3>${map(o.regionMaps.quadrants,'four')}</article><article class="foundation-panel"><h3>Nine regions</h3>${map(o.regionMaps.nine,'nine')}</article></div></section>`;
+ }
+ if(key==='tissuefoundations'){
+  const tiles=[['Epithelial','foundation-epithelium.png','A simple columnar example'],['Connective','foundation-connective.png','Loose areolar tissue'],['Muscle','foundation-skeletal-muscle.png','Skeletal muscle only'],['Nervous','foundation-neural.png','Multipolar neuron model']].map(([name,file,desc])=>`<article class="foundation-panel"><button class="foundation-image" type="button" data-plate-preview data-plate-src="${imgSrc(file)}" data-part-name="${attr(name)} tissue · teaching cutaway" data-preview-kind="region" data-preview-context="true" aria-label="Enlarge ${attr(name)} tissue teaching model"><img src="${imgSrc(file,true)}" loading="lazy" alt="Digital ${attr(name.toLowerCase())} tissue teaching cutaway"><span aria-hidden="true">⤢</span></button><h3>${name}</h3><p>${desc}</p></article>`).join('');
+  return `<section class="sec wrap foundation-study" id="tissue-gallery"><div class="sec-h"><div class="eyebrow">Cell and tissue scale</div><h2>Four different tissue families</h2><p>Digital microscopic-scale teaching cutaways, not genuine histology slides or photographs. Enlarge a plate, then read the relevant entries below. Each picture depicts a specific example, not every subtype.</p></div><div class="foundation-tissue-grid">${tiles}</div></section>`;
+ }
+ return '';
+}
+const REPRO_PATH=['spermanatomy','oocyteanatomy','fertilization','cleavageblastocyst','implantation','placentaanatomy','embryodevelopment','fetaldevelopment','laborfirststage','laborsecondstage','laborthirdstage'];
+function reproSection(key){
+ if(!REPRO_PATH.includes(key))return '';
+ const labels=['Sperm cell','Egg / oocyte','Fertilization','Early divisions','Implantation','Placenta','Embryo','Fetus','Labor 1 · cervix','Labor 2 · baby','Labor 3 · placenta'];
+ const cards=REPRO_PATH.map((id,i)=>`<a class="repro-stage ${id===key?'selected':''}" href="#/${id}" ${id===key?'aria-current="page"':''}><img src="${imgSrc(ORGANS[id].photo.file,true)}" alt="" loading="lazy"><span><small>${String(i+1).padStart(2,'0')} / 11</small><strong>${labels[i]}</strong></span></a>`).join('');
+ return `<section class="sec wrap repro-path" id="repro-path"><div class="sec-h"><div><div class="eyebrow">Gametes to birth · separate chapters</div><h2>Follow each stage independently</h2><p>Sperm and egg are separate branches before fertilization. Pregnancy weeks are usually counted from the last menstrual period, roughly two weeks before conception. These digital images show specific educational stages; none is a clinical scan, microscope slide or photograph of a delivery.</p></div></div><nav class="repro-timeline" aria-label="Conception and birth study pathway">${cards}</nav></section>`;
+}
+function reproGallery(key){
+ const o=ORGANS[key];if(!o?.visualGallery)return '';
+ const cards=o.visualGallery.map((a,i)=>`<figure class="repro-gallery-card"><button type="button" data-plate-preview data-plate-src="${attr(imgSrc(a.file))}" data-part-name="${attr(a.title)}" data-preview-kind="region" data-preview-context="true" data-preview-note="${attr(a.note)}" aria-label="Enlarge ${attr(a.title)}"><img src="${imgSrc(a.file,true)}" alt="Digital educational illustration: ${attr(a.title)}" loading="lazy"><span aria-hidden="true">⤢</span></button><figcaption><small>${String(i+1).padStart(2,'0')} / ${o.visualGallery.length}</small><strong>${esc(a.title)}</strong><p>${esc(a.note)}</p></figcaption></figure>`).join('');
+ return `<section class="sec wrap repro-gallery" id="repro-gallery"><div class="sec-h"><div><div class="eyebrow">Stage-specific picture library</div><h2>See the anatomy at the right scale</h2><p>Tap an image to enlarge it, then tap again to close. A plate illustrates its captioned stage or region; it is not a photograph, histology slide, measured ultrasound or a different stage.</p></div></div><div class="repro-gallery-grid">${cards}</div></section>`;
+}
 function viewOrgan(key){
-  const o=ORGANS[key];
+ const o=ORGANS[key];
   const ids=liveIds(); const i=ids.indexOf(key);
   const prev=ids[(i-1+ids.length)%ids.length], next=ids[(i+1)%ids.length];
   const sys=SYSTEMS[o.system];
   const facts=[['System',sys.name],['Location',o.region],['Size / weight',o.size],['Blood supply',o.blood],['Innervation',o.nerve]];
-  const controls='<button class="btn sm on" data-focus-pulse aria-pressed="true">Animate selected highlight</button>';
+  const controls=Object.keys(o.photo?.hot||{}).length?'<button class="btn sm on" data-focus-pulse aria-pressed="true">Animate selected highlight</button>':'';
   const parts=Object.entries(o.parts).map(([id,p],idx)=>`
     <div class="part rv${p.contextOnly?' context-entry':''}" data-d="${idx%4}" data-pid="${id}">
       <div class="part-top">${miniChip(o,id)}<button class="part-h" aria-expanded="false"><span class="swatch" style="--c:${sys.color}"></span><strong>${esc(p.n)}</strong><span class="pill plan">${p.contextOnly?'Study note':esc(p.t)}</span></button></div>
@@ -338,7 +413,8 @@ function viewOrgan(key){
         <p>${esc(p.d)}</p>
         <p class="kv"><b>Function</b>${esc(p.f)}</p>
         <p class="kv"><b>Clinical</b>${esc(p.c)}</p>
-        ${p.contextOnly?`<p class="context-caption">${p.deepRef?`Text adapted from <a href="${routeFor(p.deepRef)}">${esc(ORGANS[p.deepRef].title)} chapter →</a>. `:'Anatomy study note. '}Regional illustration is a reference, not a pin for this microscopic or deep structure.</p>`:''}
+        ${o.visualGallery?`<p class="repro-part-caption"><b>Picture context</b> ${esc(o.visualGallery.find(a=>a.file===partPlate(o,id).file)?.note||'A related regional anatomy image; this individual event or cell is not separately identifiable in it.')}</p>`:''}
+        ${p.contextOnly?`<p class="context-caption">${p.deepRef?`Text adapted from <a href="${routeFor(p.deepRef)}">${esc(ORGANS[p.deepRef].title)} chapter →</a>. `:'Anatomy study note. '}Tap its small image for a relevant teaching plate where available. Only structures distinguishable on that plate receive a pointer.</p>`:''}
       </div>
     </div>`).join('');
   return `
@@ -349,7 +425,8 @@ function viewOrgan(key){
       <h1 style="margin-top:10px">${esc(o.title)}<span class="latin">${esc(o.latin)}</span></h1>
       <p class="lead">${esc(o.blurb)}</p>
       ${o.study?`<div class="study-shortcuts"><button class="btn sm" data-study-jump="study-map">${key==='gynvulva'?'Surface anatomy reference':'Clinical anatomy map'} ↓</button><a class="btn sm" href="${key==='clitoralcomplex'?'#/gyn':key==='penileerectile'?'#/male':'#/deep'}">${key==='clitoralcomplex'?'Gynecology study path':key==='penileerectile'?'Male anatomy':'Deep anatomy path'} →</a></div>`:''}
-      ${o.bones206?`<div class="skel-shortcuts"><button class="btn sm" data-skel-jump="bone-atlas">206 individual bones ↓</button><button class="btn sm" data-skel-jump="joint-atlas">${o.joints.length} joint families ↓</button></div>`:''}
+      ${key==='facialnerve'?'<div class="skel-shortcuts"><a class="btn sm" href="#/skullface">Explore skull &amp; facial bones →</a><a class="btn sm" href="#/trigeminalnerve">Contrast facial sensation CN V →</a></div>':''}
+      ${o.bones206?`<div class="skel-shortcuts"><button class="btn sm" data-skel-jump="bone-atlas">206 individual bones ↓</button><a class="btn sm" href="#/skullface">Skull &amp; facial bones →</a><button class="btn sm" data-skel-jump="joint-atlas">${o.joints.length} joint families ↓</button></div>`:''}
     </div>
     <div class="pager">
       <a class="btn sm" href="${routeFor(prev)}" title="${esc(ORGANS[prev].title)}">${icon('left')} ${esc(ORGANS[prev].title.split(' ')[0])}</a>
@@ -359,7 +436,7 @@ function viewOrgan(key){
   <div class="viewer wrap">
     <div class="card stage-card rv">
       <div class="ctrl simple-ctrl">
-        ${o.photo?`<button class="btn sm on" data-stage="photo" aria-pressed="true">${icon('eye')} Picture</button><button class="btn sm" data-stage="focus" aria-pressed="false">${icon('play')} Animated focus</button>`:''}
+        ${o.photo?`<button class="btn sm on" data-stage="photo" aria-pressed="true">${icon('eye')} Picture</button>${Object.keys(o.photo.hot||{}).length?`<button class="btn sm" data-stage="focus" aria-pressed="false">${icon('play')} Animated focus</button>`:''}`:''}
         <details class="toolbox"><summary>More tools</summary><div class="toolbox-items">
           <span class="animset">${controls}</span>
           <button class="btn sm on" data-labels aria-pressed="true">${icon('tag')} Labels</button>
@@ -369,7 +446,7 @@ function viewOrgan(key){
           <button class="btn sm" data-zoom="0" aria-label="Reset zoom">${icon('reset')}</button></span>
         </div></details>
       </div>
-      <p class="stage-tip">Follow a line to a structure; tap a label to learn more. Deeper notes are below.</p>
+      <p class="stage-tip">${Object.keys(o.photo?.hot||{}).length?'Follow a line to a visible structure; tap a label to learn more. Deeper notes are below.':'Conceptual reference image: no physical feature is pinpointed. Explore the entries below.'}</p>
       <div class="diagram-scroll" id="dscroll"><div class="diagram" id="diagram"></div></div>
       <div class="stage-foot">
         <div class="legend">${o.legend.map(([c,l])=>`<i style="--c:${c}">${esc(l)}</i>`).join('')}</div>
@@ -397,6 +474,12 @@ function viewOrgan(key){
   <details class="quick-facts wrap"><summary>Quick facts <span>Location, blood supply &amp; more</span></summary>
     <div class="facts">${facts.map(([b,v])=>`<div class="fact"><b>${b}</b><span>${esc(v)}</span></div>`).join('')}</div>
   </details>
+  ${microSection(o)}
+  ${key==='skullface'?skullSection():''}
+  ${key==='dentition'?dentalSection(o):''}
+  ${foundationSection(key,o)}
+  ${reproSection(key)}
+  ${reproGallery(key)}
   <section class="sec wrap" style="padding-top:34px">
     <div class="sec-h rv"><div><div class="eyebrow">Learn more</div><h2>Parts of the ${esc(o.title.toLowerCase())}</h2><p>Tap a small image to enlarge its anatomy plate; tap the part name for its explanation. Open a part for what it does and why it matters. All ${Object.keys(o.parts).length} entries are here, including ${Object.values(o.parts).filter(p=>p.contextOnly).length} deeper study notes that are not pinned to the picture.</p></div></div>
     <div class="parts">${parts}</div>
@@ -466,38 +549,7 @@ function viewSystems(){
 }
 
 function viewAbout(){
-  return `
-  <section class="hero wrap" style="padding-bottom:8px">
-    <div class="eyebrow">About Corpus</div>
-    <h1 style="font-size:clamp(34px,4.6vw,50px);margin-top:12px">An atlas you can argue with</h1>
-  </section>
-  <section class="wrap" style="padding-bottom:40px">
-    <div class="two">
-      <div class="prose rv">
-        <p><b>Corpus began as a single heart chapter</b> and grew into a full teaching atlas: ${STATS.organs} organs, ${STATS.structures} documented anatomy parts, ${STATS.questions} exam-style questions, an interactive body map and a quiz engine — all in one offline-capable web page.</p>
-        <p>The interactive edition uses <b>realistic educational digital renders</b> with thin leader lines, clickable labels and paired descriptions. These illustrations simplify anatomy and are not patient photographs.</p>
-        <p>Focus mode animates only a selected marker over the real render; it does not simulate the movement of an organ. Study notes distinguish visible structures from deeper anatomy.</p>
-        <h3>What Corpus is for</h3>
-        <ul>
-          <li><b>First exposure:</b> meet an organ's geography before a textbook chapter.</li>
-          <li><b>Revision:</b> label-on/label-off mode doubles as flashcards.</li>
-          <li><b>Teaching:</b> show a realistic plate, highlight a structure and ask the built-in questions.</li>
-          <li><b>Clinical linking:</b> every documented anatomy part carries a clinical pearl.</li>
-        </ul>
-        <h3>What Corpus is not</h3>
-        <ul>
-          <li>Not a radiological or surgical reference — image landmarks are approximate.</li>
-          <li>Not medical advice, and not a substitute for Gray's, Netter's or your curriculum.</li>
-          <li>Not tracked, not gated: no accounts, no analytics, no network calls.</li>
-        </ul>
-      </div>
-      <div class="rv" data-d="1">
-        <div class="callout" style="margin-bottom:14px"><h3>Design notes</h3><p>Paper-and-ink palette, serif display type, dark viewing stage for the renders. Thin label lines and a separate mobile list keep images legible.</p></div>
-        <div class="callout" style="margin-bottom:14px;border-color:var(--rust)"><h3>Accessibility</h3><p>Keyboard-navigable structures, ARIA labels, focus rings, reduced-motion support (button and OS preference), and print-friendly study pages.</p></div>
-        <div class="callout" style="border-color:var(--gold)"><h3>Shortcuts</h3><p><kbd>/</kbd> search · <kbd>L</kbd> labels · <kbd>A</kbd> animate · <kbd>←</kbd>/<kbd>→</kbd> previous/next organ · <kbd>Esc</kbd> clear selection.</p></div>
-      </div>
-    </div>
-  </section>`;
+  return `<section class="hero wrap" style="padding-bottom:38px"><div class="eyebrow">About us · Corpus Anatomy Atlas</div><h1>See the body. Understand the detail.</h1><p class="lead">A free illustrated anatomy atlas with ${STATS.organs} study chapters, interactive views and focused tissue cutaways. The images are educational models, not clinical micrographs.</p><p><a class="btn primary" href="about.html">About us, editorial approach &amp; contact →</a></p><p>For corrections and questions: <a href="mailto:numanshabbir88@gmail.com">numanshabbir88@gmail.com</a>.</p></section>`;
 }
 
 
@@ -719,8 +771,8 @@ function bindOrgan(key){
         anchors.push(`<button type="button" class="photo-hot" data-photo-pid="${pid}" style="left:${(x/10).toFixed(2)}%;top:${(y/10).toFixed(2)}%" aria-label="Show ${esc(o.parts[pid].n)}"></button>`);
       });
     }
-    const key=`<details class="photo-key" ${matchMedia('(max-width:620px)').matches?'open':''}><summary>Structure labels — ${ids.length} visible landmarks</summary><div class="photo-key-list">${ids.map(pid=>`<button type="button" data-photo-pid="${pid}">${esc(o.parts[pid].n)}</button>`).join('')}</div></details>`;
-    return `<div class="photo-wrap annotated${labelsOn?' lbls':''}${view==='focus'?' focus-mode':''}${view==='focus'&&$('[data-focus-pulse]')?.getAttribute('aria-pressed')==='true'?' pulse-on':''}"><img src="${imgSrc(p.file)}" alt="${esc(o.title)} — realistic anatomical render" draggable="false">
+    const key=ids.length?`<details class="photo-key" ${matchMedia('(max-width:620px)').matches?'open':''}><summary>Structure labels — ${ids.length} visible landmarks</summary><div class="photo-key-list">${ids.map(pid=>`<button type="button" data-photo-pid="${pid}">${esc(o.parts[pid].n)}</button>`).join('')}</div></details>`:'';
+    return `<div class="photo-wrap annotated${labelsOn?' lbls':''}${view==='focus'?' focus-mode':''}${view==='focus'&&$('[data-focus-pulse]')?.getAttribute('aria-pressed')==='true'?' pulse-on':''}"><img src="${imgSrc(p.file)}" alt="${esc(o.title)} — ${o.photo.notes?esc(o.photo.notes):o.system==='foundations'?'digital educational reference model':'realistic anatomical render'}" draggable="false">
       <svg class="photo-leaders" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">${paths.join('')}</svg>
       ${callouts.join('')}${anchors.join('')}</div>${key}`;
   }
@@ -814,6 +866,17 @@ function bindOrgan(key){
     const photo=$('.photo-wrap.annotated',diagram); if(photo) photo.classList.toggle('lbls',labelsOn);
   });
 
+  $$('[data-region-scroll]').forEach(btn=>btn.addEventListener('click',()=>{
+    const row=$$('.parts .part').find(el=>el.dataset.pid===btn.dataset.regionScroll);
+    if(!row)return; if(!row.classList.contains('open'))$('.part-h',row).click();
+    row.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'center'});
+  }));
+  $$('[data-tooth-scroll]').forEach(btn=>btn.addEventListener('click',()=>{
+    const row=$$('.parts .part').find(el=>el.dataset.pid===btn.dataset.toothScroll);
+    if(!row)return; const h=$('.part-h',row);
+    if(!row.classList.contains('open'))h.click();
+    row.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'center'});
+  }));
   $$('.parts .part').forEach(row=>{
     const h=$('.part-h',row);
     h.addEventListener('click',()=>{
@@ -915,7 +978,7 @@ const INDEX=(()=>{
   ORG().forEach(([k,o])=>{
     const h0=o.photo&&Object.values(o.photo.hot)[0];
     rows.push({k,label:o.title,sub:o.latin+' · organ',hay:(o.title+' '+o.latin+' '+o.blurb+' '+o.summary+' '+(o.study?.cards||[]).map(c=>c.join(' ')).join(' ')).toLowerCase(),detail:o.summary,href:routeFor(k),im:o.photo?[o.photo.file,(h0||[500,400])[0],(h0||[500,400])[1]]:null});
-    Object.entries(o.parts).forEach(([pid,p])=>{const hh=!p.contextOnly&&o.photo&&validHot(o.photo.hot,pid)?o.photo.hot[pid]:null;rows.push({k,label:p.n,sub:o.title+' · '+(p.contextOnly?'Deep study note':p.t),hay:(p.n+' '+p.l+' '+o.title+' '+p.t+' '+p.d+' '+p.f+' '+p.c).toLowerCase(),detail:p.d+' '+p.f,href:routeFor(k),part:pid,im:o.photo?[o.photo.file,(hh||[500,500])[0],(hh||[500,500])[1],!!p.contextOnly]:null})});
+    Object.entries(o.parts).forEach(([pid,p])=>{const plate=o.photo?partPlate(o,pid):null,hh=plate?.hot;rows.push({k,label:p.n,sub:o.title+' · '+(p.contextOnly?'Deep study note':p.t),hay:(p.n+' '+p.l+' '+o.title+' '+p.t+' '+p.d+' '+p.f+' '+p.c).toLowerCase(),detail:p.d+' '+p.f,href:routeFor(k),part:pid,im:plate?[plate.file,(hh||[500,500])[0],(hh||[500,500])[1],!hh]:null})});
   });
   rows.push({k:'muscle',label:'Female muscle écorché',sub:'Matched full-body female figure · Muscle atlas',hay:'female muscle female muscular full body anatomy ecorche sketch figure',href:'#/female',im:['female-ecorche-v2.jpg',500,440]});
   rows.push({k:'muscle',label:'Male muscle écorché',sub:'Supplied full-body male reference · Muscle atlas',hay:'male muscle male muscular full body anatomy ecorche sketch figure',href:'#/male',im:['male-ecorche-reference.png',500,440]});

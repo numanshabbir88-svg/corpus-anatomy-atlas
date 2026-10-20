@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="ggzjA4HaWxFkAu-n0Jg_7yVy0g9A9a_5LNuQqH8X33s">
 <title>Corpus — Interactive Human Anatomy Atlas</title>
-<meta name="description" content="Corpus is a free interactive human anatomy atlas: 58 chapters with at least 20 documented anatomy parts each, realistic digital medical renders, interactive skeletal and muscular atlases, realistic interactive highlights and self-test questions. Built for students, teachers and clinicians.">
+<meta name="description" content="Corpus is a free interactive human anatomy atlas: 74 chapters with at least 20 substantive anatomy and development entries each, realistic digital medical renders, interactive skeletal and muscular atlases, realistic interactive highlights and self-test questions. Built for students, teachers and curious readers.">
 <meta name="theme-color" content="#0d3b39">
 <meta property="og:title" content="Corpus — Interactive Human Anatomy Atlas">
-<meta property="og:description" content="58 anatomy chapters: realistic medical renders, 206-bone and full-body muscle atlases, male and female sections, interactive highlights and quizzes.">
+<meta property="og:description" content="74 anatomy chapters: realistic medical renders, 206-bone and full-body muscle atlases, male and female sections, interactive highlights and quizzes.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d3b39'/%3E%3Cpath d='M16 26C9 21 5 17 5 12.5 5 9 7.7 6.5 11 6.5c2.2 0 4 1.2 5 2.9 1-1.7 2.8-2.9 5-2.9 3.3 0 6 2.5 6 6C27 17 23 21 16 26z' fill='%23e0645c'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="styles.css?v=36">
+<link rel="stylesheet" href="styles.css?v=48">
 <meta name="robots" content="noindex,follow"></head>
 <body>
 
@@ -33,6 +33,7 @@
         <a href="#/female" data-nav="#/female">Female</a>
         <a href="learn/">Learn</a>
         <a href="#/quiz" data-nav="#/quiz">Quiz</a>
+        <a href="about.html">About us</a>
       </nav>
 
       <div class="hdr-tools">
@@ -57,7 +58,7 @@
   </header>
 
   <main id="app" tabindex="-1">
-    <div class="load-state wrap" role="status" aria-live="polite"><span class="load-symbol" aria-hidden="true">♥</span><h1>Explore the body one part at a time.</h1><p>Illustrated human anatomy, 58 study chapters and an interactive body map.</p><a href="learn/">Read the anatomy study guides →</a><small>Pictures load as you explore.</small></div>
+    <div class="load-state wrap" role="status" aria-live="polite"><span class="load-symbol" aria-hidden="true">♥</span><h1>Explore the body one part at a time.</h1><p>Illustrated human anatomy, 74 study chapters and an interactive body map.</p><a href="learn/">Read the anatomy study guides →</a><small>Pictures load as you explore.</small></div>
   </main>
   <noscript><p class="wrap" style="padding:25px 16px">Please enable JavaScript to explore the interactive atlas.</p></noscript>
 
@@ -65,7 +66,7 @@
     <div class="wrap ftr-grid">
       <div>
         <div class="mark small"><span class="mark-txt">Corpus<em>Anatomy Atlas</em></span></div>
-        <p class="ftr-note">An open educational reference for human anatomy. Each chapter pairs a realistic digital medical render (thin label lines for visible structures) with a realistic-image focus mode and additional unpictured deep-anatomy notes. Anatomical content follows standard teaching references (Gray's Anatomy, Standring; clinically oriented notes after current curricula). Renders are digital educational illustrations, not patient images or exact localizations for every study note. Not a substitute for medical advice, diagnosis or an authoritative atlas.</p>
+        <p class="ftr-note">An open educational reference for human anatomy. Each chapter pairs a realistic digital medical render (thin label lines for visible structures) with a realistic-image focus mode and selected microscopic close-ups and unpinned deep-anatomy study notes. Each guide has further-reading links. The renders are digital educational illustrations, not patient images or substitutes for histology slides. Not a substitute for medical advice, diagnosis or an authoritative atlas.</p>
       </div>
       <div>
         <h4>Explore</h4>
@@ -97,7 +98,7 @@
     </div>
     <div class="wrap ftr-base">
       <span>© <span id="yr"></span> Corpus Anatomy Atlas · Educational use only</span>
-      <span>Realistic renders + interactive labels · v2.2 · No tracking · Works offline</span>
+      <span>Realistic renders + interactive labels · v2.2 · No tracking · No account needed</span>
     </div>
   </footer>
 </div>
@@ -106,13 +107,19 @@
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6M6 12l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 
-<script src="organs.js?v=33"></script>
+<script src="organs.js?v=38"></script>
 <script src="brain-and-micro-chapters.js?v=33"></script>
 <script src="deep-chapters.js?v=33"></script>
 <script src="part-enrichment-notes.js?v=33"></script>
-<script src="chapter-enrichment.js?v=33"></script>
+<script src="chapter-enrichment.js?v=38"></script>
 <script src="muscle-atlas.js?v=33"></script>
-<script src="app.js?v=36"></script>
-<script src="preview.js?v=36" defer></script>
+<script src="skull-chapter.js?v=40"></script>
+<script src="dental-chapter.js?v=42"></script>
+<script src="foundations-chapters.js?v=45"></script>
+<script src="reproduction-stages.js?v=48"></script>
+<script src="repro-image-enrichment.js?v=48"></script>
+<script src="micro-lens.js?v=48"></script>
+<script src="app.js?v=48"></script>
+<script src="preview.js?v=48" defer></script>
 </body>
 </html>

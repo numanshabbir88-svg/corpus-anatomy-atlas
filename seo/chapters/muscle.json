@@ -1,27 +1,27 @@
 {
   "title": "Muscular system anatomy: muscle groups and tendons",
-  "description": "Every movement, every breath, every heartbeat's preload begins as muscle fibres sliding — here the skeletal set in écorché.",
-  "updated": "2026-10-18",
+  "description": "Explore major muscle groups in the overview, then follow the full-body muscle and tendon atlas for hundreds of named records and regional views.",
+  "updated": "2026-10-19",
   "questions": [
     {
       "question": "How do skeletal muscles move joints?",
-      "answer": "Skeletal muscles contract and transmit force through tendons or other attachments to bones. Joint movement depends on the muscle's line of pull, attachments and cooperating muscles."
+      "answer": "Skeletal muscle fibers contract and transmit force through tendons or other attachments. When a muscle crosses a joint, its contraction can pull the attached bones; opposing muscles help control the movement."
+    },
+    {
+      "question": "Are all human muscles listed among the overview cards?",
+      "answer": "No. The overview cards introduce major regions, while the linked full-body muscle and tendon atlas contains hundreds of named records. A single fixed count of muscles varies with naming and counting conventions."
+    },
+    {
+      "question": "Where can I find posterior muscles such as the triceps and hamstrings?",
+      "answer": "The full-body muscle atlas groups them by arm and thigh region, including deeper layers and sex-specific pelvic floor views. The front-oriented overview image alone cannot identify posterior fibers."
     },
     {
       "question": "What is the difference between a tendon and a ligament?",
-      "answer": "A tendon connects muscle to bone and transfers muscular force. A ligament connects bones across a joint and helps stabilize it."
+      "answer": "A tendon transfers muscular force to an attachment, commonly a bone; a ligament connects bones across a joint. Both consist largely of dense collagenous connective tissue but have different mechanical roles."
     },
     {
-      "question": "What is the deltoid?",
-      "answer": "Clavicle/scapula to humeral shaft. Function: Arm abduction beyond 15°."
-    },
-    {
-      "question": "Where is the biceps brachii located?",
-      "answer": "Scapula to radial tuberosity. Function: Elbow flexion + supination."
-    },
-    {
-      "question": "What is the function of the patellar tendon?",
-      "answer": "Function: Completes the knee extensor mechanism. Patella to tibial tuberosity."
+      "question": "Is the diaphragm a skeletal muscle?",
+      "answer": "Yes. The diaphragm is a dome-shaped skeletal muscle separating the thoracic and abdominal cavities and is the primary muscle used during quiet inspiration. Its central tendon is an attachment region, not a separate muscle."
     }
   ]
 }

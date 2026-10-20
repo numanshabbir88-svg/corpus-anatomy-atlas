@@ -1,27 +1,27 @@
 {
   "title": "Heart anatomy: chambers, valves and blood flow",
   "description": "A four-chambered muscular pump with four valves and its own electrical conduction system.",
-  "updated": "2026-10-18",
+  "updated": "2026-10-19",
   "questions": [
     {
-      "question": "How many chambers does the human heart have?",
-      "answer": "The heart has four chambers: two atria receive blood and two ventricles pump it onward. The right side sends blood to the lungs; the left side supplies the body."
+      "question": "How many chambers does the heart have?",
+      "answer": "The heart has two upper receiving chambers, the right and left atria, and two lower pumping chambers, the right and left ventricles. The right ventricle sends blood to the lungs; the left sends it to the body."
     },
     {
-      "question": "What is the path of blood through the heart?",
-      "answer": "Blood enters the right atrium, crosses the tricuspid valve to the right ventricle, reaches the lungs, returns to the left atrium, crosses the mitral valve and leaves the left ventricle through the aorta."
+      "question": "What route does blood take through the heart?",
+      "answer": "Blood returns from the body to the right atrium, passes the tricuspid valve to the right ventricle, then crosses the pulmonary valve to the lungs. Oxygenated blood returns to the left atrium, passes the mitral valve to the left ventricle and leaves through the aortic valve."
     },
     {
-      "question": "What is the myocardium?",
-      "answer": "The thick middle layer of the heart wall, made of branching, interlinked cardiac muscle fibres joined by intercalated discs. Function: Contracts to generate the pressure that ejects blood."
+      "question": "Why is the left ventricular wall thicker?",
+      "answer": "The left ventricle must generate greater pressure to move blood through the systemic circulation. Its myocardium is therefore thicker than that of the right ventricle, which pumps into the lower-pressure pulmonary circulation."
     },
     {
-      "question": "Where is the tricuspid valve located?",
-      "answer": "Three cusps (anterior, posterior, septal) between right atrium and right ventricle. Function: Closes at ventricular systole to stop backflow into the right atrium."
+      "question": "Do coronary arteries carry blood through the heart chambers?",
+      "answer": "No. Coronary arteries branch near the aortic root and supply the heart muscle itself. The blood passing through the chambers does not directly nourish the full thickness of the myocardium."
     },
     {
-      "question": "What is the function of the mitral valve?",
-      "answer": "Function: Closes at ventricular systole to stop backflow into the left atrium. The bicuspid valve between left atrium and left ventricle, with anterior and posterior cusps."
+      "question": "How do heart valves keep blood moving forward?",
+      "answer": "Tricuspid and mitral valves guard the atrioventricular openings; pulmonary and aortic valves guard ventricular outflow. They open and close in response to pressure changes, limiting backward flow rather than actively pumping blood."
     }
   ]
 }

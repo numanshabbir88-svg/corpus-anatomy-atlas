@@ -1,0 +1,12 @@
+{
+  "title": "Skull and facial bones: all 22 adult skull bones",
+  "description": "Name all 14 facial and 8 cranial bones with realistic frontal and sectional skull illustrations, landmarks, functions and facial nerve connections.",
+  "updated": "2026-10-19",
+  "questions": [
+    {"question": "How many facial bones are in an adult human skull?", "answer": "Fourteen: paired maxillae, zygomatic, nasal, lacrimal, palatine and inferior nasal concha bones, plus the single vomer and mandible. The adult skull also has eight cranial bones, for 22 skull bones in total."},
+    {"question": "Which facial bones are easiest to identify from the front?", "answer": "The maxillae form the upper jaw, the zygomatic bones form the cheeks, the nasal bones form the bony bridge of the nose, and the single mandible forms the lower jaw. Small lacrimal and deep palatine bones cannot reliably be isolated on a simple anterior photograph."},
+    {"question": "Is the inferior nasal concha part of the ethmoid bone?", "answer": "No. Right and left inferior nasal conchae are independent facial bones. The middle and superior conchae are parts of the ethmoid, which is counted as a cranial bone."},
+    {"question": "Does the 22-bone skull count include ear ossicles or the hyoid?", "answer": "No. The six middle-ear ossicles and the single hyoid bone are additional bones associated with the head and neck; they are included separately in the conventional 206-bone adult skeleton count."},
+    {"question": "Which nerve moves the facial-expression muscles around the skull?", "answer": "Facial nerve CN VII drives most muscles of facial expression after passing through the temporal bone and parotid region. Trigeminal CN V carries most facial skin sensation, and its V3 division supplies the major jaw-closing muscles. Bones and nerves are different structures."}
+  ]
+}

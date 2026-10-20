@@ -855,3 +855,127 @@ body.nomotion .rv{opacity:1;transform:none}
 .plate-preview-detail canvas{display:block;width:100%;height:auto;aspect-ratio:800/420;border-radius:8px;background:#122d28}
 .plate-preview-note{max-width:740px;margin:12px auto 0!important;color:#cbdfd9!important;font:12px/1.6 var(--sans)!important}
 @media(max-width:620px){.plate-preview{padding:12px;width:calc(100vw - 16px)}.plate-preview-label{max-width:42%;padding:3px 5px;font-size:11px}.plate-preview-close{width:33px;height:33px}}
+
+/* Keep the same side gutters for wrapped hero/sections: their vertical-spacing
+   shorthand formerly reset .wrap's horizontal padding to zero on phones. */
+.hero.wrap,.sec.wrap{padding-left:26px;padding-right:26px}
+@media(max-width:620px){
+  .hero.wrap,.sec.wrap{padding-left:16px;padding-right:16px}
+}
+
+.plate-preview-reference{display:block;width:max-content;max-width:100%;margin:12px auto 0;color:#ccefe3;text-decoration:underline;text-underline-offset:3px;font:700 13px/1.5 var(--sans)}
+.plate-preview-reference:focus-visible{outline:2px solid #ffdb8c;outline-offset:3px}
+/* Conceptual organ-to-tissue lens: a general sample region, never a cell pin on a whole organ. */
+.scope-compare{display:grid;grid-template-columns:minmax(0,0.84fr) 32px minmax(0,1.16fr);align-items:start;gap:12px;clear:both}
+.scope-overview,.scope-lens{min-width:0}
+.scope-step{display:block;margin:0 0 8px;color:#afd8c9;font:700 11px/1.4 var(--sans);letter-spacing:.11em;text-transform:uppercase}
+.scope-overview-image{position:relative;display:grid;place-items:center;aspect-ratio:1.36;background:#122522;border-radius:12px;overflow:hidden;border:1px solid #35554d}
+.scope-overview-image img{display:block;width:100%;height:100%;object-fit:contain}
+.scope-sample{position:absolute;z-index:2;width:clamp(24px,4.5vw,42px);height:clamp(24px,4.5vw,42px);border:2px solid #ffe29e;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 6px #ffd68133,0 0 0 12px #ffd68115,0 2px 12px #0009;pointer-events:none}
+.scope-origin-note{color:#b8d4cd;margin:9px 2px 0;font:12px/1.5 var(--sans)}
+.scope-bridge{align-self:center;text-align:center;color:#ffe29e;font:700 28px/1 var(--sans)}
+.scope-lens-heading{margin:0 0 8px;color:#fff;font:600 19px/1.25 var(--serif)}
+.scope-lens .plate-preview-visual{margin:0;max-width:100%}
+.scope-compare+.plate-preview-detail{margin-top:16px}
+.lens-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.lens-tile{min-width:0;border:1px solid #cadcd4;border-radius:14px;background:#f8fcf9;overflow:hidden;box-shadow:0 9px 23px #15352912}
+.lens-tile-photo{height:166px;background:#172a29}
+.lens-tile .part-mini-trigger{width:100%;height:166px;display:block;border-radius:0}
+.lens-tile .part-mini-trigger .mini{display:block;width:100%;height:166px;border-radius:0;background-size:cover;background-position:center}
+.lens-tile .part-mini-trigger .mini.reference{background-size:contain;background-repeat:no-repeat;background-color:#172a29}
+.lens-tile .part-mini-expand{padding:3px 7px;font-size:17px}
+.lens-tile-copy{padding:15px 17px 17px}
+.lens-tile-copy small{color:#25746b;font:700 10px/1.4 var(--sans);letter-spacing:.11em}
+.lens-tile-copy h3{font:600 19px/1.25 var(--serif);margin:6px 0;color:#193b37}
+.lens-tile-copy p{font:13px/1.55 var(--sans);color:#4b6862;margin:0}
+@media(max-width:680px){.scope-compare{grid-template-columns:1fr;gap:8px}.scope-overview-image{max-height:188px;aspect-ratio:2.3}.scope-bridge{transform:rotate(90deg);font-size:21px}.scope-lens-heading{font-size:17px}.lens-tile-photo,.lens-tile .part-mini-trigger,.lens-tile .part-mini-trigger .mini{height:150px}}
+.about-home-strip{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:16px;padding:18px 24px;border:1px solid #cbded5;border-radius:15px;background:linear-gradient(110deg,#edf7f2,#fdfdf8);box-shadow:0 7px 24px #173b3010}
+.about-home-strip small{display:block;color:#267c69;font:800 10px/1.4 var(--sans);letter-spacing:.13em}
+.about-home-strip strong{display:block;color:#173f39;font:600 20px/1.3 var(--serif);margin-top:2px}
+.about-home-strip p{margin:4px 0 0;color:#526f65;font:13px/1.45 var(--sans)}
+.about-home-strip a{flex:none;color:#145e55;font:750 13px/1.4 var(--sans);text-decoration:none;padding:10px 13px;border:1px solid #b8d6c9;border-radius:8px}
+.about-home-strip a:hover,.about-home-strip a:focus-visible{background:#d6ece3}
+@media(max-width:620px){.about-home-strip{display:block;padding:16px}.about-home-strip a{display:inline-block;margin-top:12px}}
+.hero-note a{color:#137568;text-decoration:underline;text-underline-offset:3px;font-weight:700}
+/* Adult skull: two honest perspectives without pins on unseen deep bones. */
+.skull-views{padding-top:30px}
+.skull-quick{display:flex;flex-wrap:wrap;gap:9px;margin-top:13px}
+.skull-quick a{display:inline-block;padding:9px 12px;border:1px solid #c4d8cc;border-radius:8px;color:#165c54;background:#edf8f3;font-size:12px;font-weight:750;text-decoration:none}
+.skull-quick a:hover,.skull-quick a:focus-visible{background:#d8ede4}
+.skull-view-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.skull-view-card{min-width:0;border:1px solid #c8dbd0;border-radius:15px;overflow:hidden;background:#f9fcfa}
+.skull-view-card .skull-view-trigger{display:block;width:100%;height:220px;padding:0;position:relative;border:0;background:#162421;cursor:zoom-in}
+.skull-view-trigger img{display:block;width:100%;height:100%;object-fit:contain}
+.skull-view-trigger span{position:absolute;right:12px;bottom:10px;border-radius:7px;padding:3px 8px;background:#102d2acc;color:#fff;font-size:20px}
+.skull-view-trigger:focus-visible{outline:3px solid #3c988b;outline-offset:-3px}
+.skull-view-card>div{padding:15px 19px 18px}
+.skull-view-card h3{margin:0 0 5px;font:600 20px/1.25 var(--serif);color:#1b423a}
+.skull-view-card p{margin:0;color:#536d63;font-size:13px;line-height:1.55}
+@media(max-width:640px){.skull-view-grid{grid-template-columns:1fr}.skull-view-card .skull-view-trigger{height:182px}}
+/* Dental map: schematic Universal/FDI tooth positions, not pins on a single molar image. */
+.dental-study{padding-top:34px}
+.tooth-charts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.tooth-chart-panel{min-width:0;border:1px solid #cbdcd3;border-radius:15px;padding:18px;background:#f7fbf8}
+.tooth-chart-panel h3{font:600 21px/1.2 var(--serif);margin:0 0 7px;color:#173e37}
+.tooth-chart-panel p{font-size:12px;line-height:1.55;color:#536b61;margin:0 0 16px}
+.tooth-chart-line{margin:10px 0 16px}
+.tooth-chart-line>strong{display:block;color:#27574d;font-size:12px;margin:0 0 8px}
+.tooth-chart-row{display:grid;grid-template-columns:repeat(16,minmax(0,1fr));gap:2px}
+.tooth-chart-panel:nth-child(2) .tooth-chart-row{grid-template-columns:repeat(10,minmax(0,1fr))}
+.tooth-position{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;min-height:46px;padding:3px 0;border-radius:6px;border:1px solid #c0d7cb;background:#fff;color:#134e45;cursor:pointer;transition:background .15s}
+.tooth-position b{font-size:12px;line-height:1.2}.tooth-position small{font-size:9px;color:#627d70;line-height:1.3}
+.tooth-position:hover,.tooth-position:focus-visible{outline:2px solid #166f60;outline-offset:1px;background:#d7ece1}
+.tooth-model-heading{margin:22px 0 12px;color:#183d37;font:600 22px var(--serif)}
+.tooth-type-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.tooth-type-card{min-width:0;overflow:hidden;border-radius:12px;border:1px solid #cbdcd3;background:#f9fcfa}
+.tooth-type-card>strong{display:block;padding:11px 12px 14px;color:#204c42;font:600 16px var(--serif)}
+.tooth-type-trigger{position:relative;display:block;width:100%;height:160px;padding:0;border:0;background:#202728;cursor:zoom-in}
+.tooth-type-trigger img{display:block;width:100%;height:100%;object-fit:contain}
+.tooth-type-trigger span{position:absolute;right:8px;bottom:7px;background:#102c29d9;color:#fff;border-radius:5px;padding:2px 6px;font-size:18px}
+.tooth-type-trigger:focus-visible{outline:3px solid #318a79;outline-offset:-3px}
+@media(max-width:850px){.tooth-charts{grid-template-columns:1fr}.tooth-chart-panel{padding:13px}.tooth-type-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:390px){.tooth-position b{font-size:10px}.tooth-position small{font-size:8px}.tooth-position{min-height:42px}.tooth-type-trigger{height:125px}}
+/* On phones, each arch wraps by patient-side quadrant so tooth numbers remain readable. */
+@media(max-width:700px){
+ .tooth-chart-row{grid-template-columns:repeat(8,minmax(0,1fr))}
+ .tooth-chart-panel:nth-child(2) .tooth-chart-row{grid-template-columns:repeat(5,minmax(0,1fr))}
+ .tooth-position{min-height:46px}
+ .tooth-position b{font-size:12px}
+ .tooth-position small{font-size:9px}
+}
+/* Foundations: labeled reference maps are concepts, not false pins on a photograph. */
+.foundation-study{padding-top:34px}.foundation-study>.sec-h{max-width:740px}
+.foundation-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.foundation-panel{background:#f5faf7;border:1px solid #c8ddd4;border-radius:16px;padding:18px;min-width:0}
+.foundation-panel h3{font-family:var(--serif);font-size:23px;color:#154c46;margin:0 0 12px}
+.foundation-panel p{font-size:14px;color:#4c6763;line-height:1.55;margin:8px 0 0}
+.foundation-chart{display:grid;gap:6px;max-width:570px}.foundation-chart.four{grid-template-columns:repeat(2,minmax(0,1fr))}.foundation-chart.nine{grid-template-columns:repeat(3,minmax(0,1fr))}
+.foundation-chart button,.foundation-chart a{border:1px solid #bad4cc;background:white;color:#174c45;border-radius:9px;min-height:60px;padding:8px;font:600 14px/1.25 inherit;cursor:pointer;text-decoration:none;display:grid;place-items:center;text-align:center}
+.foundation-chart button:hover,.foundation-chart button:focus-visible,.foundation-chart a:hover,.foundation-chart a:focus-visible{background:#e3f4ed;outline:2px solid #74a999;outline-offset:1px}
+.foundation-tissue-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.foundation-image{width:100%;border:0;padding:0;border-radius:11px;overflow:hidden;background:#152a29;cursor:zoom-in;position:relative;display:block;aspect-ratio:4/3}
+.foundation-image img{display:block;width:100%;height:100%;object-fit:cover}.foundation-image span{position:absolute;right:8px;bottom:7px;background:#11352d;color:white;border-radius:50%;padding:4px 7px}
+@media(max-width:760px){.foundation-pair{grid-template-columns:1fr}.foundation-tissue-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:430px){.foundation-tissue-grid{grid-template-columns:1fr 1fr;gap:8px}.foundation-panel{padding:12px}.foundation-chart button,.foundation-chart a{font-size:12px;min-height:54px}.foundation-panel h3{font-size:19px}}
+.foundation-home{padding:24px 0 0}.foundation-home-inner{padding:22px 26px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(230px,1fr);align-items:center;gap:20px;background:#e7f1ea;border:1px solid #c5d9cc;border-radius:18px}.foundation-home h2{font-family:var(--serif);color:#153c35;margin:4px 0 8px}.foundation-home p{margin:0;line-height:1.55;color:#536660}.foundation-home nav{display:grid;gap:7px}.foundation-home nav a{display:block;text-decoration:none;background:white;border:1px solid #bfd2c6;border-radius:9px;padding:10px 12px;color:#155549;font-weight:700}.foundation-home nav a:hover,.foundation-home nav a:focus-visible{background:#d9ede1;outline:2px solid #70a691}@media(max-width:700px){.foundation-home-inner{grid-template-columns:1fr;padding:18px}}
+.foundation-chart.nine button{overflow-wrap:anywhere;min-width:0;line-height:1.25;font-size:12px}
+/* Chronological, linked teaching path: gametes branch before fertilization. */
+.repro-path{padding-top:36px}.repro-path>.sec-h{max-width:790px}.repro-timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.repro-stage{display:flex;align-items:center;gap:10px;min-width:0;border:1px solid #cbd9d2;border-radius:12px;background:#f8fbf8;padding:8px;text-decoration:none;color:#1b443d;transition:background .2s,border-color .2s}
+.repro-stage img{width:64px;height:55px;object-fit:cover;border-radius:7px;background:#17322f;flex:none}.repro-stage small{display:block;letter-spacing:.08em;font-size:10px;color:#58746b;margin-bottom:3px}.repro-stage strong{display:block;font-size:13px;line-height:1.25}
+.repro-stage:hover,.repro-stage:focus-visible,.repro-stage.selected{background:#e4f1e9;border-color:#569384;outline-offset:2px}
+.repro-home{padding-top:20px}.repro-home-inner{padding:20px 24px;background:linear-gradient(115deg,#eff3ed,#f7efed);border:1px solid #decaca;border-radius:18px}
+.repro-home h2{font-family:var(--serif);margin:5px 0 8px;color:#21433d}.repro-home p{max-width:750px;margin:0 0 12px;color:#516861;line-height:1.55}
+.repro-home nav{display:flex;gap:8px;flex-wrap:wrap}.repro-home nav a{background:white;color:#17564c;padding:9px 11px;border:1px solid #bed4c8;border-radius:9px;text-decoration:none;font-weight:700;font-size:13px}.repro-home nav a:hover,.repro-home nav a:focus-visible{background:#e4f4e9;outline:2px solid #75ac91}
+@media(max-width:850px){.repro-timeline{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:620px){.repro-timeline{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.repro-stage{gap:7px;padding:6px}.repro-stage img{width:43px;height:47px}.repro-stage strong{font-size:11px}.repro-stage small{font-size:9px}.repro-home-inner{padding:17px}}
+.repro-stage span{min-width:0;overflow-wrap:anywhere}
+/* Captioned image evidence for conception, fetal growth and all labor stages. */
+.repro-gallery{padding-top:34px}.repro-gallery .sec-h{max-width:850px}.repro-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:stretch}
+.repro-gallery-card{margin:0;background:#f8faf6;border:1px solid #cbdcd3;border-radius:14px;overflow:hidden;min-width:0;display:flex;flex-direction:column}
+.repro-gallery-card button{border:0;background:#123332;width:100%;padding:0;position:relative;display:block;cursor:zoom-in;overflow:hidden}.repro-gallery-card button img{width:100%;height:175px;object-fit:cover;display:block;transition:transform .2s ease}.repro-gallery-card button:hover img{transform:scale(1.045)}.repro-gallery-card button:focus-visible{outline:3px solid #55a590;outline-offset:-3px}.repro-gallery-card button span{position:absolute;right:8px;bottom:8px;border-radius:6px;padding:2px 7px;background:#0a2929c9;color:white;font-size:21px}
+.repro-gallery-card figcaption{padding:12px 14px 16px}.repro-gallery-card small{display:block;color:#567e74;font-size:10px;letter-spacing:.11em}.repro-gallery-card strong{display:block;margin:4px 0;font-size:15px;line-height:1.3;color:#163d37}.repro-gallery-card p{margin:0;color:#48645d;font-size:12px;line-height:1.5}
+@media(max-width:850px){.repro-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:550px){.repro-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.repro-gallery-card button img{height:110px}.repro-gallery-card figcaption{padding:9px}.repro-gallery-card strong{font-size:12px}.repro-gallery-card p{font-size:10px;line-height:1.42}}
+.repro-part-caption{font-size:12px!important;line-height:1.48;color:#497065;margin-top:9px!important}.repro-part-caption b{font-weight:750;color:#175447;margin-right:6px}
+/* Keep About us visible next to Quiz in the main navigation. */
+.nav a[href="about.html"]{color:#105e57;background:#e3f0e9;border:1px solid #c8e0d3;font-weight:750}
+.nav a[href="about.html"]:hover,.nav a[href="about.html"]:focus-visible{color:#0a493f;background:#cfe8dc;border-color:#98c8b1}

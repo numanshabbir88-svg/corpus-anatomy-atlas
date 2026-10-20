@@ -1,27 +1,27 @@
 {
   "title": "Human skeleton: bones, joints and inner anatomy",
-  "description": "The frame: leverage for muscle, armour for viscera, a calcium bank, and the marrow factory that makes every blood cell.",
-  "updated": "2026-10-18",
+  "description": "Explore the conventional 206 adult bones, axial and appendicular skeleton, joints, compact and spongy bone, and blood-forming marrow.",
+  "updated": "2026-10-19",
   "questions": [
     {
-      "question": "How many bones are in an adult human skeleton?",
-      "answer": "The commonly taught adult count is 206 bones, though individual variants can change a person's count. The atlas separates axial and appendicular structures."
+      "question": "Why is the adult human skeleton usually counted as 206 bones?",
+      "answer": "The conventional adult count includes bones that have fused during development and six middle-ear ossicles. Individual counts can differ because accessory bones, variable sesamoids and fusion patterns vary among people."
     },
     {
-      "question": "What is the difference between axial and appendicular skeleton?",
-      "answer": "The axial skeleton includes skull, vertebral column and thoracic cage. The appendicular skeleton includes limb bones and the shoulder and pelvic girdles."
+      "question": "What belongs to the axial skeleton?",
+      "answer": "The axial skeleton contains the skull, vertebral column and thoracic cage. It supports the head and trunk and helps protect the brain, spinal cord, heart and lungs."
     },
     {
-      "question": "What is the skull?",
-      "answer": "Fuses 8 cranial + 14 facial bones; houses brain and senses. Function: Protection and mastication anchor."
+      "question": "What belongs to the appendicular skeleton?",
+      "answer": "The shoulder and pelvic girdles, arms and legs form the appendicular skeleton. These bones provide attachment and leverage for movement and connect the limbs to the axial framework."
     },
     {
-      "question": "Where is the vertebral column located?",
-      "answer": "7C-12T-5L-sacrum-coccyx with four curves. Function: Axial support and cord protection."
+      "question": "What is the difference between compact and spongy bone?",
+      "answer": "Compact bone forms a dense outer layer; spongy bone contains a lattice of trabeculae inside many bones. Both are living tissues, and marrow occupies spaces within bones."
     },
     {
-      "question": "What is the function of the femur?",
-      "answer": "Function: Weight bearing and stride. Longest, strongest bone; neck-shaft angle."
+      "question": "Where is blood cell production found in adult bones?",
+      "answer": "Red marrow produces blood cell precursors in selected adult bones, especially axial bones and the proximal ends of some long bones. Yellow marrow is richer in fat and has different activity."
     }
   ]
 }

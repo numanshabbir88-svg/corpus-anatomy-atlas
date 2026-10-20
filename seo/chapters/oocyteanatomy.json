@@ -1,0 +1,27 @@
+{
+  "title": "Egg cell anatomy: oocyte and ovulation",
+  "description": "Distinguish primary from secondary oocytes, ovarian follicle development, polar body, zona pellucida, corona radiata and meiosis during ovulation.",
+  "updated": "2026-10-19",
+  "questions": [
+    {
+      "question": "Is the egg released at ovulation already a mature ovum?",
+      "answer": "Typically the released cell is a secondary oocyte arrested in meiosis II, not a completed ovum. Meiosis II normally finishes only after sperm entry."
+    },
+    {
+      "question": "What surrounds the ovulated human oocyte?",
+      "answer": "An extracellular zona pellucida surrounds its plasma membrane, and granulosa-derived corona radiata cells surround the zona. These structures are distinct from the ovarian follicle wall left behind."
+    },
+    {
+      "question": "What is the first polar body?",
+      "answer": "It is a small by-product of unequal division during completion of oocyte meiosis I. It can lie in the perivitelline space between the oocyte membrane and zona pellucida; it is not a second egg."
+    },
+    {
+      "question": "When do human primary oocytes form?",
+      "answer": "Primary oocytes arise before birth in the fetal ovary and remain arrested in meiosis I until selected cycles years later. In a typical cycle an LH surge precedes the final preovulatory meiotic transition."
+    },
+    {
+      "question": "What happens to the follicle after ovulation?",
+      "answer": "The follicle remnant becomes a corpus luteum that produces progesterone and estrogen. If implantation follows, early trophoblast hCG helps maintain that luteal hormone support."
+    }
+  ]
+}

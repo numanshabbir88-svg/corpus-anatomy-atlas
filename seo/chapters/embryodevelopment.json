@@ -1,0 +1,27 @@
+{
+  "title": "Embryonic development: germ layers, neurulation and organ formation",
+  "description": "Follow gastrulation, ectoderm, mesoderm, endoderm, neural tube, somites, cardiac loop and limb buds through early organ formation.",
+  "updated": "2026-10-19",
+  "questions": [
+    {
+      "question": "What are the three embryonic germ layers?",
+      "answer": "Gastrulation establishes ectoderm, mesoderm and endoderm. Together they contribute to later organs and tissues, though any one organ often draws from more than one layer."
+    },
+    {
+      "question": "What does the embryonic neural tube form?",
+      "answer": "It contributes to the brain and spinal cord. It forms after neural plate folding and closure; the microscopic folding process is not directly visible on the generic external development image."
+    },
+    {
+      "question": "When does major embryonic organ formation occur?",
+      "answer": "A standard developmental convention describes much organ-plan formation during roughly weeks three through eight after fertilization. Obstetric gestational weeks counted from the LMP are usually about two weeks higher."
+    },
+    {
+      "question": "How does a flat embryonic disc become a body shape?",
+      "answer": "Head, tail and lateral folds transform the disc into a three-dimensional body and help position the primitive gut. The still digital plate shows a simplified later form, not actual folding in motion."
+    },
+    {
+      "question": "Is the illustrated early human an exact image of week eight?",
+      "answer": "No. It is a stylized non-diagnostic model rather than a measured clinical image or week-specific specimen. Form and timing vary, so age cannot be determined from the rendering."
+    }
+  ]
+}

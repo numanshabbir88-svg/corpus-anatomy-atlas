@@ -1404,7 +1404,7 @@ const ORGANS = {
     "s": "r",
     "d": "The longest, widest segment, lined by cells with a dense brush border of microvilli and many mitochondria.",
     "f": "Reabsorbs ~65% of filtered water and sodium, and 100% of glucose and amino acids; secretes drugs and acids.",
-    "c": "Its SGLT2 transporters are the target of modern diabetes drugs (gliflozins), which also protect the kidney."
+    "c": "SGLT2 inhibitors act on this tubule and can benefit selected patients with diabetes, heart failure or chronic kidney disease; use is a clinical decision."
    },
    "henle": {
     "n": "Loop of Henle",
@@ -2317,7 +2317,7 @@ const ORGANS = {
     "s": "r",
     "d": "About a million myelinated axons wrapped in meninges, running to the optic chiasm. It is brain tissue, not a peripheral nerve.",
     "f": "Carries visual information to the lateral geniculate body and cortex.",
-    "c": "Inflammation (optic neuritis) causes painful vision loss and is often the first sign of multiple sclerosis."
+    "c": "Optic neuritis can cause painful vision loss and has several causes, including demyelinating disease; new vision loss needs prompt assessment."
    },
    "lens": {
     "n": "Lens",
@@ -11443,7 +11443,7 @@ const ORGANS = {
     "t": "Region",
     "d": "Fat-filled wedge beside the anal canal.",
     "f": "Cushions canal expansion; infection space.",
-    "c": "Abscesses track through it — drain promptly.",
+    "c": "Infection may spread through this space; suspected abscess needs clinical assessment.",
     "at": [
      960,
      468
