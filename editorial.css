@@ -33,6 +33,19 @@
 .reading-track{height:3px;position:sticky;top:0;z-index:35;pointer-events:none;background:transparent;margin-bottom:-3px}
 .reading-track span{display:block;width:100%;height:100%;transform:scaleX(0);transform-origin:left center;background:#c6816b;will-change:transform}
 .plate{box-shadow:0 14px 42px -37px #122e2a}.plate img{aspect-ratio:auto}
+/* Static study-guide plates use the same coordinate map as the interactive atlas. */
+.plate-visual{position:relative;overflow:hidden;background:#0d1918;line-height:0}
+.plate-visual img{display:block;width:100%;height:auto;max-height:none;object-fit:contain}
+.plate-annotations{position:absolute;inset:0;z-index:1;width:100%;height:100%;pointer-events:none}
+.plate-annotations .plate-leader{fill:none;stroke:rgba(206,238,229,.78);stroke-width:1.1;vector-effect:non-scaling-stroke}
+.plate-annotations .plate-anchor{fill:#e4b99c;stroke:#183c38;stroke-width:1.4;vector-effect:non-scaling-stroke}
+.plate-mobile-marker{display:none;fill:#fff;stroke:#061616;stroke-width:8px;paint-order:stroke;font:700 23px/1 Arial,sans-serif}
+.plate-callout{position:absolute;z-index:2;transform:translateY(-50%);box-sizing:border-box;width:23%;max-width:196px;min-width:0;min-height:16px;padding:1px 5px;border:1px solid rgba(150,210,196,.22);border-radius:3px;background:rgba(6,24,23,.86);color:#e7f9f4;font:600 9px/1.2 Arial,sans-serif;letter-spacing:.005em;text-shadow:0 1px 2px #061616;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:left}
+.plate-callout.left{left:1.5%;text-align:right}.plate-callout.right{right:1.5%}
+.plate-mobile-key{display:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px 16px;margin:0;padding:12px 15px;background:#102522;color:#eff9f6;list-style:none;font:600 11px/1.35 Arial,sans-serif}
+.plate-mobile-key li{display:flex;gap:7px;align-items:flex-start;min-width:0}.plate-mobile-key b{flex:none;color:#f1c45a;font-size:10px}
+@media(max-width:600px){.plate-callout{display:none}.plate-mobile-marker{display:block}.plate-mobile-key{display:grid}.plate-annotations .plate-leader{stroke-width:1}}
+
 @media (prefers-reduced-motion:no-preference){
   @keyframes editorial-arrive{from{opacity:.6;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
   .hub-intro,.hero-feature,.article-hero,.plate{animation:editorial-arrive .55s ease-out both}

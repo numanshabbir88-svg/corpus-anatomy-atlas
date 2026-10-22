@@ -166,14 +166,6 @@
       umbilicalcord:[380,480], amnion:[420,380], lungs:[440,450], kidneys:[430,520],
       gut:[440,480], bone:[500,600]
     },
-    anatomicallanguage:{
-      position:[520,330], side:[470,330], median:[500,300], parasagittal:[440,300],
-      coronal:[400,260], transverse:[500,460], oblique:[560,520], anterior:[530,260],
-      superior:[520,120], medial:[500,340], proximal:[530,520], superficial:[520,220],
-      ipsilateral:[470,300], flexion:[560,560], abduction:[520,240], rotation:[540,240],
-      circumduction:[540,250], pronation:[600,420], dorsi:[548,840], inversion:[548,880],
-      opposition:[620,430], surface:[520,200], section:[500,460], 'anatomic-variation':[470,600]
-    },
     dentition:{
       dej:[430,300], 'pulp-horns':[470,370], apex:[420,780], cementum:[360,650],
       periodontal:[330,620], cej:[380,470], proximal:[470,180], facial:[330,350], v3:[600,720]
@@ -389,7 +381,7 @@
       'detail_penileerectile_2':[260,600], 'detail_penileerectile_3':[180,720]
     },
     facialnerve:{
-      stylomastoidforamen:[540,560], 'detail_facialnerve_0':[470,500],
+      'detail_facialnerve_0':[470,500],
       'detail_facialnerve_1':[560,700], 'detail_facialnerve_2':[575,730],
       'detail_facialnerve_3':[640,720]
     },
@@ -418,8 +410,7 @@
     nephron:{ 'detail_nephron_1':[660,300] },
     dentition:{ v2:[500,220] },
     skullface:{
-      lparietal:[310,120], ltemporal:[250,470], llacrimal:[332,470],
-      lpalatine:[430,690], lconcha:[438,620]
+      lparietal:[310,120], ltemporal:[250,470], llacrimal:[332,470]
     }
   };
   for(const [chapter,map] of Object.entries(PINS3)){

@@ -174,8 +174,13 @@ for name in ('Right maxilla','Left maxilla','Right zygomatic bone','Left zygomat
     matches=[b for b in skull_parser.previews if b.get('data-part-name')==name]
     if len(matches)!=1: report(f'Skull guide: {name} is missing or duplicated')
     elif name in ('Vomer','Right palatine bone','Left palatine bone','Right inferior nasal concha','Left inferior nasal concha'):
-        if matches[0].get('data-preview-context')!='true' or not matches[0].get('data-plate-src','').endswith('/skull-face-medial.webp'):
-            report(f'Skull guide: hidden bone {name} has a false front-view pointer')
+        # Hidden bones may remain a contextual medial reference or receive a curated
+        # pin on that exact second plate; neither may be presented as a front-view pin.
+        medial=matches[0].get('data-plate-src','').endswith('/skull-face-medial.webp')
+        context=matches[0].get('data-preview-context')
+        has_point=matches[0].get('data-point-x') is not None and matches[0].get('data-point-y') is not None
+        if not medial or (context=='false' and not has_point) or (context=='true' and has_point) or context not in ('true','false'):
+            report(f'Skull guide: hidden bone {name} has an invalid medial-view pointer')
     elif matches[0].get('data-preview-context')!='false':
         report(f'Skull guide: obvious anterior bone {name} lacks its visible marker')
 facial_parser=Page();facial_parser.feed((ROOT/'learn/facialnerve/index.html').read_text(encoding='utf-8'))

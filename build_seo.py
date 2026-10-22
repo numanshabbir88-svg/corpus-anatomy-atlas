@@ -28,9 +28,11 @@ if CONTACT and not re.fullmatch(r'[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+', CONTACT):
     raise SystemExit('CONTACT_EMAIL must be a valid public contact email')
 if PUB and not re.fullmatch(r'pub-\d{16}',PUB):
     raise SystemExit('ADSENSE_PUBLISHER_ID must match your real AdSense pub- plus 16 digits')
-FILES=['organs.js','brain-and-micro-chapters.js','deep-chapters.js','part-enrichment-notes.js','chapter-enrichment.js','skull-chapter.js','dental-chapter.js','foundations-chapters.js','reproduction-stages.js','repro-image-enrichment.js','micro-lens.js']
+FILES=['organs.js','brain-and-micro-chapters.js','deep-chapters.js','part-enrichment-notes.js','chapter-enrichment.js','skull-chapter.js','dental-chapter.js','foundations-chapters.js','reproduction-stages.js','repro-image-enrichment.js','micro-lens.js','part-pins.js']
 load=''.join((ROOT/f).read_text()+'\n' for f in FILES)
-js=f"const vm=require('vm');const data=vm.runInNewContext({json.dumps(load)}+';({{ORGANS,SYSTEMS,MICRO_LENS}})');process.stdout.write(JSON.stringify(data));"
+# The public reading edition uses the same curated pin map as the interactive atlas.
+# part-pins.js expects a browser-like window solely for its diagnostic report.
+js=f"const vm=require('vm');const data=vm.runInNewContext({json.dumps(load)}+';({{ORGANS,SYSTEMS,MICRO_LENS}})',{{window:{{}},console}});process.stdout.write(JSON.stringify(data));"
 data=json.loads(subprocess.run(['node','-'],input=js,text=True,capture_output=True,check=True,cwd=ROOT).stdout)
 ORGANS=data['ORGANS']; SYSTEMS=data['SYSTEMS']; MICRO_LENS=data['MICRO_LENS']
 assert len(ORGANS)==74 and all(len(o['parts'])>=20 for o in ORGANS.values())
@@ -49,17 +51,20 @@ assert len(ORGANS['bodyregions']['parts']) == 28
 assert len(ORGANS['tissuefoundations']['parts']) == 28
 assert len(ORGANS['bodyregions']['regionMaps']['quadrants']) == 4
 assert len(ORGANS['bodyregions']['regionMaps']['nine']) == 9
-assert all(p.get('contextOnly') for p in ORGANS['anatomicallanguage']['parts'].values())
-assert {pid for pid,p in ORGANS['tissuefoundations']['parts'].items() if not p.get('contextOnly')} == {'epithelium','basallamina'}
+assert {'epithelium','basallamina'} <= set(ORGANS['tissuefoundations']['parts'])
 LIFE=['spermanatomy','oocyteanatomy','fertilization','cleavageblastocyst','implantation','placentaanatomy','embryodevelopment','fetaldevelopment','laborfirststage','laborsecondstage','laborthirdstage']
 assert len(LIFE)==11 and all(len(ORGANS[slug]['parts'])==20 and len(ORGANS[slug]['quiz'])==3 for slug in LIFE)
-assert all(not ORGANS[slug]['photo']['hot'] for slug in LIFE[2:])
-assert set(ORGANS['spermanatomy']['photo']['hot'])=={'head','midpiece','flagellum'}
-assert set(ORGANS['oocyteanatomy']['photo']['hot'])=={'zona','corona','polar'}
+assert {'head','midpiece','flagellum'} <= set(ORGANS['spermanatomy']['photo']['hot'])
+assert {'zona','corona','polar'} <= set(ORGANS['oocyteanatomy']['photo']['hot'])
 assert [ORGANS[slug]['photo']['file'] for slug in LIFE[-3:]]==['repro-labor-stage-one.png','repro-labor-stage-two.png','repro-labor-stage-three.png']
 assert ORGANS['fetaldevelopment']['photo']['file']=='repro-fetus-second-trimester.png'
 assert sum(len(ORGANS[slug]['visualGallery']) for slug in LIFE)==29
 assert all(len(ORGANS[slug]['parts'])==20 and all(p.get('referencePlate') or p.get('microLens') or pid in ORGANS[slug]['photo']['hot'] for pid,p in ORGANS[slug]['parts'].items()) for slug in LIFE)
+# Every usable chapter coordinate must point to a real documented part.
+for _key,_o in ORGANS.items():
+    for _pid,_xy in (_o.get('photo') or {}).get('hot',{}).items():
+        if isinstance(_xy,list) and len(_xy)==2 and all(isinstance(v,(int,float)) and 0<=v<=1000 for v in _xy):
+            assert _pid in _o['parts'], f'{_key}: pointer without a part: {_pid}'
 
 
 
@@ -167,7 +172,7 @@ def footer(depth=0):
 
 def document(title,description,path,body,depth=0,image='',extra=''):
     root='../'*depth or './'
-    head=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#125e58"><title>{E(title)} | Corpus</title>{meta(title,description,path,image)}{extra}<link rel="icon" href="{root}favicon.svg"><link rel="stylesheet" href="{root}editorial.css?v=48"></head><body>'
+    head=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#125e58"><title>{E(title)} | Corpus</title>{meta(title,description,path,image)}{extra}<link rel="icon" href="{root}favicon.svg"><link rel="stylesheet" href="{root}editorial.css?v=62"></head><body>'
     return head+header(depth)+body+footer(depth)+'</body></html>'
 
 def write(path,text):
@@ -194,12 +199,23 @@ def dimensions(image):
     if not width or not height: raise ValueError(f'Empty image: {image}')
     return f'width="{width}" height="{height}"'
 
+def valid_hot(point):
+    return (isinstance(point,list) and len(point)==2
+            and all(isinstance(v,(int,float)) and not isinstance(v,bool) and 0<=v<=1000 for v in point))
+
 def part_plate(o,pid,p):
-    """Choose a plate that actually depicts the part; return no pointer for unverified structures."""
+    """Mirror the interactive atlas: prefer a real point on the chosen plate over a generic reference."""
+    pin=p.get('pinPlate') or {}
+    if pin.get('file') and valid_hot(pin.get('hot')):
+        return pin['file'],pin['hot'],'detail',''
     lens_id=p.get('microLens')
     if lens_id in MICRO_LENS:
         lens=MICRO_LENS[lens_id]
-        return lens['file'],p.get('microPoint'),'scope',p.get('deepRef') or ''
+        point=p.get('microPoint')
+        return lens['file'],point if valid_hot(point) else None,'scope',p.get('deepRef') or ''
+    own=(o.get('photo') or {}).get('hot',{}).get(pid)
+    if valid_hot(own) and not p.get('contextOnly'):
+        return o['photo']['file'],own,'region',''
     if p.get('referencePlate'):
         return p['referencePlate'],None,'region',''
     plate=o;part=pid;ref=''
@@ -211,10 +227,56 @@ def part_plate(o,pid,p):
         if candidate in target['parts'] and target['parts'][candidate]['n']==p['n']:
             plate=target;part=candidate;ref=source
     raw=(plate.get('photo') or {}).get('hot',{}).get(part)
-    point=(raw if not plate['parts'][part].get('contextOnly') and isinstance(raw,list)
-           and len(raw)==2 and all(isinstance(v,(int,float)) and not isinstance(v,bool)
-                                   and 0<=v<=1000 for v in raw) else None)
+    point=(raw if valid_hot(raw) and not plate['parts'][part].get('contextOnly') else None)
     return plate['photo']['file'],point,'detail' if ref else 'region',ref
+
+def photo_annotations(o,image):
+    """Static leader lines and labels using the same 0–1000 hot points as the SPA."""
+    photo=o.get('photo') or {}
+    pins=[]
+    for pid,xy in photo.get('hot',{}).items():
+        if pid in o['parts'] and valid_hot(xy):
+            pins.append((len(pins)+1,pid,o['parts'][pid].get('n',pid),xy[0],xy[1]))
+    if not pins:
+        return '',0,''
+    sides={'l':[],'r':[]}
+    for row in pins:
+        sides['l' if row[3]<500 else 'r'].append(row)
+    paths=[];labels=[]
+    full=f'../../img/webp/{Path(image).stem}.webp'
+    for side in ('l','r'):
+        rows=sorted(sides[side],key=lambda row:row[4])
+        n=len(rows)
+        if not n: continue
+        gap=min(84,900/(n-1)) if n>1 else 0
+        slots=[max(42,min(958,row[4])) for row in rows]
+        for i in range(1,n): slots[i]=max(slots[i],slots[i-1]+gap)
+        if slots[-1]>958:
+            slots[-1]=958
+            for i in range(n-2,-1,-1): slots[i]=min(slots[i],slots[i+1]-gap)
+        if slots[0]<42:
+            shift=42-slots[0]
+            slots=[y+shift for y in slots]
+        endpoint=245 if side=='l' else 755
+        for (num,pid,name,x,y),slot in zip(rows,slots):
+            paths.append(f'<path class="plate-leader" d="M {x:g} {y:g} L {endpoint} {slot:.1f}"/><circle class="plate-anchor" cx="{x:g}" cy="{y:g}" r="4"/><text class="plate-mobile-marker" x="{x:g}" y="{y-8:g}" text-anchor="middle">{num:02d}</text>')
+            labels.append(f'<span class="plate-callout {"left" if side=="l" else "right"}" '
+                f'title="{E(name)}" style="top:{slot/10:.2f}%">{E(name)}</span>')
+    mobile_key='<ol class="plate-mobile-key" aria-label="Numbered structure labels">'+''.join(f'<li><b>{num:02d}</b>{E(name)}</li>' for num,_,name,_,_ in pins)+'</ol>'
+    return f'<svg class="plate-annotations" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">{"".join(paths)}</svg>{"".join(labels)}',len(pins),mobile_key
+
+def photo_figure(o,image,stage_note=''):
+    relative=f'../../img/webp/{Path(image).stem}.webp'
+    overlay,count,mobile_key=photo_annotations(o,image)
+    dimensions_html=dimensions(f'webp/{Path(image).stem}.webp')
+    alt=f'Digital educational or regional anatomy illustration for {o["title"]}; {stage_note}'
+    if count:
+        caption=f'Thin leader lines label {count} visible structures on this teaching plate. {stage_note}'.strip()
+    else:
+        caption=f'Regional teaching illustration; individual structures are not separately pinned on this image. {stage_note}'.strip()
+    return (f'<figure class="plate"><div class="plate-visual{" annotated" if count else ""}>'
+            f'<img src="{E(relative)}" alt="{E(alt)}" {dimensions_html} loading="eager" fetchpriority="high" decoding="async">'
+            f'{overlay}</div>{mobile_key}<figcaption>{E(caption)}</figcaption></figure>')
 
 def part_block(items,o,start=1):
     chunks=[]
@@ -341,7 +403,7 @@ def article(key,o):
     crumb=[('Home','/'),('Study guides','/learn/'),(o['title'],f'/learn/{key}/')]
     opening=f'<nav class="crumb shell" aria-label="Breadcrumb"><a href="../../index.html">Home</a><i>/</i><a href="../">Study guides</a><i>/</i><span>{E(o["title"])}</span></nav><section class="shell hero article-hero"><div class="eyebrow">{E(system)} · illustrated anatomy</div><h1>{E(title)}</h1><p>{E(desc)}</p><div class="action-row"><a class="button" href="../../index.html#/{key if key not in ("male","female") else key+"overview"}">Open interactive atlas ↗</a><a class="button alt" href="#parts">Read the structures ↓</a></div><p class="byline">Corpus educational reference · {len(items)} documented study entries · Updated {GUIDES[key]["updated"]}</p></section>'
     stage_note=o.get('photo',{}).get('notes','') if key in LIFE_PATH else ''
-    photo=(f'<figure class="plate"><img src="../../{E(img.lstrip("/"))}" alt="Digital educational or regional anatomy illustration for {E(o["title"])}; {E(stage_note)}" {dimensions("webp/"+Path(image).stem+".webp")} loading="eager" fetchpriority="high" decoding="async"><figcaption>Regional teaching illustration. {E(stage_note)} Preview a part for a more relevant close-up when available; only identifiable structures receive a pointer.</figcaption></figure>' if img else '')
+    photo=photo_figure(o,image,stage_note) if img else ''
     facts=[('Body system',system),('Location',o.get('region','')),('Blood supply',o.get('blood','')),('Innervation',o.get('nerve',''))]
     facts_html='<div class="facts">'+''.join(f'<div class="fact"><b>{E(k)}</b><span>{E(v)}</span></div>' for k,v in facts)+'</div>'
     pinned_html=(f'<section id="parts" class="content-section"><div class="eyebrow">Illustrated structures</div><h2>Read the anatomy, part by part</h2><p class="section-lead">These {len(pinned)} structures describe anatomy related to the chapter’s regional illustration. Each entry separates location, function and a clinical point.</p><div class="part-list">{part_block(pinned,o)}</div></section>' if pinned else '')
