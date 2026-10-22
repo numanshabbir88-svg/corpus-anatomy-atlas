@@ -1,0 +1,317 @@
+From d7986d934bcdfeef091f2b5848375f52a524483d Mon Sep 17 00:00:00 2001
+From: Corpus review <review@local>
+Date: Thu, 22 Oct 2026 00:37:20 +0000
+Subject: [PATCH 2/5] Add thin leader-line pointers across chapters and
+ de-clutter dense plates
+
+- part-pins.js: new pointer pass for parts that only had a written note.
+  274 parts gain the same dot + hairline leader + name label that the rest of
+  the atlas uses (heart, brain, spleen, liver, gut, pancreas, thyroid, bladder,
+  uterus/cervix/vagina/support, male pelvis+testis+prostate, clitoral complex,
+  penile erectile tissue, facial and trigeminal nerves, eye, retina, nephron,
+  brachial plexus, deep cerebrum, meninges/CSF, brainstem, pulmonary acinus,
+  hepatic lobule, intestinal wall, skin layers, labor stages 1-2, placenta,
+  fetal development, anatomical language, body regions).
+- 11 tissue-level rows (alveoli, glomerulus/tubules, lobule, villi, islets,
+  acini, follicle) point at their existing microscope cutaways instead of a
+  false pin on a gross plate.
+- app.js: declutterLabels() hides labels that would print over another label
+  (dot + leader stay, name stays in the Structure labels list), so no chapter
+  shows stacked text. Verified 0 overlaps across all 74 chapters.
+- index.html: cache-bust to v=49.
+---
+ app.js       |  32 +++++++++
+ index.html   |   9 +--
+ part-pins.js | 200 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 237 insertions(+), 4 deletions(-)
+ create mode 100644 part-pins.js
+
+diff --git a/app.js b/app.js
+index e5cdda8..47c36a9 100644
+--- a/app.js
++++ b/app.js
+@@ -802,6 +802,33 @@ function bindOrgan(key){
+     });
+     $$('.hoverlab',svg).forEach(el=>el.addEventListener('click',()=>select(el.dataset.id)));
+   }
++  /* Dense plates (heart, intestine wall, meninges) can stack more labels than the
++     image height allows. Labels that would collide are hidden — their dot and leader
++     stay clickable and the name is still in the Structure labels list — so nothing
++     ever prints on top of another label. */
++  function declutterLabels(){
++    const wrap=$('.photo-wrap',diagram); if(!wrap)return;
++    const base=wrap.getBoundingClientRect().top;
++    const sides={l:[],r:[]};
++    $$('.photo-callout',diagram).forEach(l=>{
++      l.style.display='';
++      const leader=diagram.querySelector(`.photo-leader[data-photo-pid="${l.dataset.photoPid}"]`);
++      if(leader)leader.style.display='';
++      const r=l.getBoundingClientRect();
++      sides[l.classList.contains('l')?'l':'r'].push({l,top:r.top-base,bottom:r.bottom-base});
++    });
++    Object.values(sides).forEach(list=>{
++      list.sort((a,b)=>a.top-b.top);
++      let floor=-Infinity;
++      list.forEach(item=>{
++        if(item.top<floor+3){
++          item.l.style.display='none';
++          const leader=diagram.querySelector(`.photo-leader[data-photo-pid="${item.l.dataset.photoPid}"]`);
++          if(leader)leader.style.display='none';
++        } else floor=item.bottom;
++      });
++    });
++  }
+   function renderStage(){
+     if(o.photo){ if(view==='focus'&&!selId) selId=Object.keys(o.photo.hot).find(pid=>o.parts[pid]&&validHot(o.photo.hot,pid))||null; diagram.innerHTML=photoWrap(); svg=null;
+       /* The label list is a light-card control, not part of the dark image stage:
+@@ -810,10 +837,15 @@ function bindOrgan(key){
+       const key=diagram.querySelector('.photo-key');
+       document.querySelectorAll('.stage-card > .photo-key').forEach(n=>n.remove());
+       if(key)$('#dscroll')?.insertAdjacentElement('afterend',key);
++      const plateImg=$('.photo-wrap img',diagram);
++      const runDeclutter=()=>requestAnimationFrame(()=>requestAnimationFrame(declutterLabels));
++      if(plateImg){plateImg.complete?runDeclutter():plateImg.addEventListener('load',runDeclutter,{once:true})}else runDeclutter();
++      runDeclutter();
+       $$('[data-photo-pid]',diagram).filter(b=>b.tagName==='BUTTON').forEach(b=>b.addEventListener('click',()=>select(b.dataset.photoPid)));
+     } else buildSvg();
+     syncSel();
+   }
++  let rzT; addEventListener('resize',()=>{clearTimeout(rzT);rzT=setTimeout(declutterLabels,140)});
+   $$('[data-stage]').forEach(b=>b.addEventListener('click',()=>{
+     view=b.dataset.stage;
+     $$('[data-stage]').forEach(x=>{const on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on)});
+diff --git a/index.html b/index.html
+index d24198e..3c3c89f 100644
+--- a/index.html
++++ b/index.html
+@@ -11,7 +11,7 @@
+ <meta property="og:description" content="74 anatomy chapters: realistic medical renders, 206-bone and full-body muscle atlases, male and female sections, interactive highlights and quizzes.">
+ <meta property="og:type" content="website">
+ <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d3b39'/%3E%3Cpath d='M16 26C9 21 5 17 5 12.5 5 9 7.7 6.5 11 6.5c2.2 0 4 1.2 5 2.9 1-1.7 2.8-2.9 5-2.9 3.3 0 6 2.5 6 6C27 17 23 21 16 26z' fill='%23e0645c'/%3E%3C/svg%3E">
+-<link rel="stylesheet" href="styles.css?v=48">
++<link rel="stylesheet" href="styles.css?v=49">
+ <meta name="robots" content="noindex,follow"></head>
+ <body>
+ 
+@@ -118,8 +118,9 @@
+ <script src="foundations-chapters.js?v=45"></script>
+ <script src="reproduction-stages.js?v=48"></script>
+ <script src="repro-image-enrichment.js?v=48"></script>
+-<script src="micro-lens.js?v=48"></script>
+-<script src="app.js?v=48"></script>
+-<script src="preview.js?v=48" defer></script>
++<script src="micro-lens.js?v=49"></script>
++<script src="part-pins.js?v=49"></script>
++<script src="app.js?v=49"></script>
++<script src="preview.js?v=49" defer></script>
+ </body>
+ </html>
+diff --git a/part-pins.js b/part-pins.js
+new file mode 100644
+index 0000000..9acd361
+--- /dev/null
++++ b/part-pins.js
+@@ -0,0 +1,200 @@
++/* ---------------------------------------------------------------------------
++   Corpus · extra structure pointers (2026-10)
++   Adds the thin leader line + part-name label to parts that previously had no
++   pointer on their chapter plate. Coordinates use the same 0–1000 space as
++   ORGANS[].photo.hot, so every new entry renders exactly like the existing
++   pins (dot on the structure, hairline leader, label beside the plate).
++
++   Placement rules used here:
++   · a part is only added when that structure is actually visible on the plate;
++   · tissues and cell-scale rows keep their microscope cutaway (micro-lens.js);
++   · abstract rows (timing, phases, tooth numbers, single-cell features) stay as
++     study notes instead of receiving a false pointer.
++   --------------------------------------------------------------------------- */
++(function(){
++  const PINS={
++    heart:{
++      svc:[120,155], ivc:[140,700], la:[690,255], pv:[770,290],
++      aortic:[545,372], sa:[140,235]
++    },
++    brain:{
++      frontal:[800,240], parietal:[700,170], occipital:[420,300], temporal:[500,380],
++      pituitary:[540,520], fourth:[500,690]
++    },
++    spleen:{ sinusoid:[600,520] },
++    liver:{ hepvein:[570,300] },
++    gut:{ rugae:[540,190] },
++    pancreas:{ accessory:[700,510] },
++    thyroid:{ pyramidal:[520,430] },
++    bladder:{ sphincter:[500,800] },
++    gynuterus:{ spiral:[560,300], arcuate:[600,300] },
++    gyncervix:{ mucus:[510,500] },
++    gynvagina:{ lymphv:[520,700] },
++    gynsupport:{ plexus:[470,650] },
++    maletestis:{ cremast:[400,700] },
++    maleprostate:{ pudend:[560,690] },
++
++    clitoralcomplex:{
++      clitoralglans:[500,300], clitoralprepuce:[520,320], rightcorpuscavernosum:[430,380],
++      leftcorpuscavernosum:[570,380], tunicaalbuginea:[450,400], ischiocavernosus:[300,430],
++      suspensoryligament:[500,360], cavernousautonomicfibers:[430,450],
++      dorsalclitoralartery:[380,430], venousdrainage:[480,480]
++    },
++    penileerectile:{
++      cavernosaltrabeculae:[260,430], deeppenilearteries:[230,400], helicinearteries:[250,450],
++      subtunicalvenules:[200,470], dorsalarteries:[340,290], dorsalnerves:[360,270],
++      cavernousnerves:[430,330], dartosfascia:[420,350], glanspenis:[300,880], penilecruraandbulb:[180,700]
++    },
++    facialnerve:{
++      facialmotornucleus:[420,470], nervusintermedius:[480,520], internalacousticmeatus:[455,500],
++      geniculateganglion:[470,540], greaterpetrosalnerve:[500,560], nervetostapedius:[490,570],
++      chordatympani:[560,650], posteriorauricularbranch:[540,600], facialsensationcnv:[700,300]
++    },
++    trigeminalnerve:{
++      trigeminalsensoryroot:[500,330], frontalnerve:[690,270], nasociliarynerve:[670,320],
++      superioralveolarnerves:[720,560], auriculotemporalnerve:[600,640], buccalsensorynerve:[700,610],
++      lingualnerve:[660,760], mentalnerve:[720,760], motorrootofv3:[560,600], cornealreflexloop:[640,280]
++    },
++    eyeanatomy:{
++      bowmanlayer:[238,430], cornealstroma:[250,400], descemetmembrane:[270,440],
++      cornealendothelium:[280,450], zonularfibers:[340,420], posteriorchamber:[300,440],
++      trabecularmeshwork:[290,400], canalofschlemm:[300,415]
++    },
++    retina:{
++      internallimitingmembrane:[170,330], nervefiberlayer:[180,350], innerplexiformlayer:[300,450],
++      innernuclearlayer:[400,500], outerplexiformlayer:[500,550], outernuclearlayer:[560,580],
++      externallimitingmembrane:[600,595], rods:[650,660], cones:[680,640], mllerglia:[700,500],
++      opticdisc:[870,430], centralretinalartery:[880,400]
++    },
++    nephron:{
++      efferentarteriole:[330,240], filtrationbasementmembrane:[365,290], podocytefootprocesses:[370,310],
++      mesangialcells:[385,285], maculadensa:[610,300], juxtaglomerularcells:[320,300],
++      principalcells:[700,540], intercalatedcells:[710,560]
++    },
++    brachialplexus:{
++      posteriordivisions:[590,480], medialcord:[660,510], musculocutaneousnerve:[700,560],
++      mediannerve:[710,600], ulnarnerve:[700,650], axillarynerve:[690,540], radialnerve:[730,630],
++      longthoracicnerve:[500,450], suprascapularnerve:[520,430]
++    },
++    cerebraldeep:{
++      globuspallidus:[650,600], subthalamicnucleus:[590,640],
++      primarymotorcortex:[380,230], primarysomatosensorycortex:[500,200]
++    },
++    meningescsf:{
++      periostealcranialdura:[480,140], meningealcranialdura:[500,155], straightsinus:[620,300],
++      transversesinus:[720,600], subarachnoidspace:[460,200], interventricularforamina:[520,420],
++      thirdventricle:[540,500], cerebralaqueduct:[560,560], arachnoidgranulations:[560,130]
++    },
++    brainstemdeep:{
++      superiorcolliculus:[430,150], inferiorcolliculus:[445,215], substantianigra:[415,255],
++      cerebralpeduncles:[400,285], pontinenuclei:[470,430], medullarypyramids:[500,790],
++      inferiorolives:[560,760], cerebellarvermis:[660,380], superiorcerebellarpeduncle:[640,330],
++      inferiorcerebellarpeduncle:[630,600]
++    },
++    pulmonaryacinus:{
++      surfactantlayer:[480,660], lamellarbodies:[500,670], airbloodbarrier:[700,650],
++      alveolarseptum:[640,560], elasticfibers:[560,620], poresofkohn:[600,540],
++      pulmonaryarteriole:[700,700], pulmonaryvenule:[760,690]
++    },
++    hepaticlobule:{
++      sinusoidalendothelium:[545,350], spaceofdisse:[555,360], bilecanaliculi:[600,380],
++      canalsofhering:[430,200], kupffercells:[520,350], hepaticstellatecells:[540,370],
++      zone1periportal:[400,180], zone2intermediate:[500,340], zone3centrilobular:[560,470],
++      hepaticveindrainage:[500,560]
++    },
++    intestinalwall:{
++      cryptoflieberkhn:[300,400], brushborder:[350,240], panethcell:[320,450],
++      cryptstemcells:[330,470], enteroendocrinecell:[400,300], villuscapillaries:[300,280],
++      muscularismucosae:[430,700], submucosalplexus:[440,740], circularmuscle:[470,820],
++      longitudinalmuscle:[490,870], serosa:[510,950]
++    },
++    skinlayers:{
++      melanocytes:[205,330], langerhanscells:[210,300], apocrinesweatgland:[600,520],
++      meissnercorpuscle:[230,400], freenerveendings:[240,430]
++    },
++
++    /* Conception, pregnancy and birth plates: only the structures that are
++       actually drawn on each render receive a pointer. */
++    laborfirststage:{
++      contractions:[440,300], myometrium:[560,260], fundus:[500,150], lowersegment:[470,470],
++      cervix:[490,610], internalos:[495,650], externalos:[495,700], effacement:[520,640],
++      dilation:[470,660], mucus:[505,690], membranes:[440,560], amnioticfluid:[520,480],
++      presenting:[450,430], engagement:[470,540], pelvis:[520,720], vagina:[520,760],
++      complete:[480,690]
++    },
++    laborsecondstage:{
++      full:[500,600], bonyinlet:[450,650], ischial:[400,680], outlet:[500,760],
++      pubicsymphysis:[430,740], sacrum:[600,600], pelvicfloor:[480,790], vagina:[500,720],
++      perineum:[500,820], vertex:[450,640], station:[460,620], descent:[470,580],
++      flexion:[480,600], internalrotation:[500,640], extension:[510,670],
++      restitution:[520,700], shoulders:[500,730], birth:[520,780]
++    },
++    placentaanatomy:{
++      placenta:[400,300], chorionicplate:[430,280], basalplate:[300,400], villi:[380,420],
++      fetalcapillary:[420,440], intervillous:[330,470], placentalbarrier:[400,500],
++      spiral:[300,520], umbilicalarteries:[520,640], umbilicalvein:[560,620],
++      wharton:[540,600], amnion:[480,300], chorion:[460,330], decidua:[330,560],
++      cotyledon:[360,360], gasexchange:[430,460], delivery:[500,360]
++    },
++    fetaldevelopment:{
++      fetalhead:[430,300], limbs:[520,520], heart:[450,430], placenta:[300,380],
++      umbilicalcord:[380,480], amnion:[420,380], lungs:[440,450], kidneys:[430,520],
++      gut:[440,480], bone:[500,600]
++    },
++    anatomicallanguage:{
++      position:[520,330], side:[470,330], median:[500,300], parasagittal:[440,300],
++      coronal:[400,260], transverse:[500,460], oblique:[560,520], anterior:[530,260],
++      superior:[520,120], medial:[500,340], proximal:[530,520], superficial:[520,220],
++      ipsilateral:[470,300], flexion:[560,560], abduction:[520,240], rotation:[540,240],
++      circumduction:[540,250], pronation:[600,420], dorsi:[548,840], inversion:[548,880],
++      opposition:[620,430], surface:[520,200], section:[500,460], 'anatomic-variation':[470,600]
++    },
++    bodyregions:{
++      dorsalcavity:[500,180], cranialcavity:[500,60], vertebralcavity:[500,140],
++      ventralcavity:[500,450], thoraciccavity:[500,300], pleural:[370,280], mediastinum:[500,330],
++      pericardial:[510,340], diaphragm:[500,490], abdominal:[500,650], pelvic:[500,880],
++      peritoneum:[500,700], retroperitoneal:[450,760], ruq:[420,600], luq:[580,580],
++      rlq:[420,800], llq:[580,800], rhypochondriac:[420,560], epigastric:[500,545],
++      lhypochondriac:[580,560], rlumbar:[420,660], umbilical:[500,680], llumbar:[580,660],
++      riliac:[420,800], hypogastric:[500,830], liliac:[580,800], sternal:[500,230],
++      iliaccrest:[390,840]
++    }
++  };
++
++  /* Tissues and cell-scale structures keep the microscope cutaway instead of a
++     pointer on a gross-anatomy plate. */
++  const LENSES={
++    lungs:{alveoli:'alveolar'},
++    kidney:{glom:'nephron',pct:'nephron',henle:'nephron',dct:'nephron',duct:'nephron'},
++    liver:{lobule:'lobule'},
++    gut:{villi:'intestine'},
++    pancreas:{islet:'pancreas',acini:'pancreas'},
++    thyroid:{follicle:'thyroid'}
++  };
++
++  let pinned=0, lensed=0, unknown=[];
++  for(const [chapter,map] of Object.entries(PINS)){
++    const o=ORGANS[chapter];
++    if(!o||!o.photo){unknown.push(chapter);continue}
++    o.photo.hot=o.photo.hot||{};
++    for(const [pid,xy] of Object.entries(map)){
++      if(!o.parts[pid]){unknown.push(chapter+'.'+pid);continue}
++      if(o.photo.hot[pid])continue;               /* never overwrite curated pins */
++      if(!Array.isArray(xy)||xy.length!==2)continue;
++      o.photo.hot[pid]=xy;
++      delete o.parts[pid].contextOnly;            /* it is now pointed at on the plate */
++      pinned++;
++    }
++  }
++  for(const [chapter,map] of Object.entries(LENSES)){
++    const o=ORGANS[chapter]; if(!o)continue;
++    for(const [pid,lens] of Object.entries(map)){
++      const p=o.parts[pid]; if(!p||p.microLens)continue;
++      p.microLens=lens;
++      if(MICRO_ORIGINS[chapter]&&!p.microOrigin)p.microOrigin=MICRO_ORIGINS[chapter];
++      lensed++;
++    }
++  }
++  if(unknown.length)console.warn('part-pins: skipped',unknown.join(', '));
++  window.CORPUS_PIN_REPORT={pinned,lensed};
++})();
+-- 
+2.47.3
+

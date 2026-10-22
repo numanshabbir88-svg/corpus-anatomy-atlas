@@ -231,6 +231,10 @@ function viewOrgans(params){
 // Use a relevant teaching plate for each part; never pin a microscopic cell on a gross image.
 function partPlate(o,id){
  const p=o.parts[id];
+ /* A part that is hidden on the chapter plate can point at a second, dedicated
+    plate (for example the medial skull view) without inventing a false pin. */
+ if(p.pinPlate&&p.pinPlate.file&&Array.isArray(p.pinPlate.hot))
+  return {file:p.pinPlate.file,hot:p.pinPlate.hot,kind:'detail',reference:''};
  if(p.microLens && MICRO_LENS[p.microLens]){
   const lens=MICRO_LENS[p.microLens];
   return {file:lens.file,hot:p.microPoint||null,kind:'scope',reference:p.deepRef||'',
@@ -250,11 +254,22 @@ function partPlate(o,id){
 function miniChip(o,id){
  if(!o.photo)return '';
  const plate=partPlate(o,id),h=plate.hot||[500,500],placed=!!plate.hot;
- const name=o.parts[id]?.n||o.title;
- const point=placed?` data-point-x="${h[0]}" data-point-y="${h[1]}"`:'';
- const ref=plate.reference?` data-reference-href="/learn/${plate.reference}/"`:'';
- const scope=plate.kind==='scope'?` data-overview-src="${attr(imgSrc(plate.overview))}" data-lens-title="${attr(plate.lensTitle)}" data-source-url="${attr(plate.sourceUrl)}"${plate.origin?` data-origin-x="${plate.origin[0]}" data-origin-y="${plate.origin[1]}"`:''}`:'';
- return `<button class="part-mini-trigger" type="button" data-plate-preview data-plate-src="${attr(imgSrc(plate.file))}" data-part-name="${attr(name)}" data-preview-kind="${plate.kind}" data-preview-context="${!placed}"${point}${ref}${scope} aria-label="Enlarge anatomy image for ${attr(name)}"><span class="mini${placed?'':' reference'}" style="background-image:url(${imgSrc(plate.file,true)});${placed?`background-position:${(h[0]/10).toFixed(1)}% ${(h[1]/10).toFixed(1)}%`:''}"></span><span class="part-mini-expand" aria-hidden="true">⤢</span></button>`;
+  const name=o.parts[id]?.n||o.title;
+  const point=placed?` data-point-x="${h[0]}" data-point-y="${h[1]}"`:'';
+  const ref=plate.reference?` data-reference-href="/learn/${plate.reference}/"`:'';
+  const scope=plate.kind==='scope'?` data-overview-src="${attr(imgSrc(plate.overview))}" data-lens-title="${attr(plate.lensTitle)}" data-source-url="${attr(plate.sourceUrl)}"${plate.origin?` data-origin-x="${plate.origin[0]}" data-origin-y="${plate.origin[1]}"`:''}`:'';
+  /* A study note with no pin and no tissue lens used to borrow a random crop of the
+     chapter plate, so every row showed the same meaningless thumbnail. Those rows now
+     show a neutral note glyph instead of pretending to locate the structure. */
+  const isLens=plate.kind==='scope';
+  const chip=placed
+    ? `<span class="mini" style="background-image:url(${imgSrc(plate.file,true)});background-position:${(h[0]/10).toFixed(1)}% ${(h[1]/10).toFixed(1)}%"></span>`
+    : isLens
+      ? `<span class="mini reference" style="background-image:url(${imgSrc(plate.file,true)})"></span>`
+      : `<span class="mini note" aria-hidden="true">${icon('info')}</span>`;
+  /* data-preview-context="true" means "no pointer on this plate" — it stays true for a
+     lens that is only a tissue-type reference, so the preview never claims a location. */
+  return `<button class="part-mini-trigger" type="button" data-plate-preview data-plate-src="${attr(imgSrc(plate.file))}" data-part-name="${attr(name)}" data-preview-kind="${plate.kind}" data-preview-context="${placed?'false':'true'}"${point}${ref}${scope} aria-label="${placed||isLens?'Enlarge anatomy image for':'Open the study note plate for'} ${attr(name)}">${chip}<span class="part-mini-expand" aria-hidden="true">⤢</span></button>`;
 }
 function boneSection(o){
  const tot=o.bones206.reduce((a,g)=>a+g.n,0);
@@ -461,7 +476,7 @@ function viewOrgan(key){
       <h3 id="iName">${esc(o.title)}</h3>
       <div class="latin" id="iLatin">${esc(o.latin)}</div>
       <p class="desc" id="iDesc">${esc(o.blurb)} Select a label or open a study note below for anatomy, function and clinical context. Unpinned notes are not highlighted on the image.</p>
-      <div class="box"><b>Function</b><span id="iFn">${esc(o.region)}</span></div>
+      <div class="box"><b id="iFnLabel">Location</b><span id="iFn">${esc(o.region)}</span></div>
       <div class="box clin"><b>Clinical pearl</b><span id="iRel">${esc(o.parts[Object.keys(o.parts)[0]].c)}</span></div>
       <div class="hint">${icon('bulb')} Tap a label to read about a structure. Focus mode animates the selected highlight over the same realistic image, not the organ itself.</div>
       <div class="info-nav">
@@ -767,12 +782,13 @@ function bindOrgan(key){
       list.forEach((item,i)=>{
         const {pid,x,y}=item,slot=slots[i], end=side==='l'?265:735;
         paths.push(`<path class="photo-leader" data-photo-pid="${pid}" d="M ${x} ${y} L ${end} ${slot}"/><circle class="photo-point" data-photo-pid="${pid}" cx="${x}" cy="${y}" r="3.5"/>`);
-        callouts.push(`<button type="button" class="photo-callout ${side}" data-photo-pid="${pid}" style="top:${(slot/10).toFixed(2)}%" aria-label="Show ${esc(o.parts[pid].n)}">${esc(o.parts[pid].n)}</button>`);
+        callouts.push(`<button type="button" class="photo-callout ${side}" data-photo-pid="${pid}" data-x="${x}" data-y="${y}" style="top:${(slot/10).toFixed(2)}%" title="${esc(o.parts[pid].n)}" aria-label="Show ${esc(o.parts[pid].n)}">${esc(o.parts[pid].n)}</button>`);
         anchors.push(`<button type="button" class="photo-hot" data-photo-pid="${pid}" style="left:${(x/10).toFixed(2)}%;top:${(y/10).toFixed(2)}%" aria-label="Show ${esc(o.parts[pid].n)}"></button>`);
       });
     }
     const key=ids.length?`<details class="photo-key" ${matchMedia('(max-width:620px)').matches?'open':''}><summary>Structure labels — ${ids.length} visible landmarks</summary><div class="photo-key-list">${ids.map(pid=>`<button type="button" data-photo-pid="${pid}">${esc(o.parts[pid].n)}</button>`).join('')}</div></details>`:'';
-    return `<div class="photo-wrap annotated${labelsOn?' lbls':''}${view==='focus'?' focus-mode':''}${view==='focus'&&$('[data-focus-pulse]')?.getAttribute('aria-pressed')==='true'?' pulse-on':''}"><img src="${imgSrc(p.file)}" alt="${esc(o.title)} — ${o.photo.notes?esc(o.photo.notes):o.system==='foundations'?'digital educational reference model':'realistic anatomical render'}" draggable="false">
+    const dens=ids.length>=22?' vdense':ids.length>=15?' dense':'';
+    return `<div class="photo-wrap annotated${dens}${labelsOn?' lbls':''}${view==='focus'?' focus-mode':''}${view==='focus'&&$('[data-focus-pulse]')?.getAttribute('aria-pressed')==='true'?' pulse-on':''}"><img src="${imgSrc(p.file)}" alt="${esc(o.title)} — ${o.photo.notes?esc(o.photo.notes):o.system==='foundations'?'digital educational reference model':'realistic anatomical render'}" draggable="false">
       <svg class="photo-leaders" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">${paths.join('')}</svg>
       ${callouts.join('')}${anchors.join('')}</div>${key}`;
   }
@@ -795,12 +811,94 @@ function bindOrgan(key){
     });
     $$('.hoverlab',svg).forEach(el=>el.addEventListener('click',()=>select(el.dataset.id)));
   }
+  /* Dense plates (heart, intestine wall, meninges) can stack more labels than the
+     image height allows. Labels that would collide are hidden — their dot and leader
+     stay clickable and the name is still in the Structure labels list — so nothing
+     ever prints on top of another label. */
+  function declutterLabels(){
+    const wrap=$('.photo-wrap',diagram); if(!wrap)return;
+    if(!wrap.classList.contains('lbls')||wrap.classList.contains('focus-mode')) return;
+    const wr=wrap.getBoundingClientRect(), pad=12, gap=4, H=wr.height;
+    if(!H||!wr.width) return;                     /* plate not laid out yet — the image
+                                                     load handler schedules a re-run */
+    const sides={l:[],r:[]};
+    $$('.photo-callout',diagram).forEach(l=>{
+      l.style.display='';
+      const leader=diagram.querySelector(`.photo-leader[data-photo-pid="${l.dataset.photoPid}"]`);
+      if(leader)leader.style.display='';
+      sides[l.classList.contains('l')?'l':'r'].push({l,leader});
+    });
+    /* Label placement, textbook style: every label wants to sit level with its own
+       pin, so leaders stay short. Overlaps are then resolved by the smallest possible
+       vertical nudge (forward pass, then a backward pass for the bottom edge). A
+       column only drops labels to the dot + Structure labels list when even the
+       nudged stack cannot fit the plate height. */
+    Object.values(sides).forEach(list=>{
+      if(!list.length) return;
+      list.sort((a,b)=>(+a.l.dataset.y)-(+b.l.dataset.y));
+      list.forEach(it=>{ it.h=it.l.getBoundingClientRect().height||20; });
+      const span=Math.max(0,H-pad*2);
+      const need=list.reduce((t,it)=>t+it.h+gap,-gap);
+      let keep=list;
+      if(need>span){
+        /* keep as many as physically fit, spread evenly over the whole column
+           (rather than dropping every second label and leaving big gaps) */
+        const fit=Math.max(1,Math.min(list.length,Math.floor((span+gap)/((need+gap)/list.length))));
+        const step=list.length/fit;
+        const seen=new Set();
+        keep=[];
+        for(let i=0;i<fit;i++){ const k=Math.min(list.length-1,Math.round(i*step)); if(!seen.has(k)){seen.add(k);keep.push(list[k]);} }
+      }
+      const n=keep.length;
+      keep.forEach((it,i)=>{
+        const y=+it.l.dataset.y, want=(y/1000)*H-it.h/2;
+        it.top=Math.min(Math.max(want,pad),H-pad-it.h);
+        if(i>0) it.top=Math.max(it.top,keep[i-1].top+keep[i-1].h+gap);
+      });
+      for(let i=n-1;i>=0;i--){
+        const maxTop=(i===n-1?H-pad-keep[i].h:keep[i+1].top-gap-keep[i].h);
+        if(keep[i].top>maxTop) keep[i].top=maxTop;
+      }
+      if(n&&keep[0].top<pad){const d=pad-keep[0].top;keep.forEach(it=>{it.top+=d})}
+      /* CSS centres the box on `top` (translateY(-50%)), so add half the height */
+      keep.forEach(it=>{ it.l.style.top=(it.top+it.h/2).toFixed(1)+'px'; });
+      list.forEach(it=>{
+        if(keep.includes(it)) return;
+        it.l.style.display='none';
+        if(it.leader)it.leader.style.display='none';
+      });
+      /* hairline stops exactly at the label edge, so each leader reads as one
+         uninterrupted callout instead of floating beside a text box */
+      keep.forEach(it=>{
+        if(!it.leader) return;
+        const r=it.l.getBoundingClientRect();
+        const side=it.l.classList.contains('l')?'l':'r';
+        const ex=(((side==='l'?r.right:r.left)-wr.left)/wr.width*1000).toFixed(1);
+        const ey=((((r.top+r.bottom)/2)-wr.top)/wr.height*1000).toFixed(1);
+        it.leader.setAttribute('d',`M ${it.l.dataset.x} ${it.l.dataset.y} L ${ex} ${ey}`);
+      });
+    });
+  }
   function renderStage(){
     if(o.photo){ if(view==='focus'&&!selId) selId=Object.keys(o.photo.hot).find(pid=>o.parts[pid]&&validHot(o.photo.hot,pid))||null; diagram.innerHTML=photoWrap(); svg=null;
+      /* The label list is a light-card control, not part of the dark image stage:
+         keeping it inside .diagram (which sits on the dark .diagram-scroll gradient)
+         pushed it over the plate and hid its dark-teal summary text. */
+      const key=diagram.querySelector('.photo-key');
+      document.querySelectorAll('.stage-card > .photo-key').forEach(n=>n.remove());
+      if(key)$('#dscroll')?.insertAdjacentElement('afterend',key);
+      const plateImg=$('.photo-wrap img',diagram);
+      const runDeclutter=()=>requestAnimationFrame(()=>requestAnimationFrame(declutterLabels));
+      if(plateImg){plateImg.complete?runDeclutter():plateImg.addEventListener('load',runDeclutter,{once:true})}else runDeclutter();
+      runDeclutter();
+      /* webfont metrics change label heights — re-solve once the font is ready */
+      document.fonts&&document.fonts.ready&&document.fonts.ready.then(runDeclutter);
+      setTimeout(declutterLabels,450);              /* late layout shifts (scrollbar, image decode) */
       $$('[data-photo-pid]',diagram).filter(b=>b.tagName==='BUTTON').forEach(b=>b.addEventListener('click',()=>select(b.dataset.photoPid)));
     } else buildSvg();
     syncSel();
   }
+  let rzT; addEventListener('resize',()=>{clearTimeout(rzT);rzT=setTimeout(declutterLabels,140)});
   $$('[data-stage]').forEach(b=>b.addEventListener('click',()=>{
     view=b.dataset.stage;
     $$('[data-stage]').forEach(x=>{const on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on)});
@@ -827,14 +925,16 @@ function bindOrgan(key){
   function select(id){
     selId=id; syncSel();
     const p=o.parts[id]; if(!p) return;
-    iType.textContent=p.contextOnly?'Study note · unpinned':p.t; iName.textContent=p.n; iLatin.textContent=p.l;
-    iDesc.textContent=(p.contextOnly?'Not localized on this image. ':'')+p.d; iFn.textContent=p.f; iRel.textContent=p.c;
+    iType.textContent=p.contextOnly&&!p.pinPlate?'Study note · unpinned':p.t; iName.textContent=p.n; iLatin.textContent=p.l;
+    iDesc.textContent=(p.contextOnly&&!p.pinPlate?'Not localized on the main image; see its own plate. ':'')+p.d; iFn.textContent=p.f; iRel.textContent=p.c;
+    const fnLabel=document.getElementById('iFnLabel'); if(fnLabel) fnLabel.textContent='Function';
   }
   function clearSel(){
     selId=null; syncSel();
     iType.textContent='Overview'; iName.textContent=o.title; iLatin.textContent=o.latin;
     iDesc.textContent=o.blurb+' Select a label or open a study note below for anatomy, function and clinical context. Unpinned notes are not highlighted on the image.';
     iFn.textContent=o.region; iRel.textContent=o.parts[Object.keys(o.parts)[0]].c;
+    const fnLabel=document.getElementById('iFnLabel'); if(fnLabel) fnLabel.textContent='Location';
     $$('.parts .part').forEach(row=>row.classList.remove('sel'));
   }
 

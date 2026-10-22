@@ -60,7 +60,7 @@
 
     const note = el('p', 'plate-preview-note', trigger.dataset.previewNote || (scope
       ? (located ? 'This is a tissue-scale digital teaching illustration, not a clinical micrograph or an actual zoom from the organ picture. The fine line marks the depicted feature. Tap the lens image to close.'
-        : 'The tissue cutaway depicts a relevant microscopic region, but individual ' + name + ' cannot be reliably distinguished here. No part-specific pointer is shown. This is not a clinical micrograph or a literal zoom of the organ picture.')
+        : 'This cutaway shows the tissue type around ' + name + ' rather than that one named structure, so no part-specific pointer is drawn. It is not a clinical micrograph or a literal zoom of the organ picture.')
       : kind === 'micro'
       ? 'Digital microscopic-scale teaching illustration, not a histology micrograph or a literal zoom of the whole lung. The fine line identifies the depicted cell. Tap the image to close.'
       : located
@@ -132,9 +132,14 @@
     active = modal;
     const fit = () => {
       if (!image.naturalWidth || !modal.open) return;
-      const available = scope ? Math.max(180, visual.parentElement.clientWidth) : innerWidth - 44;
+      /* The old cap (56% of the viewport height) shrank tall plates to a narrow
+         column and left the crop below the fold inside the dialog. */
+      const available = scope
+        ? Math.max(180, visual.parentElement.clientWidth)
+        : Math.min(innerWidth - 44, 940);
+      const heightBudget = located && !scope ? innerHeight * 0.52 : innerHeight * 0.64;
       const scale = Math.min(1, available / image.naturalWidth,
-        Math.max(230, innerHeight * 0.56) / image.naturalHeight);
+        Math.max(230, heightBudget) / image.naturalHeight);
       visual.style.width = Math.max(1, Math.round(image.naturalWidth * scale)) + 'px';
       visual.style.height = Math.max(1, Math.round(image.naturalHeight * scale)) + 'px';
     };

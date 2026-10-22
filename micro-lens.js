@@ -102,3 +102,53 @@ Object.assign(MICRO_LENS,{
  place('embryodevelopment','reproneural','disc primitive gastrulation ectoderm mesoderm endoderm notochord neuralplate neuraltube somites folding gut',{somites:[300,365]});
  place('laborthirdstage','reprovillus','intervillous vessels');
 })();
+
+/* ---------------------------------------------------------------------------
+   Second pass (2026-10): tissue lenses for chapters that previously had none.
+   Every file below already ships with the atlas (the foundations teaching
+   plates and the existing reproduction renders), so this adds zero image
+   weight and claims nothing that the plate does not visibly show.
+   --------------------------------------------------------------------------- */
+Object.assign(MICRO_LENS,{
+ tissuecell:{file:'foundation-cell-organelles.webp',title:'Cell and organelles',source:'https://openstax.org/books/anatomy-and-physiology-2e/pages/3-1-the-cellular-level-of-organization'},
+ tissueconnective:{file:'foundation-connective.webp',title:'Loose areolar connective tissue',source:'https://openstax.org/books/anatomy-and-physiology-2e/pages/4-3-connective-tissue-supports-and-protects'},
+ tissueskeletal:{file:'foundation-skeletal-muscle.webp',title:'Skeletal muscle fibres',source:'https://openstax.org/books/anatomy-and-physiology-2e/pages/10-2-skeletal-muscle'},
+ tissuecardiac:{file:'foundation-cardiac-muscle.webp',title:'Cardiac muscle tissue',source:'https://openstax.org/books/anatomy-and-physiology-2e/pages/19-2-cardiac-muscle-and-electrical-activity'},
+ tissuesmooth:{file:'foundation-smooth-muscle.webp',title:'Smooth muscle tissue',source:'https://openstax.org/books/anatomy-and-physiology-2e/pages/10-8-smooth-muscle'},
+ tissueneural:{file:'foundation-neural.webp',title:'Neuron and glial support',source:'https://openstax.org/books/anatomy-and-physiology-2e/pages/12-2-nervous-tissue'},
+ reprozygote:{file:'repro-zygote-diagram.webp',title:'Zygote · first cleavage plan',source:'https://openstax.org/books/anatomy-and-physiology-2e/pages/28-1-fertilization'},
+ reprotwo:{file:'repro-two-cell-diagram.webp',title:'Two-cell stage cutaway',source:'https://openstax.org/books/anatomy-and-physiology-2e/pages/28-2-embryonic-development'},
+ reprofour:{file:'repro-four-cell-diagram.webp',title:'Four-cell stage cutaway',source:'https://openstax.org/books/anatomy-and-physiology-2e/pages/28-2-embryonic-development'},
+ reproeight:{file:'repro-eight-cell-diagram.webp',title:'Eight-cell stage cutaway',source:'https://openstax.org/books/anatomy-and-physiology-2e/pages/28-2-embryonic-development'},
+ repromorula:{file:'repro-morula-diagram.webp',title:'Morula cutaway',source:'https://openstax.org/books/anatomy-and-physiology-2e/pages/28-2-embryonic-development'},
+ reproblastocyst:{file:'repro-blastocyst.webp',title:'Blastocyst cutaway',source:'https://openstax.org/books/anatomy-and-physiology-2e/pages/28-2-embryonic-development'}
+});
+Object.assign(MICRO_ORIGINS,{tissuefoundations:[500,380],brain:[500,420],cerebraldeep:[500,420],brainstemdeep:[500,420],heart:[500,420],cleavageblastocyst:[500,420]});
+(function(){
+ const place=(chapter,lens,names,points={})=>{
+  const o=ORGANS[chapter];if(!o)return;
+  for(const p of Object.values(o.parts)){
+   if(!names.includes(p.n))continue;
+   p.microLens=lens;
+   if(MICRO_ORIGINS[chapter]&&!p.microOrigin)p.microOrigin=MICRO_ORIGINS[chapter];
+   if(points[p.n])p.microPoint=points[p.n];
+  }
+ };
+ place('tissuefoundations','tissuecell',['Human cell','Plasma membrane','Cytoplasm and cytosol','Nucleus','Mitochondria','Ribosomes and rough ER','Golgi apparatus']);
+ place('tissuefoundations','tissueconnective',['Extracellular matrix','Fibroblast','Collagen fibers','Connective-tissue capillary','Connective tissue']);
+ place('tissuefoundations','tissueskeletal',['Skeletal muscle fiber','Endomysium','Muscle tissue']);
+ place('tissuefoundations','tissuecardiac',['Cardiac muscle']);
+ place('tissuefoundations','tissuesmooth',['Smooth muscle']);
+ place('tissuefoundations','tissueneural',['Nervous tissue','Neuron cell body and dendrites','Axon','Myelin sheath and nodes','Glial support cells']);
+ place('brain','tissueneural',['Cortical gray matter']);
+ place('cerebraldeep','tissueneural',['Cortical gray matter','Layer I · molecular','Layer II · external granular','Layer III · external pyramidal','Layer IV · internal granular','Layer V · internal pyramidal','Layer VI · multiform']);
+ place('brainstemdeep','tissueneural',['Purkinje cell','Cerebellar cortex','Deep cerebellar nuclei']);
+ place('heart','tissuecardiac',['Myocardium','Bundle of His & bundle branches']);
+ place('cleavageblastocyst','reprozygote',['Zygote']);
+ place('cleavageblastocyst','reprotwo',['First cleavage','Blastomere']);
+ place('cleavageblastocyst','reprofour',['Four-cell stage']);
+ place('cleavageblastocyst','reproeight',['Eight-cell stage']);
+ place('cleavageblastocyst','repromorula',['Morula','Compaction']);
+ place('implantation','reproblastocyst',['Hatched blastocyst']);
+ place('implantation','reprovillus',['Cytotrophoblast','Syncytiotrophoblast']);
+})();

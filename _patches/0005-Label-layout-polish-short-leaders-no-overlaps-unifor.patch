@@ -1,0 +1,181 @@
+From bac83408ab52cfbb4a8ff0af87638ee606ddaba1 Mon Sep 17 00:00:00 2001
+From: Numan Shabbir <numanshabbir88@gmail.com>
+Date: Thu, 22 Oct 2026 01:20:58 +0000
+Subject: [PATCH 5/5] Label layout polish: short leaders, no overlaps, uniform
+ type scale
+
+---
+ app.js     | 71 ++++++++++++++++++++++++++++++++++++++++++++----------
+ index.html | 10 ++++----
+ styles.css | 11 ++++++---
+ 3 files changed, 70 insertions(+), 22 deletions(-)
+
+diff --git a/app.js b/app.js
+index e4a5111..54e7e5e 100644
+--- a/app.js
++++ b/app.js
+@@ -782,12 +782,13 @@ function bindOrgan(key){
+       list.forEach((item,i)=>{
+         const {pid,x,y}=item,slot=slots[i], end=side==='l'?265:735;
+         paths.push(`<path class="photo-leader" data-photo-pid="${pid}" d="M ${x} ${y} L ${end} ${slot}"/><circle class="photo-point" data-photo-pid="${pid}" cx="${x}" cy="${y}" r="3.5"/>`);
+-        callouts.push(`<button type="button" class="photo-callout ${side}" data-photo-pid="${pid}" style="top:${(slot/10).toFixed(2)}%" aria-label="Show ${esc(o.parts[pid].n)}">${esc(o.parts[pid].n)}</button>`);
++        callouts.push(`<button type="button" class="photo-callout ${side}" data-photo-pid="${pid}" data-x="${x}" data-y="${y}" style="top:${(slot/10).toFixed(2)}%" title="${esc(o.parts[pid].n)}" aria-label="Show ${esc(o.parts[pid].n)}">${esc(o.parts[pid].n)}</button>`);
+         anchors.push(`<button type="button" class="photo-hot" data-photo-pid="${pid}" style="left:${(x/10).toFixed(2)}%;top:${(y/10).toFixed(2)}%" aria-label="Show ${esc(o.parts[pid].n)}"></button>`);
+       });
+     }
+     const key=ids.length?`<details class="photo-key" ${matchMedia('(max-width:620px)').matches?'open':''}><summary>Structure labels — ${ids.length} visible landmarks</summary><div class="photo-key-list">${ids.map(pid=>`<button type="button" data-photo-pid="${pid}">${esc(o.parts[pid].n)}</button>`).join('')}</div></details>`:'';
+-    return `<div class="photo-wrap annotated${labelsOn?' lbls':''}${view==='focus'?' focus-mode':''}${view==='focus'&&$('[data-focus-pulse]')?.getAttribute('aria-pressed')==='true'?' pulse-on':''}"><img src="${imgSrc(p.file)}" alt="${esc(o.title)} — ${o.photo.notes?esc(o.photo.notes):o.system==='foundations'?'digital educational reference model':'realistic anatomical render'}" draggable="false">
++    const dens=ids.length>=22?' vdense':ids.length>=15?' dense':'';
++    return `<div class="photo-wrap annotated${dens}${labelsOn?' lbls':''}${view==='focus'?' focus-mode':''}${view==='focus'&&$('[data-focus-pulse]')?.getAttribute('aria-pressed')==='true'?' pulse-on':''}"><img src="${imgSrc(p.file)}" alt="${esc(o.title)} — ${o.photo.notes?esc(o.photo.notes):o.system==='foundations'?'digital educational reference model':'realistic anatomical render'}" draggable="false">
+       <svg class="photo-leaders" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">${paths.join('')}</svg>
+       ${callouts.join('')}${anchors.join('')}</div>${key}`;
+   }
+@@ -816,24 +817,65 @@ function bindOrgan(key){
+      ever prints on top of another label. */
+   function declutterLabels(){
+     const wrap=$('.photo-wrap',diagram); if(!wrap)return;
+-    const base=wrap.getBoundingClientRect().top;
++    if(!wrap.classList.contains('lbls')||wrap.classList.contains('focus-mode')) return;
++    const wr=wrap.getBoundingClientRect(), pad=12, gap=4, H=wr.height;
++    if(!H||!wr.width) return;                     /* plate not laid out yet — the image
++                                                     load handler schedules a re-run */
+     const sides={l:[],r:[]};
+     $$('.photo-callout',diagram).forEach(l=>{
+       l.style.display='';
+       const leader=diagram.querySelector(`.photo-leader[data-photo-pid="${l.dataset.photoPid}"]`);
+       if(leader)leader.style.display='';
+-      const r=l.getBoundingClientRect();
+-      sides[l.classList.contains('l')?'l':'r'].push({l,top:r.top-base,bottom:r.bottom-base});
++      sides[l.classList.contains('l')?'l':'r'].push({l,leader});
+     });
++    /* Label placement, textbook style: every label wants to sit level with its own
++       pin, so leaders stay short. Overlaps are then resolved by the smallest possible
++       vertical nudge (forward pass, then a backward pass for the bottom edge). A
++       column only drops labels to the dot + Structure labels list when even the
++       nudged stack cannot fit the plate height. */
+     Object.values(sides).forEach(list=>{
+-      list.sort((a,b)=>a.top-b.top);
+-      let floor=-Infinity;
+-      list.forEach(item=>{
+-        if(item.top<floor+3){
+-          item.l.style.display='none';
+-          const leader=diagram.querySelector(`.photo-leader[data-photo-pid="${item.l.dataset.photoPid}"]`);
+-          if(leader)leader.style.display='none';
+-        } else floor=item.bottom;
++      if(!list.length) return;
++      list.sort((a,b)=>(+a.l.dataset.y)-(+b.l.dataset.y));
++      list.forEach(it=>{ it.h=it.l.getBoundingClientRect().height||20; });
++      const span=Math.max(0,H-pad*2);
++      const need=list.reduce((t,it)=>t+it.h+gap,-gap);
++      let keep=list;
++      if(need>span){
++        /* keep as many as physically fit, spread evenly over the whole column
++           (rather than dropping every second label and leaving big gaps) */
++        const fit=Math.max(1,Math.min(list.length,Math.floor((span+gap)/((need+gap)/list.length))));
++        const step=list.length/fit;
++        const seen=new Set();
++        keep=[];
++        for(let i=0;i<fit;i++){ const k=Math.min(list.length-1,Math.round(i*step)); if(!seen.has(k)){seen.add(k);keep.push(list[k]);} }
++      }
++      const n=keep.length;
++      keep.forEach((it,i)=>{
++        const y=+it.l.dataset.y, want=(y/1000)*H-it.h/2;
++        it.top=Math.min(Math.max(want,pad),H-pad-it.h);
++        if(i>0) it.top=Math.max(it.top,keep[i-1].top+keep[i-1].h+gap);
++      });
++      for(let i=n-1;i>=0;i--){
++        const maxTop=(i===n-1?H-pad-keep[i].h:keep[i+1].top-gap-keep[i].h);
++        if(keep[i].top>maxTop) keep[i].top=maxTop;
++      }
++      if(n&&keep[0].top<pad){const d=pad-keep[0].top;keep.forEach(it=>{it.top+=d})}
++      /* CSS centres the box on `top` (translateY(-50%)), so add half the height */
++      keep.forEach(it=>{ it.l.style.top=(it.top+it.h/2).toFixed(1)+'px'; });
++      list.forEach(it=>{
++        if(keep.includes(it)) return;
++        it.l.style.display='none';
++        if(it.leader)it.leader.style.display='none';
++      });
++      /* hairline stops exactly at the label edge, so each leader reads as one
++         uninterrupted callout instead of floating beside a text box */
++      keep.forEach(it=>{
++        if(!it.leader) return;
++        const r=it.l.getBoundingClientRect();
++        const side=it.l.classList.contains('l')?'l':'r';
++        const ex=(((side==='l'?r.right:r.left)-wr.left)/wr.width*1000).toFixed(1);
++        const ey=((((r.top+r.bottom)/2)-wr.top)/wr.height*1000).toFixed(1);
++        it.leader.setAttribute('d',`M ${it.l.dataset.x} ${it.l.dataset.y} L ${ex} ${ey}`);
+       });
+     });
+   }
+@@ -849,6 +891,9 @@ function bindOrgan(key){
+       const runDeclutter=()=>requestAnimationFrame(()=>requestAnimationFrame(declutterLabels));
+       if(plateImg){plateImg.complete?runDeclutter():plateImg.addEventListener('load',runDeclutter,{once:true})}else runDeclutter();
+       runDeclutter();
++      /* webfont metrics change label heights — re-solve once the font is ready */
++      document.fonts&&document.fonts.ready&&document.fonts.ready.then(runDeclutter);
++      setTimeout(declutterLabels,450);              /* late layout shifts (scrollbar, image decode) */
+       $$('[data-photo-pid]',diagram).filter(b=>b.tagName==='BUTTON').forEach(b=>b.addEventListener('click',()=>select(b.dataset.photoPid)));
+     } else buildSvg();
+     syncSel();
+diff --git a/index.html b/index.html
+index fa8dd47..6542383 100644
+--- a/index.html
++++ b/index.html
+@@ -11,7 +11,7 @@
+ <meta property="og:description" content="74 anatomy chapters: realistic medical renders, 206-bone and full-body muscle atlases, male and female sections, interactive highlights and quizzes.">
+ <meta property="og:type" content="website">
+ <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d3b39'/%3E%3Cpath d='M16 26C9 21 5 17 5 12.5 5 9 7.7 6.5 11 6.5c2.2 0 4 1.2 5 2.9 1-1.7 2.8-2.9 5-2.9 3.3 0 6 2.5 6 6C27 17 23 21 16 26z' fill='%23e0645c'/%3E%3C/svg%3E">
+-<link rel="stylesheet" href="styles.css?v=51">
++<link rel="stylesheet" href="styles.css?v=59">
+ <meta name="robots" content="noindex,follow"></head>
+ <body>
+ 
+@@ -118,9 +118,9 @@
+ <script src="foundations-chapters.js?v=45"></script>
+ <script src="reproduction-stages.js?v=48"></script>
+ <script src="repro-image-enrichment.js?v=48"></script>
+-<script src="micro-lens.js?v=51"></script>
+-<script src="part-pins.js?v=51"></script>
+-<script src="app.js?v=51"></script>
+-<script src="preview.js?v=51" defer></script>
++<script src="micro-lens.js?v=59"></script>
++<script src="part-pins.js?v=59"></script>
++<script src="app.js?v=59"></script>
++<script src="preview.js?v=59" defer></script>
+ </body>
+ </html>
+diff --git a/styles.css b/styles.css
+index 0031a05..4774fe2 100644
+--- a/styles.css
++++ b/styles.css
+@@ -546,12 +546,15 @@ body.nomotion .rv{opacity:1;transform:none}
+ 
+ /* ---- unobtrusive line callouts for realistic chapter plates ---- */
+ .photo-wrap.annotated .photo-leaders{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+-.photo-leader{fill:none;stroke:rgba(185,239,225,.72);stroke-width:1.35;vector-effect:non-scaling-stroke;transition:opacity .2s,stroke .2s}
++.photo-leader{fill:none;stroke:rgba(206,238,229,.7);stroke-width:1.1;vector-effect:non-scaling-stroke;transition:opacity .2s,stroke .2s}
+ .photo-point{fill:#c6f7e9;stroke:#0b2926;stroke-width:1.5;vector-effect:non-scaling-stroke}
+-.photo-wrap.annotated .photo-callout{position:absolute;z-index:3;transform:translateY(-50%);width:24%;max-width:185px;min-width:0;min-height:22px;padding:3px 5px;background:rgba(7,26,25,.73);border:0;border-radius:3px;color:#e7f9f4;font:650 10.5px/1.2 var(--sans);text-shadow:0 1px 2px #061616;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:left}
++.photo-wrap.annotated .photo-callout{position:absolute;z-index:3;transform:translateY(-50%);width:23%;max-width:196px;min-width:0;min-height:20px;padding:2px 6px;background:rgba(6,24,23,.82);border:1px solid rgba(150,210,196,.14);border-radius:2px;color:#e7f9f4;font:600 10px/1.25 var(--sans);letter-spacing:.005em;text-shadow:0 1px 2px #061616;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:left;transition:background .16s,border-color .16s,color .16s}
++.photo-wrap.annotated.dense .photo-callout{font-size:9.5px;width:21%;max-width:184px;min-height:18px;padding:2px 5px}
++.photo-wrap.annotated.vdense .photo-callout{font-size:9px;width:19%;max-width:166px;min-height:17px;padding:1px 4px;letter-spacing:0}
++.photo-wrap.annotated.dense .photo-leader,.photo-wrap.annotated.vdense .photo-leader{stroke-width:1}
+ .photo-wrap.annotated .photo-callout.l{left:1.5%;text-align:right}
+ .photo-wrap.annotated .photo-callout.r{right:1.5%}
+-.photo-wrap.annotated .photo-callout:hover,.photo-wrap.annotated .photo-callout.sel{color:#fff;background:rgba(11,86,77,.96)}
++.photo-wrap.annotated .photo-callout:hover,.photo-wrap.annotated .photo-callout.sel{color:#fff;background:rgba(11,86,77,.96);border-color:rgba(150,210,196,.5)}
+ .photo-wrap.annotated .photo-hot{position:absolute;z-index:2;transform:translate(-50%,-50%);width:28px;height:28px;padding:0;border:0;background:transparent;border-radius:50%;cursor:pointer}
+ .photo-wrap.annotated .photo-hot:focus-visible,.photo-wrap.annotated .photo-callout:focus-visible{outline:2px solid #f1c45a;outline-offset:1px}
+ .photo-leader.sel{stroke:#ffda77;stroke-width:2.1;opacity:1!important}
+@@ -569,7 +572,7 @@ body.nomotion .rv{opacity:1;transform:none}
+ .photo-key-list button::before{content:'—';color:var(--teal-d);margin-right:7px}
+ .photo-key-list button:hover,.photo-key-list button.sel{border-color:var(--teal-d);background:var(--teal-l)}
+ @media(max-width:620px){
+- .photo-wrap.annotated .photo-callout{font-size:9px;min-height:17px;padding:2px 3px;width:26%}
++ .photo-wrap.annotated .photo-callout{font-size:9px;min-height:17px;padding:2px 4px;width:26%;max-width:172px}
+  .photo-wrap.annotated .photo-hot{width:32px;height:32px}
+  .photo-wrap.annotated:not(.lbls) .photo-leader:not(.sel){opacity:.6}
+  .photo-key-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+-- 
+2.47.3
+

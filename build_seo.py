@@ -250,7 +250,10 @@ def part_block(items,o,start=1):
         chunks.append(f'<section class="part" id="part-{E(pid)}"><div class="part-head">{thumbnail_html}<span class="number">{n:02d}</span><h3>{E(p["n"])}</h3></div>{label}<p>{E(p.get("d",""))}</p><div class="detail"><p><b>What it does</b>{E(p.get("f",""))}</p><p><b>Clinical connection</b>{E(p.get("c",""))}</p>{context_note}</div></section>')
     return ''.join(chunks)
 
-def lens_section(o):
+def lens_section(o,key=''):
+    # A chapter that already renders its own tissue gallery (foundations) keeps the
+    # microscope plates there, so the same picture is not repeated as a lens tile.
+    if key=='tissuefoundations': return ''
     first={}
     for pid,p in o['parts'].items():
         if p.get('microLens') and p['microLens'] not in first:
@@ -347,7 +350,7 @@ def article(key,o):
     deep_label='Stage anatomy and developmental milestones' if key in LIFE_PATH else ('Terminology and study entries' if o['system']=='foundations' else 'Deeper structures and tissue layers')
     deep_intro=(f'These {len(deep)} anatomy and development entries explain each stage without placing false pointers on an illustrative context plate.' if key in LIFE_PATH else (f'These {len(deep)} reference concepts are explained without pretending they are visible features on a body photograph.' if o['system']=='foundations' and not pinned else f'These {len(deep)} additional entries give anatomical context. They are deliberately not assigned a photographic pin on the regional image.'))
     deep_html=(f'<section id="{("deep" if pinned else "parts")}" class="content-section"><div class="eyebrow">Beyond the visible plate</div><h2>{deep_label}</h2><p class="section-lead">{deep_intro}</p>{f"<p class=note>{deep_links}</p>" if deep_links else ""}<div class="part-list">{part_block(deep,o,len(pinned)+1)}</div></section>' if deep else '')
-    micro_html=lens_section(o)
+    micro_html=lens_section(o,key)
     dental_html=dental_section(o)
     foundation_html=foundation_section(key,o)
     reproduction_html=reproduction_section(key)
@@ -462,7 +465,7 @@ write(ROOT/'index.html',html)
 # Rebuild the lean publish folder; all original source assets stay in img/ and are never deleted.
 if OUT.exists(): shutil.rmtree(OUT)
 OUT.mkdir()
-for file in ['index.html','editorial.css','reading.js','preview.js','styles.css','organs.js','brain-and-micro-chapters.js','deep-chapters.js','part-enrichment-notes.js','chapter-enrichment.js','skull-chapter.js','dental-chapter.js','foundations-chapters.js','reproduction-stages.js','repro-image-enrichment.js','micro-lens.js','muscle-atlas.js','app.js','about.html','privacy.html','404.html']:
+for file in ['index.html','editorial.css','reading.js','preview.js','styles.css','organs.js','brain-and-micro-chapters.js','deep-chapters.js','part-enrichment-notes.js','chapter-enrichment.js','skull-chapter.js','dental-chapter.js','foundations-chapters.js','reproduction-stages.js','repro-image-enrichment.js','micro-lens.js','part-pins.js','muscle-atlas.js','app.js','about.html','privacy.html','404.html']:
     shutil.copy2(ROOT/file,OUT/file)
 shutil.copytree(learn,OUT/'learn')
 for kind in ['webp','thumb']: shutil.copytree(ROOT/'img'/kind,OUT/'img'/kind)
