@@ -240,6 +240,12 @@ function partPlate(o,id){
   return {file:lens.file,hot:p.microPoint||null,kind:'scope',reference:p.deepRef||'',
     overview:o.photo.file,origin:p.microOrigin||null,lensTitle:lens.title,sourceUrl:lens.source};
  }
+ /* A real coordinate on this very plate always wins. Several contextual rows also
+    carry a referencePlate (labour, fertilisation, implantation); without this check
+    the row thumbnail and preview fell back to the neutral "study note" chip even
+    though the plate already had a thin leader line pointing at the structure. */
+ const ownHot=validHot(o.photo&&o.photo.hot,id)&&!p.contextOnly?o.photo.hot[id]:null;
+ if(ownHot) return {file:o.photo.file,hot:ownHot,kind:'region',reference:''};
  // A contextual sectional plate never invents a pin for an obscured bone.
  if(p.referencePlate) return {file:p.referencePlate,hot:null,kind:'region',reference:''};
  let plate=o,part=id,reference='';

@@ -507,6 +507,17 @@
     thyroid:{follicle:'thyroid'}
   };
 
+  /* Data hygiene: a part that already carries a coordinate on its plate is *pointed
+     at*, so the stale `contextOnly` flag (which drives the neutral "study note" chip
+     in the parts list) must go. Without this the labour, fertilisation and
+     implantation rows showed an info glyph even though the plate had a leader line. */
+  for(const o of Object.values(ORGANS)){
+    const hot=(o.photo&&o.photo.hot)||{};
+    for(const pid of Object.keys(hot)){
+      if(o.parts[pid]&&Array.isArray(hot[pid])&&hot[pid].length===2) delete o.parts[pid].contextOnly;
+    }
+  }
+
   let pinned=0, lensed=0, unknown=[];
   for(const [chapter,map] of Object.entries(PINS)){
     const o=ORGANS[chapter];
