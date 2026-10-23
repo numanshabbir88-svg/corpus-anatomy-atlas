@@ -532,6 +532,60 @@
       plated++;
     }
   }
+  /* Exact context references: when a context-only entry has no point on its
+     selected micro-lens, use a curated target plate only if the target entry has
+     the same visible name and an existing, valid hotspot. Never infer a point
+     from a similar name or a different image. */
+  const validPoint=xy=>Array.isArray(xy)&&xy.length===2&&xy.every(v=>Number.isFinite(v)&&v>=0&&v<=1000);
+  const imageKey=file=>String(file||'').split(/[\\/]/).pop().replace(/\.(?:jpe?g|png|webp)$/i,'').toLowerCase();
+  const applyContextTarget=(chapter,pid,targetChapter,targetPid)=>{
+    const o=ORGANS[chapter],p=o?.parts?.[pid],target=ORGANS[targetChapter],q=target?.parts?.[targetPid];
+    const point=target?.photo?.hot?.[targetPid];
+    if(!p?.contextOnly||p.pinPlate?.file||(p.microLens&&validPoint(p.microPoint))||!q||q.contextOnly||q.n!==p.n||!target.photo?.file||!validPoint(point))return false;
+    p.pinPlate={file:target.photo.file,hot:point.slice(),reference:targetChapter};
+    return true;
+  };
+  for(const [chapter,o] of Object.entries(ORGANS)){
+    for(const [pid,p] of Object.entries(o.parts||{})){
+      if(!p.contextOnly||p.pinPlate?.file||(p.microLens&&validPoint(p.microPoint)))continue;
+      const source=p.deepRef&&ORGANS[p.deepRef];
+      if(source?.photo?.file){
+        const prefix=`ctx_${p.deepRef}_`;
+        const candidate=pid.startsWith(prefix)?pid.slice(prefix.length):'';
+        if(candidate&&applyContextTarget(chapter,pid,p.deepRef,candidate))continue;
+      }
+      if(!p.referencePlate)continue;
+      const referenceFile=typeof p.referencePlate==='string'?p.referencePlate:p.referencePlate.file;
+      const key=imageKey(referenceFile);
+      if(!key)continue;
+      for(const [targetChapter,target] of Object.entries(ORGANS)){
+        if(imageKey(target.photo?.file)!==key)continue;
+        const matches=Object.entries(target.parts||{}).filter(([targetPid,q])=>q.n===p.n&&!q.contextOnly&&validPoint(target.photo?.hot?.[targetPid]));
+        if(matches.length===1){applyContextTarget(chapter,pid,targetChapter,matches[0][0]);break;}
+      }
+    }
+  }
+  /* A few whole-body entries have an exact dedicated chapter hotspot. The
+     overview itself remains unpinned; opening the note leads to the matching
+     organ/system plate instead of guessing at an internal point on the body map. */
+  const BODY_CONTEXT_TARGETS={
+    malebody:{
+      detail_malebody_spleen:['lymph','spleenl'],
+      detail_malebody_adrenals:['endocrine','adr'],
+      detail_malebody_diaphragm:['lungs','diaphragm'],
+      detail_malebody_spinalcord:['nervous','spinalcord']
+    },
+    femalebody:{
+      detail_femalebody_spleen:['lymph','spleenl'],
+      detail_femalebody_adrenals:['endocrine','adr'],
+      detail_femalebody_diaphragm:['lungs','diaphragm'],
+      detail_femalebody_spinalcord:['nervous','spinalcord']
+    }
+  };
+  for(const [chapter,map] of Object.entries(BODY_CONTEXT_TARGETS))
+    for(const [pid,[targetChapter,targetPid]] of Object.entries(map))
+      applyContextTarget(chapter,pid,targetChapter,targetPid);
+
   for(const [chapter,map] of Object.entries(LENSES)){
     const o=ORGANS[chapter]; if(!o)continue;
     for(const [pid,lens] of Object.entries(map)){

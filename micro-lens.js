@@ -116,6 +116,10 @@ Object.assign(MICRO_LENS,{
  tissuecardiac:{file:'foundation-cardiac-muscle.webp',title:'Cardiac muscle tissue',source:'https://openstax.org/books/anatomy-and-physiology-2e/pages/19-2-cardiac-muscle-and-electrical-activity'},
  tissuesmooth:{file:'foundation-smooth-muscle.webp',title:'Smooth muscle tissue',source:'https://openstax.org/books/anatomy-and-physiology-2e/pages/10-8-smooth-muscle'},
  tissueneural:{file:'foundation-neural.webp',title:'Neuron and glial support',source:'https://openstax.org/books/anatomy-and-physiology-2e/pages/12-2-nervous-tissue'},
+ cardiacconduction:{file:'cardiac-conduction-system.webp',title:'Cardiac conduction system cutaway',source:'https://openstax.org/books/anatomy-and-physiology-2e/pages/19-2-cardiac-muscle-and-electrical-activity'},
+ corticallayers:{file:'cerebral-cortex-layers.webp',title:'Six-layer cerebral cortex cutaway',source:'https://www.ncbi.nlm.nih.gov/books/NBK10870/'},
+ cerebellarhistology:{file:'cerebellar-cortex-deep-nuclei.webp',title:'Cerebellar Purkinje cell and deep nuclei',source:'https://www.ncbi.nlm.nih.gov/books/NBK538167/'},
+ thickskin:{file:'thick-skin-layers.webp',title:'Thick-skin epidermal layers',source:'https://openstax.org/books/anatomy-and-physiology-2e/pages/5-1-layers-of-the-skin'},
  reprozygote:{file:'repro-zygote-diagram.webp',title:'Zygote · first cleavage plan',source:'https://openstax.org/books/anatomy-and-physiology-2e/pages/28-1-fertilization'},
  reprotwo:{file:'repro-two-cell-diagram.webp',title:'Two-cell stage cutaway',source:'https://openstax.org/books/anatomy-and-physiology-2e/pages/28-2-embryonic-development'},
  reprofour:{file:'repro-four-cell-diagram.webp',title:'Four-cell stage cutaway',source:'https://openstax.org/books/anatomy-and-physiology-2e/pages/28-2-embryonic-development'},
@@ -143,7 +147,7 @@ Object.assign(MICRO_ORIGINS,{tissuefoundations:[500,380],brain:[500,420],cerebra
  place('brain','tissueneural',['Cortical gray matter']);
  place('cerebraldeep','tissueneural',['Cortical gray matter','Layer I · molecular','Layer II · external granular','Layer III · external pyramidal','Layer IV · internal granular','Layer V · internal pyramidal','Layer VI · multiform']);
  place('brainstemdeep','tissueneural',['Purkinje cell','Cerebellar cortex','Deep cerebellar nuclei']);
- place('heart','tissuecardiac',['Myocardium','Bundle of His & bundle branches']);
+ place('heart','tissuecardiac',['Myocardium']);
  place('cleavageblastocyst','reprozygote',['Zygote']);
  place('cleavageblastocyst','reprotwo',['First cleavage','Blastomere']);
  place('cleavageblastocyst','reprofour',['Four-cell stage']);
@@ -151,4 +155,50 @@ Object.assign(MICRO_ORIGINS,{tissuefoundations:[500,380],brain:[500,420],cerebra
  place('cleavageblastocyst','repromorula',['Morula','Compaction']);
  place('implantation','reproblastocyst',['Hatched blastocyst']);
  place('implantation','reprovillus',['Cytotrophoblast','Syncytiotrophoblast']);
+
+ // Exact points on dedicated tissue cutaways; never borrow a gross-image point
+ // for a cell layer or conduction pathway that the gross plate cannot resolve.
+ place('heart','cardiacconduction',['Bundle of His & bundle branches'],{'Bundle of His & bundle branches':[480,475]});
+ place('lungs','acinus',['Alveoli & capillary bed'],{'Alveoli & capillary bed':[850,560]});
+ place('kidney','nephron',["Glomerulus & Bowman's capsule",'Proximal convoluted tubule','Loop of Henle','Distal convoluted tubule','Collecting duct'],{
+  "Glomerulus & Bowman's capsule":[360,250],
+  'Proximal convoluted tubule':[470,180],
+  'Loop of Henle':[520,820],
+  'Distal convoluted tubule':[620,180],
+  'Collecting duct':[700,550]
+ });
+ place('liver','lobule',['Hepatic lobule & sinusoids'],{'Hepatic lobule & sinusoids':[505,505]});
+ place('gut','intestine',['Villus & microvilli'],{'Villus & microvilli':[600,250]});
+ place('pancreas','pancreas',['Islets of Langerhans','Acinar cells & ductules'],{
+  'Islets of Langerhans':[560,450],
+  'Acinar cells & ductules':[230,420]
+ });
+ place('thyroid','thyroid',['Follicle & colloid'],{'Follicle & colloid':[550,280]});
+ place('skinlayers','thickskin',['Stratum spinosum','Stratum granulosum','Stratum lucidum','Basement membrane zone'],{
+  'Stratum spinosum':[500,560],
+  'Stratum granulosum':[500,435],
+  'Stratum lucidum':[500,375],
+  'Basement membrane zone':[500,790]
+ });
+ place('cerebraldeep','corticallayers',['Layer I · molecular','Layer II · external granular','Layer III · external pyramidal','Layer IV · internal granular','Layer V · internal pyramidal','Layer VI · multiform'],{
+  'Layer I · molecular':[500,180],
+  'Layer II · external granular':[500,265],
+  'Layer III · external pyramidal':[500,360],
+  'Layer IV · internal granular':[500,475],
+  'Layer V · internal pyramidal':[500,610],
+  'Layer VI · multiform':[500,735]
+ });
+ place('brainstemdeep','cerebellarhistology',['Purkinje cell','Deep cerebellar nuclei'],{
+  'Purkinje cell':[500,410],
+  'Deep cerebellar nuclei':[670,640]
+ });
+ for(const [chapter,names] of Object.entries({
+  heart:['Bundle of His & bundle branches'],lungs:['Alveoli & capillary bed'],
+  skinlayers:['Stratum spinosum','Stratum granulosum','Stratum lucidum','Basement membrane zone'],
+  cerebraldeep:['Layer I · molecular','Layer II · external granular','Layer III · external pyramidal','Layer IV · internal granular','Layer V · internal pyramidal','Layer VI · multiform'],
+  brainstemdeep:['Purkinje cell','Deep cerebellar nuclei']
+ })){
+  const o=ORGANS[chapter];if(!o)continue;
+  for(const p of Object.values(o.parts))if(names.includes(p.n))p.microOrigin=null;
+ }
 })();

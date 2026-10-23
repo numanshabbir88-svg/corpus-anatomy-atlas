@@ -18,6 +18,105 @@ const svgMedia=art=>art.replace(/img\/([\w.-]+\.(?:jpe?g|png))/gi,(_,file)=>imgS
 /* ---------- tiny helpers ---------- */
 const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const attr = s => esc(s).replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+const ECORCHE_LABELS={
+ male:[
+  {n:'Sternocleidomastoid',x:450,y:110,side:'l'},{n:'Deltoid',x:290,y:195,side:'l'},
+  {n:'Biceps brachii',x:240,y:300,side:'l'},{n:'Forearm flexors',x:170,y:420,side:'l'},
+  {n:'Rectus abdominis',x:478,y:378,side:'l'},{n:'Rectus femoris',x:420,y:550,side:'l'},
+  {n:'Sartorius',x:390,y:605,side:'l'},{n:'Tibialis anterior',x:418,y:790,side:'l'},
+  {n:'Serratus anterior',x:620,y:270,side:'r'},{n:'External oblique',x:600,y:390,side:'r'},
+  {n:'Adductor group',x:560,y:570,side:'r'},{n:'Vastus lateralis',x:650,y:585,side:'r'},
+  {n:'Patellar ligament',x:570,y:665,side:'r'},{n:'Fibularis longus',x:640,y:805,side:'r'},
+  {n:'Brachioradialis',x:850,y:420,side:'r'}
+ ],
+ female:[
+  {n:'Sternocleidomastoid',x:455,y:140,side:'l'},{n:'Deltoid',x:280,y:220,side:'l'},
+  {n:'Biceps brachii',x:240,y:340,side:'l'},{n:'Forearm flexors',x:155,y:465,side:'l'},
+  {n:'Rectus abdominis',x:475,y:500,side:'l'},{n:'Rectus femoris',x:420,y:690,side:'l'},
+  {n:'Sartorius',x:390,y:735,side:'l'},{n:'Tibialis anterior',x:420,y:890,side:'l'},
+  {n:'Mammary glandular tissue',x:650,y:345,side:'r'},{n:'External oblique',x:620,y:500,side:'r'},
+  {n:'Adductor group',x:560,y:710,side:'r'},{n:'Vastus lateralis',x:650,y:685,side:'r'},
+  {n:'Patellar ligament',x:580,y:820,side:'r'},{n:'Fibularis longus',x:650,y:895,side:'r'},
+  {n:'Brachioradialis',x:850,y:455,side:'r'}
+ ]
+};
+const PELVIC_FLOOR_LABELS={
+ male:[
+  {n:'Pubic symphysis',x:500,y:150,side:'l'},
+  {n:'Obturator internus',x:300,y:390,side:'l'},
+  {n:'Urethral passage',x:500,y:390,side:'r'},
+  {n:'Prostate',x:500,y:530,side:'l'},
+  {n:'Levator ani',x:390,y:590,side:'r'},
+  {n:'Perineal body',x:500,y:645,side:'l'},
+  {n:'External anal sphincter',x:500,y:805,side:'r'},
+  {n:'Coccyx',x:500,y:955,side:'l'}
+ ],
+ female:[
+  {n:'Pubic symphysis',x:500,y:350,side:'l'},
+  {n:'Urethral opening',x:500,y:435,side:'r'},
+  {n:'Vaginal canal',x:500,y:585,side:'l'},
+  {n:'Obturator internus',x:300,y:520,side:'r'},
+  {n:'Levator ani',x:385,y:650,side:'l'},
+  {n:'Perineal body',x:500,y:735,side:'r'},
+  {n:'External anal sphincter',x:500,y:835,side:'l'},
+  {n:'Coccyx',x:500,y:960,side:'r'}
+ ]
+};
+function atlasAnnotation(file,alt,items,className=''){
+ const points=items.filter(p=>p&&typeof p.n==='string'&&Number.isFinite(p.x)&&Number.isFinite(p.y)&&p.x>=0&&p.x<=1000&&p.y>=0&&p.y<=1000).map(p=>({n:p.n,x:p.x,y:p.y,side:p.side==='l'||p.side==='r'?p.side:''}));
+ const encoded=attr(JSON.stringify(points));
+ const labels=points.map((p,i)=>`<span class="atlas-ann-label" data-ann-index="${i}">${esc(p.n)}</span>`).join('');
+ const key=points.map(p=>`<li>${esc(p.n)}</li>`).join('');
+ return `<div class="atlas-annotation ${className}" data-atlas-annotation><div class="atlas-annotation-stage" data-atlas-points="${encoded}"><img src="${imgSrc(file)}" alt="${attr(alt)}" loading="lazy" draggable="false"><svg class="atlas-ann-svg" aria-hidden="true"></svg><div class="atlas-ann-labels" aria-hidden="true">${labels}</div></div><details class="atlas-ann-key"><summary>Visible structure labels · ${points.length}</summary><ol>${key}</ol></details></div>`;
+}
+function organAnnotation(key,alt,className=''){
+ const o=ORGANS[key]; if(!o?.photo)return '';
+ const points=Object.entries(o.photo.hot||{}).filter(([id])=>o.parts[id]&&!o.parts[id].contextOnly&&validHot(o.photo.hot,id)).map(([id,[x,y]])=>({n:o.parts[id].n,x,y}));
+ return atlasAnnotation(o.photo.file,alt,points,className);
+}
+let atlasAnnotationObserver=null;
+function drawAtlasAnnotation(stage){
+ if(!stage.isConnected)return;
+ const img=$('img',stage),svg=$('svg',stage),rect=stage.getBoundingClientRect();
+ if(!img?.naturalWidth||!svg||rect.width<1||rect.height<1)return;
+ let points;try{points=JSON.parse(stage.dataset.atlasPoints||'[]')}catch{return}
+ const W=rect.width,H=rect.height,ratio=img.naturalWidth/img.naturalHeight,boxRatio=W/H;
+ let iw=W,ih=H,ox=0,oy=0;
+ if(Math.abs(ratio-boxRatio)>.01){if(ratio>boxRatio){ih=W/ratio;oy=(H-ih)/2}else{iw=H*ratio;ox=(W-iw)/2}}
+ const leftRight={l:0,r:0};
+ const positioned=points.map((p,i)=>{
+  let side=p.side;
+  if(side!=='l'&&side!=='r')side=p.x<470?'l':p.x>530?'r':(leftRight.l<=leftRight.r?'l':'r');
+  leftRight[side]++;
+  return {...p,i,side,x:ox+p.x*iw/1000,y:oy+p.y*ih/1000};
+ });
+ const labelW=Math.min(158,W*.28),inset=6,gap=5,ends={l:inset+labelW+7,r:W-inset-labelW-7};
+ const labels=$$('.atlas-ann-label',stage);
+ positioned.forEach(p=>{const el=labels[p.i];if(el){el.dataset.side=p.side;el.style.width=labelW+'px';el.style.top=p.y+'px'}});
+ const sides={l:[],r:[]};positioned.forEach(p=>sides[p.side].push(p));
+ Object.values(sides).forEach(list=>{
+  list.sort((a,b)=>a.y-b.y);if(!list.length)return;
+  const heights=list.map(p=>labels[p.i]?.getBoundingClientRect().height||15);
+  const pad=Math.min(26,Math.max(11,H*.035)),slots=list.map(p=>p.y);
+  for(let i=1;i<slots.length;i++)slots[i]=Math.max(slots[i],slots[i-1]+(heights[i-1]+heights[i])/2+gap);
+  const last=slots.length-1,excess=slots[last]+heights[last]/2-(H-pad);
+  if(excess>0){for(let i=0;i<slots.length;i++)slots[i]-=excess;for(let i=slots.length-2;i>=0;i--)slots[i]=Math.min(slots[i],slots[i+1]-(heights[i]+heights[i+1])/2-gap)}
+  const shift=pad-(slots[0]-heights[0]/2);if(shift>0)for(let i=0;i<slots.length;i++)slots[i]+=shift;
+  list.forEach((p,i)=>{p.slot=slots[i];if(labels[p.i])labels[p.i].style.top=slots[i]+'px'});
+ });
+ svg.setAttribute('viewBox',`0 0 ${W} ${H}`);svg.setAttribute('preserveAspectRatio','none');
+ svg.innerHTML=positioned.map(p=>`<path class="atlas-ann-leader" data-side="${p.side}" d="M ${p.x.toFixed(1)} ${p.y.toFixed(1)} L ${ends[p.side].toFixed(1)} ${(p.slot??p.y).toFixed(1)}"/><circle class="atlas-ann-point" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="3.5"/><circle class="atlas-ann-number-disc" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="10"/><text class="atlas-ann-number" x="${p.x.toFixed(1)}" y="${p.y.toFixed(1)}">${p.i+1}</text>`).join('');
+}
+function bindAtlasAnnotations(){
+ if(atlasAnnotationObserver){atlasAnnotationObserver.disconnect();atlasAnnotationObserver=null}
+ const stages=$$('.atlas-annotation-stage');
+ if('ResizeObserver' in window){atlasAnnotationObserver=new ResizeObserver(entries=>entries.forEach(e=>drawAtlasAnnotation(e.target)))}
+ stages.forEach(stage=>{
+  const img=$('img',stage),draw=()=>drawAtlasAnnotation(stage);
+  if(img){if(img.complete)draw();else img.addEventListener('load',draw,{once:true})}
+  atlasAnnotationObserver?.observe(stage);
+ });
+}
 function mulberry(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
 function shuffle(a,rng=Math.random){const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
 function countUp(el,to,dur=900){const t0=performance.now();const step=t=>{const p=Math.min(1,(t-t0)/dur);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
@@ -234,7 +333,7 @@ function partPlate(o,id){
  /* A part that is hidden on the chapter plate can point at a second, dedicated
     plate (for example the medial skull view) without inventing a false pin. */
  if(p.pinPlate&&p.pinPlate.file&&Array.isArray(p.pinPlate.hot))
-  return {file:p.pinPlate.file,hot:p.pinPlate.hot,kind:'detail',reference:''};
+  return {file:p.pinPlate.file,hot:p.pinPlate.hot,kind:'detail',reference:p.pinPlate.reference||p.deepRef||''};
  if(p.microLens && MICRO_LENS[p.microLens]){
   const lens=MICRO_LENS[p.microLens];
   return {file:lens.file,hot:p.microPoint||null,kind:'scope',reference:p.deepRef||'',
@@ -260,22 +359,30 @@ function partPlate(o,id){
 function miniChip(o,id){
  if(!o.photo)return '';
  const plate=partPlate(o,id),h=plate.hot||[500,500],placed=!!plate.hot;
-  const name=o.parts[id]?.n||o.title;
-  const point=placed?` data-point-x="${h[0]}" data-point-y="${h[1]}"`:'';
-  const ref=plate.reference?` data-reference-href="/learn/${plate.reference}/"`:'';
-  const scope=plate.kind==='scope'?` data-overview-src="${attr(imgSrc(plate.overview))}" data-lens-title="${attr(plate.lensTitle)}" data-source-url="${attr(plate.sourceUrl)}"${plate.origin?` data-origin-x="${plate.origin[0]}" data-origin-y="${plate.origin[1]}"`:''}`:'';
-  /* A study note with no pin and no tissue lens used to borrow a random crop of the
-     chapter plate, so every row showed the same meaningless thumbnail. Those rows now
-     show a neutral note glyph instead of pretending to locate the structure. */
-  const isLens=plate.kind==='scope';
-  const chip=placed
-    ? `<span class="mini" style="background-image:url(${imgSrc(plate.file,true)});background-position:${(h[0]/10).toFixed(1)}% ${(h[1]/10).toFixed(1)}%"></span>`
-    : isLens
-      ? `<span class="mini reference" style="background-image:url(${imgSrc(plate.file,true)})"></span>`
-      : `<span class="mini note" aria-hidden="true">${icon('info')}</span>`;
-  /* data-preview-context="true" means "no pointer on this plate" — it stays true for a
-     lens that is only a tissue-type reference, so the preview never claims a location. */
-  return `<button class="part-mini-trigger" type="button" data-plate-preview data-plate-src="${attr(imgSrc(plate.file))}" data-part-name="${attr(name)}" data-preview-kind="${plate.kind}" data-preview-context="${placed?'false':'true'}"${point}${ref}${scope} aria-label="${placed||isLens?'Enlarge anatomy image for':'Open the study note plate for'} ${attr(name)}">${chip}<span class="part-mini-expand" aria-hidden="true">⤢</span></button>`;
+ const part=o.parts[id],name=part?.n||o.title,contextOnly=!!part?.contextOnly;
+ const point=placed?` data-point-x="${h[0]}" data-point-y="${h[1]}"`:'';
+ const ref=plate.reference?` data-reference-href="/learn/${plate.reference}/"`:'';
+ const scope=plate.kind==='scope'?` data-overview-src="${attr(imgSrc(plate.overview))}" data-lens-title="${attr(plate.lensTitle)}" data-source-url="${attr(plate.sourceUrl)}"${plate.origin?` data-origin-x="${plate.origin[0]}" data-origin-y="${plate.origin[1]}"`:''}`:'';
+ const isLens=plate.kind==='scope';
+ const chip=placed
+  ? `<span class="mini" style="background-image:url(${imgSrc(plate.file,true)});background-position:${(h[0]/10).toFixed(1)}% ${(h[1]/10).toFixed(1)}%"></span>`
+  : isLens
+   ? `<span class="mini reference" style="background-image:url(${imgSrc(plate.file,true)})"></span>`
+   : `<span class="mini note" aria-hidden="true">${icon('info')}</span>`;
+ const noPointNote=isLens
+  ? `Context only: this tissue-scale teaching cutaway does not individually identify ${name}; no exact pointer is drawn.`
+  : part?.referencePlate
+   ? `Reference only: this related illustration does not precisely mark ${name}; no pointer is drawn.`
+   : `Context only: no supplied illustration singles out ${name} as a distinct feature; no pointer is drawn.`;
+ const locatedNote=isLens
+  ? `The pointer identifies ${name} on the tissue-scale reference plate only; it is not a pin on the main organ image.`
+  : `The pointer identifies ${name} on a related reference plate only; it is not a pin on the main chapter image.`;
+ const contextData=contextOnly
+  ? ` data-context-only="true" data-context-label="${attr(placed?(isLens?'Tissue reference · pointer shown':'Reference plate · pointer shown'):'Context only · not individually marked')}" data-preview-note="${attr(placed?locatedNote:noPointNote)}"`
+  : '';
+ const action=placed?'Enlarge pointed anatomy plate for ':isLens?'Enlarge tissue-context image for ':'Open context-only study note for ';
+ const status=contextOnly?(placed?' The point is on a related plate, not the main image.':' No exact point is shown.') : '';
+ return `<button class="part-mini-trigger" type="button" data-plate-preview data-plate-src="${attr(imgSrc(plate.file))}" data-part-name="${attr(name)}" data-preview-kind="${plate.kind}" data-preview-context="${placed?'false':'true'}"${point}${ref}${scope}${contextData} aria-label="${attr(action+name+'.'+status)}">${chip}<span class="part-mini-expand" aria-hidden="true">⤢</span></button>`;
 }
 function boneSection(o){
  const tot=o.bones206.reduce((a,g)=>a+g.n,0);
@@ -322,9 +429,9 @@ function muscleAtlasSection(){
  return `<section class="sec wrap mat-atlas" id="muscle-atlas">
   <div class="sec-h rv"><div><div class="eyebrow">Full-body muscle reference</div><h2>Muscles, deep layers &amp; tendons</h2><p>${n} named muscle records across ${MUSCLE_GROUPS.length} anatomical regions, plus ${TENDON_ENTRIES.length} named tendon and fascia pathways. This includes skeletal-muscle names and a separate reproductive smooth-muscle supplement. Heads, bellies and bilateral instances are counted differently between atlases; these are records, not a claimed fixed number of muscles in one person.</p></div></div>
   <div class="mat-stats rv"><span><b>${n}</b> muscle records</span><span><b>${MUSCLE_GROUPS.length}</b> regions</span><span><b>${TENDON_ENTRIES.length}</b> tendon pathways</span><span><b>2</b> pelvic-floor views</span></div>
-  <div class="mat-fullbody rv"><div class="mat-fulltop"><span>Male & female écorché</span><p>Same realistic render quality as the rest of the atlas. Surface views identify body form; deep reproductive and pelvic muscles are shown in the dedicated plates below.</p></div><div class="mat-figures"><a href="#/muscle?g=male-pelvis"><img src="img/webp/male-ecorche-reference.webp" alt="Male full-body muscular écorché with rib cage and male pelvis"><span>Male full-body muscle view <b>Explore male pelvic muscles →</b></span></a><a href="#/muscle?g=female-pelvis"><img src="img/webp/female-ecorche-v2.webp" alt="Female full-body muscular écorché with breast and female pelvis"><span>Female full-body muscle view <b>Explore female pelvic muscles →</b></span></a></div></div>
+  <div class="mat-fullbody rv"><div class="mat-fulltop"><span>Male & female écorché</span><p>Open either labelled full-body figure to see only the muscles and landmarks visibly supported by this anterior render; deeper pelvic structures have their own focused plates.</p></div><div class="mat-figures"><article class="mat-figure-card"><a class="mat-figure-thumb" href="#/male"><img src="${imgSrc('male-ecorche-reference.webp',true)}" alt="Male full-body écorché preview; open the labelled figure for visible muscles" loading="lazy"><span>Open the labelled male figure ↗</span></a><a class="mat-figure-muscles" href="#/muscle?g=male-pelvis">Explore male pelvic muscles →</a></article><article class="mat-figure-card"><a class="mat-figure-thumb" href="#/female"><img src="${imgSrc('female-ecorche-v2.webp',true)}" alt="Female full-body écorché preview; open the labelled figure for visible muscles" loading="lazy"><span>Open the labelled female figure ↗</span></a><a class="mat-figure-muscles" href="#/muscle?g=female-pelvis">Explore female pelvic muscles →</a></article></div></div>
   <div class="mat-menu rv"><h3>Jump to a region</h3><div>${MUSCLE_GROUPS.map(g=>`<button type="button" data-mat-jump="${g.id}">${esc(g.title)} <small>${g.items.length}</small></button>`).join('')}<button type="button" data-mat-tendon="1">Tendon atlas <small>${TENDON_ENTRIES.length}</small></button></div></div>
-  <div class="mat-spot rv"><div><span class="eyebrow">Sex-specific deep anatomy</span><h3>Reproductive &amp; pelvic muscles, separately</h3><p>Male: puboprostatic fibers, bulbospongiosus, ischiocavernosus, urethral sphincter, plus dartos and prostatic smooth muscle. Female: pubovaginal fibers, compressor urethrae, urethrovaginal sphincter, bulbospongiosus, plus uterine myometrium. Both share levator ani, coccygeus and anal sphincters.</p><div><button data-mat-jump="male-pelvis" class="btn sm">Male pelvic floor →</button><button data-mat-jump="female-pelvis" class="btn sm">Female pelvic floor →</button><button data-mat-jump="male-repro-smooth" class="btn sm">Male organ-wall muscle →</button><button data-mat-jump="female-repro-smooth" class="btn sm">Female organ-wall muscle →</button></div></div><img src="img/webp/muscles-pelvic-female.webp" alt="Female pelvic floor realistic anatomical render" loading="lazy"></div>
+  <div class="mat-spot rv"><div><span class="eyebrow">Sex-specific deep anatomy</span><h3>Reproductive &amp; pelvic muscles, separately</h3><p>Male: puboprostatic fibers, bulbospongiosus, ischiocavernosus, urethral sphincter, plus dartos and prostatic smooth muscle. Female: pubovaginal fibers, compressor urethrae, urethrovaginal sphincter, bulbospongiosus, plus uterine myometrium. Both share levator ani, coccygeus and anal sphincters.</p><div><button data-mat-jump="male-pelvis" class="btn sm">Male pelvic floor →</button><button data-mat-jump="female-pelvis" class="btn sm">Female pelvic floor →</button><button data-mat-jump="male-repro-smooth" class="btn sm">Male organ-wall muscle →</button><button data-mat-jump="female-repro-smooth" class="btn sm">Female organ-wall muscle →</button></div></div>${atlasAnnotation('muscles-pelvic-female.webp','Inferior view of the female pelvic floor showing pelvic bones, levator ani, pelvic sidewall muscle, vaginal canal and posterior perineal landmarks',PELVIC_FLOOR_LABELS.female,'pelvic-floor-annotation')}</div>
   <div class="sec-h rv"><div><div class="eyebrow">Regional atlas</div><h2>${MUSCLE_GROUPS.length} anatomical regions</h2><p>Open any region, then a muscle for its attachments, action, nerve supply and contextual render. The image shows the region, not a separate labeled photograph of every deep fiber.</p></div></div>
   <div class="mat-groups">${groups}</div>
   <section id="mat-tendons" class="mat-tendons"><div class="sec-h rv"><div><div class="eyebrow">Tendon & fascial pathways</div><h2>${TENDON_ENTRIES.length} named tendons</h2><p>From the rotator cuff through the flexor tendons of the hand to Achilles and the plantar aponeurosis. Tendon attachments and actions are listed with a matching realistic regional plate.</p></div></div><div class="mat-tendon-hero"><img src="img/webp/muscles-arm-hand.webp" alt="Realistic upper-limb muscle-to-tendon illustration" loading="lazy"><span>Muscle-to-bone force transmission · 32 named tendon pathways</span></div><div class="mat-tendon-grid">${tendons}</div></section>
@@ -339,7 +446,8 @@ function bindMuscleAtlas(){
 
 function reproductiveMuscleSection(key){
  const male=key==='male',sex=male?'male':'female';
- return `<section class="sec wrap repro-muscle"><div class="mat-spot rv"><div><span class="eyebrow">Reproductive anatomy · deep muscles</span><h3>${male?'Male':'Female'} pelvic floor &amp; perineum</h3><p>${male?'Puboprostatic fibers, bulbospongiosus, ischiocavernosus and the external urethral sphincter act alongside shared levator ani, coccygeus and anal sphincters.':'Pubovaginal fibers, compressor urethrae, urethrovaginal sphincter, bulbospongiosus and ischiocavernosus act alongside shared levator ani, coccygeus and anal sphincters.'} View the realistic regional plate and open each muscle for its attachments, action and innervation.</p><div><a class="btn sm" href="#/muscle?g=${sex}-pelvis">Explore ${sex} pelvic muscles →</a><a class="btn sm" href="#/muscle?g=pelvic-common">Shared pelvic floor →</a><a class="btn sm" href="#/muscle?g=${sex}-repro-smooth">Organ-wall smooth muscle →</a></div></div><img src="img/muscles-pelvic-${sex}.jpg" alt="${male?'Male':'Female'} pelvic floor regional medical render" loading="lazy"></div></section>`;
+ const alt=male?'Inferior view of the male pelvic floor showing pelvic bones, urethral passage, prostate, levator ani and anal sphincter':'Inferior view of the female pelvic floor showing pelvic bones, urethral opening, vaginal canal, levator ani and anal sphincter';
+ return `<section class="sec wrap repro-muscle"><div class="mat-spot rv"><div><span class="eyebrow">Reproductive anatomy · deep muscles</span><h3>${male?'Male':'Female'} pelvic floor &amp; perineum</h3><p>${male?'Puboprostatic fibers, bulbospongiosus, ischiocavernosus and the external urethral sphincter act alongside shared levator ani, coccygeus and anal sphincters.':'Pubovaginal fibers, compressor urethrae, urethrovaginal sphincter, bulbospongiosus and ischiocavernosus act alongside shared levator ani, coccygeus and anal sphincters.'} Visible landmarks are labelled; open each muscle for its attachments, action and innervation.</p><div><a class="btn sm" href="#/muscle?g=${sex}-pelvis">Explore ${sex} pelvic muscles →</a><a class="btn sm" href="#/muscle?g=pelvic-common">Shared pelvic floor →</a><a class="btn sm" href="#/muscle?g=${sex}-repro-smooth">Organ-wall smooth muscle →</a></div></div>${atlasAnnotation(`muscles-pelvic-${sex}.jpg`,alt,PELVIC_FLOOR_LABELS[sex],`pelvic-floor-annotation ${sex}-pelvis-annotation`)}</div></section>`;
 }
 /* ---------- clinical reproductive anatomy study layer ---------- */
 const DEEP_PATH=['skullface','dentition','clitoralcomplex','penileerectile','skinlayers','facialnerve','trigeminalnerve','eyeanatomy','retina','nephron','brachialplexus','cerebraldeep','meningescsf','brainstemdeep','pulmonaryacinus','hepaticlobule','intestinalwall'];
@@ -364,7 +472,7 @@ function studySection(o,key){
 }
 function viewGyn(){
  const count=GYN_PATH.reduce((n,k)=>n+Object.keys(ORGANS[k].parts).length,0);
- return `<section class="gyn-hero"><div class="wrap gyn-hero-inner"><div><div class="eyebrow">Clinical anatomy · gynecology study path</div><h1>Learn the pelvis<br><em>from layer to landmark.</em></h1><p>Six focused chapters, ${count} documented parts, realistic regional renders, exam-oriented relations and a quiz for each chapter. Start with the uterus, then follow the tube, cervix, vaginal canal, external genitalia and supporting planes.</p><div class="hero-cta"><a class="btn primary" href="#/gynuterus">Start with uterine layers →</a><a class="btn" href="#/gynsupport">See surgical landmarks</a></div><small>Anatomy reference—not a diagnosis, treatment guide or screening protocol.</small></div><img src="img/webp/gyn-uterus.webp" alt="Realistic uterine section showing endometrium, myometrium, cervix, tubes and ovaries"></div></section>
+ return `<section class="gyn-hero"><div class="wrap gyn-hero-inner"><div><div class="eyebrow">Clinical anatomy · gynecology study path</div><h1>Learn the pelvis<br><em>from layer to landmark.</em></h1><p>Six focused chapters, ${count} documented parts, realistic regional renders, exam-oriented relations and a quiz for each chapter. Start with the uterus, then follow the tube, cervix, vaginal canal, external genitalia and supporting planes.</p><div class="hero-cta"><a class="btn primary" href="#/gynuterus">Start with uterine layers →</a><a class="btn" href="#/gynsupport">See surgical landmarks</a></div><small>Anatomy reference—not a diagnosis, treatment guide or screening protocol.</small></div>${organAnnotation('gynuterus','Realistic uterine section showing endometrium, myometrium, cervix, tubes and ovaries','gyn-hero-annotation')}</div></section>
  <section class="sec wrap gyn-path"><div class="sec-h rv"><div><div class="eyebrow">Your six-module route</div><h2>From tissue to clinical relations</h2><p>Choose a chapter; every structure is named, searchable and linked to its exam relevance. Thin callout lines mark visible structures; additional deep notes appear in chapter lists.</p></div></div><div class="gyn-grid">${GYN_PATH.map((k,i)=>{const o=ORGANS[k];return `<a class="gyn-tile rv" data-d="${i%4}" href="${routeFor(k)}"><div class="gyn-tile-pic"><img src="${imgSrc(o.photo.file,true)}" alt="${esc(o.title)} medical render" loading="lazy"><b>${String(i+1).padStart(2,'0')}</b></div><div><span>${Object.keys(o.parts).length} documented parts · ${o.quiz.length} questions</span><h3>${esc(o.title)}</h3><p>${esc(o.blurb)}</p><strong>Open chapter ↗</strong></div></a>`}).join('')}</div></section>
  <section class="sec wrap"><div class="gyn-clinic rv"><div><span class="eyebrow">High-yield anatomy checkpoints</span><h2>Where to focus</h2><p>Cervical epithelium and transformation zone · ureter under uterine artery · ovarian pedicle and para-aortic lymph · vaginal fornices · vulvar and <a href="#/clitoralcomplex">clitoral erectile anatomy</a> · pelvic support compartments.</p></div><div><a href="#/gyncervix">Cervical histology →</a><a href="#/gynadnexa">Ovary & tube →</a><a href="#/gynsupport">Surgical planes →</a><a href="#/gynvulva">Vulvar landmarks →</a></div></div></section>
  <section class="sec wrap"><div class="sec-h rv"><div><div class="eyebrow">Extend the map</div><h2>Comparative male anatomy</h2></div></div><div class="gyn-compare">${['maletestis','maleprostate','penileerectile'].map(k=>{const o=ORGANS[k];return `<a href="${routeFor(k)}" class="gyn-tile rv"><div class="gyn-tile-pic"><img src="${imgSrc(o.photo.file,true)}" alt="${esc(o.title)} clinical render" loading="lazy"></div><div><span>${Object.keys(o.parts).length} structures</span><h3>${esc(o.title)}</h3><p>${esc(o.blurb)}</p><strong>Open chapter ↗</strong></div></a>`}).join('')}</div></section>`;
@@ -426,18 +534,28 @@ function viewOrgan(key){
   const sys=SYSTEMS[o.system];
   const facts=[['System',sys.name],['Location',o.region],['Size / weight',o.size],['Blood supply',o.blood],['Innervation',o.nerve]];
   const controls=Object.keys(o.photo?.hot||{}).length?'<button class="btn sm on" data-focus-pulse aria-pressed="true">Animate selected highlight</button>':'';
-  const parts=Object.entries(o.parts).map(([id,p],idx)=>`
+  const parts=Object.entries(o.parts).map(([id,p],idx)=>{
+    const plate=partPlate(o,id),located=!!plate?.hot,isMicro=plate?.kind==='scope';
+    const typeLabel=p.contextOnly?(located?(isMicro?'Micro pointer':'Reference pointer'):'Context only'):esc(p.t);
+    const contextCopy=located
+      ? (isMicro?'The pointer marks this feature on the tissue-scale teaching plate only; it is not a location on the main organ image.':'The pointer marks this feature on a related teaching plate; it is not a pin on the chapter overview.')
+      : isMicro?'This tissue-scale illustration provides context but does not individually distinguish this feature; no pointer is drawn.'
+      : p.referencePlate?'This related reference illustration does not separately mark the named feature; no exact pointer is drawn.'
+      :'No supplied image shows this entry as a distinct, identifiable feature; no pointer is drawn.';
+    const sourceLink=p.deepRef&&ORGANS[p.deepRef]?`Text adapted from <a href="${routeFor(p.deepRef)}">${esc(ORGANS[p.deepRef].title)} chapter →</a>. `:'';
+    return `
     <div class="part rv${p.contextOnly?' context-entry':''}" data-d="${idx%4}" data-pid="${id}">
-      <div class="part-top">${miniChip(o,id)}<button class="part-h" aria-expanded="false"><span class="swatch" style="--c:${sys.color}"></span><strong>${esc(p.n)}</strong><span class="pill plan">${p.contextOnly?'Study note':esc(p.t)}</span></button></div>
+      <div class="part-top">${miniChip(o,id)}<button class="part-h" aria-expanded="false"><span class="swatch" style="--c:${sys.color}"></span><strong>${esc(p.n)}</strong><span class="pill plan">${typeLabel}</span></button></div>
       <div class="part-b">
         <p class="latin">${esc(p.l)}</p>
         <p>${esc(p.d)}</p>
         <p class="kv"><b>Function</b>${esc(p.f)}</p>
         <p class="kv"><b>Clinical</b>${esc(p.c)}</p>
-        ${o.visualGallery?`<p class="repro-part-caption"><b>Picture context</b> ${esc(o.visualGallery.find(a=>a.file===partPlate(o,id).file)?.note||'A related regional anatomy image; this individual event or cell is not separately identifiable in it.')}</p>`:''}
-        ${p.contextOnly?`<p class="context-caption">${p.deepRef?`Text adapted from <a href="${routeFor(p.deepRef)}">${esc(ORGANS[p.deepRef].title)} chapter →</a>. `:'Anatomy study note. '}Tap its small image for a relevant teaching plate where available. Only structures distinguishable on that plate receive a pointer.</p>`:''}
+        ${o.visualGallery?`<p class="repro-part-caption"><b>Picture context</b> ${esc(o.visualGallery.find(a=>a.file===plate.file)?.note||'A related regional anatomy image; this individual event or cell is not separately identifiable in it.')}</p>`:''}
+        ${p.contextOnly?`<p class="context-caption"><b>${typeLabel}</b> ${sourceLink}${contextCopy}</p>`:''}
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
   return `
   <nav class="crumb wrap" aria-label="Breadcrumb"><a href="#/">Home</a>${icon('chev')}<a href="#/organs">Organs</a>${icon('chev')}<a href="#/organs?sys=${o.system}">${sys.name}</a>${icon('chev')}<span>${esc(o.title)}</span></nav>
   <header class="organ-head wrap">
@@ -609,10 +727,10 @@ function viewSection(g){
           ${!male?'<a class="btn" href="#/gyn">Gynecology study path</a>':''}<a class="btn" href="#/deep">Deep anatomy chapters</a>
         </div>
       </div>
-      <div class="intro-fig rv in" data-d="1"><img src="${imgSrc(male?'malebody.jpg':'femalebody.jpg')}" alt="Realistic ${male?'male':'female'} full-body anatomy illustration" loading="lazy"></div>
+      <div class="intro-fig rv in" data-d="1">${organAnnotation(male?'malebody':'femalebody','Realistic '+(male?'male':'female')+' full-body overview with visible organs','body-overview-annotation')}</div>
     </div>
   </section>
-  <section class="sec wrap sex-figure-section"><div class="sex-figure-card rv"><div class="sex-figure-image"><img src="${imgSrc(male?'male-ecorche-reference.png':'female-ecorche-v2.jpg')}" alt="Full-body ${male?'male':'female'} anterior écorché medical illustration on a black background, showing muscles, skeletal thorax, arms, pelvis and legs" loading="lazy"></div><div class="sex-figure-copy"><div class="eyebrow">${male?'Male reference figure':'Female counterpart · matched view'}</div><h2>${male?'The reference, anatomically layered.':'The female figure, at the same depth.'}</h2><p>${male?'This is the supplied male reference figure used to set the visual standard. Compare it with the female view: both retain the frontal stance and black-background écorché look.':'A new female écorché created to match the supplied male reference: same frontal full-body stance, exposed muscular groups and partial rib-cage window, with female proportions and breast tissue represented separately.'} These are illustrative teaching plates, not photographs or a claim that every individual muscle is anatomically visible at once.</p><div class="hero-cta"><a class="btn primary" href="#/muscle">Explore named muscles →</a><a class="btn" href="#/explorer">Peel anatomical layers →</a><a class="btn" href="#/${male?'female':'male'}">Compare ${male?'female':'male'} →</a></div></div></div></section>
+  <section class="sec wrap sex-figure-section"><div class="sex-figure-card rv"><div class="sex-figure-image">${atlasAnnotation(male?'male-ecorche-reference.webp':'female-ecorche-v2.webp','Full-body '+(male?'male':'female')+' anterior écorché teaching render; labels mark only visible muscles and landmarks',ECORCHE_LABELS[male?'male':'female'],'ecorche-plate')}</div><div class="sex-figure-copy"><div class="eyebrow">${male?'Male reference figure':'Female counterpart · matched view'}</div><h2>${male?'The reference, anatomically layered.':'The female figure, at the same depth.'}</h2><p>${male?'This is the supplied male reference figure used to set the visual standard. Compare it with the female view: both retain the frontal stance and black-background écorché look.':'A new female écorché created to match the supplied male reference: same frontal full-body stance, exposed muscular groups and partial rib-cage window, with female proportions and breast tissue represented separately.'} These are illustrative teaching plates, not photographs or a claim that every individual muscle is anatomically visible at once.</p><div class="hero-cta"><a class="btn primary" href="#/muscle">Explore named muscles →</a><a class="btn" href="#/explorer">Peel anatomical layers →</a><a class="btn" href="#/${male?'female':'male'}">Compare ${male?'female':'male'} →</a></div></div></div></section>
   <section class="sec wrap" style="padding-top:26px">
     <div class="sec-h rv"><div><div class="eyebrow">Chapters</div><h2>${male?'Male':'Female'} anatomy chapters</h2><p>Each chapter opens with a realistic render with thin label lines for visible anatomy; focus mode highlights selected structures, while deeper study notes explain hidden layers.</p></div>
     <a class="btn sm" href="#/organs">All organs ${icon('arrow')}</a></div>
@@ -931,8 +1049,10 @@ function bindOrgan(key){
   function select(id){
     selId=id; syncSel();
     const p=o.parts[id]; if(!p) return;
-    iType.textContent=p.contextOnly&&!p.pinPlate?'Study note · unpinned':p.t; iName.textContent=p.n; iLatin.textContent=p.l;
-    iDesc.textContent=(p.contextOnly&&!p.pinPlate?'Not localized on the main image; see its own plate. ':'')+p.d; iFn.textContent=p.f; iRel.textContent=p.c;
+    const plate=partPlate(o,id),located=!!plate?.hot;
+    iType.textContent=p.contextOnly?(located?(plate.kind==='scope'?'Micro pointer · reference only':'Pointer on related plate'):'Context only · no exact point'):p.t;
+    iName.textContent=p.n; iLatin.textContent=p.l;
+    iDesc.textContent=(p.contextOnly&&!located?'Not individually localized on the available image; no exact pointer is drawn. ':'')+p.d; iFn.textContent=p.f; iRel.textContent=p.c;
     const fnLabel=document.getElementById('iFnLabel'); if(fnLabel) fnLabel.textContent='Function';
   }
   function clearSel(){
@@ -1268,6 +1388,7 @@ function render(){
   if(validOrgan && key!=='male' && key!=='female') bindOrgan(organKey);
   if(key==='skeleton')bindJointImages();
   if(key==='muscle')bindMuscleAtlas();
+  bindAtlasAnnotations();
   $$('[data-study-jump]').forEach(btn=>btn.addEventListener('click',()=>document.getElementById(btn.dataset.studyJump)?.scrollIntoView({behavior:'smooth',block:'start'})));
   const jx=params.get('j'),bx=params.get('b'),bone=params.get('bone');
   if(jx!==null||bx!==null||bone!==null){

@@ -31,13 +31,23 @@
     const title = el('h2', 'plate-preview-title', name);
     const visual = el('div', 'plate-preview-visual');
     const image = el('img'); image.alt = scope
-      ? (located ? `Tissue-scale educational cutaway identifying ${name}`
-        : `Relevant tissue-scale cutaway for ${name}; individual feature not singled out`)
+      ? (located ? `Dedicated anatomy teaching cutaway identifying ${name}`
+        : `Relevant anatomy teaching cutaway for ${name}; individual feature not singled out`)
       : located
         ? (kind === 'micro' ? `Digital alveolar teaching illustration showing ${name}` : `Anatomy teaching illustration indicating ${name}`)
         : `Regional anatomy illustration for the study note ${name}`;
     image.decoding = 'async'; image.src = source;
     visual.append(image);
+    if (!located) {
+      const label = trigger.dataset.contextLabel || (scope
+        ? 'Context only · feature not separately marked'
+        : kind === 'micro'
+          ? 'Context only · no individual marker'
+          : 'Reference only · no precise marker');
+      const badge = el('span', 'plate-preview-context-badge', label);
+      badge.setAttribute('role', 'note');
+      visual.append(badge);
+    }
 
     if (located) {
       const side = x < 500 ? 'left' : 'right';
@@ -59,8 +69,8 @@
     }
 
     const note = el('p', 'plate-preview-note', trigger.dataset.previewNote || (scope
-      ? (located ? 'This is a tissue-scale digital teaching illustration, not a clinical micrograph or an actual zoom from the organ picture. The fine line marks the depicted feature. Tap the lens image to close.'
-        : 'This cutaway shows the tissue type around ' + name + ' rather than that one named structure, so no part-specific pointer is drawn. It is not a clinical micrograph or a literal zoom of the organ picture.')
+      ? (located ? 'This is a dedicated digital teaching cutaway or schematic, not a clinical image or a literal zoom from the organ picture. The fine line marks the depicted structure. Tap the image to close.'
+        : 'This teaching illustration provides context for ' + name + ' but does not separately depict it, so no part-specific pointer is drawn.')
       : kind === 'micro'
       ? 'Digital microscopic-scale teaching illustration, not a histology micrograph or a literal zoom of the whole lung. The fine line identifies the depicted cell. Tap the image to close.'
       : located
@@ -86,7 +96,7 @@
         ring.setAttribute('aria-hidden', 'true');
         macro.append(ring);
       }
-      overview.append(macro, el('p', 'scope-origin-note', (trigger.hasAttribute('data-origin-x') && trigger.hasAttribute('data-origin-y') ? 'Ring = representative tissue region, not the location of an individual cell.' : 'No sample ring: this whole-body or earlier-stage image cannot identify an exact microscopic sampling site.')));
+      overview.append(macro, el('p', 'scope-origin-note', (trigger.hasAttribute('data-origin-x') && trigger.hasAttribute('data-origin-y') ? 'Ring = representative tissue region, not the location of an individual cell.' : 'No sample ring: this overview image does not localize the selected tissue detail.')));
       const bridge = el('div', 'scope-bridge', '→');
       bridge.setAttribute('aria-hidden', 'true');
       const lens = el('div', 'scope-lens');
@@ -114,8 +124,12 @@
       const href=trigger.dataset.sourceUrl;
       try {
         const sourceUrl=new URL(href);
-        if (sourceUrl.protocol==='https:' && sourceUrl.hostname==='openstax.org' &&
-            sourceUrl.pathname.startsWith('/books/anatomy-and-physiology-2e/pages/')) {
+        const openStax=sourceUrl.protocol==='https:' && sourceUrl.hostname==='openstax.org' &&
+          sourceUrl.pathname.startsWith('/books/anatomy-and-physiology-2e/pages/');
+        const ncbiBookshelf=sourceUrl.protocol==='https:' &&
+          ['ncbi.nlm.nih.gov','www.ncbi.nlm.nih.gov'].includes(sourceUrl.hostname) &&
+          /^\/books\/[A-Za-z0-9._-]+\/?$/.test(sourceUrl.pathname);
+        if (openStax || ncbiBookshelf) {
           const cite=el('a', 'plate-preview-reference', 'Read the anatomy reference ↗');
           cite.href=sourceUrl.href;cite.target='_blank';cite.rel='noopener noreferrer';
           modal.append(cite);

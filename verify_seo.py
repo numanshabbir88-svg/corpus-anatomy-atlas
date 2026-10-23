@@ -32,14 +32,35 @@ class Page(HTMLParser):
         self.images = []
         self.previews = []
         self.part_count = 0
+        self.context_statuses = 0
+        self.context_preview_buttons = []
         self.qa_count = 0
         self.related = []
         self.ids = set()
+        self.plate_visuals = 0
+        self.plate_images = 0
+        self.plate_svgs = 0
+        self.plate_leaders = 0
+        self.plate_callouts = 0
+        self.plate_mobile_keys = 0
+        self.in_plate_visual = False
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
+        classes = a.get('class','').split()
+        if tag == 'div' and 'plate-visual' in classes:
+            self.plate_visuals += 1
+            self.in_plate_visual = True
+        if tag == 'img' and self.in_plate_visual: self.plate_images += 1
+        if tag == 'svg' and 'plate-annotations' in classes: self.plate_svgs += 1
+        if tag == 'path' and 'plate-leader' in classes: self.plate_leaders += 1
+        if tag == 'span' and 'plate-callout' in classes: self.plate_callouts += 1
+        if tag == 'ol' and 'plate-mobile-key' in classes: self.plate_mobile_keys += 1
         if tag == 'h1': self.h1 += 1
         if tag == 'section' and 'part' in a.get('class','').split(): self.part_count += 1
-        if tag == 'button' and 'data-plate-preview' in a: self.previews.append(a)
+        if tag == 'span' and 'part-context-status' in classes: self.context_statuses += 1
+        if tag == 'button' and 'data-plate-preview' in a:
+            self.previews.append(a)
+            if a.get('data-context-only') == 'true': self.context_preview_buttons.append(a)
         if tag == 'div' and 'qa-item' in a.get('class','').split(): self.qa_count += 1
         if tag == 'a' and 'related-card' in a.get('class','').split(): self.related.append(a.get('href',''))
         if tag == 'title': self.in_title = True
@@ -53,6 +74,7 @@ class Page(HTMLParser):
         if tag == 'img': self.images.append(a)
     def handle_endtag(self, tag):
         if tag == 'title': self.in_title = False
+        if tag == 'div' and self.in_plate_visual: self.in_plate_visual = False
     def handle_data(self, data):
         if self.in_title: self.title += data
 
@@ -74,18 +96,28 @@ def local_target(page, reference):
 if len(PAGES) != 79: report(f'Expected 79 HTML files, found {len(PAGES)}')
 seen_titles = set()
 related_graph = {}
+context_status_count = 0
 for page in PAGES:
     parser = Page()
     parser.feed(page.read_text(encoding='utf-8'))
+    context_status_count += parser.context_statuses
     name = str(page.relative_to(ROOT))
     if parser.h1 != 1: report(f'{name}: {parser.h1} h1 headings')
     if name.startswith('learn/') and name != 'learn/index.html':
         if parser.qa_count != 5: report(f'{name}: expected 5 visible question-answer blocks, got {parser.qa_count}')
         if parser.part_count < 20: report(f'{name}: expected at least 20 documented structures')
+        if parser.plate_visuals != 1 or parser.plate_images != 1:
+            report(f'{name}: main anatomy plate markup/image is missing or malformed')
+        if parser.plate_callouts and (parser.plate_svgs != 1 or parser.plate_mobile_keys != 1):
+            report(f'{name}: main anatomy plate overlay/key is missing or malformed')
+        if parser.plate_leaders != parser.plate_callouts:
+            report(f'{name}: leader-line/callout count mismatch ({parser.plate_leaders}/{parser.plate_callouts})')
         for button in parser.previews:
             located = button.get('data-preview-context') == 'false'
             has_point = button.get('data-point-x') is not None and button.get('data-point-y') is not None
             if located != has_point: report(f'{name}: mismatch between preview pointer and stated visibility for {button.get("data-part-name")}')
+            if button.get('data-context-only') == 'true' and (not button.get('data-context-label') or not button.get('data-preview-note')):
+                report(f'{name}: context-only preview lacks its explicit label/note for {button.get("data-part-name")}')
             if button.get('data-preview-kind') == 'scope':
                 for attr in ('data-plate-src', 'data-overview-src'):
                     src = button.get(attr, '')
@@ -123,6 +155,9 @@ for page in PAGES:
         if any('noindex' in x for x in parser.robots): report(f'{name}: production page is noindex')
     elif 'noindex' not in ' '.join(parser.robots) or parser.canonical:
         report(f'{name}: preview should be noindex with no canonical')
+
+if context_status_count != 345:
+    report(f'Expected explicit context-only label on all 345 entries, found {context_status_count}')
 
 inbound = {Path(urlparse(link).path.rstrip('/')).name for links in related_graph.values() for link in links}
 if set(related_graph) - inbound: report(f'Chapters without a related-article incoming link: {sorted(set(related_graph)-inbound)}')
@@ -209,7 +244,10 @@ if '<b>74</b> study chapters' not in (ROOT/'about.html').read_text(encoding='utf
 for slug,n in [('anatomicallanguage',24),('bodyregions',28),('tissuefoundations',28)]:
     page=(ROOT/'learn'/slug/'index.html').read_text(encoding='utf-8');probe=Page();probe.feed(page)
     if probe.part_count!=n or probe.qa_count!=5: report(f'{slug}: parts/Q&A coverage changed')
-    if slug=='anatomicallanguage' and any(b.get('data-preview-context')=='false' for b in probe.previews):report('Reference planes have a false image pointer')
+    if slug=='anatomicallanguage':
+        visible={b.get('data-part-name') for b in probe.previews if b.get('data-preview-context')=='false'}
+        expected={'Median sagittal plane','Frontal (coronal) plane','Transverse (axial) plane'}
+        if visible!=expected:report('Reference-plane pins must match the three visible colored sheets exactly')
     if slug=='bodyregions' and (len(re.findall(r'class="foundation-chart ',page))!=2 or len(re.findall(r'<a href="#part-[a-z]+"',page))<13):report('Patient-facing region maps are incomplete')
     if slug=='tissuefoundations':
         for name,asset in [('Mitochondria','foundation-cell-organelles.webp'),('Cardiac muscle','foundation-cardiac-muscle.webp'),('Smooth muscle','foundation-smooth-muscle.webp'),('Connective tissue','foundation-connective.webp')]:

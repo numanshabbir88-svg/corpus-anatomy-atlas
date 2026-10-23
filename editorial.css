@@ -237,3 +237,9 @@
 .head-nav a[href$="about.html"]{color:#145f53;background:#e5f1ea;border-radius:7px;padding:6px 10px;text-decoration:none}
 .head-nav a[href$="about.html"]:hover,.head-nav a[href$="about.html"][aria-current=page]{background:#d2e9dc;text-decoration:none}
 @media(max-width:600px){.head-nav{flex-wrap:wrap;overflow:visible;white-space:normal;gap:5px 12px}.head-nav a[href*="#/quiz"]{order:-2}.head-nav a[href$="about.html"]{order:-1}}
+
+/* Context-only entries are labelled before opening; unpointed previews repeat the scope note. */
+.part-title-wrap{min-width:0;flex:1}
+.part-context-status{display:inline-flex;align-items:center;max-width:100%;margin:5px 0 0;padding:3px 8px;border:1px solid #d8c9a9;border-radius:999px;background:#f5efdf;color:#684f2b;font:800 10px/1.35 var(--sans);letter-spacing:.045em;text-transform:uppercase;overflow-wrap:anywhere}
+.plate-preview-context-badge{position:absolute;top:10px;left:10px;z-index:3;max-width:calc(100% - 20px);padding:6px 9px;border:1px solid rgba(255,219,140,.72);border-radius:8px;background:rgba(7,30,28,.93);color:#fff7df;box-shadow:0 2px 9px #0007;font:800 clamp(10px,1.4vw,12px)/1.35 var(--sans);letter-spacing:.04em;text-transform:uppercase;overflow-wrap:anywhere;pointer-events:none}
+@media(max-width:620px){.part-context-status{font-size:9px;padding:3px 7px}.plate-preview-context-badge{top:6px;left:6px;max-width:calc(100% - 12px);padding:4px 7px;font-size:9px}}

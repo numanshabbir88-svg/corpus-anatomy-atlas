@@ -989,3 +989,77 @@ body.nomotion .rv{opacity:1;transform:none}
 /* Keep About us visible next to Quiz in the main navigation. */
 .nav a[href="about.html"]{color:#105e57;background:#e3f0e9;border:1px solid #c8e0d3;font-weight:750}
 .nav a[href="about.html"]:hover,.nav a[href="about.html"]:focus-visible{color:#0a493f;background:#cfe8dc;border-color:#98c8b1}
+
+/* ---------- Pointer pass · audited secondary anatomy plates ---------- */
+.atlas-annotation{display:block;width:100%;max-width:100%;margin:0;min-width:0}
+.atlas-annotation-stage{position:relative;width:100%;line-height:0;overflow:hidden;background:#0b1514}
+.atlas-annotation-stage>img{display:block;width:100%;height:auto;max-width:none;max-height:none;object-fit:fill;object-position:center;margin:0;border:0;border-radius:0;filter:none;mix-blend-mode:normal}
+.atlas-ann-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.atlas-ann-leader{fill:none;stroke:rgba(206,238,229,.76);stroke-width:1.1;vector-effect:non-scaling-stroke}
+.atlas-ann-point{fill:#c6f7e9;stroke:#0b2926;stroke-width:1.5;vector-effect:non-scaling-stroke}
+.atlas-ann-number-disc,.atlas-ann-number{display:none}
+.atlas-ann-labels{position:absolute;inset:0;pointer-events:none}
+.atlas-ann-label{position:absolute;z-index:2;transform:translateY(-50%);box-sizing:border-box;padding:2px 5px;border:1px solid rgba(150,210,196,.18);border-radius:2px;background:rgba(6,24,23,.9);color:#e7f9f4;font:600 9.5px/1.25 system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.005em;text-shadow:0 1px 2px #061616;white-space:normal;overflow-wrap:anywhere;text-align:right;pointer-events:none}
+.atlas-ann-label[data-side="r"]{right:6px;text-align:left}
+.atlas-ann-label[data-side="l"]{left:6px}
+.atlas-ann-key{margin:7px 0 0;border:1px solid rgba(95,130,122,.35);border-radius:8px;background:rgba(14,31,28,.96);color:#c5d4d0;font:500 11px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+.atlas-ann-key summary{padding:6px 9px;cursor:pointer;color:#9ce4da;font-weight:700;list-style:none}
+.atlas-ann-key summary::-webkit-details-marker{display:none}
+.atlas-ann-key summary::after{content:"+";float:right;color:#9ce4da;font:700 13px/1 var(--mono)}
+.atlas-ann-key[open] summary::after{content:"−"}
+.atlas-ann-key ol{margin:0;padding:0 12px 9px 30px;columns:2;column-gap:24px}
+.atlas-ann-key li{padding:1px 0;break-inside:avoid}
+.intro-fig .atlas-annotation{width:100%;max-width:650px;margin:0 auto}
+.intro-fig .atlas-annotation-stage>img{max-height:none;object-fit:fill;border-radius:12px;filter:none}
+.intro-fig .atlas-ann-key{max-width:650px;margin:7px auto 0}
+.gyn-hero-inner>div:not(.atlas-annotation){position:relative;z-index:1;padding:56px 20px 56px 0}
+.gyn-hero-inner>.atlas-annotation{padding:0;z-index:0;width:100%;align-self:center}
+.gyn-hero .atlas-annotation-stage{background:transparent;border-radius:12px}
+.gyn-hero .atlas-annotation-stage>img{height:auto;width:100%;object-fit:fill;object-position:center;mix-blend-mode:normal;filter:none}
+.sex-figure-card{display:block;min-height:0}
+.sex-figure-image{height:auto;overflow:visible;display:block;padding:20px 16px 0;background:#000}
+.sex-figure-image .atlas-annotation{width:min(100%,640px);margin:0 auto}
+.sex-figure-image .atlas-annotation-stage>img{width:100%;height:auto;max-height:none;object-fit:fill}
+.sex-figure-copy{max-width:900px;margin:0 auto}
+.mat-figures{align-items:start;background:#070c0c}
+.mat-figure-card{min-width:0;padding:12px;display:flex;flex-direction:column;gap:9px;background:#0b1514;color:#f5f5f0}
+.mat-figure-card:first-child{border-right:1px solid #283c39}
+.mat-figure-thumb{position:relative;display:block;height:280px;overflow:hidden;border-radius:9px;background:#050909;color:#fff;text-decoration:none}
+.mat-figure-thumb img{display:block;width:100%;height:100%;object-fit:contain;transition:transform .35s}
+.mat-figure-thumb:hover img{transform:scale(1.04)}
+.mat-figure-thumb span{position:absolute;left:0;right:0;bottom:0;padding:28px 12px 11px;background:linear-gradient(transparent,#081211ed);font:700 14px/1.3 Georgia,serif;color:#d2fff4}
+.mat-figure-muscles{align-self:flex-start;padding:7px 10px;border:1px solid #42635d;border-radius:7px;color:#9ce4da;font:700 11px var(--mono);text-decoration:none}
+.mat-figure-muscles:hover{background:#132b27}
+.mat-spot>.atlas-annotation{padding:0;min-width:0;align-self:stretch}
+.mat-spot .atlas-annotation-stage{background:#0d1514}
+.mat-spot .atlas-annotation-stage>img{width:100%;height:auto;max-height:none;object-fit:fill;background:#0d1514}
+.mat-spot .atlas-ann-key{margin:6px 10px 8px}
+@media(max-width:780px){
+ .sex-figure-image{padding:12px 0 0}
+ .mat-figures{grid-template-columns:1fr}
+ .mat-figure-card:first-child{border-right:0;border-bottom:1px solid #283c39}
+ .mat-figure-thumb{height:250px}
+ .mat-spot>.atlas-annotation{max-width:560px;margin:0 auto}
+ .gyn-hero-inner>.atlas-annotation{margin:0 auto 22px}
+ .gyn-hero-inner>div:not(.atlas-annotation){padding:37px 0 24px}
+}
+@media(max-width:620px){
+ .atlas-ann-label{display:none}
+ .atlas-ann-leader,.atlas-ann-point{display:none}
+ .atlas-ann-number-disc{display:block;fill:rgba(6,24,23,.88);stroke:#c6f7e9;stroke-width:1.5;vector-effect:non-scaling-stroke}
+ .atlas-ann-number{display:block;fill:#effff9;font:700 9px/1 system-ui,sans-serif;text-anchor:middle;dominant-baseline:central;paint-order:stroke;stroke:#0b2926;stroke-width:1.5px;stroke-linejoin:round}
+ .atlas-ann-key ol{max-height:240px;overflow:auto;columns:1}
+ .mat-spot .atlas-ann-key{margin:7px 0 0}
+ .sex-figure-card{border-radius:14px}
+ .sex-figure-copy{padding:24px 18px 28px}
+ .sex-figure-copy h2{font-size:32px}
+}
+/* Keep the atlas teaser cards compact; full labels live on their linked hub figures. */
+.mat-figures .mat-figure-thumb{height:280px;position:relative;display:block;overflow:hidden;background:#050909;border-right:0}
+.mat-figures .mat-figure-thumb:first-child{border-right:0}
+.mat-figures .mat-figure-muscles{height:auto;position:static;display:inline-flex;justify-content:flex-start;overflow:visible;background:transparent}
+@media(max-width:780px){.mat-figures .mat-figure-thumb{height:250px}.mat-figures .mat-figure-muscles{height:auto}}
+
+/* Explicitly distinguish a contextual illustration from a localized pin. */
+.plate-preview-context-badge{position:absolute;top:10px;left:10px;z-index:3;max-width:calc(100% - 20px);padding:6px 9px;border:1px solid rgba(255,219,140,.72);border-radius:8px;background:rgba(7,30,28,.93);color:#fff7df;box-shadow:0 2px 9px #0007;font:800 clamp(10px,1.4vw,12px)/1.35 var(--sans);letter-spacing:.04em;text-transform:uppercase;overflow-wrap:anywhere;pointer-events:none}
+@media(max-width:620px){.plate-preview-context-badge{top:6px;left:6px;max-width:calc(100% - 12px);padding:4px 7px;font-size:9px}}

@@ -172,7 +172,7 @@ def footer(depth=0):
 
 def document(title,description,path,body,depth=0,image='',extra=''):
     root='../'*depth or './'
-    head=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#125e58"><title>{E(title)} | Corpus</title>{meta(title,description,path,image)}{extra}<link rel="icon" href="{root}favicon.svg"><link rel="stylesheet" href="{root}editorial.css?v=62"></head><body>'
+    head=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#125e58"><title>{E(title)} | Corpus</title>{meta(title,description,path,image)}{extra}<link rel="icon" href="{root}favicon.svg"><link rel="stylesheet" href="{root}editorial.css?v=63"></head><body>'
     return head+header(depth)+body+footer(depth)+'</body></html>'
 
 def write(path,text):
@@ -207,7 +207,7 @@ def part_plate(o,pid,p):
     """Mirror the interactive atlas: prefer a real point on the chosen plate over a generic reference."""
     pin=p.get('pinPlate') or {}
     if pin.get('file') and valid_hot(pin.get('hot')):
-        return pin['file'],pin['hot'],'detail',''
+        return pin['file'],pin['hot'],'detail',pin.get('reference') or p.get('deepRef') or ''
     lens_id=p.get('microLens')
     if lens_id in MICRO_LENS:
         lens=MICRO_LENS[lens_id]
@@ -274,7 +274,7 @@ def photo_figure(o,image,stage_note=''):
         caption=f'Thin leader lines label {count} visible structures on this teaching plate. {stage_note}'.strip()
     else:
         caption=f'Regional teaching illustration; individual structures are not separately pinned on this image. {stage_note}'.strip()
-    return (f'<figure class="plate"><div class="plate-visual{" annotated" if count else ""}>'
+    return (f'<figure class="plate"><div class="plate-visual{" annotated" if count else ""}">'
             f'<img src="{E(relative)}" alt="{E(alt)}" {dimensions_html} loading="eager" fetchpriority="high" decoding="async">'
             f'{overlay}</div>{mobile_key}<figcaption>{E(caption)}</figcaption></figure>')
 
@@ -288,8 +288,28 @@ def part_block(items,o,start=1):
         thumbnail=f'../../img/thumb/{file}.webp'
         full=f'../../img/webp/{file}.webp'
         placed=point is not None
+        context_only=bool(p.get('contextOnly'))
         position=(f' data-point-x="{point[0]}" data-point-y="{point[1]}"' if placed else '')
         reference=f' data-reference-href="/learn/{E(ref)}/"' if ref else ''
+        if context_only:
+            context_status=('Micro pointer' if kind=='scope' else 'Reference pointer') if placed else 'Context only · no exact point'
+            context_badge=('Tissue reference · pointer shown' if kind=='scope' else 'Reference plate · pointer shown') if placed else 'Context only · not individually marked'
+            if placed:
+                context_pointer_note='The pointer marks this feature on a related teaching plate only; it is not a pin on the chapter overview.'
+            elif kind=='scope':
+                context_pointer_note='Context only: this tissue-scale illustration does not individually distinguish the named feature; no pointer is drawn.'
+            elif p.get('referencePlate'):
+                context_pointer_note='Reference only: this related illustration does not separately mark the named feature; no exact pointer is drawn.'
+            else:
+                context_pointer_note='Context only: no supplied image shows the named entry as a distinct, identifiable feature; no pointer is drawn.'
+            context_attrs=(f' data-context-only="true" data-context-label="{E(context_badge)}" '
+                           f'data-preview-note="{E(context_pointer_note)}"')
+            context_status_html=f'<span class="part-context-status">{E(context_status)}</span>'
+            context_section_attr=' data-context-only="true"'
+        else:
+            context_attrs=''
+            context_status_html=''
+            context_section_attr=''
         alt=(f'Tissue-level educational cutaway for {p["n"]}' if kind=='scope' and placed else
              f'Relevant tissue-level illustration for {p["n"]}; individual structure not singled out' if kind=='scope' else
              f'Digital alveolar teaching illustration showing {p["n"]}' if kind=='micro' else
@@ -303,13 +323,14 @@ def part_block(items,o,start=1):
                if kind=='scope' else '')
         thumbnail_html=(f'<button type="button" class="reading-mini-trigger" data-plate-preview '
           f'data-plate-src="{E(full)}" data-part-name="{E(p["n"])}" '
-          f'data-preview-kind="{kind}" data-preview-context="{str(not placed).lower()}"{position}{reference}{scope} '
-          f'aria-label="Enlarge anatomy image for {E(p["n"])}">'
+          f'data-preview-kind="{kind}" data-preview-context="{str(not placed).lower()}"{position}{reference}{scope}{context_attrs} '
+          f'aria-label="{"Open context-only reference for " if context_only and not placed else "Enlarge anatomy image for "}{E(p["n"])}">'
           f'<img src="{E(thumbnail)}" alt="{E(alt)}" {dimensions("thumb/"+file+".webp")} loading="lazy" decoding="async" '
           f'style="object-position:{(point[0]/10 if placed else 50):.1f}% {(point[1]/10 if placed else 50):.1f}%"></button>')
         gallery_note=next((a['note'] for a in o.get('visualGallery',[]) if Path(a['file']).stem==Path(source).stem),'A related regional anatomy model; the individual event or cell is not separately identifiable in this picture.') if o.get('visualGallery') else ''
         context_note=f'<p class="repro-part-caption"><b>Picture context</b> {E(gallery_note)}</p>' if gallery_note else ''
-        chunks.append(f'<section class="part" id="part-{E(pid)}"><div class="part-head">{thumbnail_html}<span class="number">{n:02d}</span><h3>{E(p["n"])}</h3></div>{label}<p>{E(p.get("d",""))}</p><div class="detail"><p><b>What it does</b>{E(p.get("f",""))}</p><p><b>Clinical connection</b>{E(p.get("c",""))}</p>{context_note}</div></section>')
+        title_group=f'<div class="part-title-wrap"><h3>{E(p["n"])}</h3>{context_status_html}</div>'
+        chunks.append(f'<section class="part"{context_section_attr} id="part-{E(pid)}"><div class="part-head">{thumbnail_html}<span class="number">{n:02d}</span>{title_group}</div>{label}<p>{E(p.get("d",""))}</p><div class="detail"><p><b>What it does</b>{E(p.get("f",""))}</p><p><b>Clinical connection</b>{E(p.get("c",""))}</p>{context_note}</div></section>')
     return ''.join(chunks)
 
 def lens_section(o,key=''):
@@ -445,7 +466,7 @@ def article(key,o):
     sidebar=f'<aside class="sidebar" aria-label="On this page"><div class="side-card"><h2>In this guide</h2><a href="#overview">Overview</a><a href="#parts">{("Illustrated structures ("+str(len(pinned))+")") if pinned else ("Study entries ("+str(len(deep))+")")}</a>'+(f'<a href="#deep">Deep study notes ({len(deep)})</a>' if deep and pinned else '')+('<a href="#under-the-lens">Under the lens</a>' if micro_html else '')+('<a href="#skull-views">Skull perspectives</a>' if skull_html else '')+('<a href="#dental-chart">Tooth charts</a>' if dental_html else '')+('<a href="#region-chart">Region charts</a>' if key=='bodyregions' else '')+('<a href="#tissue-gallery">Four tissue images</a>' if key=='tissuefoundations' else '')+('<a href="#repro-path">Conception to birth path</a>' if reproduction_html else '')+('<a href="#repro-gallery">Picture library</a>' if repro_gallery_html else '')+'<a href="#questions">Five questions &amp; answers</a><a href="#related">Related guides</a><a href="#sources">Further reading</a></div><div class="side-card"><div class="count">20+</div><p>Documented anatomy and developmental entries in every Corpus chapter. Images are orientation aids, not clinical evidence.</p></div></aside>'
     body='<div class="reading-track" aria-hidden="true"><span id="reading-progress"></span></div>'+opening+f'<div class="shell article-grid"><main id="content">{photo}<section id="overview"><div class="eyebrow">Overview</div><h2>How this part of the body works</h2><p class="intro-text">{E(o["summary"])}</p>{facts_html}</section>{micro_html}{skull_html}{dental_html}{foundation_html}{reproduction_html}{repro_gallery_html}{pinned_html}{deep_html}{faq_html}{related_html}{notes}{connect}</main>{sidebar}</div>'
     article_json=schema(f'/learn/{key}/',crumb)
-    return document(title,desc,f'/learn/{key}/',body,depth=2,image=img,extra=article_json).replace('</body>','<script defer src="../../reading.js?v=33"></script><script defer src="../../preview.js?v=48"></script></body>')
+    return document(title,desc,f'/learn/{key}/',body,depth=2,image=img,extra=article_json).replace('</body>','<script defer src="../../reading.js?v=33"></script><script defer src="../../preview.js?v=49"></script></body>')
 
 # Build every chapter from the exact atlas data. No automatic keyword stuffing or fabricated bylines.
 learn=ROOT/'learn'
