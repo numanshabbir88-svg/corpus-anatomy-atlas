@@ -28,13 +28,14 @@ if CONTACT and not re.fullmatch(r'[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+', CONTACT):
     raise SystemExit('CONTACT_EMAIL must be a valid public contact email')
 if PUB and not re.fullmatch(r'pub-\d{16}',PUB):
     raise SystemExit('ADSENSE_PUBLISHER_ID must match your real AdSense pub- plus 16 digits')
-FILES=['organs.js','brain-and-micro-chapters.js','deep-chapters.js','part-enrichment-notes.js','chapter-enrichment.js','skull-chapter.js','dental-chapter.js','foundations-chapters.js','reproduction-stages.js','repro-image-enrichment.js','micro-lens.js','part-pins.js']
+FILES=['organs.js','brain-and-micro-chapters.js','deep-chapters.js','part-enrichment-notes.js','chapter-enrichment.js','skull-chapter.js','dental-chapter.js','foundations-chapters.js','reproduction-stages.js','repro-image-enrichment.js','micro-lens.js','part-pins.js','muscle-atlas.js']
 load=''.join((ROOT/f).read_text()+'\n' for f in FILES)
 # The public reading edition uses the same curated pin map as the interactive atlas.
 # part-pins.js expects a browser-like window solely for its diagnostic report.
-js=f"const vm=require('vm');const data=vm.runInNewContext({json.dumps(load)}+';({{ORGANS,SYSTEMS,MICRO_LENS}})',{{window:{{}},console}});process.stdout.write(JSON.stringify(data));"
+js=f"const vm=require('vm');const data=vm.runInNewContext({json.dumps(load)}+';({{ORGANS,SYSTEMS,MICRO_LENS,MUSCLE_GROUPS,TENDON_ENTRIES}})',{{window:{{}},console}});process.stdout.write(JSON.stringify(data));"
 data=json.loads(subprocess.run(['node','-'],input=js,text=True,capture_output=True,check=True,cwd=ROOT).stdout)
 ORGANS=data['ORGANS']; SYSTEMS=data['SYSTEMS']; MICRO_LENS=data['MICRO_LENS']
+MUSCLE_GROUPS=data.get('MUSCLE_GROUPS',[]); TENDON_ENTRIES=data.get('TENDON_ENTRIES',[])
 assert len(ORGANS)==74 and all(len(o['parts'])>=20 for o in ORGANS.values())
 assert sum(group['n'] for group in ORGANS['skeleton']['bones206']) == 206
 assert len(ORGANS['skullface']['parts']) == 30
@@ -172,8 +173,8 @@ def footer(depth=0):
 
 def document(title,description,path,body,depth=0,image='',extra=''):
     root='../'*depth or './'
-    head=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#125e58"><title>{E(title)} | Corpus</title>{meta(title,description,path,image)}{extra}<link rel="icon" href="{root}favicon.svg"><link rel="stylesheet" href="{root}editorial.css?v=63"></head><body>'
-    return head+header(depth)+body+footer(depth)+'</body></html>'
+    head=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#125e58"><title>{E(title)} | Corpus</title>{meta(title,description,path,image)}{extra}<link rel="icon" href="{root}favicon.svg"><link rel="stylesheet" href="{root}editorial.css?v=63"><link rel="stylesheet" href="{root}corpus-bot.css?v=10"></head><body>'
+    return head+header(depth)+body+footer(depth)+f'<script defer src="{root}corpus-bot.js?v=10"></script></body></html>'
 
 def write(path,text):
     path.parent.mkdir(parents=True,exist_ok=True);path.write_text(text,encoding='utf-8')
@@ -466,7 +467,7 @@ def article(key,o):
     sidebar=f'<aside class="sidebar" aria-label="On this page"><div class="side-card"><h2>In this guide</h2><a href="#overview">Overview</a><a href="#parts">{("Illustrated structures ("+str(len(pinned))+")") if pinned else ("Study entries ("+str(len(deep))+")")}</a>'+(f'<a href="#deep">Deep study notes ({len(deep)})</a>' if deep and pinned else '')+('<a href="#under-the-lens">Under the lens</a>' if micro_html else '')+('<a href="#skull-views">Skull perspectives</a>' if skull_html else '')+('<a href="#dental-chart">Tooth charts</a>' if dental_html else '')+('<a href="#region-chart">Region charts</a>' if key=='bodyregions' else '')+('<a href="#tissue-gallery">Four tissue images</a>' if key=='tissuefoundations' else '')+('<a href="#repro-path">Conception to birth path</a>' if reproduction_html else '')+('<a href="#repro-gallery">Picture library</a>' if repro_gallery_html else '')+'<a href="#questions">Five questions &amp; answers</a><a href="#related">Related guides</a><a href="#sources">Further reading</a></div><div class="side-card"><div class="count">20+</div><p>Documented anatomy and developmental entries in every Corpus chapter. Images are orientation aids, not clinical evidence.</p></div></aside>'
     body='<div class="reading-track" aria-hidden="true"><span id="reading-progress"></span></div>'+opening+f'<div class="shell article-grid"><main id="content">{photo}<section id="overview"><div class="eyebrow">Overview</div><h2>How this part of the body works</h2><p class="intro-text">{E(o["summary"])}</p>{facts_html}</section>{micro_html}{skull_html}{dental_html}{foundation_html}{reproduction_html}{repro_gallery_html}{pinned_html}{deep_html}{faq_html}{related_html}{notes}{connect}</main>{sidebar}</div>'
     article_json=schema(f'/learn/{key}/',crumb)
-    return document(title,desc,f'/learn/{key}/',body,depth=2,image=img,extra=article_json).replace('</body>','<script defer src="../../reading.js?v=33"></script><script defer src="../../preview.js?v=49"></script></body>')
+    return document(title,desc,f'/learn/{key}/',body,depth=2,image=img,extra=article_json).replace('<script defer src="../../corpus-bot.js?v=10"></script></body>','<script defer src="../../reading.js?v=33"></script><script defer src="../../preview.js?v=49"></script><script defer src="../../corpus-bot.js?v=10"></script></body>')
 
 # Build every chapter from the exact atlas data. No automatic keyword stuffing or fabricated bylines.
 learn=ROOT/'learn'
@@ -545,10 +546,24 @@ if BASE:
 else:
     html=html.replace('</head>','<meta name="robots" content="noindex,follow"></head>')
 write(ROOT/'index.html',html)
+# Generate unified bot-knowledge.json for instant sitewide Corpus AI answers.
+_kb_chapters=[]; _kb_parts=[]; _kb_faqs=[]
+for _k,_o in ORGANS.items():
+    _sys_name=SYSTEMS.get(_o.get('system',''),{}).get('name',_o.get('system',''))
+    _kb_chapters.append({'k':_k,'t':_o.get('title',''),'l':_o.get('latin',''),'s':_sys_name,'r':_o.get('region',''),'b':_o.get('blood',''),'n':_o.get('nerve',''),'bl':_o.get('blurb',''),'sum':_o.get('summary','')})
+    for _pid,_p in _o.get('parts',{}).items():
+        _kb_parts.append({'ck':_k,'ct':_o.get('title',''),'id':_pid,'n':_p.get('n',''),'l':_p.get('l',''),'d':_p.get('d',''),'f':_p.get('f',''),'c':_p.get('c','')})
+    for _q in GUIDES[_k].get('questions',[]):
+        _kb_faqs.append({'ck':_k,'ct':_o.get('title',''),'q':_q['question'],'a':_q['answer']})
+_kb_bones=[{'g':_g.get('g',''),'n':_it[0],'cnt':_it[1]} for _g in ORGANS.get('skeleton',{}).get('bones206',[]) for _it in _g.get('items',[])]
+_kb_muscles=[{'g':_g.get('title',''),'n':_m.get('n',''),'loc':_m.get('loc',''),'o':_m.get('origin',''),'i':_m.get('insertion',''),'nv':_m.get('nerve',''),'a':_m.get('action','')} for _g in MUSCLE_GROUPS for _m in _g.get('items',[])]
+_kb_tendons=[{'n':_t.get('n',''),'at':_t.get('attach',''),'a':_t.get('action','')} for _t in TENDON_ENTRIES]
+write(ROOT/'bot-knowledge.json',json.dumps({'chapters':_kb_chapters,'parts':_kb_parts,'faqs':_kb_faqs,'bones':_kb_bones,'muscles':_kb_muscles,'tendons':_kb_tendons},ensure_ascii=False,separators=(',',':')))
+
 # Rebuild the lean publish folder; all original source assets stay in img/ and are never deleted.
 if OUT.exists(): shutil.rmtree(OUT)
 OUT.mkdir()
-for file in ['index.html','editorial.css','reading.js','preview.js','styles.css','organs.js','brain-and-micro-chapters.js','deep-chapters.js','part-enrichment-notes.js','chapter-enrichment.js','skull-chapter.js','dental-chapter.js','foundations-chapters.js','reproduction-stages.js','repro-image-enrichment.js','micro-lens.js','part-pins.js','muscle-atlas.js','app.js','about.html','privacy.html','404.html']:
+for file in ['index.html','editorial.css','reading.js','preview.js','styles.css','corpus-bot.css','corpus-bot.js','bot-knowledge.json','organs.js','brain-and-micro-chapters.js','deep-chapters.js','part-enrichment-notes.js','chapter-enrichment.js','skull-chapter.js','dental-chapter.js','foundations-chapters.js','reproduction-stages.js','repro-image-enrichment.js','micro-lens.js','part-pins.js','muscle-atlas.js','app.js','about.html','privacy.html','404.html']:
     shutil.copy2(ROOT/file,OUT/file)
 shutil.copytree(learn,OUT/'learn')
 for kind in ['webp','thumb']: shutil.copytree(ROOT/'img'/kind,OUT/'img'/kind)

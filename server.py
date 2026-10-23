@@ -34,7 +34,7 @@ class AtlasHandler(SimpleHTTPRequestHandler):
         path = self.translate_path(self.path)
         if os.path.isdir(path):
             path = os.path.join(path, 'index.html')
-        if os.path.isfile(path) and path.endswith(('.html', '.css', '.js', '.svg', '.txt')):
+        if os.path.isfile(path) and path.endswith(('.html', '.css', '.js', '.svg', '.txt', '.json')):
             st = os.stat(path)
             etag = f'"{st.st_mtime_ns:x}-{st.st_size:x}"'
             if self.headers.get('If-None-Match') == etag:
