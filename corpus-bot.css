@@ -9,11 +9,26 @@
   right: auto !important;
 }
 
+/* Hide any injected "Powered by Netlify" floating badge */
+a[href*="netlify.com"][target="_blank"],
+a[href*="utm_source=netlify"],
+[class*="netlify-badge"],
+[id*="netlify-badge"],
+[data-netlify-badge],
+iframe[src*="netlify"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
 .cbot-root {
   position: fixed;
   right: 14px;
   bottom: 8px;
-  z-index: 9990;
+  z-index: 2147483647 !important;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;

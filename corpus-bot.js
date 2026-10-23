@@ -1654,6 +1654,49 @@
     WAVE_TIMER = setInterval(function () {
       showBriefGreeting();
     }, 30000);
+
+    /* Automatically remove any injected "Powered by Netlify" floating badge so it never overlaps the bot */
+    function removeNetlifyBadge() {
+      try {
+        var all = document.querySelectorAll('a, div, aside, span, iframe, footer');
+        for (var i = 0; i < all.length; i++) {
+          var el = all[i];
+          if (!el || el.id === 'corpus-ai-bot' || el.closest('#corpus-ai-bot')) continue;
+          var href = (el.getAttribute && el.getAttribute('href')) || '';
+          var txt = (el.textContent || '').trim();
+          var isBadgeText = /^powered by netlify$/i.test(txt);
+          var isNetlifyLink = href.indexOf('netlify.com') !== -1 || href.indexOf('utm_source=netlify') !== -1;
+          if (isNetlifyLink || (isBadgeText && el.offsetHeight > 0 && el.offsetHeight < 120)) {
+            var target = el;
+            while (target.parentElement && target.parentElement !== document.body && target.parentElement.offsetHeight < 120) {
+              target = target.parentElement;
+            }
+            target.style.setProperty('display', 'none', 'important');
+            target.style.setProperty('visibility', 'hidden', 'important');
+            target.style.setProperty('opacity', '0', 'important');
+            target.style.setProperty('pointer-events', 'none', 'important');
+            if (target.parentNode) target.parentNode.removeChild(target);
+          }
+          if (el.shadowRoot) {
+            var sTxt = (el.shadowRoot.textContent || '').trim();
+            if (/powered by netlify/i.test(sTxt)) {
+              el.style.setProperty('display', 'none', 'important');
+              if (el.parentNode) el.parentNode.removeChild(el);
+            }
+          }
+        }
+      } catch (e) {}
+    }
+
+    removeNetlifyBadge();
+    setTimeout(removeNetlifyBadge, 500);
+    setTimeout(removeNetlifyBadge, 1800);
+    if (typeof MutationObserver !== 'undefined') {
+      var badgeObs = new MutationObserver(function () {
+        removeNetlifyBadge();
+      });
+      badgeObs.observe(document.documentElement || document.body, { childList: true, subtree: true });
+    }
   }
 
   if (document.readyState === 'loading') {
