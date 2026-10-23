@@ -184,17 +184,25 @@
     '肌肉': 'muscle', '脊髓': 'spinalcord', '膀胱': 'bladder', '胆囊': 'gallbladder', '膽囊': 'gallbladder', '胰腺': 'pancreas', '脾脏': 'spleen', '皮肤': 'skin', '皮膚': 'skin', '子宫': 'gynuterus',
     '心臓': 'heart', '脳': 'brain', '肝臓': 'liver', '腎臓': 'kidney', '目': 'eye', '歯': 'dentition', '頭蓋骨': 'skullface', '筋肉': 'muscle', '脊髄': 'spinalcord', '胆嚢': 'gallbladder', '膵臓': 'pancreas', '脾臓': 'spleen',
     '심장': 'heart', '뇌': 'brain', '폐': 'lungs', '허파': 'lungs', '간': 'liver', '신장': 'kidney', '콩팥': 'kidney', '위': 'gut', '눈': 'eye', '귀': 'ear', '치아': 'dentition', '뼈': 'skeleton', '골격': 'skeleton', '두개골': 'skullface', '근육': 'muscle', '척수': 'spinalcord', '방광': 'bladder', '담낭': 'gallbladder', '췌장': 'pancreas', '비장': 'spleen', '피부': 'skin', '자궁': 'gynuterus',
-    /* Microscopic, Cellular, Organelle & Minor Organ Synonyms */
+    /* Microscopic, Cellular, Organelle & Minor Organ Synonyms + Common Student Typos */
     'mitochondrion': 'mitochondria',
+    'mitocondria': 'mitochondria',
+    'mitocondrion': 'mitochondria',
+    'mithocondria': 'mitochondria',
     'powerhouse of the cell': 'mitochondria',
     'powerhouse of cell': 'mitochondria',
     'ribosomes': 'ribosome',
+    'rybosome': 'ribosome',
+    'rybosomes': 'ribosome',
     'rough er': 'endoplasmic reticulum',
     'smooth er': 'endoplasmic reticulum',
     'sarcoplasmic reticulum': 'endoplasmic reticulum',
+    'endoplasmic': 'endoplasmic reticulum',
     'golgi body': 'golgi apparatus',
     'golgi complex': 'golgi apparatus',
+    'golgi': 'golgi apparatus',
     'lysosomes': 'lysosome',
+    'lyzosome': 'lysosome',
     'peroxisome': 'lysosome',
     'peroxisomes': 'lysosome',
     'sarcomeres': 'sarcomere',
@@ -232,8 +240,11 @@
     'cowper glands': 'bulbourethral gland',
     'bulbourethral glands': 'bulbourethral gland',
     'vermiform appendix': 'appendix',
+    'apendix': 'appendix',
+    'gallblader': 'gallbladder',
     'pineal': 'pineal gland',
     'pituitary': 'pituitary gland',
+    'pituitery': 'pituitary gland',
     'hypophysis': 'pituitary gland',
     'adrenal': 'adrenal gland',
     'suprarenal gland': 'adrenal gland',
@@ -243,8 +254,10 @@
     'windpipe': 'trachea',
     'gullet': 'esophagus',
     'oesophagus': 'esophagus',
+    'esofagus': 'esophagus',
     'pancreatic islets': 'islets of langerhans',
     'alveoli': 'alveolus',
+    'alvioli': 'alveolus',
     'air sacs': 'alveolus',
     'nephrons': 'nephron',
     'nodes of ranvier': 'myelin sheath and nodes',
@@ -1054,6 +1067,11 @@
     'information', 'info', 'describe', 'define', 'definition', 'anatomy', 'human', 'body',
     'part', 'organ', 'structure', 'does', 'do', 'how', 'work', 'works', 'working', 'where',
     'located', 'location', 'function', 'functions', 'role', 'main', 'key', 'please', 'can', 'you',
+    /* Image / Visual Generation & Display Stop Words */
+    'show', 'with', 'image', 'images', 'picture', 'pictures', 'photo', 'photos', 'pic', 'pics',
+    'diagram', 'diagrams', 'illustration', 'draw', 'generate', 'create', 'display', 'view', 'visual',
+    'tasveer', 'tasvir', 'fotu', 'dikhao', 'dekhao', 'dikha', 'banao', 'imagen', 'foto', 'bild',
+    'صورة', 'تصویر', 'رسم', 'चित्र', 'तस्वीर', 'दिखाओ',
     'kya', 'kia', 'hai', 'hain', 'hota', 'hoti', 'hotay', 'ka', 'ki', 'ke', 'ko', 'se', 'sy', 'ma',
     'main', 'mein', 'par', 'pa', 'bare', 'baray', 'batao', 'bataen', 'bataye', 'btaye', 'btao',
     'kaam', 'kam', 'karta', 'karti', 'kahan', 'kaha', 'mukhtasir', 'tafseel', 'maloomat', 'jism',
@@ -1086,7 +1104,8 @@
       wantsLocation: /\b(where|location|located|region|position|situated|kahan|kaha|dónde|donde|où|wo|nerede|dimana|где|أين|کہاں|कहाँ)\b/.test(q),
       wantsClinical: /\b(clinical|disease|disorder|injury|damage|pain|pathology|bimari|masla|symptom|مرض|بیماری|बीमारी)\b/.test(q),
       wantsSupply: /\b(blood|artery|vein|supply|nerve|innervation|khoon|sangre|sang|blut|خون|دم|रक्त)\b/.test(q),
-      wantsCurrentChapter: /\b(this chapter|current chapter|this page|this organ|is chapter|is page)\b/.test(q)
+      wantsCurrentChapter: /\b(this chapter|current chapter|this page|this organ|is chapter|is page)\b/.test(q),
+      wantsImage: /\b(image|images|picture|pictures|photo|photos|pic|pics|diagram|diagrams|illustration|draw|generate|visual|tasveer|tasvir|fotu|dikhao|dekhao|dikha|show|imagen|foto|bild|صورة|تصویر|رسم|चित्र|तस्वीर|दिखाओ)\b/.test(q)
     };
 
     /* Replace multi-word & single-word synonyms (Unicode & CJK safe) */
@@ -1151,6 +1170,109 @@
     );
   }
 
+  /* ---------- 6b. Visual Anatomy Image Card & Dynamic SVG Blueprint Generator ---------- */
+  var EXTRA_REF_IMG_MAP = {
+    'gallbladder': { img: 'img/webp/liver.webp', wiki: 'Gallbladder' },
+    'appendix': { img: 'img/webp/intestinal-wall-deep.webp', wiki: 'Appendix_(anatomy)' },
+    'pineal gland': { img: 'img/webp/endocrine.webp', wiki: 'Pineal_gland' },
+    'pituitary gland': { img: 'img/webp/endocrine.webp', wiki: 'Pituitary_gland' },
+    'thymus': { img: 'img/webp/lymph.webp', wiki: 'Thymus' },
+    'parathyroid': { img: 'img/webp/thyroid-follicle-closeup.webp', wiki: 'Parathyroid_gland' },
+    'epiglottis': { img: 'img/webp/larynx.webp', wiki: 'Epiglottis' },
+    'trachea': { img: 'img/webp/lungs.webp', wiki: 'Trachea' },
+    'esophagus': { img: 'img/webp/gut.webp', wiki: 'Esophagus' },
+    'duodenum': { img: 'img/webp/intestinal-wall-deep.webp', wiki: 'Duodenum' },
+    'vagus nerve': { img: 'img/webp/cranial.webp', wiki: 'Vagus_nerve' },
+    'sciatic nerve': { img: 'img/webp/nervous.webp', wiki: 'Sciatic_nerve' },
+    'circle of willis': { img: 'img/webp/vascular.webp', wiki: 'Circle_of_Willis' },
+    'femur': { img: 'img/webp/skeleton.webp', wiki: 'Femur' },
+    'islets of langerhans': { img: 'img/webp/pancreas-micro-closeup.webp', wiki: 'Pancreatic_islets' },
+    'peyer patches': { img: 'img/webp/intestinal-wall-deep.webp', wiki: 'Peyer%27s_patch' },
+    'bundle of his': { img: 'img/webp/cardiac-conduction-system.webp', wiki: 'Bundle_of_His' },
+    'adrenal gland': { img: 'img/webp/endocrine.webp', wiki: 'Adrenal_gland' },
+    'mitochondria': { img: 'img/webp/foundation-cell-organelles.webp', wiki: 'Mitochondrion' },
+    'ribosome': { img: 'img/webp/foundation-cell-organelles.webp', wiki: 'Ribosome' },
+    'endoplasmic reticulum': { img: 'img/webp/foundation-cell-organelles.webp', wiki: 'Endoplasmic_reticulum' },
+    'golgi apparatus': { img: 'img/webp/foundation-cell-organelles.webp', wiki: 'Golgi_apparatus' },
+    'lysosome': { img: 'img/webp/foundation-cell-organelles.webp', wiki: 'Lysosome' },
+    'sarcomere': { img: 'img/webp/foundation-skeletal-muscle.webp', wiki: 'Sarcomere' },
+    'osteon': { img: 'img/webp/skeleton.webp', wiki: 'Osteon' },
+    'synapse': { img: 'img/webp/foundation-neural.webp', wiki: 'Synapse' },
+    'neuromuscular junction': { img: 'img/webp/foundation-skeletal-muscle.webp', wiki: 'Neuromuscular_junction' },
+    'blood brain barrier': { img: 'img/webp/meninges-csf.webp', wiki: 'Blood%E2%80%93brain_barrier' },
+    'organ of corti': { img: 'img/webp/cochlea-organ-corti-closeup.webp', wiki: 'Organ_of_Corti' },
+    'juxtaglomerular apparatus': { img: 'img/webp/nephron-deep.webp', wiki: 'Juxtaglomerular_apparatus' },
+    'stapes': { img: 'img/webp/ear.webp', wiki: 'Stapes' },
+    'meissner corpuscle': { img: 'img/webp/skin-layers-deep.webp', wiki: 'Tactile_corpuscle' },
+    'pacinian corpuscle': { img: 'img/webp/skin-layers-deep.webp', wiki: 'Pacinian_corpuscle' },
+    'muscle spindle': { img: 'img/webp/foundation-skeletal-muscle.webp', wiki: 'Muscle_spindle' },
+    'crypts of lieberkuhn': { img: 'img/webp/intestinal-wall-deep.webp', wiki: 'Intestinal_gland' },
+    'brunner glands': { img: 'img/webp/intestinal-wall-deep.webp', wiki: 'Brunner%27s_glands' },
+    'carotid body': { img: 'img/webp/vascular.webp', wiki: 'Carotid_body' },
+    'interstitium': { img: 'img/webp/foundation-connective.webp', wiki: 'Interstitium' },
+    'mesentery': { img: 'img/webp/gut.webp', wiki: 'Mesentery' },
+    'meibomian gland': { img: 'img/webp/eye-layers-deep.webp', wiki: 'Meibomian_gland' },
+    'bartholin gland': { img: 'img/webp/vulva-surface-clean.webp', wiki: 'Bartholin%27s_gland' },
+    'bulbourethral gland': { img: 'img/webp/male-prostate-detail.webp', wiki: 'Bulbourethral_gland' }
+  };
+
+  function generateBlueprintSvgDataUri(title, tag) {
+    var cleanTitle = String(title || 'Human Anatomy').split('·')[0].trim().slice(0, 32);
+    var cleanTag = String(tag || 'Corpus Visual Schematic').slice(0, 36);
+    var svg =
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 260" width="480" height="260">' +
+        '<defs>' +
+          '<radialGradient id="bg" cx="50%" cy="48%" r="65%">' +
+            '<stop offset="0%" stop-color="#173d39"/>' +
+            '<stop offset="100%" stop-color="#091615"/>' +
+          '</radialGradient>' +
+        '</defs>' +
+        '<rect width="480" height="260" fill="url(#bg)"/>' +
+        '<g stroke="#2a6b64" stroke-width="0.6" opacity="0.35">' +
+          '<line x1="0" y1="52" x2="480" y2="52"/><line x1="0" y1="104" x2="480" y2="104"/>' +
+          '<line x1="0" y1="156" x2="480" y2="156"/><line x1="0" y1="208" x2="480" y2="208"/>' +
+          '<line x1="96" y1="0" x2="96" y2="260"/><line x1="192" y1="0" x2="192" y2="260"/>' +
+          '<line x1="288" y1="0" x2="288" y2="260"/><line x1="384" y1="0" x2="384" y2="260"/>' +
+        '</g>' +
+        '<circle cx="240" cy="112" r="58" fill="none" stroke="#4fd1c5" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.7"/>' +
+        '<ellipse cx="240" cy="112" rx="42" ry="26" fill="#134e4a" stroke="#6ee7b7" stroke-width="2"/>' +
+        '<path d="M210,112 Q225,96 240,112 T270,112" fill="none" stroke="#a7f3d0" stroke-width="2"/>' +
+        '<circle cx="240" cy="112" r="5" fill="#6ee7b7"/>' +
+        '<text x="240" y="205" text-anchor="middle" fill="#ecfdf5" font-family="system-ui,sans-serif" font-size="16" font-weight="700">' +
+          cleanTitle.replace(/[<>&"']/g, '') +
+        '</text>' +
+        '<text x="240" y="226" text-anchor="middle" fill="#6ee7b7" font-family="system-ui,sans-serif" font-size="10.5" font-weight="600" letter-spacing="1">' +
+          cleanTag.toUpperCase().replace(/[<>&"']/g, '') +
+        '</text>' +
+      '</svg>';
+    return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+  }
+
+  function buildMediaCard(rawImgSrc, title, tag, isFeatured, wikiSlug) {
+    var resolvedSrc = '';
+    if (rawImgSrc) {
+      if (/^(https?:|data:)/i.test(rawImgSrc)) {
+        resolvedSrc = rawImgSrc;
+      } else {
+        resolvedSrc = ROOT_PREFIX + rawImgSrc.replace(/^\.?\//, '');
+      }
+    } else {
+      resolvedSrc = generateBlueprintSvgDataUri(title, tag);
+    }
+    var shortTitle = String(title || 'Anatomy Plate').split('·')[0].trim();
+    var cardClass = 'cbot-media-card' + (isFeatured ? ' is-featured' : '');
+    var wikiAttr = wikiSlug ? ' data-cbot-wiki="' + escapeHtml(wikiSlug) + '"' : '';
+    return (
+      '<div class="' + cardClass + '" data-cbot-zoom-src="' + escapeHtml(resolvedSrc) + '" data-cbot-zoom-title="' + escapeHtml(title || shortTitle) + '"' + wikiAttr + '>' +
+        '<img class="cbot-media-img" src="' + escapeHtml(resolvedSrc) + '" alt="' + escapeHtml(shortTitle) + ' anatomy illustration" width="320" height="180" loading="lazy" />' +
+        '<div class="cbot-media-cap">' +
+          '<span>🔬 ' + escapeHtml(shortTitle) + '</span>' +
+          '<span class="cbot-media-zoom">🔍 Tap to zoom</span>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+
   /* ---------- 7. Internal Corpus Search (Instant <100ms) ---------- */
   function searchInternalKB(parsed, kb) {
     var core = parsed.corePhrase;
@@ -1166,12 +1288,12 @@
       }
     }
 
-    /* 0b. Conversational Follow-up on LAST_TOPIC (e.g. "aur batao", "tell me more", "what is its blood supply", "iska kaam kya hai") */
+    /* 0b. Conversational Follow-up on LAST_TOPIC (e.g. "aur batao", "tell me more", "show image", "image dikhao", "what is its blood supply", "iska kaam kya hai") */
     var isFollowUp = /\b(tell me more|more detail|more details|aur batao|or batao|iske bare|iske baray|iska kaam|iska kam|iska function|iski location|ye kahan|iski blood|its function|its location|its blood|its nerve|what does it do|where is it)\b/.test(parsed.clean);
-    if (LAST_TOPIC && (isFollowUp || (!core && (parsed.intent.wantsFunction || parsed.intent.wantsLocation || parsed.intent.wantsSupply || parsed.intent.wantsClinical)))) {
+    if (LAST_TOPIC && (isFollowUp || (!core && (parsed.intent.wantsImage || parsed.intent.wantsFunction || parsed.intent.wantsLocation || parsed.intent.wantsSupply || parsed.intent.wantsClinical)))) {
       if (LAST_TOPIC.type === 'chapter') return formatChapterReply(LAST_TOPIC.item, parsed.intent);
       if (LAST_TOPIC.type === 'part') return formatPartReply(LAST_TOPIC.item, parsed.intent);
-      if (LAST_TOPIC.type === 'extra') return formatExtraMedicalReply(LAST_TOPIC.item);
+      if (LAST_TOPIC.type === 'extra') return formatExtraMedicalReply(LAST_TOPIC.item, LAST_TOPIC.key, parsed.intent);
     }
 
     if (!core) return null;
@@ -1179,19 +1301,19 @@
     /* 1. Check Curated Extra Medical Reference first if exact match for non-chapter organs (check both clean query and corePhrase so terms with "of"/"body"/"organ" match 100%) */
     var cleanQ = parsed.clean;
     if (EXTRA_MEDICAL_REF[cleanQ]) {
-      LAST_TOPIC = { type: 'extra', item: EXTRA_MEDICAL_REF[cleanQ] };
-      return formatExtraMedicalReply(EXTRA_MEDICAL_REF[cleanQ]);
+      LAST_TOPIC = { type: 'extra', key: cleanQ, item: EXTRA_MEDICAL_REF[cleanQ] };
+      return formatExtraMedicalReply(EXTRA_MEDICAL_REF[cleanQ], cleanQ, parsed.intent);
     }
     if (EXTRA_MEDICAL_REF[core]) {
-      LAST_TOPIC = { type: 'extra', item: EXTRA_MEDICAL_REF[core] };
-      return formatExtraMedicalReply(EXTRA_MEDICAL_REF[core]);
+      LAST_TOPIC = { type: 'extra', key: core, item: EXTRA_MEDICAL_REF[core] };
+      return formatExtraMedicalReply(EXTRA_MEDICAL_REF[core], core, parsed.intent);
     }
     for (var refKey in EXTRA_MEDICAL_REF) {
       var refRegex = new RegExp('(^|\\s)' + refKey.replace(/\s+/g, '\\s+') + '(?=\\s|$)', 'i');
       if (cleanQ === refKey || core === refKey || refRegex.test(cleanQ) ||
           (core.indexOf(refKey) !== -1 && Math.abs(core.length - refKey.length) <= 7)) {
-        LAST_TOPIC = { type: 'extra', item: EXTRA_MEDICAL_REF[refKey] };
-        return formatExtraMedicalReply(EXTRA_MEDICAL_REF[refKey]);
+        LAST_TOPIC = { type: 'extra', key: refKey, item: EXTRA_MEDICAL_REF[refKey] };
+        return formatExtraMedicalReply(EXTRA_MEDICAL_REF[refKey], refKey, parsed.intent);
       }
     }
 
@@ -1367,12 +1489,15 @@
       return formatPartReply(winner.item, parsed.intent);
     }
     if (winner.type === 'faq') {
+      var faqChap = (kb.chapters || []).find(function (c) { return c.k === winner.item.ck; });
+      var faqImg = (faqChap && faqChap.img) || 'img/webp/malebody.webp';
       return (
         '<div class="cbot-topic-head">' +
           '<span class="cbot-topic-title">' + escapeHtml(winner.item.q) + '</span>' +
           '<span class="cbot-topic-tag">' + escapeHtml(winner.item.ct) + '</span>' +
         '</div>' +
-        '<div>' + escapeHtml(winner.item.a) + '</div>' +
+        buildMediaCard(faqImg, winner.item.ct, 'Corpus Study Guide', parsed.intent && parsed.intent.wantsImage, '') +
+        '<div class="cbot-body-text">' + escapeHtml(winner.item.a) + '</div>' +
         buildNavButtons(winner.item.ck, '')
       );
     }
@@ -1383,6 +1508,7 @@
           '<span class="cbot-topic-title">' + escapeHtml(m.n) + '</span>' +
           '<span class="cbot-topic-tag">Muscle · ' + escapeHtml(m.g) + '</span>' +
         '</div>' +
+        buildMediaCard(m.img || 'img/webp/muscle.webp', m.n, m.g, parsed.intent && parsed.intent.wantsImage, '') +
         '<ul class="cbot-point-list">' +
           (m.a ? '<li><b>Action:</b>' + escapeHtml(m.a) + '</li>' : '') +
           (m.o ? '<li><b>Origin:</b>' + escapeHtml(m.o) + '</li>' : '') +
@@ -1400,6 +1526,7 @@
           '<span class="cbot-topic-title">' + escapeHtml(td.n) + '</span>' +
           '<span class="cbot-topic-tag">Tendon Atlas</span>' +
         '</div>' +
+        buildMediaCard(td.img || 'img/webp/muscle.webp', td.n, 'Tendon Atlas', parsed.intent && parsed.intent.wantsImage, '') +
         '<ul class="cbot-point-list">' +
           (td.a ? '<li><b>Function:</b>' + escapeHtml(td.a) + '</li>' : '') +
           (td.at ? '<li><b>Attachment:</b>' + escapeHtml(td.at) + '</li>' : '') +
@@ -1414,7 +1541,8 @@
           '<span class="cbot-topic-title">' + escapeHtml(bn.n) + '</span>' +
           '<span class="cbot-topic-tag">206-Bone Atlas · ' + escapeHtml(bn.g) + '</span>' +
         '</div>' +
-        '<div>Part of the <b>' + escapeHtml(bn.g) + '</b> division of the human adult skeleton (Count in human body: <b>' + escapeHtml(String(bn.c)) + '</b>).</div>' +
+        buildMediaCard(bn.img || 'img/webp/skeleton.webp', bn.n, bn.g, parsed.intent && parsed.intent.wantsImage, '') +
+        '<div class="cbot-body-text">Part of the <b>' + escapeHtml(bn.g) + '</b> division of the human adult skeleton (Count in human body: <b>' + escapeHtml(String(bn.c)) + '</b>).</div>' +
         buildNavButtons('skeleton', '')
       );
     }
@@ -1440,13 +1568,15 @@
           return '<li><b>' + escapeHtml(row[0]) + ':</b>' + escapeHtml(row[1]) + '</li>';
         }).join('') + '</ul>'
       : '';
+    var chapImg = c.img || ('img/webp/' + c.k + '.webp');
 
     return (
       '<div class="cbot-topic-head">' +
         '<span class="cbot-topic-title">' + escapeHtml(c.t) + '</span>' +
         '<span class="cbot-topic-tag">' + escapeHtml(c.s || 'Anatomy') + '</span>' +
       '</div>' +
-      '<div>' + escapeHtml(brief) + '</div>' +
+      buildMediaCard(chapImg, c.t, c.s || 'Anatomy', intent && intent.wantsImage, '') +
+      '<div class="cbot-body-text">' + escapeHtml(brief) + '</div>' +
       listHtml +
       buildNavButtons(c.k, '')
     );
@@ -1461,19 +1591,21 @@
           return '<li><b>' + escapeHtml(row[0]) + ':</b>' + escapeHtml(row[1]) + '</li>';
         }).join('') + '</ul>'
       : '';
+    var partImg = p.img || ('img/webp/' + p.ck + '.webp');
 
     return (
       '<div class="cbot-topic-head">' +
         '<span class="cbot-topic-title">' + escapeHtml(p.n) + (p.l && p.l !== p.n ? ' · ' + escapeHtml(p.l) : '') + '</span>' +
         '<span class="cbot-topic-tag">' + escapeHtml(p.ct) + '</span>' +
       '</div>' +
-      '<div>' + escapeHtml(truncateSentences(p.d, 2)) + '</div>' +
+      buildMediaCard(partImg, p.lt || p.n, p.ct, intent && intent.wantsImage, '') +
+      '<div class="cbot-body-text">' + escapeHtml(truncateSentences(p.d, 2)) + '</div>' +
       listHtml +
       buildNavButtons(p.ck, p.id)
     );
   }
 
-  function formatExtraMedicalReply(item) {
+  function formatExtraMedicalReply(item, refKey, intent) {
     var chapKey = '';
     var rows = (item.points || []).filter(function (r) {
       if (r[0] === 'chapterKey') { chapKey = r[1]; return false; }
@@ -1484,12 +1616,16 @@
           return '<li><b>' + escapeHtml(r[0]) + ':</b>' + escapeHtml(r[1]) + '</li>';
         }).join('') + '</ul>'
       : '';
+    var mediaMeta = (refKey && EXTRA_REF_IMG_MAP[refKey]) || {};
+    var imgSrc = mediaMeta.img || (chapKey ? 'img/webp/' + chapKey + '.webp' : 'img/webp/foundation-cell-organelles.webp');
+    var wikiSlug = mediaMeta.wiki || '';
     return (
       '<div class="cbot-topic-head">' +
         '<span class="cbot-topic-title">' + escapeHtml(item.title) + '</span>' +
         '<span class="cbot-topic-tag">' + escapeHtml(item.tag || 'Anatomy Reference') + '</span>' +
       '</div>' +
-      '<div>' + escapeHtml(item.summary) + '</div>' +
+      buildMediaCard(imgSrc, item.title, item.tag || 'Anatomy Reference', intent && intent.wantsImage, wikiSlug) +
+      '<div class="cbot-body-text">' + escapeHtml(item.summary) + '</div>' +
       listHtml +
       (chapKey ? buildNavButtons(chapKey, '') : '')
     );
@@ -1536,20 +1672,21 @@
     return /\b(anatomy|anatomical|human body|organ|organs|organelle|mitochondri|ribosom|cytoplasm|nucleus|nuclei|membrane|microscopic|histolog|corpuscle|papilla|follicle|sinusoid|canal|duct|plexus|ganglion|ossicle|vestibul|mucosa|submucosa|serosa|lumen|endotheli|mesotheli|connective|collagen|elastin|keratin|melanin|myosin|actin|tubule|glomerul|alveol|bronchiol|villi|microvilli|cilia|flagell|axon|dendrite|myelin|schwann|glial|macrophage|lymphocyte|neutrophil|erythrocyte|platelet|chromosome|dna|rna|tissue|cell|cells|bone|bones|skeletal|muscle|muscles|muscular|nerve|nervous|neural|brain|cerebral|spinal|heart|cardiac|vascular|blood|artery|arterial|vein|venous|capillary|lung|pulmonary|respiratory|liver|hepatic|kidney|renal|stomach|gastric|intestine|intestinal|digestive|colon|pancreas|spleen|gallbladder|bladder|urinary|reproductive|uterus|ovary|testis|prostate|gland|endocrine|hormone|lymph|lymphatic|immune|skin|epidermis|dermis|eye|retina|cornea|ear|cochlea|vestibular|tooth|dental|tongue|pharynx|larynx|trachea|bronchus|diaphragm|thorax|abdomen|pelvis|cranium|skull|vertebra|joint|ligament|tendon|cartilage|fascia|epithelium|neuron|synapse|receptor|enzyme|protein|physiology|pathology|disease|syndrome|clinical|medical|medicine|biology|biological)\b/.test(combined);
   }
 
-  function formatExternalExtract(title, desc, rawExtract) {
+  function formatExternalExtract(title, desc, rawExtract, thumbUrl, isFeatured) {
     var cleanText = cleanEncyclopediaExtract(rawExtract);
     var sentences = cleanText.match(/[^.!?]+[.!?]+/g) || [cleanText];
     var lead = sentences.slice(0, 2).join(' ').trim();
     var more = sentences.slice(2, 4).join(' ').trim();
     var descTag = desc ? truncateSentences(desc, 1).slice(0, 36) : 'Anatomy Reference';
 
-    /* IMPORTANT: Never include any external URL or external site name! */
+    /* IMPORTANT: Never include any external URL link or external site name in text! */
     return (
       '<div class="cbot-topic-head">' +
         '<span class="cbot-topic-title">' + escapeHtml(title) + '</span>' +
         '<span class="cbot-topic-tag">' + escapeHtml(descTag) + '</span>' +
       '</div>' +
-      '<div>' + escapeHtml(lead) + '</div>' +
+      buildMediaCard(thumbUrl || '', title, descTag, isFeatured, '') +
+      '<div class="cbot-body-text">' + escapeHtml(lead) + '</div>' +
       (more ? '<ul class="cbot-point-list"><li><b>Key Detail:</b>' + escapeHtml(more) + '</li></ul>' : '')
     );
   }
@@ -1557,12 +1694,13 @@
   function searchExternalMedicalWeb(parsed) {
     var queryTerm = parsed.corePhrase || parsed.clean;
     if (!queryTerm || queryTerm.length < 3) return Promise.resolve(null);
-    if (EXT_CACHE[queryTerm]) return Promise.resolve(EXT_CACHE[queryTerm]);
+    var cacheKey = queryTerm + (parsed.intent && parsed.intent.wantsImage ? '|img' : '');
+    if (EXT_CACHE[cacheKey]) return Promise.resolve(EXT_CACHE[cacheKey]);
 
-    /* Fast single-request MediaWiki generator=search (1 HTTP roundtrip, ~300-600ms, full CORS origin=*) */
+    /* Fast single-request MediaWiki generator=search with pageimages (1 HTTP roundtrip, ~300-600ms, full CORS origin=*) */
     var singleCallUrl = 'https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=' +
       encodeURIComponent(queryTerm + ' human anatomy') +
-      '&gsrlimit=1&prop=extracts|description&exintro=1&explaintext=1&exsentences=4&redirects=1&format=json&origin=*';
+      '&gsrlimit=1&prop=extracts|description|pageimages&pithumbsize=640&exintro=1&explaintext=1&exsentences=4&redirects=1&format=json&origin=*';
 
     return fetchWithTimeout(singleCallUrl, 2400)
       .then(function (data) {
@@ -1571,8 +1709,9 @@
         if (pageList.length && pageList[0].extract && pageList[0].extract.length > 40) {
           var p = pageList[0];
           if (isRelevantMedicalResult(p.title, p.description, p.extract)) {
-            var html = formatExternalExtract(p.title || queryTerm, p.description || 'Anatomy Reference', p.extract);
-            EXT_CACHE[queryTerm] = html;
+            var thumb = (p.thumbnail && p.thumbnail.source) || '';
+            var html = formatExternalExtract(p.title || queryTerm, p.description || 'Anatomy Reference', p.extract, thumb, parsed.intent && parsed.intent.wantsImage);
+            EXT_CACHE[cacheKey] = html;
             return html;
           }
         }
@@ -1586,12 +1725,16 @@
           if (!isRelevantMedicalResult(summaryData.title, summaryData.description, summaryData.extract)) {
             return null;
           }
+          var thumb = (summaryData.originalimage && summaryData.originalimage.source) ||
+                      (summaryData.thumbnail && summaryData.thumbnail.source) || '';
           var html = formatExternalExtract(
             summaryData.title || queryTerm,
             summaryData.description || 'Anatomy Reference',
-            summaryData.extract
+            summaryData.extract,
+            thumb,
+            parsed.intent && parsed.intent.wantsImage
           );
-          EXT_CACHE[queryTerm] = html;
+          EXT_CACHE[cacheKey] = html;
           return html;
         });
       })
@@ -1646,7 +1789,7 @@
       .replace(/<b>Key Detail:<\/b>/g, '<b>Ahem Tafseel (Detail):</b> ');
 
     /* Add a concise Roman Urdu lead sentence inside the main description div */
-    out = out.replace(/<\/div><div>([\s\S]*?)<\/div>/, function (full, bodyText) {
+    out = out.replace(/<div class="cbot-body-text">([\s\S]*?)<\/div>/, function (full, bodyText) {
       var ruBody = bodyText
         .replace(/\bis a hollow four-chambered muscular pump\b/i, 'insani jism ka chaar chambers wala muscular pump hai jo poore jism mein khoon pump karta hai —')
         .replace(/\bis a muscular organ that\b/i, 'ek ahem muscular organ hai jo')
@@ -1654,7 +1797,7 @@
         .replace(/\bis the largest internal organ and gland\b/i, 'insani jism ka sab se bara androoni organ aur gland hai —')
         .replace(/\bare bean-shaped retroperitoneal organs\b/i, 'bean-shaped organs hain jo khoon ko filter karte hain aur waste kharij karte hain —')
         .replace(/\bare the primary organs of the respiratory system\b/i, 'saans lene ke nizam (respiratory system) ke bunyadi organs hain —');
-      return '</div><div><b>Roman Urdu Khulasa:</b> Ye structure insani jism ke is hissay mein ahem kirdar ada karta hai. ' + ruBody + '</div>';
+      return '<div class="cbot-body-text"><b>Roman Urdu Khulasa:</b> Ye structure insani jism ke is hissay mein ahem kirdar ada karta hai. ' + ruBody + '</div>';
     });
     return out;
   }
@@ -1664,23 +1807,27 @@
     if (!html || !lang || lang === 'en') return Promise.resolve(html);
     if (lang === 'ur-Latn') return Promise.resolve(formatRomanUrduReply(html));
 
-    /* Extract Nav Buttons so they remain intact */
+    /* Extract Nav Buttons and Visual Media Card so they remain intact */
     var navMatch = html.match(/<div class="cbot-nav-actions">[\s\S]*?<\/div>/);
     var navHtml = navMatch ? navMatch[0] : '';
     var withoutNav = navMatch ? html.replace(navHtml, '') : html;
 
+    var mediaMatch = withoutNav.match(/<div class="cbot-media-card[\s\S]*?<\/div>\s*<\/div>/);
+    var mediaHtml = mediaMatch ? mediaMatch[0] : '';
+    var withoutMedia = mediaMatch ? withoutNav.replace(mediaHtml, '') : withoutNav;
+
     /* Extract Title, Tag, Main Summary, and Bullet Items */
-    var titleM = withoutNav.match(/<span class="cbot-topic-title">([\s\S]*?)<\/span>/);
-    var tagM = withoutNav.match(/<span class="cbot-topic-tag">([\s\S]*?)<\/span>/);
-    var bodyM = withoutNav.match(/<\/div><div>([\s\S]*?)<\/div>/);
-    var listM = withoutNav.match(/<ul class="cbot-point-list">([\s\S]*?)<\/ul>/);
+    var titleM = withoutMedia.match(/<span class="cbot-topic-title">([\s\S]*?)<\/span>/);
+    var tagM = withoutMedia.match(/<span class="cbot-topic-tag">([\s\S]*?)<\/span>/);
+    var bodyM = withoutMedia.match(/<div class="cbot-body-text">([\s\S]*?)<\/div>/) || withoutMedia.match(/<\/div><div>([\s\S]*?)<\/div>/);
+    var listM = withoutMedia.match(/<ul class="cbot-point-list">([\s\S]*?)<\/ul>/);
 
     if (!bodyM) {
       /* Plain text / simple HTML message */
-      var plain = withoutNav.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+      var plain = withoutMedia.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
       return translateText(plain, 'en', lang).then(function (tr) {
         var dirAttr = /^(ar|ur|fa|he)$/.test(lang) ? ' dir="rtl" style="text-align:right;"' : '';
-        return '<div' + dirAttr + '><strong>' + escapeHtml(tr) + '</strong></div>';
+        return mediaHtml + '<div' + dirAttr + '><strong>' + escapeHtml(tr) + '</strong></div>';
       });
     }
 
@@ -1723,7 +1870,8 @@
           '<span class="cbot-topic-title">' + titleText + '</span>' +
           '<span class="cbot-topic-tag">' + tagText + '</span>' +
         '</div>' +
-        '<div' + dirStyle + '>' + escapeHtml(trSummary) + '</div>' +
+        mediaHtml +
+        '<div class="cbot-body-text"' + dirStyle + '>' + escapeHtml(trSummary) + '</div>' +
         listHtml +
         navHtml
       );
@@ -1737,10 +1885,19 @@
     root.id = 'corpus-ai-bot';
     root.setAttribute('aria-label', 'Corpus AI Anatomy Assistant');
 
-    var waveImgSrc = ROOT_PREFIX + 'img/webp/bot-wave.webp?v=12';
-    var pointImgSrc = ROOT_PREFIX + 'img/webp/bot-point.webp?v=12';
+    var waveImgSrc = ROOT_PREFIX + 'img/webp/bot-wave.webp?v=13';
+    var pointImgSrc = ROOT_PREFIX + 'img/webp/bot-point.webp?v=13';
 
     root.innerHTML =
+      /* Full-Screen HD Anatomy Image Lightbox Modal */
+      '<div class="cbot-lightbox" id="cbotLightbox" aria-hidden="true">' +
+        '<div class="cbot-lightbox-box">' +
+          '<button type="button" class="cbot-lightbox-close" id="cbotLightboxClose" aria-label="Close image preview">×</button>' +
+          '<img class="cbot-lightbox-img" id="cbotLightboxImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Anatomy visual preview" width="640" height="420" />' +
+          '<div class="cbot-lightbox-title" id="cbotLightboxTitle"></div>' +
+        '</div>' +
+      '</div>' +
+
       /* Compact Mini Speech Bubble ("Hi! Ask AI" on load & every 30s for 3s) */
       '<div class="cbot-bubble" id="cbotBubble" role="button" tabindex="0" aria-label="Hi! Ask AI">' +
         '<span id="cbotBubbleText">Hi! Ask AI</span>' +
@@ -1859,9 +2016,45 @@
       closeBoard();
     });
 
-    /* Handle internal SPA navigation clicks inside messages */
+    /* Handle internal SPA navigation clicks & Visual Image Zoom clicks inside messages */
+    var lightbox = root.querySelector('#cbotLightbox');
+    var lightboxImg = root.querySelector('#cbotLightboxImg');
+    var lightboxTitle = root.querySelector('#cbotLightboxTitle');
+    var lightboxClose = root.querySelector('#cbotLightboxClose');
+
+    function closeLightbox() {
+      if (!lightbox) return;
+      lightbox.classList.remove('is-active');
+      lightbox.setAttribute('aria-hidden', 'true');
+    }
+
+    if (lightboxClose) {
+      lightboxClose.addEventListener('click', function (e) {
+        e.stopPropagation();
+        closeLightbox();
+      });
+    }
+    if (lightbox) {
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) closeLightbox();
+      });
+    }
+
     messages.addEventListener('click', function (e) {
-      var navLink = e.target.closest('[data-cbot-nav]');
+      var mediaCard = e.target.closest ? e.target.closest('.cbot-media-card') : null;
+      if (mediaCard && lightbox && lightboxImg) {
+        var zoomSrc = mediaCard.getAttribute('data-cbot-zoom-src');
+        var zoomTitle = mediaCard.getAttribute('data-cbot-zoom-title') || 'Anatomy Visual';
+        if (zoomSrc) {
+          lightboxImg.src = zoomSrc;
+          if (lightboxTitle) lightboxTitle.textContent = zoomTitle;
+          lightbox.classList.add('is-active');
+          lightbox.setAttribute('aria-hidden', 'false');
+        }
+        return;
+      }
+
+      var navLink = e.target.closest ? e.target.closest('[data-cbot-nav]') : null;
       if (navLink && document.getElementById('app') && window.ORGANS) {
         var targetHash = navLink.getAttribute('data-cbot-nav');
         if (targetHash && targetHash.indexOf('#/') === 0) {
@@ -1894,12 +2087,47 @@
       });
     }
 
+    function enhanceMediaCards(bubbleEl) {
+      if (!bubbleEl || !bubbleEl.querySelectorAll) return;
+      var cards = bubbleEl.querySelectorAll('.cbot-media-card');
+      for (var i = 0; i < cards.length; i++) {
+        (function (card) {
+          var img = card.querySelector('.cbot-media-img');
+          var title = card.getAttribute('data-cbot-zoom-title') || 'Human Anatomy';
+          if (img) {
+            img.addEventListener('error', function () {
+              var fallback = generateBlueprintSvgDataUri(title, 'Anatomy Visual');
+              if (img.src !== fallback) {
+                img.src = fallback;
+                card.setAttribute('data-cbot-zoom-src', fallback);
+              }
+            });
+          }
+          /* Optional background upgrade to specific organelle/structure diagram from Wikimedia if available */
+          var wikiSlug = card.getAttribute('data-cbot-wiki');
+          if (wikiSlug && img) {
+            fetchWithTimeout('https://en.wikipedia.org/api/rest_v1/page/summary/' + wikiSlug, 1800)
+              .then(function (data) {
+                var thumb = (data && data.originalimage && data.originalimage.source) ||
+                            (data && data.thumbnail && data.thumbnail.source) || '';
+                if (thumb && /\.(png|jpg|jpeg|webp|svg)/i.test(thumb)) {
+                  img.src = thumb;
+                  card.setAttribute('data-cbot-zoom-src', thumb);
+                }
+              })
+              .catch(function () {});
+          }
+        })(cards[i]);
+      }
+    }
+
     function appendMessage(htmlContent, isUser) {
       var div = document.createElement('div');
       div.className = 'cbot-msg ' + (isUser ? 'cbot-msg-user' : 'cbot-msg-bot');
       if (isUser) div.textContent = htmlContent;
       else div.innerHTML = htmlContent;
       messages.appendChild(div);
+      if (!isUser) enhanceMediaCards(div);
       messages.scrollTop = messages.scrollHeight;
       return div;
     }
