@@ -1655,35 +1655,27 @@
       showBriefGreeting();
     }, 30000);
 
-    /* Automatically remove any injected "Powered by Netlify" floating badge so it never overlaps the bot */
+    /* Automatically block & remove Netlify's injected HUD/badge (#nl-badge-frame / #nl-hud-frame) */
     function removeNetlifyBadge() {
       try {
-        var all = document.querySelectorAll('a, div, aside, span, iframe, footer');
-        for (var i = 0; i < all.length; i++) {
-          var el = all[i];
-          if (!el || el.id === 'corpus-ai-bot' || el.closest('#corpus-ai-bot')) continue;
-          var href = (el.getAttribute && el.getAttribute('href')) || '';
-          var txt = (el.textContent || '').trim();
-          var isBadgeText = /^powered by netlify$/i.test(txt);
-          var isNetlifyLink = href.indexOf('netlify.com') !== -1 || href.indexOf('utm_source=netlify') !== -1;
-          if (isNetlifyLink || (isBadgeText && el.offsetHeight > 0 && el.offsetHeight < 120)) {
-            var target = el;
-            while (target.parentElement && target.parentElement !== document.body && target.parentElement.offsetHeight < 120) {
-              target = target.parentElement;
-            }
-            target.style.setProperty('display', 'none', 'important');
-            target.style.setProperty('visibility', 'hidden', 'important');
-            target.style.setProperty('opacity', '0', 'important');
-            target.style.setProperty('pointer-events', 'none', 'important');
-            if (target.parentNode) target.parentNode.removeChild(target);
-          }
-          if (el.shadowRoot) {
-            var sTxt = (el.shadowRoot.textContent || '').trim();
-            if (/powered by netlify/i.test(sTxt)) {
-              el.style.setProperty('display', 'none', 'important');
-              if (el.parentNode) el.parentNode.removeChild(el);
-            }
-          }
+        var frames = document.querySelectorAll('iframe#nl-badge-frame, iframe#nl-hud-frame, iframe[title*="Netlify"], script[src*="/.netlify/scripts/hud"]');
+        for (var i = 0; i < frames.length; i++) {
+          var f = frames[i];
+          f.style.setProperty('display', 'none', 'important');
+          if (f.parentNode) f.parentNode.removeChild(f);
+        }
+        /* Place hidden dummy placeholders with #nl-badge-frame and #nl-hud-frame so Netlify's async HUD script exits immediately */
+        if (document.body && !document.getElementById('nl-badge-frame')) {
+          var dummy1 = document.createElement('span');
+          dummy1.id = 'nl-badge-frame';
+          dummy1.style.cssText = 'display:none!important;width:0!important;height:0!important;';
+          document.body.appendChild(dummy1);
+        }
+        if (document.body && !document.getElementById('nl-hud-frame')) {
+          var dummy2 = document.createElement('span');
+          dummy2.id = 'nl-hud-frame';
+          dummy2.style.cssText = 'display:none!important;width:0!important;height:0!important;';
+          document.body.appendChild(dummy2);
         }
       } catch (e) {}
     }

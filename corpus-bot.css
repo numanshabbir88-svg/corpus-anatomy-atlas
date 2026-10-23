@@ -9,19 +9,30 @@
   right: auto !important;
 }
 
-/* Hide any injected "Powered by Netlify" floating badge */
+/* Hide Netlify's injected "Powered by Netlify" HUD/badge iframe (#nl-badge-frame / #nl-hud-frame) */
+#nl-badge-frame,
+#nl-hud-frame,
+iframe#nl-badge-frame,
+iframe#nl-hud-frame,
+iframe[title="Powered by Netlify"],
+iframe[title="Netlify"],
+iframe[src*="netlify"],
+script[src*="/.netlify/scripts/hud"],
 a[href*="netlify.com"][target="_blank"],
 a[href*="utm_source=netlify"],
 [class*="netlify-badge"],
 [id*="netlify-badge"],
-[data-netlify-badge],
-iframe[src*="netlify"] {
+[data-netlify-badge] {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
   pointer-events: none !important;
   width: 0 !important;
   height: 0 !important;
+  max-width: 0 !important;
+  max-height: 0 !important;
+  clip-path: path("M0 0Z") !important;
+  transform: scale(0) !important;
 }
 
 .cbot-root {
