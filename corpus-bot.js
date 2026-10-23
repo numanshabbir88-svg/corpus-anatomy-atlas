@@ -183,7 +183,75 @@
     '眼睛': 'eye', '耳朵': 'ear', '牙齿': 'dentition', '牙齒': 'dentition', '骨骼': 'skeleton', '骨头': 'skeleton', '头骨': 'skullface',
     '肌肉': 'muscle', '脊髓': 'spinalcord', '膀胱': 'bladder', '胆囊': 'gallbladder', '膽囊': 'gallbladder', '胰腺': 'pancreas', '脾脏': 'spleen', '皮肤': 'skin', '皮膚': 'skin', '子宫': 'gynuterus',
     '心臓': 'heart', '脳': 'brain', '肝臓': 'liver', '腎臓': 'kidney', '目': 'eye', '歯': 'dentition', '頭蓋骨': 'skullface', '筋肉': 'muscle', '脊髄': 'spinalcord', '胆嚢': 'gallbladder', '膵臓': 'pancreas', '脾臓': 'spleen',
-    '심장': 'heart', '뇌': 'brain', '폐': 'lungs', '허파': 'lungs', '간': 'liver', '신장': 'kidney', '콩팥': 'kidney', '위': 'gut', '눈': 'eye', '귀': 'ear', '치아': 'dentition', '뼈': 'skeleton', '골격': 'skeleton', '두개골': 'skullface', '근육': 'muscle', '척수': 'spinalcord', '방광': 'bladder', '담낭': 'gallbladder', '췌장': 'pancreas', '비장': 'spleen', '피부': 'skin', '자궁': 'gynuterus'
+    '심장': 'heart', '뇌': 'brain', '폐': 'lungs', '허파': 'lungs', '간': 'liver', '신장': 'kidney', '콩팥': 'kidney', '위': 'gut', '눈': 'eye', '귀': 'ear', '치아': 'dentition', '뼈': 'skeleton', '골격': 'skeleton', '두개골': 'skullface', '근육': 'muscle', '척수': 'spinalcord', '방광': 'bladder', '담낭': 'gallbladder', '췌장': 'pancreas', '비장': 'spleen', '피부': 'skin', '자궁': 'gynuterus',
+    /* Microscopic, Cellular, Organelle & Minor Organ Synonyms */
+    'mitochondrion': 'mitochondria',
+    'powerhouse of the cell': 'mitochondria',
+    'powerhouse of cell': 'mitochondria',
+    'ribosomes': 'ribosome',
+    'rough er': 'endoplasmic reticulum',
+    'smooth er': 'endoplasmic reticulum',
+    'sarcoplasmic reticulum': 'endoplasmic reticulum',
+    'golgi body': 'golgi apparatus',
+    'golgi complex': 'golgi apparatus',
+    'lysosomes': 'lysosome',
+    'peroxisome': 'lysosome',
+    'peroxisomes': 'lysosome',
+    'sarcomeres': 'sarcomere',
+    'haversian system': 'osteon',
+    'haversian canal': 'osteon',
+    'volkmann canal': 'osteon',
+    'synaptic cleft': 'synapse',
+    'motor end plate': 'neuromuscular junction',
+    'nmj': 'neuromuscular junction',
+    'blood-brain barrier': 'blood brain barrier',
+    'bbb': 'blood brain barrier',
+    'spiral organ': 'organ of corti',
+    'jga': 'juxtaglomerular apparatus',
+    'macula densa': 'juxtaglomerular apparatus',
+    'smallest bone': 'stapes',
+    'stirrup bone': 'stapes',
+    'tactile corpuscle': 'meissner corpuscle',
+    'meissners corpuscle': 'meissner corpuscle',
+    'lamellar corpuscle': 'pacinian corpuscle',
+    'golgi tendon organ': 'muscle spindle',
+    'intestinal crypts': 'crypts of lieberkuhn',
+    'crypt of lieberkuhn': 'crypts of lieberkuhn',
+    'paneth cells': 'crypts of lieberkuhn',
+    'brunners glands': 'brunner glands',
+    'brunner gland': 'brunner glands',
+    'carotid sinus': 'carotid body',
+    'tarsal gland': 'meibomian gland',
+    'tarsal glands': 'meibomian gland',
+    'meibomian glands': 'meibomian gland',
+    'greater vestibular gland': 'bartholin gland',
+    'bartholins gland': 'bartholin gland',
+    'bartholin glands': 'bartholin gland',
+    'cowper gland': 'bulbourethral gland',
+    'cowpers gland': 'bulbourethral gland',
+    'cowper glands': 'bulbourethral gland',
+    'bulbourethral glands': 'bulbourethral gland',
+    'vermiform appendix': 'appendix',
+    'pineal': 'pineal gland',
+    'pituitary': 'pituitary gland',
+    'hypophysis': 'pituitary gland',
+    'adrenal': 'adrenal gland',
+    'suprarenal gland': 'adrenal gland',
+    'parathyroid gland': 'parathyroid',
+    'parathyroid glands': 'parathyroid',
+    'thymus gland': 'thymus',
+    'windpipe': 'trachea',
+    'gullet': 'esophagus',
+    'oesophagus': 'esophagus',
+    'pancreatic islets': 'islets of langerhans',
+    'alveoli': 'alveolus',
+    'air sacs': 'alveolus',
+    'nephrons': 'nephron',
+    'nodes of ranvier': 'myelin sheath and nodes',
+    'node of ranvier': 'myelin sheath and nodes',
+    'ranvier': 'myelin sheath and nodes',
+    'schwann cell': 'myelin sheath and nodes',
+    'schwann cells': 'myelin sheath and nodes'
   };
 
   /* ---------- 3. Curated Medical Reference Fallback (Instant 0ms for Common Extra Organs) ---------- */
@@ -394,6 +462,233 @@
       points: [
         ['Function', 'Perivascular end-feet maintain the blood–brain barrier, regulate extracellular potassium and neurotransmitter (glutamate) uptake, and form glial scars after CNS injury.'],
         ['chapterKey', 'brain']
+      ]
+    },
+    'mitochondria': {
+      title: 'Mitochondrion · Cellular Powerhouse',
+      tag: 'Microscopic Cell Organelle',
+      summary: 'Mitochondria are double-membrane-bound cytoplasmic organelles present in almost all eukaryotic human cells (especially abundant in cardiomyocytes, hepatocytes, and skeletal muscle fibers).',
+      points: [
+        ['Function', 'Generates the vast majority of cellular ATP via the citric acid (Krebs) cycle in the matrix and oxidative phosphorylation across the folded inner membrane (cristae).'],
+        ['Unique Feature', 'Contains its own circular maternal mitochondrial DNA (mtDNA) and 70S-like ribosomes, and regulates intrinsic apoptosis via cytochrome c release.'],
+        ['chapterKey', 'tissuefoundations']
+      ]
+    },
+    'ribosome': {
+      title: 'Ribosome (80S Eukaryotic)',
+      tag: 'Microscopic Cell Organelle',
+      summary: 'Ribosomes are macromolecular ribonucleoprotein complexes composed of rRNA and proteins (40S small subunit + 60S large subunit) found free in the cytosol or bound to rough endoplasmic reticulum.',
+      points: [
+        ['Function', 'Translates messenger RNA (mRNA) codons into polypeptide chains (protein synthesis) using aminoacyl-tRNA.'],
+        ['chapterKey', 'tissuefoundations']
+      ]
+    },
+    'endoplasmic reticulum': {
+      title: 'Endoplasmic Reticulum (Rough & Smooth ER)',
+      tag: 'Microscopic Cell Organelle',
+      summary: 'An interconnected network of membrane-enclosed cisternae and tubules continuous with the outer nuclear membrane.',
+      points: [
+        ['Rough ER (RER)', 'Studded with ribosomes; synthesizes secreted, membrane-bound, and lysosomal proteins (N-linked glycosylation).'],
+        ['Smooth ER (SER)', 'Synthesizes steroid hormones and lipids, detoxifies drugs via cytochrome P450 in hepatocytes, and sequesters calcium (as sarcoplasmic reticulum in muscle).'],
+        ['chapterKey', 'tissuefoundations']
+      ]
+    },
+    'golgi apparatus': {
+      title: 'Golgi Apparatus · Golgi Complex',
+      tag: 'Microscopic Cell Organelle',
+      summary: 'A stack of polarized, flattened membrane-bound cisternae (cis, medial, and trans-Golgi network) positioned near the cell nucleus and centrosome.',
+      points: [
+        ['Function', 'Modifies, sorts, and packages proteins and lipids received from the ER (O-linked glycosylation, mannose-6-phosphate tagging for lysosomes) into secretory or transport vesicles.'],
+        ['chapterKey', 'tissuefoundations']
+      ]
+    },
+    'lysosome': {
+      title: 'Lysosome',
+      tag: 'Microscopic Cell Organelle',
+      summary: 'Membrane-bound vesicular organelles containing over 50 acid hydrolase enzymes maintained at an acidic pH (~4.5–5.0) by vacuolar H+-ATPase pumps.',
+      points: [
+        ['Function', 'Degrades intracellular debris (autophagy), phagocytosed pathogens, and endocytosed macromolecules; genetic enzyme deficiencies cause lysosomal storage diseases (e.g., Tay-Sachs, Gaucher).'],
+        ['chapterKey', 'tissuefoundations']
+      ]
+    },
+    'sarcomere': {
+      title: 'Sarcomere · Contractile Unit of Muscle',
+      tag: 'Microscopic Muscle Ultrastructure',
+      summary: 'The sarcomere is the fundamental repeating microscopic contractile unit (~2.0–2.2 µm long) of striated skeletal and cardiac muscle myofibrils, spanning from one Z-disc to the next.',
+      points: [
+        ['Architecture', 'Composed of thick myosin filaments (A-band) interdigitating with thin actin filaments (I-band) anchored at Z-discs, stabilized by giant elastic titin and nebulin proteins.'],
+        ['Mechanism', 'Calcium binding to troponin C shifts tropomyosin, allowing ATP-driven myosin head cross-bridge cycling that pulls actin filaments toward the M-line (sliding filament theory).'],
+        ['chapterKey', 'muscle']
+      ]
+    },
+    'osteon': {
+      title: 'Osteon · Haversian System',
+      tag: 'Microscopic Bone Unit',
+      summary: 'The osteon (Haversian system) is the primary cylindrical microscopic structural unit of compact (cortical) bone, running parallel to the long axis of the bone shaft.',
+      points: [
+        ['Microanatomy', 'Consists of concentric calcified collagen lamellae surrounding a central Haversian canal (carrying blood vessels and nerves), interconnected transversely by Volkmann’s canals.'],
+        ['Cells', 'Osteocytes reside in small cavities (lacunae) and exchange nutrients through microscopic cytoplasmic channels called canaliculi.'],
+        ['chapterKey', 'skeleton']
+      ]
+    },
+    'synapse': {
+      title: 'Synapse · Chemical & Electrical Junction',
+      tag: 'Microscopic Neuroanatomy',
+      summary: 'A specialized microscopic junction (~20–40 nm synaptic cleft) through which a presynaptic neuron transmits electrical or chemical signals to a postsynaptic neuron, muscle, or gland cell.',
+      points: [
+        ['Mechanism', 'Action potentials open presynaptic voltage-gated Ca2+ channels, triggering SNARE-mediated exocytosis of neurotransmitter vesicles (glutamate, GABA, acetylcholine, dopamine) across the cleft.'],
+        ['chapterKey', 'nervous']
+      ]
+    },
+    'neuromuscular junction': {
+      title: 'Neuromuscular Junction (NMJ) · Motor End Plate',
+      tag: 'Microscopic Nerve–Muscle Synapse',
+      summary: 'The specialized chemical synapse between the axon terminal of an alpha motor neuron and the folded sarcolemma (motor end plate) of a skeletal muscle fiber.',
+      points: [
+        ['Function', 'Presynaptic release of acetylcholine (ACh) activates nicotinic ACh receptors on junctional folds, generating an end-plate potential that triggers muscle contraction; ACh is rapidly cleared by acetylcholinesterase.'],
+        ['Clinical Note', 'Autoantibodies against postsynaptic nicotinic receptors cause Myasthenia Gravis, whereas antibodies against presynaptic Ca2+ channels cause Lambert-Eaton syndrome.'],
+        ['chapterKey', 'muscle']
+      ]
+    },
+    'blood brain barrier': {
+      title: 'Blood–Brain Barrier (BBB)',
+      tag: 'Microscopic Neurovascular Barrier',
+      summary: 'A highly selective microscopic permeability barrier separating circulating blood from the brain extracellular fluid in the central nervous system.',
+      points: [
+        ['Structure', 'Formed by non-fenestrated cerebral capillary endothelial cells joined by continuous tight junctions (zona occludens), a shared basement membrane, pericytes, and astrocyte perivascular end-feet.'],
+        ['Function', 'Protects neural tissue from toxins and pathogens while allowing lipid-soluble molecules (O2, CO2) and carrier-mediated transport of glucose (GLUT1) and amino acids.'],
+        ['chapterKey', 'meningescsf']
+      ]
+    },
+    'organ of corti': {
+      title: 'Organ of Corti · Spiral Organ',
+      tag: 'Microscopic Auditory Receptor',
+      summary: 'The organ of Corti is the microscopic sensory epithelium of hearing resting on the basilar membrane inside the cochlear duct (scala media) of the inner ear.',
+      points: [
+        ['Microanatomy', 'Contains one row of inner hair cells (~3,500) and three rows of outer hair cells (~12,000) whose apical stereocilia project toward the overlying gelatinous tectorial membrane.'],
+        ['Function', 'Fluid waves bend stereocilia, opening mechanically gated K+ channels to transduce sound vibrations into neural signals carried by the cochlear nerve (CN VIII).'],
+        ['chapterKey', 'ear']
+      ]
+    },
+    'juxtaglomerular apparatus': {
+      title: 'Juxtaglomerular Apparatus (JGA)',
+      tag: 'Microscopic Renal Endocrine Unit',
+      summary: 'A microscopic specialized structure at the vascular pole of the nephron where the distal convoluted tubule contacts the afferent and efferent arterioles.',
+      points: [
+        ['Components', 'Composed of macula densa cells (NaCl sensors in the distal tubule), juxtaglomerular granular cells (modified smooth muscle in the afferent arteriole that secrete renin), and extraglomerular mesangial (Lacis) cells.'],
+        ['Function', 'Regulates glomerular filtration rate (tubuloglomerular feedback) and systemic blood pressure via the renin–angiotensin–aldosterone system (RAAS).'],
+        ['chapterKey', 'nephron']
+      ]
+    },
+    'stapes': {
+      title: 'Stapes (Stirrup) · Smallest Human Bone',
+      tag: 'Microscopic Middle Ear Ossicle',
+      summary: 'The stapes is the smallest and lightest bone in the human body (~3 × 2.5 mm), located in the middle ear cavity between the incus and the oval window (fenestra vestibuli).',
+      points: [
+        ['Anatomy', 'Consists of a head (articulating with the lenticular process of the incus), neck, anterior and posterior crura, and a flat footplate sealed into the oval window by the annular ligament.'],
+        ['Function', 'Transmits acoustic vibrations into the fluid-filled cochlea; stabilized against loud sounds by the tiny stapedius muscle (innervated by CN VII).'],
+        ['chapterKey', 'ear']
+      ]
+    },
+    'meissner corpuscle': {
+      title: 'Meissner’s Corpuscle · Tactile Corpuscle',
+      tag: 'Microscopic Cutaneous Mechanoreceptor',
+      summary: 'Encapsulated, rapidly adapting mechanoreceptors located in the dermal papillae of glabrous (hairless) skin, especially dense in fingertips, palms, lips, and eyelids.',
+      points: [
+        ['Function', 'Detects light touch, low-frequency vibration (10–50 Hz), and dynamic slip/texture for fine two-point discrimination.'],
+        ['chapterKey', 'skinlayers']
+      ]
+    },
+    'pacinian corpuscle': {
+      title: 'Pacinian Corpuscle · Lamellar Corpuscle',
+      tag: 'Microscopic Deep Mechanoreceptor',
+      summary: 'Large oval encapsulated mechanoreceptors with concentric onion-like Schwann-cell lamellae located in the deep dermis, hypodermis, periosteum, mesentery, and pancreas.',
+      points: [
+        ['Function', 'Rapidly adapting receptor that senses deep pressure and high-frequency vibration (60–400 Hz).'],
+        ['chapterKey', 'skinlayers']
+      ]
+    },
+    'muscle spindle': {
+      title: 'Muscle Spindle & Golgi Tendon Organ',
+      tag: 'Microscopic Proprioceptors',
+      summary: 'Microscopic encapsulated sensory receptors embedded within skeletal muscles (muscle spindles) and myotendinous junctions (Golgi tendon organs).',
+      points: [
+        ['Muscle Spindle', 'Intrafusal fibers (nuclear bag and chain) innervated by Ia/II sensory and gamma motor neurons; detects muscle length and rate of stretch (mediates the myotatic stretch reflex).'],
+        ['Golgi Tendon Organ (GTO)', 'In series with collagen fibers at tendon junctions (Ib afferent fibers); senses muscle tension and prevents overload via the inverse stretch reflex.'],
+        ['chapterKey', 'muscle']
+      ]
+    },
+    'crypts of lieberkuhn': {
+      title: 'Crypts of Lieberkühn · Intestinal Glands',
+      tag: 'Microscopic Mucosal Glands',
+      summary: 'Tubular microscopic glands invaginating into the lamina propria at the base of the intestinal villi throughout the small and large intestines.',
+      points: [
+        ['Cell Types', 'Lined by intestinal stem cells (renewing epithelium every 4–5 days), antimicrobial Paneth cells (secreting lysozyme and defensins at the crypt base), mucus goblet cells, and hormone-secreting enteroendocrine cells.'],
+        ['chapterKey', 'intestinalwall']
+      ]
+    },
+    'brunner glands': {
+      title: 'Brunner’s Glands · Duodenal Submucosal Glands',
+      tag: 'Microscopic Digestive Glands',
+      summary: 'Compound tubular mucinous glands located specifically in the submucosa of the proximal duodenum (above the hepatopancreatic ampulla).',
+      points: [
+        ['Function', 'Secrete alkaline, bicarbonate-rich mucus (pH 8.1–9.3) and urogastrone (EGF) to neutralize acidic gastric chyme entering from the stomach and protect the duodenal mucosa.'],
+        ['chapterKey', 'intestinalwall']
+      ]
+    },
+    'carotid body': {
+      title: 'Carotid Body & Carotid Sinus',
+      tag: 'Microscopic Chemoreceptor & Baroreceptor',
+      summary: 'Specialized microscopic neurovascular sensory organs situated at the bifurcation of the common carotid artery into the internal and external carotid arteries.',
+      points: [
+        ['Carotid Body', 'Cluster of glomus (Type I) chemoreceptor cells innervated by CN IX (glossopharyngeal nerve) that senses drops in arterial PO2, rises in PCO2, and low pH to drive ventilation.'],
+        ['Carotid Sinus', 'Dilated baroreceptor zone in the proximal internal carotid artery wall that senses arterial blood pressure stretch to regulate heart rate and vascular tone.'],
+        ['chapterKey', 'vascular']
+      ]
+    },
+    'interstitium': {
+      title: 'The Interstitium · Fluid-Filled Tissue Spaces',
+      tag: 'Microscopic Connective & Fluid Network',
+      summary: 'A contiguous microscopic network of fluid-filled spaces supported by a lattice of thick collagen bundles and elastin fibers located beneath epithelial surfaces, submucosa, dermis, and perivascular fascia.',
+      points: [
+        ['Function', 'Acts as a compressible mechanical shock absorber for pulsating organs and serves as the primary pre-lymphatic highway draining interstitial fluid into lymphatic capillaries.'],
+        ['chapterKey', 'tissuefoundations']
+      ]
+    },
+    'mesentery': {
+      title: 'Mesentery · Peritoneal Organ',
+      tag: 'Abdominal & Peritoneal Anatomy',
+      summary: 'A continuous double fold of peritoneum that attaches the jejunum, ileum, and colon to the posterior abdominal wall while housing their blood vessels, lymphatics, and autonomic nerves.',
+      points: [
+        ['Function', 'Suspends and stabilizes the intestinal tract while allowing peristaltic mobility, and serves as a major conduit for the superior and inferior mesenteric vessels and mesenteric lymph nodes.'],
+        ['chapterKey', 'gut']
+      ]
+    },
+    'meibomian gland': {
+      title: 'Meibomian Glands · Tarsal Glands',
+      tag: 'Microscopic Ocular Glands',
+      summary: 'Specialized holocrine sebaceous glands arranged vertically within the superior (~25–40) and inferior (~20–30) tarsal plates of the eyelids.',
+      points: [
+        ['Function', 'Secrete meibum (the lipid outer layer of the tear film) onto the eyelid margin to prevent tear evaporation and lubricate the corneal surface; obstruction causes a chalazion.'],
+        ['chapterKey', 'eye']
+      ]
+    },
+    'bartholin gland': {
+      title: 'Bartholin’s Glands · Greater Vestibular Glands',
+      tag: 'Female Perineal Glands',
+      summary: 'Pea-sized paired tubuloalveolar mucinous glands located in the superficial perineal pouch at the 4 and 8 o’clock positions posterolateral to the vaginal orifice.',
+      points: [
+        ['Function', 'Homologous to male bulbourethral (Cowper’s) glands; secrete mucus into the vaginal vestibule for lubrication.'],
+        ['chapterKey', 'gynvulva']
+      ]
+    },
+    'bulbourethral gland': {
+      title: 'Bulbourethral Glands · Cowper’s Glands',
+      tag: 'Male Accessory Reproductive Glands',
+      summary: 'Paired pea-sized compound tubuloalveolar glands situated within the deep perineal pouch posterolateral to the membranous urethra, draining into the proximal spongy urethra.',
+      points: [
+        ['Function', 'Secrete clear alkaline mucoid fluid prior to ejaculation that neutralizes residual urinary acidity in the urethra and provides lubrication.'],
+        ['chapterKey', 'male']
       ]
     }
   };
@@ -881,13 +1176,20 @@
 
     if (!core) return null;
 
-    /* 1. Check Curated Extra Medical Reference first if exact match for non-chapter organs (e.g. gallbladder, appendix, pineal gland) */
+    /* 1. Check Curated Extra Medical Reference first if exact match for non-chapter organs (check both clean query and corePhrase so terms with "of"/"body"/"organ" match 100%) */
+    var cleanQ = parsed.clean;
+    if (EXTRA_MEDICAL_REF[cleanQ]) {
+      LAST_TOPIC = { type: 'extra', item: EXTRA_MEDICAL_REF[cleanQ] };
+      return formatExtraMedicalReply(EXTRA_MEDICAL_REF[cleanQ]);
+    }
     if (EXTRA_MEDICAL_REF[core]) {
       LAST_TOPIC = { type: 'extra', item: EXTRA_MEDICAL_REF[core] };
       return formatExtraMedicalReply(EXTRA_MEDICAL_REF[core]);
     }
     for (var refKey in EXTRA_MEDICAL_REF) {
-      if (core === refKey || (core.indexOf(refKey) !== -1 && Math.abs(core.length - refKey.length) <= 7)) {
+      var refRegex = new RegExp('(^|\\s)' + refKey.replace(/\s+/g, '\\s+') + '(?=\\s|$)', 'i');
+      if (cleanQ === refKey || core === refKey || refRegex.test(cleanQ) ||
+          (core.indexOf(refKey) !== -1 && Math.abs(core.length - refKey.length) <= 7)) {
         LAST_TOPIC = { type: 'extra', item: EXTRA_MEDICAL_REF[refKey] };
         return formatExtraMedicalReply(EXTRA_MEDICAL_REF[refKey]);
       }
@@ -935,8 +1237,10 @@
       var latinLow = (p.l || '').toLowerCase();
       var score = 0;
 
-      if (core === nameClean || core === nameLow || (latinLow && core === latinLow)) {
-        score = 125;
+      if (cleanQ === nameClean || cleanQ === nameLow || core === nameClean || core === nameLow || (latinLow && (core === latinLow || cleanQ === latinLow))) {
+        score = 128;
+      } else if (nameClean.indexOf(cleanQ) === 0 && cleanQ.length >= 4) {
+        score = 100;
       } else if (nameClean.indexOf(core) === 0 && core.length >= 4) {
         score = 96;
       } else if (nameClean.indexOf(core) !== -1 && core.length >= 4) {
@@ -1020,13 +1324,33 @@
       }
     });
 
+    /* 6. Score All 206 Bones (54 bone groups including minor & microscopic auditory ossicles) */
+    var bestBone = null;
+    var bestBoneScore = 0;
+    (kb.bones || []).forEach(function (b) {
+      var nLow = (b.n || '').toLowerCase();
+      var gLow = (b.g || '').toLowerCase();
+      var score = 0;
+      if (core === nLow) score = 116;
+      else if (nLow.indexOf(core) !== -1 && core.length >= 4) score = 87;
+      else if (tokens.length >= 1) {
+        var matched = tokens.filter(function (t) { return t.length >= 4 && (nLow.indexOf(t) !== -1 || gLow.indexOf(t) !== -1); });
+        if (matched.length === tokens.length) score = 78 + matched.length * 4;
+      }
+      if (score > bestBoneScore) {
+        bestBoneScore = score;
+        bestBone = b;
+      }
+    });
+
     /* Pick the highest-confidence internal match (must be >= 75 to avoid false matches on missing organs) */
     var candidates = [
       { type: 'part', score: bestPartScore, item: bestPart },
       { type: 'chapter', score: bestChapterScore, item: bestChapter },
       { type: 'faq', score: bestFaqScore, item: bestFaq },
       { type: 'muscle', score: bestMuscleScore, item: bestMuscle },
-      { type: 'tendon', score: bestTendonScore, item: bestTendon }
+      { type: 'tendon', score: bestTendonScore, item: bestTendon },
+      { type: 'bone', score: bestBoneScore, item: bestBone }
     ].sort(function (a, b) { return b.score - a.score; });
 
     var winner = candidates[0];
@@ -1081,6 +1405,17 @@
           (td.at ? '<li><b>Attachment:</b>' + escapeHtml(td.at) + '</li>' : '') +
         '</ul>' +
         buildNavButtons('muscle', '')
+      );
+    }
+    if (winner.type === 'bone') {
+      var bn = winner.item;
+      return (
+        '<div class="cbot-topic-head">' +
+          '<span class="cbot-topic-title">' + escapeHtml(bn.n) + '</span>' +
+          '<span class="cbot-topic-tag">206-Bone Atlas · ' + escapeHtml(bn.g) + '</span>' +
+        '</div>' +
+        '<div>Part of the <b>' + escapeHtml(bn.g) + '</b> division of the human adult skeleton (Count in human body: <b>' + escapeHtml(String(bn.c)) + '</b>).</div>' +
+        buildNavButtons('skeleton', '')
       );
     }
     return null;
@@ -1197,8 +1532,8 @@
         !/\b(anatomy|anatomical|organ|muscle|bone|nerve|artery|vein|tissue|cell|gland|physiology|medicine|medical)\b/.test(combined)) {
       return false;
     }
-    /* Require genuine anatomical / biological / medical context */
-    return /\b(anatomy|anatomical|human body|organ|organs|tissue|cell|cells|bone|bones|skeletal|muscle|muscles|muscular|nerve|nervous|neural|brain|cerebral|spinal|heart|cardiac|vascular|blood|artery|arterial|vein|venous|capillary|lung|pulmonary|respiratory|liver|hepatic|kidney|renal|stomach|gastric|intestine|intestinal|digestive|colon|pancreas|spleen|gallbladder|bladder|urinary|reproductive|uterus|ovary|testis|prostate|gland|endocrine|hormone|lymph|lymphatic|immune|skin|epidermis|dermis|eye|retina|cornea|ear|cochlea|vestibular|tooth|dental|tongue|pharynx|larynx|trachea|bronchus|diaphragm|thorax|abdomen|pelvis|cranium|skull|vertebra|joint|ligament|tendon|cartilage|fascia|epithelium|neuron|synapse|receptor|enzyme|protein|physiology|pathology|disease|syndrome|clinical|medical|medicine|biology|biological)\b/.test(combined);
+    /* Require genuine anatomical / microscopic / histological / biological / medical context */
+    return /\b(anatomy|anatomical|human body|organ|organs|organelle|mitochondri|ribosom|cytoplasm|nucleus|nuclei|membrane|microscopic|histolog|corpuscle|papilla|follicle|sinusoid|canal|duct|plexus|ganglion|ossicle|vestibul|mucosa|submucosa|serosa|lumen|endotheli|mesotheli|connective|collagen|elastin|keratin|melanin|myosin|actin|tubule|glomerul|alveol|bronchiol|villi|microvilli|cilia|flagell|axon|dendrite|myelin|schwann|glial|macrophage|lymphocyte|neutrophil|erythrocyte|platelet|chromosome|dna|rna|tissue|cell|cells|bone|bones|skeletal|muscle|muscles|muscular|nerve|nervous|neural|brain|cerebral|spinal|heart|cardiac|vascular|blood|artery|arterial|vein|venous|capillary|lung|pulmonary|respiratory|liver|hepatic|kidney|renal|stomach|gastric|intestine|intestinal|digestive|colon|pancreas|spleen|gallbladder|bladder|urinary|reproductive|uterus|ovary|testis|prostate|gland|endocrine|hormone|lymph|lymphatic|immune|skin|epidermis|dermis|eye|retina|cornea|ear|cochlea|vestibular|tooth|dental|tongue|pharynx|larynx|trachea|bronchus|diaphragm|thorax|abdomen|pelvis|cranium|skull|vertebra|joint|ligament|tendon|cartilage|fascia|epithelium|neuron|synapse|receptor|enzyme|protein|physiology|pathology|disease|syndrome|clinical|medical|medicine|biology|biological)\b/.test(combined);
   }
 
   function formatExternalExtract(title, desc, rawExtract) {
@@ -1402,8 +1737,8 @@
     root.id = 'corpus-ai-bot';
     root.setAttribute('aria-label', 'Corpus AI Anatomy Assistant');
 
-    var waveImgSrc = ROOT_PREFIX + 'img/webp/bot-wave.webp?v=10';
-    var pointImgSrc = ROOT_PREFIX + 'img/webp/bot-point.webp?v=10';
+    var waveImgSrc = ROOT_PREFIX + 'img/webp/bot-wave.webp?v=12';
+    var pointImgSrc = ROOT_PREFIX + 'img/webp/bot-point.webp?v=12';
 
     root.innerHTML =
       /* Compact Mini Speech Bubble ("Hi! Ask AI" on load & every 30s for 3s) */
@@ -1430,7 +1765,7 @@
 
           '<form class="cbot-input-bar" id="cbotForm" autocomplete="off">' +
             '<input type="text" class="cbot-input" id="cbotInput" placeholder="Type an organ or question…" aria-label="Ask an anatomy question" />' +
-            '<button type="submit" class="cbot-send" aria-label="Send question" title="Ask AI">' +
+            '<button type="submit" class="cbot-send" id="cbotSendBtn" aria-label="Send question" title="Ask AI">' +
               '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' +
                 '<path d="M22 2L11 13"></path><path d="M22 2L15 22L11 13L2 9L22 2Z"></path>' +
               '</svg>' +
@@ -1448,6 +1783,7 @@
         '<span class="cbot-char-wrap">' +
           '<img class="cbot-img cbot-img-wave" src="' + escapeHtml(waveImgSrc) + '" alt="Corpus AI Bot waving" width="568" height="1400" decoding="async" />' +
           '<img class="cbot-img cbot-img-point" src="' + escapeHtml(pointImgSrc) + '" alt="Corpus AI Bot pointing to board" width="766" height="1400" decoding="async" />' +
+          '<span class="cbot-body-hit" id="cbotBodyHit" aria-hidden="true"></span>' +
         '</span>' +
       '</button>';
 
@@ -1457,11 +1793,13 @@
 
   function bindBotEvents(root) {
     var avatarBtn = root.querySelector('#cbotAvatarBtn');
+    var bodyHit = root.querySelector('#cbotBodyHit');
     var bubble = root.querySelector('#cbotBubble');
     var boardWrap = root.querySelector('#cbotBoardWrap');
     var closeBtn = root.querySelector('#cbotCloseBtn');
     var form = root.querySelector('#cbotForm');
     var input = root.querySelector('#cbotInput');
+    var sendBtn = root.querySelector('#cbotSendBtn');
     var messages = root.querySelector('#cbotMessages');
 
     function showBriefGreeting() {
@@ -1498,6 +1836,13 @@
       if (IS_OPEN) closeBoard();
       else openBoard();
     });
+    if (bodyHit) {
+      bodyHit.addEventListener('click', function (e) {
+        e.stopPropagation();
+        if (IS_OPEN) closeBoard();
+        else openBoard();
+      });
+    }
 
     /* Clicking on the mini "Hi! Ask AI" speech bubble opens the board */
     bubble.addEventListener('click', function () {
@@ -1525,14 +1870,29 @@
       }
     });
 
-    /* Handle message typing form submission */
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+    /* Shared submit handler for Enter key AND Send button mouse click / touch tap */
+    function submitCurrentQuestion() {
       var text = (input.value || '').trim();
-      if (!text) return;
+      if (!text) {
+        input.focus();
+        return;
+      }
       input.value = '';
       handleUserQuestion(text);
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      submitCurrentQuestion();
     });
+
+    if (sendBtn) {
+      sendBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        submitCurrentQuestion();
+      });
+    }
 
     function appendMessage(htmlContent, isUser) {
       var div = document.createElement('div');

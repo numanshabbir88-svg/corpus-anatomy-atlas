@@ -114,6 +114,26 @@ a[href*="utm_source=netlify"],
   border-radius: 12px;
 }
 
+/* When whiteboard is open, prevent the transparent left side of bot-point.webp from blocking clicks on the Send or Close buttons */
+.cbot-root.is-open .cbot-avatar-btn {
+  pointer-events: none;
+}
+
+.cbot-body-hit {
+  display: none;
+}
+
+.cbot-root.is-open .cbot-body-hit {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 58%;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
 /* Grounded at shoes (50% 100%) — feet never lift off the floor */
 .cbot-char-wrap {
   position: relative;

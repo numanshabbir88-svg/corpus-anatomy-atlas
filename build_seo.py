@@ -173,8 +173,8 @@ def footer(depth=0):
 
 def document(title,description,path,body,depth=0,image='',extra=''):
     root='../'*depth or './'
-    head=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#125e58"><title>{E(title)} | Corpus</title>{meta(title,description,path,image)}{extra}<link rel="icon" href="{root}favicon.svg"><link rel="stylesheet" href="{root}editorial.css?v=63"><link rel="stylesheet" href="{root}corpus-bot.css?v=11"></head><body>'
-    return head+header(depth)+body+footer(depth)+f'<script defer src="{root}corpus-bot.js?v=11"></script></body></html>'
+    head=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#125e58"><title>{E(title)} | Corpus</title>{meta(title,description,path,image)}{extra}<link rel="icon" href="{root}favicon.svg"><link rel="stylesheet" href="{root}editorial.css?v=63"><link rel="stylesheet" href="{root}corpus-bot.css?v=12"></head><body>'
+    return head+header(depth)+body+footer(depth)+f'<script defer src="{root}corpus-bot.js?v=12"></script></body></html>'
 
 def write(path,text):
     path.parent.mkdir(parents=True,exist_ok=True);path.write_text(text,encoding='utf-8')
@@ -467,7 +467,7 @@ def article(key,o):
     sidebar=f'<aside class="sidebar" aria-label="On this page"><div class="side-card"><h2>In this guide</h2><a href="#overview">Overview</a><a href="#parts">{("Illustrated structures ("+str(len(pinned))+")") if pinned else ("Study entries ("+str(len(deep))+")")}</a>'+(f'<a href="#deep">Deep study notes ({len(deep)})</a>' if deep and pinned else '')+('<a href="#under-the-lens">Under the lens</a>' if micro_html else '')+('<a href="#skull-views">Skull perspectives</a>' if skull_html else '')+('<a href="#dental-chart">Tooth charts</a>' if dental_html else '')+('<a href="#region-chart">Region charts</a>' if key=='bodyregions' else '')+('<a href="#tissue-gallery">Four tissue images</a>' if key=='tissuefoundations' else '')+('<a href="#repro-path">Conception to birth path</a>' if reproduction_html else '')+('<a href="#repro-gallery">Picture library</a>' if repro_gallery_html else '')+'<a href="#questions">Five questions &amp; answers</a><a href="#related">Related guides</a><a href="#sources">Further reading</a></div><div class="side-card"><div class="count">20+</div><p>Documented anatomy and developmental entries in every Corpus chapter. Images are orientation aids, not clinical evidence.</p></div></aside>'
     body='<div class="reading-track" aria-hidden="true"><span id="reading-progress"></span></div>'+opening+f'<div class="shell article-grid"><main id="content">{photo}<section id="overview"><div class="eyebrow">Overview</div><h2>How this part of the body works</h2><p class="intro-text">{E(o["summary"])}</p>{facts_html}</section>{micro_html}{skull_html}{dental_html}{foundation_html}{reproduction_html}{repro_gallery_html}{pinned_html}{deep_html}{faq_html}{related_html}{notes}{connect}</main>{sidebar}</div>'
     article_json=schema(f'/learn/{key}/',crumb)
-    return document(title,desc,f'/learn/{key}/',body,depth=2,image=img,extra=article_json).replace('<script defer src="../../corpus-bot.js?v=11"></script></body>','<script defer src="../../reading.js?v=33"></script><script defer src="../../preview.js?v=49"></script><script defer src="../../corpus-bot.js?v=11"></script></body>')
+    return document(title,desc,f'/learn/{key}/',body,depth=2,image=img,extra=article_json).replace('<script defer src="../../corpus-bot.js?v=12"></script></body>','<script defer src="../../reading.js?v=33"></script><script defer src="../../preview.js?v=49"></script><script defer src="../../corpus-bot.js?v=12"></script></body>')
 
 # Build every chapter from the exact atlas data. No automatic keyword stuffing or fabricated bylines.
 learn=ROOT/'learn'
