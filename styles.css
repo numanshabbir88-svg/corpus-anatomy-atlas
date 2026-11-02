@@ -172,9 +172,10 @@ a{color:inherit}
 
 /* ---------- Live Animated Human Face Hero Showcase ---------- */
 .face-hero-showcase{padding:8px;border:1px solid rgba(110,231,183,.18);box-shadow:0 24px 60px rgba(7,22,20,.34),inset 0 1px 0 rgba(255,255,255,.06);pointer-events:none;user-select:none}
-.face-hero-stage{background:#111a1b;border-radius:calc(var(--r-xl) - 5px);overflow:hidden}
-.face-live-wrap{position:relative;overflow:hidden;background:#111a1b}
-.face-live-img{display:block;width:100%;height:auto}
+.face-hero-stage{background:#12181a;border-radius:calc(var(--r-xl) - 5px);overflow:hidden}
+.face-live-wrap{position:relative;overflow:hidden;background:#12181a}
+.face-live-img{display:block;width:100%;height:auto;will-change:transform,filter;animation:faceCinemaTopDown 6.4s ease-in-out infinite}
+@keyframes faceCinemaTopDown{0%,100%{transform:scale(1.004) translateY(0);filter:brightness(.99) contrast(1.02)}50%{transform:scale(1.015) translateY(-2px);filter:brightness(1.04) contrast(1.04)}}
 
 /* ---------- organ grid / tiles ---------- */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:18px}

@@ -213,7 +213,7 @@ function viewHome(){
       <div class="showcase face-hero-showcase rv in" data-d="1">
         <div class="sc-stage face-hero-stage" id="scStage">
           <div class="photo-wrap face-live-wrap">
-            <img class="face-live-img" src="img/webp/hero-human-face.webp?v=16" alt="Human face and cranial anatomy">
+            <img class="face-live-img" src="img/webp/hero-human-face.webp?v=20" alt="Human face and cranial anatomy">
           </div>
         </div>
       </div>
