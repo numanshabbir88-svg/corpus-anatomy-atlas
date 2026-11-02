@@ -200,47 +200,46 @@ function viewHome(){
   <section class="hero wrap">
     <div class="hero-grid">
       <div class="rv in">
-        <div class="eyebrow">Your anatomy, made easier</div>
-        <h1>Explore the body <span class="accent">one part at a time<svg viewBox="0 0 300 12" preserveAspectRatio="none"><path d="M4 8 C60 2 120 10 176 5 C220 2 262 8 296 5"/></svg></span>.</h1>
-        <p class="lead">Start with a picture. Tap a part to see its name and what it does. When you feel ready, explore the deeper notes and try a quiz.</p>
+        <div class="eyebrow">Interactive Human Anatomy Atlas</div>
+        <h1>Understand the human body, <span class="accent">layer by living layer<svg viewBox="0 0 300 12" preserveAspectRatio="none"><path d="M4 8 C60 2 120 10 176 5 C220 2 262 8 296 5"/></svg></span>.</h1>
+        <p class="lead">Trace human anatomy from surface landmarks down to muscles, cranial nerves, blood vessels, bones, and microscopic tissue architecture. Every chapter pairs studio-grade anatomical plates with Latin nomenclature, physiological function, and clinical context written clearly for students and educators.</p>
         <div class="hero-cta">
-          <a class="btn primary" href="#/map">${icon('map')} Start with the body map</a>
+          <a class="btn primary" href="#/map">${icon('map')} Explore the body map</a>
           <a class="btn" href="#/organs">Browse chapters</a>
-          <a class="btn" href="#/quiz">Try a quiz</a>
+          <a class="btn" href="#/quiz">Practice quiz</a>
         </div>
-        <div class="hero-note">${icon('shield')} Realistic pictures · animated focus highlights · no account needed · <a href="about.html">About us ↗</a></div>
+        <div class="hero-note">${icon('shield')} Surface-to-deep anatomical cutaways · Latin &amp; clinical reference · Microscopic tissue lenses</div>
       </div>
       <div class="showcase face-hero-showcase rv in" data-d="1">
         <div class="sc-stage face-hero-stage" id="scStage">
-          <div class="photo-wrap face-live-wrap is-split-live">
-            <img class="face-live-img" src="img/webp/hero-human-face.webp?v=15" alt="Human face anatomy">
-            <div class="face-scan-beam" aria-hidden="true"></div>
-            <svg class="face-bio-svg" viewBox="0 0 1000 558" preserveAspectRatio="none" aria-hidden="true">
-              <path class="face-nerve-pulse" d="M625 235 Q595 185 555 135" />
-              <path class="face-nerve-pulse d2" d="M625 235 Q590 220 568 212" />
-              <path class="face-nerve-pulse d3" d="M615 268 Q575 280 535 288" />
-              <path class="face-nerve-pulse d4" d="M605 310 Q575 340 538 352" />
-              <path class="face-nerve-pulse d5" d="M592 355 Q572 415 558 475" />
-            </svg>
+          <div class="photo-wrap face-live-wrap">
+            <img class="face-live-img" src="img/webp/hero-human-face.webp?v=16" alt="Human face and cranial anatomy">
           </div>
         </div>
       </div>
     </div>
-    <div class="stats rv" data-d="2">
-      <div class="stat"><b data-count="${STATS.organs}">0</b><span>Interactive chapters</span></div>
-      <div class="stat"><b data-count="${STATS.structures}">0</b><span>Documented parts</span></div>
-      <div class="stat"><b data-count="${STATS.systems}">0</b><span>Body systems</span></div>
-      <div class="stat"><b data-count="${STATS.questions}">0</b><span>Self-test questions</span></div>
-    </div>
   </section>
 
-  <section class="wrap about-home-strip" aria-label="About Corpus"><div><small>ABOUT CORPUS</small><strong>Anatomy learning, from organ to tissue.</strong><p>Explore ${STATS.organs} illustrated chapters, focused tissue cutaways and study questions. No account is needed.</p></div><a href="about.html">About us &amp; contact →</a></section>
+  <section class="sec wrap" style="padding-top:18px">
+    <div class="sec-h rv"><div><div class="eyebrow">Core Anatomical Atlas</div><h2>Explore human anatomy chapters</h2><p>Select any organ, region, or developmental stage to inspect studio-grade anatomical plates, interactive structure labels, and clinical study notes.</p></div>
+      <a class="btn sm" href="#/organs">All ${STATS.organs} chapters ${icon('arrow')}</a></div>
+    <div class="grid">${tiles}</div>
+    <div class="all-chapters-link"><a class="btn primary" href="#/organs">Browse all ${STATS.organs} chapters ${icon('arrow')}</a></div>
+  </section>
 
-  <section class="sec wrap foundation-home" aria-label="Anatomy foundations"><div class="foundation-home-inner"><div><span class="eyebrow">NEW · START WITH THE BASICS</span><h2>Anatomy foundations</h2><p>Learn the language, orient the body, then look at cells and tissues. These are teaching models, not patient scans or histology slides.</p></div><nav aria-label="Foundation study guides"><a href="#/anatomicallanguage">Planes &amp; directions →</a><a href="#/bodyregions">Cavities &amp; regions →</a><a href="#/tissuefoundations">Cells &amp; four tissues →</a></nav></div></section>
+  <section class="sec wrap pathways-priority-sec" style="padding-top:28px;padding-bottom:8px" aria-label="Anatomical foundations and guided study pathways">
+    <div class="sec-h rv" style="margin-bottom:18px">
+      <div>
+        <div class="eyebrow">Study Pathways &amp; Foundations</div>
+        <h2>Anatomical foundations &amp; guided pathways</h2>
+        <p>Master foundational anatomical terminology and basic tissues, trace development from conception to childbirth, or navigate by body system.</p>
+      </div>
+    </div>
+    <div class="foundation-home" style="padding-top:0"><div class="foundation-home-inner"><div><span class="eyebrow">NEW · START WITH THE BASICS</span><h2>Anatomy foundations</h2><p>Learn the language, orient the body, then look at cells and tissues. These are teaching models, not patient scans or histology slides.</p></div><nav aria-label="Foundation study guides"><a href="#/anatomicallanguage">Planes &amp; directions →</a><a href="#/bodyregions">Cavities &amp; regions →</a><a href="#/tissuefoundations">Cells &amp; four tissues →</a></nav></div></div>
+    <div class="repro-home"><div class="repro-home-inner"><span class="eyebrow">NEW · 11 SEPARATE CHAPTERS</span><h2>From sperm and egg to childbirth</h2><p>Explore each gamete on its own, then follow fertilization, early development, pregnancy and all three labor stages. Illustrations explain anatomy; they are not clinical scans or delivery instructions.</p><nav aria-label="Start conception and birth study"><a href="#/spermanatomy">Sperm cell →</a><a href="#/oocyteanatomy">Egg cell →</a><a href="#/fertilization">After conception →</a><a href="#/laborfirststage">Childbirth stages →</a></nav></div></div>
+  </section>
 
-  <section class="sec wrap repro-home" aria-label="Reproduction and birth pathway"><div class="repro-home-inner"><span class="eyebrow">NEW · 11 SEPARATE CHAPTERS</span><h2>From sperm and egg to childbirth</h2><p>Explore each gamete on its own, then follow fertilization, early development, pregnancy and all three labor stages. Illustrations explain anatomy; they are not clinical scans or delivery instructions.</p><nav aria-label="Start conception and birth study"><a href="#/spermanatomy">Sperm cell →</a><a href="#/oocyteanatomy">Egg cell →</a><a href="#/fertilization">After conception →</a><a href="#/laborfirststage">Childbirth stages →</a></nav></div></section>
-
-  <section class="sec wrap start-paths" style="padding-top:32px;padding-bottom:12px">
+  <section class="sec wrap start-paths" style="padding-top:28px;padding-bottom:12px">
     <div class="sec-h rv"><div><div class="eyebrow">A good place to begin</div><h2>Choose your way in</h2><p>You can change paths any time. Nothing here needs a medical background.</p></div></div>
     <div class="start-grid">
       <a href="#/map" class="start-card rv"><span class="start-icon">01</span><span><strong>Not sure what to look for?</strong><small>Find it on the body map.</small></span><b>Explore →</b></a>
@@ -256,13 +255,6 @@ function viewHome(){
   </section>
 
   <section class="sec wrap" style="padding-top:8px;padding-bottom:8px"><a class="deep-promo rv" href="#/deep"><img src="img/thumb/eye-layers-deep.webp" alt="Realistic cross-section of the eye" loading="lazy"><span><small>NEW · CLINICAL ANATOMY PATH</small><strong>Beyond the overview: ${DEEP_PATH.reduce((n,k)=>n+Object.keys(ORGANS[k].parts).length,0)} deeper structures</strong><em>Clitoral and penile erectile tissue · skin strata · facial and trigeminal nerves · eye and retina · brain, nephron, alveoli, liver and intestine</em></span><b>Explore ${DEEP_PATH.length} chapters ↗</b></a></section>
-
-  <section class="sec wrap" style="padding-top:8px">
-    <div class="sec-h rv"><div><div class="eyebrow">A few favorites</div><h2>Popular chapters</h2><p>Start anywhere. Each chapter begins with a picture; the deeper details are there when you want them.</p></div>
-      <a class="btn sm" href="#/organs">All ${STATS.organs} chapters ${icon('arrow')}</a></div>
-    <div class="grid">${tiles}</div>
-    <div class="all-chapters-link"><a class="btn primary" href="#/organs">Browse all ${STATS.organs} chapters ${icon('arrow')}</a></div>
-  </section>
 
   <section class="sec wrap">
     <div class="sec-h rv"><div><div class="eyebrow">How it works</div><h2>Three steps to actually remembering it</h2></div></div>

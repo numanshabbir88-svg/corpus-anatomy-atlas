@@ -171,20 +171,10 @@ a{color:inherit}
 .ecg path{fill:none;stroke:#5eead4;stroke-width:2;stroke-linecap:round;stroke-dasharray:1400;stroke-dashoffset:1400;animation:ecg 3.1s linear infinite}
 
 /* ---------- Live Animated Human Face Hero Showcase ---------- */
-.face-hero-showcase{padding:10px;border:1px solid rgba(110,231,183,.22);box-shadow:0 24px 60px rgba(7,22,20,.38),inset 0 1px 0 rgba(255,255,255,.08);pointer-events:none;user-select:none}
-.face-hero-stage{background:#111a1b;border-radius:calc(var(--r-xl) - 6px);overflow:hidden}
+.face-hero-showcase{padding:8px;border:1px solid rgba(110,231,183,.18);box-shadow:0 24px 60px rgba(7,22,20,.34),inset 0 1px 0 rgba(255,255,255,.06);pointer-events:none;user-select:none}
+.face-hero-stage{background:#111a1b;border-radius:calc(var(--r-xl) - 5px);overflow:hidden}
 .face-live-wrap{position:relative;overflow:hidden;background:#111a1b}
-.face-live-img{display:block;width:100%;height:auto;transform-origin:50% 85%;animation:faceHeroAlive 5.8s ease-in-out infinite}
-.face-scan-beam{position:absolute;left:0;right:0;top:-18%;height:16%;background:linear-gradient(180deg,transparent 0%,rgba(94,234,212,.05) 45%,rgba(110,231,183,.18) 92%,rgba(167,243,208,.55) 100%);border-bottom:1.5px solid rgba(167,243,208,.68);box-shadow:0 6px 20px rgba(94,234,212,.22);pointer-events:none;z-index:2;animation:faceBioScan 5.4s ease-in-out infinite}
-.face-bio-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
-.face-nerve-pulse{fill:none;stroke:#fde68a;stroke-width:2.2;stroke-linecap:round;stroke-dasharray:18 110;stroke-dashoffset:128;filter:drop-shadow(0 0 5px rgba(251,191,36,.85));opacity:.85;animation:faceNerveImpulse 2.8s linear infinite}
-.face-nerve-pulse.d2{animation-delay:.45s}
-.face-nerve-pulse.d3{animation-delay:.9s}
-.face-nerve-pulse.d4{animation-delay:1.35s}
-.face-nerve-pulse.d5{animation-delay:1.8s}
-@keyframes faceHeroAlive{0%,100%{transform:scale(1) translateY(0)}50%{transform:scale(1.014) translateY(-2px)}}
-@keyframes faceBioScan{0%{top:-18%;opacity:0}12%{opacity:.92}85%{opacity:.92}100%{top:102%;opacity:0}}
-@keyframes faceNerveImpulse{from{stroke-dashoffset:128}to{stroke-dashoffset:0}}
+.face-live-img{display:block;width:100%;height:auto}
 
 /* ---------- organ grid / tiles ---------- */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:18px}
@@ -291,7 +281,7 @@ a{color:inherit}
 .part-b .kv b{color:var(--mute-2);font-size:10px;letter-spacing:.11em;text-transform:uppercase;display:block;font-weight:800}
 
 /* system strip */
-.sysbar{display:flex;gap:9px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
+.sysbar{display:flex;flex-wrap:wrap;gap:9px;padding-bottom:6px}
 .sysbar a{flex:0 0 auto;text-decoration:none;font-size:12.5px;font-weight:700;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--mute);transition:.2s}
 .sysbar a:hover{color:var(--ink);border-color:var(--line-2);transform:translateY(-1px)}
 .sysbar a.on{background:var(--teal-d);color:#fff;border-color:var(--teal-d)}
