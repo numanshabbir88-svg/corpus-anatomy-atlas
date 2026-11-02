@@ -569,7 +569,62 @@ shutil.copytree(learn,OUT/'learn')
 for kind in ['webp','thumb']: shutil.copytree(ROOT/'img'/kind,OUT/'img'/kind)
 write(OUT/'favicon.svg','<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#125e58"/><path d="M16 26C8 20 5 16 5 12c0-6 7-8 11-3 4-5 11-3 11 3 0 4-3 8-11 14Z" fill="#e47b72"/></svg>')
 write(ROOT/'favicon.svg',(OUT/'favicon.svg').read_text())
-write(OUT/'robots.txt','User-agent: *\nAllow: /\n'+(f'Sitemap: {BASE}/sitemap.xml\n' if BASE else ''))
+ROBOTS_AGENTS = [
+    # Google AdSense & Search Crawlers
+    'Mediapartners-Google',
+    'AdsBot-Google',
+    'AdsBot-Google-Mobile',
+    'Googlebot',
+    'Googlebot-Image',
+    'Bingbot',
+    'Applebot',
+    'DuckDuckBot',
+    # AI Search, Assistants & LLM Crawlers (Full AI Crawlability)
+    'GPTBot',
+    'OAI-SearchBot',
+    'ChatGPT-User',
+    'ClaudeBot',
+    'Claude-Web',
+    'anthropic-ai',
+    'Google-Extended',
+    'PerplexityBot',
+    'Perplexity-User',
+    'Applebot-Extended',
+    'Meta-ExternalAgent',
+    'FacebookBot',
+    'CCBot',
+    'Amazonbot',
+    'YouBot',
+    'Cohere-ai',
+    '*',
+]
+robots_body = (
+    '# Corpus Anatomy Atlas — Search Engine, Google AdSense & AI Crawler Policy\n'
+    + '\n'.join(f'User-agent: {ua}\nAllow: /\n' for ua in ROBOTS_AGENTS)
+    + (f'\nSitemap: {BASE}/sitemap.xml\n' if BASE else '')
+)
+write(OUT/'robots.txt', robots_body)
+write(ROOT/'robots.txt', robots_body)
+
+llms_lines = [
+    '# Corpus Anatomy Atlas',
+    '',
+    '> Open educational human anatomy atlas featuring 74 illustrated study chapters, 1,586 documented anatomical structures, 40 microscopic tissue lenses, a 206-bone skeletal inventory, and 312 muscles.',
+    '',
+    '## Core Sections',
+    f'- [Interactive Atlas Home]({BASE or ""}/): Interactive body map, layered human anatomy showcase, and Corpus AI Assistant.',
+    f'- [Anatomy Study Guides Hub]({BASE or ""}/learn/): Full index of 74 long-form anatomical & physiological study guides.',
+    f'- [About & Editorial Policy]({BASE or ""}/about.html): Educational scope, citation standards, and contact information.',
+    f'- [Privacy Policy]({BASE or ""}/privacy.html): Privacy and cookie disclosure.',
+    '',
+    '## All 74 Anatomy Study Guides',
+]
+for _k, _o in ORGANS.items():
+    llms_lines.append(f'- [{_o.get("title", _k)} ({_o.get("latin", "")})]({BASE or ""}/learn/{_k}/): {_o.get("blurb", "")}')
+llms_txt = '\n'.join(llms_lines) + '\n'
+write(OUT/'llms.txt', llms_txt)
+write(ROOT/'llms.txt', llms_txt)
+
 if BASE:
     paths=['/','/learn/']+[f'/learn/{key}/' for key in ORGANS]+['/about.html','/privacy.html']
     def last_modified(path):
@@ -577,6 +632,7 @@ if BASE:
         return GUIDES[slug]['updated'] if path.startswith('/learn/') and slug in GUIDES else CONTENT_UPDATED
     xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{E(url(path))}</loc><lastmod>{last_modified(path)}</lastmod></url>\n' for path in paths)+'</urlset>\n'
     write(OUT/'sitemap.xml',xml)
+    write(ROOT/'sitemap.xml',xml)
 if PUB: write(OUT/'ads.txt',f'google.com, {PUB}, DIRECT, f08c47fec0942fa0\n')
 write(OUT/'_headers','/img/*\n  Cache-Control: public, max-age=604800\n\n/*.js\n  Cache-Control: public, max-age=0, must-revalidate\n\n/*.css\n  Cache-Control: public, max-age=0, must-revalidate\n')
 print(f'Built {len(ORGANS)} crawlable study pages in {OUT}.')
