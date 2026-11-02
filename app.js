@@ -210,20 +210,20 @@ function viewHome(){
         </div>
         <div class="hero-note">${icon('shield')} Realistic pictures · animated focus highlights · no account needed · <a href="about.html">About us ↗</a></div>
       </div>
-      <div class="showcase rv in" data-d="1">
+      <div class="showcase face-hero-showcase rv in" data-d="1">
         <div class="showcase-top">
-          <span class="pill live">Live anatomy render</span>
+          <span class="pill live">Live Human Face Anatomy</span>
           <div class="showcase-tabs" id="scTabs">
-            <button class="sc-tab on" data-sc="heart">Heart</button>
-            <button class="sc-tab" data-sc="lungs">Lungs</button>
-            <button class="sc-tab" data-sc="brain">Brain</button>
-            <button class="sc-tab" data-sc="kidney">Kidney</button>
+            <button class="sc-tab on" data-sc="face_live">Human Face</button>
+            <button class="sc-tab" data-sc="face_muscles">Muscles</button>
+            <button class="sc-tab" data-sc="facialnerve">Nerves</button>
+            <button class="sc-tab" data-sc="skullface">Skull</button>
           </div>
         </div>
-        <div class="sc-stage" id="scStage"></div>
+        <div class="sc-stage face-hero-stage" id="scStage"></div>
         <div class="sc-foot">
-          <div><b id="scName">Heart</b> <span class="latin" id="scLatin">Cor</span><div id="scHint" style="font-size:11.5px;margin-top:2px">click any structure to read about it</div></div>
-          <a class="btn sm sc-open" id="scOpen" href="#/heart">Open chapter ${icon('arrow')}</a>
+          <div><b id="scName">Human Face &amp; Cranium</b> <span class="latin" id="scLatin">Facies &amp; Cranium</span><div id="scHint" style="font-size:11.5px;margin-top:2px">Live anatomical layer scan · click any facial landmark</div></div>
+          <a class="btn sm sc-open" id="scOpen" href="#/skullface">Open chapter ${icon('arrow')}</a>
           <svg class="ecg" viewBox="0 0 300 44" preserveAspectRatio="none"><path d="M0 26 L36 26 L46 26 L52 10 L58 38 L64 20 L70 26 L110 26 L120 26 L126 12 L132 36 L138 22 L144 26 L188 26 L198 26 L204 10 L210 38 L216 20 L222 26 L262 26 L272 26 L278 14 L284 34 L290 24 L300 26"/></svg>
         </div>
       </div>
@@ -1135,17 +1135,90 @@ function bindOrgan(key){
   renderStage();
 }
 
-/* ---------- home showcase ---------- */
+/* ---------- home showcase (Live Animated Human Face & Cranial Anatomy) ---------- */
+const FACE_HERO_HOTSPOTS = [
+  { id: 'frontalis', n: 'Frontalis Muscle', l: 'Venter frontalis (Epicranius)', x: 54.8, y: 22.8, d: 'Elevates the eyebrows and wrinkles forehead skin · Innervated by temporal branch of CN VII', link: '#/facialnerve' },
+  { id: 'cornea_iris', n: 'Cornea, Iris & Pupil', l: 'Oculus · Tunica fibrosa & vascularis', x: 42.9, y: 38.2, d: 'Living ocular surface & light-regulating iris aperture · Cranial Nerves II & III', link: '#/eye' },
+  { id: 'orbicularis_oculi', n: 'Orbicularis Oculi', l: 'Musculus orbicularis oculi', x: 57.6, y: 40.4, d: 'Sphincter muscle encircling the orbit; closes eyelids in blinking and protects cornea', link: '#/facialnerve' },
+  { id: 'temporalis_cn7', n: 'Temporalis & Temporal Nerve Branches', l: 'M. temporalis · Rami temporales CN VII', x: 61.5, y: 29.8, d: 'Fan-shaped mastication muscle & superficial motor branches of the facial nerve', link: '#/trigeminalnerve' },
+  { id: 'zygomaticus', n: 'Zygomaticus Major & Zygomatic Arch', l: 'M. zygomaticus major · Os zygomaticum', x: 59.4, y: 50.6, d: 'Draws the angle of the mouth superiorly and laterally during smiling', link: '#/skullface' },
+  { id: 'nasal_cartilage', n: 'Nasal Alar Cartilage', l: 'Cartilago alaris major', x: 50.9, y: 50.2, d: 'Hyaline cartilaginous framework supporting the anterior nasal airway', link: '#/skullface' },
+  { id: 'orbicularis_oris', n: 'Orbicularis Oris', l: 'Musculus orbicularis oris', x: 53.2, y: 61.8, d: 'Complex circular muscle of the lips essential for speech articulation and labial seal', link: '#/muscle' },
+  { id: 'masseter_plexus', n: 'Masseter & Parotid Nerve Plexus', l: 'M. masseter · Plexus intraparotideus', x: 59.0, y: 61.2, d: 'Powerful jaw-elevating muscle crossed by buccal & marginal mandibular CN VII fibers', link: '#/facialnerve' },
+  { id: 'scm_clavicle', n: 'Sternocleidomastoid & Clavicle', l: 'M. sternocleidomastoideus · Clavicula', x: 56.2, y: 84.5, d: 'Rotates and flexes the head while anchoring to the sternum and anterior clavicle', link: '#/muscle' }
+];
+
+const FACE_MUSCLE_HOTSPOTS = [
+  { id: 'm_frontalis', n: 'Frontalis (Occipitofrontalis)', l: 'Venter frontalis', x: 52.0, y: 21.0, d: 'Raises eyebrows and creases forehead skin', link: '#/muscle' },
+  { id: 'm_temporalis', n: 'Temporalis Muscle', l: 'Musculus temporalis', x: 61.2, y: 31.0, d: 'Elevates and retracts the mandible during mastication', link: '#/muscle' },
+  { id: 'm_orb_oculi', n: 'Orbicularis Oculi', l: 'Musculus orbicularis oculi', x: 49.5, y: 37.5, d: 'Closes the eyelids gently (palpebral part) or tightly (orbital part)', link: '#/muscle' },
+  { id: 'm_zygomaticus', n: 'Zygomaticus Major', l: 'Musculus zygomaticus major', x: 52.5, y: 52.5, d: 'Elevates labial commissure bilaterally to produce a smile', link: '#/muscle' },
+  { id: 'm_orb_oris', n: 'Orbicularis Oris', l: 'Musculus orbicularis oris', x: 42.5, y: 60.5, d: 'Shapes and closes the lips during speech and swallowing', link: '#/muscle' },
+  { id: 'm_masseter', n: 'Masseter Muscle', l: 'Musculus masseter', x: 56.5, y: 58.0, d: 'Primary muscle of mastication elevating the mandible against the maxilla', link: '#/muscle' },
+  { id: 'm_scm', n: 'Sternocleidomastoid', l: 'M. sternocleidomastoideus', x: 58.5, y: 82.0, d: 'Contralateral head rotation and bilateral cervical flexion', link: '#/muscle' }
+];
+
 function bindShowcase(){
   const stage=$('#scStage'); if(!stage) return;
-  let timer=null, cur='heart';
+  let timer=null, cur='face_live';
   const stop=()=>{if(timer){clearInterval(timer);timer=null}};
+
+  const renderCustomFaceStage=(imgFile, spots, defaultTitle, defaultLatin, defaultLink, isSplitLive)=>{
+    stage.innerHTML=`<div class="photo-wrap face-live-wrap ${isSplitLive?'is-split-live':''}">
+      <img class="face-live-img" src="img/webp/${imgFile}?v=14" alt="${esc(defaultTitle)} — interactive animated render">
+      ${isSplitLive?`
+      <div class="face-split-line" aria-hidden="true"><span class="face-split-badge">SURFACE ⇄ ANATOMY</span></div>
+      <div class="face-scan-beam" aria-hidden="true"></div>
+      <svg class="face-bio-svg" viewBox="0 0 1000 558" preserveAspectRatio="none" aria-hidden="true">
+        <!-- Animated Ocular Focus Reticle on Left Living Eye -->
+        <circle class="face-eye-ring" cx="429" cy="213" r="26" />
+        <circle class="face-eye-ring inner" cx="429" cy="213" r="14" />
+        <!-- Animated Neural Impulse Pathways along Right Facial Nerve (CN VII) -->
+        <path class="face-nerve-pulse" d="M625 235 Q595 185 555 135" />
+        <path class="face-nerve-pulse d2" d="M625 235 Q590 220 568 212" />
+        <path class="face-nerve-pulse d3" d="M615 268 Q575 280 535 288" />
+        <path class="face-nerve-pulse d4" d="M605 310 Q575 340 538 352" />
+        <path class="face-nerve-pulse d5" d="M592 355 Q572 415 558 475" />
+      </svg>`:''}
+      <div class="pins">${spots.map(s=>`<button class="pin" data-id="${s.id}" style="left:${s.x}%;top:${s.y}%"><i></i><span class="pchip">${esc(s.n)}</span></button>`).join('')}</div>
+    </div>`;
+
+    const pins=$$('.pin',stage); let idx=-1;
+    const showSpot=(spot)=>{
+      $('#scName').textContent=spot.n;
+      $('#scLatin').textContent=spot.l;
+      const h=$('#scHint'); if(h) h.textContent=spot.d;
+      $('#scOpen').href=spot.link||defaultLink;
+    };
+    const step=()=>{
+      if(!document.body.contains(stage)){stop();return}
+      idx=(idx+1)%pins.length;
+      pins.forEach((p,i)=>p.classList.toggle('sel',i===idx));
+      showSpot(spots[idx]);
+    };
+    step();
+    timer=setInterval(step,2500);
+    pins.forEach((p,i)=>p.addEventListener('click',()=>{
+      stop();
+      pins.forEach(x=>x.classList.toggle('sel',x===p));
+      showSpot(spots[i]);
+    }));
+  };
+
   const load=(k)=>{
     stop(); cur=k;
+    if(k==='face_live'){
+      renderCustomFaceStage('hero-human-face.webp', FACE_HERO_HOTSPOTS, 'Human Face & Cranium', 'Facies & Cranium', '#/skullface', true);
+      return;
+    }
+    if(k==='face_muscles'){
+      renderCustomFaceStage('muscles-face.webp', FACE_MUSCLE_HOTSPOTS, 'Facial Muscles · Écorché', 'Musculi faciei', '#/muscle', false);
+      return;
+    }
     const o=ORGANS[k];
-    if(o.photo){
+    if(o && o.photo){
       const ids=Object.keys(o.photo.hot).filter(pid=>o.parts[pid]&&validHot(o.photo.hot,pid)).slice(0,9);
-      stage.innerHTML=`<div class="photo-wrap"><img src="${imgSrc(o.photo.file,true)}" alt="${esc(o.title)} — realistic render">
+      stage.innerHTML=`<div class="photo-wrap face-live-wrap"><img class="face-live-img" src="${imgSrc(o.photo.file,true)}" alt="${esc(o.title)} — realistic render">
         <div class="pins">${ids.map((pid,i)=>`<button class="pin" data-id="${pid}" style="left:${(o.photo.hot[pid][0]/10).toFixed(2)}%;top:${(o.photo.hot[pid][1]/10).toFixed(2)}%"><i></i><span class="pchip">${esc(o.parts[pid].n)}</span></button>`).join('')}</div></div>`;
       const pins=$$('.pin',stage); let idx=-1;
       const step=()=>{
@@ -1155,15 +1228,11 @@ function bindShowcase(){
       step(); timer=setInterval(step,2300);
       pins.forEach(p=>p.addEventListener('click',()=>{stop();pins.forEach(x=>x.classList.toggle('sel',x===p));
         $('#scHint').textContent=o.parts[p.dataset.id].n+' — '+o.parts[p.dataset.id].t;}));
-    }else{
-      stage.innerHTML=svgFor(o); decorateBrain($('svg',stage));
-      const a=o.anims[0]; if(a){if(a.cls)$('svg',stage).classList.add(a.cls); if(a.layer) $('.anim-layer',$('svg',stage)).insertAdjacentHTML('beforeend',a.layer);}
-      $('#scHint').textContent='click any structure to read about it';
+      $('#scName').textContent=o.title; $('#scLatin').textContent=o.latin;
+      $('#scOpen').href=routeFor(k);
     }
-    $('#scName').textContent=o.title; $('#scLatin').textContent=o.latin;
-    $('#scOpen').href=routeFor(k);
   };
-  load('heart');
+  load('face_live');
   $$('#scTabs .sc-tab').forEach(b=>b.addEventListener('click',()=>{
     $$('#scTabs .sc-tab').forEach(x=>x.classList.toggle('on',x===b));
     load(b.dataset.sc);
