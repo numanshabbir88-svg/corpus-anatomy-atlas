@@ -1,27 +1,58 @@
 {
-  "title": "Skin layers & appendages anatomy",
-  "description": "The five thick-skin epidermal strata, two dermal zones, hypodermis, receptors and follicle–gland units.",
-  "updated": "2026-10-18",
+  "title": "Skin Layers Anatomy: Epidermal Strata, Dermis & Sensory",
+  "description": "Study skin layers microanatomy from the five epidermal strata and basement membrane to papillary and reticular dermis, sweat glands, follicles, and nerves.",
+  "updated": "2026-11-02",
+  "h1": "Skin Layers and Appendages Microanatomy: Epidermal Strata and Dermis",
+  "blurb": "Five epidermal keratinocyte strata, interlocking dermal papillae, reticular collagen bundles, eccrine and sebaceous glands, and specialized touch corpuscles.",
+  "lead": "Zooming in on a few millimeters of human skin reveals a continuously renewing brick-and-mortar epithelium anchored to a vascular dermal web of collagen and nerve endings. This illustrated study guide examines 20 documented anatomical entries—including Stratum basale, Stratum spinosum, Stratum granulosum, Stratum basale & spinosum—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Zooming in on a few millimeters of human skin reveals a continuously renewing brick-and-mortar epithelium anchored to a vascular dermal web of collagen and nerve endings. Known in classical anatomical nomenclature as Epidermis · dermis · tela subcutanea, this chapter belongs to the integumentary study pathway. Zooming in on a few millimeters of human skin reveals a continuously renewing brick-and-mortar epithelium anchored to a vascular dermal web of collagen and nerve endings. Known in classical anatomical nomenclature as Epidermis · dermis · tela subcutanea, this chapter belongs to the integumentary study pathway. Epidermis is a stratified keratinizing epithelium nourished by diffusion from vascular dermis. From deep to superficial: basale, spinosum, granulosum, optional lucidum (most evident in thick skin), and corneum. Basement membrane joins epidermis to papillary dermis; reticular dermis provides strength. The hypodermis is adipose-rich subcutis beneath the dermis. Hair, sebaceous glands and most sweat glands are skin appendages; cutaneous receptors relay varied forms of mechanical and thermal input.",
+    "When you trace how skin layers and epidermis anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Stratum basale (renews overlying epidermis), Stratum spinosum (provides mechanical cohesion), and Stratum basale & spinosum (renews the epidermis; melanocytes transfer pigment; Langerhans cells present antigen). By examining both surface-visible features (19 illustrated landmarks) and deeper or microscopic components (1 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for stratum basale, basal-cell carcinoma derives from basal-type cells; for stratum spinosum, desmosomal disruption causes epidermal blistering. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "skin layers and epidermis anatomy",
+    "secondary": [
+      "five strata of the epidermis",
+      "papillary and reticular dermis",
+      "eccrine apocrine and sebaceous glands",
+      "Meissner Merkel and Pacinian corpuscles"
+    ],
+    "longTail": [
+      "five layers of the epidermis from basale to corneum",
+      "difference between papillary dermis and reticular dermis",
+      "microanatomy of hair follicles nails and cutaneous glands"
+    ],
+    "semantic": [
+      "stratum basale",
+      "stratum spinosum",
+      "stratum granulosum",
+      "stratum lucidum",
+      "stratum corneum",
+      "dermal papillae"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "What are the five epidermal layers in thick skin?",
-      "answer": "From deep to superficial they are stratum basale, spinosum, granulosum, lucidum and corneum. Thin skin does not have a distinct lucidum."
+      "answer": "From deep to superficial they are stratum basale, spinosum, granulosum, lucidum and corneum. Thin skin does not have a distinct lucidum. In relation to stratum lucidum, this structure adds specialized layer in thick skin. Functionally, stratum lucidum adds specialized layer in thick skin."
     },
     {
       "question": "Does the epidermis have its own blood vessels?",
-      "answer": "No. The epidermis receives nutrients by diffusion from capillaries in the underlying dermis."
+      "answer": "No. The epidermis receives nutrients by diffusion from capillaries in the underlying dermis. In relation to papillary dermis, this structure nourishes avascular epidermis by diffusion. From an anatomical and functional standpoint, superficial wounds may preserve deep appendages."
     },
     {
       "question": "What is the stratum basale?",
-      "answer": "Deep single proliferative keratinocyte layer adjoining basement membrane. Function: Renews overlying epidermis."
+      "answer": "Deep single proliferative keratinocyte layer adjoining basement membrane. Function: Renews overlying epidermis. In relation to stratum basale, this structure renews overlying epidermis. From an anatomical and functional standpoint, basal-cell carcinoma derives from basal-type cells."
     },
     {
       "question": "Where is the stratum granulosum located?",
-      "answer": "Flattened keratinocytes with keratohyalin granules and lipid-releasing lamellar bodies. Function: Builds the water-permeability barrier."
+      "answer": "Flattened keratinocytes with keratohyalin granules and lipid-releasing lamellar bodies. Function: Builds the water-permeability barrier. In relation to stratum granulosum, this structure builds the water-permeability barrier. From an anatomical and functional standpoint, barrier injury increases transepidermal water loss."
     },
     {
       "question": "What is the function of the stratum corneum?",
-      "answer": "Function: Principal external permeability barrier. Anucleate flattened corneocytes surrounded by intercellular lipid lamellae."
+      "answer": "Function: Principal external permeability barrier. Anucleate flattened corneocytes surrounded by intercellular lipid lamellae. In relation to stratum corneum, this structure principal external permeability barrier. From an anatomical and functional standpoint, loss in large burns causes fluid and heat loss."
     }
   ]
 }

@@ -1,23 +1,54 @@
 {
-  "title": "Thyroid gland anatomy: follicles, vessels and nerves",
-  "description": "A butterfly gland of follicles that sets the body's metabolic rate.",
-  "updated": "2026-10-18",
+  "title": "Thyroid Gland Anatomy: Lobes, Follicles & Laryngeal Map",
+  "description": "Study thyroid gland anatomy in the anterior neck, including the right and left lobes, isthmus, colloid follicles, parathyroid glands, and laryngeal nerves.",
+  "updated": "2026-11-02",
+  "h1": "Thyroid Gland Anatomy: Lobes, Follicles, Parathyroids and Nerves",
+  "blurb": "Wrapped like a butterfly around the upper trachea, thyroid follicles store iodinated thyroglobulin colloid to pace basal metabolism, with four parathyroids behind.",
+  "lead": "Shaped like a butterfly wrapped around the upper windpipe, the thyroid gland stores its own hormone supply inside microscopic colloid spheres called follicles. This illustrated study guide examines 20 documented anatomical entries—including Right lobe, Left lobe, Isthmus, Thyroid follicular cell—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Shaped like a butterfly wrapped around the upper windpipe, the thyroid gland stores its own hormone supply inside microscopic colloid spheres called follicles. Known in classical anatomical nomenclature as Glandula thyroidea, this chapter belongs to the endocrine study pathway. Shaped like a butterfly wrapped around the upper windpipe, the thyroid gland stores its own hormone supply inside microscopic colloid spheres called follicles. Known in classical anatomical nomenclature as Glandula thyroidea, this chapter belongs to the endocrine study pathway. The thyroid is built from follicles — spheres of cuboidal cells filled with colloid, a store of thyroglobulin. Iodide is trapped, oxidised and attached to tyrosine residues to make T3 and T4, released under control of pituitary TSH. These hormones raise basal metabolic rate, oxygen consumption and heat production, and are essential for growth and brain development. Parafollicular C cells secrete calcitonin. Embedded behind the gland, the four parathyroid glands sense calcium and release parathyroid hormone — the minute-to-minute controller of plasma calcium.",
+    "When you trace how thyroid gland anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Right lobe (secretes T3/T4 from its follicles), Left lobe (secretes T3/T4), Thyroid follicular cell (synthesizes thyroglobulin and releases T3/T4 after processing), and Thyroglobulin-rich colloid (stores iodinated precursor for thyroid hormones). By examining both surface-visible features (17 illustrated landmarks) and deeper or microscopic components (3 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for right lobe, an enlarging lobe can compress the trachea (stridor) or the recurrent laryngeal nerve (hoarseness); for left lobe, A dominant nodule in one lobe is investigated with ultrasound and, if suspicious, fine-needle cytology. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "thyroid gland anatomy",
+    "secondary": [
+      "thyroid lobes and isthmus",
+      "thyroid follicles and colloid",
+      "parathyroid glands and calcium",
+      "superior and inferior thyroid arteries"
+    ],
+    "longTail": [
+      "where the thyroid gland sits in front of the trachea",
+      "why the recurrent laryngeal nerve matters in thyroid anatomy",
+      "role of follicular cells and parafollicular C cells"
+    ],
+    "semantic": [
+      "pyramidal lobe",
+      "thyroglobulin",
+      "calcitonin",
+      "pretracheal fascia",
+      "recurrent laryngeal nerve",
+      "cricoid cartilage"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "Where is the thyroid gland located?",
-      "answer": "The thyroid has two lateral lobes joined by an isthmus in the front of the neck, close to the larynx and upper trachea."
+      "answer": "The thyroid has two lateral lobes joined by an isthmus in the front of the neck, close to the larynx and upper trachea. In relation to berry ligament, this structure anchors gland during swallowing. From an anatomical and functional standpoint, recurrent laryngeal nerve runs close to this region."
     },
     {
       "question": "What do thyroid follicles make?",
-      "answer": "Follicular cells use iodine and stored thyroglobulin in colloid to produce thyroid hormones. Nearby parafollicular cells produce calcitonin."
+      "answer": "Follicular cells use iodine and stored thyroglobulin in colloid to produce thyroid hormones. Nearby parafollicular cells produce calcitonin. In relation to follicle & colloid, this structure synthesis and storage of thyroid hormone — the only endocrine gland that stores its product extracellularly."
     },
     {
       "question": "What is the isthmus?",
-      "answer": "The bridge crossing the 2nd–4th tracheal rings, joining the two lobes. Function: Connects the lobes into a single gland."
+      "answer": "The bridge crossing the 2nd–4th tracheal rings, joining the two lobes. Function: Connects the lobes into a single gland. In relation to isthmus, this structure connects the lobes into a single gland. From an anatomical and functional standpoint, it is the landmark for emergency tracheostomy and cricothyroidotomy is performed above it."
     },
     {
       "question": "Where is the trachea & larynx located?",
-      "answer": "The gland wraps the airway; the cricoid cartilage and thyroid cartilage lie above. Function: Anatomical landmark and the reason goitres cause compressive symptoms."
+      "answer": "The gland wraps the airway; the cricoid cartilage and thyroid cartilage lie above. Function: Anatomical landmark and the reason goitres cause compressive symptoms. In relation to trachea & larynx, this structure anatomical landmark and the reason goitres cause compressive symptoms."
     },
     {
       "question": "What is the function of the follicle & colloid?",

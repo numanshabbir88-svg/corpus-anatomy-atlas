@@ -1,27 +1,58 @@
 {
-  "title": "Female pelvis & perineum anatomy",
-  "description": "The female pelvic floor in sagittal section: bladder and urethra, vagina and anteverted uterus, rectum behind — plus the ligaments and pouches that position them.",
-  "updated": "2026-10-18",
+  "title": "Female Pelvis & Perineum Anatomy: Viscera & Floor Guide",
+  "description": "Learn female pelvis and perineum anatomy, detailing the bladder, uterus, rectum, peritoneal pouches, levator ani muscular floor, and perineal triangle map.",
+  "updated": "2026-11-02",
+  "h1": "Female Pelvis and Perineum Anatomy: Viscera, Pouches and Pelvic Floor",
+  "blurb": "Sagittal and perineal views of the female pelvis: bladder, anteverted uterus, vesicouterine and rectouterine pouches, levator ani floor, and perineal body.",
+  "lead": "The female pelvis is wider and more circular than the male pelvis, cradling the bladder, uterus, and rectum above a dynamic muscular sling built for both support and childbirth. This illustrated study guide examines 20 documented anatomical entries—including Urinary bladder, Female urethra, Vagina, Clitoral glans—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "The female pelvis is wider and more circular than the male pelvis, cradling the bladder, uterus, and rectum above a dynamic muscular sling built for both support and childbirth. Known in classical anatomical nomenclature as Pelvis femina, this chapter belongs to the female reproductive study pathway. The female pelvis is wider and more circular than the male pelvis, cradling the bladder, uterus, and rectum above a dynamic muscular sling built for both support and childbirth. Known in classical anatomical nomenclature as Pelvis femina, this chapter belongs to the female reproductive study pathway. Deep regional anatomy of the female pelvis: pouches, cardinal ligaments, pelvic floor and perineum.",
+    "When you trace how female pelvis and perineum anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Urinary bladder (stores urine), Female urethra (voiding), Clitoral glans (conveys fine sensation), and Clitoral prepuce (protects and permits mobility of glans). By examining both surface-visible features (15 illustrated landmarks) and deeper or microscopic components (5 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for urinary bladder, stress incontinence follows pelvic-floor weakness; for female urethra, short length explains higher UTI rates in women. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "female pelvis and perineum anatomy",
+    "secondary": [
+      "female pelvic floor levator ani",
+      "vesicouterine and rectouterine pouches",
+      "broad cardinal and uterosacral ligaments",
+      "female urogenital and anal triangles"
+    ],
+    "longTail": [
+      "sagittal order of bladder uterus and rectum in female pelvis",
+      "what is the rectouterine pouch of Douglas in pelvic anatomy",
+      "muscles and perineal body of the female pelvic floor"
+    ],
+    "semantic": [
+      "pouch of Douglas",
+      "pelvic diaphragm",
+      "perineal body",
+      "pudendal canal",
+      "internal iliac artery",
+      "urogenital hiatus"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "Which organs are located in the female pelvis?",
-      "answer": "The female pelvis contains bladder, uterus, cervix, vagina and rectum, with ovaries and uterine tubes toward the lateral pelvic regions."
+      "answer": "The female pelvis contains bladder, uterus, cervix, vagina and rectum, with ovaries and uterine tubes toward the lateral pelvic regions. From an anatomical and functional standpoint, anteverted uterus rests on its anterior wall; pessaries sit here."
     },
     {
       "question": "What supports the uterus and pelvic organs?",
-      "answer": "Pelvic-floor muscles and connective-tissue attachments provide key support. The broad ligament is a peritoneal fold, not the sole load-bearing support."
+      "answer": "Pelvic-floor muscles and connective-tissue attachments provide key support. The broad ligament is a peritoneal fold, not the sole load-bearing support. From an anatomical and functional standpoint, ureter and uterine vessels course at its base."
     },
     {
       "question": "Where is the urinary bladder in the female pelvis?",
-      "answer": "Reservoir behind the pubic symphysis. Function: Stores urine."
+      "answer": "Reservoir behind the pubic symphysis. Function: Stores urine. In relation to urinary bladder, this structure stores urine. From an anatomical and functional standpoint, stress incontinence follows pelvic-floor weakness."
     },
     {
       "question": "Where is the vagina located?",
-      "answer": "Muscular canal from cervix to vestibule. Function: Intercourse, menstrual flow, birth canal."
+      "answer": "Muscular canal from cervix to vestibule. Function: Intercourse, menstrual flow, birth canal. In relation to vagina, this structure intercourse, menstrual flow, birth canal. From an anatomical and functional standpoint, anteverted uterus rests on its anterior wall; pessaries sit here."
     },
     {
       "question": "What is the function of the vesico- & recto-uterine pouches?",
-      "answer": "Function: Allow organ movement; collect free fluid. Peritoneal recesses front and back of uterus."
+      "answer": "Function: Allow organ movement; collect free fluid. Peritoneal recesses front and back of uterus. In relation to vesico- & recto-uterine pouches, this structure allow organ movement; collect free fluid. From an anatomical and functional standpoint, the recto-uterine pouch is the most dependent — pus collects there."
     }
   ]
 }

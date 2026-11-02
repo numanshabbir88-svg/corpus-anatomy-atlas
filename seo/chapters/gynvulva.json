@@ -1,27 +1,58 @@
 {
-  "title": "Vulva anatomy: external structures and blood supply",
-  "description": "Study the external vulva on a surface illustration: mons, labia, clitoral glans, vestibule, urethral opening and vaginal opening; deep structures remain unpinned.",
-  "updated": "2026-10-19",
+  "title": "Vulva Anatomy: External Structures, Vestibule & Vessels",
+  "description": "Study vulva anatomy on an honest external teaching plate, identifying the mons pubis, labia majora and minora, clitoral glans, vestibule, and nerve supply.",
+  "updated": "2026-11-02",
+  "h1": "Vulva Anatomy: External Genital Structures, Vestibule and Innervation",
+  "blurb": "Honest surface anatomy of the external female genital region—mons pubis, labia majora and minora, clitoral glans, and separate urethral and vaginal openings.",
+  "lead": "In anatomical terminology, the vulva refers specifically to the external genital structures visible on the perineal surface—distinct from the internal vaginal canal. This illustrated study guide examines 20 documented anatomical entries—including Mons pubis, Labia majora, Labia minora, Clitoral body & crura—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "In anatomical terminology, the vulva refers specifically to the external genital structures visible on the perineal surface—distinct from the internal vaginal canal. Known in classical anatomical nomenclature as Vulva, this chapter belongs to the female reproductive study pathway. In anatomical terminology, the vulva refers specifically to the external genital structures visible on the perineal surface—distinct from the internal vaginal canal. Known in classical anatomical nomenclature as Vulva, this chapter belongs to the female reproductive study pathway. The vulva is the external genital region, not the internal vaginal canal. This cleaned surface teaching illustration shows the mons, labia, clitoral glans, vestibule and separate urethral and vaginal openings. Deeper glands, nerves and clitoral erectile tissue are described without a misleading surface pointer.",
+    "When you trace how vulva external genital anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Mons pubis (cushions pubic bone), Labia majora (protect the vestibule and inner folds), Clitoral body & crura (erectile engorgement), and Vestibular bulbs (engorge with arousal, beside bulbospongiosus muscle). By examining both surface-visible features (14 illustrated landmarks) and deeper or microscopic components (6 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for mons pubis, normal hair pattern and contour vary widely; for labia majora, vulvar lymph largely drains to superficial inguinal nodes. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "vulva external genital anatomy",
+    "secondary": [
+      "mons pubis labia majora and labia minora",
+      "clitoral glans and prepuce",
+      "vestibule urethral and vaginal openings",
+      "Bartholin glands and pudendal nerve"
+    ],
+    "longTail": [
+      "external structures of the female vulva and vestibule",
+      "separate openings of the urethra and vagina in the vestibule",
+      "blood supply and sensory innervation of the external vulva"
+    ],
+    "semantic": [
+      "vestibule of vulva",
+      "external urethral meatus",
+      "vaginal introitus",
+      "posterior fourchette",
+      "greater vestibular glands",
+      "internal pudendal artery"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "What structures are included in the vulva?",
-      "answer": "The vulva is the external genital region: mons pubis, labia majora and minora, clitoral structures and the vestibule with urethral and vaginal openings. Some deeper glands, vessels and nerves are described separately."
+      "answer": "The vulva is the external genital region: mons pubis, labia majora and minora, clitoral structures and the vestibule with urethral and vaginal openings. Some deeper glands, vessels and nerves are described separately. In relation to vulvar vestibule, this structure shared surface region for urinary and genital outlets."
     },
     {
       "question": "Are the vulva and vagina the same structure?",
-      "answer": "No. The vulva refers to external genital anatomy; the vagina is an internal muscular canal extending from the cervix to the vaginal opening. The opening lies within the vulvar vestibule."
+      "answer": "No. The vulva refers to external genital anatomy; the vagina is an internal muscular canal extending from the cervix to the vaginal opening. The opening lies within the vulvar vestibule. From an anatomical and functional standpoint, distinguish urethral meatus from vaginal introitus on examination."
     },
     {
       "question": "How are the urethral and vaginal openings positioned?",
-      "answer": "The external urethral opening is typically inferior to the clitoral glans and superior to the vaginal opening within the vestibule. Their appearance varies normally, so a teaching illustration is not a diagnostic reference."
+      "answer": "The external urethral opening is typically inferior to the clitoral glans and superior to the vaginal opening within the vestibule. Their appearance varies normally, so a teaching illustration is not a diagnostic reference. In relation to vulvar vestibule, this structure shared surface region for urinary and genital outlets."
     },
     {
       "question": "What do the labia minora do?",
-      "answer": "The labia minora are inner hairless folds that border the vestibule and join anteriorly near the clitoral hood. Their size, color and asymmetry vary normally between people."
+      "answer": "The labia minora are inner hairless folds that border the vestibule and join anteriorly near the clitoral hood. Their size, color and asymmetry vary normally between people. From an anatomical and functional standpoint, normal asymmetry is common and not pathological."
     },
     {
       "question": "Can the surface image show Bartholin glands or the clitoral crura?",
-      "answer": "No. The greater vestibular glands and most clitoral erectile structures lie below the surface. Their locations are described as deep study notes, not marked as visible on the external surface illustration."
+      "answer": "No. The greater vestibular glands and most clitoral erectile structures lie below the surface. Their locations are described as deep study notes, not marked as visible on the external surface illustration. In relation to clitoral body & crura, this structure erectile engorgement."
     }
   ]
 }

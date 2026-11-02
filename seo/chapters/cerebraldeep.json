@@ -1,27 +1,58 @@
 {
-  "title": "Cerebral cortex and deep brain pathways",
-  "description": "Trace cortex, white matter, corpus callosum, basal nuclei and thalamus on a realistic coronal section.",
-  "updated": "2026-10-18",
+  "title": "Cerebral Cortex & Deep Brain Pathways: Basal Nuclei Map",
+  "description": "Explore cerebral cortex and deep brain anatomy, covering six cortical layers, white matter tracts, the corpus callosum, internal capsule, and basal nuclei.",
+  "updated": "2026-11-02",
+  "h1": "Cerebral Cortex, Basal Nuclei, Internal Capsule and Deep Brain Pathways",
+  "blurb": "Coronal deep-brain architecture: six-layered neocortex, corpus callosum, internal capsule projection highway, caudate, putamen, globus pallidus, and thalamus.",
+  "lead": "Beneath the folded gray mantle of the cerebral cortex lies an intricate three-dimensional architecture of white matter highways and deep subcortical nuclei. This illustrated study guide examines 20 documented anatomical entries—including Cortical gray matter, Layer I · molecular, Layer II · external granular—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Beneath the folded gray mantle of the cerebral cortex lies an intricate three-dimensional architecture of white matter highways and deep subcortical nuclei. Known in classical anatomical nomenclature as Cortex cerebri · substantia alba · nuclei basales, this chapter belongs to the nervous study pathway. Beneath the folded gray mantle of the cerebral cortex lies an intricate three-dimensional architecture of white matter highways and deep subcortical nuclei. Known in classical anatomical nomenclature as Cortex cerebri · substantia alba · nuclei basales, this chapter belongs to the nervous study pathway. Most cerebral neocortex has six microscopic layers, but cortical areas and older hippocampal cortex differ. Beneath cortical gray matter, association fibers link areas within a hemisphere, commissural fibers cross hemispheres and projection fibers connect cortex with deeper structures. The internal capsule carries densely packed motor and sensory pathways between thalamus/basal nuclei. The caudate and putamen form dorsal striatum; globus pallidus, subthalamic nucleus and substantia nigra participate in motor circuits. The thalamus relays and modulates most sensory streams and important motor signals.",
+    "When you trace how cerebral cortex and basal ganglia functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Cortical gray matter (integrates sensory, motor and association information), Layer I · molecular (supports horizontal intracortical connections), Layer II · external granular (contributes intracortical signaling), and Layer III · external pyramidal (links cortical regions and hemispheres). By following all 20 illustrated landmarks in sequence, you can see how gross morphology, internal chambers or layers, and surrounding vessels work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for cortical gray matter, regional cortical lesions give different deficits; for layer i · molecular, six-layer plan is a template, not identical in every area. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "cerebral cortex and basal ganglia",
+    "secondary": [
+      "six layers of neocortex",
+      "caudate putamen and globus pallidus",
+      "internal capsule and corpus callosum",
+      "thalamus hippocampus and limbic pathways"
+    ],
+    "longTail": [
+      "how the internal capsule runs between basal ganglia and thalamus",
+      "components of the basal nuclei striatum and lentiform nucleus",
+      "major white matter commissural association projection tracts"
+    ],
+    "semantic": [
+      "striatum",
+      "substantia nigra",
+      "subthalamic nucleus",
+      "corona radiata",
+      "fornix",
+      "amygdala"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "What lies beneath the cerebral cortex?",
-      "answer": "Deep white-matter pathways connect cortical regions with each other and with subcortical structures, while deep gray nuclei and ventricles occupy related spaces."
+      "answer": "Deep white-matter pathways connect cortical regions with each other and with subcortical structures, while deep gray nuclei and ventricles occupy related spaces. In relation to subcortical white matter, this structure connects distributed gray-matter networks."
     },
     {
       "question": "Does every part of the cerebral cortex have six layers?",
-      "answer": "Most neocortex has six layers, but cortical regions vary, and older cortical areas such as hippocampal cortex have a different laminar organization."
+      "answer": "Most neocortex has six layers, but cortical regions vary, and older cortical areas such as hippocampal cortex have a different laminar organization. In relation to hippocampal formation, this structure participates in memory encoding and spatial processing."
     },
     {
       "question": "What is the cortical gray matter?",
-      "answer": "Neuronal cell-body sheet folded into gyri and sulci. Function: Integrates sensory, motor and association information."
+      "answer": "Neuronal cell-body sheet folded into gyri and sulci. Function: Integrates sensory, motor and association information. In relation to cortical gray matter, this structure integrates sensory, motor and association information. From an anatomical and functional standpoint, regional cortical lesions give different deficits."
     },
     {
       "question": "Where is the layer II · external granular located?",
-      "answer": "Small pyramidal and granule-cell zone. Function: Contributes intracortical signaling."
+      "answer": "Small pyramidal and granule-cell zone. Function: Contributes intracortical signaling. In relation to layer ii · external granular, this structure contributes intracortical signaling. From an anatomical and functional standpoint, cell density varies across sensory and motor cortex."
     },
     {
       "question": "What is the function of the layer IV · internal granular?",
-      "answer": "Function: Receives major thalamocortical afferents. Prominent thalamic input layer, particularly in primary sensory cortex."
+      "answer": "Function: Receives major thalamocortical afferents. Prominent thalamic input layer, particularly in primary sensory cortex. In relation to layer iv · internal granular, this structure receives major thalamocortical afferents. From an anatomical and functional standpoint, relatively thin in primary motor cortex."
     }
   ]
 }

@@ -1,27 +1,58 @@
 {
-  "title": "Lung anatomy: lobes, bronchi and alveoli",
-  "description": "Explore lung lobes, airways and alveoli, then compare Type I and II pneumocytes in a separate microscopic-scale teaching illustration.",
-  "updated": "2026-10-19",
+  "title": "Human Lung Anatomy: Lobes, Bronchi & Pleural Cavity Map",
+  "description": "Explore human lung anatomy, including right and left lobes, the branching bronchial tree, pleural membranes, pulmonary vessels, and alveolar oxygen uptake.",
+  "updated": "2026-11-02",
+  "h1": "Human Lung Anatomy: Lobes, Bronchial Tree, Pleura and Gas Exchange",
+  "blurb": "Twenty-three generations of branching airways lead to hundreds of millions of elastic alveoli where inspired air meets pulmonary capillary blood across 0.5 µm.",
+  "lead": "Beneath the ribcage, two spongy, elastic lungs branch through more than twenty generations of airways to bring fresh air within a fraction of a micron of blood. This illustrated study guide examines 21 documented anatomical entries—including Trachea, Main & lobar bronchi, Bronchioles, Terminal bronchiole—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Beneath the ribcage, two spongy, elastic lungs branch through more than twenty generations of airways to bring fresh air within a fraction of a micron of blood. Known in classical anatomical nomenclature as Pulmones, this chapter belongs to the respiratory study pathway. Beneath the ribcage, two spongy, elastic lungs branch through more than twenty generations of airways to bring fresh air within a fraction of a micron of blood. Known in classical anatomical nomenclature as Pulmones, this chapter belongs to the respiratory study pathway. Air is conducted from the trachea through progressively dividing bronchi and bronchioles until it reaches the alveoli, where oxygen diffuses into pulmonary capillaries and carbon dioxide diffuses out. The right lung has three lobes separated by oblique and horizontal fissures; the left has two, with a cardiac notch and lingula to accommodate the heart. Each lung is wrapped in visceral pleura, opposed by parietal pleura across a thin fluid-filled cavity whose surface tension keeps the lung expanded.",
+    "When you trace how human lung anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Trachea (conducts, warms, humidifies and filters inspired air), Main & lobar bronchi (distribute air to each lobe and bronchopulmonary segment), Terminal bronchiole (delivers air to downstream acinus), and Respiratory bronchiole (combines air conduction and some gas exchange). By examining both surface-visible features (13 illustrated landmarks) and deeper or microscopic components (8 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for trachea, foreign bodies more often enter the right main bronchus because it is wider, shorter and more vertical; for main & lobar bronchi, each segmental bronchus supplies a bronchopulmonary segment that can be surgically removed on its own. Use the interactive regional diagram above alongside the 21 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "human lung anatomy",
+    "secondary": [
+      "lung lobes and bronchopulmonary segments",
+      "trachea and bronchial tree",
+      "pleural membranes and cavity",
+      "pulmonary circulation gas exchange"
+    ],
+    "longTail": [
+      "why the right lung has three lobes and the left has two",
+      "how air travels from the trachea to pulmonary alveoli",
+      "difference between pulmonary and bronchial arteries"
+    ],
+    "semantic": [
+      "hilum",
+      "carina",
+      "cardiac notch",
+      "lingula",
+      "visceral pleura",
+      "parietal pleura"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "What are the lobes of the right and left lungs?",
-      "answer": "The right lung usually has superior, middle and inferior lobes; the left has superior and inferior lobes with a cardiac notch. Fissures divide the lobes, though normal anatomy can vary."
+      "answer": "The right lung usually has superior, middle and inferior lobes; the left has superior and inferior lobes with a cardiac notch. Fissures divide the lobes, though normal anatomy can vary. In relation to right lung — three lobes, this structure gas exchange across ~150 million alveoli."
     },
     {
       "question": "Where does air go after the bronchi?",
-      "answer": "Air passes from progressively smaller bronchi to bronchioles, then through the respiratory zone toward alveoli. Exchange of oxygen and carbon dioxide occurs across the very thin alveolar–capillary barrier."
+      "answer": "Air passes from progressively smaller bronchi to bronchioles, then through the respiratory zone toward alveoli. Exchange of oxygen and carbon dioxide occurs across the very thin alveolar–capillary barrier. In relation to alveoli & capillary bed, this structure diffusion of O₂ into blood and CO₂ out of it."
     },
     {
       "question": "What is a Type I pneumocyte?",
-      "answer": "A Type I pneumocyte is a very thin squamous cell forming much of the alveolar gas-exchange surface. It can be recognized on the separate microscopic-scale teaching illustration, not on the whole-lung image."
+      "answer": "A Type I pneumocyte is a very thin squamous cell forming much of the alveolar gas-exchange surface. It can be recognized on the separate microscopic-scale teaching illustration, not on the whole-lung image. From an anatomical and functional standpoint, damage can impair barrier integrity."
     },
     {
       "question": "What does a Type II pneumocyte do?",
-      "answer": "A Type II pneumocyte is a plumper alveolar cell that secretes pulmonary surfactant, which helps reduce surface tension. It also contributes to maintenance and repair of the alveolar lining."
+      "answer": "A Type II pneumocyte is a plumper alveolar cell that secretes pulmonary surfactant, which helps reduce surface tension. It also contributes to maintenance and repair of the alveolar lining. From an anatomical and functional standpoint, immature surfactant production contributes to neonatal respiratory distress."
     },
     {
       "question": "Is the enlarged alveolar image an actual microscope slide?",
-      "answer": "No. It is a digital educational illustration that shows the thin Type I lining next to a plumper Type II cell. It is not histology or a literal magnification of the macroscopic lung image."
+      "answer": "No. It is a digital educational illustration that shows the thin Type I lining next to a plumper Type II cell. It is not histology or a literal magnification of the macroscopic lung image. In relation to type i pneumocyte, this structure minimizes gas diffusion distance."
     }
   ]
 }

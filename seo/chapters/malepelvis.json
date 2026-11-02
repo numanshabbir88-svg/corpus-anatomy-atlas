@@ -1,27 +1,58 @@
 {
-  "title": "Male pelvis & perineum anatomy",
-  "description": "The male pelvic floor in sagittal section: bladder, prostate and urethra in front, rectum and anal canal behind, and the muscular sheet that holds them up.",
-  "updated": "2026-10-18",
+  "title": "Male Pelvis & Perineum Anatomy: Viscera & Pelvic Floors",
+  "description": "Explore male pelvis and perineum anatomy in sagittal and regional views, covering the bladder neck, prostate, rectum, levator ani floor, and perineal sacs.",
+  "updated": "2026-11-02",
+  "h1": "Male Pelvis and Perineum Anatomy: Pelvic Floor, Viscera and Pouches",
+  "blurb": "Sagittal and perineal views of the male pelvis: bladder neck, walnut-sized prostate, rectum, levator ani muscular sling, and pudendal neurovascular canals.",
+  "lead": "Within the bony ring of the male pelvis, the urinary bladder, prostate, and rectum share a compact muscular floor that supports abdominal viscera and controls continence. This illustrated study guide examines 20 documented anatomical entries—including Urinary bladder, Prostate gland, Prostatic & membranous urethra, Paired corpora cavernosa—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Within the bony ring of the male pelvis, the urinary bladder, prostate, and rectum share a compact muscular floor that supports abdominal viscera and controls continence. Known in classical anatomical nomenclature as Pelvis masculina, this chapter belongs to the male reproductive study pathway. Within the bony ring of the male pelvis, the urinary bladder, prostate, and rectum share a compact muscular floor that supports abdominal viscera and controls continence. Known in classical anatomical nomenclature as Pelvis masculina, this chapter belongs to the male reproductive study pathway. Deep regional anatomy — the pouches, sphincters and nerves examined in every pelvic module.",
+    "When you trace how male pelvis and perineum anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Urinary bladder (stores urine; trigone is its smooth base), Prostate gland (seminal fluid (PSA, citric acid, fibrinolysin)), Paired corpora cavernosa (primary rigid erectile compartment), and Corpus spongiosum (engorges without compressing urethral lumen closed). By examining both surface-visible features (15 illustrated landmarks) and deeper or microscopic components (5 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for urinary bladder, outlet obstruction in men is usually prostatic; for prostate gland, BPH compresses the urethra — hesitancy and nocturia. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "male pelvis and perineum anatomy",
+    "secondary": [
+      "male pelvic floor levator ani",
+      "prostate seminal vesicles and bladder base",
+      "urogenital and anal triangles",
+      "pudendal canal and internal iliac vessels"
+    ],
+    "longTail": [
+      "sagittal anatomy of the male pelvis bladder prostate rectum",
+      "muscles and fascial pouches of the male perineum explained",
+      "course of the vas deferens and urethra in the male pelvis"
+    ],
+    "semantic": [
+      "retropubic space",
+      "rectovesical pouch",
+      "perineal body",
+      "bulbospongiosus",
+      "ischiocavernosus",
+      "external urethral sphincter"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "Which organs are located in the male pelvis?",
-      "answer": "The male pelvis contains bladder, prostate and rectum, along with parts of the urethra, reproductive ducts, pelvic vessels and nerves."
+      "answer": "The male pelvis contains bladder, prostate and rectum, along with parts of the urethra, reproductive ducts, pelvic vessels and nerves. In relation to ejaculatory ducts, this structure deliver sperm into prostatic urethra. From an anatomical and functional standpoint, obstruction → low-volume ejaculate."
     },
     {
       "question": "What is the pelvic floor's role in men?",
-      "answer": "Pelvic-floor muscles support pelvic organs and contribute to continence. Their relationship to the urethra and perineal structures is important in regional anatomy."
+      "answer": "Pelvic-floor muscles support pelvic organs and contribute to continence. Their relationship to the urethra and perineal structures is important in regional anatomy. In relation to perineal body, this structure anchor for nine perineal muscles."
     },
     {
       "question": "Where is the urinary bladder in the male pelvis?",
-      "answer": "Reservoir behind the pubis. Function: Stores urine; trigone is its smooth base."
+      "answer": "Reservoir behind the pubis. Function: Stores urine; trigone is its smooth base. In relation to urinary bladder, this structure stores urine; trigone is its smooth base. From an anatomical and functional standpoint, outlet obstruction in men is usually prostatic."
     },
     {
       "question": "Where is the prostatic & membranous urethra located?",
-      "answer": "Urethra traversing prostate and perineum. Function: Conduit for urine and semen; sphincters here."
+      "answer": "Urethra traversing prostate and perineum. Function: Conduit for urine and semen; sphincters here. In relation to prostatic & membranous urethra, this structure conduit for urine and semen; sphincters here. From an anatomical and functional standpoint, catheterisation respects the puboprostatic curve."
     },
     {
       "question": "What is the function of the rectum?",
-      "answer": "Function: Stores stool before defecation. Terminal 12–15 cm with three valves."
+      "answer": "Function: Stores stool before defecation. Terminal 12–15 cm with three valves. In relation to rectum, this structure stores stool before defecation. From an anatomical and functional standpoint, rectal exam reaches prostate anteriorly, rectum all round."
     }
   ]
 }

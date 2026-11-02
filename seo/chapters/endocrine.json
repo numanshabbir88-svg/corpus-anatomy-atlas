@@ -1,27 +1,58 @@
 {
-  "title": "Endocrine system anatomy",
-  "description": "The body's slow wiring: hormones released straight into blood to tune metabolism, growth, stress, salt, sugar and reproduction.",
-  "updated": "2026-10-18",
+  "title": "Endocrine System Anatomy: Pituitary, Adrenal & Thyroids",
+  "description": "Discover endocrine system anatomy across the hypothalamus, pituitary, pineal, thyroid, parathyroids, adrenals, pancreatic islets, and gonadal hormone axes.",
+  "updated": "2026-11-02",
+  "h1": "Endocrine System Anatomy: Hypothalamus, Pituitary and Hormone Glands",
+  "blurb": "Hormone-secreting glands—hypothalamus, pituitary, pineal, thyroid, parathyroids, adrenals, pancreas, and gonads—communicating through bloodstream feedback loops.",
+  "lead": "Unlike exocrine glands that empty into ducts, endocrine glands release chemical messengers directly into surrounding capillaries to coordinate metabolism, growth, and stress responses. This illustrated study guide examines 20 documented anatomical entries—including Pituitary gland, Pineal gland, Thyroid gland, Thyroid follicular cells—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Unlike exocrine glands that empty into ducts, endocrine glands release chemical messengers directly into surrounding capillaries to coordinate metabolism, growth, and stress responses. Known in classical anatomical nomenclature as Systema endocrinum, this chapter belongs to the endocrine study pathway. Unlike exocrine glands that empty into ducts, endocrine glands release chemical messengers directly into surrounding capillaries to coordinate metabolism, growth, and stress responses. Known in classical anatomical nomenclature as Systema endocrinum, this chapter belongs to the endocrine study pathway. Every ductless gland on one figure — including the ones you never see: pineal, parathyroids, adrenals and the islets.",
+    "When you trace how endocrine system anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Pituitary gland (releases ACTH, TSH, GH, LH/FSH, prolactin, ADH/oxytocin store), Pineal gland (melatonin — circadian rhythm), Thyroid follicular cells (synthesize and release T4/T3 after iodination and processing), and Pancreatic beta cells (lower circulating glucose by promoting uptake/storage). By examining both surface-visible features (18 illustrated landmarks) and deeper or microscopic components (2 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for pituitary gland, pituitary adenoma → visual field loss (optic chiasm above); for pineal gland, calcifies with age; useful midline marker on CT. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "endocrine system anatomy",
+    "secondary": [
+      "hypothalamus and pituitary gland",
+      "thyroid parathyroid and adrenal glands",
+      "endocrine pancreas and pineal gland",
+      "ovaries testes and hormone feedback"
+    ],
+    "longTail": [
+      "major endocrine glands of the human body and their hormones",
+      "how the hypothalamic-pituitary axis regulates target glands",
+      "difference between adrenal cortex and adrenal medulla"
+    ],
+    "semantic": [
+      "adenohypophysis",
+      "neurohypophysis",
+      "hypophyseal portal system",
+      "zona glomerulosa",
+      "zona fasciculata",
+      "negative feedback"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "What organs make up the endocrine system?",
-      "answer": "The endocrine system includes hormone-producing structures such as the pituitary, thyroid, parathyroids, adrenals and pancreatic islets, with other organs also contributing hormones."
+      "answer": "The endocrine system includes hormone-producing structures such as the pituitary, thyroid, parathyroids, adrenals and pancreatic islets, with other organs also contributing hormones. In relation to pancreatic beta cells, this structure lower circulating glucose by promoting uptake/storage."
     },
     {
       "question": "How do endocrine glands differ from exocrine glands?",
-      "answer": "Endocrine tissue releases hormones into the blood. Exocrine glands deliver products through ducts to a surface or lumen, as pancreatic acini do for digestion."
+      "answer": "Endocrine tissue releases hormones into the blood. Exocrine glands deliver products through ducts to a surface or lumen, as pancreatic acini do for digestion. In relation to parathyroid chief cells, this structure secrete PTH in response to falling ionized calcium."
     },
     {
       "question": "What is the pituitary gland?",
-      "answer": "Pea-sized master gland in the sella turcica. Function: Releases ACTH, TSH, GH, LH/FSH, prolactin, ADH/oxytocin store."
+      "answer": "Pea-sized master gland in the sella turcica. Function: Releases ACTH, TSH, GH, LH/FSH, prolactin, ADH/oxytocin store. In relation to pituitary gland, this structure releases ACTH, TSH, GH, LH/FSH, prolactin, ADH/oxytocin store. From an anatomical and functional standpoint, pituitary adenoma → visual field loss (optic chiasm above)."
     },
     {
       "question": "Where in the neck is the thyroid gland located?",
-      "answer": "Butterfly gland on the trachea. Function: T3/T4 metabolic rate; calcitonin."
+      "answer": "Butterfly gland on the trachea. Function: T3/T4 metabolic rate; calcitonin. In relation to thyroid gland, this structure T3/T4 metabolic rate; calcitonin. From an anatomical and functional standpoint, goitre and thyrotoxicosis are common presentations."
     },
     {
       "question": "What is the function of the adrenal glands?",
-      "answer": "Function: Cortisol, aldosterone, adrenaline. Caps on each kidney: cortex + medulla."
+      "answer": "Function: Cortisol, aldosterone, adrenaline. Caps on each kidney: cortex + medulla. In relation to adrenal glands, this structure cortisol, aldosterone, adrenaline. From an anatomical and functional standpoint, addison's: hypotension, pigmentation, fatigue."
     }
   ]
 }

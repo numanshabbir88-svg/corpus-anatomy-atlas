@@ -1,27 +1,58 @@
 {
-  "title": "Placenta anatomy: villi, maternal and fetal blood, and umbilical cord",
-  "description": "Examine decidua, chorionic villi, separate maternal and fetal circulations, placental exchange, membranes and the three-vessel cord.",
-  "updated": "2026-10-19",
+  "title": "Placenta Anatomy: Chorionic Villi & Fetal Blood Vessels",
+  "description": "Study placenta anatomy, including branching chorionic villi, the intervillous blood space, a three-vessel umbilical cord, and maternal-fetal gas exchanges.",
+  "updated": "2026-11-02",
+  "h1": "Placenta Anatomy: Chorionic Villi, Umbilical Cord and Exchange",
+  "blurb": "Branching chorionic villi, the maternal intervillous blood space, and the three-vessel umbilical cord exchange oxygen and nutrients without mixing bloodstreams.",
+  "lead": "Acting simultaneously as lungs, kidneys, gut, and endocrine gland for the developing fetus, the placenta exchanges gases and nutrients without mixing bloodstreams. This illustrated study guide examines 20 documented anatomical entries—including Placenta, Chorionic plate, Maternal basal plate—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Acting simultaneously as lungs, kidneys, gut, and endocrine gland for the developing fetus, the placenta exchanges gases and nutrients without mixing bloodstreams. Known in classical anatomical nomenclature as Placenta et membranae fetales, this chapter belongs to the conception to birth study pathway. The placenta joins fetal chorionic villi with a maternal decidual bed. Fetal blood travels in villous capillaries while maternal blood occupies surrounding intervillous spaces; the two circulations are normally separated by a placental barrier rather than directly mixing. The umbilical cord typically contains two arteries and one vein. The amnion surrounds the fluid-filled fetal environment; chorion contributes to the placental interface. Placental structure and transfer change over pregnancy. A computer-generated cross-section cannot measure oxygen transfer, diagnose placental disease or depict every stage. After birth, placenta delivery belongs to a distinct third labor stage.",
+    "When you trace how placenta anatomy and function functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Placenta (transfers gases, nutrients and wastes and produces hormones), Chorionic plate (distributes fetal blood to exchange villi), Maternal basal plate (anchors exchange organ during pregnancy), and Chorionic villi (increase surface for maternal–fetal exchange). By following all 20 illustrated landmarks in sequence, you can see how gross morphology, internal chambers or layers, and surrounding vessels work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for placenta, digital rendering cannot assess placental function or attachment disorders. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "placenta anatomy and function",
+    "secondary": [
+      "chorionic villi and intervillous space",
+      "maternal fetal gas exchange",
+      "umbilical cord two arteries one vein",
+      "amnion and chorion membranes"
+    ],
+    "longTail": [
+      "how oxygen and nutrients cross the placental barrier",
+      "why the umbilical cord has two arteries and one vein",
+      "structure of cotyledons and decidua basalis in placenta"
+    ],
+    "semantic": [
+      "syncytiotrophoblast barrier",
+      "spiral arteries",
+      "Wharton jelly",
+      "chorionic plate",
+      "basal plate",
+      "fetal membranes"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "Do maternal and fetal blood directly mix in the normal placenta?",
-      "answer": "No. Maternal blood in intervillous spaces surrounds villi containing fetal capillaries. Gases and substances cross a changing tissue barrier rather than flowing through a single shared open blood vessel."
+      "answer": "No. Maternal blood in intervillous spaces surrounds villi containing fetal capillaries. Gases and substances cross a changing tissue barrier rather than flowing through a single shared open blood vessel. In relation to chorionic villi, this structure increase surface for maternal–fetal exchange."
     },
     {
       "question": "How many vessels does an umbilical cord normally have?",
-      "answer": "Usually there are two umbilical arteries carrying fetal blood toward the placenta and one umbilical vein returning from placenta toward the fetus. Individual anatomy requires clinical assessment."
+      "answer": "Usually there are two umbilical arteries carrying fetal blood toward the placenta and one umbilical vein returning from placenta toward the fetus. Individual anatomy requires clinical assessment. From an anatomical and functional standpoint, the word artery denotes direction from fetal heart, not oxygen content."
     },
     {
       "question": "Which placenta parts come from mother and fetus?",
-      "answer": "The uterine decidua basalis forms the maternal attachment bed, while fetal chorionic villi and chorionic plate form the fetal exchange structures. The amnion covers the fetal-facing side."
+      "answer": "The uterine decidua basalis forms the maternal attachment bed, while fetal chorionic villi and chorionic plate form the fetal exchange structures. The amnion covers the fetal-facing side. Functionally, chorionic plate distributes fetal blood to exchange villi."
     },
     {
       "question": "What happens across chorionic villi?",
-      "answer": "Fetal capillaries run inside villi exposed to surrounding maternal intervillous blood. Oxygen, nutrients and wastes transfer across placental tissue; the illustration cannot measure exchange efficiency."
+      "answer": "Fetal capillaries run inside villi exposed to surrounding maternal intervillous blood. Oxygen, nutrients and wastes transfer across placental tissue; the illustration cannot measure exchange efficiency. In relation to chorionic plate, this structure distributes fetal blood to exchange villi."
     },
     {
       "question": "When is the placenta delivered in childbirth?",
-      "answer": "After the baby is born, the placenta and membranes are delivered during the third stage of labor. The anatomy image depicts an attached placenta during pregnancy, not its actual separation."
+      "answer": "After the baby is born, the placenta and membranes are delivered during the third stage of labor. The anatomy image depicts an attached placenta during pregnancy, not its actual separation. In relation to placental delivery, this structure ends third stage of labor."
     }
   ]
 }

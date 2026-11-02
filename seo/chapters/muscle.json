@@ -1,27 +1,58 @@
 {
-  "title": "Muscular system anatomy: muscle groups and tendons",
-  "description": "Explore major muscle groups in the overview, then follow the full-body muscle and tendon atlas for hundreds of named records and regional views.",
-  "updated": "2026-10-19",
+  "title": "Muscular System Anatomy: Skeletal Muscles & Tendon Maps",
+  "description": "Explore muscular system anatomy across the head, trunk, and limbs, detailing skeletal muscle groups, origins, insertions, tendons, and sarcomere structure.",
+  "updated": "2026-11-02",
+  "h1": "Muscular System Anatomy: Major Skeletal Muscle Groups and Tendons",
+  "blurb": "Over 300 named skeletal muscle records and 32 tendon pathways across 13 body regions, showing origins, insertions, nerve supply, and sliding-filament action.",
+  "lead": "More than six hundred named skeletal muscles wrap the human frame, converting chemical energy into mechanical pull across joints so we can breathe, stand, speak, and sprint. This illustrated study guide examines 20 documented anatomical entries—including Sternocleidomastoid, Trapezius, Deltoid—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "More than six hundred named skeletal muscles wrap the human frame, converting chemical energy into mechanical pull across joints so we can breathe, stand, speak, and sprint. Known in classical anatomical nomenclature as Systema musculare, this chapter belongs to the muscular system study pathway. More than six hundred named skeletal muscles wrap the human frame, converting chemical energy into mechanical pull across joints so we can breathe, stand, speak, and sprint. Known in classical anatomical nomenclature as Systema musculare, this chapter belongs to the muscular system study pathway. Surface-to-deep anterior musculature: origin-insertion logic and the clinical test for each.",
+    "When you trace how muscular system anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Sternocleidomastoid (head rotation and neck flexion), Trapezius (shrug and scapular rotation), Deltoid (arm abduction beyond 15°), and Pectoralis major (arm adduction and push power). By following all 20 illustrated landmarks in sequence, you can see how gross morphology, internal chambers or layers, and surrounding vessels work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for sternocleidomastoid, torticollis; landmark for carotid pulse; for trapezius, accessory nerve palsy → shrug weakness. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "muscular system anatomy",
+    "secondary": [
+      "skeletal muscle groups and tendons",
+      "origin insertion and muscle action",
+      "fascicles myofibrils and sarcomeres",
+      "agonist antagonist and synergist muscles"
+    ],
+    "longTail": [
+      "major skeletal muscle groups of the human body explained",
+      "how skeletal muscles pull on tendons across joints to move",
+      "connective tissue layers epimysium perimysium endomysium"
+    ],
+    "semantic": [
+      "aponeurosis",
+      "neuromuscular junction",
+      "actin and myosin",
+      "rotator cuff",
+      "quadriceps femoris",
+      "gastrocnemius"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "How do skeletal muscles move joints?",
-      "answer": "Skeletal muscle fibers contract and transmit force through tendons or other attachments. When a muscle crosses a joint, its contraction can pull the attached bones; opposing muscles help control the movement."
+      "answer": "Skeletal muscle fibers contract and transmit force through tendons or other attachments. When a muscle crosses a joint, its contraction can pull the attached bones; opposing muscles help control the movement. In relation to diaphragm central tendon, this structure transmits inspiratory muscle force and supports pericardium."
     },
     {
       "question": "Are all human muscles listed among the overview cards?",
-      "answer": "No. The overview cards introduce major regions, while the linked full-body muscle and tendon atlas contains hundreds of named records. A single fixed count of muscles varies with naming and counting conventions."
+      "answer": "No. The overview cards introduce major regions, while the linked full-body muscle and tendon atlas contains hundreds of named records. A single fixed count of muscles varies with naming and counting conventions. In relation to rotator cuff muscle group, this structure center humeral head during motion."
     },
     {
       "question": "Where can I find posterior muscles such as the triceps and hamstrings?",
-      "answer": "The full-body muscle atlas groups them by arm and thigh region, including deeper layers and sex-specific pelvic floor views. The front-oriented overview image alone cannot identify posterior fibers."
+      "answer": "The full-body muscle atlas groups them by arm and thigh region, including deeper layers and sex-specific pelvic floor views. The front-oriented overview image alone cannot identify posterior fibers. In relation to pelvic diaphragm, this structure supports pelvic viscera and continence."
     },
     {
       "question": "What is the difference between a tendon and a ligament?",
-      "answer": "A tendon transfers muscular force to an attachment, commonly a bone; a ligament connects bones across a joint. Both consist largely of dense collagenous connective tissue but have different mechanical roles."
+      "answer": "A tendon transfers muscular force to an attachment, commonly a bone; a ligament connects bones across a joint. Both consist largely of dense collagenous connective tissue but have different mechanical roles. In relation to rotator cuff muscle group, this structure center humeral head during motion."
     },
     {
       "question": "Is the diaphragm a skeletal muscle?",
-      "answer": "Yes. The diaphragm is a dome-shaped skeletal muscle separating the thoracic and abdominal cavities and is the primary muscle used during quiet inspiration. Its central tendon is an attachment region, not a separate muscle."
+      "answer": "Yes. The diaphragm is a dome-shaped skeletal muscle separating the thoracic and abdominal cavities and is the primary muscle used during quiet inspiration. Its central tendon is an attachment region, not a separate muscle. In relation to diaphragm central tendon, this structure transmits inspiratory muscle force and supports pericardium."
     }
   ]
 }

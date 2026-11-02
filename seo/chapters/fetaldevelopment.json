@@ -1,23 +1,54 @@
 {
-  "title": "Fetal development and trimesters: gestational age, growth and organ maturation",
-  "description": "Compare LMP-based pregnancy trimesters, fetal growth, circulation, lungs, kidneys and placenta without claiming a generic image dates a pregnancy.",
-  "updated": "2026-10-19",
+  "title": "Fetal Development Anatomy: Trimester Growth & Shunt Map",
+  "description": "Learn fetal development anatomy from week nine to birth, including trimester growth, fetal circulation shunts, nervous system maturation, and lung alveoli.",
+  "updated": "2026-11-02",
+  "h1": "Fetal Development Anatomy: Trimester Growth and Fetal Circulation",
+  "blurb": "From week nine to birth: trimester growth, surfactant maturation in developing lungs, and the three fetal circulatory shunts that bypass the lungs and liver.",
+  "lead": "From the ninth week until birth, the fetal period transforms miniature organ primordia into mature systems while three vascular shunts route blood past the lungs. This illustrated study guide examines 20 documented anatomical entries—including Fetal head and brain, Fetal limbs, Fetal heart, Gestational age (LMP)—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "From the ninth week until birth, the fetal period transforms miniature organ primordia into mature systems while three vascular shunts route blood past the lungs. Known in classical anatomical nomenclature as Periodus fetalis, this chapter belongs to the conception to birth study pathway. After early embryonic organ formation, the fetal period emphasizes growth and functional maturation until birth. Obstetric gestational age is counted from the first day of the last menstrual period (LMP), approximately two weeks longer than post-fertilization age in a typical cycle. Common trimester definitions are 0–13 weeks 6 days, 14–27 weeks 6 days, and 28 weeks to delivery by LMP. Three clearly labeled digital models give undated early-development, illustrative middle-pregnancy and illustrative later-pregnancy contexts; NONE can date a pregnancy, verify viability or measure a fetus. The images are not scans or photographs. Clinical fetal assessment requires appropriate prenatal care and actual imaging.",
+    "When you trace how fetal development anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Fetal head and brain (supports later sensory and motor functions), Fetal limbs (permit spontaneous fetal motion), Gestational age (LMP) (standardizes prenatal dating), and Post-fertilization age (keeps embryo and fetus timelines intelligible). By examining both surface-visible features (13 illustrated landmarks) and deeper or microscopic components (7 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for fetal head and brain, A large head in digital art cannot determine age; for fetal limbs, reduced perceived movement merits clinical assessment; art is not a motion study. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "fetal development anatomy",
+    "secondary": [
+      "pregnancy trimesters fetal growth",
+      "fetal circulation shunts",
+      "ductus arteriosus and foramen ovale",
+      "lung surfactant maturation"
+    ],
+    "longTail": [
+      "how fetal circulation bypasses the lungs and liver",
+      "anatomical milestones across first second third trimesters",
+      "what ductus venosus and foramen ovale do before birth"
+    ],
+    "semantic": [
+      "foramen ovale",
+      "ductus arteriosus",
+      "ductus venosus",
+      "vernix caseosa",
+      "lanugo",
+      "alveolar surfactant"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "How is gestational age different from conception age?",
-      "answer": "Obstetric gestational age counts from the first day of the last menstrual period. Age since fertilization is commonly about two weeks less in a typical cycle, but that difference varies with ovulation timing."
+      "answer": "Obstetric gestational age counts from the first day of the last menstrual period. Age since fertilization is commonly about two weeks less in a typical cycle, but that difference varies with ovulation timing. In relation to gestational age (lmp), this structure standardizes prenatal dating."
     },
     {
       "question": "When do first, second and third trimesters fall?",
-      "answer": "A common LMP-based convention is first through 13 weeks and 6 days, second from 14 through 27 weeks and 6 days, and third from 28 weeks until delivery. These are clinical groupings, not exact developmental switches."
+      "answer": "A common LMP-based convention is first through 13 weeks and 6 days, second from 14 through 27 weeks and 6 days, and third from 28 weeks until delivery. These are clinical groupings, not exact developmental switches. In relation to first trimester, this structure provides a clinical pregnancy time frame."
     },
     {
       "question": "What is the fetal period mainly characterized by?",
-      "answer": "After embryonic organ plans are established, growth and functional maturation become prominent. Developing organs continue to change rather than all appearing suddenly complete."
+      "answer": "After embryonic organ plans are established, growth and functional maturation become prominent. Developing organs continue to change rather than all appearing suddenly complete. In relation to third trimester, this structure frames later pregnancy development."
     },
     {
       "question": "Why does a fetus have circulation shunts?",
-      "answer": "Before birth oxygen comes from placenta, not air-breathing lungs. The foramen ovale, ductus arteriosus and ductus venosus direct parts of fetal blood flow through specialized routes."
+      "answer": "Before birth oxygen comes from placenta, not air-breathing lungs. The foramen ovale, ductus arteriosus and ductus venosus direct parts of fetal blood flow through specialized routes. From an anatomical and functional standpoint, postnatal closure varies; cannot be inferred from this image."
     },
     {
       "question": "Can these fetal images date a pregnancy or confirm fetal health?",

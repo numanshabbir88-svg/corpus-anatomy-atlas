@@ -1,27 +1,58 @@
 {
-  "title": "Facial nerve: CN VII anatomy",
-  "description": "Track facial motor branches, taste, lacrimation and salivation through the temporal bone and parotid gland.",
-  "updated": "2026-10-18",
+  "title": "Facial Nerve CN VII Anatomy: Branches, Taste & Pathways",
+  "description": "Master facial nerve (CN VII) anatomy from the brainstem and temporal bone canal through the stylomastoid foramen to the five motor branches and taste path.",
+  "updated": "2026-11-02",
+  "h1": "Facial Nerve (CN VII) Anatomy: Intratemporal Path and Terminal Branches",
+  "blurb": "Tracing Cranial Nerve VII from the pons through the temporal bone canal and parotid gland to its five facial expression branches, chorda tympani taste, and tear fibers.",
+  "lead": "Every smile, blink, and raised eyebrow depends on the seventh cranial nerve—a complex mixed nerve that threads through the temporal bone before fanning across the face. This illustrated study guide examines 20 documented anatomical entries—including Facial motor nucleus, Nervus intermedius, Internal acoustic meatus, Stylomastoid foramen—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Every smile, blink, and raised eyebrow depends on the seventh cranial nerve—a complex mixed nerve that threads through the temporal bone before fanning across the face. Known in classical anatomical nomenclature as Nervus facialis, this chapter belongs to the nervous study pathway. Every smile, blink, and raised eyebrow depends on the seventh cranial nerve—a complex mixed nerve that threads through the temporal bone before fanning across the face. Known in classical anatomical nomenclature as Nervus facialis, this chapter belongs to the nervous study pathway. CN VII contains motor fibers to muscles of facial expression, taste from anterior two-thirds of tongue (via chorda tympani), and parasympathetic pathways for lacrimal, submandibular and sublingual glands. It enters the internal acoustic meatus, bends at geniculate ganglion, traverses the facial canal and exits at stylomastoid foramen. Within the parotid it forms a motor plexus giving temporal, zygomatic, buccal, marginal mandibular and cervical branches; it passes through the gland but does not provide its secretomotor supply.",
+    "When you trace how facial nerve CN VII anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Facial motor nucleus (controls muscles of facial expression), Nervus intermedius (carries taste and secretomotor pathways), and Stylomastoid foramen (delivers motor trunk to face and neck). By examining both surface-visible features (19 illustrated landmarks) and deeper or microscopic components (1 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for facial motor nucleus, upper face often retains bilateral cortical input in supranuclear lesions; for nervus intermedius, explains why CN VII is not solely motor. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "facial nerve CN VII anatomy",
+    "secondary": [
+      "five terminal motor branches of CN VII",
+      "chorda tympani taste and salivation",
+      "greater petrosal nerve lacrimal gland",
+      "facial canal and stylomastoid foramen"
+    ],
+    "longTail": [
+      "five parotid motor branches of the facial nerve CN VII",
+      "how chorda tympani carries taste from the anterior tongue",
+      "intratemporal course of the facial nerve through skull"
+    ],
+    "semantic": [
+      "geniculate ganglion",
+      "nerve to stapedius",
+      "temporal branch",
+      "zygomatic branch",
+      "buccal branch",
+      "marginal mandibular and cervical"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "What does the facial nerve control?",
-      "answer": "Cranial nerve VII supplies muscles of facial expression and also carries taste and parasympathetic fibers through specific branches."
+      "answer": "Cranial nerve VII supplies muscles of facial expression and also carries taste and parasympathetic fibers through specific branches. In relation to parotid plexus, this structure distributes facial expression motor fibers. From an anatomical and functional standpoint, parotid secretion is mainly CN IX parasympathetic, not CN VII."
     },
     {
       "question": "Does the facial nerve provide most facial skin sensation?",
-      "answer": "No. Most facial skin sensation travels in branches of the trigeminal nerve; the facial nerve is mainly known for its motor supply to facial expression."
+      "answer": "No. Most facial skin sensation travels in branches of the trigeminal nerve; the facial nerve is mainly known for its motor supply to facial expression. In relation to facial sensation · cn v, this structure separates sensory testing from facial movement testing."
     },
     {
       "question": "What is the facial motor nucleus?",
-      "answer": "Motor cell bodies in pons send axons looping around abducens nucleus before exit. Function: Controls muscles of facial expression."
+      "answer": "Motor cell bodies in pons send axons looping around abducens nucleus before exit. Function: Controls muscles of facial expression. In relation to facial motor nucleus, this structure controls muscles of facial expression. From an anatomical and functional standpoint, upper face often retains bilateral cortical input in supranuclear lesions."
     },
     {
       "question": "Where is the internal acoustic meatus located?",
-      "answer": "Temporal-bone canal shared by CN VII, CN VIII and labyrinthine artery. Function: Conveys nerve toward facial canal."
+      "answer": "Temporal-bone canal shared by CN VII, CN VIII and labyrinthine artery. Function: Conveys nerve toward facial canal. In relation to internal acoustic meatus, this structure conveys nerve toward facial canal. From an anatomical and functional standpoint, lesions here may affect facial movement and hearing/balance."
     },
     {
       "question": "What is the function of the greater petrosal nerve?",
-      "answer": "Function: Supports lacrimal and nasal/palatine gland secretion. Carries preganglionic fibers toward pterygopalatine ganglion."
+      "answer": "Function: Supports lacrimal and nasal/palatine gland secretion. Carries preganglionic fibers toward pterygopalatine ganglion. In relation to greater petrosal nerve, this structure supports lacrimal and nasal/palatine gland secretion."
     }
   ]
 }

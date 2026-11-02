@@ -1,27 +1,58 @@
 {
-  "title": "Male body: anterior anatomy",
-  "description": "A glass-body view of the male: every major organ in place, from brain to testes, with the reproductive tract in the pelvis.",
-  "updated": "2026-10-18",
+  "title": "Male Body Surface Anatomy: Anterior Landmarks & Regions",
+  "description": "Study male body surface anatomy in standard anatomical position, connecting anterior bony landmarks, muscle contours, and body wall regions to deep organs.",
+  "updated": "2026-11-02",
+  "h1": "Male Body Surface Anatomy: Anterior Landmarks and Underlying Organs",
+  "blurb": "Standard anatomical position on the anterior male figure: palpable bony landmarks, muscular contours, and body-wall regions mapped to underlying internal viscera.",
+  "lead": "Before looking inside any single organ system, anatomists read the body from the outside in—using visible bony ridges and muscular contours as a map to deeper structures. This illustrated study guide examines 20 documented anatomical entries—including Brain, Thyroid gland, Lungs, Kidneys—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Before looking inside any single organ system, anatomists read the body from the outside in—using visible bony ridges and muscular contours as a map to deeper structures. Known in classical anatomical nomenclature as Corpus masculinum, this chapter belongs to the male reproductive study pathway. Before looking inside any single organ system, anatomists read the body from the outside in—using visible bony ridges and muscular contours as a map to deeper structures. Known in classical anatomical nomenclature as Corpus masculinum, this chapter belongs to the male reproductive study pathway. Use this page as an orientation map: click any glowing organ to jump into its full entry with the realistic render, labelled schematic and quiz.",
+    "When you trace how male body surface anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Brain (integrates sensation, movement, thought, memory and autonomic drive), Thyroid gland (sets metabolic rate via T3/T4 under TSH control), Kidneys (filter plasma and regulate fluid, electrolytes and blood pressure), and Pancreas (produces digestive enzymes and endocrine hormones). By examining both surface-visible features (14 illustrated landmarks) and deeper or microscopic components (6 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for brain, stroke risk rises with age — remember FAST: face, arms, speech, time; for thyroid gland, hypothyroidism causes fatigue, weight gain and cold intolerance. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "male body surface anatomy",
+    "secondary": [
+      "anterior male anatomical landmarks",
+      "thoracic and abdominal surface regions",
+      "inguinal canal and femoral triangle",
+      "superficial muscles and bony landmarks"
+    ],
+    "longTail": [
+      "major anterior surface landmarks of the adult male body",
+      "how surface landmarks relate to deep thoracic and gut organs",
+      "clavicle sternum costal margin and inguinal landmarks"
+    ],
+    "semantic": [
+      "jugular notch",
+      "sternal angle",
+      "linea alba",
+      "iliac crest",
+      "pubic tubercle",
+      "anatomical position"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "Where are the main organs in the male body?",
-      "answer": "The brain is in the skull; lungs and heart occupy the chest; liver, stomach, intestines and kidneys occupy the abdomen; and pelvic organs include bladder and reproductive structures."
+      "answer": "The brain is in the skull; lungs and heart occupy the chest; liver, stomach, intestines and kidneys occupy the abdomen; and pelvic organs include bladder and reproductive structures. From an anatomical and functional standpoint, smoking destroys alveolar walls → emphysema."
     },
     {
       "question": "Does a male body map show every deep structure?",
-      "answer": "No. The overview is an orientation map; its chapter links provide deeper tissue, vascular, skeletal and nerve details not separately visible on one full-body plate."
+      "answer": "No. The overview is an orientation map; its chapter links provide deeper tissue, vascular, skeletal and nerve details not separately visible on one full-body plate. In relation to penis, this structure erectile tissue engorges; delivers semen."
     },
     {
       "question": "Where is the brain shown on the male body map?",
-      "answer": "Control centre housed in the skull, glowing through the translucent scalp. Function: Integrates sensation, movement, thought, memory and autonomic drive."
+      "answer": "Control centre housed in the skull, glowing through the translucent scalp. Function: Integrates sensation, movement, thought, memory and autonomic drive. In relation to brain, this structure integrates sensation, movement, thought, memory and autonomic drive."
     },
     {
       "question": "Where are the lungs in the male body map?",
-      "answer": "Paired thoracic organs flanking the heart. Function: Gas exchange across ~300 million alveoli."
+      "answer": "Paired thoracic organs flanking the heart. Function: Gas exchange across ~300 million alveoli. In relation to lungs, this structure gas exchange across ~300 million alveoli. From an anatomical and functional standpoint, smoking destroys alveolar walls → emphysema."
     },
     {
       "question": "What does the liver do in the male body?",
-      "answer": "Function: Metabolism, detoxification, bile, plasma proteins. Largest internal organ, right upper quadrant."
+      "answer": "Function: Metabolism, detoxification, bile, plasma proteins. Largest internal organ, right upper quadrant. In relation to liver, this structure metabolism, detoxification, bile, plasma proteins. From an anatomical and functional standpoint, cirrhosis scars the parenchyma (alcohol, hepatitis)."
     }
   ]
 }

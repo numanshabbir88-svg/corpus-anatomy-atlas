@@ -1,27 +1,58 @@
 {
-  "title": "Retina anatomy: photoreceptors and neural layers",
-  "description": "Rods, cones, bipolar and ganglion circuits; fovea, optic disc, pigment epithelium and dual blood supply.",
-  "updated": "2026-10-18",
+  "title": "Retina Anatomy: Rods, Cones & Ten Neural Layers | Guide",
+  "description": "Understand retina anatomy at the cellular level, tracing light across all ten retinal layers, rod and cone photoreceptors, bipolar relays, and optic axons.",
+  "updated": "2026-11-02",
+  "h1": "Retina Microanatomy: Photoreceptors, Ten Neural Layers and Fovea",
+  "blurb": "How light traverses ten transparent neural layers to trigger rod and cone phototransduction, bipolar-to-ganglion processing, and high-acuity foveal vision.",
+  "lead": "The human retina is an outpost of the central nervous system where incoming photons pass through transparent interneurons before striking rods and cones at the back. This illustrated study guide examines 20 documented anatomical entries—including Internal limiting membrane, Nerve fiber layer, Ganglion cell layer, Horizontal cells—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "The human retina is an outpost of the central nervous system where incoming photons pass through transparent interneurons before striking rods and cones at the back. Known in classical anatomical nomenclature as Retina neurosensorialis · epithelium pigmentosum, this chapter belongs to the sensory study pathway. The human retina is an outpost of the central nervous system where incoming photons pass through transparent interneurons before striking rods and cones at the back. Known in classical anatomical nomenclature as Retina neurosensorialis · epithelium pigmentosum, this chapter belongs to the sensory study pathway. Light traverses inner retinal layers before reaching rods and cones against retinal pigment epithelium (RPE). Neural signaling runs the opposite direction: photoreceptors → bipolar cells → ganglion cells → optic nerve. Horizontal and amacrine cells modify lateral signaling. The foveal center has dense cones and displaced inner layers for acuity, while the optic disc has no photoreceptors. Inner retina is supported mainly by central retinal circulation; photoreceptors and RPE depend strongly on the choriocapillaris.",
+    "When you trace how retina neural layers anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Internal limiting membrane (supports vitreoretinal interface), Nerve fiber layer (conducts output to optic nerve), Horizontal cells (shape lateral inhibition and contrast), and Amacrine cells (modulate timing and spatial patterns of ganglion-cell output). By examining both surface-visible features (18 illustrated landmarks) and deeper or microscopic components (2 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for internal limiting membrane, epiretinal traction can distort macula; for nerve fiber layer, glaucoma thins nerve fiber layer. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "retina neural layers anatomy",
+    "secondary": [
+      "ten layers of the human retina",
+      "rods and cones photoreceptors",
+      "bipolar horizontal amacrine ganglion cells",
+      "retinal pigment epithelium and fovea"
+    ],
+    "longTail": [
+      "why light travels through retinal neurons before rods cones",
+      "ten microscopic layers of the retina from RPE to ILM",
+      "anatomical specialization of the fovea centralis for acuity"
+    ],
+    "semantic": [
+      "phototransduction",
+      "outer nuclear layer",
+      "inner plexiform layer",
+      "retinal ganglion cell axons",
+      "central retinal artery",
+      "choriocapillaris"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "Where are rods and cones located in the retina?",
-      "answer": "Photoreceptors lie in the outer neural retina next to retinal pigment epithelium, even though incoming light first passes through more internal layers."
+      "answer": "Photoreceptors lie in the outer neural retina next to retinal pigment epithelium, even though incoming light first passes through more internal layers. From an anatomical and functional standpoint, separation from neurosensory retina is a retinal detachment plane."
     },
     {
       "question": "What is the difference between rods and cones?",
-      "answer": "Rods are especially sensitive in low light; cones support high-acuity and color vision, particularly near the fovea."
+      "answer": "Rods are especially sensitive in low light; cones support high-acuity and color vision, particularly near the fovea. From an anatomical and functional standpoint, cone dysfunction reduces central/color vision. Functionally, cones high-resolution daylight and color vision."
     },
     {
       "question": "What are the photoreceptor segments?",
-      "answer": "Rod and cone inner/outer segments facing RPE. Function: Capture photons and start phototransduction."
+      "answer": "Rod and cone inner/outer segments facing RPE. Function: Capture photons and start phototransduction. In relation to photoreceptor segments, this structure capture photons and start phototransduction. From an anatomical and functional standpoint, outer-segment injury impairs vision despite intact inner retina."
     },
     {
       "question": "Where is the retinal pigment epithelium located?",
-      "answer": "Pigmented monolayer adjacent to photoreceptors and Bruch membrane. Function: Recycles visual pigment, phagocytoses shed discs and forms outer blood–retinal barrier."
+      "answer": "Pigmented monolayer adjacent to photoreceptors and Bruch membrane. Function: Recycles visual pigment, phagocytoses shed discs and forms outer blood–retinal barrier. In relation to retinal pigment epithelium, this structure recycles visual pigment, phagocytoses shed discs and forms outer blood–retinal barrier."
     },
     {
       "question": "What is the function of the fovea centralis?",
-      "answer": "Function: Peak spatial acuity. Small central pit with closely spaced cones and displaced inner layers."
+      "answer": "Function: Peak spatial acuity. Small central pit with closely spaced cones and displaced inner layers. In relation to fovea centralis, this structure peak spatial acuity. From an anatomical and functional standpoint, foveal injury causes major central visual impairment."
     }
   ]
 }

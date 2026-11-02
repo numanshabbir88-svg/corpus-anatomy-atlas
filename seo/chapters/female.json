@@ -1,27 +1,58 @@
 {
-  "title": "Female reproductive system anatomy",
-  "description": "A cyclic system: ovulation, fertilisation in the tube, implantation in the endometrium.",
-  "updated": "2026-10-18",
+  "title": "Female Reproductive System Anatomy: Ovaries & Fallopian",
+  "description": "Learn female reproductive system anatomy across the ovaries, uterine tubes, uterus, cervix, vaginal canal, pelvic support ligaments, and external openings.",
+  "updated": "2026-11-02",
+  "h1": "Female Reproductive System Anatomy: Ovaries, Uterus and Tract",
+  "blurb": "Cyclic follicle maturation in the ovaries, ciliary transport along the uterine tubes, a hormonally dynamic uterus and cervix, vaginal canal, and external vulva.",
+  "lead": "Spanning the true pelvis and perineum, the female reproductive system coordinates cyclic egg maturation, fertilization transport, pregnancy support, and childbirth. This illustrated study guide examines 20 documented anatomical entries—including Fundus & body, Endometrium, Cervix, Mons pubis—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Spanning the true pelvis and perineum, the female reproductive system coordinates cyclic egg maturation, fertilization transport, pregnancy support, and childbirth. Known in classical anatomical nomenclature as Organa genitalia feminina, this chapter belongs to the female reproductive study pathway. Spanning the true pelvis and perineum, the female reproductive system coordinates cyclic egg maturation, fertilization transport, pregnancy support, and childbirth. Known in classical anatomical nomenclature as Organa genitalia feminina, this chapter belongs to the female reproductive study pathway. Each cycle, FSH recruits a follicle that secretes oestradiol and builds the endometrium; the LH surge triggers ovulation at a variable cycle day (often about 14 days before the next period), and the corpus luteum then secretes progesterone to make the endometrium secretory. If fertilisation does not occur the corpus luteum regresses, progesterone falls and menstruation follows. Fertilisation normally happens in the ampulla of the uterine tube, and the embryo reaches the uterus after 3–4 days. The cervix, with its mucus plug, and the vaginal microbiome form the defence against ascending infection.",
+    "When you trace how female reproductive system anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Fundus & body (houses and nourishes a pregnancy; the myometrium generates labour), Endometrium (site of implantation; sheds each cycle if no embryo implants), Mons pubis (cushions pubic bone), and Labia majora (protect the vestibule and inner folds). By examining both surface-visible features (18 illustrated landmarks) and deeper or microscopic components (2 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for fundus & body, fibroids (leiomyomas) arise in the myometrium and cause heavy bleeding and pressure symptoms; for endometrium, ectopic endometrium (endometriosis) causes cyclical pain and infertility; unopposed oestrogen drives hyperplasia and carcinoma. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "female reproductive system anatomy",
+    "secondary": [
+      "ovaries and fallopian tubes",
+      "uterus endometrium and myometrium",
+      "cervix vagina and external vulva",
+      "broad ligament and ovarian vessels"
+    ],
+    "longTail": [
+      "how the ovaries uterine tubes uterus and vagina connect",
+      "internal and external organs of the female reproductive tract",
+      "blood supply and ligament support of the uterus and ovaries"
+    ],
+    "semantic": [
+      "fimbriae",
+      "ampulla",
+      "fundus of uterus",
+      "cervical canal",
+      "vaginal fornices",
+      "suspensory ligament of ovary"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "What organs are included in the female reproductive system?",
-      "answer": "The system includes ovaries, uterine tubes, uterus, cervix, vagina and external genital structures. Each has distinct roles in cycles, reproduction and pelvic support."
+      "answer": "The system includes ovaries, uterine tubes, uterus, cervix, vagina and external genital structures. Each has distinct roles in cycles, reproduction and pelvic support. In relation to broad & suspensory ligaments, this structure suspend the uterus and convey its vessels."
     },
     {
       "question": "Where does fertilization usually occur?",
-      "answer": "Fertilization most often occurs in the ampulla of a uterine tube. The resulting early embryo travels toward the uterine cavity."
+      "answer": "Fertilization most often occurs in the ampulla of a uterine tube. The resulting early embryo travels toward the uterine cavity. From an anatomical and functional standpoint, damage from infection (PID) or surgery is the main cause of ectopic pregnancy and tubal infertility."
     },
     {
       "question": "What is the fundus & body?",
-      "answer": "The domed fundus above the tubal openings and the tapering body, of smooth muscle (myometrium) lined by endometrium. Function: Houses and nourishes a pregnancy; the myometrium generates labour."
+      "answer": "The domed fundus above the tubal openings and the tapering body, of smooth muscle (myometrium) lined by endometrium. Function: Houses and nourishes a pregnancy; the myometrium generates labour. In relation to fundus & body, this structure houses and nourishes a pregnancy; the myometrium generates labour."
     },
     {
       "question": "Where is the cervix located?",
-      "answer": "The fibrous neck projecting into the vagina, with an endocervical canal of mucus-secreting columnar epithelium and a squamous ectocervix. Function: Keeps pregnancy in and microbes out; dilates 10 cm in labour."
+      "answer": "The fibrous neck projecting into the vagina, with an endocervical canal of mucus-secreting columnar epithelium and a squamous ectocervix. Function: Keeps pregnancy in and microbes out; dilates 10 cm in labour. From an anatomical and functional standpoint, the squamocolumnar junction is where cervical cancer begins — the target of smear tests and HPV vaccination."
     },
     {
       "question": "What is the function of the uterine tube?",
-      "answer": "Function: Captures the oocyte, is the site of fertilisation (ampulla) and transports the embryo by ciliary beat and peristalsis. A 10 cm ciliated duct with interstitial, isthmic, ampullary and infundibular parts."
+      "answer": "Function: Captures the oocyte, is the site of fertilisation (ampulla) and transports the embryo by ciliary beat and peristalsis. A 10 cm ciliated duct with interstitial, isthmic, ampullary and infundibular parts. In relation to uterine tube, this structure captures the oocyte, is the site of fertilisation (ampulla) and transports the embryo by ciliary beat and peristalsis."
     }
   ]
 }

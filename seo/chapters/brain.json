@@ -1,15 +1,46 @@
 {
-  "title": "Brain anatomy: regions, ventricles and pathways",
-  "description": "Midsagittal section: cerebrum, diencephalon, brainstem and cerebellum around the ventricular system.",
-  "updated": "2026-10-18",
+  "title": "Human Brain Anatomy: Lobes, Ventricles & Neural Pathway",
+  "description": "Discover human brain anatomy across all four cerebral lobes, corpus callosum, thalamus, hypothalamus, cerebellum, brainstem, and ventricular fluid systems.",
+  "updated": "2026-11-02",
+  "h1": "Human Brain Anatomy: Cerebral Lobes, Deep Nuclei and Pathways",
+  "blurb": "Folded cerebral lobes, white-matter commissures, deep thalamic and basal nuclei, cerebellum, and brainstem circuits floating in protective cerebrospinal fluid.",
+  "lead": "Weighing about 1.4 kilograms yet consuming nearly a fifth of the body's oxygen, the human brain weaves billions of neurons into folded cortex and deep relay nuclei. This illustrated study guide examines 20 documented anatomical entries—including Cerebrum, Frontal lobe, Parietal lobe, Cortical gray matter—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Weighing about 1.4 kilograms yet consuming nearly a fifth of the body's oxygen, the human brain weaves billions of neurons into folded cortex and deep relay nuclei. Known in classical anatomical nomenclature as Encephalon, this chapter belongs to the nervous study pathway. Weighing about 1.4 kilograms yet consuming nearly a fifth of the body's oxygen, the human brain weaves billions of neurons into folded cortex and deep relay nuclei. Known in classical anatomical nomenclature as Encephalon, this chapter belongs to the nervous study pathway. The brain integrates sensation, generates movement, and supports language, memory and consciousness. It uses about 20% of the body's oxygen and glucose despite being 2% of body weight, and it has almost no energy reserve — four minutes of ischaemia starts to kill neurons. The cerebral cortex is folded into gyri and sulci to pack ~0.15 m² of grey matter into the skull. Beneath it, white-matter tracts such as the corpus callosum connect the hemispheres, while the diencephalon and brainstem handle relay, arousal and the automatic control of breathing, heart rate and blood pressure.",
+    "When you trace how human brain anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Cerebrum (voluntary movement, sensation, language, memory, personality and conscious thought), Frontal lobe (planning, judgement, personality, voluntary movement and expressive speech), Cortical gray matter (integrates sensory, motor and association information), and Periosteal cranial dura (forms tough outer covering and part of sinus walls). By examining both surface-visible features (17 illustrated landmarks) and deeper or microscopic components (3 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for cerebrum, its surface folding (gyri and sulci) triples cortical area; abnormal folding causes lissencephaly and epilepsy; for frontal lobe, prefrontal damage (classically Phineas Gage) changes personality and impulse control while sparing memory and IQ. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "human brain anatomy",
+    "secondary": [
+      "cerebral lobes and gyri",
+      "brainstem and cerebellum",
+      "ventricles and cerebrospinal fluid",
+      "circle of Willis blood supply"
+    ],
+    "longTail": [
+      "major parts of the human brain and their functions",
+      "how the cerebral cortex basal ganglia and thalamus work",
+      "blood supply of the brain internal carotid and vertebral"
+    ],
+    "semantic": [
+      "corpus callosum",
+      "thalamus",
+      "hypothalamus",
+      "hippocampus",
+      "pons",
+      "medulla oblongata"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "What are the main parts of the brain?",
-      "answer": "The cerebrum supports complex thought, sensation and voluntary movement; the cerebellum coordinates movement; and the brainstem connects the brain to the spinal cord and helps regulate essential functions."
+      "answer": "The cerebrum supports complex thought, sensation and voluntary movement; the cerebellum coordinates movement; and the brainstem connects the brain to the spinal cord and helps regulate essential functions. From an anatomical and functional standpoint, its surface folding (gyri and sulci) triples cortical area; abnormal folding causes lissencephaly and epilepsy."
     },
     {
       "question": "What protects the brain inside the skull?",
-      "answer": "The skull, three meningeal layers and cerebrospinal fluid provide physical protection. Blood vessels supply its metabolically active tissue."
+      "answer": "The skull, three meningeal layers and cerebrospinal fluid provide physical protection. Blood vessels supply its metabolically active tissue. In relation to cerebrum, this structure voluntary movement, sensation, language, memory, personality and conscious thought."
     },
     {
       "question": "What is the frontal lobe?",

@@ -1,27 +1,58 @@
 {
-  "title": "Trigeminal nerve: CN V anatomy",
-  "description": "Map facial sensation and masticatory motor fibers without confusing trigeminal CN V with facial CN VII.",
-  "updated": "2026-10-18",
+  "title": "Trigeminal Nerve CN V Anatomy: V1, V2 & V3 Sensory Maps",
+  "description": "Explore trigeminal nerve (CN V) anatomy across ophthalmic (V1), maxillary (V2), and mandibular (V3) divisions, dental alveolar branches, and chewing roots.",
+  "updated": "2026-11-02",
+  "h1": "Trigeminal Nerve (CN V) Anatomy: Ophthalmic (V1), Maxillary (V2) and Mandibular (V3)",
+  "blurb": "Tracing Cranial Nerve V from the trigeminal ganglion into ophthalmic (V1), maxillary (V2), and mandibular (V3) sensory territories plus the muscles of chewing.",
+  "lead": "Named for its 'three twins,' the trigeminal nerve is the largest cranial nerve, mapping touch, temperature, and pain across the face, corneas, sinuses, and teeth. This illustrated study guide examines 20 documented anatomical entries—including Trigeminal sensory root, Trigeminal ganglion, Ophthalmic V1—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Named for its 'three twins,' the trigeminal nerve is the largest cranial nerve, mapping touch, temperature, and pain across the face, corneas, sinuses, and teeth. Known in classical anatomical nomenclature as Nervus trigeminus, this chapter belongs to the nervous study pathway. Named for its 'three twins,' the trigeminal nerve is the largest cranial nerve, mapping touch, temperature, and pain across the face, corneas, sinuses, and teeth. Known in classical anatomical nomenclature as Nervus trigeminus, this chapter belongs to the nervous study pathway. Most facial skin sensation travels by CN V. Ophthalmic V1 supplies forehead and cornea; maxillary V2 supplies the cheek, upper lip and upper teeth; mandibular V3 supplies lower jaw, lower teeth and general anterior tongue sensation and carries motor fibers to mastication muscles. Taste from anterior tongue is carried by facial chorda tympani joining lingual V3, not by trigeminal sensory neurons. Corneal reflex enters by V1 and blink exits by VII.",
+    "When you trace how trigeminal nerve CN V anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Trigeminal sensory root (conveys facial somatic sensation centrally), Trigeminal ganglion (first-order facial sensory neurons), Ophthalmic V1 (sensation from forehead, upper lid and cornea), and Frontal nerve (sensation over forehead and anterior scalp). By following all 20 illustrated landmarks in sequence, you can see how gross morphology, internal chambers or layers, and surrounding vessels work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for trigeminal sensory root, brainstem lesions can combine facial and body sensory findings; for trigeminal ganglion, classic site involved in trigeminal neuralgia pathways. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "trigeminal nerve CN V anatomy",
+    "secondary": [
+      "ophthalmic V1 maxillary V2 mandibular V3",
+      "trigeminal ganglion in Meckel cave",
+      "muscles of mastication motor root",
+      "superior and inferior alveolar nerves"
+    ],
+    "longTail": [
+      "three divisions of the trigeminal nerve V1 V2 V3 explained",
+      "how V2 and V3 supply upper and lower teeth sensation",
+      "skull foramina for V1 V2 and V3 superior orbital rotundum ovale"
+    ],
+    "semantic": [
+      "ophthalmic nerve",
+      "maxillary nerve",
+      "mandibular nerve",
+      "lingual nerve",
+      "infraorbital nerve",
+      "mental nerve"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "What are the three branches of the trigeminal nerve?",
-      "answer": "Ophthalmic V1, maxillary V2 and mandibular V3 supply different facial territories. V3 also carries motor fibers to muscles of mastication."
+      "answer": "Ophthalmic V1, maxillary V2 and mandibular V3 supply different facial territories. V3 also carries motor fibers to muscles of mastication. From an anatomical and functional standpoint, only trigeminal division carrying branchial motor fibers."
     },
     {
       "question": "Which nerve supplies sensation to the cornea?",
-      "answer": "The ophthalmic division of the trigeminal nerve, especially through the nasociliary pathway, carries most corneal sensation."
+      "answer": "The ophthalmic division of the trigeminal nerve, especially through the nasociliary pathway, carries most corneal sensation. In relation to nasociliary nerve, this structure carries corneal sensation through long ciliary nerves. From an anatomical and functional standpoint, corneal anesthesia predisposes to epithelial injury."
     },
     {
       "question": "What is the trigeminal sensory root?",
-      "answer": "Large sensory root emerges from lateral pons into trigeminal cistern. Function: Conveys facial somatic sensation centrally."
+      "answer": "Large sensory root emerges from lateral pons into trigeminal cistern. Function: Conveys facial somatic sensation centrally. In relation to trigeminal sensory root, this structure conveys facial somatic sensation centrally. From an anatomical and functional standpoint, brainstem lesions can combine facial and body sensory findings."
     },
     {
       "question": "Where is the ophthalmic V1 located?",
-      "answer": "Passes superior orbital fissure into orbit; gives frontal, lacrimal and nasociliary branches. Function: Sensation from forehead, upper lid and cornea."
+      "answer": "Passes superior orbital fissure into orbit; gives frontal, lacrimal and nasociliary branches. Function: Sensation from forehead, upper lid and cornea. In relation to ophthalmic v1, this structure sensation from forehead, upper lid and cornea."
     },
     {
       "question": "What is the function of the nasociliary nerve?",
-      "answer": "Function: Carries corneal sensation through long ciliary nerves. Orbital V1 branch giving long ciliary, ethmoidal and infratrochlear fibers."
+      "answer": "Function: Carries corneal sensation through long ciliary nerves. Orbital V1 branch giving long ciliary, ethmoidal and infratrochlear fibers. In relation to nasociliary nerve, this structure carries corneal sensation through long ciliary nerves."
     }
   ]
 }

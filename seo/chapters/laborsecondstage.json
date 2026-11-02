@@ -1,23 +1,54 @@
 {
-  "title": "Second stage of labor: fetal descent and birth of baby",
-  "description": "Learn second-stage anatomy of maternal pelvis, presenting part, station, head rotation, pelvic floor and baby delivery.",
-  "updated": "2026-10-19",
+  "title": "Second Stage of Labor Anatomy: Birth Canal & Pelvic Map",
+  "description": "Explore second stage of labor anatomy from full cervical dilation to birth, detailing pelvic floor mechanics, crowning, and cardinal fetal birth movements.",
+  "updated": "2026-11-02",
+  "h1": "Second Stage of Labor Anatomy: Birth Canal and Cardinal Movements",
+  "blurb": "From complete cervical dilation to birth: how the fetus flexes, rotates, and extends through the curved maternal pelvis and levator ani muscular sling.",
+  "lead": "Once the cervix is fully dilated, the fetus rotates and flexes through the curved bony pelvis in a precise biomechanical sequence known as the cardinal movements. This illustrated study guide examines 20 documented anatomical entries—including Complete cervical dilation, Pelvic inlet, Ischial spines—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Once the cervix is fully dilated, the fetus rotates and flexes through the curved bony pelvis in a precise biomechanical sequence known as the cardinal movements. Known in classical anatomical nomenclature as Partus secunda periodus, this chapter belongs to the conception to birth study pathway. The second stage begins at complete cervical dilation and ends at birth of the baby. In a typical vertex vaginal delivery, the presenting head descends and may flex and rotate to negotiate maternal pelvic dimensions, then extend beneath the pubic arch. The NEW digital cutaway illustrates head-down descent into the birth canal BEFORE full birth, not a photograph of delivery, final fetal station or an instructional maneuver. A separate nonpregnant pelvis illustration supplies skeletal context. Position, rate and birth route vary; cesarean delivery may be indicated. No patient-specific progress can be determined from these drawings.",
+    "When you trace how second stage of labor anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Complete cervical dilation (provides pathway for descent and eventual birth), Pelvic inlet (defines one level of potential fetal passage), Ischial spines (provide a reference plane for presenting part), and Pelvic outlet (forms later passage as presenting part descends). By following all 20 illustrated landmarks in sequence, you can see how gross morphology, internal chambers or layers, and surrounding vessels work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for complete cervical dilation, complete dilation cannot be inferred from a pelvis plate; for pelvic inlet, bony shape alone does not predict delivery. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "second stage of labor anatomy",
+    "secondary": [
+      "cardinal movements of labor",
+      "pelvic floor and birth canal",
+      "fetal head crowning and extension",
+      "expulsive contractions in birth"
+    ],
+    "longTail": [
+      "how the fetus navigates the maternal pelvis during birth",
+      "seven cardinal movements of labor explained step by step",
+      "pelvic floor stretching during the second stage of labor"
+    ],
+    "semantic": [
+      "engagement",
+      "internal rotation",
+      "crowning",
+      "head extension",
+      "restitution",
+      "levator ani"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "When does the second stage of labor start and finish?",
-      "answer": "It begins at complete cervical dilation and ends when the baby is born. The later delivery of placenta belongs to a distinct third stage."
+      "answer": "It begins at complete cervical dilation and ends when the baby is born. The later delivery of placenta belongs to a distinct third stage. In relation to birth of baby, this structure defines transition to third placental stage. From an anatomical and functional standpoint, vaginal and cesarean birth routes are clinically distinct."
     },
     {
       "question": "How is fetal station described during labor?",
-      "answer": "Clinical assessment relates the presenting fetal part to the level of maternal ischial spines. The static pelvis plate cannot measure station or show an actual fetus."
+      "answer": "Clinical assessment relates the presenting fetal part to the level of maternal ischial spines. The static pelvis plate cannot measure station or show an actual fetus. From an anatomical and functional standpoint, station requires actual examination, not a static reference picture."
     },
     {
       "question": "Why may the fetal head rotate during vaginal birth?",
-      "answer": "In a typical vertex mechanism, descent and internal rotation help align the presenting head with maternal pelvic dimensions. Birth mechanism and position vary from person to person."
+      "answer": "In a typical vertex mechanism, descent and internal rotation help align the presenting head with maternal pelvic dimensions. Birth mechanism and position vary from person to person. From an anatomical and functional standpoint, exact rotations vary; do not assign to every birth."
     },
     {
       "question": "Is every second stage a vaginal birth?",
-      "answer": "No. Delivery route depends on maternal and fetal circumstances, and cesarean birth may be clinically appropriate. A general pelvis image cannot predict the safest route."
+      "answer": "No. Delivery route depends on maternal and fetal circumstances, and cesarean birth may be clinically appropriate. A general pelvis image cannot predict the safest route. In relation to pelvic inlet, this structure defines one level of potential fetal passage."
     },
     {
       "question": "What does the labor-stage-two picture actually show?",

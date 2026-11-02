@@ -1,12 +1,58 @@
 {
-  "title": "Skull and facial bones: all 22 adult skull bones",
-  "description": "Name all 14 facial and 8 cranial bones with realistic frontal and sectional skull illustrations, landmarks, functions and facial nerve connections.",
-  "updated": "2026-10-19",
+  "title": "Skull and Facial Bones Anatomy: 22 Adult Bones | Corpus",
+  "description": "Explore all 22 adult skull bones in detail, comparing the 8 cranial vault bones and 14 facial skeleton bones across anterior and medial sagittal views now.",
+  "updated": "2026-11-02",
+  "h1": "Skull and Facial Bones Anatomy: Complete Guide to All 22 Adult Skull Bones",
+  "blurb": "Complete osteology of all 22 adult skull bones—8 cranial vault bones and 14 facial bones—paired with anterior surface and medial sagittal cutaway views.",
+  "lead": "Built from twenty-two interlocking bones joined primarily by immovable sutures, the adult human skull forms both an armored vault for the brain and a frame for the face. This illustrated study guide examines 30 documented anatomical entries—including Frontal bone, Left parietal bone, Left temporal bone, Right parietal bone—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Built from twenty-two interlocking bones joined primarily by immovable sutures, the adult human skull forms both an armored vault for the brain and a frame for the face. Known in classical anatomical nomenclature as Ossa cranii et faciei, this chapter belongs to the skeletal system study pathway. An adult skull has 22 bones: 14 facial (six paired types and the unpaired vomer and mandible) and 8 cranial. The maxillae anchor upper teeth, the mandible is the mobile lower jaw, and the palatine bones lie deep at the back of the hard palate. Ethmoid contributes to the upper bony nasal septum but is counted as a cranial bone; the inferior nasal conchae are separate paired facial bones. A front view cannot reliably identify every deep or posterior bone; those entries use an unpinned sectional reference. The hyoid and the six ear ossicles belong in the wider 206-bone adult skeleton count but not the 22 skull bones.",
+    "When you trace how skull and facial bones anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Frontal bone (protects frontal brain and supports the upper orbit), Left parietal bone (encloses and protects the upper brain), Right parietal bone (protects the superior and lateral cerebrum), and Right temporal bone (houses hearing and balance structures; helps form the jaw joint). By examining both surface-visible features (17 illustrated landmarks) and deeper or microscopic components (13 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for frontal bone, the frontal sinus lies within the bone; fracture patterns can involve the anterior cranial floor. Use the interactive regional diagram above alongside the 30 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "skull and facial bones anatomy",
+    "secondary": [
+      "8 cranial bones and 14 facial bones",
+      "all 22 bones of the adult human skull",
+      "cranial sutures and skull base foramina",
+      "maxilla mandible zygomatic and sphenoid"
+    ],
+    "longTail": [
+      "list of all 22 skull bones 8 cranial and 14 facial bones",
+      "which facial and cranial bones are paired vs unpaired",
+      "anterior and medial sagittal anatomy of the human skull"
+    ],
+    "semantic": [
+      "frontal bone",
+      "parietal bone",
+      "temporal bone",
+      "occipital bone",
+      "ethmoid bone",
+      "vomer and palatine"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
-    {"question": "How many facial bones are in an adult human skull?", "answer": "Fourteen: paired maxillae, zygomatic, nasal, lacrimal, palatine and inferior nasal concha bones, plus the single vomer and mandible. The adult skull also has eight cranial bones, for 22 skull bones in total."},
-    {"question": "Which facial bones are easiest to identify from the front?", "answer": "The maxillae form the upper jaw, the zygomatic bones form the cheeks, the nasal bones form the bony bridge of the nose, and the single mandible forms the lower jaw. Small lacrimal and deep palatine bones cannot reliably be isolated on a simple anterior photograph."},
-    {"question": "Is the inferior nasal concha part of the ethmoid bone?", "answer": "No. Right and left inferior nasal conchae are independent facial bones. The middle and superior conchae are parts of the ethmoid, which is counted as a cranial bone."},
-    {"question": "Does the 22-bone skull count include ear ossicles or the hyoid?", "answer": "No. The six middle-ear ossicles and the single hyoid bone are additional bones associated with the head and neck; they are included separately in the conventional 206-bone adult skeleton count."},
-    {"question": "Which nerve moves the facial-expression muscles around the skull?", "answer": "Facial nerve CN VII drives most muscles of facial expression after passing through the temporal bone and parotid region. Trigeminal CN V carries most facial skin sensation, and its V3 division supplies the major jaw-closing muscles. Bones and nerves are different structures."}
+    {
+      "question": "How many facial bones are in an adult human skull?",
+      "answer": "Fourteen: paired maxillae, zygomatic, nasal, lacrimal, palatine and inferior nasal concha bones, plus the single vomer and mandible. The adult skull also has eight cranial bones, for 22 skull bones in total. From an anatomical and functional standpoint, the only normally mobile bone of the adult skull; the hyoid is a separate neck bone."
+    },
+    {
+      "question": "Which facial bones are easiest to identify from the front?",
+      "answer": "The maxillae form the upper jaw, the zygomatic bones form the cheeks, the nasal bones form the bony bridge of the nose, and the single mandible forms the lower jaw. Small lacrimal and deep palatine bones cannot reliably be isolated on a simple anterior photograph."
+    },
+    {
+      "question": "Is the inferior nasal concha part of the ethmoid bone?",
+      "answer": "No. Right and left inferior nasal conchae are independent facial bones. The middle and superior conchae are parts of the ethmoid, which is counted as a cranial bone. In relation to ethmoid bone, this structure supports the olfactory region and separates the upper nasal cavity from the cranial cavity."
+    },
+    {
+      "question": "Does the 22-bone skull count include ear ossicles or the hyoid?",
+      "answer": "No. The six middle-ear ossicles and the single hyoid bone are additional bones associated with the head and neck; they are included separately in the conventional 206-bone adult skeleton count. In relation to mandible, this structure houses lower teeth and moves at the temporomandibular joints for chewing and speech."
+    },
+    {
+      "question": "Which nerve moves the facial-expression muscles around the skull?",
+      "answer": "Facial nerve CN VII drives most muscles of facial expression after passing through the temporal bone and parotid region. Trigeminal CN V carries most facial skin sensation, and its V3 division supplies the major jaw-closing muscles. Bones and nerves are different structures."
+    }
   ]
 }

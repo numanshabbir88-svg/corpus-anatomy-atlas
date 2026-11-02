@@ -1,27 +1,58 @@
 {
-  "title": "Pelvic support & surgical planes anatomy",
-  "description": "The surgical map: ureter under uterine artery, uterosacral and cardinal supports, broad ligament folds, ovarian pedicle and pelvic floor.",
-  "updated": "2026-10-18",
+  "title": "Pelvic Support Anatomy: Ligaments, Fascia & Levator Ani",
+  "description": "Understand pelvic support anatomy, examining the levator ani muscular dome, cardinal and uterosacral ligaments, endopelvic fascial planes, and pelvic body.",
+  "updated": "2026-11-02",
+  "h1": "Female Pelvic Support Anatomy: Ligaments, Endopelvic Fascia and Floor",
+  "blurb": "How the tonic levator ani muscular dome, cardinal and uterosacral ligaments, and endopelvic fascial planes suspend pelvic organs above the urogenital hiatus.",
+  "lead": "Pelvic organs stay suspended over the urogenital opening thanks to a two-part engineering system: a tonic muscular trampoline below and fibrous fascial tethers above. This illustrated study guide examines 20 documented anatomical entries—including Broad ligament, Mesometrium, Mesosalpinx—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Pelvic organs stay suspended over the urogenital opening thanks to a two-part engineering system: a tonic muscular trampoline below and fibrous fascial tethers above. Known in classical anatomical nomenclature as Fascia et ligamenta pelvis feminae, this chapter belongs to the female reproductive study pathway. Pelvic organs stay suspended over the urogenital opening thanks to a two-part engineering system: a tonic muscular trampoline below and fibrous fascial tethers above. Known in classical anatomical nomenclature as Fascia et ligamenta pelvis feminae, this chapter belongs to the female reproductive study pathway. Study true support separately from peritoneal reflections. This realistic pelvis plate shows why the ureter and arteries demand a careful surgical plane.",
+    "When you trace how pelvic support ligaments and fascia functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Broad ligament (supports relationships but is not the main mechanical uterine support), Mesometrium (conveys uterine vessels and connective tissue in base), Mesosalpinx (supports tube and its vessels), and Mesovarium (transmits vessels to ovary). By following all 20 illustrated landmarks in sequence, you can see how gross morphology, internal chambers or layers, and surrounding vessels work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for broad ligament, ureter and uterine vessels course at its base; for mesometrium, surgical dissection exposes adjacent ureter. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "pelvic support ligaments and fascia",
+    "secondary": [
+      "levator ani pubococcygeus iliococcygeus",
+      "cardinal and uterosacral ligaments",
+      "endopelvic fascia and DeLancey levels",
+      "perineal body and pelvic floor hiatus"
+    ],
+    "longTail": [
+      "how ligaments and levator ani muscles support pelvic organs",
+      "three levels of vaginal and uterine support in the pelvis",
+      "course of the ureter beneath the uterine artery in pelvis"
+    ],
+    "semantic": [
+      "puborectalis",
+      "arcus tendineus",
+      "transverse cervical ligament",
+      "pubocervical fascia",
+      "rectovaginal fascia",
+      "coccygeus"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "What is the difference between the broad ligament and pelvic support ligaments?",
-      "answer": "The broad ligament is a peritoneal fold. Cardinal and uterosacral connective tissues, together with pelvic-floor muscles, contribute substantially to uterine support."
+      "answer": "The broad ligament is a peritoneal fold. Cardinal and uterosacral connective tissues, together with pelvic-floor muscles, contribute substantially to uterine support. In relation to cardinal ligament, this structure important apical support with uterine artery/vein."
     },
     {
       "question": "Why is the ureter important in pelvic surgery anatomy?",
-      "answer": "The ureter travels near the uterine artery and cervix. Understanding their relationship helps explain why surgical planes require careful identification."
+      "answer": "The ureter travels near the uterine artery and cervix. Understanding their relationship helps explain why surgical planes require careful identification. In relation to distal ureter, this structure delivers urine to bladder. From an anatomical and functional standpoint, identify and protect during hysterectomy."
     },
     {
       "question": "What is the broad ligament?",
-      "answer": "Double peritoneal sheet draped over uterus, tubes and associated structures. Function: Supports relationships but is not the main mechanical uterine support."
+      "answer": "Double peritoneal sheet draped over uterus, tubes and associated structures. Function: Supports relationships but is not the main mechanical uterine support. In relation to broad ligament, this structure supports relationships but is not the main mechanical uterine support."
     },
     {
       "question": "Where is the mesosalpinx located?",
-      "answer": "Broad ligament portion related to uterine tube. Function: Supports tube and its vessels."
+      "answer": "Broad ligament portion related to uterine tube. Function: Supports tube and its vessels. In relation to mesosalpinx, this structure supports tube and its vessels. From an anatomical and functional standpoint, tubal surgery separates this vascular fold."
     },
     {
       "question": "What is the function of the round ligament?",
-      "answer": "Function: Helps maintain anteversion; not principal apical support. Band from uterine cornu through inguinal canal to labium majus."
+      "answer": "Function: Helps maintain anteversion; not principal apical support. Band from uterine cornu through inguinal canal to labium majus. In relation to round ligament, this structure helps maintain anteversion; not principal apical support."
     }
   ]
 }

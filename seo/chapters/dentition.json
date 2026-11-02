@@ -1,12 +1,58 @@
 {
-  "title": "Tooth anatomy: 32 permanent and 20 primary teeth",
-  "description": "Dental anatomy study guide with Universal and FDI tooth numbers, 32 adult and 20 primary positions, enamel, dentin, pulp, roots and dental nerves.",
-  "updated": "2026-10-19",
+  "title": "Tooth Anatomy Guide: 32 Permanent & 20 Primary | Corpus",
+  "description": "Master tooth anatomy with interactive charts for all 32 permanent and 20 primary teeth, Universal and FDI numbering, enamel, dentin, pulp, and tooth nerve.",
+  "updated": "2026-11-02",
+  "h1": "Tooth Anatomy and Dental Chart: 32 Permanent and 20 Primary Teeth",
+  "blurb": "Interactive Universal (#1–32 / A–T) and FDI two-digit dental charts, four tooth classes, enamel-dentin-pulp layers, periodontal ligaments, and V2/V3 nerves.",
+  "lead": "Every human tooth is a living organ anchored in jawbone by a shock-absorbing periodontal ligament, crowned with the hardest mineralized tissue in the body: dental enamel. This illustrated study guide examines 76 documented anatomical entries—including Anatomical crown, Enamel, Dentin, Primary and permanent dentitions—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Every human tooth is a living organ anchored in jawbone by a shock-absorbing periodontal ligament, crowned with the hardest mineralized tissue in the body: dental enamel. Known in classical anatomical nomenclature as Dentes permanentes et decidui, this chapter belongs to the digestive study pathway. Dental anatomy links each named tooth position to a tooth class and a representative cross-section. The crown bears enamel over dentin; roots bear cementum and anchor in the jaw through the periodontal ligament. Pulp contains nerves and vessels that communicate through root canals and apical foramina. Incisors cut, canines grip, premolars crush, and molars grind, although roots and cusps vary. A full permanent arch has 32 positions including third molars; primary dentition has 20, without premolars. This chart uses Universal and FDI numbering while explicitly distinguishing patient right from viewer left. Upper dental sensation primarily follows maxillary CN V2 superior alveolar branches, and lower dental sensation mandibular CN V3 inferior alveolar branches; facial nerve CN VII moves expression muscles but does not supply pulp sensation. Plates are representative digital teaching illustrations, not a clinical scan, histology, or a unique rendering for every numbered tooth.",
+    "When you trace how tooth anatomy and dental chart functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Anatomical crown (offers a cutting or grinding surface depending on tooth class), Enamel (protects deeper dentin from wear and acid, though it can demineralize), Primary and permanent dentitions (primary teeth support chewing, speech and the developing dental arches), and Universal and FDI tooth designation (lets students locate a tooth unambiguously before describing its anatomy). By examining both surface-visible features (22 illustrated landmarks) and deeper or microscopic components (54 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for enamel, once mature enamel is lost, it does not regrow as an intact enamel layer. Use the interactive regional diagram above alongside the 76 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "tooth anatomy and dental chart",
+    "secondary": [
+      "32 permanent and 20 primary teeth",
+      "enamel dentin pulp and periodontium",
+      "Universal and FDI tooth numbering",
+      "incisors canines premolars and molars"
+    ],
+    "longTail": [
+      "tooth numbering chart Universal 1 to 32 and FDI two-digit",
+      "internal layers of a human tooth enamel dentin pulp cementum",
+      "trigeminal V2 and V3 sensory nerve supply of upper lower teeth"
+    ],
+    "semantic": [
+      "periodontal ligament",
+      "apical foramen",
+      "alveolar bone",
+      "cementoenamel junction",
+      "superior alveolar nerves",
+      "inferior alveolar nerve"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
-    {"question":"What are the main layers of a tooth crown and root?","answer":"Crown dentin is covered by enamel; root dentin is covered by cementum. Pulp occupies the central chamber and canals, while the periodontal ligament connects the root to its alveolar socket. These are distinct tissues, not interchangeable layers."},
-    {"question":"Which nerves carry sensation from upper and lower teeth?","answer":"Upper tooth sensory fibers generally travel through superior alveolar branches of maxillary trigeminal CN V2; lower tooth fibers travel through the inferior alveolar branch of mandibular CN V3. Facial CN VII supplies facial-expression muscles, not dental pulp sensation."},
-    {"question":"How are permanent and primary teeth numbered?","answer":"The Universal system labels 32 conventional permanent positions 1–32 and 20 primary positions A–T. The two-digit FDI system uses quadrants 1–4 for permanent teeth and 5–8 for primary teeth, with a second digit for position within each quadrant."},
-    {"question":"Do adults always have 32 teeth and do primary teeth have premolars?","answer":"Thirty-two is the full conventional permanent set including third molars, but actual adult counts vary because third molars may be absent, unerupted or removed. Primary dentition typically has 20 teeth and no premolars; primary molars are succeeded by permanent premolars."},
-    {"question":"Can one molar cutaway show the exact canal and root shape of every tooth?","answer":"No. Root number, canal configuration and cusp morphology vary between tooth classes and individuals. The illustration is a representative digital teaching model; each chart position has a name and class, but is not a patient scan or an individually rendered tooth."}
+    {
+      "question": "What are the main layers of a tooth crown and root?",
+      "answer": "Crown dentin is covered by enamel; root dentin is covered by cementum. Pulp occupies the central chamber and canals, while the periodontal ligament connects the root to its alveolar socket. These are distinct tissues, not interchangeable layers."
+    },
+    {
+      "question": "Which nerves carry sensation from upper and lower teeth?",
+      "answer": "Upper tooth sensory fibers generally travel through superior alveolar branches of maxillary trigeminal CN V2; lower tooth fibers travel through the inferior alveolar branch of mandibular CN V3. Facial CN VII supplies facial-expression muscles, not dental pulp sensation."
+    },
+    {
+      "question": "How are permanent and primary teeth numbered?",
+      "answer": "The Universal system labels 32 conventional permanent positions 1–32 and 20 primary positions A–T. The two-digit FDI system uses quadrants 1–4 for permanent teeth and 5–8 for primary teeth, with a second digit for position within each quadrant."
+    },
+    {
+      "question": "Do adults always have 32 teeth and do primary teeth have premolars?",
+      "answer": "Thirty-two is the full conventional permanent set including third molars, but actual adult counts vary because third molars may be absent, unerupted or removed. Primary dentition typically has 20 teeth and no premolars; primary molars are succeeded by permanent premolars."
+    },
+    {
+      "question": "Can one molar cutaway show the exact canal and root shape of every tooth?",
+      "answer": "No. Root number, canal configuration and cusp morphology vary between tooth classes and individuals. The illustration is a representative digital teaching model; each chart position has a name and class, but is not a patient scan or an individually rendered tooth."
+    }
   ]
 }

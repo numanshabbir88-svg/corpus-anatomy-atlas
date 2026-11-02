@@ -1,27 +1,58 @@
 {
-  "title": "Nervous system: male anatomy",
-  "description": "Male nervous-system overview with focused pelvic nerve notes for prostate, penis and perineum; tiny branches are not falsely pinned on a full-body image.",
-  "updated": "2026-10-19",
+  "title": "Male Nervous System Anatomy: Whole-Body & Pelvic Nerves",
+  "description": "Explore male nervous system anatomy from the brain and spinal cord to major limb plexuses, pudendal nerve paths, prostatic plexuses, and cavernous bundles.",
+  "updated": "2026-11-02",
+  "h1": "Male Nervous System Anatomy: Whole-Body Tracts and Pelvic Nerves",
+  "blurb": "Whole-body central and peripheral nerve pathways on the male figure, highlighting limb plexuses alongside prostatic, cavernous, and pudendal pelvic nerves.",
+  "lead": "While the brain, spinal cord, and limb plexuses follow a shared human plan, pelvic autonomic plexuses and terminal pudendal branches trace sex-specific targets. This illustrated study guide examines 20 documented anatomical entries—including Brain, Spinal cord, Cervical plexus—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "While the brain, spinal cord, and limb plexuses follow a shared human plan, pelvic autonomic plexuses and terminal pudendal branches trace sex-specific targets. Known in classical anatomical nomenclature as Systema nervosum (vir), this chapter belongs to the nervous study pathway. While the brain, spinal cord, and limb plexuses follow a shared human plan, pelvic autonomic plexuses and terminal pudendal branches trace sex-specific targets. Known in classical anatomical nomenclature as Systema nervosum (vir), this chapter belongs to the nervous study pathway. This male figure orients the shared brain, spinal and peripheral nerve plan. The additional study structures focus on nerves to the prostate, penis and perineum. Deep pelvic branches are not individually depicted on the full-body image.",
+    "When you trace how male nervous system anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Brain (integration, consciousness, motor planning and autonomic control), Spinal cord (two-way tracts plus segmental reflex circuits), Cervical plexus (neck muscles and skin; phrenic nerve to diaphragm), and Brachial plexus (all motor and sensory supply of the upper limb). By following all 20 illustrated landmarks in sequence, you can see how gross morphology, internal chambers or layers, and surrounding vessels work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for brain, head injury scales from concussion to diffuse axonal injury; for spinal cord, cord transection level predicts deficit pattern precisely. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "male nervous system anatomy",
+    "secondary": [
+      "whole body male nerve pathways",
+      "pelvic autonomic and pudendal nerves",
+      "prostatic and cavernous nerve plexuses",
+      "brachial and lumbosacral plexuses"
+    ],
+    "longTail": [
+      "how somatic pudendal and autonomic cavernous nerves differ",
+      "whole-body peripheral and pelvic nerve pathways in males",
+      "innervation of the male pelvis perineum and lower limb"
+    ],
+    "semantic": [
+      "inferior hypogastric plexus",
+      "pelvic splanchnic nerves",
+      "dorsal nerve of penis",
+      "ilioinguinal nerve",
+      "genitofemoral nerve",
+      "sciatic nerve"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "Is the male nervous system built differently from the female nervous system?",
-      "answer": "The main brain, spinal cord and peripheral nerve plan is shared. A male-focused pelvic view highlights branches serving the prostate, penis and scrotum rather than implying separate male brain or spinal pathways."
+      "answer": "The main brain, spinal cord and peripheral nerve plan is shared. A male-focused pelvic view highlights branches serving the prostate, penis and scrotum rather than implying separate male brain or spinal pathways. In relation to pudendal nerve, this structure supplies external genital and perineal sensation plus motor branches to sphincters."
     },
     {
       "question": "Which nerves contribute to penile erection?",
-      "answer": "Autonomic cavernous nerves arising from the prostatic plexus influence penile smooth muscle and blood flow. Somatic sensation from the penis is carried largely through the dorsal nerve of the penis, a pudendal branch."
+      "answer": "Autonomic cavernous nerves arising from the prostatic plexus influence penile smooth muscle and blood flow. Somatic sensation from the penis is carried largely through the dorsal nerve of the penis, a pudendal branch. In relation to cavernous nerves of penis, this structure regulate erectile smooth muscle and arterial inflow."
     },
     {
       "question": "What is the pudendal nerve in the male pelvis?",
-      "answer": "The pudendal nerve derives from sacral segments S2–S4 and supplies much of the perineum. Its branches include the inferior rectal, perineal and dorsal penile nerves; these are distinct from pelvic autonomic nerves."
+      "answer": "The pudendal nerve derives from sacral segments S2–S4 and supplies much of the perineum. Its branches include the inferior rectal, perineal and dorsal penile nerves; these are distinct from pelvic autonomic nerves. In relation to pelvic splanchnic nerves, this structure reach bladder, rectal and reproductive pelvic organ targets."
     },
     {
       "question": "How do pelvic splanchnic nerves differ from hypogastric nerves?",
-      "answer": "Pelvic splanchnic nerves carry sacral parasympathetic fibers from S2–S4 into pelvic plexuses. Hypogastric nerves convey predominantly sympathetic pathways from higher plexuses; both contribute to pelvic organ innervation."
+      "answer": "Pelvic splanchnic nerves carry sacral parasympathetic fibers from S2–S4 into pelvic plexuses. Hypogastric nerves convey predominantly sympathetic pathways from higher plexuses; both contribute to pelvic organ innervation. Functionally, pelvic splanchnic nerves reach bladder, rectal and reproductive pelvic organ targets."
     },
     {
       "question": "Can the full-body male nerve picture show individual cavernous nerves?",
-      "answer": "No. It is an orientation image for major nervous-system routes. Cavernous and prostatic plexus branches are described as unpinned study structures rather than falsely marked on a whole-body plate."
+      "answer": "No. It is an orientation image for major nervous-system routes. Cavernous and prostatic plexus branches are described as unpinned study structures rather than falsely marked on a whole-body plate. In relation to cavernous nerves of penis, this structure regulate erectile smooth muscle and arterial inflow."
     }
   ]
 }

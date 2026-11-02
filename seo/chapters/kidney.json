@@ -1,19 +1,50 @@
 {
-  "title": "Kidney anatomy: cortex, medulla and nephrons",
-  "description": "Coronal section plus a nephron: filtration, reabsorption, secretion and urine concentration.",
-  "updated": "2026-10-18",
+  "title": "Human Kidney Anatomy: Cortex, Medulla & Renal Bloodflow",
+  "description": "Learn human kidney anatomy from the fibrous capsule and renal cortex to medullary pyramids, calyces, the renal pelvis, and nephron filtration blood supply.",
+  "updated": "2026-11-02",
+  "h1": "Human Kidney Anatomy: Renal Cortex, Medulla, Calyces and Vessels",
+  "blurb": "Retroperitoneal filtration powerhouses: outer renal cortex, medullary pyramids, calyces, and a million nephrons that purify blood plasma and balance body water.",
+  "lead": "Tucked behind the peritoneum on either side of the spine, the two bean-shaped kidneys filter the entire plasma volume dozens of times a day to keep body fluids balanced. This illustrated study guide examines 20 documented anatomical entries—including Fibrous capsule, Renal cortex, Renal pyramid, Afferent arteriole—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Tucked behind the peritoneum on either side of the spine, the two bean-shaped kidneys filter the entire plasma volume dozens of times a day to keep body fluids balanced. Known in classical anatomical nomenclature as Ren, this chapter belongs to the urinary study pathway. Tucked behind the peritoneum on either side of the spine, the two bean-shaped kidneys filter the entire plasma volume dozens of times a day to keep body fluids balanced. Known in classical anatomical nomenclature as Ren, this chapter belongs to the urinary study pathway. Each kidney filters about 180 litres of plasma a day and returns all but 1–2 litres to the blood. Filtration happens in the renal corpuscle, where glomerular capillaries sit inside Bowman's capsule. The filtrate then passes through the proximal tubule (bulk reabsorption), the loop of Henle (concentration by countercurrent multiplication), the distal tubule (hormone-controlled fine tuning) and the collecting duct (final water handling under vasopressin). Nephrons drain via the papilla into minor and major calyces, the renal pelvis and the ureter.",
+    "When you trace how human kidney anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Fibrous capsule (protects the parenchyma and maintains its shape), Renal cortex (site of blood filtration and most solute reabsorption), Afferent arteriole (regulates incoming glomerular pressure), and Glomerular capillaries (pass plasma water and small solutes toward Bowman space). By examining both surface-visible features (15 illustrated landmarks) and deeper or microscopic components (5 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for renal cortex, thinning or scarring of the cortex on ultrasound indicates chronic kidney disease. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "human kidney anatomy",
+    "secondary": [
+      "renal cortex and renal medulla",
+      "renal pyramids and calyces",
+      "renal artery and vein hilum",
+      "nephron filtration and ureter"
+    ],
+    "longTail": [
+      "how blood flows through the kidney from cortex to pelvis",
+      "parts of the human kidney renal pyramids and columns",
+      "how urine drains from renal papillae into the ureter"
+    ],
+    "semantic": [
+      "renal capsule",
+      "columns of Bertin",
+      "minor calyx",
+      "major calyx",
+      "renal pelvis",
+      "retroperitoneal"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "What do the kidneys do?",
-      "answer": "Kidneys filter blood, return most water and useful solutes to circulation, and excrete wastes in urine. They also help regulate electrolytes, blood pressure and acid-base balance."
+      "answer": "Kidneys filter blood, return most water and useful solutes to circulation, and excrete wastes in urine. They also help regulate electrolytes, blood pressure and acid-base balance. In relation to glomerulus & bowman's capsule, this structure ultrafiltration of plasma — water and small solutes pass; cells and proteins do not."
     },
     {
       "question": "How does urine travel from the kidney to the bladder?",
-      "answer": "Filtrate passes through nephron tubules into collecting ducts, then through calyces and the renal pelvis. A ureter carries the resulting urine to the bladder."
+      "answer": "Filtrate passes through nephron tubules into collecting ducts, then through calyces and the renal pelvis. A ureter carries the resulting urine to the bladder. In relation to renal pyramid, this structure create and exploit the osmotic gradient that concentrates urine."
     },
     {
       "question": "What is the renal cortex?",
-      "answer": "The outer 1 cm, containing all the renal corpuscles, the proximal and distal convoluted tubules, and cortical tissue dipping between pyramids as the renal columns. Function: Site of blood filtration and most solute reabsorption."
+      "answer": "The outer 1 cm, containing all the renal corpuscles, the proximal and distal convoluted tubules, and cortical tissue dipping between pyramids as the renal columns. Function: Site of blood filtration and most solute reabsorption. In relation to renal cortex, this structure site of blood filtration and most solute reabsorption."
     },
     {
       "question": "Where is the glomerulus & Bowman's capsule located?",

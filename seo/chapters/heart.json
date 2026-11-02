@@ -1,11 +1,42 @@
 {
-  "title": "Heart anatomy: chambers, valves and blood flow",
-  "description": "A four-chambered muscular pump with four valves and its own electrical conduction system.",
-  "updated": "2026-10-19",
+  "title": "Human Heart Anatomy: Chambers, Valves & Coronary Vessel",
+  "description": "Master human heart anatomy with our illustrated guide to all four chambers, four valves, coronary blood vessels, myocardial layers, and electrical impulse.",
+  "updated": "2026-11-02",
+  "h1": "Human Heart Anatomy: Chambers, Valves, Vessels and Conduction",
+  "blurb": "Two synchronized muscular pumps in one organ: four chambers, four one-way valves, coronary arteries, and the intrinsic SA-to-Purkinje electrical pacemaker.",
+  "lead": "Roughly the size of a closed fist and beating about 100,000 times every day, the human heart is two synchronized muscular pumps sealed inside a single organ. This illustrated study guide examines 22 documented anatomical entries—including Superior vena cava, Inferior vena cava, Aorta—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Roughly the size of a closed fist and beating about 100,000 times every day, the human heart is two synchronized muscular pumps sealed inside a single organ. Known in classical anatomical nomenclature as Cor, this chapter belongs to the circulatory study pathway. Roughly the size of a closed fist and beating about 100,000 times every day, the human heart is two synchronized muscular pumps sealed inside a single organ. Known in classical anatomical nomenclature as Cor, this chapter belongs to the circulatory study pathway. The heart is a double pump. Its right side receives deoxygenated blood from the venae cavae and sends it to the lungs; its left side receives oxygenated blood from the pulmonary veins and ejects it into the aorta. The two sides never mix because of the interatrial and interventricular septa, and one-way valves keep blood moving forwards. Contraction is triggered by an electrical impulse that begins in the sinoatrial node and sweeps through the atria, the atrioventricular node, the bundle of His and the Purkinje fibres.",
+    "When you trace how human heart anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Superior vena cava (returns deoxygenated blood from everything above the diaphragm), Inferior vena cava (returns deoxygenated blood from below the diaphragm), Aorta (distributes oxygenated blood to the entire systemic circulation), and Pulmonary trunk (carries blood from the right ventricle to the lungs for oxygenation). By following all 22 illustrated landmarks in sequence, you can see how gross morphology, internal chambers or layers, and surrounding vessels work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for superior vena cava, obstruction (SVC syndrome) causes facial and arm swelling with distended neck veins; for inferior vena cava, compression in late pregnancy reduces venous return and can cause supine hypotension. Use the interactive regional diagram above alongside the 22 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "human heart anatomy",
+    "secondary": [
+      "heart chambers and valves",
+      "coronary arteries and veins",
+      "cardiac conduction system",
+      "blood flow through the heart"
+    ],
+    "longTail": [
+      "how blood flows through the four chambers of the heart",
+      "why the left ventricle wall is thicker than the right",
+      "how the SA node and Purkinje fibers pace the heartbeat"
+    ],
+    "semantic": [
+      "myocardium",
+      "endocardium",
+      "pericardium",
+      "mitral valve",
+      "tricuspid valve",
+      "aortic arch"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "How many chambers does the heart have?",
-      "answer": "The heart has two upper receiving chambers, the right and left atria, and two lower pumping chambers, the right and left ventricles. The right ventricle sends blood to the lungs; the left sends it to the body."
+      "answer": "The heart has two upper receiving chambers, the right and left atria, and two lower pumping chambers, the right and left ventricles. The right ventricle sends blood to the lungs; the left sends it to the body. From an anatomical and functional standpoint, pressure overload (hypertension, aortic stenosis) causes concentric hypertrophy and later heart failure."
     },
     {
       "question": "What route does blood take through the heart?",
@@ -13,11 +44,11 @@
     },
     {
       "question": "Why is the left ventricular wall thicker?",
-      "answer": "The left ventricle must generate greater pressure to move blood through the systemic circulation. Its myocardium is therefore thicker than that of the right ventricle, which pumps into the lower-pressure pulmonary circulation."
+      "answer": "The left ventricle must generate greater pressure to move blood through the systemic circulation. Its myocardium is therefore thicker than that of the right ventricle, which pumps into the lower-pressure pulmonary circulation. From an anatomical and functional standpoint, fails first in pulmonary hypertension (cor pulmonale), causing raised jugular venous pressure and ankle oedema."
     },
     {
       "question": "Do coronary arteries carry blood through the heart chambers?",
-      "answer": "No. Coronary arteries branch near the aortic root and supply the heart muscle itself. The blood passing through the chambers does not directly nourish the full thickness of the myocardium."
+      "answer": "No. Coronary arteries branch near the aortic root and supply the heart muscle itself. The blood passing through the chambers does not directly nourish the full thickness of the myocardium. From an anatomical and functional standpoint, atherosclerotic narrowing here causes angina; acute occlusion causes myocardial infarction. The LAD is the \"widow-maker\"."
     },
     {
       "question": "How do heart valves keep blood moving forward?",

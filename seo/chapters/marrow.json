@@ -1,27 +1,58 @@
 {
-  "title": "Bone marrow & blood anatomy",
-  "description": "The hidden factory: red marrow makes two million blood cells per second; yellow marrow stores energy; both sit behind bone you see every day.",
-  "updated": "2026-10-18",
+  "title": "Bone Marrow & Blood Anatomy: Hematopoiesis & Cell Types",
+  "description": "Study bone marrow and blood anatomy inside spongy trabecular bone, tracing hematopoietic stem cells, red and white blood cell lineages, and platelet birth.",
+  "updated": "2026-11-02",
+  "h1": "Bone Marrow and Blood Anatomy: Hematopoiesis and Blood Cell Lineages",
+  "blurb": "Inside spongy trabecular bone, pluripotent hematopoietic stem cells generate millions of oxygen-carrying red cells, immune leukocytes, and platelets every second.",
+  "lead": "Hidden inside the honeycomb cavities of the axial skeleton, red bone marrow manufactures hundreds of billions of fresh red cells, leukocytes, and platelets every single day. This illustrated study guide examines 20 documented anatomical entries—including Red marrow, Yellow marrow, Trabecular (spongy) bone, Common myeloid progenitor—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Hidden inside the honeycomb cavities of the axial skeleton, red bone marrow manufactures hundreds of billions of fresh red cells, leukocytes, and platelets every single day. Known in classical anatomical nomenclature as Medulla ossium, this chapter belongs to the circulatory study pathway. Hidden inside the honeycomb cavities of the axial skeleton, red bone marrow manufactures hundreds of billions of fresh red cells, leukocytes, and platelets every single day. Known in classical anatomical nomenclature as Medulla ossium, this chapter belongs to the circulatory study pathway. Cut long bone plus a cellular inset — the organs no eye ever sees without a microscope, highlighted here.",
+    "When you trace how bone marrow and blood anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Red marrow (haematopoiesis: all blood cell lines), Yellow marrow (energy store; convertible back to red marrow), Common myeloid progenitor (gives rise to granulocyte, monocyte, erythroid and megakaryocyte lineages), and Common lymphoid progenitor (seeds B, T and natural-killer cell development). By examining both surface-visible features (11 illustrated landmarks) and deeper or microscopic components (9 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for red marrow, marrow failure = aplastic anaemia; infiltration = leukaemia; for yellow marrow, reconverts in chronic anaemia or severe bleeding. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "bone marrow and blood anatomy",
+    "secondary": [
+      "red and yellow bone marrow",
+      "hematopoietic stem cells",
+      "erythrocytes leukocytes and platelets",
+      "medullary sinusoids and trabecular bone"
+    ],
+    "longTail": [
+      "how red bone marrow produces red white cells and platelets",
+      "difference between red marrow and yellow marrow in adults",
+      "myeloid and lymphoid lineages of hematopoiesis explained"
+    ],
+    "semantic": [
+      "hematopoiesis",
+      "megakaryocyte",
+      "reticulocyte",
+      "neutrophil",
+      "lymphocyte",
+      "trabecular niche"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "What is the difference between red and yellow bone marrow?",
-      "answer": "Red marrow supports blood-cell production. Yellow marrow contains more fat; distribution changes with age and differs across skeletal sites."
+      "answer": "Red marrow supports blood-cell production. Yellow marrow contains more fat; distribution changes with age and differs across skeletal sites. From an anatomical and functional standpoint, marrow failure = aplastic anaemia; infiltration = leukaemia."
     },
     {
       "question": "Where are blood cells made in adults?",
-      "answer": "Most adult blood-cell production occurs in red marrow of axial bones and selected proximal long-bone regions."
+      "answer": "Most adult blood-cell production occurs in red marrow of axial bones and selected proximal long-bone regions. From an anatomical and functional standpoint, marrow failure = aplastic anaemia; infiltration = leukaemia. Functionally, red marrow haematopoiesis: all blood cell lines."
     },
     {
       "question": "What is the red marrow?",
-      "answer": "Spongy bone of vertebrae, pelvis, sternum, epiphyses. Function: Haematopoiesis: all blood cell lines."
+      "answer": "Spongy bone of vertebrae, pelvis, sternum, epiphyses. Function: Haematopoiesis: all blood cell lines. In relation to red marrow, this structure haematopoiesis: all blood cell lines. From an anatomical and functional standpoint, marrow failure = aplastic anaemia; infiltration = leukaemia."
     },
     {
       "question": "Where is the trabecular (spongy) bone located?",
-      "answer": "Latticework of struts along stress lines. Function: Strength at low weight; houses red marrow."
+      "answer": "Latticework of struts along stress lines. Function: Strength at low weight; houses red marrow. In relation to trabecular (spongy) bone, this structure strength at low weight; houses red marrow. From an anatomical and functional standpoint, osteoporosis thins trabeculae first — vertebral fractures."
     },
     {
       "question": "What is the function of the endosteum & osteoblasts?",
-      "answer": "Function: Remodelling: osteoblasts build, osteoclasts eat. Cellular lining of all internal bone surfaces."
+      "answer": "Function: Remodelling: osteoblasts build, osteoclasts eat. Cellular lining of all internal bone surfaces. In relation to endosteum & osteoblasts, this structure remodelling: osteoblasts build, osteoclasts eat. From an anatomical and functional standpoint, paget's disease is remodelling gone chaotic."
     }
   ]
 }

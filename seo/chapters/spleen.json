@@ -1,27 +1,58 @@
 {
-  "title": "Spleen anatomy: red pulp and white pulp",
-  "description": "The largest lymphoid organ: a blood filter, immune sentinel and red-cell graveyard.",
-  "updated": "2026-10-18",
+  "title": "Human Spleen Anatomy: Red Pulp, White Pulp & Blood Flow",
+  "description": "Explore human spleen anatomy in the left upper abdomen, including the fibrous capsule, splenic hilum, immune white pulp follicles, and red pulp filtration.",
+  "updated": "2026-11-02",
+  "h1": "Human Spleen Anatomy: Red Pulp, White Pulp, Hilum and Vessels",
+  "blurb": "Tucked beneath the left ribs, the spleen pairs immune white-pulp lymphoid follicles with filtering red-pulp cords that recycle aging red blood cells.",
+  "lead": "Protected beneath ribs nine through eleven in the upper left abdomen, the spleen is the largest lymphoid organ in the body and a precision filter for circulating blood. This illustrated study guide examines 20 documented anatomical entries—including Capsule & trabeculae, Red pulp, White pulp—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Protected beneath ribs nine through eleven in the upper left abdomen, the spleen is the largest lymphoid organ in the body and a precision filter for circulating blood. Known in classical anatomical nomenclature as Lien (splen), this chapter belongs to the lymphatic & immune study pathway. Protected beneath ribs nine through eleven in the upper left abdomen, the spleen is the largest lymphoid organ in the body and a precision filter for circulating blood. Known in classical anatomical nomenclature as Lien (splen), this chapter belongs to the lymphatic & immune study pathway. Blood enters the spleen through the splenic artery and percolates through two compartments. White pulp — cuffs of lymphocytes around central arterioles — mounts immune responses to blood-borne antigens, making IgM and opsonins. Red pulp is a mesh of sinusoids and cords where old, stiff or antibody-coated red cells are trapped and destroyed by macrophages, and where platelets are stored (a third of the body's pool). In fetal life the spleen makes red cells; after splenectomy the liver and marrow take over, but the loss of opsonisation leaves lifelong risk of encapsulated bacterial sepsis.",
+    "When you trace how human spleen anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Capsule & trabeculae (structural framework and conduit for vessels), Red pulp (filters senescent and abnormal red cells; recycles iron; stores platelets and monocytes), White pulp (immune surveillance of blood: antibody and opsonin production, especially against capsules), and Splenic sinusoids (the mechanical filter: healthy deformable cells pass; rigid ones are eaten). By following all 20 illustrated landmarks in sequence, you can see how gross morphology, internal chambers or layers, and surrounding vessels work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for capsule & trabeculae, the capsule is thin and the pulp fragile — the spleen tears easily in blunt abdominal trauma and bleeds briskly; for red pulp, in hereditary spherocytosis the rigid spheres are trapped here, causing haemolytic anaemia cured by splenectomy. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "human spleen anatomy",
+    "secondary": [
+      "red pulp and white pulp",
+      "splenic artery and splenic vein",
+      "splenic hilum and capsule",
+      "immune surveillance and red cell recycling"
+    ],
+    "longTail": [
+      "difference between red pulp and white pulp in the spleen",
+      "where the spleen is located in the left upper quadrant",
+      "how splenic cords and sinusoids filter aging red blood cells"
+    ],
+    "semantic": [
+      "periarteriolar lymphoid sheath",
+      "marginal zone",
+      "cords of Billroth",
+      "gastrosplenic ligament",
+      "splenorenal ligament",
+      "trabeculae"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "What is the spleen's function?",
-      "answer": "The spleen filters blood, removes aging red blood cells and helps immune cells respond to blood-borne material. Its red and white pulp perform different tasks."
+      "answer": "The spleen filters blood, removes aging red blood cells and helps immune cells respond to blood-borne material. Its red and white pulp perform different tasks. In relation to periarteriolar lymphoid sheath, this structure samples blood-borne antigens with nearby immune cells."
     },
     {
       "question": "Can you feel a normal spleen?",
-      "answer": "A normal adult spleen is usually protected beneath the left lower ribs and is not readily felt on examination; enlargement is a medical finding, not something this atlas can diagnose."
+      "answer": "A normal adult spleen is usually protected beneath the left lower ribs and is not readily felt on examination; enlargement is a medical finding, not something this atlas can diagnose. In relation to splenic vein, this structure returns filtered blood to the portal system."
     },
     {
       "question": "What is the capsule & trabeculae?",
-      "answer": "A fibroelastic capsule sending trabeculae into the pulp, carrying the vessels. Function: Structural framework and conduit for vessels."
+      "answer": "A fibroelastic capsule sending trabeculae into the pulp, carrying the vessels. Function: Structural framework and conduit for vessels. In relation to capsule & trabeculae, this structure structural framework and conduit for vessels."
     },
     {
       "question": "Where is the white pulp located?",
-      "answer": "Periarteriolar lymphoid sheaths (T cells), follicles (B cells) and a marginal zone rich in macrophages. Function: Immune surveillance of blood: antibody and opsonin production, especially against capsules."
+      "answer": "Periarteriolar lymphoid sheaths (T cells), follicles (B cells) and a marginal zone rich in macrophages. Function: Immune surveillance of blood: antibody and opsonin production, especially against capsules. In relation to white pulp, this structure immune surveillance of blood: antibody and opsonin production, especially against capsules."
     },
     {
       "question": "What is the function of the hilum?",
-      "answer": "Function: Vascular gateway; also the site of accessory spleens in ~15% of people. The notched medial border where splenic vessels enter and the tail of pancreas and stomach fundus relate."
+      "answer": "Function: Vascular gateway; also the site of accessory spleens in ~15% of people. The notched medial border where splenic vessels enter and the tail of pancreas and stomach fundus relate. In relation to hilum, this structure vascular gateway; also the site of accessory spleens in ~15% of people."
     }
   ]
 }

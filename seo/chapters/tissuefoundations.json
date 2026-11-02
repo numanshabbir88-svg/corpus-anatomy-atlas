@@ -1,12 +1,58 @@
 {
-  "title": "Four basic tissue types and cell anatomy: illustrated foundations",
-  "description": "Explore cell components and epithelial, connective, skeletal-muscle and nervous examples through four separate microscopic-scale teaching cutaways.",
-  "updated": "2026-10-19",
+  "title": "Four Basic Tissue Types & Cell Organelle Anatomy Guides",
+  "description": "Understand cell organelles and the four basic human tissues—epithelial, connective, muscle, and nervous—that assemble every organ in the living human body.",
+  "updated": "2026-11-02",
+  "h1": "Cells and the Four Basic Human Tissues: Epithelial, Connective, Muscle and Nervous",
+  "blurb": "How cell organelles and the four fundamental human tissues—epithelial sheets, connective matrix, contractile muscle, and excitable neurons—build every organ.",
+  "lead": "Despite the dazzling variety of human organs, every structure in the body is constructed from combinations of just four foundational tissue families. This illustrated study guide examines 28 documented anatomical entries—including Epithelial tissue, Apical surface and cell polarity, Basal lamina (basement-membrane zone), Human cell—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Despite the dazzling variety of human organs, every structure in the body is constructed from combinations of just four foundational tissue families. Known in classical anatomical nomenclature as Cellulae et textus fundamentales, this chapter belongs to the anatomy foundations study pathway. Cells organize into tissues, and organs contain combinations of epithelial, connective, muscular and nervous tissues. The main image illustrates a single layer of columnar epithelium above connective tissue; epithelium itself has no capillaries. Separate tissue-scale digital cutaways illustrate loose areolar connective tissue, skeletal muscle and a multipolar neuron. Cell organelles and some specialized tissue subtypes are described in text rather than falsely pinned on these images. These are computer-generated educational models, not histology slides, quantified microscopy or diagnostic samples.",
+    "When you trace how four basic tissue types anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Epithelial tissue (provides selective barrier, absorption, transport and secretion), Apical surface and cell polarity (allows directional absorption, secretion and barrier function), Human cell (combines organelles to maintain tissue function), and Plasma membrane (regulates exchange, signaling and cellular identity). By examining both surface-visible features (6 illustrated landmarks) and deeper or microscopic components (22 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for epithelial tissue, this is a digital teaching cutaway, not a patient histology slide or a picture of every epithelium; for apical surface and cell polarity, apical microvilli on the plate are schematic and cannot classify a specimen alone. Use the interactive regional diagram above alongside the 28 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "four basic tissue types anatomy",
+    "secondary": [
+      "epithelial connective muscle nervous tissue",
+      "cell organelles and plasma membrane",
+      "basement membrane and intercellular junctions",
+      "skeletal cardiac and smooth muscle cells"
+    ],
+    "longTail": [
+      "four fundamental tissue types of the human body explained",
+      "how epithelial connective muscle and nervous tissues differ",
+      "function of mitochondria ER Golgi and tight junctions"
+    ],
+    "semantic": [
+      "simple and stratified epithelium",
+      "extracellular matrix",
+      "collagen and elastin",
+      "intercalated discs",
+      "multipolar neuron",
+      "neuroglia"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
-    {"question": "What are the four basic types of tissue?", "answer": "The broad categories are epithelial, connective, muscle and nervous tissue. Most organs contain multiple types; the images show specific teaching examples, not all subtypes."},
-    {"question": "What makes epithelial tissue different from connective tissue?", "answer": "Epithelia form close-packed sheets with apical and basal surfaces and little extracellular space. Connective-tissue cells are often dispersed in extracellular matrix. Epithelium is generally avascular and nourished from underlying tissues."},
-    {"question": "Are these four pictures actual microscope slides?", "answer": "No. They are digitally generated microscopic-scale educational cutaways rather than histology specimens, patient images, measured magnifications or diagnostic evidence."},
-    {"question": "Which muscle type is shown in the foundation plate?", "answer": "The striated, multinucleated parallel fibers depict a skeletal-muscle example. Smooth muscle is not striated, and cardiac muscle differs in branching and intercalated discs; neither has a dedicated picture in this batch."},
-    {"question": "What structures make up nervous tissue?", "answer": "Nervous tissue contains signaling neurons and supporting glial cells. The example shows a multipolar neuron with dendrites, an axon and myelin on some axon segments, not a map of a named clinical nerve."}
+    {
+      "question": "What are the four basic types of tissue?",
+      "answer": "The broad categories are epithelial, connective, muscle and nervous tissue. Most organs contain multiple types; the images show specific teaching examples, not all subtypes. In relation to four fundamental tissue categories, this structure provides a framework for reading tissue architecture."
+    },
+    {
+      "question": "What makes epithelial tissue different from connective tissue?",
+      "answer": "Epithelia form close-packed sheets with apical and basal surfaces and little extracellular space. Connective-tissue cells are often dispersed in extracellular matrix. Epithelium is generally avascular and nourished from underlying tissues."
+    },
+    {
+      "question": "Are these four pictures actual microscope slides?",
+      "answer": "No. They are digitally generated microscopic-scale educational cutaways rather than histology specimens, patient images, measured magnifications or diagnostic evidence. In relation to histology versus digital cutaway, this structure distinguishes tissue concepts from diagnostic specimens."
+    },
+    {
+      "question": "Which muscle type is shown in the foundation plate?",
+      "answer": "The striated, multinucleated parallel fibers depict a skeletal-muscle example. Smooth muscle is not striated, and cardiac muscle differs in branching and intercalated discs; neither has a dedicated picture in this batch. In relation to muscle tissue, this structure supports movement, circulation and organ wall function."
+    },
+    {
+      "question": "What structures make up nervous tissue?",
+      "answer": "Nervous tissue contains signaling neurons and supporting glial cells. The example shows a multipolar neuron with dendrites, an axon and myelin on some axon segments, not a map of a named clinical nerve. From an anatomical and functional standpoint, illustrated neuron and myelin are teaching-scale models, not micrographs."
+    }
   ]
 }

@@ -1,27 +1,58 @@
 {
-  "title": "Breast anatomy: lobules, ducts and supporting tissue",
-  "description": "A modified sweat gland: glandular lobules make milk, ducts carry it, fat gives shape, and lymph drains mostly to the axilla — which is why breast cancer staging checks axillary nodes.",
-  "updated": "2026-10-18",
+  "title": "Breast Anatomy: Mammary Lobules, Ducts & Lymph Drainage",
+  "description": "Explore breast anatomy over the anterior chest wall, including mammary lobes, terminal duct lobular units, lactiferous ducts, Cooper ligaments, and glands.",
+  "updated": "2026-11-02",
+  "h1": "Breast Anatomy: Mammary Lobules, Lactiferous Ducts and Lymphatics",
+  "blurb": "Mammary glandular lobules and converging lactiferous ducts supported by fibrous Cooper ligaments over the pectoral fascia, with key axillary lymphatic drainage.",
+  "lead": "Positioned over the pectoralis major muscle inside the superficial fascia of the chest wall, the breast combines specialized glandular lobules with fibrous suspensory support. This illustrated study guide examines 20 documented anatomical entries—including Lobules (glandular), Lactiferous ducts, Subareolar lactiferous ducts, Terminal duct lobular unit—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Positioned over the pectoralis major muscle inside the superficial fascia of the chest wall, the breast combines specialized glandular lobules with fibrous suspensory support. Known in classical anatomical nomenclature as Mamma / Glandula mammaria, this chapter belongs to the female reproductive study pathway. Positioned over the pectoralis major muscle inside the superficial fascia of the chest wall, the breast combines specialized glandular lobules with fibrous suspensory support. Known in classical anatomical nomenclature as Mamma / Glandula mammaria, this chapter belongs to the female reproductive study pathway. Female breast in cut-away with every ductal and structural part; the male breast is the same blueprint, undeveloped.",
+    "When you trace how female breast anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Lobules (glandular) (milk production under prolactin), Lactiferous ducts (transport milk), Terminal duct lobular unit (produces milk in lactation and drains into larger duct tree), and Lobular acini (synthesize milk constituents under hormonal control). By examining both surface-visible features (16 illustrated landmarks) and deeper or microscopic components (4 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for lobules (glandular), most breast cancers start in lobules or ducts; for lactiferous ducts, ductal carcinoma in situ stays inside this lining. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "female breast anatomy",
+    "secondary": [
+      "mammary gland lobes and lobules",
+      "lactiferous ducts and nipple-areola",
+      "Cooper suspensory ligaments",
+      "axillary lymph nodes lymphatic drainage"
+    ],
+    "longTail": [
+      "how milk travels from mammary alveoli to lactiferous ducts",
+      "why axillary lymph nodes are critical in breast anatomy",
+      "role of Cooper suspensory ligaments and pectoral fascia"
+    ],
+    "semantic": [
+      "terminal duct lobular unit",
+      "areolar Montgomery glands",
+      "retromammary space",
+      "pectoralis major",
+      "internal thoracic artery",
+      "axillary tail of Spence"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "What structures make up breast tissue?",
-      "answer": "Breast tissue includes glandular lobules, a branching duct network, connective-tissue support, fat, vessels and nerves. Ducts open at the nipple."
+      "answer": "Breast tissue includes glandular lobules, a branching duct network, connective-tissue support, fat, vessels and nerves. Ducts open at the nipple. In relation to lobules (glandular), this structure milk production under prolactin. From an anatomical and functional standpoint, most breast cancers start in lobules or ducts."
     },
     {
       "question": "Are breast lobules and milk ducts the same thing?",
-      "answer": "No. Lobules contain milk-producing units; ducts transport secretions toward the nipple. Both are embedded in supporting connective and fatty tissue."
+      "answer": "No. Lobules contain milk-producing units; ducts transport secretions toward the nipple. Both are embedded in supporting connective and fatty tissue. In relation to subareolar lactiferous ducts, this structure carry milk from alveoli and lobules toward nipple openings, rather than acting as a major storage reservoir."
     },
     {
       "question": "What are the lobules (glandular)?",
-      "answer": "Secretory alveolar clusters at duct ends. Function: Milk production under prolactin."
+      "answer": "Secretory alveolar clusters at duct ends. Function: Milk production under prolactin. In relation to lobules (glandular), this structure milk production under prolactin. From an anatomical and functional standpoint, most breast cancers start in lobules or ducts."
     },
     {
       "question": "Where is the lactiferous ducts located?",
-      "answer": "15–20 branching channels to the nipple. Function: Transport milk."
+      "answer": "15–20 branching channels to the nipple. Function: Transport milk. In relation to lactiferous ducts, this structure transport milk. From an anatomical and functional standpoint, ductal carcinoma in situ stays inside this lining."
     },
     {
       "question": "What is the function of the axillary lymph nodes?",
-      "answer": "Function: Immune surveillance of the breast. 75% of breast lymph drains here."
+      "answer": "Function: Immune surveillance of the breast. 75% of breast lymph drains here. In relation to axillary lymph nodes, this structure immune surveillance of the breast. From an anatomical and functional standpoint, sentinel node biopsy stages cancer spread."
     }
   ]
 }

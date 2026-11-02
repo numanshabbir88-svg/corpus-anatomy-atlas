@@ -1,27 +1,58 @@
 {
-  "title": "Brainstem and cerebellum anatomy",
-  "description": "Locate brainstem levels, cranial-nerve nuclei, pyramids and cerebellar peduncles, cortex and nuclei.",
-  "updated": "2026-10-18",
+  "title": "Brainstem & Cerebellum Anatomy: Midbrain, Pons & Tracts",
+  "description": "Understand brainstem and cerebellum anatomy across the midbrain, pons, and medulla oblongata, including cerebellar peduncles, deep nuclei, and motor paths.",
+  "updated": "2026-11-02",
+  "h1": "Brainstem and Cerebellum Anatomy: Midbrain, Pons, Medulla and Peduncles",
+  "blurb": "Midbrain, pons, and medulla oblongata nuclei, corticospinal pyramidal decussation, and the three peduncles linking the brainstem to the cerebellar cortex.",
+  "lead": "Every nerve signal traveling between the cerebral hemispheres and spinal cord must pass through the brainstem, while the cerebellum behind it fine-tunes every movement. This illustrated study guide examines 20 documented anatomical entries—including Midbrain, Superior colliculus, Inferior colliculus—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Every nerve signal traveling between the cerebral hemispheres and spinal cord must pass through the brainstem, while the cerebellum behind it fine-tunes every movement. Known in classical anatomical nomenclature as Truncus encephali · cerebellum, this chapter belongs to the nervous study pathway. Every nerve signal traveling between the cerebral hemispheres and spinal cord must pass through the brainstem, while the cerebellum behind it fine-tunes every movement. Known in classical anatomical nomenclature as Truncus encephali · cerebellum, this chapter belongs to the nervous study pathway. Midbrain, pons and medulla form the brainstem, carrying ascending sensation and descending motor commands while housing many cranial nerve nuclei and arousal/autonomic networks. Dorsal to pons and medulla, cerebellum compares intended and actual movement through cortex and deep nuclei. Inferior, middle and superior cerebellar peduncles connect it to medulla, pons and midbrain respectively; traffic direction is not identical in each peduncle. Purkinje cells inhibit deep nuclei; cerebellar dysfunction causes coordination deficits rather than classic isolated paralysis.",
+    "When you trace how brainstem and cerebellum anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Midbrain (hosts III/IV-related nuclei and visual/auditory orienting circuits), Superior colliculus (coordinates orienting eye/head movements to visual stimuli), Inferior colliculus (integrates auditory pathway toward thalamus), and Substantia nigra (dopaminergic modulation and basal-ganglia output). By following all 20 illustrated landmarks in sequence, you can see how gross morphology, internal chambers or layers, and surrounding vessels work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for midbrain, midbrain lesions can combine ocular and long-tract signs. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "brainstem and cerebellum anatomy",
+    "secondary": [
+      "midbrain pons and medulla oblongata",
+      "superior middle inferior cerebellar peduncles",
+      "cerebellar cortex and deep nuclei",
+      "reticular formation and pyramidal decussation"
+    ],
+    "longTail": [
+      "how the midbrain pons and medulla connect to the cerebellum",
+      "what are the three cerebellar peduncles and deep nuclei",
+      "why motor tracts cross at the medullary pyramidal decussation"
+    ],
+    "semantic": [
+      "cerebral peduncles",
+      "substantia nigra",
+      "red nucleus",
+      "dentate nucleus",
+      "purkinje cells",
+      "inferior olivary nucleus"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "What are the three parts of the brainstem?",
-      "answer": "The brainstem consists of midbrain, pons and medulla. It carries major pathways and houses many cranial-nerve nuclei."
+      "answer": "The brainstem consists of midbrain, pons and medulla. It carries major pathways and houses many cranial-nerve nuclei. From an anatomical and functional standpoint, midbrain lesions can combine ocular and long-tract signs. Functionally, midbrain hosts III/IV-related nuclei and visual/auditory orienting circuits."
     },
     {
       "question": "What does the cerebellum do?",
-      "answer": "The cerebellum helps coordinate movement, timing and balance by integrating sensory and motor information; it is not the same structure as the brainstem."
+      "answer": "The cerebellum helps coordinate movement, timing and balance by integrating sensory and motor information; it is not the same structure as the brainstem. In relation to medulla oblongata, this structure contains autonomic, swallowing and motor/sensory pathways."
     },
     {
       "question": "What is the midbrain?",
-      "answer": "Rostral brainstem around cerebral aqueduct between diencephalon and pons. Function: Hosts III/IV-related nuclei and visual/auditory orienting circuits."
+      "answer": "Rostral brainstem around cerebral aqueduct between diencephalon and pons. Function: Hosts III/IV-related nuclei and visual/auditory orienting circuits. In relation to midbrain, this structure hosts III/IV-related nuclei and visual/auditory orienting circuits."
     },
     {
       "question": "Where is the inferior colliculus located?",
-      "answer": "Dorsal caudal midbrain auditory relay structure. Function: Integrates auditory pathway toward thalamus."
+      "answer": "Dorsal caudal midbrain auditory relay structure. Function: Integrates auditory pathway toward thalamus. In relation to inferior colliculus, this structure integrates auditory pathway toward thalamus. From an anatomical and functional standpoint, auditory pathways are largely bilateral centrally."
     },
     {
       "question": "What is the function of the cerebral peduncles?",
-      "answer": "Function: Transmit corticospinal, corticobulbar and corticopontine signals. Ventral midbrain bundles carrying major descending cortical fibers."
+      "answer": "Function: Transmit corticospinal, corticobulbar and corticopontine signals. Ventral midbrain bundles carrying major descending cortical fibers. In relation to cerebral peduncles, this structure transmit corticospinal, corticobulbar and corticopontine signals."
     }
   ]
 }

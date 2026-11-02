@@ -1,27 +1,58 @@
 {
-  "title": "Ovary and fallopian tube anatomy",
-  "description": "From follicular cortex to ampulla: the ovary, fimbriae, tubal mucosal folds and the hidden routes of fertilization.",
-  "updated": "2026-10-18",
+  "title": "Ovary & Fallopian Tube Anatomy: Follicles, Ampulla, Map",
+  "description": "Explore ovary and fallopian tube anatomy, covering the ovarian cortex, follicle stages, corpus luteum, fimbriae, ampulla, isthmus, and dual blood supplies.",
+  "updated": "2026-11-02",
+  "h1": "Ovary and Fallopian Tube (Uterine Tube) Anatomy: Follicles and Segments",
+  "blurb": "Follicular waves and corpus luteum formation in the ovarian cortex paired with the fimbriae, wide ampulla, and ciliated mucosa of the fallopian tube.",
+  "lead": "Paired on either side of the uterus, the ovaries and feather-tipped uterine tubes work in concert yet are not fused—requiring sweeping fimbriae to catch each ovulated egg. This illustrated study guide examines 20 documented anatomical entries—including Ovarian cortex, Ovarian medulla, Primordial follicles, Theca interna—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Paired on either side of the uterus, the ovaries and feather-tipped uterine tubes work in concert yet are not fused—requiring sweeping fimbriae to catch each ovulated egg. Known in classical anatomical nomenclature as Ovarium et tuba uterina, this chapter belongs to the female reproductive study pathway. Paired on either side of the uterus, the ovaries and feather-tipped uterine tubes work in concert yet are not fused—requiring sweeping fimbriae to catch each ovulated egg. Known in classical anatomical nomenclature as Ovarium et tuba uterina, this chapter belongs to the female reproductive study pathway. Follow the oocyte from dominant follicle across a peritoneal gap to the fimbriae and ampulla, then trace the tube to the uterine cornu.",
+    "When you trace how ovary and fallopian tube anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Ovarian cortex (houses the oocyte reserve), Ovarian medulla (supports vessels, nerves and the hilum), Theca interna (supplies androgen precursors under LH stimulation), and Granulosa cell layer (nourish oocyte and aromatize thecal androgen). By examining both surface-visible features (17 illustrated landmarks) and deeper or microscopic components (3 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for ovarian cortex, cortical tissue is considered in fertility-preserving surgery; for ovarian medulla, ovarian pedicle bleeding arises at the hilum. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "ovary and fallopian tube anatomy",
+    "secondary": [
+      "ovarian cortex follicles and medulla",
+      "fallopian tube infundibulum ampulla isthmus",
+      "fimbriae and oocyte capture",
+      "mesosalpinx mesovarium and ovarian vessels"
+    ],
+    "longTail": [
+      "four segments of the fallopian tube from fimbriae to uterus",
+      "how ovarian follicles develop in the cortex of the ovary",
+      "ligaments and dual blood supply of the ovary and tube"
+    ],
+    "semantic": [
+      "tunica albuginea of ovary",
+      "corpus luteum",
+      "corpus albicans",
+      "ciliated columnar epithelium",
+      "suspensory ligament",
+      "ovarian ligament"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "Where does an egg go after ovulation?",
-      "answer": "After release from an ovarian follicle, the oocyte is taken up near the fimbriae and usually enters the uterine tube before moving toward the uterus."
+      "answer": "After release from an ovarian follicle, the oocyte is taken up near the fimbriae and usually enters the uterine tube before moving toward the uterus. From an anatomical and functional standpoint, the tube opens to the peritoneal cavity here."
     },
     {
       "question": "Which part of the fallopian tube is the usual site of fertilization?",
-      "answer": "The ampulla, a wider segment of the uterine tube, is the most common site of fertilization."
+      "answer": "The ampulla, a wider segment of the uterine tube, is the most common site of fertilization. From an anatomical and functional standpoint, A common site of tubal ectopic implantation. Functionally, ampulla usual site of fertilization."
     },
     {
       "question": "What is the ovarian cortex?",
-      "answer": "Outer ovarian zone with follicles at several stages. Function: Houses the oocyte reserve."
+      "answer": "Outer ovarian zone with follicles at several stages. Function: Houses the oocyte reserve. In relation to ovarian cortex, this structure houses the oocyte reserve. From an anatomical and functional standpoint, cortical tissue is considered in fertility-preserving surgery."
     },
     {
       "question": "Where are the primordial follicles located?",
-      "answer": "Small oocyte with flat granulosa cells in outer cortex. Function: Dormant ovarian reserve pool."
+      "answer": "Small oocyte with flat granulosa cells in outer cortex. Function: Dormant ovarian reserve pool. In relation to primordial follicles, this structure dormant ovarian reserve pool. From an anatomical and functional standpoint, reserve declines with age and treatment exposure."
     },
     {
       "question": "What is the function of the dominant antral follicle?",
-      "answer": "Function: Releases a secondary oocyte after the LH surge. Large fluid-filled preovulatory follicle."
+      "answer": "Function: Releases a secondary oocyte after the LH surge. Large fluid-filled preovulatory follicle. In relation to dominant antral follicle, this structure releases a secondary oocyte after the LH surge. From an anatomical and functional standpoint, functional cysts may arise from follicular persistence."
     }
   ]
 }

@@ -1,19 +1,50 @@
 {
-  "title": "Third stage of labor: placenta separation and delivery",
-  "description": "Study uterine contraction, maternal placental bed, cord, membranes, placenta delivery and postpartum bleeding anatomy.",
-  "updated": "2026-10-19",
+  "title": "Third Stage of Labor Anatomy: Placental Delivery Guides",
+  "description": "Study third stage of labor anatomy, covering placental separation along the decidua, interlacing myometrial muscle contraction, and neonatal blood changes.",
+  "updated": "2026-11-02",
+  "h1": "Third Stage of Labor Anatomy: Placental Delivery and Hemostasis",
+  "blurb": "After the baby is born, interlacing uterine muscle fibers contract like living ligatures to constrict spiral arteries and cleanly deliver the placenta.",
+  "lead": "Minutes after birth, figure-of-eight muscle fibers in the uterine wall clamp down around spiral arteries like living ligatures as the placenta cleanly separates. This illustrated study guide examines 20 documented anatomical entries—including Placenta before separation, Uterine myometrium, Uterine retraction, Infant birth—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Minutes after birth, figure-of-eight muscle fibers in the uterine wall clamp down around spiral arteries like living ligatures as the placenta cleanly separates. Known in classical anatomical nomenclature as Partus tertia periodus, this chapter belongs to the conception to birth study pathway. The third stage begins immediately after the baby is born and ends when placenta and membranes are delivered. Uterine contraction reduces the attachment area and compresses maternal vessels to limit bleeding. The NEW post-birth teaching cutaway depicts a partially detaching placenta with an empty uterus; it is NOT a patient image or a photograph of a completely delivered placenta. A second older image separately shows the organ still attached during pregnancy and a third digital image depicts its villous exchange barrier BEFORE delivery. Clinicians assess completion and bleeding in real patients; heavy bleeding after birth is an emergency.",
+    "When you trace how third stage of labor anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Placenta before separation (maintains exchange until birth), Uterine myometrium (reduces uterine size and aids vessel compression), Infant birth (separates baby delivery from placental delivery), and End of third stage (marks transition to postnatal assessment). By examining both surface-visible features (17 illustrated landmarks) and deeper or microscopic components (3 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for placenta before separation, the displayed image shows attachment, not detachment; for uterine myometrium, uterine tone is assessed by clinical staff, not visually on this image. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "third stage of labor anatomy",
+    "secondary": [
+      "placental separation and delivery",
+      "uterine involution and contraction",
+      "retroplacental hematoma formation",
+      "living ligatures of myometrium"
+    ],
+    "longTail": [
+      "how the placenta separates from the uterine wall after birth",
+      "how criss-crossing uterine muscle fibers stop bleeding",
+      "anatomical transition of newborn circulation at birth"
+    ],
+    "semantic": [
+      "decidual cleavage plane",
+      "myometrial contraction",
+      "umbilical vessel closure",
+      "foramen ovale closure",
+      "lochia",
+      "postpartum hemostasis"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "When does the third stage of labor begin and end?",
-      "answer": "It begins after the baby is born and ends when the placenta and fetal membranes are delivered. Postpartum monitoring continues after that stage."
+      "answer": "It begins after the baby is born and ends when the placenta and fetal membranes are delivered. Postpartum monitoring continues after that stage. In relation to end of third stage, this structure marks transition to postnatal assessment."
     },
     {
       "question": "Why does the uterus contract after the baby is born?",
-      "answer": "Uterine contraction shrinks the placental attachment area, supports separation and compresses maternal blood vessels to limit bleeding. Actual uterine tone must be assessed clinically."
+      "answer": "Uterine contraction shrinks the placental attachment area, supports separation and compresses maternal blood vessels to limit bleeding. Actual uterine tone must be assessed clinically. From an anatomical and functional standpoint, weak tone and hemorrhage require prompt professional response."
     },
     {
       "question": "Which surfaces does a delivered placenta have?",
-      "answer": "A fetal-facing surface is covered by amnion and joined to the cord, while a maternal-facing surface reflects its attachment to uterine decidual tissue. Examination of a delivered placenta is a clinical task."
+      "answer": "A fetal-facing surface is covered by amnion and joined to the cord, while a maternal-facing surface reflects its attachment to uterine decidual tissue. Examination of a delivered placenta is a clinical task. In relation to maternal placental surface, this structure forms former uterine attachment interface."
     },
     {
       "question": "What do the three placenta-related images in this chapter show?",
@@ -21,7 +52,7 @@
     },
     {
       "question": "Is heavy bleeding after birth a normal event to assess from art?",
-      "answer": "No. Heavy postpartum bleeding can be an emergency needing urgent professional evaluation. The image cannot measure blood loss, diagnose retained placenta or guide treatment."
+      "answer": "No. Heavy postpartum bleeding can be an emergency needing urgent professional evaluation. The image cannot measure blood loss, diagnose retained placenta or guide treatment. In relation to maternal uterine vessels, this structure require mechanical compression and hemostatic processes after detachment."
     }
   ]
 }

@@ -1,27 +1,58 @@
 {
-  "title": "Human skeleton: bones, joints and inner anatomy",
-  "description": "Explore the conventional 206 adult bones, axial and appendicular skeleton, joints, compact and spongy bone, and blood-forming marrow.",
-  "updated": "2026-10-19",
+  "title": "Human Skeleton Anatomy: 206 Bones, Axial & Appendicular",
+  "description": "Master human skeleton anatomy across all 206 adult bones, comparing 80 axial and 126 appendicular bones alongside cortical bone, trabeculae, and bone cell.",
+  "updated": "2026-11-02",
+  "h1": "Human Skeleton Anatomy: All 206 Adult Bones, Axial and Appendicular",
+  "blurb": "All 206 named adult bones—80 axial and 126 appendicular—plus compact osteons, spongy trabecular struts, red marrow cavities, and major joint families.",
+  "lead": "Far from being dry, static scaffolding, the 206 bones of the adult human skeleton form a living, remodeling organ system that protects viscera, anchors muscles, and stores calcium. This illustrated study guide examines 31 documented anatomical entries—including Skull, Clavicle, Sternum—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Far from being dry, static scaffolding, the 206 bones of the adult human skeleton form a living, remodeling organ system that protects viscera, anchors muscles, and stores calcium. Known in classical anatomical nomenclature as Systema skeletale, this chapter belongs to the skeletal system study pathway. Far from being dry, static scaffolding, the 206 bones of the adult human skeleton form a living, remodeling organ system that protects viscera, anchors muscles, and stores calcium. Known in classical anatomical nomenclature as Systema skeletale, this chapter belongs to the skeletal system study pathway. Anterior skeleton with the bones a student must point at in the first practical — axial column first, then the limbs.",
+    "When you trace how human skeleton anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Skull (protection and mastication anchor), Clavicle (holds the shoulder off the chest), Sternum (rib anchor; marrow biopsy site), and Rib cage (bellows for breathing; heart and lung armour). By following all 31 illustrated landmarks in sequence, you can see how gross morphology, internal chambers or layers, and surrounding vessels work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for skull, basilar skull fracture: raccoon eyes + CSF leak; for clavicle, most commonly fractured bone in falls on the shoulder. Use the interactive regional diagram above alongside the 31 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "human skeleton anatomy",
+    "secondary": [
+      "206 bones of the adult skeleton",
+      "axial and appendicular skeleton",
+      "compact cortical and spongy bone",
+      "long flat short and irregular bones"
+    ],
+    "longTail": [
+      "how the 206 bones are divided into axial and appendicular",
+      "internal anatomy of a long bone periosteum to marrow cavity",
+      "functions of the human skeletal system support and mineral storage"
+    ],
+    "semantic": [
+      "cranium",
+      "vertebral column",
+      "thoracic cage",
+      "pectoral girdle",
+      "pelvic girdle",
+      "osteon"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "Why is the adult human skeleton usually counted as 206 bones?",
-      "answer": "The conventional adult count includes bones that have fused during development and six middle-ear ossicles. Individual counts can differ because accessory bones, variable sesamoids and fusion patterns vary among people."
+      "answer": "The conventional adult count includes bones that have fused during development and six middle-ear ossicles. Individual counts can differ because accessory bones, variable sesamoids and fusion patterns vary among people. In relation to skull, this structure protection and mastication anchor."
     },
     {
       "question": "What belongs to the axial skeleton?",
-      "answer": "The axial skeleton contains the skull, vertebral column and thoracic cage. It supports the head and trunk and helps protect the brain, spinal cord, heart and lungs."
+      "answer": "The axial skeleton contains the skull, vertebral column and thoracic cage. It supports the head and trunk and helps protect the brain, spinal cord, heart and lungs. From an anatomical and functional standpoint, herniated discs press nerve roots segmentally."
     },
     {
       "question": "What belongs to the appendicular skeleton?",
-      "answer": "The shoulder and pelvic girdles, arms and legs form the appendicular skeleton. These bones provide attachment and leverage for movement and connect the limbs to the axial framework."
+      "answer": "The shoulder and pelvic girdles, arms and legs form the appendicular skeleton. These bones provide attachment and leverage for movement and connect the limbs to the axial framework. In relation to skull, this structure protection and mastication anchor."
     },
     {
       "question": "What is the difference between compact and spongy bone?",
-      "answer": "Compact bone forms a dense outer layer; spongy bone contains a lattice of trabeculae inside many bones. Both are living tissues, and marrow occupies spaces within bones."
+      "answer": "Compact bone forms a dense outer layer; spongy bone contains a lattice of trabeculae inside many bones. Both are living tissues, and marrow occupies spaces within bones. In relation to skull, this structure protection and mastication anchor."
     },
     {
       "question": "Where is blood cell production found in adult bones?",
-      "answer": "Red marrow produces blood cell precursors in selected adult bones, especially axial bones and the proximal ends of some long bones. Yellow marrow is richer in fat and has different activity."
+      "answer": "Red marrow produces blood cell precursors in selected adult bones, especially axial bones and the proximal ends of some long bones. Yellow marrow is richer in fat and has different activity. In relation to skull, this structure protection and mastication anchor."
     }
   ]
 }

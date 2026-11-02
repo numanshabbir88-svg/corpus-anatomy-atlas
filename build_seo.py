@@ -76,8 +76,12 @@ if {p.stem for p in SEO_DIR.glob('*.json')} != set(ORGANS):
 GUIDES={}
 for slug in ORGANS:
     item=json.loads((SEO_DIR/f'{slug}.json').read_text(encoding='utf-8'))
-    if set(item) != {'title','description','updated','questions'} or not all(isinstance(item[k],str) and item[k].strip() for k in ['title','description']):
+    if not ({'title','description','updated','questions'} <= set(item)) or not all(isinstance(item[k],str) and item[k].strip() for k in ['title','description']):
         raise SystemExit(f'Invalid title or description in seo/chapters/{slug}.json')
+    if len(item['title']) != 55:
+        raise SystemExit(f'{slug}: SEO title must be exactly 55 characters, got {len(item["title"])}')
+    if len(item['description']) != 155:
+        raise SystemExit(f'{slug}: meta description must be exactly 155 characters, got {len(item["description"])}')
     try: date.fromisoformat(item['updated'])
     except (TypeError, ValueError): raise SystemExit(f'{slug}: updated must be a real YYYY-MM-DD editorial date')
     questions=item['questions']
@@ -144,7 +148,7 @@ def E(value): return h(str(value or ''),quote=True)
 def url(path): return BASE + path if BASE else ''
 def canonical(path): return f'<link rel="canonical" href="{E(url(path))}">' if BASE else '<meta name="robots" content="noindex,follow">'
 def meta(title,desc,path,image=''):
-    desc=' '.join(desc.split())[:157].rstrip(' ,;:.')+'.'
+    desc=' '.join(desc.split()) if len(' '.join(desc.split()))==155 else ' '.join(desc.split())[:157].rstrip(' ,;:.')+'.'
     if path == '/404.html':
         return f'<meta name="description" content="{E(desc)}"><meta name="robots" content="noindex,follow">'
     tags=f'<meta name="description" content="{E(desc)}"><meta name="robots" content="index,follow,max-image-preview:large">' if BASE else f'<meta name="description" content="{E(desc)}">'
@@ -153,11 +157,13 @@ def meta(title,desc,path,image=''):
     if BASE and image: tags+=f'<meta property="og:image" content="{E(url(image))}">'
     return tags
 
-def schema(path,crumbs):
+def schema(path,crumbs,questions=None):
     if not BASE: return ''
     b=[{'@type':'ListItem','position':i+1,'name':name,'item':url(link)} for i,(name,link) in enumerate(crumbs)]
     objects=[{'@context':'https://schema.org','@type':'WebPage','name':crumbs[-1][0], 'url':url(path)},
              {'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':b}]
+    if questions:
+        objects.append({'@context':'https://schema.org','@type':'FAQPage','mainEntity':[{'@type':'Question','name':q['question'],'acceptedAnswer':{'@type':'Answer','text':q['answer']}} for q in questions]})
     return '<script type="application/ld+json">'+json.dumps(objects,separators=(',',':')).replace('<','\\u003c')+'</script>'
 
 def header(depth=0,current=''):
@@ -173,7 +179,8 @@ def footer(depth=0):
 
 def document(title,description,path,body,depth=0,image='',extra=''):
     root='../'*depth or './'
-    head=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#125e58"><title>{E(title)} | Corpus</title>{meta(title,description,path,image)}{extra}<link rel="icon" href="{root}favicon.svg"><link rel="stylesheet" href="{root}editorial.css?v=63"><link rel="stylesheet" href="{root}corpus-bot.css?v=14"></head><body>'
+    full_title=title if len(title)==55 else f'{title} | Corpus'
+    head=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#125e58"><title>{E(full_title)}</title>{meta(full_title,description,path,image)}{extra}<link rel="icon" href="{root}favicon.svg"><link rel="stylesheet" href="{root}editorial.css?v=63"><link rel="stylesheet" href="{root}corpus-bot.css?v=14"></head><body>'
     return head+header(depth)+body+footer(depth)+f'<script defer src="{root}corpus-bot.js?v=14"></script></body></html>'
 
 def write(path,text):
@@ -418,12 +425,15 @@ def repro_gallery(o):
 def article(key,o):
     title=GUIDES[key]['title']
     desc=GUIDES[key]['description']
+    h1_title=GUIDES[key].get('h1') or title
+    lead_text=GUIDES[key].get('lead') or desc
+    overview_paras=GUIDES[key].get('overview') or [o['summary']]
     system=SYSTEMS[o['system']]['name']
     image=o.get('photo',{}).get('file','')
     img='/img/webp/'+Path(image).stem+'.webp' if image else ''
     items=list(o['parts'].items());pinned=[x for x in items if not x[1].get('contextOnly')];deep=[x for x in items if x[1].get('contextOnly')]
     crumb=[('Home','/'),('Study guides','/learn/'),(o['title'],f'/learn/{key}/')]
-    opening=f'<nav class="crumb shell" aria-label="Breadcrumb"><a href="../../index.html">Home</a><i>/</i><a href="../">Study guides</a><i>/</i><span>{E(o["title"])}</span></nav><section class="shell hero article-hero"><div class="eyebrow">{E(system)} · illustrated anatomy</div><h1>{E(title)}</h1><p>{E(desc)}</p><div class="action-row"><a class="button" href="../../index.html#/{key if key not in ("male","female") else key+"overview"}">Open interactive atlas ↗</a><a class="button alt" href="#parts">Read the structures ↓</a></div><p class="byline">Corpus educational reference · {len(items)} documented study entries · Updated {GUIDES[key]["updated"]}</p></section>'
+    opening=f'<nav class="crumb shell" aria-label="Breadcrumb"><a href="../../index.html">Home</a><i>/</i><a href="../">Study guides</a><i>/</i><span>{E(o["title"])}</span></nav><section class="shell hero article-hero"><div class="eyebrow">{E(system)} · illustrated anatomy</div><h1>{E(h1_title)}</h1><p>{E(lead_text)}</p><div class="action-row"><a class="button" href="../../index.html#/{key if key not in ("male","female") else key+"overview"}">Open interactive atlas ↗</a><a class="button alt" href="#parts">Read the structures ↓</a></div><p class="byline">Corpus educational reference · {len(items)} documented study entries · Updated {GUIDES[key]["updated"]}</p></section>'
     stage_note=o.get('photo',{}).get('notes','') if key in LIFE_PATH else ''
     photo=photo_figure(o,image,stage_note) if img else ''
     facts=[('Body system',system),('Location',o.get('region','')),('Blood supply',o.get('blood','')),('Innervation',o.get('nerve',''))]
@@ -465,8 +475,11 @@ def article(key,o):
     notes=f'<section id="sources" class="content-section sources"><div class="eyebrow">Reference desk</div><h2>Further reading</h2><p class="section-lead">General anatomy references and related source chapters for continued study. These links do not make the digital illustrations clinical images or certify every anatomical variant.</p><ul>{source_list}</ul><p class="disclaimer">This educational page is not medical advice and has not undergone formal clinical peer review. Spotted an error? <a href="../../about.html#contact">Contact the editor</a>.</p></section>'
     connect=f'<div class="end-link"><div><strong>See the structures in context</strong><p>{"Open the regional digital plate, study entries and a short self-test. Visible markers occur only for identifiable sperm and oocyte structures." if key in LIFE_PATH else "Open the realistic interactive plate, label lines, focus view and self-test."}</p></div><a class="button" href="../../index.html#/{key if key not in ("male","female") else key+"overview"}">Open interactive view →</a></div>'
     sidebar=f'<aside class="sidebar" aria-label="On this page"><div class="side-card"><h2>In this guide</h2><a href="#overview">Overview</a><a href="#parts">{("Illustrated structures ("+str(len(pinned))+")") if pinned else ("Study entries ("+str(len(deep))+")")}</a>'+(f'<a href="#deep">Deep study notes ({len(deep)})</a>' if deep and pinned else '')+('<a href="#under-the-lens">Under the lens</a>' if micro_html else '')+('<a href="#skull-views">Skull perspectives</a>' if skull_html else '')+('<a href="#dental-chart">Tooth charts</a>' if dental_html else '')+('<a href="#region-chart">Region charts</a>' if key=='bodyregions' else '')+('<a href="#tissue-gallery">Four tissue images</a>' if key=='tissuefoundations' else '')+('<a href="#repro-path">Conception to birth path</a>' if reproduction_html else '')+('<a href="#repro-gallery">Picture library</a>' if repro_gallery_html else '')+'<a href="#questions">Five questions &amp; answers</a><a href="#related">Related guides</a><a href="#sources">Further reading</a></div><div class="side-card"><div class="count">20+</div><p>Documented anatomy and developmental entries in every Corpus chapter. Images are orientation aids, not clinical evidence.</p></div></aside>'
-    body='<div class="reading-track" aria-hidden="true"><span id="reading-progress"></span></div>'+opening+f'<div class="shell article-grid"><main id="content">{photo}<section id="overview"><div class="eyebrow">Overview</div><h2>How this part of the body works</h2><p class="intro-text">{E(o["summary"])}</p>{facts_html}</section>{micro_html}{skull_html}{dental_html}{foundation_html}{reproduction_html}{repro_gallery_html}{pinned_html}{deep_html}{faq_html}{related_html}{notes}{connect}</main>{sidebar}</div>'
-    article_json=schema(f'/learn/{key}/',crumb)
+    overview_html=''.join(f'<p class="intro-text"{(" style=\"margin-top:14px\"" if idx>0 else "")}>{E(para)}</p>' for idx,para in enumerate(overview_paras))
+    rel_inline=', '.join(f'<a href="../{E(ref)}/">{E(ORGANS[ref]["title"])}</a>' for ref in related[:3])
+    overview_rel=(f'<p class="note" style="margin-top:14px">Connected study pathways in this atlas: {rel_inline}.</p>' if rel_inline else '')
+    body='<div class="reading-track" aria-hidden="true"><span id="reading-progress"></span></div>'+opening+f'<div class="shell article-grid"><main id="content">{photo}<section id="overview"><div class="eyebrow">Overview</div><h2>How this part of the body works</h2>{overview_html}{overview_rel}{facts_html}</section>{micro_html}{skull_html}{dental_html}{foundation_html}{reproduction_html}{repro_gallery_html}{pinned_html}{deep_html}{faq_html}{related_html}{notes}{connect}</main>{sidebar}</div>'
+    article_json=schema(f'/learn/{key}/',crumb,GUIDES[key]['questions'])
     return document(title,desc,f'/learn/{key}/',body,depth=2,image=img,extra=article_json).replace('<script defer src="../../corpus-bot.js?v=14"></script></body>','<script defer src="../../reading.js?v=33"></script><script defer src="../../preview.js?v=49"></script><script defer src="../../corpus-bot.js?v=14"></script></body>')
 
 # Build every chapter from the exact atlas data. No automatic keyword stuffing or fabricated bylines.
@@ -484,28 +497,38 @@ system_links=''.join(f'<a href="#{E(syskey)}">{E(SYSTEMS[syskey]["name"])} <smal
 hub_body=(
     '<main id="content"><section class="shell hub-hero">'
     '<div class="hub-intro"><div class="eyebrow">Corpus / illustrated study guides</div>'
-    '<h1>Human anatomy, from visible form to inner structure.</h1>'
-    f'<p>Start with the illustration. Stay for the details: {len(ORGANS)} guides connect each body system to named structures, what they do, and why they matter.</p>'
+    '<h1>Human Anatomy Study Guides: 74 Illustrated Body Systems</h1>'
+    f'<p>How do all {len(ORGANS)} regional and systemic chapters fit together inside one living body? Browse our complete library of illustrated human anatomy study guides below—each chapter pairs an interactive anatomical plate with three-paragraph physiological overviews, {sum(len(o["parts"]) for o in ORGANS.values()):,} documented part records, Latin terminology, clinical context, and five frequently asked study questions.</p>'
     '<div class="action-row"><a class="button" href="#all-guides">Explore study guides <span aria-hidden="true">↗</span></a>'
     '<a class="button alt" href="../index.html#/map">Open the body map</a></div>'
-    f'<p class="byline">{len(ORGANS)} chapters <span aria-hidden="true">·</span> {sum(len(o["parts"]) for o in ORGANS.values()):,} documented parts <span aria-hidden="true">·</span> One connected atlas</p></div>'
+    f'<p class="byline">{len(ORGANS)} chapters <span aria-hidden="true">·</span> {sum(len(o["parts"]) for o in ORGANS.values()):,} documented parts <span aria-hidden="true">·</span> 15 integrated study groups</p></div>'
     '<a class="hero-feature" href="heart/" aria-label="Read the featured heart anatomy study guide">'
     f'<span class="feature-top">Featured guide <span>01 / {len(ORGANS)}</span></span>'
     f'<span class="feature-visual"><img src="../img/thumb/heart.webp" {dimensions("thumb/heart.webp")} alt="Digital cross-section illustration of the human heart" fetchpriority="high" decoding="async"></span>'
-    '<span class="feature-bottom"><span><strong>Inside the heart</strong><small>Chambers · valves · blood flow</small></span><b aria-hidden="true">↗</b></span></a></section>'
+    '<span class="feature-bottom"><span><strong>Inside the human heart</strong><small>Chambers · valves · coronary blood flow</small></span><b aria-hidden="true">↗</b></span></a></section>'
     '<div class="shell" id="all-guides"><nav class="system-index" aria-label="Browse guides by body system"><div class="system-index-head">'
-    '<span class="eyebrow">Find your way</span><h2>Browse by body system</h2><p>Select a system or keep scrolling through every illustrated chapter.</p>'
+    '<span class="eyebrow">Structured curriculum</span><h2>Browse all 74 guides by body system</h2><p>Jump directly to foundational terminology, embryonic and fetal development, or any major organ system below.</p>'
     '</div><div class="system-links">'+system_links+'</div></nav>'+''.join(sections)+'</div></main>'
 )
 # A planning map: natural search intent, not traffic or ranking claims.
 with (ROOT/'seo-keyword-map.csv').open('w',newline='',encoding='utf-8') as fh:
     writer=csv.writer(fh)
-    writer.writerow(['chapter','primary search intent','related anatomy terms','page title','meta description'])
+    writer.writerow(['chapter','url','primary_keyword','secondary_keywords','long_tail_keywords','semantic_terms','page_title_55','meta_description_155'])
     for key,o in ORGANS.items():
+        kw=GUIDES[key].get('keywords',{})
         parts=([p['n'] for p in o['parts'].values() if not p.get('contextOnly')] or [p['n'] for p in o['parts'].values()])[:3]
-        writer.writerow([key,PRIMARY.get(key,o['title'].replace(' — ', ' ').replace(' · ', ' ').lower()+' anatomy'),'; '.join(parts),GUIDES[key]['title'],GUIDES[key]['description']])
+        writer.writerow([
+            key,
+            f'/learn/{key}/',
+            kw.get('primary',PRIMARY.get(key,o['title'].replace(' — ', ' ').replace(' · ', ' ').lower()+' anatomy')),
+            '; '.join(kw.get('secondary',parts)),
+            '; '.join(kw.get('longTail',[])),
+            '; '.join(kw.get('semantic',parts)),
+            GUIDES[key]['title'],
+            GUIDES[key]['description']
+        ])
 
-write(learn/'index.html',document('Human anatomy study guides',f'Explore {len(ORGANS)} illustrated human anatomy study guides, from terminology and tissues to the heart, bones, brain and reproductive anatomy.','/learn/',hub_body,depth=1,extra=schema('/learn/',[('Home','/'),('Study guides','/learn/')])))
+write(learn/'index.html',document('Human Anatomy Study Guides: 74 Illustrated Body Systems','Browse all 74 illustrated human anatomy study guides covering foundational terminology, organs, bones, muscles, nerves, microanatomy, and embryonic stages.','/learn/',hub_body,depth=1,extra=schema('/learn/',[('Home','/'),('Study guides','/learn/')])))
 
 # ---------- Build Blog Hub (/blog/) & Individual Blog Articles (/blog/<slug>/) ----------
 BLOG_DIR = ROOT / 'seo' / 'blogs'
@@ -520,6 +543,7 @@ BLOG_POSTS.sort(key=lambda item: (item.get('updated',''), item.get('slug','')), 
 def build_blog_article(post):
     slug = post['slug']
     title = post['title']
+    h1_title = post.get('h1') or title
     desc = post['description']
     cat = post.get('category', 'Anatomy · Study Article')
     updated = post.get('updated', CONTENT_UPDATED)
@@ -529,13 +553,13 @@ def build_blog_article(post):
     rel_organ = ORGANS[rel_key]
     hero_stem = Path(post.get('heroImage', 'heart.webp')).stem
     hero_dims = dimensions(f'webp/{hero_stem}.webp')
-    hero_alt = post.get('heroAlt') or f'Anatomical illustration for {title}'
-    hero_cap = post.get('heroCaption') or f'Educational anatomy illustration accompanying {title}.'
+    hero_alt = post.get('heroAlt') or f'Anatomical illustration for {h1_title}'
+    hero_cap = post.get('heroCaption') or f'Educational anatomy illustration accompanying {h1_title}.'
 
-    crumb = f'<nav class="crumb shell" aria-label="Breadcrumb"><a href="../../index.html">Home</a><i>/</i><a href="../">Blog</a><i>/</i><span>{E(title)}</span></nav>'
+    crumb = f'<nav class="crumb shell" aria-label="Breadcrumb"><a href="../../index.html">Home</a><i>/</i><a href="../">Blog</a><i>/</i><span>{E(h1_title)}</span></nav>'
     hero_sec = (
         f'<section class="shell hero article-hero"><div class="eyebrow">{E(cat)} · {E(read_time)}</div>'
-        f'<h1>{E(title)}</h1><p>{E(desc)}</p>'
+        f'<h1>{E(h1_title)}</h1><p>{E(desc)}</p>'
         f'<div class="action-row"><a class="button" href="../../learn/{E(rel_key)}/">Open {E(rel_organ["title"])} study guide →</a>'
         f'<a class="button alt" href="../../index.html#/{E(rel_key)}">Interactive 3D/2D plate ↗</a></div>'
         f'<p class="byline">Corpus editorial reference · Updated {E(updated)}</p></section>'
@@ -642,28 +666,28 @@ blog_hub_body = (
     + '</section>'
     f'<div class="shell" id="articles-list" style="padding-bottom:64px"><section><h2 class="group-title">Latest anatomy study articles</h2><div class="hub-grid">{blog_cards}</div></section></div></main>'
 )
-write(BLOG_OUT / 'index.html', document('Anatomy blog and study articles', 'In-depth human anatomy articles, cranial nerve tables, heart layer guides and study notes connected to the Corpus Anatomy Atlas.', '/blog/', blog_hub_body, depth=1, extra=schema('/blog/', [('Home','/'),('Blog','/blog/')])))
+write(BLOG_OUT / 'index.html', document('Human Anatomy Blog: Study Articles & Clinical Exam Maps', 'Read in-depth human anatomy study articles, cranial nerve tables, heart conduction guides, and clinical study notes connected to our 74 illustrated guides.', '/blog/', blog_hub_body, depth=1, extra=schema('/blog/', [('Home','/'),('Blog','/blog/')])))
 
 contact_html=(f'<a href="mailto:{E(CONTACT)}">{E(CONTACT)}</a>' if CONTACT else 'A public publisher contact address has not yet been provided. The publisher must add one before a monetization application.')
 about=f'''<main id="content" class="shell about-profile">
 <section class="about-intro" aria-labelledby="about-title"><div class="about-intro-copy">
 <div class="eyebrow">About us · Corpus Anatomy Atlas</div>
-<h1 id="about-title">Anatomy, made clear and worth exploring.</h1>
-<p class="about-lead">Corpus is a free, English-language learning atlas connecting lifelike digital anatomy, carefully named structures and self-tests. Start with the whole body, move into an illustrated chapter, then examine tissue-level teaching cutaways where available.</p>
-<div class="about-actions"><a class="button" href="./index.html#/quiz">Try the quiz →</a><a class="button alt" href="./learn/">Explore study guides →</a></div></div>
-<aside class="about-identity" aria-label="Our purpose"><span class="about-identity-mark" aria-hidden="true">♥</span><small>OUR PURPOSE</small><h2>See the structure.<br>Understand the context.</h2><p>Accessible visual learning, from the body map to a cell-scale illustration, without claiming that a teaching render is a real patient image.</p><span class="about-identity-foot">Free to explore · no account required</span></aside></section>
-<div class="about-numbers" aria-label="Atlas highlights"><span><b>{len(ORGANS)}</b> study chapters</span><span><b>206</b> named adult bones</span><span><b>0</b> accounts required</span></div>
-<section class="about-method" aria-labelledby="method-heading"><div class="eyebrow">How to use the atlas</div><h2 id="method-heading">A useful path from picture to understanding.</h2><div class="about-method-grid"><article><span>01 / LOOK</span><h3>Begin with a real-looking teaching illustration.</h3><p>Navigate the body map or choose a chapter. Fine labels point to depicted structures only; a hidden cell never gets a false pin on an organ image.</p></article><article><span>02 / LEARN</span><h3>Read the anatomy at the right scale.</h3><p>Each guide explains location, function and clinical context. Selected digital tissue cutaways help bridge organ and microanatomy without pretending to be a literal microscope zoom.</p></article><article><span>03 / TEST</span><h3>Check what you remember.</h3><p>Use chapter-based questions and picture-focused quizzes for self-study. They are learning aids, not a qualification or clinical assessment.</p></article></div></section>
-<section class="about-editorial" aria-labelledby="standards-heading"><div><div class="eyebrow">Editorial standards</div><h2 id="standards-heading">Accurate context matters more than decoration.</h2></div><div><p>Chapters provide further-reading links to anatomy references. Some wording and illustrations are software-assisted and edited for educational clarity. Digital renders are <strong>not</strong> patient photographs, histology slides, diagnostic scans or representations of every anatomical variant. We disclose when an image supplies regional context instead of a directly visible detail.</p><p>No named clinician has formally peer-reviewed the complete atlas, and no professional medical credentials are implied. Corrections are welcome.</p></div></section>
-<section class="about-contact" id="contact"><div><div class="eyebrow">Corrections &amp; contact</div><h2>Help make the atlas clearer.</h2><p>If you notice a factual mistake, a mismatched illustration or an accessibility issue, write to {contact_html}. Include the chapter, structure and a short description so it can be checked.</p></div><a class="button" href="mailto:{E(CONTACT)}">Email the editor ↗</a></section>
-<section class="about-boundaries" aria-labelledby="boundaries-heading"><h2 id="boundaries-heading">A learning resource, not medical advice.</h2><p>Corpus is not a diagnosis, treatment plan or surgical reference; individual health decisions require qualified professionals. There is no account registration or advertising code on the site today. Any future advertising needs a separate privacy and policy review. We do not promise search indexing, rankings, clinical approval or AI citations.</p></section>
+<h1 id="about-title">About Corpus Anatomy Atlas: Editorial Policy &amp; Approach</h1>
+<p class="about-lead">Corpus Anatomy Atlas is a free, open-access educational reference built to help students, educators, and curious readers visualize how the human body is organized—from surface landmarks and gross organ systems down to microscopic functional units like the nephron, hepatic lobule, pulmonary acinus, and retinal layers.</p>
+<div class="about-actions"><a class="button" href="./index.html#/quiz">Try the interactive quiz →</a><a class="button alt" href="./learn/">Explore all 74 study guides →</a></div></div>
+<aside class="about-identity" aria-label="Our purpose"><span class="about-identity-mark" aria-hidden="true">♥</span><small>OUR EDUCATIONAL MISSION</small><h2>See the structure.<br>Understand the mechanism.</h2><p>Every chapter connects visual spatial relationships with Latin nomenclature, physiological function, and clinical reasoning.</p><span class="about-identity-foot">Free to explore · 74 chapters · 1,586 structures</span></aside></section>
+<div class="about-numbers" aria-label="Atlas highlights"><span><b>{len(ORGANS)}</b> study chapters</span><span><b>206</b> named adult bones</span><span><b>312</b> skeletal muscles</span></div>
+<section class="about-method" aria-labelledby="method-heading"><div class="eyebrow">How to study with Corpus</div><h2 id="method-heading">Three connected steps from visual orientation to active recall.</h2><div class="about-method-grid"><article><span>01 / ORIENT</span><h3>Locate landmarks on the anatomical plate.</h3><p>Start with the interactive body map or open any chapter plate. Thin leader lines identify structures that are directly visible in that view, while deeper or microscopic structures are clearly separated as context notes.</p></article><article><span>02 / UNDERSTAND</span><h3>Connect gross anatomy to physiology and microanatomy.</h3><p>Each guide explains regional boundaries, blood supply, innervation, physiological mechanisms, and clinical relevance—supported by 40 dedicated microscopic tissue cutaways.</p></article><article><span>03 / RECALL</span><h3>Test yourself with visual and clinical questions.</h3><p>Reinforce what you have studied using five chapter-specific frequently asked questions, multiple-choice clinical prompts, and spot-the-structure visual rounds.</p></article></div></section>
+<section class="about-editorial" aria-labelledby="standards-heading"><div><div class="eyebrow">Editorial standards &amp; sources</div><h2 id="standards-heading">Scientific accuracy grounded in public anatomical references.</h2></div><div><p>All anatomical descriptions, directional terminology, and physiological explanations in Corpus Anatomy Atlas are cross-checked against standard open educational and government references, including <strong>OpenStax Anatomy and Physiology</strong>, <strong>NCBI Bookshelf (StatPearls)</strong>, and <strong>MedlinePlus</strong>. Our illustrations are educational models created to clarify spatial relationships and are not clinical scans, histology slides, or patient photographs.</p><p>We distinguish clearly between structures directly pinned on an overview plate and deeper unpictured structures included for complete systemic understanding.</p></div></section>
+<section class="about-contact" id="contact"><div><div class="eyebrow">Corrections &amp; editorial contact</div><h2>Help us keep the atlas accurate and clear.</h2><p>If you spot a typographical error, an anatomical label that could be clearer, or an accessibility improvement, please write to {contact_html} with the chapter name and structure so we can review and update the guide.</p></div><a class="button" href="mailto:{E(CONTACT)}">Email the editor ↗</a></section>
+<section class="about-boundaries" aria-labelledby="boundaries-heading"><h2 id="boundaries-heading">An educational reference, not medical advice.</h2><p>Corpus Anatomy Atlas is designed strictly for anatomical and physiological education. It is not a diagnostic tool, treatment guide, or substitute for professional medical care; personal health questions should always be directed to a qualified healthcare clinician.</p></section>
 </main>''' 
 
-write(ROOT/'about.html',document('About us and editorial approach','About Corpus Anatomy Atlas: free illustrated anatomy chapters, interactive body map, tissue-level cutaways, study quizzes and a contact for corrections.','/about.html',about,extra=schema('/about.html',[('Home','/'),('About','/about.html')])))
-privacy=f'''<main id="content" class="shell policy"><div class="eyebrow">Privacy</div><h1>Privacy policy</h1><p>Last updated {CONTENT_UPDATED}. Publisher contact: {contact_html}</p><h2>What this site does today</h2><p>The atlas does not require an account. Search, interactive diagrams and self-test quizzes run directly in your browser. Your web host may process standard request information such as IP address, requested file and browser details to deliver and secure the site; the hosting provider's policies apply to that processing.</p><h2>Cookies &amp; Google AdSense advertising disclosure</h2><p>Third-party vendors, including Google, use cookies (such as the Google DoubleClick DART cookie and AdSense cookies) to serve ads based on a user's prior visits to this website or other websites on the internet. Google's use of advertising cookies enables it and its partners to serve ads to users based on their visit to this site and/or other sites on the internet.</p><p>Users may opt out of personalized advertising by visiting <a href="https://adssettings.google.com/" rel="noopener noreferrer">Google Ads Settings</a> or <a href="https://www.aboutads.info/choices/" rel="noopener noreferrer">www.aboutads.info</a>. To learn more about how Google processes data in advertising products, see <a href="https://policies.google.com/technologies/partner-sites" rel="noopener noreferrer">How Google uses information from sites or apps that use our services</a>. Where required by law (including for visitors in the EEA, UK and Switzerland), consent choices are presented via a Google-certified consent management platform (CMP).</p><h2>External links</h2><p>Further-reading links lead to third-party educational references (such as OpenStax and NCBI Bookshelf). Those sites maintain their own privacy policies and cookie practices.</p><h2>Questions</h2><p>For privacy enquiries: {contact_html}</p></main>'''
-write(ROOT/'privacy.html',document('Privacy policy','Read how Corpus Anatomy Atlas handles browser-based features, hosting requests, external references and possible future advertising technologies.','/privacy.html',privacy,extra=schema('/privacy.html',[('Home','/'),('Privacy','/privacy.html')])))
-not_found='<main id="content" class="shell policy"><div class="eyebrow">Page not found</div><h1>That page is not here.</h1><p>The address may have changed. Browse the study guides or return to the atlas.</p><p><a class="button" href="/learn/">Browse study guides →</a></p></main>'
-write(ROOT/'404.html',document('Page not found','The requested anatomy page was not found. Browse the Corpus study guides.','/404.html',not_found))
+write(ROOT/'about.html',document('About Corpus Anatomy Atlas: Editorial Policy & Approach','Learn how Corpus Anatomy Atlas builds illustrated human anatomy study guides, tissue-scale cutaways, interactive maps, and transparent editorial standards.','/about.html',about,extra=schema('/about.html',[('Home','/'),('About','/about.html')])))
+privacy=f'''<main id="content" class="shell policy"><div class="eyebrow">Privacy &amp; data transparency</div><h1>Privacy Policy &amp; Cookie Disclosure</h1><p>Last updated {CONTENT_UPDATED}. Editorial &amp; privacy contact: {contact_html}</p><h2>How Corpus Anatomy Atlas works in your browser</h2><p>Corpus Anatomy Atlas is an open educational website that requires no user registration, login account, or personal profile. Interactive anatomical diagrams, instant search across our 74 study guides, and self-test quizzes run directly inside your web browser. Standard web hosting logs (such as IP address, browser user-agent, timestamp, and requested page URL) are processed by our hosting provider solely to deliver pages reliably and protect site security.</p><h2>Cookies &amp; Google AdSense advertising disclosure</h2><p>Third-party vendors, including Google, use cookies (such as the Google DoubleClick DART cookie and AdSense cookies) to serve ads based on a user's prior visits to this website or other websites on the internet. Google's use of advertising cookies enables it and its partners to serve ads to users based on their visit to this site and/or other sites on the internet.</p><p>Users may opt out of personalized advertising at any time by visiting <a href="https://adssettings.google.com/" rel="noopener noreferrer">Google Ads Settings</a> or <a href="https://www.aboutads.info/choices/" rel="noopener noreferrer">www.aboutads.info</a>. To learn more about how Google processes data in advertising products, please review <a href="https://policies.google.com/technologies/partner-sites" rel="noopener noreferrer">How Google uses information from sites or apps that use our services</a>. Where required by applicable law (including for visitors in the European Economic Area, the United Kingdom, and Switzerland), consent choices are presented via a Google-certified consent management platform (CMP).</p><h2>External educational references</h2><p>Our study guides include further-reading links to trusted public educational resources such as OpenStax Anatomy and Physiology, NCBI Bookshelf, and MedlinePlus. When you follow an external link, that destination website is governed by its own privacy policy and cookie practices.</p><h2>Contact for privacy questions</h2><p>If you have any questions about this privacy policy or data practices on Corpus Anatomy Atlas, please contact {contact_html}.</p></main>'''
+write(ROOT/'privacy.html',document('Privacy Policy & Cookie Disclosure | Corpus Atlas Guide','Read the Corpus Anatomy Atlas privacy policy covering browser-based study tools, hosting logs, external medical references, and Google AdSense disclosures.','/privacy.html',privacy,extra=schema('/privacy.html',[('Home','/'),('Privacy','/privacy.html')])))
+not_found='<main id="content" class="shell policy"><div class="eyebrow">404 · Page not found</div><h1>Page Not Found: Browse All Human Anatomy Guides</h1><p>The anatomy page or study guide URL you requested could not be found or may have moved to a new chapter address. Use the links below to browse all 74 illustrated human anatomy study guides or return to the interactive body map.</p><p><a class="button" href="/learn/">Browse all 74 study guides →</a> <a class="button alt" href="/">Return to interactive atlas →</a></p></main>'
+write(ROOT/'404.html',document('Page Not Found: Browse All Human Anatomy Guides | Atlas','The requested human anatomy page could not be found. Return to the interactive Corpus Anatomy Atlas or browse our 74 illustrated organ system study guides.','/404.html',not_found))
 
 # Keep the existing app as the interactive edition, linked to the search-readable edition.
 html=(ROOT/'index.html').read_text()

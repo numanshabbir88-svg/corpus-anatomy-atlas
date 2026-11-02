@@ -1,27 +1,58 @@
 {
-  "title": "Meninges, CSF & venous sinuses anatomy",
-  "description": "Follow dura, arachnoid and pia; then CSF from choroid plexus to subarachnoid drainage.",
-  "updated": "2026-10-18",
+  "title": "Meninges & CSF Anatomy: Dura, Ventricles & Sinus Drains",
+  "description": "Study meninges and cerebrospinal fluid (CSF) anatomy, tracing the dura, arachnoid, and pia mater with choroid plexuses, ventricles, and dural venous sinus.",
+  "updated": "2026-11-02",
+  "h1": "Meninges, Cerebrospinal Fluid (CSF) Ventricles and Dural Venous Sinuses",
+  "blurb": "Three protective meningeal membranes (dura, arachnoid, pia), buoyancy-providing cerebrospinal fluid from choroid plexuses, and dural venous sinus drainage.",
+  "lead": "Suspended in crystal-clear cerebrospinal fluid and wrapped in three protective membranes, the living brain floats inside the skull so its own weight does not crush its base. This illustrated study guide examines 20 documented anatomical entries—including Periosteal cranial dura, Meningeal cranial dura, Falx cerebri—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Suspended in crystal-clear cerebrospinal fluid and wrapped in three protective membranes, the living brain floats inside the skull so its own weight does not crush its base. Known in classical anatomical nomenclature as Meninges · liquor cerebrospinalis · sinus durae matris, this chapter belongs to the nervous study pathway. Suspended in crystal-clear cerebrospinal fluid and wrapped in three protective membranes, the living brain floats inside the skull so its own weight does not crush its base. Known in classical anatomical nomenclature as Meninges · liquor cerebrospinalis · sinus durae matris, this chapter belongs to the nervous study pathway. Cranial dura has periosteal and meningeal layers that separate at dural venous sinuses and create falx/tentorium folds. The arachnoid bridges across sulci; CSF occupies the subarachnoid space between arachnoid and pia, which closely follows brain contours. Choroid plexus secretes much CSF into ventricles: lateral → interventricular foramina → third → cerebral aqueduct → fourth → median/lateral apertures → subarachnoid cisterns. Arachnoid granulations drain much of it to dural sinuses, alongside other clearance routes. The subdural space is a potential pathologic space, not the normal CSF compartment.",
+    "When you trace how meninges and cerebrospinal fluid functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Periosteal cranial dura (forms tough outer covering and part of sinus walls), Meningeal cranial dura (partitions cranial cavity and surrounds sinuses), Falx cerebri (supports superior and inferior sagittal sinuses), and Tentorium cerebelli (partitions supratentorial and infratentorial spaces). By following all 20 illustrated landmarks in sequence, you can see how gross morphology, internal chambers or layers, and surrounding vessels work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for periosteal cranial dura, spinal epidural space differs from cranial periosteal interface; for meningeal cranial dura, dural folds constrain mass displacement. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "meninges and cerebrospinal fluid",
+    "secondary": [
+      "dura mater arachnoid and pia mater",
+      "choroid plexus and ventricular system",
+      "dural venous sinuses and arachnoid granulations",
+      "falx cerebri and tentorium cerebelli"
+    ],
+    "longTail": [
+      "how cerebrospinal fluid flows through the four ventricles",
+      "three meningeal layers dura arachnoid pia and spaces",
+      "how dural venous sinuses drain blood and CSF to jugular vein"
+    ],
+    "semantic": [
+      "subarachnoid space",
+      "interventricular foramen of Monro",
+      "cerebral aqueduct",
+      "foramina of Luschka and Magendie",
+      "superior sagittal sinus",
+      "cavernous sinus"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "What are the three meninges around the brain?",
-      "answer": "From outside inward they are dura mater, arachnoid mater and pia mater. Cerebrospinal fluid occupies the subarachnoid space."
+      "answer": "From outside inward they are dura mater, arachnoid mater and pia mater. Cerebrospinal fluid occupies the subarachnoid space. From an anatomical and functional standpoint, blood in subarachnoid space can irritate meninges. Functionally, arachnoid mater bounds CSF-filled subarachnoid space."
     },
     {
       "question": "Where does cerebrospinal fluid flow?",
-      "answer": "CSF circulates through the ventricles and subarachnoid spaces before being returned to venous or lymphatic drainage pathways."
+      "answer": "CSF circulates through the ventricles and subarachnoid spaces before being returned to venous or lymphatic drainage pathways. In relation to choroid plexus, this structure secretes much of cerebrospinal fluid and forms blood–CSF barrier."
     },
     {
       "question": "What is the periosteal cranial dura?",
-      "answer": "Outer cranial dural layer adherent to inner skull. Function: Forms tough outer covering and part of sinus walls."
+      "answer": "Outer cranial dural layer adherent to inner skull. Function: Forms tough outer covering and part of sinus walls. In relation to periosteal cranial dura, this structure forms tough outer covering and part of sinus walls. From an anatomical and functional standpoint, spinal epidural space differs from cranial periosteal interface."
     },
     {
       "question": "Where is the falx cerebri located?",
-      "answer": "Vertical sickle-shaped dural sheet between hemispheres. Function: Supports superior and inferior sagittal sinuses."
+      "answer": "Vertical sickle-shaped dural sheet between hemispheres. Function: Supports superior and inferior sagittal sinuses. In relation to falx cerebri, this structure supports superior and inferior sagittal sinuses. From an anatomical and functional standpoint, bridging veins cross toward its superior sinus."
     },
     {
       "question": "What is the function of the superior sagittal sinus?",
-      "answer": "Function: Receives superficial cerebral veins and arachnoid granulation drainage. Midline dural channel at upper attached edge of falx."
+      "answer": "Function: Receives superficial cerebral veins and arachnoid granulation drainage. Midline dural channel at upper attached edge of falx. In relation to superior sagittal sinus, this structure receives superficial cerebral veins and arachnoid granulation drainage."
     }
   ]
 }

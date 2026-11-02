@@ -1,27 +1,58 @@
 {
-  "title": "Skin anatomy",
-  "description": "A layered barrier with hair, glands, receptors and its own immune system.",
-  "updated": "2026-10-18",
+  "title": "Human Skin Anatomy: Epidermis, Dermis & Cutaneous Guide",
+  "description": "Discover human skin anatomy across the stratified epidermis, collagen-rich dermis, subcutaneous hypodermis, hair follicles, sweat glands, and nerve fibers.",
+  "updated": "2026-11-02",
+  "h1": "Human Skin Anatomy: Epidermis, Dermis, Glands and Sensory Nerves",
+  "blurb": "Our largest organ combines a self-renewing stratified epidermis with a collagen-rich dermis housing sweat glands, hair follicles, blood vessels, and touch nerves.",
+  "lead": "Covering roughly two square meters in an average adult, the skin is our largest organ—acting simultaneously as a waterproof shield, radiator, and sensory surface. This illustrated study guide examines 20 documented anatomical entries—including Stratum corneum, Stratum basale & spinosum, Dermis (papillary & reticular), Stratum basale—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Covering roughly two square meters in an average adult, the skin is our largest organ—acting simultaneously as a waterproof shield, radiator, and sensory surface. Known in classical anatomical nomenclature as Cutis, this chapter belongs to the integumentary study pathway. Covering roughly two square meters in an average adult, the skin is our largest organ—acting simultaneously as a waterproof shield, radiator, and sensory surface. Known in classical anatomical nomenclature as Cutis, this chapter belongs to the integumentary study pathway. The epidermis is a keratinising stratified squamous epithelium renewed from the basal layer every ~4 weeks, with melanocytes, Langerhans cells and Merkel cells among the keratinocytes. Beneath it the dermis gives strength and elasticity (papillary loose, reticular dense connective tissue) and carries the vessels, nerves, hair follicles and glands. The hypodermis is fat that insulates and cushions. Skin makes vitamin D, senses the world, and regulates temperature by sweating and by shunting blood through arteriovenous anastomoses.",
+    "When you trace how human skin anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Stratum corneum (waterproofing and the main barrier to microbes and chemicals), Stratum basale & spinosum (renews the epidermis; melanocytes transfer pigment; Langerhans cells present antigen), Stratum basale (renews overlying epidermis), and Stratum spinosum (provides mechanical cohesion). By examining both surface-visible features (11 illustrated landmarks) and deeper or microscopic components (9 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for stratum corneum, its thickness defines palms and soles; loss in burns allows catastrophic fluid and heat loss; for stratum basale & spinosum, basal cell carcinoma arises here at sun-exposed sites; melanoma from melanocytes. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "human skin anatomy",
+    "secondary": [
+      "epidermis dermis and hypodermis",
+      "hair follicles and sebaceous glands",
+      "eccrine and apocrine sweat glands",
+      "cutaneous mechanoreceptors"
+    ],
+    "longTail": [
+      "three main layers of human skin and their functions",
+      "how Meissner and Pacinian corpuscles detect touch",
+      "how sweat glands and dermal vessels regulate temperature"
+    ],
+    "semantic": [
+      "stratum corneum",
+      "papillary dermis",
+      "reticular dermis",
+      "arrector pili muscle",
+      "melanocytes",
+      "subcutaneous tissue"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "What are the main layers of the skin?",
-      "answer": "The epidermis is the outer epithelial barrier; the vascular dermis contains connective tissue, vessels and nerves. Subcutaneous tissue lies beneath the skin and varies by region."
+      "answer": "The epidermis is the outer epithelial barrier; the vascular dermis contains connective tissue, vessels and nerves. Subcutaneous tissue lies beneath the skin and varies by region. In relation to hypodermis (subcutis), this structure insulation, energy store, shock absorption and skin mobility."
     },
     {
       "question": "How does skin help protect the body?",
-      "answer": "The keratinized epidermal surface limits water loss and helps block external injury and microbes, while deeper tissue supports sensation, repair and temperature regulation."
+      "answer": "The keratinized epidermal surface limits water loss and helps block external injury and microbes, while deeper tissue supports sensation, repair and temperature regulation. In relation to hypodermis (subcutis), this structure insulation, energy store, shock absorption and skin mobility."
     },
     {
       "question": "What is the stratum corneum?",
-      "answer": "15–20 layers of dead, flattened, keratin-filled corneocytes held by lipids — the \"brick and mortar\" barrier. Function: Waterproofing and the main barrier to microbes and chemicals."
+      "answer": "15–20 layers of dead, flattened, keratin-filled corneocytes held by lipids — the \"brick and mortar\" barrier. Function: Waterproofing and the main barrier to microbes and chemicals. In relation to stratum corneum, this structure waterproofing and the main barrier to microbes and chemicals."
     },
     {
       "question": "Where is the dermis (papillary & reticular) located?",
-      "answer": "Papillary layer of loose connective tissue forming dermal papillae; reticular layer of dense irregular collagen and elastin. Function: Strength, elasticity, sensation and the vascular supply of the epidermis."
+      "answer": "Papillary layer of loose connective tissue forming dermal papillae; reticular layer of dense irregular collagen and elastin. Function: Strength, elasticity, sensation and the vascular supply of the epidermis. In relation to dermis (papillary & reticular), this structure strength, elasticity, sensation and the vascular supply of the epidermis."
     },
     {
       "question": "What is the function of the hair shaft & follicle?",
-      "answer": "Function: Protection, sensation and (in other mammals) insulation. A keratinised shaft growing from a follicle that dips into dermis or fat, with a bulb around a dermal papilla and a bulge of stem cells."
+      "answer": "Function: Protection, sensation and (in other mammals) insulation. A keratinised shaft growing from a follicle that dips into dermis or fat, with a bulb around a dermal papilla and a bulge of stem cells. In relation to hair shaft & follicle, this structure protection, sensation and (in other mammals) insulation."
     }
   ]
 }

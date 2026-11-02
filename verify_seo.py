@@ -139,8 +139,10 @@ for page in PAGES:
         if not 3 <= len(parser.related) <= 4: report(f'{name}: expected 3–4 relevant chapter links, got {len(parser.related)}')
         related_graph[page.parent.name] = parser.related
     if not parser.title or parser.title in seen_titles: report(f'{name}: missing/duplicate title')
+    if len(parser.title) != 55: report(f'{name}: SEO title must be 55 chars, got {len(parser.title)} ({parser.title!r})')
     seen_titles.add(parser.title)
     if len(parser.description) != 1 or not parser.description[0]: report(f'{name}: missing/duplicate description')
+    elif len(parser.description[0]) != 155: report(f'{name}: meta description must be 155 chars, got {len(parser.description[0])} ({parser.description[0]!r})')
     for ref in parser.refs:
         target = local_target(page, ref)
         if target is not None and not target.is_file(): report(f'{name}: broken local reference {ref}')
@@ -204,7 +206,7 @@ for slug in ('lungs','kidney','thyroid','pancreas','skin','breast','lymph','gynu
 # A distinct, accurately counted skull chapter must not add bones to the 206 atlas or
 # falsely point at hidden palatine/vomer bones or the intratemporal CN VII foramen.
 skull_parser=Page();skull_parser.feed((ROOT/'learn/skullface/index.html').read_text(encoding='utf-8'))
-if not skull_parser.title.startswith('Skull and facial bones: all 22 adult skull bones |') or skull_parser.part_count != 30 or skull_parser.qa_count != 5:
+if skull_parser.title != 'Skull and Facial Bones Anatomy: 22 Adult Bones | Corpus' or skull_parser.part_count != 30 or skull_parser.qa_count != 5:
     report('Skull guide: title, 30 substantive entries or five Q&A missing')
 if not any('../facialnerve/' in link for link in skull_parser.related):
     report('Skull guide: independent facial nerve chapter link missing')
@@ -227,7 +229,7 @@ for button in facial_parser.previews:
         report('Facial nerve: hidden bony foramen has a false plate pointer')
 # A complete dental positional chart, honest class imagery, and correct sensory pathways.
 dental_parser=Page();dental_html=(ROOT/'learn/dentition/index.html').read_text(encoding='utf-8');dental_parser.feed(dental_html)
-if not dental_parser.title.startswith('Tooth anatomy: 32 permanent and 20 primary teeth |') or dental_parser.part_count!=76 or dental_parser.qa_count!=5:
+if dental_parser.title != 'Tooth Anatomy Guide: 32 Permanent & 20 Primary | Corpus' or dental_parser.part_count!=76 or dental_parser.qa_count!=5:
     report('Dentition guide: title, 76 entries or five Q&A missing')
 if len(re.findall(r'class="tooth-position"',dental_html))!=52:
     report('Dentition guide: expected 32 permanent and 20 primary chart positions')

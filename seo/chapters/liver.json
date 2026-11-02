@@ -1,15 +1,46 @@
 {
-  "title": "Liver anatomy: lobes, vessels and bile ducts",
-  "description": "The body's chemical plant: metabolism, bile, clotting factors, detoxification and storage.",
-  "updated": "2026-10-18",
+  "title": "Human Liver Anatomy: Lobes, Portal Vein & Biliary Tract",
+  "description": "Study human liver anatomy, covering the four anatomical lobes, dual hepatic blood supply, porta hepatis, gallbladder, bile ducts, and metabolic lobule map.",
+  "updated": "2026-11-02",
+  "h1": "Human Liver Anatomy: Lobes, Portal Triad, Bile Ducts and Vessels",
+  "blurb": "Fed by both the nutrient-rich portal vein and oxygen-rich hepatic artery, the liver's hexagonal lobules synthesize proteins, detoxify blood, and secrete bile.",
+  "lead": "As the largest internal organ in the body, the liver sits beneath the right diaphragm and processes nearly every nutrient absorbed from the digestive tract. This illustrated study guide examines 20 documented anatomical entries—including Right lobe, Left lobe, Caudate lobe, Portal venule—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "As the largest internal organ in the body, the liver sits beneath the right diaphragm and processes nearly every nutrient absorbed from the digestive tract. Known in classical anatomical nomenclature as Hepar, this chapter belongs to the digestive study pathway. As the largest internal organ in the body, the liver sits beneath the right diaphragm and processes nearly every nutrient absorbed from the digestive tract. Known in classical anatomical nomenclature as Hepar, this chapter belongs to the digestive study pathway. The liver receives blood twice over — oxygenated from the hepatic artery and nutrient-rich from the portal vein — and mixes them in the sinusoids between plates of hepatocytes. Each hepatocyte performs hundreds of jobs: making albumin and clotting factors, conjugating bilirubin, storing glycogen and vitamins, and detoxifying drugs through the cytochrome P450 system. Bile, made continuously, is concentrated in the gallbladder and released into the duodenum to emulsify fat. The liver is also the only visceral organ that can regenerate: removing 70% leaves a liver that regrows to full size.",
+    "When you trace how human liver anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Right lobe (carries most of the hepatic mass and function), Left lobe (supplies the left half of the functional liver), Portal venule (feeds liver parenchyma), and Hepatic arteriole (adds oxygen to sinusoidal flow and supplies biliary structures). By examining both surface-visible features (13 illustrated landmarks) and deeper or microscopic components (7 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for right lobe, its inferior edge is what you palpate below the costal margin in hepatomegaly; for left lobe, in cirrhosis the left and caudate lobes often hypertrophy while the right lobe atrophies. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "human liver anatomy",
+    "secondary": [
+      "liver lobes and Couinaud segments",
+      "portal triad hepatic portal vein",
+      "biliary tree and gallbladder",
+      "hepatic veins and inferior vena cava"
+    ],
+    "longTail": [
+      "why the liver receives blood from both portal vein and artery",
+      "lobes ligaments and segments of the human liver explained",
+      "how bile drains from hepatocytes into the common bile duct"
+    ],
+    "semantic": [
+      "falciform ligament",
+      "porta hepatis",
+      "caudate lobe",
+      "quadrate lobe",
+      "common hepatic duct",
+      "cystic duct"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "What are the main functions of the liver?",
-      "answer": "The liver processes nutrients, makes bile and many blood proteins, stores glycogen and participates in drug and toxin metabolism. Its blood arrives from both the portal vein and hepatic artery."
+      "answer": "The liver processes nutrients, makes bile and many blood proteins, stores glycogen and participates in drug and toxin metabolism. Its blood arrives from both the portal vein and hepatic artery. In relation to hepatic lobule & sinusoids, this structure blood flows from triad to central vein while bile flows the opposite way, from canaliculi to the triad bile duct."
     },
     {
       "question": "Where is the liver located?",
-      "answer": "Most of the liver lies beneath the diaphragm in the right upper abdomen, with a smaller part extending across the midline."
+      "answer": "Most of the liver lies beneath the diaphragm in the right upper abdomen, with a smaller part extending across the midline. In relation to left lobe, this structure supplies the left half of the functional liver. From an anatomical and functional standpoint, in cirrhosis the left and caudate lobes often hypertrophy while the right lobe atrophies."
     },
     {
       "question": "What is the gallbladder?",

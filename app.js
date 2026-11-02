@@ -202,7 +202,7 @@ function viewHome(){
       <div class="rv in">
         <div class="eyebrow">Interactive Human Anatomy Atlas</div>
         <h1>Understand the human body, <span class="accent">layer by living layer<svg viewBox="0 0 300 12" preserveAspectRatio="none"><path d="M4 8 C60 2 120 10 176 5 C220 2 262 8 296 5"/></svg></span>.</h1>
-        <p class="lead">Trace human anatomy from surface landmarks down to muscles, cranial nerves, blood vessels, bones, and microscopic tissue architecture. Every chapter pairs studio-grade anatomical plates with Latin nomenclature, physiological function, and clinical context written clearly for students and educators.</p>
+        <p class="lead">Why does a heartbeat sound like two distinct thumps, and how do twelve pairs of cranial nerves wire sight, balance, expression, and speech through tiny openings in the skull base? Corpus lets you trace human anatomy from surface landmarks down to muscles, nerves, blood vessels, bones, and microscopic tissue architecture—pairing 74 illustrated study guides and 1,586 documented structures with Latin nomenclature, physiological function, and clinical context.</p>
         <div class="hero-cta">
           <a class="btn primary" href="#/map">${icon('map')} Explore the body map</a>
           <a class="btn" href="#/organs">Browse chapters</a>
@@ -221,7 +221,7 @@ function viewHome(){
   </section>
 
   <section class="sec wrap" style="padding-top:18px">
-    <div class="sec-h rv"><div><div class="eyebrow">Core Anatomical Atlas</div><h2>Explore human anatomy chapters</h2><p>Select any organ, region, or developmental stage to inspect studio-grade anatomical plates, interactive structure labels, and clinical study notes.</p></div>
+    <div class="sec-h rv"><div><div class="eyebrow">Core Anatomical Atlas</div><h2>Explore 74 illustrated human anatomy study guides</h2><p>Every chapter pairs an interactive anatomical plate with verified leader-line labels, a three-paragraph physiological overview, Latin terminology, clinical notes, and self-test questions.</p></div>
       <a class="btn sm" href="#/organs">All ${STATS.organs} chapters ${icon('arrow')}</a></div>
     <div class="grid">${tiles}</div>
     <div class="all-chapters-link"><a class="btn primary" href="#/organs">Browse all ${STATS.organs} chapters ${icon('arrow')}</a></div>
@@ -231,37 +231,37 @@ function viewHome(){
     <div class="sec-h rv" style="margin-bottom:18px">
       <div>
         <div class="eyebrow">Study Pathways &amp; Foundations</div>
-        <h2>Anatomical foundations &amp; guided pathways</h2>
-        <p>Master foundational anatomical terminology and basic tissues, trace development from conception to childbirth, or navigate by body system.</p>
+        <h2>Anatomical foundations &amp; guided developmental pathways</h2>
+        <p>Start with directional terminology, body cavities, and basic tissue types, follow human development from gametes to birth, or study organ systems side by side.</p>
       </div>
     </div>
-    <div class="foundation-home" style="padding-top:0"><div class="foundation-home-inner"><div><span class="eyebrow">NEW · START WITH THE BASICS</span><h2>Anatomy foundations</h2><p>Learn the language, orient the body, then look at cells and tissues. These are teaching models, not patient scans or histology slides.</p></div><nav aria-label="Foundation study guides"><a href="#/anatomicallanguage">Planes &amp; directions →</a><a href="#/bodyregions">Cavities &amp; regions →</a><a href="#/tissuefoundations">Cells &amp; four tissues →</a></nav></div></div>
-    <div class="repro-home"><div class="repro-home-inner"><span class="eyebrow">NEW · 11 SEPARATE CHAPTERS</span><h2>From sperm and egg to childbirth</h2><p>Explore each gamete on its own, then follow fertilization, early development, pregnancy and all three labor stages. Illustrations explain anatomy; they are not clinical scans or delivery instructions.</p><nav aria-label="Start conception and birth study"><a href="#/spermanatomy">Sperm cell →</a><a href="#/oocyteanatomy">Egg cell →</a><a href="#/fertilization">After conception →</a><a href="#/laborfirststage">Childbirth stages →</a></nav></div></div>
+    <div class="foundation-home" style="padding-top:0"><div class="foundation-home-inner"><div><span class="eyebrow">FOUNDATIONAL TRACK · 3 CORE GUIDES</span><h2>Anatomy foundations: planes, cavities &amp; tissues</h2><p>Before diving into individual organs, master the universal coordinate system of medicine—standard anatomical position, sagittal/coronal/transverse planes, dorsal and ventral body cavities, four clinical quadrants, and the four basic tissue families that construct every organ.</p></div><nav aria-label="Foundation study guides"><a href="#/anatomicallanguage">Planes &amp; directions →</a><a href="#/bodyregions">Cavities &amp; regions →</a><a href="#/tissuefoundations">Cells &amp; four tissues →</a></nav></div></div>
+    <div class="repro-home"><div class="repro-home-inner"><span class="eyebrow">DEVELOPMENTAL TRACK · 11 SEQUENTIAL CHAPTERS</span><h2>From sperm and egg cell anatomy to childbirth</h2><p>Follow human reproduction in chronological order: inspect the microscopic architecture of the sperm cell and ovulated secondary oocyte, trace fertilization in the fallopian tube, watch cleavage and blastocyst implantation, explore placental villi, and study embryonic folding, fetal shunts, and all three stages of labor.</p><nav aria-label="Start conception and birth study"><a href="#/spermanatomy">Sperm cell →</a><a href="#/oocyteanatomy">Egg cell →</a><a href="#/fertilization">After conception →</a><a href="#/laborfirststage">Childbirth stages →</a></nav></div></div>
   </section>
 
   <section class="sec wrap start-paths" style="padding-top:28px;padding-bottom:12px">
-    <div class="sec-h rv"><div><div class="eyebrow">A good place to begin</div><h2>Choose your way in</h2><p>You can change paths any time. Nothing here needs a medical background.</p></div></div>
+    <div class="sec-h rv"><div><div class="eyebrow">A clear starting point</div><h2>Choose how you want to study today</h2><p>Whether you are preparing for an anatomy lab exam, reviewing nursing or medical coursework, or exploring out of curiosity, pick the entry point that fits your goal.</p></div></div>
     <div class="start-grid">
-      <a href="#/map" class="start-card rv"><span class="start-icon">01</span><span><strong>Not sure what to look for?</strong><small>Find it on the body map.</small></span><b>Explore →</b></a>
-      <a href="#/organs" class="start-card rv" data-d="1"><span class="start-icon">02</span><span><strong>Know the body part?</strong><small>Browse pictures and short explanations.</small></span><b>Browse →</b></a>
-      <a href="#/male" class="start-card rv" data-d="2"><span class="start-icon">03</span><span><strong>Compare male &amp; female</strong><small>Separate, easy-to-follow study sections.</small></span><b>Compare →</b></a>
+      <a href="#/map" class="start-card rv"><span class="start-icon">01</span><span><strong>Locate an organ by region</strong><small>Click anterior or posterior body landmarks to jump straight to that organ.</small></span><b>Explore →</b></a>
+      <a href="#/organs" class="start-card rv" data-d="1"><span class="start-icon">02</span><span><strong>Browse all 74 study guides</strong><small>Filter by body system or search by English and Latin anatomical terms.</small></span><b>Browse →</b></a>
+      <a href="#/male" class="start-card rv" data-d="2"><span class="start-icon">03</span><span><strong>Compare male &amp; female anatomy</strong><small>Dedicated regional hubs covering surface, pelvic, and reproductive structures.</small></span><b>Compare →</b></a>
     </div>
   </section>
 
   <section class="sec wrap" style="padding-top:34px">
-    <div class="sec-h rv"><div><div class="eyebrow">Browse by system</div><h2>${STATS.systems} systems, one body</h2></div>
+    <div class="sec-h rv"><div><div class="eyebrow">Browse by system</div><h2>${STATS.systems} integrated organ systems, one living body</h2></div>
       <a class="btn sm" href="#/systems">All systems ${icon('arrow')}</a></div>
     <div class="sysbar rv" data-d="1">${sysChips}</div>
   </section>
 
-  <section class="sec wrap" style="padding-top:8px;padding-bottom:8px"><a class="deep-promo rv" href="#/deep"><img src="img/thumb/eye-layers-deep.webp" alt="Realistic cross-section of the eye" loading="lazy"><span><small>NEW · CLINICAL ANATOMY PATH</small><strong>Beyond the overview: ${DEEP_PATH.reduce((n,k)=>n+Object.keys(ORGANS[k].parts).length,0)} deeper structures</strong><em>Clitoral and penile erectile tissue · skin strata · facial and trigeminal nerves · eye and retina · brain, nephron, alveoli, liver and intestine</em></span><b>Explore ${DEEP_PATH.length} chapters ↗</b></a></section>
+  <section class="sec wrap" style="padding-top:8px;padding-bottom:8px"><a class="deep-promo rv" href="#/deep"><img src="img/thumb/eye-layers-deep.webp" alt="Cross-section of the human eye showing cornea, lens, and retinal layers" loading="lazy"><span><small>MICROANATOMY &amp; NEUROVASCULAR TRACK</small><strong>Beyond the overview: ${DEEP_PATH.reduce((n,k)=>n+Object.keys(ORGANS[k].parts).length,0)} deeper structures</strong><em>Nephron filtration · pulmonary acinus · hepatic lobule · intestinal villi · retina · meninges &amp; CSF · brachial plexus · cranial nerves V &amp; VII</em></span><b>Explore ${DEEP_PATH.length} chapters ↗</b></a></section>
 
   <section class="sec wrap">
-    <div class="sec-h rv"><div><div class="eyebrow">How it works</div><h2>Three steps to actually remembering it</h2></div></div>
+    <div class="sec-h rv"><div><div class="eyebrow">How it works</div><h2>Three steps to mastering complex anatomy</h2></div></div>
     <div class="steps">
-      <div class="card step rv"><div class="n">1</div><h3>See it clearly</h3><p>Use animated focus highlights on realistic pictures to trace a structure before reading its full explanation.</p></div>
-      <div class="card step rv" data-d="1"><div class="n">2</div><h3>Go deeper</h3><p>Tap a thin label line or open an unpictured study note for anatomical detail, function and clinical context.</p></div>
-      <div class="card step rv" data-d="2"><div class="n">3</div><h3>Prove it</h3><p>Finish with the built-in quiz: multiple choice plus spot-the-structure rounds based on the realistic picture you just studied.</p></div>
+      <div class="card step rv"><div class="n">1</div><h3>Orient on the visual plate</h3><p>Locate each visible anatomical landmark using thin leader lines and animated focus highlights before diving into terminology.</p></div>
+      <div class="card step rv" data-d="1"><div class="n">2</div><h3>Connect structure to function</h3><p>Open any of the 1,586 documented part records to read its Latin name, anatomical description, physiological mechanism, and clinical relevance.</p></div>
+      <div class="card step rv" data-d="2"><div class="n">3</div><h3>Test active recall</h3><p>Reinforce retention with chapter-specific multiple-choice questions, spot-the-structure visual rounds, and five frequently asked study questions per chapter.</p></div>
     </div>
   </section>
 
@@ -269,8 +269,8 @@ function viewHome(){
     <div class="banner rv">
       <svg class="deco" viewBox="0 0 200 200" aria-hidden="true"><path d="M100 178 C46 140 16 110 16 76 C16 48 38 28 64 28 C80 28 94 36 100 50 C106 36 120 28 136 28 C162 28 184 48 184 76 C184 110 154 140 100 178 Z" fill="none" stroke="#e8f4f1" stroke-width="6"/></svg>
       <div class="eyebrow" style="color:#8fd8c8">Interactive body map</div>
-      <h2>Find any organ on the body in two clicks</h2>
-      <p>Front and back educational body renders with approximate region markers and a complete clickable name list. Select a region to open its full chapter.</p>
+      <h2>Locate any organ system on the human body in two clicks</h2>
+      <p>Switch between anterior and posterior full-body views, inspect regional landmarks from the cranial cavity to the pelvic floor, and open the corresponding study guide.</p>
       <a class="btn primary" href="#/map">Open the body map ${icon('arrow')}</a>
     </div>
   </section>`;
@@ -599,7 +599,7 @@ function viewOrgan(key){
       </div>
     </aside>
   </div>
-  <details class="chapter-overview wrap"><summary>Read the full overview <span>A longer explanation of this chapter</span></summary><p>${esc(o.summary)}</p></details>
+  <details class="chapter-overview wrap" open><summary>Anatomical &amp; physiological overview <span>Complete 3-part chapter study guide</span></summary>${(Array.isArray(o.overview)&&o.overview.length?o.overview:[o.summary]).map(p=>`<p style="margin-bottom:12px">${esc(p)}</p>`).join('')}</details>
   <details class="quick-facts wrap"><summary>Quick facts <span>Location, blood supply &amp; more</span></summary>
     <div class="facts">${facts.map(([b,v])=>`<div class="fact"><b>${b}</b><span>${esc(v)}</span></div>`).join('')}</div>
   </details>
@@ -618,6 +618,7 @@ function viewOrgan(key){
   ${o.study?studySection(o,key):''}
   ${o.bones206?boneSection(o):''}
   ${o.joints?jointSection(o):''}
+  ${Array.isArray(o.questions)&&o.questions.length?`<section class="sec wrap" style="padding-top:12px"><div class="sec-h rv"><div><div class="eyebrow">Frequently asked questions</div><h2>Common study questions on ${esc(o.title.toLowerCase())}</h2></div></div><div class="parts">${o.questions.map((q,qi)=>`<details class="part" ${qi===0?'open':''}><summary class="part-h"><span class="pnum">Q${qi+1}</span><span class="pname"><b>${esc(q.question)}</b></span><span class="pchev">${icon('chev')}</span></summary><div class="part-b"><p class="pdesc">${esc(q.answer)}</p></div></details>`).join('')}</div></section>`:''}
   <section class="sec wrap" style="padding-top:0">
     <div class="sec-h rv"><div><div class="eyebrow">Keep going</div><h2>Related organs</h2></div></div>
     <div class="related">${(o.related||[]).map(r=>ORGANS[r]?`<a class="rel" href="${routeFor(r)}"><span class="rt">${ORGANS[r].photo?`<img src="${imgSrc(ORGANS[r].photo.file,true)}" alt="" loading="lazy">`:thumbSVG(ORGANS[r])}</span><span><strong>${esc(ORGANS[r].title)}</strong><span>${esc(ORGANS[r].latin)}</span></span></a>`:'').join('')}</div>
@@ -1340,6 +1341,14 @@ function render(){
   else if(key==='about') app.innerHTML=viewAbout();
   else if(validOrgan) app.innerHTML=viewOrgan(organKey);
   else app.innerHTML=`<section class="notfound wrap"><h1>Page not found</h1><p class="lead" style="margin:12px auto 22px">“${esc(key)}” isn't a route in this atlas.</p><a class="btn primary" href="#/">Return home</a></section>`;
+
+  /* dynamic 55-char title & 155-char meta description sync for SPA routes */
+  const homeTitle='Corpus — Interactive Human Anatomy Atlas & Study Guides';
+  const homeDesc='Explore Corpus, a free interactive human anatomy atlas with 74 illustrated study guides, 1,586 documented structures, 206 bones, 312 muscles, and 3D views.';
+  const activeOrgan=(validOrgan && ORGANS[organKey])?ORGANS[organKey]:null;
+  document.title=(activeOrgan&&activeOrgan.seoTitle)?activeOrgan.seoTitle:homeTitle;
+  const metaDescEl=document.querySelector('meta[name="description"]');
+  if(metaDescEl) metaDescEl.setAttribute('content',(activeOrgan&&activeOrgan.seoDesc)?activeOrgan.seoDesc:homeDesc);
 
   /* post-render bindings */
   if(!key){bindShowcase(); $$('[data-count]').forEach(el=>countUp(el,+el.dataset.count));}

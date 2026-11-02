@@ -1,27 +1,58 @@
 {
-  "title": "Brachial plexus anatomy: roots to terminal nerves",
-  "description": "Trace the arm nerve network from spinal roots through trunks, divisions and cords to five terminal nerves.",
-  "updated": "2026-10-18",
+  "title": "Brachial Plexus Anatomy: C5–T1 Roots, Trunks & Branches",
+  "description": "Learn brachial plexus anatomy from spinal roots C5–T1 through trunks, divisions, and cords to musculocutaneous, axillary, radial, median, and ulnar nerves.",
+  "updated": "2026-11-02",
+  "h1": "Brachial Plexus Anatomy (C5–T1): Roots, Trunks, Cords and Arm Nerves",
+  "blurb": "How spinal nerve roots C5–T1 braid into trunks, divisions, and cords to form the musculocutaneous, axillary, radial, median, and ulnar nerves of the upper limb.",
+  "lead": "Crossing from the lateral neck through the axilla into the upper limb, the brachial plexus braids five spinal nerve roots into the motor and sensory cables of the arm and hand. This illustrated study guide examines 20 documented anatomical entries—including C5–T1 ventral rami, Interscalene passage, Upper trunk—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Crossing from the lateral neck through the axilla into the upper limb, the brachial plexus braids five spinal nerve roots into the motor and sensory cables of the arm and hand. Known in classical anatomical nomenclature as Plexus brachialis, this chapter belongs to the nervous study pathway. Crossing from the lateral neck through the axilla into the upper limb, the brachial plexus braids five spinal nerve roots into the motor and sensory cables of the arm and hand. Known in classical anatomical nomenclature as Plexus brachialis, this chapter belongs to the nervous study pathway. The brachial plexus usually arises from ventral rami C5–T1. C5–6 form upper trunk, C7 middle trunk and C8–T1 lower trunk. Each trunk divides anteriorly and posteriorly; anterior divisions of upper/middle form lateral cord, lower forms medial cord, all posterior divisions form posterior cord. Cords are named relative to the axillary artery. Musculocutaneous, axillary, radial, median and ulnar nerves reach the limb; several important scapular and pectoral branches leave the plexus before these endpoints.",
+    "When you trace how brachial plexus nerve anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include C5–T1 ventral rami (provide segmental motor and sensory fibers to upper limb), Interscalene passage (conveys plexus out of neck), Upper trunk (redistributes upper-root fibers into divisions), and Middle trunk (feeds anterior and posterior divisions). By following all 20 illustrated landmarks in sequence, you can see how gross morphology, internal chambers or layers, and surrounding vessels work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for c5–t1 ventral rami, anatomy can be prefixed C4–C8 or postfixed C6–T2; for interscalene passage, site of interscalene regional anesthesia. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "brachial plexus nerve anatomy",
+    "secondary": [
+      "roots trunks divisions cords branches",
+      "C5 C6 C7 C8 T1 spinal nerve roots",
+      "musculocutaneous median ulnar radial axillary",
+      "upper middle and lower trunks"
+    ],
+    "longTail": [
+      "how C5 to T1 roots form trunks divisions cords and branches",
+      "five major terminal nerves of the brachial plexus explained",
+      "sensory and motor territories of median ulnar radial nerves"
+    ],
+    "semantic": [
+      "lateral cord",
+      "medial cord",
+      "posterior cord",
+      "axillary nerve",
+      "long thoracic nerve",
+      "suprascapular nerve"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "Which spinal nerves form the brachial plexus?",
-      "answer": "Its main roots usually arise from ventral rami C5 through T1. They organize into trunks, divisions, cords and terminal branches."
+      "answer": "Its main roots usually arise from ventral rami C5 through T1. They organize into trunks, divisions, cords and terminal branches. In relation to c5–t1 ventral rami, this structure provide segmental motor and sensory fibers to upper limb."
     },
     {
       "question": "What are the five major terminal branches of the brachial plexus?",
-      "answer": "Musculocutaneous, axillary, radial, median and ulnar nerves are the five commonly taught terminal branches."
+      "answer": "Musculocutaneous, axillary, radial, median and ulnar nerves are the five commonly taught terminal branches. In relation to medial cord, this structure gives ulnar and medial root of median nerve. From an anatomical and functional standpoint, medial cutaneous nerves of arm/forearm also arise here."
     },
     {
       "question": "What is the C5–T1 ventral rami?",
-      "answer": "Five spinal nerve ventral rami build the typical plexus; not the intrathecal dorsal/ventral rootlets. Function: Provide segmental motor and sensory fibers to upper limb."
+      "answer": "Five spinal nerve ventral rami build the typical plexus; not the intrathecal dorsal/ventral rootlets. Function: Provide segmental motor and sensory fibers to upper limb. In relation to c5–t1 ventral rami, this structure provide segmental motor and sensory fibers to upper limb."
     },
     {
       "question": "Where is the upper trunk located?",
-      "answer": "Formed by union of C5 and C6 ventral rami. Function: Redistributes upper-root fibers into divisions."
+      "answer": "Formed by union of C5 and C6 ventral rami. Function: Redistributes upper-root fibers into divisions. In relation to upper trunk, this structure redistributes upper-root fibers into divisions. From an anatomical and functional standpoint, upper-trunk traction can weaken shoulder abduction and elbow flexion."
     },
     {
       "question": "What is the function of the lower trunk?",
-      "answer": "Function: Carries lower-root fibers toward hand pathways. Formed by C8 and T1 ventral rami."
+      "answer": "Function: Carries lower-root fibers toward hand pathways. Formed by C8 and T1 ventral rami. In relation to lower trunk, this structure carries lower-root fibers toward hand pathways. From an anatomical and functional standpoint, lower-trunk damage may weaken intrinsic hand muscles."
     }
   ]
 }

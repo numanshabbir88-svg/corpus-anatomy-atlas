@@ -1,27 +1,58 @@
 {
-  "title": "Ear anatomy: hearing and balance structures",
-  "description": "A pressure-wave collector that turns vibration into nerve impulses and doubles as a gyroscope.",
-  "updated": "2026-10-18",
+  "title": "Human Ear Anatomy: Ossicles, Cochlea & Balance Pathways",
+  "description": "Learn human ear anatomy across the external canal, eardrum, three middle-ear ossicles, auditory tube, spiral cochlea, and vestibular semicircular pathways.",
+  "updated": "2026-11-02",
+  "h1": "Human Ear Anatomy: Outer, Middle and Inner Ear Hearing and Balance",
+  "blurb": "Three connected compartments in the temporal bone convert airborne pressure waves into cochlear nerve signals while tracking head rotation and gravity.",
+  "lead": "Housed deep within the dense petrous temporal bone, the human ear pairs two remarkable sensory systems in one space: acoustic hearing and three-dimensional balance. This illustrated study guide examines 22 documented anatomical entries—including Auricle (pinna), External acoustic meatus, Tympanic membrane, Organ of Corti—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Housed deep within the dense petrous temporal bone, the human ear pairs two remarkable sensory systems in one space: acoustic hearing and three-dimensional balance. Known in classical anatomical nomenclature as Auris, this chapter belongs to the sensory study pathway. Housed deep within the dense petrous temporal bone, the human ear pairs two remarkable sensory systems in one space: acoustic hearing and three-dimensional balance. Known in classical anatomical nomenclature as Auris, this chapter belongs to the sensory study pathway. Sound waves are funnelled by the auricle down the external canal to the tympanic membrane. The membrane vibrates the ossicular chain — malleus, incus and stapes, the three smallest bones in the body — which amplifies pressure about 22-fold as it transfers vibration from a large eardrum to the tiny oval window. In the fluid-filled cochlea, the travelling wave bends hair cells on the basilar membrane: high frequencies at the base, low at the apex. Beside it, the vestibule and three semicircular canals sense gravity and angular acceleration for balance.",
+    "When you trace how human ear anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Auricle (pinna) (collects sound and helps localise it, especially vertically), External acoustic meatus (conducts sound to the eardrum; cerumen traps dust and insects), Organ of Corti (transduces basilar-membrane motion into auditory nerve signals), and Basilar membrane (supports frequency-dependent cochlear vibration). By examining both surface-visible features (20 illustrated landmarks) and deeper or microscopic components (2 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for auricle (pinna), its skin is a classic site for gouty tophi and for sun-related skin cancer; for external acoustic meatus, impacted wax and otitis externa (swimmer's ear) both cause conductive hearing loss and pain on pulling the pinna. Use the interactive regional diagram above alongside the 22 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "human ear anatomy",
+    "secondary": [
+      "outer middle and inner ear",
+      "tympanic membrane and ossicles",
+      "cochlea organ of Corti hearing",
+      "semicircular canals vestibule balance"
+    ],
+    "longTail": [
+      "how sound vibrations travel from eardrum to the cochlea",
+      "how the malleus incus and stapes amplify sound waves",
+      "how semicircular canals and otolith organs detect balance"
+    ],
+    "semantic": [
+      "auricle",
+      "auditory tube",
+      "oval window",
+      "vestibulocochlear nerve",
+      "utricle and saccule",
+      "endolymph"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "How do the outer, middle and inner ear work together?",
-      "answer": "The outer ear collects sound, the eardrum and three middle-ear bones transmit vibration, and the cochlea in the inner ear converts movement into nerve signals."
+      "answer": "The outer ear collects sound, the eardrum and three middle-ear bones transmit vibration, and the cochlea in the inner ear converts movement into nerve signals. In relation to external acoustic meatus, this structure conducts sound to the eardrum; cerumen traps dust and insects."
     },
     {
       "question": "Which part of the ear helps with balance?",
-      "answer": "The vestibular organs of the inner ear, including the semicircular canals and otolith organs, detect head rotation and linear movement."
+      "answer": "The vestibular organs of the inner ear, including the semicircular canals and otolith organs, detect head rotation and linear movement. In relation to vestibule (utricle & saccule), this structure sense linear acceleration and head tilt — gravity sensing."
     },
     {
       "question": "What is the tympanic membrane?",
-      "answer": "A 9 × 10 mm cone of three layers, tilted so its umbo points medially; pars tensa below, pars flaccida above. Function: Converts sound pressure into mechanical vibration of the malleus."
+      "answer": "A 9 × 10 mm cone of three layers, tilted so its umbo points medially; pars tensa below, pars flaccida above. Function: Converts sound pressure into mechanical vibration of the malleus. In relation to tympanic membrane, this structure converts sound pressure into mechanical vibration of the malleus."
     },
     {
       "question": "Where is the stapes located?",
-      "answer": "The stirrup: the smallest bone in the body (~3 mm), its footplate closing the oval window. Function: Delivers amplified vibration into the cochlear fluid."
+      "answer": "The stirrup: the smallest bone in the body (~3 mm), its footplate closing the oval window. Function: Delivers amplified vibration into the cochlear fluid. In relation to stapes, this structure delivers amplified vibration into the cochlear fluid."
     },
     {
       "question": "What is the function of the vestibule (utricle & saccule)?",
-      "answer": "Function: Sense linear acceleration and head tilt — gravity sensing. Two otolith organs whose hair cells carry crystals of calcium carbonate."
+      "answer": "Function: Sense linear acceleration and head tilt — gravity sensing. Two otolith organs whose hair cells carry crystals of calcium carbonate. In relation to vestibule (utricle & saccule), this structure sense linear acceleration and head tilt — gravity sensing."
     }
   ]
 }

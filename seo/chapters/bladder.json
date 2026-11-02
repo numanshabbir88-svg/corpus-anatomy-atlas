@@ -1,27 +1,58 @@
 {
-  "title": "Urinary bladder anatomy: wall, trigone and blood supply",
-  "description": "A detrusor-muscle reservoir with a smooth trigone and a two-stage sphincter.",
-  "updated": "2026-10-18",
+  "title": "Urinary Bladder Anatomy: Detrusor, Trigone & Sphincters",
+  "description": "Learn urinary bladder anatomy behind the pubic symphysis, covering the transitional urothelium, three-layer detrusor muscle, smooth trigone, and sphincter.",
+  "updated": "2026-11-02",
+  "h1": "Urinary Bladder Anatomy: Detrusor Wall, Trigone and Sphincters",
+  "blurb": "A compliant three-layered detrusor muscle reservoir lined by stretchable transitional urothelium, guarded by a smooth trigone and dual urethral sphincters.",
+  "lead": "Resting on the pelvic floor just behind the pubic bones, the urinary bladder is a hollow muscular reservoir that expands smoothly as it fills and contracts on command. This illustrated study guide examines 20 documented anatomical entries—including Dome (apex), Detrusor muscle, Urothelium, Urothelial umbrella cells—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Resting on the pelvic floor just behind the pubic bones, the urinary bladder is a hollow muscular reservoir that expands smoothly as it fills and contracts on command. Known in classical anatomical nomenclature as Vesica urinaria, this chapter belongs to the urinary study pathway. Resting on the pelvic floor just behind the pubic bones, the urinary bladder is a hollow muscular reservoir that expands smoothly as it fills and contracts on command. Known in classical anatomical nomenclature as Vesica urinaria, this chapter belongs to the urinary study pathway. The bladder is a muscular sac lined by transitional (urothelial) epithelium that stretches from five cell layers down to two as it fills. The detrusor muscle contracts under parasympathetic control (S2–S4) while the internal sphincter (smooth muscle) and external sphincter (skeletal, pudendal nerve) keep urine in. The trigone — the triangle between the two ureteric orifices and the internal urethral orifice — is smooth because it develops from the mesonephric duct, and its oblique ureteric tunnels act as flap valves preventing reflux. Micturition is a spinal reflex under voluntary control from the pons and cortex.",
+    "When you trace how urinary bladder anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Dome (apex) (expands upward into the abdomen as the bladder fills), Detrusor muscle (contraction empties the bladder; relaxation allows storage at low pressure), Urothelial umbrella cells (form an impermeable apical barrier as the bladder stretches), and Lamina propria of bladder (supports the bladder mucosa). By examining both surface-visible features (17 illustrated landmarks) and deeper or microscopic components (3 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for dome (apex), A patent urachus can leak urine at the umbilicus in a newborn; for detrusor muscle, chronic outlet obstruction (prostate) hypertrophies it into trabeculae and diverticula; overactivity causes urge incontinence. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "urinary bladder anatomy",
+    "secondary": [
+      "detrusor muscle and urothelium",
+      "bladder trigone and ureteric orifices",
+      "internal and external urethral sphincters",
+      "pelvic autonomic bladder control"
+    ],
+    "longTail": [
+      "what forms the boundaries of the urinary bladder trigone",
+      "how transitional epithelium allows the bladder to stretch",
+      "sympathetic and parasympathetic nerve control of urination"
+    ],
+    "semantic": [
+      "apex and urachus",
+      "neck of bladder",
+      "interureteric crest",
+      "uvula of bladder",
+      "pelvic splanchnic nerves",
+      "pudendal nerve"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "How does the urinary bladder store and release urine?",
-      "answer": "A stretchable urothelial lining and detrusor muscle allow filling. During urination, coordinated detrusor contraction and sphincter relaxation empty the bladder."
+      "answer": "A stretchable urothelial lining and detrusor muscle allow filling. During urination, coordinated detrusor contraction and sphincter relaxation empty the bladder. From an anatomical and functional standpoint, chronic outlet obstruction (prostate) hypertrophies it into trabeculae and diverticula; overactivity causes urge incontinence."
     },
     {
       "question": "What is the trigone of the bladder?",
-      "answer": "The trigone is a triangular region on the internal bladder floor between the two ureteric openings and the internal urethral opening."
+      "answer": "The trigone is a triangular region on the internal bladder floor between the two ureteric openings and the internal urethral opening. From an anatomical and functional standpoint, the interureteric ridge between the orifices is the first landmark sought at cystoscopy."
     },
     {
       "question": "What is the detrusor muscle?",
-      "answer": "Three layers of interlacing smooth muscle with the wall thickened into trabeculae when obstructed. Function: Contraction empties the bladder; relaxation allows storage at low pressure."
+      "answer": "Three layers of interlacing smooth muscle with the wall thickened into trabeculae when obstructed. Function: Contraction empties the bladder; relaxation allows storage at low pressure. In relation to detrusor muscle, this structure contraction empties the bladder; relaxation allows storage at low pressure."
     },
     {
       "question": "Where is the urothelium located?",
-      "answer": "Stratified transitional epithelium with umbrella cells whose plaques make it impermeable to urine. Function: A stretch-tolerant, urine-proof lining."
+      "answer": "Stratified transitional epithelium with umbrella cells whose plaques make it impermeable to urine. Function: A stretch-tolerant, urine-proof lining. In relation to urothelium, this structure A stretch-tolerant, urine-proof lining."
     },
     {
       "question": "What is the function of the trigone?",
-      "answer": "Function: Funnel for emptying; its stretch receptors trigger the micturition reflex. The smooth triangle bounded by the two ureteric orifices and the internal urethral orifice; mucosa firmly bound to muscle."
+      "answer": "Function: Funnel for emptying; its stretch receptors trigger the micturition reflex. The smooth triangle bounded by the two ureteric orifices and the internal urethral orifice; mucosa firmly bound to muscle. In relation to trigone, this structure funnel for emptying; its stretch receptors trigger the micturition reflex."
     }
   ]
 }

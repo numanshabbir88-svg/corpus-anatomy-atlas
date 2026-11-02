@@ -1,27 +1,58 @@
 {
-  "title": "Joints & ligaments anatomy",
-  "description": "Where bones meet: cartilage cushions, capsules contain, ligaments guide — the knee is the classic teaching joint because every principle is visible in it.",
-  "updated": "2026-10-18",
+  "title": "Joints and Ligaments Anatomy: Synovial Capsule & Guides",
+  "description": "Understand joints and ligaments anatomy, comparing fibrous, cartilaginous, and synovial joints with hyaline cartilage, joint capsules, bursae, and menisci.",
+  "updated": "2026-11-02",
+  "h1": "Joints and Ligaments Anatomy: Synovial Structure, Cartilage and Stability",
+  "blurb": "How fibrous sutures, cartilaginous symphyses, and fluid-lubricated synovial capsules balance smooth anatomical motion with ligamentous joint stability.",
+  "lead": "Where two rigid bones meet, specialized joints and tough collagenous ligaments balance two competing biomechanical demands: smooth freedom of motion and structural stability. This illustrated study guide examines 20 documented anatomical entries—including Anterior cruciate ligament, Posterior cruciate ligament, Medial collateral ligament—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Where two rigid bones meet, specialized joints and tough collagenous ligaments balance two competing biomechanical demands: smooth freedom of motion and structural stability. Known in classical anatomical nomenclature as Articulationes et ligamenta, this chapter belongs to the skeletal system study pathway. Where two rigid bones meet, specialized joints and tough collagenous ligaments balance two competing biomechanical demands: smooth freedom of motion and structural stability. Known in classical anatomical nomenclature as Articulationes et ligamenta, this chapter belongs to the skeletal system study pathway. Open the knee to see cruciates, collaterals and menisci; the part list then tours the other major ligaments of the body.",
+    "When you trace how joints and ligaments anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Anterior cruciate ligament (blocks anterior tibial translation; pivots in rotation), Posterior cruciate ligament (blocks posterior tibial slide (dashboard injury)), Medial collateral ligament (resists valgus stress), and Lateral collateral ligament (resists varus stress). By following all 20 illustrated landmarks in sequence, you can see how gross morphology, internal chambers or layers, and surrounding vessels work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for anterior cruciate ligament, ACL tear: pop + giving way; reconstructed with graft; for posterior cruciate ligament, PCL injuries need far greater force than ACL. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "joints and ligaments anatomy",
+    "secondary": [
+      "synovial cartilaginous and fibrous joints",
+      "articular cartilage and synovial capsule",
+      "cruciate ligaments and menisci",
+      "ball-and-socket hinge and pivot joints"
+    ],
+    "longTail": [
+      "structural and functional classification of human joints",
+      "anatomy of a synovial joint capsule fluid and ligaments",
+      "how ligaments stabilize the hip knee shoulder and spine"
+    ],
+    "semantic": [
+      "diarthrosis",
+      "amphiarthrosis",
+      "synarthrosis",
+      "synovial membrane",
+      "fibrocartilage",
+      "bursa"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "What holds a joint together?",
-      "answer": "A joint may be supported by a capsule, ligaments, tendons and nearby muscles. Exact stabilizers vary between joints; the knee also has menisci and cruciate ligaments."
+      "answer": "A joint may be supported by a capsule, ligaments, tendons and nearby muscles. Exact stabilizers vary between joints; the knee also has menisci and cruciate ligaments. In relation to menisci (medial & lateral), this structure load sharing, shock absorption, joint lubrication."
     },
     {
       "question": "What do the ACL and PCL do in the knee?",
-      "answer": "The anterior and posterior cruciate ligaments resist different directions of tibial translation and help stabilize the knee during movement."
+      "answer": "The anterior and posterior cruciate ligaments resist different directions of tibial translation and help stabilize the knee during movement. In relation to anterior cruciate ligament, this structure blocks anterior tibial translation; pivots in rotation."
     },
     {
       "question": "What is the anterior cruciate ligament?",
-      "answer": "From lateral femoral condyle to anterior tibial plateau. Function: Blocks anterior tibial translation; pivots in rotation."
+      "answer": "From lateral femoral condyle to anterior tibial plateau. Function: Blocks anterior tibial translation; pivots in rotation. In relation to anterior cruciate ligament, this structure blocks anterior tibial translation; pivots in rotation."
     },
     {
       "question": "Where is the posterior cruciate ligament located?",
-      "answer": "Medial femoral condyle to posterior tibia. Function: Blocks posterior tibial slide (dashboard injury)."
+      "answer": "Medial femoral condyle to posterior tibia. Function: Blocks posterior tibial slide (dashboard injury). In relation to posterior cruciate ligament, this structure blocks posterior tibial slide (dashboard injury). From an anatomical and functional standpoint, PCL injuries need far greater force than ACL."
     },
     {
       "question": "What is the function of the menisci (medial & lateral)?",
-      "answer": "Function: Load sharing, shock absorption, joint lubrication. Fibrocartilage crescents on the tibial plateau."
+      "answer": "Function: Load sharing, shock absorption, joint lubrication. Fibrocartilage crescents on the tibial plateau. In relation to menisci (medial & lateral), this structure load sharing, shock absorption, joint lubrication. From an anatomical and functional standpoint, medial meniscus tears most — \"unhappy triad\" with ACL+MCL."
     }
   ]
 }

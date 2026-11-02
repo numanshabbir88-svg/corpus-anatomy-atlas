@@ -1,27 +1,58 @@
 {
-  "title": "Pancreas anatomy: ducts, acini and islets",
-  "description": "A dual gland: digestive enzymes from acini, hormones from the islets of Langerhans.",
-  "updated": "2026-10-18",
+  "title": "Human Pancreas Anatomy: Ducts, Exocrine Acini & Hormone",
+  "description": "Understand human pancreas anatomy, from the head, neck, body, and tail to the main pancreatic duct, digestive enzyme acini, and endocrine islet cell types.",
+  "updated": "2026-11-02",
+  "h1": "Human Pancreas Anatomy: Regions, Ducts, Acini and Endocrine Islets",
+  "blurb": "A dual-function retroperitoneal gland: exocrine acini secrete bicarbonate and digestive enzymes into the duodenum while endocrine islets regulate blood glucose.",
+  "lead": "Curled into the C-shaped loop of the duodenum behind the stomach, the pancreas works a double shift as both an enzyme factory for digestion and a hormone regulator. This illustrated study guide examines 21 documented anatomical entries—including Head, Neck, Body, Exocrine acinus—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Curled into the C-shaped loop of the duodenum behind the stomach, the pancreas works a double shift as both an enzyme factory for digestion and a hormone regulator. Known in classical anatomical nomenclature as Pancreas, this chapter belongs to the digestive study pathway. Curled into the C-shaped loop of the duodenum behind the stomach, the pancreas works a double shift as both an enzyme factory for digestion and a hormone regulator. Known in classical anatomical nomenclature as Pancreas, this chapter belongs to the digestive study pathway. The pancreas is both an exocrine and an endocrine organ. Acinar cells package trypsinogen, lipase and amylase into zymogen granules and secrete them into the pancreatic duct, which joins the common bile duct at the hepatopancreatic ampulla; bicarbonate-rich fluid from duct cells neutralises gastric acid. Scattered among the acini, the islets of Langerhans secrete insulin (beta cells), glucagon (alpha), somatostatin (delta) and pancreatic polypeptide directly into blood, minute-to-minute control of glucose.",
+    "When you trace how human pancreas anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Head (houses much of the exocrine tissue and the terminal duct), Neck (landmark separating head from body; the portal vein forms behind it), Exocrine acinus (releases digestive enzyme precursors into duct system), and Centroacinar cells (start ductal bicarbonate-rich secretion). By examining both surface-visible features (14 illustrated landmarks) and deeper or microscopic components (7 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for head, A tumour here compresses the common bile duct, causing painless obstructive jaundice and a palpable gallbladder (Courvoisier's law); for neck, it is the transection line in a Whipple procedure and in distal pancreatectomy. Use the interactive regional diagram above alongside the 21 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "human pancreas anatomy",
+    "secondary": [
+      "head neck body tail of pancreas",
+      "main pancreatic duct of Wirsung",
+      "exocrine acini digestive enzymes",
+      "islets of Langerhans insulin glucagon"
+    ],
+    "longTail": [
+      "where the pancreas sits relative to the duodenum and spleen",
+      "difference between exocrine acini and endocrine islets",
+      "how the pancreatic duct joins the common bile duct"
+    ],
+    "semantic": [
+      "uncinate process",
+      "hepatopancreatic ampulla",
+      "sphincter of Oddi",
+      "accessory duct of Santorini",
+      "beta cells",
+      "retroperitoneal"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "What does the pancreas do?",
-      "answer": "Its exocrine tissue releases digestive enzymes into the small intestine. Endocrine islets release hormones such as insulin and glucagon into the blood."
+      "answer": "Its exocrine tissue releases digestive enzymes into the small intestine. Endocrine islets release hormones such as insulin and glucagon into the blood. In relation to islets of langerhans, this structure minute-to-minute control of blood glucose, plus intermediary metabolism."
     },
     {
       "question": "Where is the pancreas located?",
-      "answer": "It lies behind the stomach across the upper abdomen. Its head sits near the duodenum, while its tail reaches toward the spleen."
+      "answer": "It lies behind the stomach across the upper abdomen. Its head sits near the duodenum, while its tail reaches toward the spleen. From an anatomical and functional standpoint, A tumour here compresses the common bile duct, causing painless obstructive jaundice and a palpable gallbladder (Courvoisier's law)."
     },
     {
       "question": "Where is the head of the pancreas?",
-      "answer": "The broad end nestled in the C-loop of the duodenum, with the uncinate process hooking behind the superior mesenteric vessels. Function: Houses much of the exocrine tissue and the terminal duct."
+      "answer": "The broad end nestled in the C-loop of the duodenum, with the uncinate process hooking behind the superior mesenteric vessels. Function: Houses much of the exocrine tissue and the terminal duct. In relation to head, this structure houses much of the exocrine tissue and the terminal duct."
     },
     {
       "question": "Where is the main pancreatic duct located?",
-      "answer": "Runs the length of the gland from tail to head, joining the common bile duct at the ampulla in the second part of duodenum. Function: Delivers ~1.5 L of enzyme- and bicarbonate-rich juice daily."
+      "answer": "Runs the length of the gland from tail to head, joining the common bile duct at the ampulla in the second part of duodenum. Function: Delivers ~1.5 L of enzyme- and bicarbonate-rich juice daily. In relation to main pancreatic duct, this structure delivers ~1.5 L of enzyme- and bicarbonate-rich juice daily."
     },
     {
       "question": "What is the function of the acinar cells & ductules?",
-      "answer": "Function: Secrete the pro-enzymes for digesting protein, fat and carbohydrate. Grape-like clusters of enzyme-packed cells draining into centroacinar cells and ductules."
+      "answer": "Function: Secrete the pro-enzymes for digesting protein, fat and carbohydrate. Grape-like clusters of enzyme-packed cells draining into centroacinar cells and ductules. In relation to acinar cells & ductules, this structure secrete the pro-enzymes for digesting protein, fat and carbohydrate."
     }
   ]
 }

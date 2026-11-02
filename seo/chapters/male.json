@@ -1,27 +1,58 @@
 {
-  "title": "Male reproductive system anatomy",
-  "description": "Sperm production in the scrotum, maturation in the epididymis, and a shared exit with urine.",
-  "updated": "2026-10-18",
+  "title": "Male Reproductive System Anatomy: Testes, Ducts & Gland",
+  "description": "Explore male reproductive system anatomy, including the testes, epididymis, ductus deferens, seminal vesicles, prostate gland, urethra, and external parts.",
+  "updated": "2026-11-02",
+  "h1": "Male Reproductive System Anatomy: Testes, Ducts and Glands",
+  "blurb": "Temperature-regulated testes, coiled epididymal maturation ducts, muscular vas deferens, accessory glands, and the shared urogenital tract in complete context.",
+  "lead": "The male reproductive system combines external temperature-regulated gonads with an internal network of muscular ducts and secretory glands built to mature and transport gametes. This illustrated study guide examines 20 documented anatomical entries—including Testis & seminiferous tubules, Epididymis, Vas deferens—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "The male reproductive system combines external temperature-regulated gonads with an internal network of muscular ducts and secretory glands built to mature and transport gametes. Known in classical anatomical nomenclature as Organa genitalia masculina, this chapter belongs to the male reproductive study pathway. The male reproductive system combines external temperature-regulated gonads with an internal network of muscular ducts and secretory glands built to mature and transport gametes. Known in classical anatomical nomenclature as Organa genitalia masculina, this chapter belongs to the male reproductive study pathway. Spermatogenesis runs for ~74 days in the seminiferous tubules, where Sertoli cells nurse dividing germ cells behind the blood–testis barrier; Leydig cells between tubules make testosterone under LH. Sperm mature and are stored in the epididymis, then travel through the vas deferens, which joins the seminal vesicle duct to form the ejaculatory duct crossing the prostate. Seminal fluid from seminal vesicles (fructose), prostate (citrate, PSA) and bulbourethral glands makes up semen. The scrotum keeps the testis ~2 °C below core temperature.",
+    "When you trace how male reproductive system anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Testis & seminiferous tubules (spermatogenesis and testosterone production), Epididymis (sperm maturation, motility acquisition and storage (up to weeks)), Vas deferens (propels sperm by powerful peristalsis at emission), and Seminal vesicle (adds ~60% of semen volume: fructose, prostaglandins and clotting proteins). By following all 20 illustrated landmarks in sequence, you can see how gross morphology, internal chambers or layers, and surrounding vessels work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for testis & seminiferous tubules, undescended testis (cryptorchidism) raises infertility and germ-cell tumour risk; torsion is a 6-hour surgical emergency; for epididymis, A common site of infection (epididymitis) and of obstruction after vasectomy or infection. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "male reproductive system anatomy",
+    "secondary": [
+      "testes epididymis and vas deferens",
+      "seminal vesicles and prostate gland",
+      "bulbourethral glands and urethra",
+      "spermatic cord and scrotum"
+    ],
+    "longTail": [
+      "how sperm travel from the testes through the male tract",
+      "organs and accessory glands of the male reproductive system",
+      "temperature regulation of the testes by dartos and cremaster"
+    ],
+    "semantic": [
+      "ejaculatory duct",
+      "prostatic urethra",
+      "pampiniform plexus",
+      "tunica vaginalis",
+      "corpora cavernosa",
+      "corpus spongiosum"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "How is sperm produced and transported?",
-      "answer": "Sperm develop in seminiferous tubules of the testes, mature in the epididymis and pass through the vas deferens and ejaculatory ducts into the urethra."
+      "answer": "Sperm develop in seminiferous tubules of the testes, mature in the epididymis and pass through the vas deferens and ejaculatory ducts into the urethra. From an anatomical and functional standpoint, vasectomy divides it for contraception; sperm granulomas may form at the cut ends."
     },
     {
       "question": "What do the prostate and seminal vesicles contribute?",
-      "answer": "The seminal vesicles and prostate add fluids to semen. Their ducts join the sperm outflow route near the prostate before ejaculation."
+      "answer": "The seminal vesicles and prostate add fluids to semen. Their ducts join the sperm outflow route near the prostate before ejaculation. From an anatomical and functional standpoint, its fructose is the energy source for sperm and a marker of ejaculatory duct patency."
     },
     {
       "question": "What is the testis & seminiferous tubules?",
-      "answer": "250–300 lobules of coiled seminiferous tubules (total ~250 m) with Sertoli cells and developing germ cells, wrapped in tunica albuginea. Function: Spermatogenesis and testosterone production."
+      "answer": "250–300 lobules of coiled seminiferous tubules (total ~250 m) with Sertoli cells and developing germ cells, wrapped in tunica albuginea. Function: Spermatogenesis and testosterone production. In relation to testis & seminiferous tubules, this structure spermatogenesis and testosterone production."
     },
     {
       "question": "Where is the vas deferens located?",
-      "answer": "A thick-walled 45 cm muscular duct from the epididymal tail, through the inguinal canal into the pelvis. Function: Propels sperm by powerful peristalsis at emission."
+      "answer": "A thick-walled 45 cm muscular duct from the epididymal tail, through the inguinal canal into the pelvis. Function: Propels sperm by powerful peristalsis at emission. In relation to vas deferens, this structure propels sperm by powerful peristalsis at emission."
     },
     {
       "question": "What is the function of the prostate?",
-      "answer": "Function: Secretes citrate, zinc and PSA that liquefy the seminal coagulum. A walnut-sized fibromuscular gland around the urethra below the bladder, with peripheral, central and transition zones."
+      "answer": "Function: Secretes citrate, zinc and PSA that liquefy the seminal coagulum. A walnut-sized fibromuscular gland around the urethra below the bladder, with peripheral, central and transition zones. In relation to prostate, this structure secretes citrate, zinc and PSA that liquefy the seminal coagulum."
     }
   ]
 }

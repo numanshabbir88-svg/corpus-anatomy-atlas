@@ -1,27 +1,58 @@
 {
-  "title": "Pulmonary acinus: alveoli and gas-exchange barrier",
-  "description": "From terminal bronchiole to alveolar sac, type I/II pneumocytes, macrophages and the air–blood barrier.",
-  "updated": "2026-10-19",
+  "title": "Pulmonary Acinus & Alveoli Anatomy: Gas-Exchange Guides",
+  "description": "Explore pulmonary acinus and alveoli microanatomy, detailing respiratory bronchioles, Type I and Type II pneumocytes, surfactant, and gas-exchange barrier.",
+  "updated": "2026-11-02",
+  "h1": "Pulmonary Acinus and Alveoli Anatomy: Pneumocytes and Blood-Air Barrier",
+  "blurb": "Inside the terminal respiratory unit: flat Type I pneumocytes, surfactant-secreting Type II cells, alveolar macrophages, and the 0.5-micron blood-air barrier.",
+  "lead": "At the terminal tips of the bronchial tree, roughly 300 to 500 million microscopic air sacs create a gas-exchange surface area nearly the size of a tennis court. This illustrated study guide examines 20 documented anatomical entries—including Terminal bronchiole, Respiratory bronchiole, Alveolar duct, Alveolar epithelial tight junctions—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "At the terminal tips of the bronchial tree, roughly 300 to 500 million microscopic air sacs create a gas-exchange surface area nearly the size of a tennis court. Known in classical anatomical nomenclature as Acinus pulmonis · alveoli, this chapter belongs to the respiratory study pathway. At the terminal tips of the bronchial tree, roughly 300 to 500 million microscopic air sacs create a gas-exchange surface area nearly the size of a tennis court. Known in classical anatomical nomenclature as Acinus pulmonis · alveoli, this chapter belongs to the respiratory study pathway. A terminal bronchiole is the last purely conducting airway. Its distal respiratory bronchioles bear occasional alveoli and lead to alveolar ducts, sacs and alveoli. Thin type I pneumocytes cover most air-exchange surface; type II cells secrete surfactant and can contribute to epithelial repair. The air–blood barrier includes alveolar epithelium, thin interstitium/fused basement membranes and capillary endothelium. Alveolar macrophages provide immune surveillance; capillary red cells pass closely alongside exchange surfaces.",
+    "When you trace how pulmonary acinus and alveoli functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Terminal bronchiole (delivers air to downstream acinus), Respiratory bronchiole (combines air conduction and some gas exchange), Alveolar epithelial tight junctions (maintain fluid barrier despite thin gas-exchange surface), and Pulmonary interstitium (supports cells, matrix and diffusion interface). By examining both surface-visible features (18 illustrated landmarks) and deeper or microscopic components (2 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for terminal bronchiole, contains no cartilage plates or submucosal glands; for respiratory bronchiole, marks proximal boundary of acinus. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "pulmonary acinus and alveoli",
+    "secondary": [
+      "respiratory bronchioles and alveolar ducts",
+      "type I and type II pneumocytes",
+      "blood-air gas exchange barrier",
+      "pulmonary surfactant and macrophages"
+    ],
+    "longTail": [
+      "three layers of the alveolar-capillary gas exchange barrier",
+      "difference between type I and type II alveolar pneumocytes",
+      "how pulmonary surfactant prevents alveolar collapse"
+    ],
+    "semantic": [
+      "alveolar sac",
+      "interalveolar septum",
+      "pores of Kohn",
+      "fused basement membrane",
+      "alveolar macrophage",
+      "pulmonary capillary network"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "What is a pulmonary acinus?",
-      "answer": "An acinus is the lung region distal to a terminal bronchiole where respiratory bronchioles, alveolar ducts and alveoli participate in gas exchange. It is a microanatomical unit, not a whole lung lobe."
+      "answer": "An acinus is the lung region distal to a terminal bronchiole where respiratory bronchioles, alveolar ducts and alveoli participate in gas exchange. It is a microanatomical unit, not a whole lung lobe. From an anatomical and functional standpoint, marks proximal boundary of acinus."
     },
     {
       "question": "How do Type I and Type II alveolar cells differ?",
-      "answer": "Type I pneumocytes are thin squamous lining cells specialized for gas exchange. Type II pneumocytes are plumper cells that make surfactant and help replenish the alveolar lining."
+      "answer": "Type I pneumocytes are thin squamous lining cells specialized for gas exchange. Type II pneumocytes are plumper cells that make surfactant and help replenish the alveolar lining. From an anatomical and functional standpoint, damage can impair barrier integrity."
     },
     {
       "question": "What is the alveolar–capillary barrier?",
-      "answer": "It is the thin interface separating air in an alveolus from blood in a nearby capillary, involving alveolar epithelium, shared basement membranes and capillary endothelium. Its short diffusion distance supports gas exchange."
+      "answer": "It is the thin interface separating air in an alveolus from blood in a nearby capillary, involving alveolar epithelium, shared basement membranes and capillary endothelium. Its short diffusion distance supports gas exchange. In relation to pulmonary interstitium, this structure supports cells, matrix and diffusion interface."
     },
     {
       "question": "Are alveolar macrophages attached to the wall?",
-      "answer": "Alveolar macrophages can move on the air-facing surface of alveoli and engulf inhaled particles and debris. They are not the same as Type I or Type II epithelial cells."
+      "answer": "Alveolar macrophages can move on the air-facing surface of alveoli and engulf inhaled particles and debris. They are not the same as Type I or Type II epithelial cells. In relation to type i pneumocyte, this structure minimizes gas diffusion distance."
     },
     {
       "question": "Is the Type I cell image a histology photograph?",
-      "answer": "No. The separate alveolar cell view is a digital teaching illustration. The thin lining and plumper Type II cell are depicted for learning, not presented as a clinical slide or a literal lung-image zoom."
+      "answer": "No. The separate alveolar cell view is a digital teaching illustration. The thin lining and plumper Type II cell are depicted for learning, not presented as a clinical slide or a literal lung-image zoom. In relation to type i pneumocyte, this structure minimizes gas diffusion distance."
     }
   ]
 }

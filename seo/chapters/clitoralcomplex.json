@@ -1,27 +1,58 @@
 {
-  "title": "Clitoral erectile complex anatomy",
-  "description": "A three-dimensional neurovascular and erectile complex: paired crura, body, glans and closely related vestibular bulbs.",
-  "updated": "2026-10-18",
+  "title": "Clitoral Complex Anatomy: Glans, Crura & Erectile Bulbs",
+  "description": "Discover complete clitoral complex anatomy, revealing how the visible glans connects to the internal body, paired crura, vestibular bulbs, and nerve paths.",
+  "updated": "2026-11-02",
+  "h1": "Clitoral Erectile Complex Anatomy: Glans, Body, Crura and Bulbs",
+  "blurb": "Beyond the visible glans: the internal clitoral body, paired diverging crura anchored to the ischiopubic rami, vestibular bulbs, and dorsal sensory nerves.",
+  "lead": "Only the small glans of the clitoris is visible externally; the majority of the clitoral complex arches internally beneath the pubic bones as paired crura and vestibular bulbs. This illustrated study guide examines 20 documented anatomical entries—including Clitoral glans, Clitoral prepuce, Clitoral body—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Only the small glans of the clitoris is visible externally; the majority of the clitoral complex arches internally beneath the pubic bones as paired crura and vestibular bulbs. Known in classical anatomical nomenclature as Clitoris · corpora cavernosa et bulbi vestibuli, this chapter belongs to the female reproductive study pathway. Only the small glans of the clitoris is visible externally; the majority of the clitoral complex arches internally beneath the pubic bones as paired crura and vestibular bulbs. Known in classical anatomical nomenclature as Clitoris · corpora cavernosa et bulbi vestibuli, this chapter belongs to the female reproductive study pathway. The visible glans is not the whole clitoris. Two corpora cavernosa join into a body, while proximal crura anchor to the ischiopubic rami. The glans is particularly sensory and is not simply another corpus cavernosum. Paired vestibular bulbs are neighboring erectile tissue flanking the vestibule, anatomically distinguished from the corpora. Arterial inflow, smooth-muscle relaxation and venous outflow restriction contribute to engorgement; somatic sensation travels largely in the dorsal clitoral nerve.",
+    "When you trace how clitoral complex anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Clitoral glans (conveys fine sensation), Clitoral prepuce (protects and permits mobility of glans), Clitoral body (engorges via cavernous vascular spaces), and Right corpus cavernosum (fills with blood during arousal). By following all 20 illustrated landmarks in sequence, you can see how gross morphology, internal chambers or layers, and surrounding vessels work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for clitoral prepuce, its form and degree of coverage vary normally. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "clitoral complex anatomy",
+    "secondary": [
+      "glans body and crura of clitoris",
+      "vestibular bulbs erectile tissue",
+      "corpora cavernosa and tunica albuginea",
+      "dorsal nerve and cavernous nerves"
+    ],
+    "longTail": [
+      "internal 3D anatomy of the clitoral crura and bulbs",
+      "how clitoral corpora cavernosa and vestibular bulbs relate",
+      "sensory dorsal nerve vs autonomic cavernous innervation"
+    ],
+    "semantic": [
+      "clitoral hood prepuce",
+      "suspensory ligament",
+      "corpora cavernosa clitoridis",
+      "bulbi vestibuli",
+      "ischiocavernosus",
+      "bulbospongiosus"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "Is the clitoris only the visible glans?",
-      "answer": "No. The visible glans is part of a larger erectile complex that includes a body, paired crura and associated vestibular bulbs."
+      "answer": "No. The visible glans is part of a larger erectile complex that includes a body, paired crura and associated vestibular bulbs. In relation to clitoral body, this structure engorges via cavernous vascular spaces. From an anatomical and functional standpoint, the externally visible part understates total size."
     },
     {
       "question": "Where are the clitoral crura located?",
-      "answer": "The crura extend along the ischiopubic rami beneath the vulvar surface and join the midline erectile body."
+      "answer": "The crura extend along the ischiopubic rami beneath the vulvar surface and join the midline erectile body. In relation to crura of clitoris, this structure anchor the erectile body to pelvic bone. From an anatomical and functional standpoint, deep crura cannot be assessed from surface appearance alone."
     },
     {
       "question": "What is the clitoral glans?",
-      "answer": "External distal part beneath or exposed by the hood; dense sensory innervation and distinct histology from cavernous bodies. Function: Conveys fine sensation."
+      "answer": "External distal part beneath or exposed by the hood; dense sensory innervation and distinct histology from cavernous bodies. Function: Conveys fine sensation. In relation to clitoral glans, this structure conveys fine sensation. Functionally, clitoral glans conveys fine sensation."
     },
     {
       "question": "Where is the clitoral body located?",
-      "answer": "Midline body formed by apposition of the paired corpora cavernosa, deep to the external glans. Function: Engorges via cavernous vascular spaces."
+      "answer": "Midline body formed by apposition of the paired corpora cavernosa, deep to the external glans. Function: Engorges via cavernous vascular spaces. In relation to clitoral body, this structure engorges via cavernous vascular spaces. From an anatomical and functional standpoint, the externally visible part understates total size."
     },
     {
       "question": "What is the function of the left corpus cavernosum?",
-      "answer": "Function: Contributes to body rigidity and expansion. Contralateral cavernous cylinder joining the body along the midline."
+      "answer": "Function: Contributes to body rigidity and expansion. Contralateral cavernous cylinder joining the body along the midline. In relation to left corpus cavernosum, this structure contributes to body rigidity and expansion. From an anatomical and functional standpoint, paired anatomy can be traced into the crura."
     }
   ]
 }

@@ -1,27 +1,58 @@
 {
-  "title": "Cranial nerves anatomy",
-  "description": "Twelve pairs leave the brain directly — smell to tongue movement — and they are examined in strict order in every neurological exam.",
-  "updated": "2026-10-18",
+  "title": "12 Cranial Nerves Anatomy: CN I to XII Pathways & Guide",
+  "description": "Master all 12 cranial nerves (CN I–XII) with our illustrated guide covering brainstem origins, skull base foramina, sensory roles, and motor muscle supply.",
+  "updated": "2026-11-02",
+  "h1": "12 Cranial Nerves Anatomy (CN I–XII): Origins, Pathways and Functions",
+  "blurb": "Twelve paired nerves (CN I–XII) emerge directly from the forebrain and brainstem, passing through skull-base foramina to serve special senses, face, and viscera.",
+  "lead": "Emerging in twelve paired sets directly from the brain and brainstem, the cranial nerves govern vision, hearing, balance, facial expression, swallowing, and vagal organ control. This illustrated study guide examines 20 documented anatomical entries—including I · Olfactory nerve, II · Optic nerve, III · Oculomotor nerve, Facial motor nucleus—connecting visible form, tissue organization, and physiological function.",
+  "overview": [
+    "Emerging in twelve paired sets directly from the brain and brainstem, the cranial nerves govern vision, hearing, balance, facial expression, swallowing, and vagal organ control. Known in classical anatomical nomenclature as Nervi craniales I–XII, this chapter belongs to the nervous study pathway. Emerging in twelve paired sets directly from the brain and brainstem, the cranial nerves govern vision, hearing, balance, facial expression, swallowing, and vagal organ control. Known in classical anatomical nomenclature as Nervi craniales I–XII, this chapter belongs to the nervous study pathway. Deep dive: each nerve with its nucleus, route and lesion. Mnemonics live in the clinical notes.",
+    "When you trace how 12 cranial nerves anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include I · Olfactory nerve (smell), II · Optic nerve (vision), Facial motor nucleus (controls muscles of facial expression), and Trigeminal sensory root (conveys facial somatic sensation centrally). By examining both surface-visible features (13 illustrated landmarks) and deeper or microscopic components (7 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
+    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for i · olfactory nerve, lesion: anosmia — test each nostril with coffee; for ii · optic nerve, papilloedema signals raised intracranial pressure. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+  ],
+  "keywords": {
+    "primary": "12 cranial nerves anatomy",
+    "secondary": [
+      "cranial nerves I to XII functions",
+      "sensory motor and mixed cranial nerves",
+      "brainstem nuclei and skull foramina",
+      "parasympathetic cranial nerve outflow"
+    ],
+    "longTail": [
+      "all 12 cranial nerves in order with functions and foramina",
+      "which cranial nerves carry parasympathetic fibers III VII IX X",
+      "how cranial nerves exit the brainstem and base of the skull"
+    ],
+    "semantic": [
+      "olfactory nerve",
+      "optic nerve",
+      "oculomotor nerve",
+      "trigeminal nerve",
+      "facial nerve",
+      "vagus nerve"
+    ],
+    "searchIntent": "Informational and educational anatomy study"
+  },
   "questions": [
     {
       "question": "How many cranial nerves are there?",
-      "answer": "There are 12 paired cranial nerves, numbered I through XII. Their functions include smell, vision, eye movement, facial sensation, hearing, swallowing and tongue movement."
+      "answer": "There are 12 paired cranial nerves, numbered I through XII. Their functions include smell, vision, eye movement, facial sensation, hearing, swallowing and tongue movement. In relation to internal acoustic meatus, this structure conveys nerve toward facial canal."
     },
     {
       "question": "Which cranial nerve controls facial expression?",
-      "answer": "The facial nerve, cranial nerve VII, supplies most muscles of facial expression. The trigeminal nerve, cranial nerve V, carries most facial skin sensation."
+      "answer": "The facial nerve, cranial nerve VII, supplies most muscles of facial expression. The trigeminal nerve, cranial nerve V, carries most facial skin sensation. In relation to v · trigeminal nerve, this structure face sensation + muscles of mastication."
     },
     {
       "question": "What is the olfactory nerve (CN I)?",
-      "answer": "Sensory filaments from nasal epithelium to bulb. Function: Smell."
+      "answer": "Sensory filaments from nasal epithelium to bulb. Function: Smell. In relation to i · olfactory nerve, this structure smell. From an anatomical and functional standpoint, lesion: anosmia — test each nostril with coffee."
     },
     {
       "question": "Where does the oculomotor nerve (CN III) originate?",
-      "answer": "Midbrain nerve to four eye muscles + lid + pupil. Function: Eye elevation/adduction, lid lift, pupil constriction."
+      "answer": "Midbrain nerve to four eye muscles + lid + pupil. Function: Eye elevation/adduction, lid lift, pupil constriction. In relation to iii · oculomotor nerve, this structure eye elevation/adduction, lid lift, pupil constriction. From an anatomical and functional standpoint, first sign of uncal herniation: a blown pupil."
     },
     {
       "question": "What does the trigeminal nerve (CN V) do?",
-      "answer": "Function: Face sensation + muscles of mastication. Three divisions: ophthalmic, maxillary, mandibular."
+      "answer": "Function: Face sensation + muscles of mastication. Three divisions: ophthalmic, maxillary, mandibular. In relation to v · trigeminal nerve, this structure face sensation + muscles of mastication. From an anatomical and functional standpoint, trigeminal neuralgia: electric shock pain in V2/V3."
     }
   ]
 }
