@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#125e58">
+  <title>Corpus Blog Studio — Visual Article Creator | Corpus</title>
+  <meta name="description" content="Visual blog post editor and publisher studio for Corpus Anatomy Atlas.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="icon" href="favicon.svg">
+  <link rel="stylesheet" href="editorial.css?v=63">
+  <style>
+    .studio-wrap{max-width:1320px;margin:0 auto;padding:24px 18px 60px}
+    .studio-hero{background:linear-gradient(135deg,#0f3c36,#125e58);color:#ecfdf5;border-radius:18px;padding:24px 28px;margin-bottom:24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+    .studio-hero h1{font-size:clamp(24px,3.2vw,34px);margin:4px 0 6px;color:#fff}
+    .studio-hero p{margin:0;color:#bbf7d0;font-size:14.5px;max-width:720px}
+    .studio-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:22px}
+    .studio-step{background:#fff;border:1px solid #cde0d8;border-radius:14px;padding:14px 16px}
+    .studio-step b{display:block;color:#0f5c52;font-size:13px;margin-bottom:4px}
+    .studio-step span{font-size:12.5px;color:#4a635d;line-height:1.45;display:block}
+    .studio-grid{display:grid;grid-template-columns:1.08fr 0.92fr;gap:22px;align-items:start}
+    .studio-card{background:#fff;border:1px solid #cde0d8;border-radius:16px;padding:20px;box-shadow:0 8px 24px rgba(15,60,54,.05);margin-bottom:18px}
+    .studio-card h2{font-size:18px;color:#113e37;margin:0 0 14px;padding-bottom:8px;border-bottom:1px solid #e3efe9;display:flex;align-items:center;justify-content:space-between}
+    .field{margin-bottom:13px}
+    .field label{display:block;font-size:12.5px;font-weight:700;color:#1b4d44;margin-bottom:5px}
+    .field small{display:block;font-size:11.5px;color:#5c746e;margin-top:3px}
+    .field input,.field select,.field textarea{width:100%;padding:10px 12px;border:1px solid #bcd4ca;border-radius:10px;font:inherit;font-size:13.5px;background:#fbfdfc;color:#102a26}
+    .field textarea{min-height:84px;resize:vertical;line-height:1.5}
+    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .sec-box{background:#f4f9f6;border:1px solid #c5ddd3;border-radius:12px;padding:14px;margin-bottom:14px}
+    .sec-box-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+    .sec-box-head strong{color:#0f5348;font-size:13.5px}
+    .btn-s{appearance:none;border:1px solid #0f6a5f;background:#0f6a5f;color:#fff;font-weight:700;font-size:13px;padding:9px 15px;border-radius:10px;cursor:pointer;transition:.18s}
+    .btn-s:hover{background:#0b4f47}
+    .btn-s.alt{background:#fff;color:#0f6a5f}
+    .btn-s.danger{background:#fff;color:#b91c1c;border-color:#fca5a5;padding:5px 10px;font-size:11.5px}
+    .action-bar{display:flex;flex-wrap:wrap;gap:10px;padding:16px;background:#e6f4ef;border:1.5px solid #99cbb9;border-radius:14px;align-items:center;justify-content:space-between}
+    .preview-pane{position:sticky;top:18px;background:#fff;border:1px solid #cde0d8;border-radius:16px;padding:22px;max-height:88vh;overflow-y:auto}
+    .preview-pane .pv-eyebrow{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#0f6a5f}
+    .preview-pane h3.pv-title{font-size:24px;color:#102b27;margin:6px 0 10px;line-height:1.25}
+    .preview-pane .pv-desc{color:#49635d;font-size:14.5px;line-height:1.55;margin-bottom:14px}
+    .preview-pane .pv-takeaways{background:#eef7f3;border-left:4px solid #0f6a5f;padding:12px 16px;border-radius:8px;margin-bottom:16px}
+    .preview-pane .pv-sec{margin-top:18px;padding-top:14px;border-top:1px solid #e6f0ec}
+    @media(max-width:960px){.studio-grid,.studio-steps,.field-row{grid-template-columns:1fr}.preview-pane{position:static;max-height:none}}
+  </style>
+</head>
+<body>
+  <header class="site-head">
+    <div class="shell head-inner">
+      <a class="brand" href="index.html" aria-label="Corpus Anatomy Atlas home"><span class="brand-mark">♥</span><span class="brand-name">Corpus<small>Anatomy Atlas</small></span></a>
+      <nav class="head-nav" aria-label="Main navigation">
+        <a href="blog/">Blog</a>
+        <a href="learn/">Study guides</a>
+        <a href="index.html">Interactive atlas</a>
+        <a href="about.html">About us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="studio-wrap">
+    <section class="studio-hero">
+      <div>
+        <div class="eyebrow" style="color:#6ee7b7">Corpus Visual Publisher</div>
+        <h1>Blog Post Creator Studio</h1>
+        <p>Yahan apni blog post ki Heading, Content, Images, Tables aur FAQs likhein. Right side par Live Preview dekhein aur 1-Click mein ready <code>.json</code> file download kar ke GitHub ke <code>seo/blogs/</code> folder mein upload kar dein!</p>
+      </div>
+      <a class="button" href="blog/" style="background:#fff;color:#0f5348">← View Published Blogs</a>
+    </section>
+
+    <div class="studio-steps">
+      <div class="studio-step">
+        <b>Step 1: Heading, Content &amp; Images Likhein</b>
+        <span>Neeche form mein Title, Sections (H2/H3 + Paragraphs) aur FAQs dalein. Apni custom image ko WebP mein convert bhi kar sakte hain.</span>
+      </div>
+      <div class="studio-step">
+        <b>Step 2: Download <code>.json</code> File</b>
+        <span>Form ke neeche <b>Download Blog Post (.json)</b> button dabayein. Aap ke slug ke naam se file download ho jayegi.</span>
+      </div>
+      <div class="studio-step">
+        <b>Step 3: Upload to <code>seo/blogs/</code> on GitHub</b>
+        <span>GitHub repo mein <code>seo/blogs/</code> folder ke andar yeh <code>.json</code> file upload kar dein—Netlify khud HTML page aur <code>sitemap.xml</code> bana de ga!</span>
+      </div>
+    </div>
+
+    <div class="studio-grid">
+      <div>
+        <div class="studio-card">
+          <h2>1. Basic Post Details &amp; SEO Meta</h2>
+          <div class="field">
+            <label for="bTitle">Blog Post Title (Main H1 Heading)</label>
+            <input id="bTitle" type="text" value="Brachial plexus anatomy: roots, trunks, divisions, cords and terminal nerves" placeholder="e.g. Brachial plexus anatomy: roots, trunks, divisions, cords and branches">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="bSlug">URL Slug (Auto-generated or custom)</label>
+              <input id="bSlug" type="text" value="brachial-plexus-roots-trunks-cords-guide">
+              <small>Final URL: <code>/blog/<span id="slugPreview">brachial-plexus-roots-trunks-cords-guide</span>/</code></small>
+            </div>
+            <div class="field">
+              <label for="bCat">Category Badge</label>
+              <input id="bCat" type="text" value="Neuroanatomy · Study Guide">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="bDate">Publish / Updated Date</label>
+              <input id="bDate" type="date" value="2026-11-02">
+            </div>
+            <div class="field">
+              <label for="bRead">Reading Time</label>
+              <input id="bRead" type="text" value="7 min read">
+            </div>
+          </div>
+          <div class="field">
+            <label for="bDesc">SEO Meta Description (140–165 characters recommended)</label>
+            <textarea id="bDesc" style="min-height:64px">Complete anatomical guide to the brachial plexus (C5–T1): roots, trunks, divisions, cords, terminal nerves and clinical injury patterns.</textarea>
+          </div>
+          <div class="field">
+            <label for="bOrgan">Connected Interactive Chapter Slug (from your 74 chapters)</label>
+            <input id="bOrgan" type="text" value="brachialplexus" placeholder="e.g. heart, brain, lungs, kidney, skullface, brachialplexus">
+          </div>
+        </div>
+
+        <div class="studio-card">
+          <h2>2. Hero Image &amp; Custom Image WebP Converter</h2>
+          <div class="field-row">
+            <div class="field">
+              <label for="bImg">Hero Image Filename (in <code>img/webp/</code>)</label>
+              <input id="bImg" type="text" value="brachial-plexus-deep.webp" placeholder="e.g. heart.webp or my-custom-image.webp">
+            </div>
+            <div class="field">
+              <label for="bImgUpload">Convert Your Own PNG/JPG to WebP (Optional)</label>
+              <input id="bImgUpload" type="file" accept="image/*">
+              <small id="webpStatus">Select any image from your PC to download ready <code>webp</code> + <code>thumb</code> files.</small>
+            </div>
+          </div>
+          <div class="field">
+            <label for="bImgAlt">Hero Image Alt Text (Required for SEO &amp; Accessibility)</label>
+            <input id="bImgAlt" type="text" value="Anatomical illustration of the brachial plexus showing C5–T1 roots, trunks, cords and peripheral nerves">
+          </div>
+          <div class="field">
+            <label for="bImgCap">Hero Image Caption</label>
+            <input id="bImgCap" type="text" value="The brachial plexus arises from ventral rami C5–T1 to supply motor and sensory innervation to the entire upper limb.">
+          </div>
+        </div>
+
+        <div class="studio-card">
+          <h2>3. Key Takeaways Box (Top Bullet Points)</h2>
+          <div class="field">
+            <label for="bTakeaways">One takeaway point per line</label>
+            <textarea id="bTakeaways">Five spinal nerve roots (C5, C6, C7, C8, T1) unite to form the brachial plexus in the posterior triangle of the neck.
+The plexus follows the classic anatomical sequence: 5 Roots → 3 Trunks → 6 Divisions → 3 Cords → 5 Terminal Branches.
+The three cords (lateral, posterior, medial) are named according to their anatomical relationship to the second part of the axillary artery.
+Upper trunk injuries (C5–C6) produce Erb-Duchenne palsy, whereas lower trunk injuries (C8–T1) affect intrinsic hand muscles (Klumpke palsy).</textarea>
+          </div>
+        </div>
+
+        <div class="studio-card">
+          <h2>
+            <span>4. Article Sections (Headings, Content, Images &amp; Tables)</span>
+            <button type="button" class="btn-s alt" id="addSecBtn">+ Add Section</button>
+          </h2>
+          <div id="sectionsContainer"></div>
+        </div>
+
+        <div class="studio-card">
+          <h2>
+            <span>5. Frequently Asked Questions (FAQ Schema)</span>
+            <button type="button" class="btn-s alt" id="addFaqBtn">+ Add FAQ</button>
+          </h2>
+          <div id="faqsContainer"></div>
+        </div>
+
+        <div class="action-bar">
+          <div>
+            <strong style="color:#0b3b34;display:block">Ready to publish your blog post?</strong>
+            <span style="font-size:12.5px;color:#355952">Download the <code>.json</code> file and upload it to <code>seo/blogs/</code> in your GitHub repository.</span>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button type="button" class="btn-s alt" id="copyJsonBtn">Copy JSON</button>
+            <button type="button" class="btn-s" id="downloadJsonBtn">Download Blog Post (.json) ↓</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="preview-pane" aria-label="Live article preview">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #dcebe5">
+          <strong style="font-size:12px;color:#0f6a5f;letter-spacing:.06em;text-transform:uppercase">Live Article Preview</strong>
+          <code id="pvFileBadge" style="font-size:11.5px;background:#eef7f3;padding:3px 8px;border-radius:6px;color:#0f5348">seo/blogs/brachial-plexus-roots-trunks-cords-guide.json</code>
+        </div>
+        <div id="livePreviewBody"></div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="shell foot-inner">
+      <div><strong>Corpus Anatomy Atlas</strong><p>Illustrated anatomy for learning, not a diagnostic or surgical reference.</p></div>
+      <nav class="foot-links" aria-label="Footer"><a href="blog/">Blog</a><a href="learn/">Study guides</a><a href="index.html">Interactive atlas</a><a href="about.html">About &amp; editorial policy</a><a href="privacy.html">Privacy</a></nav>
+    </div>
+  </footer>
+
+  <script>
+  (() => {
+    const initialSections = [
+      {
+        heading: "Anatomical organization: Roots, Trunks, Divisions and Cords",
+        subheading: "How ventral rami C5 to T1 reorganize from the neck to the axilla",
+        paragraphs: "The brachial plexus is a somatic nerve network formed by the anterior (ventral) rami of cervical spinal nerves C5 through C8 and the first thoracic spinal nerve (T1). It emerges between the anterior and middle scalene muscles inside the posterior triangle of the neck before passing posterior to the clavicle into the axilla.\n\nWithin the supraclavicular region, C5 and C6 unite to form the Superior Trunk, C7 continues alone as the Middle Trunk, and C8 and T1 unite to form the Inferior Trunk. Behind the clavicle, each trunk splits into an Anterior Division (supplying flexor compartments) and a Posterior Division (supplying extensor compartments).",
+        bullets: "Lateral Cord: formed by the anterior divisions of the superior and middle trunks (C5–C7).\nPosterior Cord: formed by all three posterior divisions (C5–T1).\nMedial Cord: formed by the anterior division of the inferior trunk (C8–T1).",
+        image: "",
+        imageAlt: "",
+        imageCaption: "",
+        tableHeaders: "Terminal Nerve | Cord of Origin | Root Value | Primary Motor & Sensory Target",
+        tableRows: "Musculocutaneous | Lateral cord | C5–C7 | Coracobrachialis, biceps brachii, brachialis; lateral forearm skin\nAxillary | Posterior cord | C5–C6 | Deltoid and teres minor; regimental badge skin over shoulder\nRadial | Posterior cord | C5–T1 | Triceps brachii and all posterior forearm extensors\nMedian | Lateral & Medial cords | C5–T1 | Forearm pronators/flexors and thenar muscles (LOAF)\nUlnar | Medial cord | C8–T1 | Intrinsic hand muscles, flexor carpi ulnaris, medial 1.5 digits"
+      }
+    ];
+    const initialFaqs = [
+      {
+        q: "Which spinal nerve roots form the brachial plexus?",
+        a: "The ventral (anterior) rami of spinal nerves C5, C6, C7, C8, and T1 form the brachial plexus."
+      },
+      {
+        q: "Between which two muscles do the roots of the brachial plexus emerge?",
+        a: "The roots of the brachial plexus emerge in the interscalene triangle between the anterior scalene and middle scalene muscles, accompanied by the subclavian artery."
+      }
+    ];
+
+    const secContainer = document.getElementById("sectionsContainer");
+    const faqContainer = document.getElementById("faqsContainer");
+
+    const slugify = s => (s || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "section";
+
+    function addSectionBox(data = {}) {
+      const div = document.createElement("div");
+      div.className = "sec-box";
+      div.innerHTML = `
+        <div class="sec-box-head">
+          <strong>Article Section (H2 / Content / Optional Image &amp; Table)</strong>
+          <button type="button" class="btn-s danger remove-sec">Remove</button>
+        </div>
+        <div class="field">
+          <label>Section Heading (H2)</label>
+          <input type="text" class="s-h2" value="${(data.heading || "").replace(/"/g, "&quot;")}" placeholder="e.g. Anatomical organization and blood supply">
+        </div>
+        <div class="field">
+          <label>Subheading (H3 — Optional)</label>
+          <input type="text" class="s-h3" value="${(data.subheading || "").replace(/"/g, "&quot;")}" placeholder="Optional subheading">
+        </div>
+        <div class="field">
+          <label>Paragraphs (Separate paragraphs with a blank line)</label>
+          <textarea class="s-paras" placeholder="Write your human-written educational paragraphs here...">${data.paragraphs || ""}</textarea>
+        </div>
+        <div class="field">
+          <label>Bullet Points (Optional — one bullet per line)</label>
+          <textarea class="s-bullets" style="min-height:60px" placeholder="Optional bullet points, one per line">${data.bullets || ""}</textarea>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Section Image Filename (Optional, in <code>img/webp/</code>)</label>
+            <input type="text" class="s-img" value="${data.image || ""}" placeholder="e.g. facial-nerve-deep.webp">
+          </div>
+          <div class="field">
+            <label>Section Image Alt Text</label>
+            <input type="text" class="s-img-alt" value="${data.imageAlt || ""}" placeholder="Describe the diagram">
+          </div>
+        </div>
+        <div class="field">
+          <label>Section Image Caption (Optional)</label>
+          <input type="text" class="s-img-cap" value="${data.imageCaption || ""}" placeholder="Caption shown under the section image">
+        </div>
+        <div class="field">
+          <label>Table Headers (Optional — separate columns with <code>|</code>)</label>
+          <input type="text" class="s-th" value="${data.tableHeaders || ""}" placeholder="Structure | Latin Name | Nerve Supply | Function">
+        </div>
+        <div class="field">
+          <label>Table Rows (Optional — one row per line, columns separated by <code>|</code>)</label>
+          <textarea class="s-tr" style="min-height:68px" placeholder="Biceps brachii | Musculus biceps brachii | Musculocutaneous (C5-C6) | Supinates forearm">${data.tableRows || ""}</textarea>
+        </div>
+      `;
+      div.querySelector(".remove-sec").addEventListener("click", () => { div.remove(); renderPreview(); });
+      div.querySelectorAll("input, textarea").forEach(el => el.addEventListener("input", renderPreview));
+      secContainer.appendChild(div);
+    }
+
+    function addFaqBox(data = {}) {
+      const div = document.createElement("div");
+      div.className = "sec-box";
+      div.innerHTML = `
+        <div class="sec-box-head">
+          <strong>FAQ Item (Question &amp; Answer)</strong>
+          <button type="button" class="btn-s danger remove-faq">Remove</button>
+        </div>
+        <div class="field">
+          <label>Question</label>
+          <input type="text" class="f-q" value="${(data.q || "").replace(/"/g, "&quot;")}" placeholder="e.g. What is the blood supply of this organ?">
+        </div>
+        <div class="field">
+          <label>Answer</label>
+          <textarea class="f-a" style="min-height:58px" placeholder="Write a clear, concise answer...">${data.a || ""}</textarea>
+        </div>
+      `;
+      div.querySelector(".remove-faq").addEventListener("click", () => { div.remove(); renderPreview(); });
+      div.querySelectorAll("input, textarea").forEach(el => el.addEventListener("input", renderPreview));
+      faqContainer.appendChild(div);
+    }
+
+    function buildPayload() {
+      const title = document.getElementById("bTitle").value.trim() || "Untitled Anatomy Guide";
+      const slug = slugify(document.getElementById("bSlug").value.trim() || title);
+      const description = document.getElementById("bDesc").value.trim();
+      const category = document.getElementById("bCat").value.trim() || "Anatomy · Study Guide";
+      const updated = document.getElementById("bDate").value.trim() || "2026-11-02";
+      const readTime = document.getElementById("bRead").value.trim() || "6 min read";
+      const relatedOrgan = document.getElementById("bOrgan").value.trim() || "heart";
+      const heroImage = document.getElementById("bImg").value.trim() || "heart.webp";
+      const heroAlt = document.getElementById("bImgAlt").value.trim() || ("Anatomical illustration for " + title);
+      const heroCaption = document.getElementById("bImgCap").value.trim();
+      const takeaways = document.getElementById("bTakeaways").value.split(/\n+/).map(s => s.trim()).filter(Boolean);
+
+      const sections = Array.from(secContainer.querySelectorAll(".sec-box")).map((box, idx) => {
+        const heading = box.querySelector(".s-h2").value.trim() || ("Section " + (idx + 1));
+        const subheading = box.querySelector(".s-h3").value.trim();
+        const paragraphs = box.querySelector(".s-paras").value.split(/\n\s*\n/).map(s => s.trim()).filter(Boolean);
+        const bullets = box.querySelector(".s-bullets").value.split(/\n+/).map(s => s.trim()).filter(Boolean);
+        const image = box.querySelector(".s-img").value.trim();
+        const imageAlt = box.querySelector(".s-img-alt").value.trim();
+        const imageCaption = box.querySelector(".s-img-cap").value.trim();
+        const th = box.querySelector(".s-th").value.split("|").map(s => s.trim()).filter(Boolean);
+        const tr = box.querySelector(".s-tr").value.split(/\n+/).map(line => line.split("|").map(c => c.trim()).filter(Boolean)).filter(r => r.length > 0);
+        const sec = { id: slugify(heading), heading, paragraphs };
+        if (subheading) sec.subheading = subheading;
+        if (bullets.length) sec.bullets = bullets;
+        if (image) {
+          sec.image = image;
+          sec.imageAlt = imageAlt || ("Anatomical illustration for " + heading);
+          if (imageCaption) sec.imageCaption = imageCaption;
+        }
+        if (th.length && tr.length) sec.table = { headers: th, rows: tr };
+        return sec;
+      });
+
+      const questions = Array.from(faqContainer.querySelectorAll(".sec-box")).map(box => ({
+        question: box.querySelector(".f-q").value.trim(),
+        answer: box.querySelector(".f-a").value.trim()
+      })).filter(q => q.question && q.answer);
+
+      return { slug, title, description, category, updated, readTime, relatedOrgan, heroImage, heroAlt, heroCaption, takeaways, sections, questions };
+    }
+
+    function esc(s) {
+      return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    function renderPreview() {
+      const d = buildPayload();
+      document.getElementById("slugPreview").textContent = d.slug;
+      document.getElementById("pvFileBadge").textContent = "seo/blogs/" + d.slug + ".json";
+      let html = `<div class="pv-eyebrow">${esc(d.category)} · ${esc(d.readTime)}</div>`;
+      html += `<h3 class="pv-title">${esc(d.title)}</h3>`;
+      html += `<p class="pv-desc">${esc(d.description)}</p>`;
+      if (d.takeaways.length) {
+        html += `<div class="pv-takeaways"><strong>Key Takeaways</strong><ul style="margin:6px 0 0 18px;font-size:13px;line-height:1.5">` + d.takeaways.map(t => `<li>${esc(t)}</li>`).join("") + `</ul></div>`;
+      }
+      d.sections.forEach(s => {
+        html += `<div class="pv-sec"><h4 style="font-size:17px;color:#113e37;margin:0 0 4px">${esc(s.heading)}</h4>`;
+        if (s.subheading) html += `<div style="font-size:12.5px;color:#0f6a5f;font-weight:700;margin-bottom:8px">${esc(s.subheading)}</div>`;
+        s.paragraphs.forEach(p => { html += `<p style="font-size:13.5px;line-height:1.6;color:#273f3a;margin:0 0 10px">${esc(p)}</p>`; });
+        if (s.bullets && s.bullets.length) {
+          html += `<ul style="margin:6px 0 10px 18px;font-size:13px;line-height:1.5">` + s.bullets.map(b => `<li>${esc(b)}</li>`).join("") + `</ul>`;
+        }
+        if (s.table) {
+          html += `<div style="overflow-x:auto;margin:10px 0"><table style="width:100%;border-collapse:collapse;font-size:12px"><thead><tr style="background:#e6f4ef">` + s.table.headers.map(h => `<th style="border:1px solid #bfd8ce;padding:6px 8px;text-align:left">${esc(h)}</th>`).join("") + `</tr></thead><tbody>` + s.table.rows.map(r => `<tr>` + r.map(c => `<td style="border:1px solid #d5e6df;padding:6px 8px">${esc(c)}</td>`).join("") + `</tr>`).join("") + `</tbody></table></div>`;
+        }
+        html += `</div>`;
+      });
+      if (d.questions.length) {
+        html += `<div class="pv-sec"><h4 style="font-size:17px;color:#113e37;margin:0 0 8px">Questions People Ask (${d.questions.length})</h4>`;
+        d.questions.forEach(q => {
+          html += `<div style="margin-bottom:8px;padding:8px 10px;background:#f7fbf9;border-radius:8px"><strong style="font-size:13px;display:block;color:#103831">${esc(q.question)}</strong><span style="font-size:12.5px;color:#435e58">${esc(q.answer)}</span></div>`;
+        });
+        html += `</div>`;
+      }
+      document.getElementById("livePreviewBody").innerHTML = html;
+    }
+
+    document.getElementById("bTitle").addEventListener("input", e => {
+      document.getElementById("bSlug").value = slugify(e.target.value);
+      renderPreview();
+    });
+    ["bSlug","bCat","bDate","bRead","bDesc","bOrgan","bImg","bImgAlt","bImgCap","bTakeaways"].forEach(id => {
+      document.getElementById(id).addEventListener("input", renderPreview);
+    });
+    document.getElementById("addSecBtn").addEventListener("click", () => { addSectionBox(); renderPreview(); });
+    document.getElementById("addFaqBtn").addEventListener("click", () => { addFaqBox(); renderPreview(); });
+
+    document.getElementById("downloadJsonBtn").addEventListener("click", () => {
+      const payload = buildPayload();
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = payload.slug + ".json";
+      a.click();
+    });
+
+    document.getElementById("copyJsonBtn").addEventListener("click", async () => {
+      const payload = buildPayload();
+      await navigator.clipboard.writeText(JSON.stringify(payload, null, 2));
+      const btn = document.getElementById("copyJsonBtn");
+      btn.textContent = "Copied JSON ✓";
+      setTimeout(() => { btn.textContent = "Copy JSON"; }, 1800);
+    });
+
+    // Built-in client-side PNG/JPG to WebP converter for custom blog images
+    document.getElementById("bImgUpload").addEventListener("change", e => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      const baseName = slugify(file.name.replace(/\.[^.]+$/, "")) + ".webp";
+      document.getElementById("bImg").value = baseName;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        const img = new Image();
+        img.onload = () => {
+          const makeWebp = (maxW, label) => {
+            const scale = Math.min(1, maxW / img.width);
+            const c = document.createElement("canvas");
+            c.width = Math.round(img.width * scale);
+            c.height = Math.round(img.height * scale);
+            c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+            c.toBlob(blob => {
+              const a = document.createElement("a");
+              a.href = URL.createObjectURL(blob);
+              a.download = baseName;
+              a.click();
+            }, "image/webp", 0.9);
+          };
+          makeWebp(1200, "full");
+          document.getElementById("webpStatus").textContent = "Converted & downloaded " + baseName + "! Place it in img/webp/ and img/thumb/.";
+          renderPreview();
+        };
+        img.src = ev.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    initialSections.forEach(addSectionBox);
+    initialFaqs.forEach(addFaqBox);
+    renderPreview();
+  })();
+  </script>
+  <script defer src="corpus-bot.js?v=14"></script>
+</body>
+</html>

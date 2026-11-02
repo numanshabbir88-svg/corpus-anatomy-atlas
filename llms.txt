@@ -5,8 +5,13 @@
 ## Core Sections
 - [Interactive Atlas Home](https://corpus-anatomy-atlas.netlify.app/): Interactive body map, layered human anatomy showcase, and Corpus AI Assistant.
 - [Anatomy Study Guides Hub](https://corpus-anatomy-atlas.netlify.app/learn/): Full index of 74 long-form anatomical & physiological study guides.
+- [Anatomy Blog & Study Articles](https://corpus-anatomy-atlas.netlify.app/blog/): In-depth educational articles, cranial nerve tables, and physiological guides.
 - [About & Editorial Policy](https://corpus-anatomy-atlas.netlify.app/about.html): Educational scope, citation standards, and contact information.
 - [Privacy Policy](https://corpus-anatomy-atlas.netlify.app/privacy.html): Privacy and cookie disclosure.
+
+## Published Blog Articles
+- [Human heart wall layers, chambers, valves and electrical conduction pathway explained](https://corpus-anatomy-atlas.netlify.app/blog/human-heart-layers-chambers-and-conduction-system/): An illustrated anatomical and physiological guide to the three heart wall layers (epicardium, myocardium, endocardium), four chambers, valves and intrinsic cardiac conduction system.
+- [Cranial nerves I to XII: complete anatomical pathways, functions and cranial foramina](https://corpus-anatomy-atlas.netlify.app/blog/cranial-nerves-1-to-12-complete-guide/): A structured anatomical guide to all 12 pairs of cranial nerves (CN I–XII), covering sensory and motor modalities, skull base exits, brainstem nuclei and clinical correlations.
 
 ## All 74 Anatomy Study Guides
 - [Heart (Cor)](https://corpus-anatomy-atlas.netlify.app/learn/heart/): A four-chambered muscular pump with four valves and its own electrical conduction system.

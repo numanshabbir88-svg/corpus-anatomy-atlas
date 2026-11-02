@@ -162,13 +162,13 @@ def schema(path,crumbs):
 
 def header(depth=0,current=''):
     root='../'*depth or './'
-    links=[('Study guides',root+'learn/','learn'),('Interactive atlas',root+'index.html','atlas'),('Body map',root+'index.html#/map','map'),('Quiz',root+'index.html#/quiz','quiz'),('About us',root+'about.html','about')]
+    links=[('Study guides',root+'learn/','learn'),('Blog',root+'blog/','blog'),('Interactive atlas',root+'index.html','atlas'),('Body map',root+'index.html#/map','map'),('Quiz',root+'index.html#/quiz','quiz'),('About us',root+'about.html','about')]
     nav=''.join(f'<a href="{E(link)}" {"aria-current=page" if key==current else ""}>{E(label)}</a>' for label,link,key in links)
     return f'<a class="skip" href="#content">Skip to content</a><header class="site-head"><div class="shell head-inner"><a class="brand" href="{root}index.html" aria-label="Corpus Anatomy Atlas home"><span class="brand-mark">♥</span><span class="brand-name">Corpus<small>Anatomy Atlas</small></span></a><nav class="head-nav" aria-label="Main navigation">{nav}</nav></div></header>'
 
 def footer(depth=0):
     root='../'*depth or './'
-    links=[('Study guides','learn/'),('Interactive atlas','index.html'),('About & editorial policy','about.html'),('Privacy','privacy.html')]
+    links=[('Study guides','learn/'),('Blog','blog/'),('Interactive atlas','index.html'),('About & editorial policy','about.html'),('Privacy','privacy.html')]
     return f'<footer class="site-foot"><div class="shell foot-inner"><div><strong>Corpus Anatomy Atlas</strong><p>Illustrated anatomy for learning, not a diagnostic or surgical reference. Digital renders explain regions; they are not clinical photographs or substitutes for histology slides.</p></div><nav class="foot-links" aria-label="Footer">'+''.join(f'<a href="{root+path}">{E(name)}</a>' for name,path in links)+'</nav></div></footer>'
 
 def document(title,description,path,body,depth=0,image='',extra=''):
@@ -507,6 +507,143 @@ with (ROOT/'seo-keyword-map.csv').open('w',newline='',encoding='utf-8') as fh:
 
 write(learn/'index.html',document('Human anatomy study guides',f'Explore {len(ORGANS)} illustrated human anatomy study guides, from terminology and tissues to the heart, bones, brain and reproductive anatomy.','/learn/',hub_body,depth=1,extra=schema('/learn/',[('Home','/'),('Study guides','/learn/')])))
 
+# ---------- Build Blog Hub (/blog/) & Individual Blog Articles (/blog/<slug>/) ----------
+BLOG_DIR = ROOT / 'seo' / 'blogs'
+BLOG_OUT = ROOT / 'blog'
+if BLOG_OUT.exists(): shutil.rmtree(BLOG_OUT)
+BLOG_POSTS = []
+if BLOG_DIR.exists():
+    for bp in sorted(BLOG_DIR.glob('*.json')):
+        BLOG_POSTS.append(json.loads(bp.read_text(encoding='utf-8')))
+BLOG_POSTS.sort(key=lambda item: (item.get('updated',''), item.get('slug','')), reverse=True)
+
+def build_blog_article(post):
+    slug = post['slug']
+    title = post['title']
+    desc = post['description']
+    cat = post.get('category', 'Anatomy · Study Article')
+    updated = post.get('updated', CONTENT_UPDATED)
+    read_time = post.get('readTime', '6 min read')
+    rel_key = post.get('relatedOrgan', 'heart')
+    if rel_key not in ORGANS: rel_key = 'heart'
+    rel_organ = ORGANS[rel_key]
+    hero_stem = Path(post.get('heroImage', 'heart.webp')).stem
+    hero_dims = dimensions(f'webp/{hero_stem}.webp')
+    hero_alt = post.get('heroAlt') or f'Anatomical illustration for {title}'
+    hero_cap = post.get('heroCaption') or f'Educational anatomy illustration accompanying {title}.'
+
+    crumb = f'<nav class="crumb shell" aria-label="Breadcrumb"><a href="../../index.html">Home</a><i>/</i><a href="../">Blog</a><i>/</i><span>{E(title)}</span></nav>'
+    hero_sec = (
+        f'<section class="shell hero article-hero"><div class="eyebrow">{E(cat)} · {E(read_time)}</div>'
+        f'<h1>{E(title)}</h1><p>{E(desc)}</p>'
+        f'<div class="action-row"><a class="button" href="../../learn/{E(rel_key)}/">Open {E(rel_organ["title"])} study guide →</a>'
+        f'<a class="button alt" href="../../index.html#/{E(rel_key)}">Interactive 3D/2D plate ↗</a></div>'
+        f'<p class="byline">Corpus editorial reference · Updated {E(updated)}</p></section>'
+    )
+    hero_fig = (
+        f'<figure class="plate"><div class="plate-visual">'
+        f'<img src="../../img/webp/{E(hero_stem)}.webp" alt="{E(hero_alt)}" {hero_dims} loading="eager" fetchpriority="high" decoding="async">'
+        f'</div><figcaption>{E(hero_cap)}</figcaption></figure>'
+    )
+    takeaways = post.get('takeaways') or []
+    takeaways_html = ''
+    if takeaways:
+        items = ''.join(f'<li>{E(t)}</li>' for t in takeaways)
+        takeaways_html = f'<section id="key-takeaways" class="blog-takeaways"><h2>Key takeaways</h2><ul>{items}</ul></section>'
+
+    sec_html_list = []
+    toc_links = []
+    if takeaways:
+        toc_links.append('<a href="#key-takeaways">Key takeaways</a>')
+    for idx, s in enumerate(post.get('sections') or [], 1):
+        sid = re.sub(r'[^a-z0-9-]+', '-', (s.get('id') or f'section-{idx}').lower()).strip('-') or f'section-{idx}'
+        sh2 = s.get('heading', f'Section {idx}')
+        toc_links.append(f'<a href="#{E(sid)}">{E(sh2)}</a>')
+        sh3_html = f'<h3>{E(s["subheading"])}</h3>' if s.get('subheading') else ''
+        paras_html = ''.join(f'<p>{E(p)}</p>' for p in (s.get('paragraphs') or []))
+        bullets_html = ''
+        if s.get('bullets'):
+            bullets_html = '<ul>' + ''.join(f'<li>{E(b)}</li>' for b in s['bullets']) + '</ul>'
+        img_html = ''
+        if s.get('image'):
+            s_stem = Path(s['image']).stem
+            s_dims = dimensions(f'webp/{s_stem}.webp')
+            s_alt = s.get('imageAlt') or f'Anatomical illustration for {sh2}'
+            s_cap = s.get('imageCaption') or f'Educational anatomy plate for {sh2}.'
+            img_html = f'<figure class="blog-sec-fig"><img src="../../img/webp/{E(s_stem)}.webp" alt="{E(s_alt)}" {s_dims} loading="lazy" decoding="async"><figcaption>{E(s_cap)}</figcaption></figure>'
+        tbl_html = ''
+        if s.get('table') and s['table'].get('headers') and s['table'].get('rows'):
+            th = ''.join(f'<th>{E(h_col)}</th>' for h_col in s['table']['headers'])
+            tr = ''.join('<tr>' + ''.join(f'<td>{E(c_col)}</td>' for c_col in row) + '</tr>' for row in s['table']['rows'])
+            tbl_html = f'<div class="blog-table-wrap"><table class="blog-table"><thead><tr>{th}</tr></thead><tbody>{tr}</tbody></table></div>'
+        sec_html_list.append(f'<section id="{E(sid)}" class="blog-sec"><h2>{E(sh2)}</h2>{sh3_html}{paras_html}{bullets_html}{img_html}{tbl_html}</section>')
+
+    q_list = post.get('questions') or []
+    faq_html = ''
+    if q_list:
+        toc_links.append('<a href="#questions">Frequently asked questions</a>')
+        q_items = ''.join(f'<div class="qa-item"><h3>{E(q["question"])}</h3><p>{E(q["answer"])}</p></div>' for q in q_list)
+        faq_html = f'<section id="questions" class="content-section questions"><div class="eyebrow">Questions people ask</div><h2>Frequently asked questions</h2><div class="qa-list">{q_items}</div></section>'
+
+    rel_thumb = Path(rel_organ['photo']['file']).stem
+    rel_dims = dimensions(f'thumb/{rel_thumb}.webp')
+    connect_html = (
+        f'<section id="related-atlas" class="content-section related-section">'
+        f'<div class="eyebrow">Connected atlas chapter</div><h2>Study {E(rel_organ["title"])} in the interactive atlas</h2>'
+        f'<div class="related-grid"><a class="related-card" href="../../learn/{E(rel_key)}/">'
+        f'<img src="../../img/thumb/{E(rel_thumb)}.webp" {rel_dims} alt="Illustration of {E(rel_organ["title"])}" loading="lazy" decoding="async">'
+        f'<span><strong>{E(rel_organ["title"])} ({E(rel_organ["latin"])})</strong><small>{E(rel_organ["blurb"])}</small></span><b aria-hidden="true">↗</b></a></div>'
+        f'<p class="disclaimer" style="margin-top:16px">Educational reference only: this article is written for anatomy study and is not medical, diagnostic or treatment advice. <a href="../../about.html#contact">Contact the editorial desk</a>.</p>'
+        f'</section>'
+    )
+    toc_links.append('<a href="#related-atlas">Connected atlas chapter</a>')
+    sidebar = f'<aside class="sidebar" aria-label="On this page"><div class="side-card"><h2>In this article</h2>{"".join(toc_links)}</div><div class="side-card"><div class="count">Atlas</div><p>Connected to {len(ORGANS)} interactive chapters and {sum(len(o["parts"]) for o in ORGANS.values()):,} documented anatomical structures.</p></div></aside>'
+    body = f'<div class="reading-track" aria-hidden="true"><span id="reading-progress"></span></div>{crumb}{hero_sec}<div class="shell article-grid"><main id="content">{hero_fig}{takeaways_html}{"".join(sec_html_list)}{faq_html}{connect_html}</main>{sidebar}</div>'
+    schema_objs = [
+        {'@context':'https://schema.org','@type':'BlogPosting','headline':title,'description':desc,'dateModified':updated,'url':url(f'/blog/{slug}/')},
+        {'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':[
+            {'@type':'ListItem','position':1,'name':'Home','item':url('/')},
+            {'@type':'ListItem','position':2,'name':'Blog','item':url('/blog/')},
+            {'@type':'ListItem','position':3,'name':title,'item':url(f'/blog/{slug}/')}
+        ]}
+    ]
+    if q_list:
+        schema_objs.append({
+            '@context':'https://schema.org','@type':'FAQPage',
+            'mainEntity':[{'@type':'Question','name':q['question'],'acceptedAnswer':{'@type':'Answer','text':q['answer']}} for q in q_list]
+        })
+    extra_json = '<script type="application/ld+json">' + json.dumps(schema_objs, separators=(',',':')).replace('<','\\u003c') + '</script>'
+    return document(title, desc, f'/blog/{slug}/', body, depth=2, image=f'webp/{hero_stem}.webp', extra=extra_json).replace('<script defer src="../../corpus-bot.js?v=14"></script></body>','<script defer src="../../reading.js?v=33"></script><script defer src="../../corpus-bot.js?v=14"></script></body>')
+
+for post in BLOG_POSTS:
+    write(BLOG_OUT / post['slug'] / 'index.html', build_blog_article(post))
+
+blog_cards = ''.join(
+    f'<a class="hub-card" href="{E(p["slug"])}/">'
+    f'<img src="../img/thumb/{E(Path(p.get("heroImage","heart.webp")).stem)}.webp" {dimensions("thumb/"+Path(p.get("heroImage","heart.webp")).stem+".webp")} loading="lazy" decoding="async" alt="{E(p.get("heroAlt") or p["title"])}">'
+    f'<span class="copy"><small>{E(p.get("category","Study Guide"))} · {E(p.get("readTime","6 min read"))}</small><strong>{E(p["title"])}</strong><em>{E(p["description"])}</em></span></a>'
+    for p in BLOG_POSTS
+)
+blog_hub_body = (
+    '<main id="content"><section class="shell hub-hero">'
+    '<div class="hub-intro"><div class="eyebrow">Corpus / anatomy blog &amp; study articles</div>'
+    '<h1>In-depth anatomy articles, reference tables and exam guides.</h1>'
+    '<p>Explore long-form human-written study articles covering cranial nerves, cardiovascular layers, skeletal pathways and regional clinical correlations—each connected directly to our 74 interactive chapters.</p>'
+    '<div class="action-row"><a class="button" href="#articles-list">Browse articles <span aria-hidden="true">↓</span></a>'
+    '<a class="button alt" href="../learn/">All 74 study guides →</a></div>'
+    f'<p class="byline">{len(BLOG_POSTS)} published articles <span aria-hidden="true">·</span> Connected to {len(ORGANS)} interactive chapters</p></div>'
+    + (
+        f'<a class="hero-feature" href="{E(BLOG_POSTS[0]["slug"])}/" aria-label="Read featured article: {E(BLOG_POSTS[0]["title"])}">'
+        f'<span class="feature-top">Featured article <span>{E(BLOG_POSTS[0].get("readTime","8 min read"))}</span></span>'
+        f'<span class="feature-visual"><img src="../img/thumb/{E(Path(BLOG_POSTS[0].get("heroImage","cranial.webp")).stem)}.webp" {dimensions("thumb/"+Path(BLOG_POSTS[0].get("heroImage","cranial.webp")).stem+".webp")} alt="{E(BLOG_POSTS[0].get("heroAlt") or BLOG_POSTS[0]["title"])}" fetchpriority="high" decoding="async"></span>'
+        f'<span class="feature-bottom"><span><strong>{E(BLOG_POSTS[0]["title"])}</strong><small>{E(BLOG_POSTS[0].get("category","Study Guide"))}</small></span><b aria-hidden="true">↗</b></span></a>'
+        if BLOG_POSTS else ''
+    )
+    + '</section>'
+    f'<div class="shell" id="articles-list" style="padding-bottom:64px"><section><h2 class="group-title">Latest anatomy study articles</h2><div class="hub-grid">{blog_cards}</div></section></div></main>'
+)
+write(BLOG_OUT / 'index.html', document('Anatomy blog and study articles', 'In-depth human anatomy articles, cranial nerve tables, heart layer guides and study notes connected to the Corpus Anatomy Atlas.', '/blog/', blog_hub_body, depth=1, extra=schema('/blog/', [('Home','/'),('Blog','/blog/')])))
+
 contact_html=(f'<a href="mailto:{E(CONTACT)}">{E(CONTACT)}</a>' if CONTACT else 'A public publisher contact address has not yet been provided. The publisher must add one before a monetization application.')
 about=f'''<main id="content" class="shell about-profile">
 <section class="about-intro" aria-labelledby="about-title"><div class="about-intro-copy">
@@ -523,7 +660,7 @@ about=f'''<main id="content" class="shell about-profile">
 </main>''' 
 
 write(ROOT/'about.html',document('About us and editorial approach','About Corpus Anatomy Atlas: free illustrated anatomy chapters, interactive body map, tissue-level cutaways, study quizzes and a contact for corrections.','/about.html',about,extra=schema('/about.html',[('Home','/'),('About','/about.html')])))
-privacy=f'''<main id="content" class="shell policy"><div class="eyebrow">Privacy</div><h1>Privacy policy</h1><p>Last updated {CONTENT_UPDATED}. This describes the site in its current pre-advertising state. Publisher contact: {contact_html}</p><h2>What this site does today</h2><p>The atlas does not require an account. Search and quizzes run in your browser. The current site does not load analytics or advertising scripts and does not intentionally set tracking cookies. Your web host may process standard request information such as IP address, requested file and browser details to deliver and secure the site; the hosting provider's policies apply to that processing.</p><h2>External links</h2><p>Further-reading links lead to third-party sites, including anatomy references. Those sites have their own privacy practices. We do not control their content or cookies.</p><h2>If advertising is enabled later</h2><p>This site does not currently serve Google ads. Before enabling advertising, the publisher must update this page to reflect the actual vendors and technologies used. Ad providers including Google may use cookies, IP addresses, web beacons or other identifiers to provide, measure and personalize advertising. See <a href="https://policies.google.com/technologies/partner-sites" rel="noopener noreferrer">how Google uses information from sites or apps that use its services</a> and <a href="https://adssettings.google.com/" rel="noopener noreferrer">Google Ad Settings</a> for personalization controls. Where legally required, consent choices must be offered before relevant ad technologies are activated; a Google-certified CMP may be required for eligible EEA, UK and Swiss traffic.</p><h2>Questions</h2><p>For privacy enquiries: {contact_html}</p></main>'''
+privacy=f'''<main id="content" class="shell policy"><div class="eyebrow">Privacy</div><h1>Privacy policy</h1><p>Last updated {CONTENT_UPDATED}. Publisher contact: {contact_html}</p><h2>What this site does today</h2><p>The atlas does not require an account. Search, interactive diagrams and self-test quizzes run directly in your browser. Your web host may process standard request information such as IP address, requested file and browser details to deliver and secure the site; the hosting provider's policies apply to that processing.</p><h2>Cookies &amp; Google AdSense advertising disclosure</h2><p>Third-party vendors, including Google, use cookies (such as the Google DoubleClick DART cookie and AdSense cookies) to serve ads based on a user's prior visits to this website or other websites on the internet. Google's use of advertising cookies enables it and its partners to serve ads to users based on their visit to this site and/or other sites on the internet.</p><p>Users may opt out of personalized advertising by visiting <a href="https://adssettings.google.com/" rel="noopener noreferrer">Google Ads Settings</a> or <a href="https://www.aboutads.info/choices/" rel="noopener noreferrer">www.aboutads.info</a>. To learn more about how Google processes data in advertising products, see <a href="https://policies.google.com/technologies/partner-sites" rel="noopener noreferrer">How Google uses information from sites or apps that use our services</a>. Where required by law (including for visitors in the EEA, UK and Switzerland), consent choices are presented via a Google-certified consent management platform (CMP).</p><h2>External links</h2><p>Further-reading links lead to third-party educational references (such as OpenStax and NCBI Bookshelf). Those sites maintain their own privacy policies and cookie practices.</p><h2>Questions</h2><p>For privacy enquiries: {contact_html}</p></main>'''
 write(ROOT/'privacy.html',document('Privacy policy','Read how Corpus Anatomy Atlas handles browser-based features, hosting requests, external references and possible future advertising technologies.','/privacy.html',privacy,extra=schema('/privacy.html',[('Home','/'),('Privacy','/privacy.html')])))
 not_found='<main id="content" class="shell policy"><div class="eyebrow">Page not found</div><h1>That page is not here.</h1><p>The address may have changed. Browse the study guides or return to the atlas.</p><p><a class="button" href="/learn/">Browse study guides →</a></p></main>'
 write(ROOT/'404.html',document('Page not found','The requested anatomy page was not found. Browse the Corpus study guides.','/404.html',not_found))
@@ -563,9 +700,10 @@ write(ROOT/'bot-knowledge.json',json.dumps({'chapters':_kb_chapters,'parts':_kb_
 # Rebuild the lean publish folder; all original source assets stay in img/ and are never deleted.
 if OUT.exists(): shutil.rmtree(OUT)
 OUT.mkdir()
-for file in ['index.html','editorial.css','reading.js','preview.js','styles.css','corpus-bot.css','corpus-bot.js','bot-knowledge.json','organs.js','brain-and-micro-chapters.js','deep-chapters.js','part-enrichment-notes.js','chapter-enrichment.js','skull-chapter.js','dental-chapter.js','foundations-chapters.js','reproduction-stages.js','repro-image-enrichment.js','micro-lens.js','part-pins.js','muscle-atlas.js','app.js','about.html','privacy.html','404.html']:
+for file in ['index.html','editorial.css','reading.js','preview.js','styles.css','corpus-bot.css','corpus-bot.js','bot-knowledge.json','organs.js','brain-and-micro-chapters.js','deep-chapters.js','part-enrichment-notes.js','chapter-enrichment.js','skull-chapter.js','dental-chapter.js','foundations-chapters.js','reproduction-stages.js','repro-image-enrichment.js','micro-lens.js','part-pins.js','muscle-atlas.js','app.js','about.html','privacy.html','404.html','blog-studio.html']:
     shutil.copy2(ROOT/file,OUT/file)
 shutil.copytree(learn,OUT/'learn')
+shutil.copytree(BLOG_OUT,OUT/'blog')
 for kind in ['webp','thumb']: shutil.copytree(ROOT/'img'/kind,OUT/'img'/kind)
 write(OUT/'favicon.svg','<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#125e58"/><path d="M16 26C8 20 5 16 5 12c0-6 7-8 11-3 4-5 11-3 11 3 0 4-3 8-11 14Z" fill="#e47b72"/></svg>')
 write(ROOT/'favicon.svg',(OUT/'favicon.svg').read_text())
@@ -614,11 +752,16 @@ llms_lines = [
     '## Core Sections',
     f'- [Interactive Atlas Home]({BASE or ""}/): Interactive body map, layered human anatomy showcase, and Corpus AI Assistant.',
     f'- [Anatomy Study Guides Hub]({BASE or ""}/learn/): Full index of 74 long-form anatomical & physiological study guides.',
+    f'- [Anatomy Blog & Study Articles]({BASE or ""}/blog/): In-depth educational articles, cranial nerve tables, and physiological guides.',
     f'- [About & Editorial Policy]({BASE or ""}/about.html): Educational scope, citation standards, and contact information.',
     f'- [Privacy Policy]({BASE or ""}/privacy.html): Privacy and cookie disclosure.',
     '',
-    '## All 74 Anatomy Study Guides',
+    '## Published Blog Articles',
 ]
+for _bp in BLOG_POSTS:
+    llms_lines.append(f'- [{_bp["title"]}]({BASE or ""}/blog/{_bp["slug"]}/): {_bp["description"]}')
+llms_lines.append('')
+llms_lines.append('## All 74 Anatomy Study Guides')
 for _k, _o in ORGANS.items():
     llms_lines.append(f'- [{_o.get("title", _k)} ({_o.get("latin", "")})]({BASE or ""}/learn/{_k}/): {_o.get("blurb", "")}')
 llms_txt = '\n'.join(llms_lines) + '\n'
@@ -626,10 +769,13 @@ write(OUT/'llms.txt', llms_txt)
 write(ROOT/'llms.txt', llms_txt)
 
 if BASE:
-    paths=['/','/learn/']+[f'/learn/{key}/' for key in ORGANS]+['/about.html','/privacy.html']
+    paths=['/','/learn/','/blog/']+[f'/blog/{p["slug"]}/' for p in BLOG_POSTS]+[f'/learn/{key}/' for key in ORGANS]+['/about.html','/privacy.html']
+    blog_dates={p['slug']:p.get('updated',CONTENT_UPDATED) for p in BLOG_POSTS}
     def last_modified(path):
         slug=path.strip('/').split('/')[-1]
-        return GUIDES[slug]['updated'] if path.startswith('/learn/') and slug in GUIDES else CONTENT_UPDATED
+        if path.startswith('/learn/') and slug in GUIDES: return GUIDES[slug]['updated']
+        if path.startswith('/blog/') and slug in blog_dates: return blog_dates[slug]
+        return CONTENT_UPDATED
     xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{E(url(path))}</loc><lastmod>{last_modified(path)}</lastmod></url>\n' for path in paths)+'</urlset>\n'
     write(OUT/'sitemap.xml',xml)
     write(ROOT/'sitemap.xml',xml)

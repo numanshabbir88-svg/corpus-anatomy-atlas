@@ -93,7 +93,10 @@ def local_target(page, reference):
     if path.endswith('/'): target /= 'index.html'
     return target
 
-if len(PAGES) != 79: report(f'Expected 79 HTML files, found {len(PAGES)}')
+BLOG_COUNT = len(list((Path(__file__).resolve().parent / 'seo' / 'blogs').glob('*.json')))
+EXPECTED_PAGES = 79 + 2 + BLOG_COUNT
+EXPECTED_SITEMAP = 78 + 1 + BLOG_COUNT
+if len(PAGES) != EXPECTED_PAGES: report(f'Expected {EXPECTED_PAGES} HTML files, found {len(PAGES)}')
 seen_titles = set()
 related_graph = {}
 context_status_count = 0
@@ -146,8 +149,8 @@ for page in PAGES:
     for image in parser.images:
         if not image.get('alt') or not image.get('width') or not image.get('height'):
             report(f'{name}: image lacks alt or reserved dimensions: {image.get("src")}')
-    if name == '404.html':
-        if 'noindex' not in ' '.join(parser.robots): report('404.html must be noindex')
+    if name in ('404.html', 'blog-studio.html'):
+        if 'noindex' not in ' '.join(parser.robots): report(f'{name} must be noindex')
         continue
     public_path = '/' if name == 'index.html' else '/' + name.replace('index.html','') if name.endswith('/index.html') else '/' + name
     if BASE:
@@ -170,12 +173,12 @@ if BASE:
         try:
             elements = ET.parse(sitemap).findall('{http://www.sitemaps.org/schemas/sitemap/0.9}url')
             urls = [item.findtext('{http://www.sitemaps.org/schemas/sitemap/0.9}loc') for item in elements]
-            if len(urls) != 78 or len(set(urls)) != 78: report(f'Sitemap must contain 78 unique URLs, found {len(urls)}')
+            if len(urls) != EXPECTED_SITEMAP or len(set(urls)) != EXPECTED_SITEMAP: report(f'Sitemap must contain {EXPECTED_SITEMAP} unique URLs, found {len(urls)}')
             for address in urls:
                 if not address or not address.startswith(BASE + '/'): report(f'Sitemap URL has incorrect origin: {address}'); continue
                 path = urlparse(address).path
                 if not local_target(ROOT / 'index.html', path).is_file(): report(f'Sitemap URL has no page: {address}')
-            expected = {BASE + '/' if p.name == 'index.html' and p.parent == ROOT else BASE + '/' + str(p.relative_to(ROOT)).replace('index.html','') if p.name == 'index.html' else BASE + '/' + str(p.relative_to(ROOT)) for p in PAGES if p.name != '404.html'}
+            expected = {BASE + '/' if p.name == 'index.html' and p.parent == ROOT else BASE + '/' + str(p.relative_to(ROOT)).replace('index.html','') if p.name == 'index.html' else BASE + '/' + str(p.relative_to(ROOT)) for p in PAGES if p.name not in ('404.html', 'blog-studio.html')}
             if set(urls) != expected: report('Sitemap does not match indexable pages')
         except ET.ParseError as exc: report(f'Sitemap XML invalid: {exc}')
     if f'Sitemap: {BASE}/sitemap.xml' not in robots: report('robots.txt sitemap directive missing')
@@ -269,4 +272,4 @@ if ERRORS:
     print('SEO audit FAIL (' + str(len(ERRORS)) + ' issues)')
     for error in ERRORS[:40]: print(' -', error)
     sys.exit(1)
-print(f'SEO audit PASS: {len(PAGES)} pages, {78 if BASE else 0} sitemap URLs, valid local links, {"public" if BASE else "noindex preview"} mode.')
+print(f'SEO audit PASS: {len(PAGES)} pages, {EXPECTED_SITEMAP if BASE else 0} sitemap URLs, valid local links, {"public" if BASE else "noindex preview"} mode.')
