@@ -1,14 +1,15 @@
 {
+  "slug": "uterus-anatomy",
   "title": "Uterus Anatomy: Endometrium, Myometrium & Cavity Guides",
   "description": "Master uterus anatomy, including the fundus, body, isthmus, three wall layers (endometrium, myometrium, perimetrium), spiral arteries, and uterine support.",
   "updated": "2026-11-02",
   "h1": "Uterus Anatomy: Endometrium, Myometrium, Cavity and Blood Supply",
   "blurb": "From the dome-like fundus to the internal os: how the cyclic endometrium, thick smooth-muscle myometrium, and spiral arteries remodel across life stages.",
-  "lead": "Hollow, pear-shaped, and lined by a hormonally responsive mucosa, the uterus is engineered to renew its inner lining each cycle and expand dramatically during pregnancy. This illustrated study guide examines 20 documented anatomical entries—including Fundus, Uterine body, Uterine cornua, Endometrial glands—connecting visible form, tissue organization, and physiological function.",
+  "lead": "Hollow, pear-shaped, and lined by a hormonally responsive mucosa, the uterus is engineered to renew its inner lining each cycle and expand dramatically during pregnancy. In this illustrated guide to uterus anatomy and layers, we examine 20 documented structures—including fundus, uterine body, uterine cornua, uterine cavity—linking regional topography, tissue architecture, physiological mechanisms, and clinical reasoning.",
   "overview": [
-    "Hollow, pear-shaped, and lined by a hormonally responsive mucosa, the uterus is engineered to renew its inner lining each cycle and expand dramatically during pregnancy. Known in classical anatomical nomenclature as Uterus, this chapter belongs to the female reproductive study pathway. Hollow, pear-shaped, and lined by a hormonally responsive mucosa, the uterus is engineered to renew its inner lining each cycle and expand dramatically during pregnancy. Known in classical anatomical nomenclature as Uterus, this chapter belongs to the female reproductive study pathway. Read the uterus from outside inward, then trace the menstrual endometrium and the lower segment relevant to obstetric and surgical anatomy.",
-    "When you trace how uterus anatomy and layers functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Fundus (expands in pregnancy; fundal position is an obstetric landmark), Uterine body (houses uterine cavity and contracts during labor), Endometrial glands (change secretion and shape during menstrual cycle), and Endometrial stroma (decidualizes with progesterone during pregnancy). By examining both surface-visible features (18 illustrated landmarks) and deeper or microscopic components (2 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
-    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for fundus, fundal height is a rough gestational growth marker; for uterine body, fibroids often arise here and may distort the cavity. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+    "Hollow, pear-shaped, and lined by a hormonally responsive mucosa, the uterus is engineered to renew its inner lining each cycle and expand dramatically during pregnancy. Read the uterus from outside inward, then trace the menstrual endometrium and the lower segment relevant to obstetric and surgical anatomy. Within the human body, the uterus — layers & cavity (Uterus) is situated in midline pelvis between bladder and rectum, receives arterial perfusion via uterine artery (internal iliac), anastomoses with ovarian artery, and is innervated by uterovaginal plexus; pelvic visceral afferents.",
+    "The fundus (Fundus uteri) is dome above the two tubal openings. Physiologically, the fundus expands in pregnancy; fundal position is an obstetric landmark. Structurally, the uterine body (Corpus uteri) comprises main muscular region between fundus and isthmus. Physiologically, the uterine body houses uterine cavity and contracts during labor. The uterine cornua (Cornua uteri) is upper lateral junctions where uterine tubes enter. Physiologically, the uterine cornua governs communicate with intramural tube segments. Structurally, the uterine cavity (Cavitas uteri) comprises triangular cavity between the anterior and posterior endometrium. Physiologically, the uterine cavity receives embryo; menstrual efflux passes to cervical canal. The endometrium — functionalis (Stratum functionale) is superficial cyclic glandular layer; sheds with menses. Physiologically, the endometrium — functionalis governs proliferates under estrogen and becomes secretory under progesterone. The endometrium — basalis (Stratum basale) is deep regenerative endometrial layer next to myometrium. Physiologically, the endometrium — basalis governs regrows the functionalis after menstruation.",
+    "Clinically, regarding the fundus, fundal height is a rough gestational growth marker. From a diagnostic standpoint, in the uterine body, fibroids often arise here and may distort the cavity. In clinical pathology involving the uterine cornua, interstitial ectopic pregnancy arises near the cornu. Medical evaluation of the uterine cavity also notes that polyps or submucosal fibroids deform the cavity."
   ],
   "keywords": {
     "primary": "uterus anatomy and layers",
@@ -36,23 +37,23 @@
   "questions": [
     {
       "question": "What are the layers of the uterine wall?",
-      "answer": "The uterus has an inner endometrium, muscular myometrium and outer serosal or connective covering depending on the region. In relation to endometrial–myometrial junction, this structure interface for cyclical uterine peristalsis and implantation."
+      "answer": "The uterus has an inner endometrium, muscular myometrium and outer serosal or connective covering depending on the region. The endometrial–myometrial junction (Zona junctionalis) is inner myometrial zone adjacent to the endometrium. Physiologically, the endometrial–myometrial junction governs interface for cyclical uterine peristalsis and implantation."
     },
     {
       "question": "What happens to the endometrium during the menstrual cycle?",
-      "answer": "The endometrium responds to changing ovarian hormones. Its functional layer grows and changes during the cycle and is shed if pregnancy does not occur. In relation to endometrial glands, this structure change secretion and shape during menstrual cycle."
+      "answer": "The endometrium responds to changing ovarian hormones. Its functional layer grows and changes during the cycle and is shed if pregnancy does not occur. The endometrial glands is simple tubular glands extending through uterine mucosa into stroma. Physiologically, the endometrial glands governs change secretion and shape during menstrual cycle."
     },
     {
       "question": "What is the fundus?",
-      "answer": "Dome above the two tubal openings. Function: Expands in pregnancy; fundal position is an obstetric landmark. In relation to fundus, this structure expands in pregnancy; fundal position is an obstetric landmark. From an anatomical and functional standpoint, fundal height is a rough gestational growth marker."
+      "answer": "Dome above the two tubal openings. Functionally, it expands in pregnancy; fundal position is an obstetric landmark. In clinical pathology involving the fundus, fundal height is a rough gestational growth marker."
     },
     {
       "question": "Where are the uterine cornua located?",
-      "answer": "Upper lateral junctions where uterine tubes enter. Function: Communicate with intramural tube segments. In relation to uterine cornua, this structure communicate with intramural tube segments. From an anatomical and functional standpoint, interstitial ectopic pregnancy arises near the cornu."
+      "answer": "Upper lateral junctions where uterine tubes enter. Functionally, it governs communicate with intramural tube segments. Medical evaluation of the uterine cornua also notes that interstitial ectopic pregnancy arises near the cornu."
     },
     {
       "question": "What is the function of the endometrium — functionalis?",
-      "answer": "Function: Proliferates under estrogen and becomes secretory under progesterone. Superficial cyclic glandular layer; sheds with menses. In relation to endometrium — functionalis, this structure proliferates under estrogen and becomes secretory under progesterone."
+      "answer": "Functionally, it governs proliferates under estrogen and becomes secretory under progesterone. Superficial cyclic glandular layer; sheds with menses. Clinically, regarding the endometrium — functionalis, abnormal bleeding can arise from altered endometrial architecture."
     }
   ]
 }

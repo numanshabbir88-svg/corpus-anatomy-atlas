@@ -1,14 +1,15 @@
 {
+  "slug": "autonomic-nervous-system",
   "title": "Autonomic Nervous System Anatomy: Sympathetic & Enteric",
   "description": "Learn autonomic nervous system anatomy, comparing thoracolumbar sympathetic ganglia and splanchnic nerves with craniosacral vagal and pelvic nerve outflow.",
   "updated": "2026-11-02",
   "h1": "Autonomic Nervous System Anatomy: Sympathetic and Parasympathetic",
   "blurb": "The involuntary balance between thoracolumbar sympathetic fight-or-flight chains, craniosacral vagal and pelvic parasympathetic rest-and-digest outflow, and gut plexuses.",
-  "lead": "Operating beneath conscious awareness every second of life, the autonomic nervous system balances heart rate, blood pressure, digestion, and pupil size through two complementary divisions. This illustrated study guide examines 20 documented anatomical entries—including Sympathetic trunk, Chain ganglion, Coeliac ganglion & plexus, Pterygopalatine ganglion—connecting visible form, tissue organization, and physiological function.",
+  "lead": "Operating beneath conscious awareness every second of life, the autonomic nervous system balances heart rate, blood pressure, digestion, and pupil size through two complementary divisions. In this illustrated guide to autonomic nervous system anatomy, we examine 20 documented structures—including sympathetic trunk, chain ganglion, coeliac ganglion & plexus, superior mesenteric ganglion—linking regional topography, tissue architecture, physiological mechanisms, and clinical reasoning.",
   "overview": [
-    "Operating beneath conscious awareness every second of life, the autonomic nervous system balances heart rate, blood pressure, digestion, and pupil size through two complementary divisions. Known in classical anatomical nomenclature as Systema nervosum autonomicum, this chapter belongs to the nervous study pathway. Operating beneath conscious awareness every second of life, the autonomic nervous system balances heart rate, blood pressure, digestion, and pupil size through two complementary divisions. Known in classical anatomical nomenclature as Systema nervosum autonomicum, this chapter belongs to the nervous study pathway. Deep dive into ganglia and plexuses: where fibres relay, which organs they reach, and what happens when the balance breaks.",
-    "When you trace how autonomic nervous system anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Sympathetic trunk (mass fight-or-flight discharge), Chain ganglion (synapse for pre→postganglionic fibres), Pterygopalatine ganglion (supports glandular secretion), and Ciliary ganglion (postganglionic fibers constrict pupil and accommodate lens). By examining both surface-visible features (17 illustrated landmarks) and deeper or microscopic components (3 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
-    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for sympathetic trunk, chronic overdrive: hypertension, anxiety physiology; for chain ganglion, stellate ganglion block treats refractory angina pain. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+    "Operating beneath conscious awareness every second of life, the autonomic nervous system balances heart rate, blood pressure, digestion, and pupil size through two complementary divisions. Deep dive into ganglia and plexuses: where fibres relay, which organs they reach, and what happens when the balance breaks. Within the human body, the autonomic nervous system (Systema nervosum autonomicum) is situated in viscera + vertebral column, receives arterial perfusion via visceral vessels, and is innervated by intrinsic — autonomic.",
+    "The sympathetic trunk (Truncus sympathicus) is paired chain from neck to sacrum beside vertebrae. Physiologically, the sympathetic trunk governs mass fight-or-flight discharge. Structurally, the chain ganglion (Ganglion trunci) comprises relay station on the trunk. Physiologically, the chain ganglion governs synapse for pre→postganglionic fibres. Structurally, the coeliac ganglion & plexus (Ganglion coeliacum) comprises largest prevertebral relay at T12/L1, around coeliac trunk. Physiologically, the coeliac ganglion & plexus governs foregut sympathetic supply. Structurally, the superior mesenteric ganglion (Ganglion mesentericum superius) comprises relay at the SMA origin. Physiologically, the superior mesenteric ganglion governs midgut sympathetic supply. Structurally, the inferior mesenteric ganglion (Ganglion mesentericum inferius) comprises relay at IMA origin. Physiologically, the inferior mesenteric ganglion governs hindgut and pelvic sympathetic supply. Structurally, the vagus parasympathetic (N. vagus (parasymp.)) comprises cranial parasympathetic to thorax and fore/midgut. Physiologically, the vagus parasympathetic governs rest-digest: slow heart, stimulate gut.",
+    "Clinically, regarding the sympathetic trunk, chronic overdrive: hypertension, anxiety physiology. From a diagnostic standpoint, in the chain ganglion, stellate ganglion block treats refractory angina pain. In clinical pathology involving the coeliac ganglion & plexus, coeliac plexus block for pancreatic cancer pain. Medical evaluation of the superior mesenteric ganglion also notes that mesenteric ischaemia pain is carried with these fibres."
   ],
   "keywords": {
     "primary": "autonomic nervous system anatomy",
@@ -36,23 +37,23 @@
   "questions": [
     {
       "question": "What is the difference between sympathetic and parasympathetic nerves?",
-      "answer": "Both are autonomic pathways. Sympathetic activity often prepares organs for exertion; parasympathetic pathways support many resting functions. Their effects depend on the organ and receptor. In relation to inferior hypogastric plexus, this structure distribute sympathetic and parasympathetic fibers to pelvic organs."
+      "answer": "Both are autonomic pathways. Sympathetic activity often prepares organs for exertion; parasympathetic pathways support many resting functions. Their effects depend on the organ and receptor. The inferior hypogastric plexus is paired pelvic autonomic networks lateral to rectum, bladder and reproductive organs. Physiologically, the inferior hypogastric plexus governs distribute sympathetic and parasympathetic fibers to pelvic organs."
     },
     {
       "question": "Where are autonomic ganglia located?",
-      "answer": "Sympathetic ganglia lie in chains beside the spine or in prevertebral groups; many parasympathetic ganglia lie near or within their target organs. In relation to inferior hypogastric plexus, this structure distribute sympathetic and parasympathetic fibers to pelvic organs."
+      "answer": "Sympathetic ganglia lie in chains beside the spine or in prevertebral groups; many parasympathetic ganglia lie near or within their target organs. The sympathetic trunk (Truncus sympathicus) is paired chain from neck to sacrum beside vertebrae. Physiologically, the sympathetic trunk governs mass fight-or-flight discharge."
     },
     {
       "question": "What is the sympathetic trunk?",
-      "answer": "Paired chain from neck to sacrum beside vertebrae. Function: Mass fight-or-flight discharge. In relation to sympathetic trunk, this structure mass fight-or-flight discharge. From an anatomical and functional standpoint, chronic overdrive: hypertension, anxiety physiology."
+      "answer": "Paired chain from neck to sacrum beside vertebrae. Functionally, it governs mass fight-or-flight discharge. Structurally, the adrenal medulla (Medulla glandulae suprarenalis) comprises modified sympathetic ganglion releasing adrenaline. Physiologically, the adrenal medulla governs hormonal fight-or-flight broadcast."
     },
     {
       "question": "Where is the coeliac ganglion & plexus located?",
-      "answer": "Largest prevertebral relay at T12/L1, around coeliac trunk. Function: Foregut sympathetic supply. In relation to coeliac ganglion & plexus, this structure foregut sympathetic supply. From an anatomical and functional standpoint, coeliac plexus block for pancreatic cancer pain."
+      "answer": "Largest prevertebral relay at T12/L1, around coeliac trunk. Functionally, it governs foregut sympathetic supply. Medical evaluation of the coeliac ganglion & plexus also notes that coeliac plexus block for pancreatic cancer pain."
     },
     {
       "question": "What is the function of the inferior mesenteric ganglion?",
-      "answer": "Function: Hindgut and pelvic sympathetic supply. Relay at IMA origin. In relation to inferior mesenteric ganglion, this structure hindgut and pelvic sympathetic supply. From an anatomical and functional standpoint, involved in post-ejaculatory pain syndromes."
+      "answer": "Functionally, it governs hindgut and pelvic sympathetic supply. Relay at IMA origin. Clinically, regarding the inferior mesenteric ganglion, involved in post-ejaculatory pain syndromes."
     }
   ]
 }

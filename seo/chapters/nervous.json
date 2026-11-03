@@ -1,14 +1,15 @@
 {
+  "slug": "nervous-system-anatomy",
   "title": "Human Nervous System Anatomy: Brain, Cord & Nerve Paths",
   "description": "Understand human nervous system anatomy as a whole, connecting the brain and spinal cord to cranial nerves, spinal plexuses, and peripheral nerve pathways.",
   "updated": "2026-11-02",
   "h1": "Human Nervous System Overview: Brain, Spinal Cord and Nerve Networks",
   "blurb": "One integrated signaling web: the central brain and spinal cord compute while 12 pairs of cranial nerves and 31 pairs of spinal nerves link every tissue.",
-  "lead": "Stretching from the folded cerebral cortex down to the finest digital nerve endings in the fingertips, the nervous system coordinates thought, sensation, and motion in milliseconds. This illustrated study guide examines 20 documented anatomical entries—including Brain, Cerebellum, Brainstem, Cortical gray matter—connecting visible form, tissue organization, and physiological function.",
+  "lead": "Stretching from the folded cerebral cortex down to the finest digital nerve endings in the fingertips, the nervous system coordinates thought, sensation, and motion in milliseconds. In this illustrated guide to nervous system overview anatomy, we examine 20 documented structures—including brain, cerebellum, brainstem, spinal cord—linking regional topography, tissue architecture, physiological mechanisms, and clinical reasoning.",
   "overview": [
-    "Stretching from the folded cerebral cortex down to the finest digital nerve endings in the fingertips, the nervous system coordinates thought, sensation, and motion in milliseconds. Known in classical anatomical nomenclature as Systema nervosum, this chapter belongs to the nervous study pathway. Stretching from the folded cerebral cortex down to the finest digital nerve endings in the fingertips, the nervous system coordinates thought, sensation, and motion in milliseconds. Known in classical anatomical nomenclature as Systema nervosum, this chapter belongs to the nervous study pathway. The master page of control. Follow the cord down, watch plexuses redistribute fibres to limbs, and see where the autonomic chain hugs the spine.",
-    "When you trace how nervous system overview anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Brain (integration, consciousness, motor planning and autonomic control), Cerebellum (coordination, balance and motor learning), Cortical gray matter (integrates sensory, motor and association information), and Midbrain (hosts III/IV-related nuclei and visual/auditory orienting circuits). By examining both surface-visible features (14 illustrated landmarks) and deeper or microscopic components (6 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
-    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for brain, head injury scales from concussion to diffuse axonal injury; for cerebellum, lesion → intention tremor and ataxia on the same side. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+    "Stretching from the folded cerebral cortex down to the finest digital nerve endings in the fingertips, the nervous system coordinates thought, sensation, and motion in milliseconds. The master page of control. Follow the cord down, watch plexuses redistribute fibres to limbs, and see where the autonomic chain hugs the spine. Within the human body, the nervous system — overview (Systema nervosum) is situated in whole body: central + peripheral, receives arterial perfusion via internal carotid + vertebral arteries, and is innervated by itself — plus autonomic control of every organ.",
+    "Structurally, the brain (Encephalon) comprises cerebrum, cerebellum and brainstem inside the cranial vault. Physiologically, the brain governs integration, consciousness, motor planning and autonomic control. Structurally, the cerebellum comprises hindbrain structure behind the brainstem. Physiologically, the cerebellum governs coordination, balance and motor learning. Structurally, the brainstem (Truncus encephali) comprises midbrain, pons and medulla connecting cord to brain. Physiologically, the brainstem governs vital centres: respiration, heart rate, consciousness. Structurally, the spinal cord (Medulla spinalis) comprises 31-segment cord from foramen magnum to L1–L2. Physiologically, the spinal cord governs two-way tracts plus segmental reflex circuits. Structurally, the cervical plexus (Plexus cervicalis (C1–C4)) comprises nerve network in the posterior triangle of the neck. Physiologically, the cervical plexus governs neck muscles and skin; phrenic nerve to diaphragm. Structurally, the brachial plexus (Plexus brachialis (C5–T1)) comprises roots-trunks-divisions-cords-branches behind the clavicle. Physiologically, the brachial plexus governs all motor and sensory supply of the upper limb.",
+    "Clinically, regarding the brain, head injury scales from concussion to diffuse axonal injury. From a diagnostic standpoint, in the cerebellum, lesion → intention tremor and ataxia on the same side. In clinical pathology involving the brainstem, brainstem death is legal death in most jurisdictions. Medical evaluation of the spinal cord also notes that cord transection level predicts deficit pattern precisely."
   ],
   "keywords": {
     "primary": "nervous system overview anatomy",
@@ -36,23 +37,23 @@
   "questions": [
     {
       "question": "What are the main divisions of the nervous system?",
-      "answer": "The central nervous system consists of brain and spinal cord. Peripheral nerves and ganglia connect it to the rest of the body; autonomic circuits regulate many involuntary functions. From an anatomical and functional standpoint, cord transection level predicts deficit pattern precisely."
+      "answer": "The central nervous system consists of brain and spinal cord. Peripheral nerves and ganglia connect it to the rest of the body; autonomic circuits regulate many involuntary functions. Structurally, the spinal cord (Medulla spinalis) comprises 31-segment cord from foramen magnum to L1–L2. Physiologically, the spinal cord governs two-way tracts plus segmental reflex circuits."
     },
     {
       "question": "How do nerves carry information between the body and brain?",
-      "answer": "Sensory pathways bring information toward the central nervous system, and motor pathways send commands outward. Spinal and cranial nerves also support reflexes and organ control. In relation to brain, this structure integration, consciousness, motor planning and autonomic control."
+      "answer": "Sensory pathways bring information toward the central nervous system, and motor pathways send commands outward. Spinal and cranial nerves also support reflexes and organ control. Structurally, the brain (Encephalon) comprises cerebrum, cerebellum and brainstem inside the cranial vault. Physiologically, the brain governs integration, consciousness, motor planning and autonomic control."
     },
     {
       "question": "What is the brain?",
-      "answer": "Cerebrum, cerebellum and brainstem inside the cranial vault. Function: Integration, consciousness, motor planning and autonomic control. From an anatomical and functional standpoint, head injury scales from concussion to diffuse axonal injury."
+      "answer": "Cerebrum, cerebellum and brainstem inside the cranial vault. Functionally, it governs integration, consciousness, motor planning and autonomic control. Structurally, the cerebellum comprises hindbrain structure behind the brainstem. Physiologically, the cerebellum governs coordination, balance and motor learning."
     },
     {
       "question": "Where is the brainstem located?",
-      "answer": "Midbrain, pons and medulla connecting cord to brain. Function: Vital centres: respiration, heart rate, consciousness. In relation to brainstem, this structure vital centres: respiration, heart rate, consciousness. From an anatomical and functional standpoint, brainstem death is legal death in most jurisdictions."
+      "answer": "Midbrain, pons and medulla connecting cord to brain. Functionally, it governs vital centres: respiration, heart rate, consciousness. Medical evaluation of the brainstem also notes that brainstem death is legal death in most jurisdictions."
     },
     {
       "question": "What is the function of the cervical plexus?",
-      "answer": "Function: Neck muscles and skin; phrenic nerve to diaphragm. Nerve network in the posterior triangle of the neck. In relation to cervical plexus, this structure neck muscles and skin; phrenic nerve to diaphragm. From an anatomical and functional standpoint, C3-4-5 keeps the diaphragm alive — injury above C4 stops breathing."
+      "answer": "Functionally, it governs neck muscles and skin; phrenic nerve to diaphragm. Nerve network in the posterior triangle of the neck. Clinically, regarding the cervical plexus, c3-4-5 keeps the diaphragm alive — injury above C4 stops breathing."
     }
   ]
 }

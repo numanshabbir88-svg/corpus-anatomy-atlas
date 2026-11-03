@@ -1,14 +1,15 @@
 {
+  "slug": "vascular-system-anatomy",
   "title": "Vascular System Anatomy: Aorta, Arteries & Venous Trees",
   "description": "Study vascular system anatomy across the pulmonary and systemic circuits, tracing the aorta, carotid, mesenteric, and limb arteries with major venae cavae.",
   "updated": "2026-11-02",
   "h1": "Vascular System Anatomy: Aorta, Major Arteries, Veins and Capillaries",
   "blurb": "High-pressure elastic and muscular arteries branching from the aorta paired with valve-guarded veins and portal circuits returning blood to the heart.",
-  "lead": "Branching from the elastic arch of the aorta down to microscopic capillary beds and valve-guarded veins, the vascular system delivers oxygen to every living cell. This illustrated study guide examines 20 documented anatomical entries—including Aortic arch, Common carotid artery, Subclavian artery—connecting visible form, tissue organization, and physiological function.",
+  "lead": "Branching from the elastic arch of the aorta down to microscopic capillary beds and valve-guarded veins, the vascular system delivers oxygen to every living cell. In this illustrated guide to vascular system anatomy, we examine 20 documented structures—including aortic arch, common carotid artery, subclavian artery, brachial artery—linking regional topography, tissue architecture, physiological mechanisms, and clinical reasoning.",
   "overview": [
-    "Branching from the elastic arch of the aorta down to microscopic capillary beds and valve-guarded veins, the vascular system delivers oxygen to every living cell. Known in classical anatomical nomenclature as Systema cardiovasculare, this chapter belongs to the circulatory study pathway. Branching from the elastic arch of the aorta down to microscopic capillary beds and valve-guarded veins, the vascular system delivers oxygen to every living cell. Known in classical anatomical nomenclature as Systema cardiovasculare, this chapter belongs to the circulatory study pathway. The arterial and venous maps a surgeon names daily, from carotids to saphenous.",
-    "When you trace how vascular system anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Aortic arch (distributes to head and arms), Common carotid artery (brain and face supply), Subclavian artery (arm supply; gives vertebral to brain), and Brachial artery (arm and forearm supply; BP cuff site). By following all 20 illustrated landmarks in sequence, you can see how gross morphology, internal chambers or layers, and surrounding vessels work as one integrated unit.",
-    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for aortic arch, coarctation: hypertension above, weak femorals below; for common carotid artery, carotid bruit = stroke risk; press on the sinus to slow the heart. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+    "Branching from the elastic arch of the aorta down to microscopic capillary beds and valve-guarded veins, the vascular system delivers oxygen to every living cell. The arterial and venous maps a surgeon names daily, from carotids to saphenous. Within the human body, the vascular system (Systema cardiovasculare) is situated in whole body, receives arterial perfusion via the heart, and is innervated by autonomic vasomotor.",
+    "Structurally, the aortic arch (Arcus aortae) comprises curve giving brachiocephalic, left carotid, left subclavian. Physiologically, the aortic arch distributes to head and arms. Structurally, the common carotid artery (A. carotis communis) comprises neck artery bifurcating at C4. Physiologically, the common carotid artery governs brain and face supply. Anatomically, the subclavian artery (A. subclavia) lies under clavicle to axillary artery. Physiologically, the subclavian artery governs arm supply; gives vertebral to brain. The brachial artery (A. brachialis) is upper-arm continuation. Physiologically, the brachial artery governs arm and forearm supply; BP cuff site. Structurally, the descending aorta (Aorta descendens) comprises thoracic then abdominal aorta. Physiologically, the descending aorta governs segmental branches to wall and viscera. Structurally, the coeliac trunk (Truncus coeliacus) comprises t12 branch: left gastric, splenic, hepatic. Physiologically, the coeliac trunk governs foregut supply.",
+    "Clinically, regarding the aortic arch, coarctation: hypertension above, weak femorals below. From a diagnostic standpoint, in the common carotid artery, carotid bruit = stroke risk; press on the sinus to slow the heart. In clinical pathology involving the subclavian artery, subclavian steal reverses vertebral flow on exertion. Medical evaluation of the brachial artery also notes that intra-arterial cannulation risk at elbow."
   ],
   "keywords": {
     "primary": "vascular system anatomy",
@@ -36,23 +37,23 @@
   "questions": [
     {
       "question": "What is the difference between arteries and veins?",
-      "answer": "Arteries carry blood away from the heart and veins return it. The distinction is direction of flow, not oxygen level: pulmonary arteries carry less-oxygenated blood. In relation to superior vena cava, this structure upper-body return to right atrium."
+      "answer": "Arteries carry blood away from the heart and veins return it. The distinction is direction of flow, not oxygen level: pulmonary arteries carry less-oxygenated blood. The superior vena cava (V. cava superior) is short trunk from brachiocephalic veins. Physiologically, the superior vena cava governs upper-body return to right atrium."
     },
     {
       "question": "What is the aorta's role in circulation?",
-      "answer": "The aorta receives blood from the left ventricle and supplies the systemic arterial tree through branches serving the head, trunk and limbs. In relation to aortic arch, this structure distributes to head and arms. From an anatomical and functional standpoint, coarctation: hypertension above, weak femorals below."
+      "answer": "The aorta receives blood from the left ventricle and supplies the systemic arterial tree through branches serving the head, trunk and limbs. Structurally, the aortic arch (Arcus aortae) comprises curve giving brachiocephalic, left carotid, left subclavian. Physiologically, the aortic arch distributes to head and arms."
     },
     {
       "question": "What is the aortic arch?",
-      "answer": "Curve giving brachiocephalic, left carotid, left subclavian. Function: Distributes to head and arms. In relation to aortic arch, this structure distributes to head and arms. From an anatomical and functional standpoint, coarctation: hypertension above, weak femorals below."
+      "answer": "Curve giving brachiocephalic, left carotid, left subclavian. Functionally, it distributes to head and arms. Structurally, the common carotid artery (A. carotis communis) comprises neck artery bifurcating at C4. Physiologically, the common carotid artery governs brain and face supply."
     },
     {
       "question": "Where is the subclavian artery located?",
-      "answer": "Under clavicle to axillary artery. Function: Arm supply; gives vertebral to brain. In relation to subclavian artery, this structure arm supply; gives vertebral to brain. From an anatomical and functional standpoint, subclavian steal reverses vertebral flow on exertion."
+      "answer": "Under clavicle to axillary artery. Functionally, it governs arm supply; gives vertebral to brain. Medical evaluation of the subclavian artery also notes that subclavian steal reverses vertebral flow on exertion."
     },
     {
       "question": "What is the function of the descending aorta?",
-      "answer": "Function: Segmental branches to wall and viscera. Thoracic then abdominal aorta. In relation to descending aorta, this structure segmental branches to wall and viscera. From an anatomical and functional standpoint, aneurysm screening in male smokers over 65."
+      "answer": "Functionally, it governs segmental branches to wall and viscera. Thoracic then abdominal aorta. Clinically, regarding the descending aorta, aneurysm screening in male smokers over 65."
     }
   ]
 }

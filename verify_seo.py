@@ -7,12 +7,15 @@ use the actual SITE_URL (or host-provided URL) for all canonical locations.
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse, unquote
+import json
 import os
 import re
 import sys
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parent / 'site'
+SEO_SLUGS = {p.stem: json.loads(p.read_text(encoding='utf-8')).get('slug', p.stem) for p in (Path(__file__).resolve().parent / 'seo' / 'chapters').glob('*.json')}
+def S(k): return SEO_SLUGS.get(k, k)
 # Netlify previews/branch builds stay noindex; only production receives canonicals and sitemap.
 CONTEXT = os.environ.get('CONTEXT', '')
 BASE = (os.environ.get('SITE_URL') or os.environ.get('URL') or os.environ.get('RENDER_EXTERNAL_URL') or '').rstrip('/') if CONTEXT in ('', 'production') else ''
@@ -192,7 +195,7 @@ else:
 # Targeted regression checks: never replace a microscopic close-up with a gross lung plate,
 # and never return the sagittal vaginal image to the external vulva chapter.
 for slug in ('lungs','pulmonaryacinus'):
-    path=ROOT/'learn'/slug/'index.html'
+    path=ROOT/'learn'/S(slug)/'index.html'
     parser=Page();parser.feed(path.read_text(encoding='utf-8'))
     for cell in ('Type I pneumocyte','Type II pneumocyte','Alveolar macrophage'):
         matches=[b for b in parser.previews if b.get('data-part-name')==cell and b.get('class')=='reading-mini-trigger']
@@ -200,15 +203,15 @@ for slug in ('lungs','pulmonaryacinus'):
             report(f'{slug}: missing honest illustrated close-up and pointer for {cell}')
 # All microscope links must point to shipped optimized assets and carry an honest organ reference.
 for slug in ('lungs','kidney','thyroid','pancreas','skin','breast','lymph','gynuterus','gynadnexa','maletestis'):
-    page=(ROOT/'learn'/slug/'index.html').read_text(encoding='utf-8')
+    page=(ROOT/'learn'/S(slug)/'index.html').read_text(encoding='utf-8')
     if 'id="under-the-lens"' not in page: report(f'{slug}: under-the-lens section missing')
     if 'data-preview-kind="scope"' not in page: report(f'{slug}: tissue-level previews missing')
 # A distinct, accurately counted skull chapter must not add bones to the 206 atlas or
 # falsely point at hidden palatine/vomer bones or the intratemporal CN VII foramen.
-skull_parser=Page();skull_parser.feed((ROOT/'learn/skullface/index.html').read_text(encoding='utf-8'))
+skull_parser=Page();skull_parser.feed((ROOT/'learn'/S('skullface')/'index.html').read_text(encoding='utf-8'))
 if skull_parser.title != 'Skull and Facial Bones Anatomy: 22 Adult Bones | Corpus' or skull_parser.part_count != 30 or skull_parser.qa_count != 5:
     report('Skull guide: title, 30 substantive entries or five Q&A missing')
-if not any('../facialnerve/' in link for link in skull_parser.related):
+if not any(f'../{S("facialnerve")}/' in link for link in skull_parser.related):
     report('Skull guide: independent facial nerve chapter link missing')
 for name in ('Right maxilla','Left maxilla','Right zygomatic bone','Left zygomatic bone','Right nasal bone','Left nasal bone','Mandible','Vomer','Right palatine bone','Left palatine bone','Right inferior nasal concha','Left inferior nasal concha','Frontal bone'):
     matches=[b for b in skull_parser.previews if b.get('data-part-name')==name]
@@ -223,12 +226,12 @@ for name in ('Right maxilla','Left maxilla','Right zygomatic bone','Left zygomat
             report(f'Skull guide: hidden bone {name} has an invalid medial-view pointer')
     elif matches[0].get('data-preview-context')!='false':
         report(f'Skull guide: obvious anterior bone {name} lacks its visible marker')
-facial_parser=Page();facial_parser.feed((ROOT/'learn/facialnerve/index.html').read_text(encoding='utf-8'))
+facial_parser=Page();facial_parser.feed((ROOT/'learn'/S('facialnerve')/'index.html').read_text(encoding='utf-8'))
 for button in facial_parser.previews:
     if button.get('data-part-name')=='Stylomastoid foramen' and button.get('data-preview-context')!='true':
         report('Facial nerve: hidden bony foramen has a false plate pointer')
 # A complete dental positional chart, honest class imagery, and correct sensory pathways.
-dental_parser=Page();dental_html=(ROOT/'learn/dentition/index.html').read_text(encoding='utf-8');dental_parser.feed(dental_html)
+dental_parser=Page();dental_html=(ROOT/'learn'/S('dentition')/'index.html').read_text(encoding='utf-8');dental_parser.feed(dental_html)
 if dental_parser.title != 'Tooth Anatomy Guide: 32 Permanent & 20 Primary | Corpus' or dental_parser.part_count!=76 or dental_parser.qa_count!=5:
     report('Dentition guide: title, 76 entries or five Q&A missing')
 if len(re.findall(r'class="tooth-position"',dental_html))!=52:
@@ -241,13 +244,13 @@ if not all(term in dental_html for term in ('Superior alveolar nerve branches (V
     report('Dentition guide: dental nerve or FDI orientation missing')
 # The hub must expose every foundation guide and About must reflect the real guide count.
 foundation_hub=(ROOT/'learn/index.html').read_text(encoding='utf-8')
-if any(f'href="{slug}/"' not in foundation_hub for slug in ('anatomicallanguage','bodyregions','tissuefoundations')):
+if any(f'href="{S(slug)}/"' not in foundation_hub for slug in ('anatomicallanguage','bodyregions','tissuefoundations')):
     report('Study hub omitted a foundation guide')
 if '<b>74</b> study chapters' not in (ROOT/'about.html').read_text(encoding='utf-8'):
     report('About chapter count is stale')
 # Foundation batch: truthful plane references, patient-facing regions and micro-scale imagery.
 for slug,n in [('anatomicallanguage',24),('bodyregions',28),('tissuefoundations',28)]:
-    page=(ROOT/'learn'/slug/'index.html').read_text(encoding='utf-8');probe=Page();probe.feed(page)
+    page=(ROOT/'learn'/S(slug)/'index.html').read_text(encoding='utf-8');probe=Page();probe.feed(page)
     if probe.part_count!=n or probe.qa_count!=5: report(f'{slug}: parts/Q&A coverage changed')
     if slug=='anatomicallanguage':
         visible={b.get('data-part-name') for b in probe.previews if b.get('data-preview-context')=='false'}
@@ -264,7 +267,7 @@ if 'id="contact"' not in about or 'mailto:numanshabbir88@gmail.com' not in about
     report('About us: public contact and corrections address missing')
 if '<a href="about.html">About us</a>' not in (ROOT/'index.html').read_text(encoding='utf-8'):
     report('Homepage: About us is not in the top navigation')
-vulva_html=(ROOT/'learn/gynvulva/index.html').read_text(encoding='utf-8')
+vulva_html=(ROOT/'learn'/S('gynvulva')/'index.html').read_text(encoding='utf-8')
 if 'img/webp/vulva-surface-clean.webp' not in vulva_html or 'img/webp/gyn-vagina.webp' in vulva_html:
     report('Vulva: external surface image is missing or replaced by internal sagittal image')
 if 'ctx_clitoralcomplex_' in vulva_html:

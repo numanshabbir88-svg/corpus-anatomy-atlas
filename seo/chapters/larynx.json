@@ -1,14 +1,15 @@
 {
+  "slug": "upper-airway-and-larynx",
   "title": "Upper Airway & Larynx Anatomy: Cartilages & Vocal Folds",
   "description": "Learn upper airway and larynx anatomy from the nasal conchae and three pharyngeal regions to the epiglottis, laryngeal cartilages, vocal folds, and airway.",
   "updated": "2026-11-02",
   "h1": "Upper Airway and Larynx Anatomy: Pharynx, Cartilages and Vocal Folds",
   "blurb": "Warming nasal conchae, the three-part pharynx, and the nine cartilages of the larynx that protect the lower airway during swallowing and vibrate vocal folds.",
-  "lead": "At the crossroads of breathing and swallowing, the upper airway warms and filters inspired air while the cartilaginous larynx guards the lungs and generates the human voice. This illustrated study guide examines 20 documented anatomical entries—including Nasal cavity & conchae, Paranasal sinuses, Nasopharynx & adenoid—connecting visible form, tissue organization, and physiological function.",
+  "lead": "At the crossroads of breathing and swallowing, the upper airway warms and filters inspired air while the cartilaginous larynx guards the lungs and generates the human voice. In this illustrated guide to upper airway and larynx anatomy, we examine 20 documented structures—including nasal cavity & conchae, paranasal sinuses, nasopharynx & adenoid, oropharynx—linking regional topography, tissue architecture, physiological mechanisms, and clinical reasoning.",
   "overview": [
-    "At the crossroads of breathing and swallowing, the upper airway warms and filters inspired air while the cartilaginous larynx guards the lungs and generates the human voice. Known in classical anatomical nomenclature as Via aerea superior, this chapter belongs to the respiratory study pathway. At the crossroads of breathing and swallowing, the upper airway warms and filters inspired air while the cartilaginous larynx guards the lungs and generates the human voice. Known in classical anatomical nomenclature as Via aerea superior, this chapter belongs to the respiratory study pathway. Midsagittal cut from nasal conchae to tracheal rings — including the parts you cannot see from outside: sinuses, adenoid, vocal folds.",
-    "When you trace how upper airway and larynx anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Nasal cavity & conchae (warms, humidifies and filters inspired air), Paranasal sinuses (lighten the skull; resonate voice; humidify), Nasopharynx & adenoid (air passage; immune sampling in childhood), and Oropharynx (shared food–air corridor; speech resonance). By following all 20 illustrated landmarks in sequence, you can see how gross morphology, internal chambers or layers, and surrounding vessels work as one integrated unit.",
-    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for nasal cavity & conchae, deviated septum + turbinate hypertrophy = blocked nose; for paranasal sinuses, sinusitis pain follows the sinus walls — maxillary = cheekache. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+    "At the crossroads of breathing and swallowing, the upper airway warms and filters inspired air while the cartilaginous larynx guards the lungs and generates the human voice. Midsagittal cut from nasal conchae to tracheal rings — including the parts you cannot see from outside: sinuses, adenoid, vocal folds. Within the human body, the upper airway (Via aerea superior) is situated in nose to trachea, receives arterial perfusion via branches of external & internal carotid, and is innervated by vagus (IX/X for pharynx).",
+    "The nasal cavity & conchae (Cavum nasi) is three conchae turbo-charge the surface area. Physiologically, the nasal cavity & conchae warms, humidifies and filters inspired air. Structurally, the paranasal sinuses (Sinus paranasales) comprises frontal, maxillary, ethmoid, sphenoid air spaces. Physiologically, the paranasal sinuses governs lighten the skull; resonate voice; humidify. The nasopharynx & adenoid (Nasopharynx) is posterior nasal chamber with lymphoid adenoid. Physiologically, the nasopharynx & adenoid governs air passage; immune sampling in childhood. Anatomically, the oropharynx lies behind the mouth, tonsils at its sides. Physiologically, the oropharynx governs shared food–air corridor; speech resonance. The epiglottis is elastic leaf above the larynx. Physiologically, the epiglottis governs flips to cover the larynx during swallowing. Structurally, the larynx comprises thyroid + cricoid cartilages housing the folds. Physiologically, the larynx governs voice production and airway protection.",
+    "Clinically, regarding the nasal cavity & conchae, deviated septum + turbinate hypertrophy = blocked nose. From a diagnostic standpoint, in the paranasal sinuses, sinusitis pain follows the sinus walls — maxillary = cheekache. In clinical pathology involving the nasopharynx & adenoid, adenoid hypertrophy causes snoring and glue ear in kids. Medical evaluation of the oropharynx also notes that OSA collapse happens here during sleep."
   ],
   "keywords": {
     "primary": "upper airway and larynx anatomy",
@@ -36,23 +37,23 @@
   "questions": [
     {
       "question": "What is the path of air through the upper airway?",
-      "answer": "Air enters the nose or mouth, passes through the pharynx and larynx, then moves down the trachea toward the bronchi. In relation to epiglottis, this structure flips to cover the larynx during swallowing. From an anatomical and functional standpoint, epiglottitis: drooling, stridor — an airway emergency."
+      "answer": "Air enters the nose or mouth, passes through the pharynx and larynx, then moves down the trachea toward the bronchi. The epiglottis is elastic leaf above the larynx. Physiologically, the epiglottis governs flips to cover the larynx during swallowing."
     },
     {
       "question": "What does the epiglottis do during swallowing?",
-      "answer": "The epiglottis is one structure involved in protecting the laryngeal entrance during swallowing; coordinated movement of the larynx and vocal folds also matters. From an anatomical and functional standpoint, epiglottitis: drooling, stridor — an airway emergency."
+      "answer": "The epiglottis is one structure involved in protecting the laryngeal entrance during swallowing; coordinated movement of the larynx and vocal folds also matters. Structurally, the vocal folds (Plicae vocales) comprises ligament + muscle under mucosa, glottis between. Physiologically, the vocal folds governs vibrate to phonate; close to protect lungs."
     },
     {
       "question": "What is the nasal cavity & conchae?",
-      "answer": "Three conchae turbo-charge the surface area. Function: Warms, humidifies and filters inspired air. In relation to nasal cavity & conchae, this structure warms, humidifies and filters inspired air. From an anatomical and functional standpoint, deviated septum + turbinate hypertrophy = blocked nose."
+      "answer": "Three conchae turbo-charge the surface area. Functionally, it warms, humidifies and filters inspired air. In clinical pathology involving the nasal cavity & conchae, deviated septum + turbinate hypertrophy = blocked nose."
     },
     {
       "question": "Where is the nasopharynx & adenoid located?",
-      "answer": "Posterior nasal chamber with lymphoid adenoid. Function: Air passage; immune sampling in childhood. In relation to nasopharynx & adenoid, this structure air passage; immune sampling in childhood. From an anatomical and functional standpoint, adenoid hypertrophy causes snoring and glue ear in kids."
+      "answer": "Posterior nasal chamber with lymphoid adenoid. Functionally, it governs air passage; immune sampling in childhood. Medical evaluation of the nasopharynx & adenoid also notes that adenoid hypertrophy causes snoring and glue ear in kids."
     },
     {
       "question": "What is the function of the epiglottis?",
-      "answer": "Function: Flips to cover the larynx during swallowing. Elastic leaf above the larynx. In relation to epiglottis, this structure flips to cover the larynx during swallowing. From an anatomical and functional standpoint, epiglottitis: drooling, stridor — an airway emergency."
+      "answer": "Functionally, it governs flips to cover the larynx during swallowing. Elastic leaf above the larynx. Anatomically, the oropharynx lies behind the mouth, tonsils at its sides. Physiologically, the oropharynx governs shared food–air corridor; speech resonance."
     }
   ]
 }

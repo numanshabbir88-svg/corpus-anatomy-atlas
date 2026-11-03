@@ -91,6 +91,8 @@ for slug in ORGANS:
         if not isinstance(entry,dict) or set(entry)!={'question','answer'} or not isinstance(entry['question'],str) or len(entry['question'].strip())<12 or not isinstance(entry['answer'],str) or len(entry['answer'].strip())<30:
             raise SystemExit(f'{slug}: each question and answer must be substantive text')
     GUIDES[slug]=item
+def S(k): return GUIDES.get(k,{}).get('slug', k)
+SLUG_MAP = {S(k): k for k in GUIDES}
 
 TITLE={
 'heart':'Heart anatomy: chambers, valves and blood flow','lungs':'Lung anatomy: lobes, bronchi and alveoli',
@@ -147,11 +149,14 @@ SENSITIVE={'breast','gynvulva','gynvagina','gyncervix','gynadnexa','gynuterus','
 def E(value): return h(str(value or ''),quote=True)
 def url(path): return BASE + path if BASE else ''
 def canonical(path): return f'<link rel="canonical" href="{E(url(path))}">' if BASE else '<meta name="robots" content="noindex,follow">'
-def meta(title,desc,path,image=''):
+def meta(title,desc,path,image='',keywords=''):
     desc=' '.join(desc.split()) if len(' '.join(desc.split()))==155 else ' '.join(desc.split())[:157].rstrip(' ,;:.')+'.'
+    kw_str=keywords or 'human anatomy, interactive anatomy atlas, organ systems, medical anatomy study guides, Corpus Anatomy Atlas'
+    pub_tags=f'<meta name="keywords" content="{E(kw_str)}"><meta name="author" content="Corpus Anatomy Atlas"><meta name="publisher" content="Corpus Anatomy Atlas">'
+    if BASE: pub_tags+=f'<link rel="publisher" href="{E(BASE)}/">'
     if path == '/404.html':
-        return f'<meta name="description" content="{E(desc)}"><meta name="robots" content="noindex,follow">'
-    tags=f'<meta name="description" content="{E(desc)}"><meta name="robots" content="index,follow,max-image-preview:large">' if BASE else f'<meta name="description" content="{E(desc)}">'
+        return f'<meta name="description" content="{E(desc)}">{pub_tags}<meta name="robots" content="noindex,follow">'
+    tags=f'<meta name="description" content="{E(desc)}">{pub_tags}<meta name="robots" content="index,follow,max-image-preview:large">' if BASE else f'<meta name="description" content="{E(desc)}">{pub_tags}'
     tags+=canonical(path)+f'<meta property="og:type" content="website"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta name="twitter:card" content="summary_large_image">'
     if BASE: tags+=f'<meta property="og:url" content="{E(url(path))}">'
     if BASE and image: tags+=f'<meta property="og:image" content="{E(url(image))}">'
@@ -177,10 +182,10 @@ def footer(depth=0):
     links=[('Study guides','learn/'),('Blog','blog/'),('Interactive atlas','index.html'),('About & editorial policy','about.html'),('Privacy','privacy.html')]
     return f'<footer class="site-foot"><div class="shell foot-inner"><div><strong>Corpus Anatomy Atlas</strong><p>Illustrated anatomy for learning, not a diagnostic or surgical reference. Digital renders explain regions; they are not clinical photographs or substitutes for histology slides.</p></div><nav class="foot-links" aria-label="Footer">'+''.join(f'<a href="{root+path}">{E(name)}</a>' for name,path in links)+'</nav></div></footer>'
 
-def document(title,description,path,body,depth=0,image='',extra=''):
+def document(title,description,path,body,depth=0,image='',extra='',keywords=''):
     root='../'*depth or './'
     full_title=title if len(title)==55 else f'{title} | Corpus'
-    head=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#125e58"><title>{E(full_title)}</title>{meta(full_title,description,path,image)}{extra}<link rel="icon" href="{root}favicon.svg"><link rel="stylesheet" href="{root}editorial.css?v=63"><link rel="stylesheet" href="{root}corpus-bot.css?v=14"></head><body>'
+    head=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#125e58"><title>{E(full_title)}</title>{meta(full_title,description,path,image,keywords)}{extra}<link rel="icon" href="{root}favicon.svg"><link rel="stylesheet" href="{root}editorial.css?v=63"><link rel="stylesheet" href="{root}corpus-bot.css?v=14"></head><body>'
     return head+header(depth)+body+footer(depth)+f'<script defer src="{root}corpus-bot.js?v=14"></script></body></html>'
 
 def write(path,text):
@@ -298,7 +303,7 @@ def part_block(items,o,start=1):
         placed=point is not None
         context_only=bool(p.get('contextOnly'))
         position=(f' data-point-x="{point[0]}" data-point-y="{point[1]}"' if placed else '')
-        reference=f' data-reference-href="/learn/{E(ref)}/"' if ref else ''
+        reference=f' data-reference-href="/learn/{E(S(ref))}/"' if ref else ''
         if context_only:
             context_status=('Micro pointer' if kind=='scope' else 'Reference pointer') if placed else 'Context only · no exact point'
             context_badge=('Tissue reference · pointer shown' if kind=='scope' else 'Reference plate · pointer shown') if placed else 'Context only · not individually marked'
@@ -387,7 +392,7 @@ def dental_section(o):
     models=[]
     for name,title in [('tooth-incisor','Cutting incisor'),('tooth-canine','Single-cusp canine'),('tooth-premolar','Crushing premolar'),('tooth-molar-section','Sectioned molar')]:
         models.append(f'<article class="tooth-type-card"><button type="button" class="reading-mini-trigger tooth-type-trigger" data-plate-preview data-preview-kind="region" data-preview-context="true" data-part-name="{E(title)} · representative model" data-plate-src="../../img/webp/{name}.webp" aria-label="Enlarge {E(title)} example"><img src="../../img/thumb/{name}.webp" {dimensions("thumb/"+name+".webp")} alt="Digital representative {E(title)} model" loading="lazy" decoding="async"></button><strong>{E(title)}</strong></article>')
-    return '<section id="dental-chart" class="content-section dental-reading"><div class="eyebrow">Dentistry · tooth map</div><h2>Every position, not a false photo pin</h2><p class="section-lead">The charts name all 32 conventional permanent and 20 primary positions. Class images are representative adult models, not a unique picture of each tooth or a primary crown. Root and nerve anatomy varies.</p><div class="tooth-charts">'+''.join(panels)+'</div><h3 class="tooth-model-heading">Four representative tooth classes</h3><div class="tooth-type-grid">'+''.join(models)+'</div><p><a href="../skullface/">Skull and jaw bones →</a> · <a href="../trigeminalnerve/">Tooth sensation CN V →</a> · <a href="../facialnerve/">Expression CN VII →</a></p></section>'
+    return '<section id="dental-chart" class="content-section dental-reading"><div class="eyebrow">Dentistry · tooth map</div><h2>Every position, not a false photo pin</h2><p class="section-lead">The charts name all 32 conventional permanent and 20 primary positions. Class images are representative adult models, not a unique picture of each tooth or a primary crown. Root and nerve anatomy varies.</p><div class="tooth-charts">'+''.join(panels)+'</div><h3 class="tooth-model-heading">Four representative tooth classes</h3><div class="tooth-type-grid">'+''.join(models)+f'</div><p><a href="../{E(S("skullface"))}/">Skull and jaw bones →</a> · <a href="../{E(S("trigeminalnerve"))}/">Tooth sensation CN V →</a> · <a href="../{E(S("facialnerve"))}/">Expression CN VII →</a></p></section>'
 
 def foundation_section(key,o):
     if key=='bodyregions':
@@ -411,7 +416,7 @@ def reproduction_section(key):
     for i,(slug,label) in enumerate(zip(LIFE_PATH,LIFE_LABELS),1):
         file=Path(ORGANS[slug]['photo']['file']).stem+'.webp'
         current=' aria-current="page"' if slug==key else ''
-        cards.append(f'<a class="repro-stage {"selected" if slug==key else ""}" href="../{E(slug)}/"{current}><img src="../../img/thumb/{E(file)}" {dimensions("thumb/"+file)} alt="Regional educational context for {E(label)}" loading="lazy" decoding="async"><span><small>{i:02d} / 11</small><strong>{E(label)}</strong></span></a>')
+        cards.append(f'<a class="repro-stage {"selected" if slug==key else ""}" href="../{E(S(slug))}/"{current}><img src="../../img/thumb/{E(file)}" {dimensions("thumb/"+file)} alt="Regional educational context for {E(label)}" loading="lazy" decoding="async"><span><small>{i:02d} / 11</small><strong>{E(label)}</strong></span></a>')
     return '<section id="repro-path" class="content-section repro-reading"><div class="eyebrow">Gametes to birth · separate chapters</div><h2>Follow every stage independently</h2><p class="section-lead">Sperm and egg are separate branches before fertilization. Obstetric gestational weeks are usually counted from the last menstrual period, roughly two weeks before conception. Digital labor-stage illustrations model separate moments, not clinical birth photographs or patient measurements.</p><nav class="repro-timeline" aria-label="Conception and childbirth study pathway">'+''.join(cards)+'</nav></section>'
 
 def repro_gallery(o):
@@ -423,6 +428,7 @@ def repro_gallery(o):
     return '<section id="repro-gallery" class="content-section repro-gallery"><div class="eyebrow">Stage-specific picture library</div><h2>See the anatomy at the right scale</h2><p class="section-lead">Tap an image to enlarge and tap again to close. These are digital educational models, not microscope photos, measured ultrasounds, clinical birth images or exact developmental clocks.</p><div class="repro-gallery-grid">'+''.join(cards)+'</div></section>'
 
 def article(key,o):
+    seo_slug=S(key)
     title=GUIDES[key]['title']
     desc=GUIDES[key]['description']
     h1_title=GUIDES[key].get('h1') or title
@@ -432,15 +438,15 @@ def article(key,o):
     image=o.get('photo',{}).get('file','')
     img='/img/webp/'+Path(image).stem+'.webp' if image else ''
     items=list(o['parts'].items());pinned=[x for x in items if not x[1].get('contextOnly')];deep=[x for x in items if x[1].get('contextOnly')]
-    crumb=[('Home','/'),('Study guides','/learn/'),(o['title'],f'/learn/{key}/')]
-    opening=f'<nav class="crumb shell" aria-label="Breadcrumb"><a href="../../index.html">Home</a><i>/</i><a href="../">Study guides</a><i>/</i><span>{E(o["title"])}</span></nav><section class="shell hero article-hero"><div class="eyebrow">{E(system)} · illustrated anatomy</div><h1>{E(h1_title)}</h1><p>{E(lead_text)}</p><div class="action-row"><a class="button" href="../../index.html#/{key if key not in ("male","female") else key+"overview"}">Open interactive atlas ↗</a><a class="button alt" href="#parts">Read the structures ↓</a></div><p class="byline">Corpus educational reference · {len(items)} documented study entries · Updated {GUIDES[key]["updated"]}</p></section>'
+    crumb=[('Home','/'),('Study guides','/learn/'),(o['title'],f'/learn/{seo_slug}/')]
+    opening=f'<nav class="crumb shell" aria-label="Breadcrumb"><a href="../../index.html">Home</a><i>/</i><a href="../">Study guides</a><i>/</i><span>{E(o["title"])}</span></nav><section class="shell hero article-hero"><div class="eyebrow">{E(system)} · illustrated anatomy</div><h1>{E(h1_title)}</h1><p>{E(lead_text)}</p><div class="action-row"><a class="button" href="../../index.html#/{E(seo_slug)}">Open interactive atlas ↗</a><a class="button alt" href="#parts">Read the structures ↓</a></div><p class="byline">Corpus educational reference · {len(items)} documented study entries · Updated {GUIDES[key]["updated"]}</p></section>'
     stage_note=o.get('photo',{}).get('notes','') if key in LIFE_PATH else ''
     photo=photo_figure(o,image,stage_note) if img else ''
     facts=[('Body system',system),('Location',o.get('region','')),('Blood supply',o.get('blood','')),('Innervation',o.get('nerve',''))]
     facts_html='<div class="facts">'+''.join(f'<div class="fact"><b>{E(k)}</b><span>{E(v)}</span></div>' for k,v in facts)+'</div>'
     pinned_html=(f'<section id="parts" class="content-section"><div class="eyebrow">Illustrated structures</div><h2>Read the anatomy, part by part</h2><p class="section-lead">These {len(pinned)} structures describe anatomy related to the chapter’s regional illustration. Each entry separates location, function and a clinical point.</p><div class="part-list">{part_block(pinned,o)}</div></section>' if pinned else '')
     deep_refs=list(dict.fromkeys(p.get('deepRef') for _,p in deep if p.get('deepRef') in ORGANS and p.get('deepRef')!=key))
-    deep_links=('Related deep chapters: '+', '.join(f'<a href="../{E(ref)}/">{E(ORGANS[ref]["title"])}</a>' for ref in deep_refs[:5])+'.') if deep_refs else ''
+    deep_links=('Related deep chapters: '+', '.join(f'<a href="../{E(S(ref))}/">{E(ORGANS[ref]["title"])}</a>' for ref in deep_refs[:5])+'.') if deep_refs else ''
     deep_label='Stage anatomy and developmental milestones' if key in LIFE_PATH else ('Terminology and study entries' if o['system']=='foundations' else 'Deeper structures and tissue layers')
     deep_intro=(f'These {len(deep)} anatomy and development entries explain each stage without placing false pointers on an illustrative context plate.' if key in LIFE_PATH else (f'These {len(deep)} reference concepts are explained without pretending they are visible features on a body photograph.' if o['system']=='foundations' and not pinned else f'These {len(deep)} additional entries give anatomical context. They are deliberately not assigned a photographic pin on the regional image.'))
     deep_html=(f'<section id="{("deep" if pinned else "parts")}" class="content-section"><div class="eyebrow">Beyond the visible plate</div><h2>{deep_label}</h2><p class="section-lead">{deep_intro}</p>{f"<p class=note>{deep_links}</p>" if deep_links else ""}<div class="part-list">{part_block(deep,o,len(pinned)+1)}</div></section>' if deep else '')
@@ -456,10 +462,10 @@ def article(key,o):
             ('skull-face-anterior','Anterior skull · surface bones','Visible forehead, upper and lower jaws, cheeks and bony nasal bridge. Deep parts do not get front-view pointers.'),
             ('skull-face-medial','Medial skull · deeper context','Educational sagittal cutaway for the bony palate, septum and skull base; not a clinical scan.')):
             skull_cards.append(f'<article class="skull-guide-card"><button type="button" class="reading-mini-trigger skull-view-trigger" data-plate-preview data-preview-kind="region" data-preview-context="true" data-part-name="{E(view_title)}" data-plate-src="../../img/webp/{file}.webp" aria-label="Enlarge {E(view_title)}"><img src="../../img/thumb/{file}.webp" {dimensions("thumb/"+file+".webp")} alt="{E(view_title)} educational digital skull illustration" loading="lazy" decoding="async"></button><div><h3>{E(view_title)}</h3><p>{E(view_description)}</p></div></article>')
-        skull_html='<section id="skull-views" class="content-section skull-reading"><div class="eyebrow">Skull perspectives</div><h2>14 facial + 8 cranial bones</h2><p class="section-lead">The illustrations are teaching models, not patient scans. A deep or hidden bone never gets a front-view pin. The hyoid and six ear ossicles are counted in the 206-bone skeleton, but not among the 22 skull bones.</p><div class="skull-reading-grid">'+''.join(skull_cards)+'</div><p><a href="../skeleton/">See all 206 adult bones →</a> · <a href="../facialnerve/">Facial nerve CN VII →</a> · <a href="../trigeminalnerve/">Facial sensation CN V →</a></p></section>'
+        skull_html='<section id="skull-views" class="content-section skull-reading"><div class="eyebrow">Skull perspectives</div><h2>14 facial + 8 cranial bones</h2><p class="section-lead">The illustrations are teaching models, not patient scans. A deep or hidden bone never gets a front-view pin. The hyoid and six ear ossicles are counted in the 206-bone skeleton, but not among the 22 skull bones.</p><div class="skull-reading-grid">'+''.join(skull_cards)+f'</div><p><a href="../{E(S("skeleton"))}/">See all 206 adult bones →</a> · <a href="../{E(S("facialnerve"))}/">Facial nerve CN VII →</a> · <a href="../{E(S("trigeminalnerve"))}/">Facial sensation CN V →</a></p></section>'
     related=list(dict.fromkeys(r for r in EXTRA_RELATIONS.get(key,[])+o.get('related',[]) if r in ORGANS and r!=key))[:4]
     related_cards=''.join(
-        f'<a class="related-card" href="../{E(ref)}/">'
+        f'<a class="related-card" href="../{E(S(ref))}/">'
         f'<img src="../../img/thumb/{E(Path(ORGANS[ref]["photo"]["file"]).stem)}.webp" '
         f'{dimensions("thumb/"+Path(ORGANS[ref]["photo"]["file"]).stem+".webp")} '
         f'alt="Digital educational or regional context image for {E(ORGANS[ref]["title"])}" loading="lazy" decoding="async">'
@@ -473,25 +479,28 @@ def article(key,o):
     faq_items=''.join(f'<div class="qa-item"><h3>{E(row["question"])}</h3><p>{E(row["answer"])}</p></div>' for row in GUIDES[key]['questions'])
     faq_html=f'<section id="questions" class="content-section questions"><div class="eyebrow">Questions people ask</div><h2>Five questions about {E(o["title"])}</h2><p class="section-lead">Short answers grounded in the structures described above. Use the illustrated guide for anatomical context.</p><div class="qa-list">{faq_items}</div></section>'
     notes=f'<section id="sources" class="content-section sources"><div class="eyebrow">Reference desk</div><h2>Further reading</h2><p class="section-lead">General anatomy references and related source chapters for continued study. These links do not make the digital illustrations clinical images or certify every anatomical variant.</p><ul>{source_list}</ul><p class="disclaimer">This educational page is not medical advice and has not undergone formal clinical peer review. Spotted an error? <a href="../../about.html#contact">Contact the editor</a>.</p></section>'
-    connect=f'<div class="end-link"><div><strong>See the structures in context</strong><p>{"Open the regional digital plate, study entries and a short self-test. Visible markers occur only for identifiable sperm and oocyte structures." if key in LIFE_PATH else "Open the realistic interactive plate, label lines, focus view and self-test."}</p></div><a class="button" href="../../index.html#/{key if key not in ("male","female") else key+"overview"}">Open interactive view →</a></div>'
+    connect=f'<div class="end-link"><div><strong>See the structures in context</strong><p>{"Open the regional digital plate, study entries and a short self-test. Visible markers occur only for identifiable sperm and oocyte structures." if key in LIFE_PATH else "Open the realistic interactive plate, label lines, focus view and self-test."}</p></div><a class="button" href="../../index.html#/{E(seo_slug)}">Open interactive view →</a></div>'
     sidebar=f'<aside class="sidebar" aria-label="On this page"><div class="side-card"><h2>In this guide</h2><a href="#overview">Overview</a><a href="#parts">{("Illustrated structures ("+str(len(pinned))+")") if pinned else ("Study entries ("+str(len(deep))+")")}</a>'+(f'<a href="#deep">Deep study notes ({len(deep)})</a>' if deep and pinned else '')+('<a href="#under-the-lens">Under the lens</a>' if micro_html else '')+('<a href="#skull-views">Skull perspectives</a>' if skull_html else '')+('<a href="#dental-chart">Tooth charts</a>' if dental_html else '')+('<a href="#region-chart">Region charts</a>' if key=='bodyregions' else '')+('<a href="#tissue-gallery">Four tissue images</a>' if key=='tissuefoundations' else '')+('<a href="#repro-path">Conception to birth path</a>' if reproduction_html else '')+('<a href="#repro-gallery">Picture library</a>' if repro_gallery_html else '')+'<a href="#questions">Five questions &amp; answers</a><a href="#related">Related guides</a><a href="#sources">Further reading</a></div><div class="side-card"><div class="count">20+</div><p>Documented anatomy and developmental entries in every Corpus chapter. Images are orientation aids, not clinical evidence.</p></div></aside>'
     overview_html=''.join(f'<p class="intro-text"{(" style=\"margin-top:14px\"" if idx>0 else "")}>{E(para)}</p>' for idx,para in enumerate(overview_paras))
-    rel_inline=', '.join(f'<a href="../{E(ref)}/">{E(ORGANS[ref]["title"])}</a>' for ref in related[:3])
+    rel_inline=', '.join(f'<a href="../{E(S(ref))}/">{E(ORGANS[ref]["title"])}</a>' for ref in related[:3])
     overview_rel=(f'<p class="note" style="margin-top:14px">Connected study pathways in this atlas: {rel_inline}.</p>' if rel_inline else '')
     body='<div class="reading-track" aria-hidden="true"><span id="reading-progress"></span></div>'+opening+f'<div class="shell article-grid"><main id="content">{photo}<section id="overview"><div class="eyebrow">Overview</div><h2>How this part of the body works</h2>{overview_html}{overview_rel}{facts_html}</section>{micro_html}{skull_html}{dental_html}{foundation_html}{reproduction_html}{repro_gallery_html}{pinned_html}{deep_html}{faq_html}{related_html}{notes}{connect}</main>{sidebar}</div>'
-    article_json=schema(f'/learn/{key}/',crumb,GUIDES[key]['questions'])
-    return document(title,desc,f'/learn/{key}/',body,depth=2,image=img,extra=article_json).replace('<script defer src="../../corpus-bot.js?v=14"></script></body>','<script defer src="../../reading.js?v=33"></script><script defer src="../../preview.js?v=49"></script><script defer src="../../corpus-bot.js?v=14"></script></body>')
+    article_json=schema(f'/learn/{seo_slug}/',crumb,GUIDES[key]['questions'])
+    kw_obj=GUIDES[key].get('keywords',{})
+    kw_str=', '.join(dict.fromkeys([kw_obj.get('primary','')]+list(kw_obj.get('secondary',[]))+list(kw_obj.get('semantic',[]))[:4]))
+    return document(title,desc,f'/learn/{seo_slug}/',body,depth=2,image=img,extra=article_json,keywords=kw_str).replace('<script defer src="../../corpus-bot.js?v=14"></script></body>','<script defer src="../../reading.js?v=33"></script><script defer src="../../preview.js?v=49"></script><script defer src="../../corpus-bot.js?v=14"></script></body>')
 
 # Build every chapter from the exact atlas data. No automatic keyword stuffing or fabricated bylines.
 learn=ROOT/'learn'
-for key,o in ORGANS.items(): write(learn/key/'index.html',article(key,o))
+if learn.exists(): shutil.rmtree(learn)
+for key,o in ORGANS.items(): write(learn/S(key)/'index.html',article(key,o))
 groups=defaultdict(list)
 for key,o in ORGANS.items():groups[o['system']].append((key,o))
 order=['foundations','development','circulatory','respiratory','nervous','digestive','urinary','sensory','skeletal','muscular','female','male','endocrine','lymphatic','integumentary']
 sections=[]
 for syskey in order:
     if syskey not in groups: continue
-    cards=''.join(f'<a class="hub-card" href="{E(key)}/"><img src="../img/thumb/{E(Path(o["photo"]["file"]).stem)}.webp" {dimensions("thumb/"+Path(o["photo"]["file"]).stem+".webp")} loading="lazy" decoding="async" alt="Illustration of {E(o["title"])}"><span class="copy"><small>{len(o["parts"])} documented parts</small><strong>{E(o["title"])}</strong><em>{E(o["blurb"])}</em></span></a>' for key,o in groups[syskey])
+    cards=''.join(f'<a class="hub-card" href="{E(S(key))}/"><img src="../img/thumb/{E(Path(o["photo"]["file"]).stem)}.webp" {dimensions("thumb/"+Path(o["photo"]["file"]).stem+".webp")} loading="lazy" decoding="async" alt="Illustration of {E(o["title"])}"><span class="copy"><small>{len(o["parts"])} documented parts</small><strong>{E(o["title"])}</strong><em>{E(o["blurb"])}</em></span></a>' for key,o in groups[syskey])
     sections.append(f'<section id="{E(syskey)}"><h2 class="group-title">{E(SYSTEMS[syskey]["name"])}</h2><div class="hub-grid">{cards}</div></section>')
 system_links=''.join(f'<a href="#{E(syskey)}">{E(SYSTEMS[syskey]["name"])} <small>{len(groups[syskey])}</small></a>' for syskey in order if syskey in groups)
 hub_body=(
@@ -502,7 +511,7 @@ hub_body=(
     '<div class="action-row"><a class="button" href="#all-guides">Explore study guides <span aria-hidden="true">↗</span></a>'
     '<a class="button alt" href="../index.html#/map">Open the body map</a></div>'
     f'<p class="byline">{len(ORGANS)} chapters <span aria-hidden="true">·</span> {sum(len(o["parts"]) for o in ORGANS.values()):,} documented parts <span aria-hidden="true">·</span> 15 integrated study groups</p></div>'
-    '<a class="hero-feature" href="heart/" aria-label="Read the featured heart anatomy study guide">'
+    f'<a class="hero-feature" href="{E(S("heart"))}/" aria-label="Read the featured heart anatomy study guide">'
     f'<span class="feature-top">Featured guide <span>01 / {len(ORGANS)}</span></span>'
     f'<span class="feature-visual"><img src="../img/thumb/heart.webp" {dimensions("thumb/heart.webp")} alt="Digital cross-section illustration of the human heart" fetchpriority="high" decoding="async"></span>'
     '<span class="feature-bottom"><span><strong>Inside the human heart</strong><small>Chambers · valves · coronary blood flow</small></span><b aria-hidden="true">↗</b></span></a></section>'
@@ -519,7 +528,7 @@ with (ROOT/'seo-keyword-map.csv').open('w',newline='',encoding='utf-8') as fh:
         parts=([p['n'] for p in o['parts'].values() if not p.get('contextOnly')] or [p['n'] for p in o['parts'].values()])[:3]
         writer.writerow([
             key,
-            f'/learn/{key}/',
+            f'/learn/{S(key)}/',
             kw.get('primary',PRIMARY.get(key,o['title'].replace(' — ', ' ').replace(' · ', ' ').lower()+' anatomy')),
             '; '.join(kw.get('secondary',parts)),
             '; '.join(kw.get('longTail',[])),
@@ -560,8 +569,8 @@ def build_blog_article(post):
     hero_sec = (
         f'<section class="shell hero article-hero"><div class="eyebrow">{E(cat)} · {E(read_time)}</div>'
         f'<h1>{E(h1_title)}</h1><p>{E(desc)}</p>'
-        f'<div class="action-row"><a class="button" href="../../learn/{E(rel_key)}/">Open {E(rel_organ["title"])} study guide →</a>'
-        f'<a class="button alt" href="../../index.html#/{E(rel_key)}">Interactive 3D/2D plate ↗</a></div>'
+        f'<div class="action-row"><a class="button" href="../../learn/{E(S(rel_key))}/">Open {E(rel_organ["title"])} study guide →</a>'
+        f'<a class="button alt" href="../../index.html#/{E(S(rel_key))}">Interactive 3D/2D plate ↗</a></div>'
         f'<p class="byline">Corpus editorial reference · Updated {E(updated)}</p></section>'
     )
     hero_fig = (
@@ -614,7 +623,7 @@ def build_blog_article(post):
     connect_html = (
         f'<section id="related-atlas" class="content-section related-section">'
         f'<div class="eyebrow">Connected atlas chapter</div><h2>Study {E(rel_organ["title"])} in the interactive atlas</h2>'
-        f'<div class="related-grid"><a class="related-card" href="../../learn/{E(rel_key)}/">'
+        f'<div class="related-grid"><a class="related-card" href="../../learn/{E(S(rel_key))}/">'
         f'<img src="../../img/thumb/{E(rel_thumb)}.webp" {rel_dims} alt="Illustration of {E(rel_organ["title"])}" loading="lazy" decoding="async">'
         f'<span><strong>{E(rel_organ["title"])} ({E(rel_organ["latin"])})</strong><small>{E(rel_organ["blurb"])}</small></span><b aria-hidden="true">↗</b></a></div>'
         f'<p class="disclaimer" style="margin-top:16px">Educational reference only: this article is written for anatomy study and is not medical, diagnostic or treatment advice. <a href="../../about.html#contact">Contact the editorial desk</a>.</p>'
@@ -700,10 +709,11 @@ if '<a href="#/explorer">Anatomical layers</a>' not in html:
 if '<a href="about.html">About &amp; editorial policy</a>' not in html:
     html=html.replace('<a href="#/quiz">Self-test quiz</a>','<a href="#/quiz">Self-test quiz</a>\n        <a href="about.html">About &amp; editorial policy</a>\n        <a href="privacy.html">Privacy policy</a>')
 html=re.sub(r'<link rel="canonical" href="[^"]*">','',html)
+html=re.sub(r'<link rel="publisher" href="[^"]*">','',html)
 html=re.sub(r'<meta property="og:url" content="[^"]*">','',html)
-html=html.replace('<meta name="robots" content="noindex,follow">','')
+html=re.sub(r'<meta name="robots" content="[^"]*">','',html)
 if BASE:
-    html=html.replace('</head>',f'<link rel="canonical" href="{E(BASE)}/"><meta property="og:url" content="{E(BASE)}/"></head>')
+    html=html.replace('</head>',f'<meta name="robots" content="index,follow,max-image-preview:large"><link rel="publisher" href="{E(BASE)}/"><link rel="canonical" href="{E(BASE)}/"><meta property="og:url" content="{E(BASE)}/"></head>')
 else:
     html=html.replace('</head>','<meta name="robots" content="noindex,follow"></head>')
 write(ROOT/'index.html',html)
@@ -787,17 +797,17 @@ for _bp in BLOG_POSTS:
 llms_lines.append('')
 llms_lines.append('## All 74 Anatomy Study Guides')
 for _k, _o in ORGANS.items():
-    llms_lines.append(f'- [{_o.get("title", _k)} ({_o.get("latin", "")})]({BASE or ""}/learn/{_k}/): {_o.get("blurb", "")}')
+    llms_lines.append(f'- [{_o.get("title", _k)} ({_o.get("latin", "")})]({BASE or ""}/learn/{S(_k)}/): {_o.get("blurb", "")}')
 llms_txt = '\n'.join(llms_lines) + '\n'
 write(OUT/'llms.txt', llms_txt)
 write(ROOT/'llms.txt', llms_txt)
 
 if BASE:
-    paths=['/','/learn/','/blog/']+[f'/blog/{p["slug"]}/' for p in BLOG_POSTS]+[f'/learn/{key}/' for key in ORGANS]+['/about.html','/privacy.html']
+    paths=['/','/learn/','/blog/']+[f'/blog/{p["slug"]}/' for p in BLOG_POSTS]+[f'/learn/{S(key)}/' for key in ORGANS]+['/about.html','/privacy.html']
     blog_dates={p['slug']:p.get('updated',CONTENT_UPDATED) for p in BLOG_POSTS}
     def last_modified(path):
         slug=path.strip('/').split('/')[-1]
-        if path.startswith('/learn/') and slug in GUIDES: return GUIDES[slug]['updated']
+        if path.startswith('/learn/') and slug in SLUG_MAP: return GUIDES[SLUG_MAP[slug]]['updated']
         if path.startswith('/blog/') and slug in blog_dates: return blog_dates[slug]
         return CONTENT_UPDATED
     xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{E(url(path))}</loc><lastmod>{last_modified(path)}</lastmod></url>\n' for path in paths)+'</urlset>\n'

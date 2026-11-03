@@ -1,14 +1,15 @@
 {
+  "slug": "joint-classification",
   "title": "Joints and Ligaments Anatomy: Synovial Capsule & Guides",
   "description": "Understand joints and ligaments anatomy, comparing fibrous, cartilaginous, and synovial joints with hyaline cartilage, joint capsules, bursae, and menisci.",
   "updated": "2026-11-02",
   "h1": "Joints and Ligaments Anatomy: Synovial Structure, Cartilage and Stability",
   "blurb": "How fibrous sutures, cartilaginous symphyses, and fluid-lubricated synovial capsules balance smooth anatomical motion with ligamentous joint stability.",
-  "lead": "Where two rigid bones meet, specialized joints and tough collagenous ligaments balance two competing biomechanical demands: smooth freedom of motion and structural stability. This illustrated study guide examines 20 documented anatomical entries—including Anterior cruciate ligament, Posterior cruciate ligament, Medial collateral ligament—connecting visible form, tissue organization, and physiological function.",
+  "lead": "Where two rigid bones meet, specialized joints and tough collagenous ligaments balance two competing biomechanical demands: smooth freedom of motion and structural stability. In this illustrated guide to joints and ligaments anatomy, we examine 20 documented structures—including anterior cruciate ligament, posterior cruciate ligament, medial collateral ligament, lateral collateral ligament—linking regional topography, tissue architecture, physiological mechanisms, and clinical reasoning.",
   "overview": [
-    "Where two rigid bones meet, specialized joints and tough collagenous ligaments balance two competing biomechanical demands: smooth freedom of motion and structural stability. Known in classical anatomical nomenclature as Articulationes et ligamenta, this chapter belongs to the skeletal system study pathway. Where two rigid bones meet, specialized joints and tough collagenous ligaments balance two competing biomechanical demands: smooth freedom of motion and structural stability. Known in classical anatomical nomenclature as Articulationes et ligamenta, this chapter belongs to the skeletal system study pathway. Open the knee to see cruciates, collaterals and menisci; the part list then tours the other major ligaments of the body.",
-    "When you trace how joints and ligaments anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Anterior cruciate ligament (blocks anterior tibial translation; pivots in rotation), Posterior cruciate ligament (blocks posterior tibial slide (dashboard injury)), Medial collateral ligament (resists valgus stress), and Lateral collateral ligament (resists varus stress). By following all 20 illustrated landmarks in sequence, you can see how gross morphology, internal chambers or layers, and surrounding vessels work as one integrated unit.",
-    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for anterior cruciate ligament, ACL tear: pop + giving way; reconstructed with graft; for posterior cruciate ligament, PCL injuries need far greater force than ACL. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+    "Where two rigid bones meet, specialized joints and tough collagenous ligaments balance two competing biomechanical demands: smooth freedom of motion and structural stability. Open the knee to see cruciates, collaterals and menisci; the part list then tours the other major ligaments of the body. Within the human body, the joints & ligaments (Articulationes et ligamenta) is situated in knee model + whole-body ligaments, receives arterial perfusion via genicular arteries, and is innervated by articular branches.",
+    "Structurally, the anterior cruciate ligament (Lig. cruciatum anterius) comprises from lateral femoral condyle to anterior tibial plateau. Physiologically, the anterior cruciate ligament governs blocks anterior tibial translation; pivots in rotation. The posterior cruciate ligament (Lig. cruciatum posterius) is medial femoral condyle to posterior tibia. Physiologically, the posterior cruciate ligament governs blocks posterior tibial slide (dashboard injury). Structurally, the medial collateral ligament (Lig. collaterale tibiale) comprises femoral epicondyle to tibial shaft, fused with meniscus. Physiologically, the medial collateral ligament governs resists valgus stress. Structurally, the lateral collateral ligament (Lig. collaterale fibulare) comprises femoral epicondyle to fibular head. Physiologically, the lateral collateral ligament governs resists varus stress. Structurally, the menisci (medial & lateral) (Menisci) comprises fibrocartilage crescents on the tibial plateau. Physiologically, the menisci (medial & lateral) governs load sharing, shock absorption, joint lubrication. Structurally, the patellar ligament (Lig. patellae) comprises patella to tibial tuberosity (quadriceps continuation). Physiologically, the patellar ligament transmits quadriceps force to the tibia.",
+    "Clinically, regarding the anterior cruciate ligament, ACL tear: pop + giving way; reconstructed with graft. From a diagnostic standpoint, in the posterior cruciate ligament, PCL injuries need far greater force than ACL. In clinical pathology involving the medial collateral ligament, valgus blow + medial pain = MCL; meniscus often torn with it. Medical evaluation of the lateral collateral ligament also notes that varus injuries are rarer and often hit the peroneal nerve too."
   ],
   "keywords": {
     "primary": "joints and ligaments anatomy",
@@ -36,23 +37,23 @@
   "questions": [
     {
       "question": "What holds a joint together?",
-      "answer": "A joint may be supported by a capsule, ligaments, tendons and nearby muscles. Exact stabilizers vary between joints; the knee also has menisci and cruciate ligaments. In relation to menisci (medial & lateral), this structure load sharing, shock absorption, joint lubrication."
+      "answer": "A joint may be supported by a capsule, ligaments, tendons and nearby muscles. Exact stabilizers vary between joints; the knee also has menisci and cruciate ligaments. Structurally, the menisci (medial & lateral) (Menisci) comprises fibrocartilage crescents on the tibial plateau. Physiologically, the menisci (medial & lateral) governs load sharing, shock absorption, joint lubrication."
     },
     {
       "question": "What do the ACL and PCL do in the knee?",
-      "answer": "The anterior and posterior cruciate ligaments resist different directions of tibial translation and help stabilize the knee during movement. In relation to anterior cruciate ligament, this structure blocks anterior tibial translation; pivots in rotation."
+      "answer": "The anterior and posterior cruciate ligaments resist different directions of tibial translation and help stabilize the knee during movement. Structurally, the anterior cruciate ligament (Lig. cruciatum anterius) comprises from lateral femoral condyle to anterior tibial plateau. Physiologically, the anterior cruciate ligament governs blocks anterior tibial translation; pivots in rotation."
     },
     {
       "question": "What is the anterior cruciate ligament?",
-      "answer": "From lateral femoral condyle to anterior tibial plateau. Function: Blocks anterior tibial translation; pivots in rotation. In relation to anterior cruciate ligament, this structure blocks anterior tibial translation; pivots in rotation."
+      "answer": "From lateral femoral condyle to anterior tibial plateau. Functionally, it governs blocks anterior tibial translation; pivots in rotation. The posterior cruciate ligament (Lig. cruciatum posterius) is medial femoral condyle to posterior tibia. Physiologically, the posterior cruciate ligament governs blocks posterior tibial slide (dashboard injury)."
     },
     {
       "question": "Where is the posterior cruciate ligament located?",
-      "answer": "Medial femoral condyle to posterior tibia. Function: Blocks posterior tibial slide (dashboard injury). In relation to posterior cruciate ligament, this structure blocks posterior tibial slide (dashboard injury). From an anatomical and functional standpoint, PCL injuries need far greater force than ACL."
+      "answer": "Medial femoral condyle to posterior tibia. Functionally, it governs blocks posterior tibial slide (dashboard injury). Structurally, the medial collateral ligament (Lig. collaterale tibiale) comprises femoral epicondyle to tibial shaft, fused with meniscus. Physiologically, the medial collateral ligament governs resists valgus stress."
     },
     {
       "question": "What is the function of the menisci (medial & lateral)?",
-      "answer": "Function: Load sharing, shock absorption, joint lubrication. Fibrocartilage crescents on the tibial plateau. In relation to menisci (medial & lateral), this structure load sharing, shock absorption, joint lubrication. From an anatomical and functional standpoint, medial meniscus tears most — \"unhappy triad\" with ACL+MCL."
+      "answer": "Functionally, it governs load sharing, shock absorption, joint lubrication. Fibrocartilage crescents on the tibial plateau. The articular cartilage (Cartilago articularis) is hyaline cartilage 2–4 mm on joint surfaces. Physiologically, the articular cartilage governs near-frictionless load bearing."
     }
   ]
 }

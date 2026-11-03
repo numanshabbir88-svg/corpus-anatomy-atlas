@@ -1,14 +1,15 @@
 {
+  "slug": "muscular-system-anatomy",
   "title": "Muscular System Anatomy: Skeletal Muscles & Tendon Maps",
   "description": "Explore muscular system anatomy across the head, trunk, and limbs, detailing skeletal muscle groups, origins, insertions, tendons, and sarcomere structure.",
   "updated": "2026-11-02",
   "h1": "Muscular System Anatomy: Major Skeletal Muscle Groups and Tendons",
   "blurb": "Over 300 named skeletal muscle records and 32 tendon pathways across 13 body regions, showing origins, insertions, nerve supply, and sliding-filament action.",
-  "lead": "More than six hundred named skeletal muscles wrap the human frame, converting chemical energy into mechanical pull across joints so we can breathe, stand, speak, and sprint. This illustrated study guide examines 20 documented anatomical entries—including Sternocleidomastoid, Trapezius, Deltoid—connecting visible form, tissue organization, and physiological function.",
+  "lead": "More than six hundred named skeletal muscles wrap the human frame, converting chemical energy into mechanical pull across joints so we can breathe, stand, speak, and sprint. In this illustrated guide to muscular system anatomy, we examine 20 documented structures—including sternocleidomastoid, trapezius, deltoid, pectoralis major—linking regional topography, tissue architecture, physiological mechanisms, and clinical reasoning.",
   "overview": [
-    "More than six hundred named skeletal muscles wrap the human frame, converting chemical energy into mechanical pull across joints so we can breathe, stand, speak, and sprint. Known in classical anatomical nomenclature as Systema musculare, this chapter belongs to the muscular system study pathway. More than six hundred named skeletal muscles wrap the human frame, converting chemical energy into mechanical pull across joints so we can breathe, stand, speak, and sprint. Known in classical anatomical nomenclature as Systema musculare, this chapter belongs to the muscular system study pathway. Surface-to-deep anterior musculature: origin-insertion logic and the clinical test for each.",
-    "When you trace how muscular system anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Sternocleidomastoid (head rotation and neck flexion), Trapezius (shrug and scapular rotation), Deltoid (arm abduction beyond 15°), and Pectoralis major (arm adduction and push power). By following all 20 illustrated landmarks in sequence, you can see how gross morphology, internal chambers or layers, and surrounding vessels work as one integrated unit.",
-    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for sternocleidomastoid, torticollis; landmark for carotid pulse; for trapezius, accessory nerve palsy → shrug weakness. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+    "More than six hundred named skeletal muscles wrap the human frame, converting chemical energy into mechanical pull across joints so we can breathe, stand, speak, and sprint. Surface-to-deep anterior musculature: origin-insertion logic and the clinical test for each. Within the human body, the muscular system (Systema musculare) is situated in ≈ 600 skeletal muscles, receives arterial perfusion via segmental + named arteries, and is innervated by somatic motor nerves.",
+    "Structurally, the sternocleidomastoid (M. sternocleidomastoideus) comprises mastoid to sternum+clavicle. Physiologically, the sternocleidomastoid governs head rotation and neck flexion. Structurally, the trapezius (M. trapezius) comprises occiput to scapular spine. Physiologically, the trapezius governs shrug and scapular rotation. Structurally, the deltoid (M. deltoideus) comprises clavicle/scapula to humeral shaft. Physiologically, the deltoid governs arm abduction beyond 15°. Structurally, the pectoralis major (M. pectoralis major) comprises clavicle/sternum to humerus. Physiologically, the pectoralis major governs arm adduction and push power. Structurally, the biceps brachii (M. biceps brachii) comprises scapula to radial tuberosity. Physiologically, the biceps brachii governs elbow flexion + supination. The forearm flexors (Mm. flexores antebrachii) are medial epicondyle group. Physiologically, the forearm flexors governs wrist and finger flexion.",
+    "Clinically, regarding the sternocleidomastoid, torticollis; landmark for carotid pulse. From a diagnostic standpoint, in the trapezius, accessory nerve palsy → shrug weakness. In clinical pathology involving the deltoid, IM injection site — axillary nerve beneath. Medical evaluation of the pectoralis major also notes that torn in bench-press injuries."
   ],
   "keywords": {
     "primary": "muscular system anatomy",
@@ -36,23 +37,23 @@
   "questions": [
     {
       "question": "How do skeletal muscles move joints?",
-      "answer": "Skeletal muscle fibers contract and transmit force through tendons or other attachments. When a muscle crosses a joint, its contraction can pull the attached bones; opposing muscles help control the movement. In relation to diaphragm central tendon, this structure transmits inspiratory muscle force and supports pericardium."
+      "answer": "Skeletal muscle fibers contract and transmit force through tendons or other attachments. When a muscle crosses a joint, its contraction can pull the attached bones; opposing muscles help control the movement. Structurally, the diaphragm central tendon comprises strong aponeurotic center receiving diaphragm muscle fibers. Physiologically, the diaphragm central tendon transmits inspiratory muscle force and supports pericardium."
     },
     {
       "question": "Are all human muscles listed among the overview cards?",
-      "answer": "No. The overview cards introduce major regions, while the linked full-body muscle and tendon atlas contains hundreds of named records. A single fixed count of muscles varies with naming and counting conventions. In relation to rotator cuff muscle group, this structure center humeral head during motion."
+      "answer": "No. The overview cards introduce major regions, while the linked full-body muscle and tendon atlas contains hundreds of named records. A single fixed count of muscles varies with naming and counting conventions. Structurally, the rotator cuff muscle group comprises supraspinatus, infraspinatus, teres minor and subscapularis surround shoulder joint. Physiologically, the rotator cuff muscle group governs center humeral head during motion."
     },
     {
       "question": "Where can I find posterior muscles such as the triceps and hamstrings?",
-      "answer": "The full-body muscle atlas groups them by arm and thigh region, including deeper layers and sex-specific pelvic floor views. The front-oriented overview image alone cannot identify posterior fibers. In relation to pelvic diaphragm, this structure supports pelvic viscera and continence."
+      "answer": "The full-body muscle atlas groups them by arm and thigh region, including deeper layers and sex-specific pelvic floor views. The front-oriented overview image alone cannot identify posterior fibers. Structurally, the pelvic diaphragm comprises levator ani and coccygeus form muscular pelvic-floor support. Physiologically, the pelvic diaphragm supports pelvic viscera and continence."
     },
     {
       "question": "What is the difference between a tendon and a ligament?",
-      "answer": "A tendon transfers muscular force to an attachment, commonly a bone; a ligament connects bones across a joint. Both consist largely of dense collagenous connective tissue but have different mechanical roles. In relation to rotator cuff muscle group, this structure center humeral head during motion."
+      "answer": "A tendon transfers muscular force to an attachment, commonly a bone; a ligament connects bones across a joint. Both consist largely of dense collagenous connective tissue but have different mechanical roles. Structurally, the biceps brachii (M. biceps brachii) comprises scapula to radial tuberosity. Physiologically, the biceps brachii governs elbow flexion + supination."
     },
     {
       "question": "Is the diaphragm a skeletal muscle?",
-      "answer": "Yes. The diaphragm is a dome-shaped skeletal muscle separating the thoracic and abdominal cavities and is the primary muscle used during quiet inspiration. Its central tendon is an attachment region, not a separate muscle. In relation to diaphragm central tendon, this structure transmits inspiratory muscle force and supports pericardium."
+      "answer": "Yes. The diaphragm is a dome-shaped skeletal muscle separating the thoracic and abdominal cavities and is the primary muscle used during quiet inspiration. Its central tendon is an attachment region, not a separate muscle. The transversus abdominis is deep horizontal-fiber abdominal wall muscle beneath obliques. Physiologically, the transversus abdominis compresses abdominal contents and stabilizes trunk."
     }
   ]
 }

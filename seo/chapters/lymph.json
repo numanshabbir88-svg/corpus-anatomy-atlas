@@ -1,14 +1,15 @@
 {
+  "slug": "lymphatic-system-anatomy",
   "title": "Lymphatic System Anatomy: Nodes, Thoracic Duct & Organs",
   "description": "Learn lymphatic system anatomy, tracing lymph capillaries, regional lymph node chains, the cisterna chyli, thoracic duct drainage, thymus, and spleen pulp.",
   "updated": "2026-11-02",
   "h1": "Lymphatic System Anatomy: Vessels, Lymph Nodes, Ducts and Immunity",
   "blurb": "One-way lymphatic capillaries, filtering cervical, axillary, and inguinal node chains, the thoracic duct, thymus, and spleen working together for fluid and immunity.",
-  "lead": "Every day, several liters of fluid filter out of blood capillaries into body tissues; the lymphatic system collects that fluid, screens it through immune nodes, and returns it to veins. This illustrated study guide examines 20 documented anatomical entries—including Cervical nodes, Axillary nodes, Inguinal nodes, Afferent lymphatic vessels—connecting visible form, tissue organization, and physiological function.",
+  "lead": "Every day, several liters of fluid filter out of blood capillaries into body tissues; the lymphatic system collects that fluid, screens it through immune nodes, and returns it to veins. In this illustrated guide to lymphatic system anatomy, we examine 20 documented structures—including cervical nodes, axillary nodes, inguinal nodes, thoracic duct—linking regional topography, tissue architecture, physiological mechanisms, and clinical reasoning.",
   "overview": [
-    "Every day, several liters of fluid filter out of blood capillaries into body tissues; the lymphatic system collects that fluid, screens it through immune nodes, and returns it to veins. Known in classical anatomical nomenclature as Systema lymphoideum, this chapter belongs to the lymphatic & immune study pathway. Every day, several liters of fluid filter out of blood capillaries into body tissues; the lymphatic system collects that fluid, screens it through immune nodes, and returns it to veins. Known in classical anatomical nomenclature as Systema lymphoideum, this chapter belongs to the lymphatic & immune study pathway. Node groups, trunks and the organs of immunity — with the clinical rule that nodes enlarge downstream of infection and cancer.",
-    "When you trace how lymphatic system anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Cervical nodes (drain head and neck), Axillary nodes (drain arm, breast and chest wall), Afferent lymphatic vessels (deliver tissue lymph for immune filtration), and Subcapsular sinus (distributes afferent lymph along node surface). By examining both surface-visible features (12 illustrated landmarks) and deeper or microscopic components (8 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
-    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for cervical nodes, rubbery vs hard-fixed distinguishes infection from malignancy; for axillary nodes, sentinel node first receives breast cancer cells. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+    "Every day, several liters of fluid filter out of blood capillaries into body tissues; the lymphatic system collects that fluid, screens it through immune nodes, and returns it to veins. Node groups, trunks and the organs of immunity — with the clinical rule that nodes enlarge downstream of infection and cancer. Within the human body, the lymphatic system (Systema lymphoideum) is situated in whole body, receives arterial perfusion via returns via subclavian veins, and is innervated by autonomic on vessels.",
+    "Structurally, the cervical nodes (Ll. cervicales) comprises chains along jugular and spine. Physiologically, the cervical nodes drain head and neck. The axillary nodes (Ll. axillares) are five groups in the armpit. Physiologically, the axillary nodes drain arm, breast and chest wall. Structurally, the inguinal nodes (Ll. inguinales) comprises horizontal + vertical groups in the groin. Physiologically, the inguinal nodes drain leg, perineum and lower abdominal wall. Structurally, the thoracic duct (Ductus thoracicus) comprises largest lymph channel, cisterna chyli to left venous angle. Physiologically, the thoracic duct returns 3/4 of body lymph. Structurally, the thymus comprises bilobed school for T cells, behind sternum. Physiologically, the thymus governs t-cell maturation in childhood. Structurally, the spleen (Splen / Lien) comprises largest lymphoid organ, left upper quadrant. Physiologically, the spleen filters blood; recycles iron; antibodies.",
+    "Clinically, regarding the cervical nodes, rubbery vs hard-fixed distinguishes infection from malignancy. From a diagnostic standpoint, in the axillary nodes, sentinel node first receives breast cancer cells. In clinical pathology involving the inguinal nodes, enlarge in leg infections and STIs. Medical evaluation of the thoracic duct also notes that chylothorax if torn in chest surgery."
   ],
   "keywords": {
     "primary": "lymphatic system anatomy",
@@ -36,23 +37,23 @@
   "questions": [
     {
       "question": "What does the lymphatic system do?",
-      "answer": "It returns excess interstitial fluid to the bloodstream, transports absorbed fats from the intestine and supports immune surveillance through nodes and lymphoid organs. In relation to lymphatic vessels, this structure returns 3 L of interstitial fluid daily."
+      "answer": "It returns excess interstitial fluid to the bloodstream, transports absorbed fats from the intestine and supports immune surveillance through nodes and lymphoid organs. Structurally, the lymphatic vessels (Vasa lymphatica) comprises blind-start capillaries to trunks. Physiologically, the lymphatic vessels returns 3 L of interstitial fluid daily."
     },
     {
       "question": "Where does lymph drain back into the blood?",
-      "answer": "Large lymphatic ducts empty near the junctions of the internal jugular and subclavian veins. The thoracic duct drains most of the body. From an anatomical and functional standpoint, chylothorax if torn in chest surgery. Functionally, thoracic duct returns 3/4 of body lymph."
+      "answer": "Large lymphatic ducts empty near the junctions of the internal jugular and subclavian veins. The thoracic duct drains most of the body. Structurally, the thoracic duct (Ductus thoracicus) comprises largest lymph channel, cisterna chyli to left venous angle. Physiologically, the thoracic duct returns 3/4 of body lymph."
     },
     {
       "question": "What is the cervical nodes?",
-      "answer": "Chains along jugular and spine. Function: Drain head and neck. In relation to cervical nodes, this structure drain head and neck. From an anatomical and functional standpoint, rubbery vs hard-fixed distinguishes infection from malignancy."
+      "answer": "Chains along jugular and spine. Functionally, it drain head and neck. In clinical pathology involving the cervical nodes, rubbery vs hard-fixed distinguishes infection from malignancy."
     },
     {
       "question": "Where is the inguinal nodes located?",
-      "answer": "Horizontal + vertical groups in the groin. Function: Drain leg, perineum and lower abdominal wall. In relation to inguinal nodes, this structure drain leg, perineum and lower abdominal wall. From an anatomical and functional standpoint, enlarge in leg infections and STIs."
+      "answer": "Horizontal + vertical groups in the groin. Functionally, it drain leg, perineum and lower abdominal wall. Medical evaluation of the inguinal nodes also notes that enlarge in leg infections and STIs."
     },
     {
       "question": "What is the function of the thymus?",
-      "answer": "Function: T-cell maturation in childhood. Bilobed school for T cells, behind sternum. In relation to thymus, this structure T-cell maturation in childhood. From an anatomical and functional standpoint, thymic hyperplasia accompanies myasthenia gravis."
+      "answer": "Functionally, it governs t-cell maturation in childhood. Bilobed school for T cells, behind sternum. Clinically, regarding the thymus, thymic hyperplasia accompanies myasthenia gravis."
     }
   ]
 }

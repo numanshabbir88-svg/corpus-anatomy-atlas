@@ -12,8 +12,390 @@
 [[headers]]
   for = "/*"
   [headers.values]
+    X-Robots-Tag = "index, follow, max-image-preview:large"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-Frame-Options = "SAMEORIGIN"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
     Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://upload.wikimedia.org https://thumb.wikimedia.org https://*.wikimedia.org https://*.wikipedia.org; font-src 'self' data:; connect-src 'self' https://en.wikipedia.org https://*.wikipedia.org https://www.wikidata.org https://api.mymemory.translated.net; upgrade-insecure-requests"
+
+[[headers]]
+  for = "/404.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
+[[headers]]
+  for = "/blog-studio.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
+# === 301 SEO SLUG REDIRECTS ===
+[[redirects]]
+  from = "/learn/anatomicallanguage/*"
+  to = "/learn/anatomical-planes-and-directions/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/bodyregions/*"
+  to = "/learn/body-cavities-and-regions/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/tissuefoundations/*"
+  to = "/learn/cells-and-four-tissues/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/spermanatomy/*"
+  to = "/learn/sperm-cell-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/oocyteanatomy/*"
+  to = "/learn/egg-cell-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/fertilization/*"
+  to = "/learn/human-fertilization/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/cleavageblastocyst/*"
+  to = "/learn/cleavage-and-blastocyst/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/implantation/*"
+  to = "/learn/blastocyst-implantation/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/placentaanatomy/*"
+  to = "/learn/placenta-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/embryodevelopment/*"
+  to = "/learn/embryonic-development/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/fetaldevelopment/*"
+  to = "/learn/fetal-development/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/laborfirststage/*"
+  to = "/learn/first-stage-of-labor/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/laborsecondstage/*"
+  to = "/learn/second-stage-of-labor/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/laborthirdstage/*"
+  to = "/learn/third-stage-of-labor/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/heart/*"
+  to = "/learn/heart-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/lungs/*"
+  to = "/learn/lung-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/brain/*"
+  to = "/learn/brain-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/kidney/*"
+  to = "/learn/kidney-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/liver/*"
+  to = "/learn/liver-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/gut/*"
+  to = "/learn/digestive-tract-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/eye/*"
+  to = "/learn/eye-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/ear/*"
+  to = "/learn/ear-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/pancreas/*"
+  to = "/learn/pancreas-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/spleen/*"
+  to = "/learn/spleen-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/thyroid/*"
+  to = "/learn/thyroid-and-parathyroid/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/bladder/*"
+  to = "/learn/urinary-bladder-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/skin/*"
+  to = "/learn/skin-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/spinalcord/*"
+  to = "/learn/spinal-cord-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/male/*"
+  to = "/learn/male-reproductive-system/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/female/*"
+  to = "/learn/female-reproductive-system/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/malebody/*"
+  to = "/learn/male-surface-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/femalebody/*"
+  to = "/learn/female-surface-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/nervous/*"
+  to = "/learn/nervous-system-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/nervousmale/*"
+  to = "/learn/male-nervous-system/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/nervousfemale/*"
+  to = "/learn/female-nervous-system/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/cranialnerves/*"
+  to = "/learn/cranial-nerves-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/autonomic/*"
+  to = "/learn/autonomic-nervous-system/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/breast/*"
+  to = "/learn/breast-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/skeleton/*"
+  to = "/learn/human-skeleton-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/muscle/*"
+  to = "/learn/muscular-system-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/lymph/*"
+  to = "/learn/lymphatic-system-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/vascular/*"
+  to = "/learn/vascular-system-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/endocrine/*"
+  to = "/learn/endocrine-system-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/joints/*"
+  to = "/learn/joint-classification/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/shoulder/*"
+  to = "/learn/shoulder-joint-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/larynx/*"
+  to = "/learn/upper-airway-and-larynx/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/marrow/*"
+  to = "/learn/bone-marrow-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/malepelvis/*"
+  to = "/learn/male-pelvis-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/femalepelvis/*"
+  to = "/learn/female-pelvis-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/gynuterus/*"
+  to = "/learn/uterus-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/gyncervix/*"
+  to = "/learn/cervix-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/gynadnexa/*"
+  to = "/learn/ovaries-and-fallopian-tubes/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/gynvagina/*"
+  to = "/learn/vagina-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/gynvulva/*"
+  to = "/learn/vulva-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/gynsupport/*"
+  to = "/learn/pelvic-floor-and-ligaments/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/maletestis/*"
+  to = "/learn/testis-and-epididymis/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/maleprostate/*"
+  to = "/learn/prostate-gland-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/clitoralcomplex/*"
+  to = "/learn/clitoral-complex-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/penileerectile/*"
+  to = "/learn/penile-erectile-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/skinlayers/*"
+  to = "/learn/skin-layers-microanatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/facialnerve/*"
+  to = "/learn/facial-nerve-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/trigeminalnerve/*"
+  to = "/learn/trigeminal-nerve-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/eyeanatomy/*"
+  to = "/learn/eye-layers-and-chambers/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/retina/*"
+  to = "/learn/retina-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/nephron/*"
+  to = "/learn/nephron-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/brachialplexus/*"
+  to = "/learn/brachial-plexus-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/cerebraldeep/*"
+  to = "/learn/cerebral-cortex-and-basal-ganglia/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/meningescsf/*"
+  to = "/learn/meninges-and-cerebrospinal-fluid/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/brainstemdeep/*"
+  to = "/learn/brainstem-and-cerebellum/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/pulmonaryacinus/*"
+  to = "/learn/pulmonary-acinus-and-alveoli/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/hepaticlobule/*"
+  to = "/learn/hepatic-lobule-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/intestinalwall/*"
+  to = "/learn/small-intestine-wall-anatomy/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/skullface/*"
+  to = "/learn/skull-and-facial-bones/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/learn/dentition/*"
+  to = "/learn/tooth-anatomy-guide/:splat"
+  status = 301

@@ -1,14 +1,15 @@
 {
+  "slug": "bone-marrow-anatomy",
   "title": "Bone Marrow & Blood Anatomy: Hematopoiesis & Cell Types",
   "description": "Study bone marrow and blood anatomy inside spongy trabecular bone, tracing hematopoietic stem cells, red and white blood cell lineages, and platelet birth.",
   "updated": "2026-11-02",
   "h1": "Bone Marrow and Blood Anatomy: Hematopoiesis and Blood Cell Lineages",
   "blurb": "Inside spongy trabecular bone, pluripotent hematopoietic stem cells generate millions of oxygen-carrying red cells, immune leukocytes, and platelets every second.",
-  "lead": "Hidden inside the honeycomb cavities of the axial skeleton, red bone marrow manufactures hundreds of billions of fresh red cells, leukocytes, and platelets every single day. This illustrated study guide examines 20 documented anatomical entries—including Red marrow, Yellow marrow, Trabecular (spongy) bone, Common myeloid progenitor—connecting visible form, tissue organization, and physiological function.",
+  "lead": "Hidden inside the honeycomb cavities of the axial skeleton, red bone marrow manufactures hundreds of billions of fresh red cells, leukocytes, and platelets every single day. In this illustrated guide to bone marrow and blood anatomy, we examine 20 documented structures—including red marrow, yellow marrow, trabecular (spongy) bone, compact bone (cortex)—linking regional topography, tissue architecture, physiological mechanisms, and clinical reasoning.",
   "overview": [
-    "Hidden inside the honeycomb cavities of the axial skeleton, red bone marrow manufactures hundreds of billions of fresh red cells, leukocytes, and platelets every single day. Known in classical anatomical nomenclature as Medulla ossium, this chapter belongs to the circulatory study pathway. Hidden inside the honeycomb cavities of the axial skeleton, red bone marrow manufactures hundreds of billions of fresh red cells, leukocytes, and platelets every single day. Known in classical anatomical nomenclature as Medulla ossium, this chapter belongs to the circulatory study pathway. Cut long bone plus a cellular inset — the organs no eye ever sees without a microscope, highlighted here.",
-    "When you trace how bone marrow and blood anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Red marrow (haematopoiesis: all blood cell lines), Yellow marrow (energy store; convertible back to red marrow), Common myeloid progenitor (gives rise to granulocyte, monocyte, erythroid and megakaryocyte lineages), and Common lymphoid progenitor (seeds B, T and natural-killer cell development). By examining both surface-visible features (11 illustrated landmarks) and deeper or microscopic components (9 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
-    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for red marrow, marrow failure = aplastic anaemia; infiltration = leukaemia; for yellow marrow, reconverts in chronic anaemia or severe bleeding. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+    "Hidden inside the honeycomb cavities of the axial skeleton, red bone marrow manufactures hundreds of billions of fresh red cells, leukocytes, and platelets every single day. Cut long bone plus a cellular inset — the organs no eye ever sees without a microscope, highlighted here. Within the human body, the bone marrow & blood (Medulla ossium) is situated in inside every bone, receives arterial perfusion via nutrient + metaphyseal arteries, and is innervated by autonomic fibres.",
+    "The red marrow (Medulla ossium rubra) is spongy bone of vertebrae, pelvis, sternum, epiphyses. Physiologically, the red marrow governs haematopoiesis: all blood cell lines. Structurally, the yellow marrow (Medulla ossium flava) comprises fat-filled shaft cavities of long bones. Physiologically, the yellow marrow governs energy store; convertible back to red marrow. Structurally, the trabecular (spongy) bone (Os spongiosum) comprises latticework of struts along stress lines. Physiologically, the trabecular (spongy) bone governs strength at low weight; houses red marrow. The compact bone (cortex) (Os compactum) is dense osteon-based outer shell. Physiologically, the compact bone (cortex) governs bending and torsional strength; calcium bank. Structurally, the endosteum & osteoblasts (Endosteum) comprises cellular lining of all internal bone surfaces. Physiologically, the endosteum & osteoblasts governs remodelling: osteoblasts build, osteoclasts eat. Structurally, the haematopoietic stem cells (Cellulae stirpes) comprises pluripotent marrow stem cells. Physiologically, the haematopoietic stem cells governs give rise to myeloid and lymphoid lines.",
+    "Clinically, regarding the red marrow, marrow failure = aplastic anaemia; infiltration = leukaemia. From a diagnostic standpoint, in the yellow marrow, reconverts in chronic anaemia or severe bleeding. In clinical pathology involving the trabecular (spongy) bone, osteoporosis thins trabeculae first — vertebral fractures. Medical evaluation of the compact bone (cortex) also notes that cortical thickening responds to load (Wolff's law)."
   ],
   "keywords": {
     "primary": "bone marrow and blood anatomy",
@@ -36,23 +37,23 @@
   "questions": [
     {
       "question": "What is the difference between red and yellow bone marrow?",
-      "answer": "Red marrow supports blood-cell production. Yellow marrow contains more fat; distribution changes with age and differs across skeletal sites. From an anatomical and functional standpoint, marrow failure = aplastic anaemia; infiltration = leukaemia."
+      "answer": "Red marrow supports blood-cell production. Yellow marrow contains more fat; distribution changes with age and differs across skeletal sites. The red marrow (Medulla ossium rubra) is spongy bone of vertebrae, pelvis, sternum, epiphyses. Physiologically, the red marrow governs haematopoiesis: all blood cell lines."
     },
     {
       "question": "Where are blood cells made in adults?",
-      "answer": "Most adult blood-cell production occurs in red marrow of axial bones and selected proximal long-bone regions. From an anatomical and functional standpoint, marrow failure = aplastic anaemia; infiltration = leukaemia. Functionally, red marrow haematopoiesis: all blood cell lines."
+      "answer": "Most adult blood-cell production occurs in red marrow of axial bones and selected proximal long-bone regions. The sinusoidal endothelium is specialized discontinuous lining of marrow venous sinuses. Physiologically, the sinusoidal endothelium allows mature blood cells to enter bloodstream."
     },
     {
       "question": "What is the red marrow?",
-      "answer": "Spongy bone of vertebrae, pelvis, sternum, epiphyses. Function: Haematopoiesis: all blood cell lines. In relation to red marrow, this structure haematopoiesis: all blood cell lines. From an anatomical and functional standpoint, marrow failure = aplastic anaemia; infiltration = leukaemia."
+      "answer": "Spongy bone of vertebrae, pelvis, sternum, epiphyses. Functionally, it governs haematopoiesis: all blood cell lines. Structurally, the trabecular (spongy) bone (Os spongiosum) comprises latticework of struts along stress lines. Physiologically, the trabecular (spongy) bone governs strength at low weight; houses red marrow."
     },
     {
       "question": "Where is the trabecular (spongy) bone located?",
-      "answer": "Latticework of struts along stress lines. Function: Strength at low weight; houses red marrow. In relation to trabecular (spongy) bone, this structure strength at low weight; houses red marrow. From an anatomical and functional standpoint, osteoporosis thins trabeculae first — vertebral fractures."
+      "answer": "Latticework of struts along stress lines. Functionally, it governs strength at low weight; houses red marrow. The haversian canal is central canal of compact-bone osteon containing vessels and nerves. Physiologically, the haversian canal supplies concentric lamellae."
     },
     {
       "question": "What is the function of the endosteum & osteoblasts?",
-      "answer": "Function: Remodelling: osteoblasts build, osteoclasts eat. Cellular lining of all internal bone surfaces. In relation to endosteum & osteoblasts, this structure remodelling: osteoblasts build, osteoclasts eat. From an anatomical and functional standpoint, paget's disease is remodelling gone chaotic."
+      "answer": "Functionally, it governs remodelling: osteoblasts build, osteoclasts eat. Cellular lining of all internal bone surfaces. Clinically, regarding the endosteum & osteoblasts, paget's disease is remodelling gone chaotic."
     }
   ]
 }

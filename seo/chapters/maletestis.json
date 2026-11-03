@@ -1,14 +1,15 @@
 {
+  "slug": "testis-and-epididymis",
   "title": "Testis & Epididymis Anatomy: Tubules, Lobules & Vessels",
   "description": "Explore testis and epididymis anatomy, from the tough tunica albuginea and coiled seminiferous tubules to Sertoli cells, rete testis channels, and storage.",
   "updated": "2026-11-02",
   "h1": "Testis and Epididymis Microanatomy: Tubules, Lobules and Maturation",
   "blurb": "Inside the fibrous tunica albuginea: 250 testicular lobules, coiled seminiferous tubules, Sertoli blood-testis barrier, rete testis, and epididymal maturation.",
-  "lead": "Inside each oval testis, roughly two hundred fifty wedge-shaped lobules pack tightly coiled seminiferous tubules that would stretch hundreds of meters if unrolled. This illustrated study guide examines 20 documented anatomical entries—including Tunica vaginalis, Tunica albuginea, Mediastinum testis, Straight seminiferous tubules—connecting visible form, tissue organization, and physiological function.",
+  "lead": "Inside each oval testis, roughly two hundred fifty wedge-shaped lobules pack tightly coiled seminiferous tubules that would stretch hundreds of meters if unrolled. In this illustrated guide to testis and epididymis anatomy, we examine 20 documented structures—including tunica vaginalis, tunica albuginea, mediastinum testis, testicular lobules—linking regional topography, tissue architecture, physiological mechanisms, and clinical reasoning.",
   "overview": [
-    "Inside each oval testis, roughly two hundred fifty wedge-shaped lobules pack tightly coiled seminiferous tubules that would stretch hundreds of meters if unrolled. Known in classical anatomical nomenclature as Testis et epididymis, this chapter belongs to the male reproductive study pathway. Inside each oval testis, roughly two hundred fifty wedge-shaped lobules pack tightly coiled seminiferous tubules that would stretch hundreds of meters if unrolled. Known in classical anatomical nomenclature as Testis et epididymis, this chapter belongs to the male reproductive study pathway. A realistic cut section maps the invisible seminiferous loops, blood–testis barrier and sperm outflow route.",
-    "When you trace how testis and epididymis anatomy functions in the living body, each documented landmark contributes a specific mechanical or physiological step. Key structures covered in this guide include Tunica vaginalis (allows mobile testis within scrotum), Tunica albuginea (partitions testis into lobules via septa), Straight seminiferous tubules (move sperm and luminal fluid toward rete), and Basal lamina of tubule (supports germ and Sertoli cell arrangement). By examining both surface-visible features (15 illustrated landmarks) and deeper or microscopic components (5 contextual study entries), you can see how gross morphology and tissue architecture work as one integrated unit.",
-    "Understanding these structural relationships is essential for both anatomy exams and real-world physiological reasoning. Practical anatomical correlations also stand out: for tunica vaginalis, fluid accumulation in the cavity forms a hydrocele; for tunica albuginea, traumatic rupture may require urgent evaluation. Use the interactive regional diagram above alongside the 20 part-by-part reference cards and five common questions below to review location, blood supply, innervation, and functional significance in detail."
+    "Inside each oval testis, roughly two hundred fifty wedge-shaped lobules pack tightly coiled seminiferous tubules that would stretch hundreds of meters if unrolled. A realistic cut section maps the invisible seminiferous loops, blood–testis barrier and sperm outflow route. Within the human body, the testis & epididymis — microanatomy (Testis et epididymis) is situated in scrotum and spermatic cord, receives arterial perfusion via testicular artery from aorta; pampiniform plexus, and is innervated by testicular plexus (visceral); scrotal somatic innervation.",
+    "The tunica vaginalis (Tunica vaginalis testis) is serous covering with visceral and parietal layers. Physiologically, the tunica vaginalis allows mobile testis within scrotum. The tunica albuginea (Tunica albuginea testis) is dense white capsule under tunica vaginalis. Physiologically, the tunica albuginea governs partitions testis into lobules via septa. The mediastinum testis is posterior thickening of albuginea containing rete testis. Physiologically, the mediastinum testis governs organizes lobules and duct outflow. Structurally, the testicular lobules (Lobuli testis) comprises septa divide testis into lobules containing seminiferous tubules. Physiologically, the testicular lobules governs compartmentalize sperm production. The seminiferous tubules (Tubuli seminiferi) are coiled tubules lined by developing germ cells and Sertoli cells. Physiologically, the seminiferous tubules governs spermatogenesis. Structurally, the Sertoli cells / blood–testis barrier (Cellulae sustentaculares) comprises supportive epithelium joined by tight junctions. Physiologically, the Sertoli cells / blood–testis barrier governs nurse developing germ cells; secrete inhibin B.",
+    "Clinically, regarding the tunica vaginalis, fluid accumulation in the cavity forms a hydrocele. From a diagnostic standpoint, in the tunica albuginea, traumatic rupture may require urgent evaluation. In clinical pathology involving the mediastinum testis, important landmark in testicular ultrasound. Medical evaluation of the testicular lobules also notes that germ-cell tumors often distort intratesticular architecture."
   ],
   "keywords": {
     "primary": "testis and epididymis anatomy",
@@ -36,23 +37,23 @@
   "questions": [
     {
       "question": "Where are sperm made in the testis?",
-      "answer": "Sperm develop within seminiferous tubules. Supporting Sertoli cells and hormone-producing interstitial Leydig cells occupy different microscopic compartments. In relation to rete testis, this structure collect sperm from seminiferous system."
+      "answer": "Sperm develop within seminiferous tubules. Supporting Sertoli cells and hormone-producing interstitial Leydig cells occupy different microscopic compartments. The rete testis channels within mediastinum draining straight tubules. Physiologically, the rete testis collect sperm from seminiferous system."
     },
     {
       "question": "How do sperm leave the testis?",
-      "answer": "They move from seminiferous tubules through a collecting network and efferent ductules into the epididymis, where maturation and storage continue. In relation to epididymal head, this structure starts sperm maturation. From an anatomical and functional standpoint, epididymitis often causes tender swelling."
+      "answer": "They move from seminiferous tubules through a collecting network and efferent ductules into the epididymis, where maturation and storage continue. Structurally, the epididymal head (Caput epididymidis) comprises enlarged superior epididymis receiving efferent ductules. Physiologically, the epididymal head governs starts sperm maturation."
     },
     {
       "question": "What is the tunica vaginalis?",
-      "answer": "Serous covering with visceral and parietal layers. Function: Allows mobile testis within scrotum. In relation to tunica vaginalis, this structure allows mobile testis within scrotum. From an anatomical and functional standpoint, fluid accumulation in the cavity forms a hydrocele."
+      "answer": "Serous covering with visceral and parietal layers. Functionally, it allows mobile testis within scrotum. In clinical pathology involving the tunica vaginalis, fluid accumulation in the cavity forms a hydrocele."
     },
     {
       "question": "Where is the mediastinum testis located?",
-      "answer": "Posterior thickening of albuginea containing rete testis. Function: Organizes lobules and duct outflow. In relation to mediastinum testis, this structure organizes lobules and duct outflow. From an anatomical and functional standpoint, important landmark in testicular ultrasound."
+      "answer": "Posterior thickening of albuginea containing rete testis. Functionally, it governs organizes lobules and duct outflow. Medical evaluation of the mediastinum testis also notes that important landmark in testicular ultrasound."
     },
     {
       "question": "What is the function of the seminiferous tubules?",
-      "answer": "Function: Spermatogenesis. Coiled tubules lined by developing germ cells and Sertoli cells. In relation to seminiferous tubules, this structure spermatogenesis. From an anatomical and functional standpoint, tubular atrophy reduces fertility."
+      "answer": "Functionally, it governs spermatogenesis. Coiled tubules lined by developing germ cells and Sertoli cells. Clinically, regarding the seminiferous tubules, tubular atrophy reduces fertility."
     }
   ]
 }

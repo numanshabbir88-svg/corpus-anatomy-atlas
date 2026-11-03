@@ -9,7 +9,7 @@ const $$ = (s,r=document)=>[...r.querySelectorAll(s)];
 const ORG = () => Object.entries(ORGANS);
 const hasOrgan = key => Object.prototype.hasOwnProperty.call(ORGANS,key);
 const liveIds = () => ORG().map(([k])=>k);
-const routeFor = k => '#/'+(k==='male'||k==='female'?k+'overview':k);
+const routeFor = k => '#/'+(window.SEO_SLUGS?.[k]||(k==='male'||k==='female'?k+'overview':k));
 // Same anatomical plates, served as compact WebP; original files remain in img/.
 const imgSrc=(file,small=false)=>'img/'+(small?'thumb':'webp')+'/'+String(file).replace(/\.(jpe?g|png|webp)$/i,'.webp');
 const validHot=(hot,id)=>Array.isArray(hot?.[id])&&hot[id].length===2&&hot[id].every(v=>typeof v==='number'&&Number.isFinite(v)&&v>=0&&v<=1000);
@@ -235,8 +235,8 @@ function viewHome(){
         <p>Start with directional terminology, body cavities, and basic tissue types, follow human development from gametes to birth, or study organ systems side by side.</p>
       </div>
     </div>
-    <div class="foundation-home" style="padding-top:0"><div class="foundation-home-inner"><div><span class="eyebrow">FOUNDATIONAL TRACK · 3 CORE GUIDES</span><h2>Anatomy foundations: planes, cavities &amp; tissues</h2><p>Before diving into individual organs, master the universal coordinate system of medicine—standard anatomical position, sagittal/coronal/transverse planes, dorsal and ventral body cavities, four clinical quadrants, and the four basic tissue families that construct every organ.</p></div><nav aria-label="Foundation study guides"><a href="#/anatomicallanguage">Planes &amp; directions →</a><a href="#/bodyregions">Cavities &amp; regions →</a><a href="#/tissuefoundations">Cells &amp; four tissues →</a></nav></div></div>
-    <div class="repro-home"><div class="repro-home-inner"><span class="eyebrow">DEVELOPMENTAL TRACK · 11 SEQUENTIAL CHAPTERS</span><h2>From sperm and egg cell anatomy to childbirth</h2><p>Follow human reproduction in chronological order: inspect the microscopic architecture of the sperm cell and ovulated secondary oocyte, trace fertilization in the fallopian tube, watch cleavage and blastocyst implantation, explore placental villi, and study embryonic folding, fetal shunts, and all three stages of labor.</p><nav aria-label="Start conception and birth study"><a href="#/spermanatomy">Sperm cell →</a><a href="#/oocyteanatomy">Egg cell →</a><a href="#/fertilization">After conception →</a><a href="#/laborfirststage">Childbirth stages →</a></nav></div></div>
+    <div class="foundation-home" style="padding-top:0"><div class="foundation-home-inner"><div><span class="eyebrow">FOUNDATIONAL TRACK · 3 CORE GUIDES</span><h2>Anatomy foundations: planes, cavities &amp; tissues</h2><p>Before diving into individual organs, master the universal coordinate system of medicine—standard anatomical position, sagittal/coronal/transverse planes, dorsal and ventral body cavities, four clinical quadrants, and the four basic tissue families that construct every organ.</p></div><nav aria-label="Foundation study guides"><a href="#/anatomical-planes-and-directions">Planes &amp; directions →</a><a href="#/body-cavities-and-regions">Cavities &amp; regions →</a><a href="#/cells-and-four-tissues">Cells &amp; four tissues →</a></nav></div></div>
+    <div class="repro-home"><div class="repro-home-inner"><span class="eyebrow">DEVELOPMENTAL TRACK · 11 SEQUENTIAL CHAPTERS</span><h2>From sperm and egg cell anatomy to childbirth</h2><p>Follow human reproduction in chronological order: inspect the microscopic architecture of the sperm cell and ovulated secondary oocyte, trace fertilization in the fallopian tube, watch cleavage and blastocyst implantation, explore placental villi, and study embryonic folding, fetal shunts, and all three stages of labor.</p><nav aria-label="Start conception and birth study"><a href="#/sperm-cell-anatomy">Sperm cell →</a><a href="#/egg-cell-anatomy">Egg cell →</a><a href="#/human-fertilization">After conception →</a><a href="#/first-stage-of-labor">Childbirth stages →</a></nav></div></div>
   </section>
 
   <section class="sec wrap start-paths" style="padding-top:28px;padding-bottom:12px">
@@ -1314,8 +1314,14 @@ function render(){
   const params=new URLSearchParams(qs||'');
   const seg=path.split('/').filter(Boolean);
   const key=seg[0];
-  const organKey=key==='maleoverview'?'male':key==='femaleoverview'?'female':key;
+  if(!key&&(location.hash==='#/'||location.hash==='#')){
+    try{history.replaceState(null,'',location.pathname+location.search);}catch(e){}
+  }
+  const organKey=window.SLUG_TO_KEY?.[key]||(key==='maleoverview'?'male':key==='femaleoverview'?'female':key);
   const validOrgan=hasOrgan(organKey);
+  if(validOrgan&&key!=='male'&&key!=='female'&&window.SEO_SLUGS?.[organKey]&&key!==window.SEO_SLUGS[organKey]){
+    try{history.replaceState(null,'','#/'+window.SEO_SLUGS[organKey]+(qs?'?'+qs:''));}catch(e){}
+  }
   $$('#nav a').forEach(a=>{
     const t=a.dataset.nav;
     let on=false;
@@ -1342,21 +1348,29 @@ function render(){
   else if(validOrgan) app.innerHTML=viewOrgan(organKey);
   else app.innerHTML=`<section class="notfound wrap"><h1>Page not found</h1><p class="lead" style="margin:12px auto 22px">“${esc(key)}” isn't a route in this atlas.</p><a class="btn primary" href="#/">Return home</a></section>`;
 
-  /* dynamic 55-char title & 155-char meta description sync for SPA routes */
+  /* dynamic 55-char title, 155-char meta description, keywords & self-referencing canonical sync */
   const homeTitle='Corpus — Interactive Human Anatomy Atlas & Study Guides';
   const homeDesc='Explore Corpus, a free interactive human anatomy atlas with 74 illustrated study guides, 1,586 documented structures, 206 bones, 312 muscles, and 3D views.';
+  const homeKeywords='interactive human anatomy atlas, human anatomy study guides, 3D human body map, human organ systems, skeletal system 206 bones, muscular system 312 muscles, cranial nerves, microscopic anatomy';
   const activeOrgan=(validOrgan && ORGANS[organKey])?ORGANS[organKey]:null;
   document.title=(activeOrgan&&activeOrgan.seoTitle)?activeOrgan.seoTitle:homeTitle;
   const metaDescEl=document.querySelector('meta[name="description"]');
   if(metaDescEl) metaDescEl.setAttribute('content',(activeOrgan&&activeOrgan.seoDesc)?activeOrgan.seoDesc:homeDesc);
+  const metaKwEl=document.querySelector('meta[name="keywords"]');
+  if(metaKwEl) metaKwEl.setAttribute('content',(activeOrgan&&activeOrgan.seoKeywords)?activeOrgan.seoKeywords:homeKeywords);
+  const canonEl=document.querySelector('link[rel="canonical"]');
+  const ogUrlEl=document.querySelector('meta[property="og:url"]');
+  const cleanSelfUrl=location.origin+location.pathname.replace(/index\.html$/,'')+(key?location.hash:'');
+  if(canonEl&&location.origin.startsWith('http')) canonEl.setAttribute('href',cleanSelfUrl);
+  if(ogUrlEl&&location.origin.startsWith('http')) ogUrlEl.setAttribute('content',cleanSelfUrl);
 
   /* post-render bindings */
   if(!key){bindShowcase(); $$('[data-count]').forEach(el=>countUp(el,+el.dataset.count));}
   if(key==='organs') bindOrgansFilter();
   if(key==='map') bindMap();
   if(validOrgan && key!=='male' && key!=='female') bindOrgan(organKey);
-  if(key==='skeleton')bindJointImages();
-  if(key==='muscle')bindMuscleAtlas();
+  if(key==='skeleton'||organKey==='skeleton')bindJointImages();
+  if(key==='muscle'||organKey==='muscle')bindMuscleAtlas();
   bindAtlasAnnotations();
   $$('[data-study-jump]').forEach(btn=>btn.addEventListener('click',()=>document.getElementById(btn.dataset.studyJump)?.scrollIntoView({behavior:'smooth',block:'start'})));
   const jx=params.get('j'),bx=params.get('b'),bone=params.get('bone');
@@ -1365,7 +1379,7 @@ function render(){
     if(group!==null)document.getElementById('bg-'+group)?.setAttribute('open','');
     const el=document.getElementById(jx!==null?'jc-'+jx:bone!==null?'bn-'+bone.split('.').join('-'):'bg-'+bx);
     if(el){setTimeout(()=>{el.scrollIntoView({block:'center'});el.classList.add('flash');setTimeout(()=>el.classList.remove('flash'),1800)},200)}}
-  if(key==='muscle'&&(params.has('m')||params.has('t')||params.has('g'))){
+  if((key==='muscle'||organKey==='muscle')&&(params.has('m')||params.has('t')||params.has('g'))){
     let target;
     if(params.has('m')){const id=params.get('m');target=document.getElementById('mus-'+id);target?.closest('.mat-group')?.setAttribute('open','');}
     if(params.has('t'))target=document.getElementById('tendon-'+params.get('t'));
@@ -1407,6 +1421,14 @@ function chrome(){
   },{passive:true});
   tt.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
   bindSearch();
+  document.addEventListener('click',e=>{
+    const a=e.target.closest('a');
+    if(a&&(a.getAttribute('href')==='#/'||a.dataset.nav==='#/')){
+      e.preventDefault();
+      try{history.pushState(null,'',location.pathname+location.search);}catch(err){location.hash='';}
+      render();
+    }
+  });
   document.addEventListener('keydown',e=>{
     if(e.key==='/'&&!(e.target.matches('input,textarea'))){e.preventDefault();$('#q').focus()}
   });
