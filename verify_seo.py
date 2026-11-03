@@ -98,7 +98,9 @@ def local_target(page, reference, base_href=''):
     else:
         target = page.parent / path
     target = target.resolve()
-    if not target.is_relative_to(ROOT.resolve()):
+    try:
+        target.relative_to(ROOT.resolve())
+    except ValueError:
         report(f'{page.relative_to(ROOT)}: link outside output: {reference}')
         return None
     if path.endswith('/') or target.is_dir():
