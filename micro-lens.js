@@ -42,34 +42,34 @@ const MICRO_ORIGINS={
  const alveoli=['Type I pneumocyte','Type II pneumocyte','Alveolar macrophage'];
  const alveolarPoints={'Type I pneumocyte':[390,643],'Type II pneumocyte':[647,431],'Alveolar macrophage':[303,377]};
  for(const chapter of ['lungs','pulmonaryacinus'])names(chapter,'alveolar',alveoli,alveolarPoints);
- names('pulmonaryacinus','alveolar',['Alveolar epithelial tight junctions','Pulmonary interstitium']);
+ names('pulmonaryacinus','alveolar',['Alveolar epithelial tight junctions','Pulmonary interstitium'],{'Alveolar epithelial tight junctions':[555,515],'Pulmonary interstitium':[555,620]});
  names('lungs','acinus',['Terminal bronchiole','Respiratory bronchiole','Alveolar duct','Alveolar sac','Alveolus']);
  names('kidney','filtration',['Glomerular capillaries','Filtration basement membrane'],{'Glomerular capillaries':[505,440],'Filtration basement membrane':[455,214]});
  names('kidney','nephron',['Afferent arteriole','Efferent arteriole','Bowman capsule']);
- names('nephron','filtration',['Glomerular capillaries','Glomerular endothelial fenestrae','Bowman capsule'],{'Glomerular capillaries':[505,440],'Glomerular endothelial fenestrae':[520,270]});
+ names('nephron','filtration',['Glomerular capillaries','Glomerular endothelial fenestrae','Bowman capsule'],{'Glomerular capillaries':[505,440],'Glomerular endothelial fenestrae':[520,270],'Bowman capsule':[220,480]});
  names('liver','lobule',['Portal venule','Hepatic arteriole','Interlobular bile duct','Portal tract','Central vein','Hepatic sinusoid','Sinusoidal endothelium']);
  names('gut','intestine',['Villus','Crypt of Lieberkühn','Enterocyte','Brush border','Goblet cell','Paneth cell']);
- names('intestinalwall','intestine',['Brunner glands','Peyer patches']);
+ names('intestinalwall','intestine',['Brunner glands','Peyer patches'],{'Brunner glands':[445,635],'Peyer patches':[735,665]});
  names('eye','cornea',['Corneal epithelium','Bowman layer','Corneal stroma','Descemet membrane']);
  names('eye','retina',['Internal limiting membrane','Nerve fiber layer','Ganglion cell layer']);
- names('retina','retina',['Horizontal cells','Amacrine cells']);
+ names('retina','retina',['Horizontal cells','Amacrine cells'],{'Horizontal cells':[465,535],'Amacrine cells':[345,475]});
  names('eyeanatomy','retina',['Internal limiting membrane']);
  names('ear','corti',['Organ of Corti','Basilar membrane'],{'Organ of Corti':[605,485],'Basilar membrane':[545,714]});
- names('pancreas','pancreas',['Exocrine acinus','Centroacinar cells','Intercalated duct','Beta cells','Alpha cells','Delta cells','Pancreatic stellate cells'],{'Exocrine acinus':[224,368]});
- names('thyroid','thyroid',['Thyroid follicular cell','Thyroglobulin-rich colloid','Parafollicular C cell'],{'Thyroid follicular cell':[505,437],'Thyroglobulin-rich colloid':[502,280]});
- names('bladder','bladder',['Urothelial umbrella cells','Lamina propria of bladder','Bladder mucosal rugae'],{'Urothelial umbrella cells':[532,211],'Lamina propria of bladder':[550,542]});
+ names('pancreas','pancreas',['Exocrine acinus','Centroacinar cells','Intercalated duct','Beta cells','Alpha cells','Delta cells','Pancreatic stellate cells'],{'Exocrine acinus':[224,368],'Centroacinar cells':[330,320],'Intercalated duct':[355,495],'Beta cells':[595,465],'Alpha cells':[535,345],'Delta cells':[660,560],'Pancreatic stellate cells':[425,625]});
+ names('thyroid','thyroid',['Thyroid follicular cell','Thyroglobulin-rich colloid','Parafollicular C cell'],{'Thyroid follicular cell':[505,437],'Thyroglobulin-rich colloid':[502,280],'Parafollicular C cell':[605,765]});
+ names('bladder','bladder',['Urothelial umbrella cells','Lamina propria of bladder','Bladder mucosal rugae'],{'Urothelial umbrella cells':[532,211],'Lamina propria of bladder':[550,542],'Bladder mucosal rugae':[480,185]});
  const skinNames=['Stratum basale','Stratum spinosum','Stratum granulosum','Stratum lucidum','Basement membrane zone','Dermal papillae','Papillary dermis','Reticular dermis','Hypodermis','Stratum basale & spinosum'];
- const skinPoints={'Stratum basale':[502,302],'Dermal papillae':[244,332],'Papillary dermis':[465,430],'Reticular dermis':[475,598],'Hypodermis':[475,836]};
+ const skinPoints={'Stratum basale':[502,302],'Stratum basale & spinosum':[502,290],'Stratum spinosum':[450,275],'Stratum granulosum':[450,232],'Stratum lucidum':[450,212],'Basement membrane zone':[450,345],'Dermal papillae':[244,332],'Papillary dermis':[465,430],'Reticular dermis':[475,598],'Hypodermis':[475,836]};
  for(const chapter of ['skin','skinlayers'])names(chapter,'skin',skinNames,skinPoints);
- names('breast','breast',['Terminal duct lobular unit','Lobular acini','Myoepithelial cells','Ductal myoepithelium','Lobules (glandular)'],{'Terminal duct lobular unit':[561,377],'Lobular acini':[723,452]});
- names('lymph','lymph',['Afferent lymphatic vessels','Subcapsular sinus','Lymph-node cortex','Lymph-node paracortex','High endothelial venule','Medullary cords','Efferent lymphatic vessel'],{'Lymph-node cortex':[380,299],'Medullary cords':[550,540]});
- names('lymph','intestine',['Intestinal lacteal']);
- names('endocrine','thyroid',['Thyroid follicular cells']);
- names('endocrine','pancreas',['Pancreatic beta cells']);
- names('marrow','marrow',['Common myeloid progenitor','Common lymphoid progenitor','Erythroblast island','Reticulocyte','Megakaryocyte','Neutrophil precursor series','Marrow stromal cells','Marrow adipocyte','Sinusoidal endothelium']);
- names('gynuterus','endometrium',['Endometrial glands','Endometrial stroma','Endometrium — functionalis','Endometrium — basalis'],{'Endometrial glands':[385,440],'Endometrial stroma':[625,400]});
- names('gynadnexa','ovary',['Theca interna','Granulosa cell layer','Zona pellucida','Growing follicles','Dominant antral follicle'],{'Theca interna':[748,558],'Granulosa cell layer':[518,673],'Zona pellucida':[505,402]});
- names('maletestis','testis',['Straight seminiferous tubules','Basal lamina of tubule','Spermatogonia','Primary spermatocytes','Spermatids','Seminiferous tubules','Sertoli cells / blood–testis barrier','Leydig cells'],{'Basal lamina of tubule':[522,64],'Spermatogonia':[441,94],'Spermatids':[527,405]});
+ names('breast','breast',['Terminal duct lobular unit','Lobular acini','Myoepithelial cells','Ductal myoepithelium','Lobules (glandular)'],{'Terminal duct lobular unit':[561,377],'Lobular acini':[723,452],'Myoepithelial cells':[640,225],'Ductal myoepithelium':[450,425],'Lobules (glandular)':[723,452]});
+ names('lymph','lymph',['Afferent lymphatic vessels','Subcapsular sinus','Lymph-node cortex','Lymph-node paracortex','High endothelial venule','Medullary cords','Efferent lymphatic vessel'],{'Afferent lymphatic vessels':[285,225],'Subcapsular sinus':[350,225],'Lymph-node cortex':[380,299],'Lymph-node paracortex':[435,415],'High endothelial venule':[405,495],'Medullary cords':[550,540],'Efferent lymphatic vessel':[650,800]});
+ names('lymph','intestine',['Intestinal lacteal'],{'Intestinal lacteal':[365,365]});
+ names('endocrine','thyroid',['Thyroid follicular cells'],{'Thyroid follicular cells':[485,210]});
+ names('endocrine','pancreas',['Pancreatic beta cells'],{'Pancreatic beta cells':[595,465]});
+ names('marrow','marrow',['Common myeloid progenitor','Common lymphoid progenitor','Erythroblast island','Reticulocyte','Megakaryocyte','Neutrophil precursor series','Marrow stromal cells','Marrow adipocyte','Sinusoidal endothelium'],{'Common myeloid progenitor':[505,490],'Common lymphoid progenitor':[675,195],'Erythroblast island':[360,395],'Reticulocyte':[255,465],'Megakaryocyte':[345,680],'Neutrophil precursor series':[675,445],'Marrow stromal cells':[480,315],'Marrow adipocyte':[715,755],'Sinusoidal endothelium':[200,620]});
+ names('gynuterus','endometrium',['Endometrial glands','Endometrial stroma','Endometrium — functionalis','Endometrium — basalis'],{'Endometrial glands':[385,440],'Endometrial stroma':[625,400],'Endometrium — functionalis':[385,320],'Endometrium — basalis':[385,680]});
+ names('gynadnexa','ovary',['Theca interna','Granulosa cell layer','Zona pellucida','Growing follicles','Dominant antral follicle'],{'Theca interna':[748,558],'Granulosa cell layer':[518,673],'Zona pellucida':[505,402],'Growing follicles':[518,673],'Dominant antral follicle':[410,420]});
+ names('maletestis','testis',['Straight seminiferous tubules','Basal lamina of tubule','Spermatogonia','Primary spermatocytes','Spermatids','Seminiferous tubules','Sertoli cells / blood–testis barrier','Leydig cells'],{'Straight seminiferous tubules':[535,165],'Basal lamina of tubule':[522,64],'Spermatogonia':[441,94],'Primary spermatocytes':[445,260],'Spermatids':[527,405],'Seminiferous tubules':[500,500],'Sertoli cells / blood–testis barrier':[418,222],'Leydig cells':[95,220]});
  // The endocrine body-map plate has several organ positions, not one universal sample.
  for(const p of Object.values(ORGANS.endocrine.parts)){
   if(p.microLens==='thyroid')p.microOrigin=[500,190];
@@ -95,12 +95,12 @@ Object.assign(MICRO_LENS,{
    if(points[id])p.microPoint=points[id];
   }
  };
- place('spermanatomy','reprotestis','spermatogonium primary secondary spermatid spermiogenesis sertoli leydig tubule');
- place('oocyteanatomy','reproovary','oogonium primary meiosisi granulosa theca antrum follicle lh corpusluteum',{antrum:[340,570]});
- place('fertilization','reprofusion','coronapassage zonabinding membranefusion cortical meiosisii');
- place('placentaanatomy','reprovillus','villi fetalcapillary intervillous placentalbarrier gasexchange',{fetalcapillary:[385,320],intervillous:[270,560]});
- place('embryodevelopment','reproneural','disc primitive gastrulation ectoderm mesoderm endoderm notochord neuralplate neuraltube somites folding gut',{somites:[300,365]});
- place('laborthirdstage','reprovillus','intervillous vessels');
+ place('spermanatomy','reprotestis','spermatogonium primary secondary spermatid spermiogenesis sertoli leydig tubule',{spermatogonium:[505,110],primary:[435,195],secondary:[480,270],spermatid:[450,355],spermiogenesis:[485,395],sertoli:[418,222],leydig:[655,65],tubule:[500,500]});
+ place('oocyteanatomy','reproovary','oogonium primary meiosisi granulosa theca antrum follicle lh corpusluteum',{oogonium:[512,480],primary:[512,465],meiosisi:[568,478],granulosa:[545,745],theca:[500,915],antrum:[340,570],follicle:[500,180],lh:[260,280],corpusluteum:[680,740]});
+ place('fertilization','reprofusion','coronapassage zonabinding membranefusion cortical meiosisii',{coronapassage:[470,420],zonabinding:[480,468],membranefusion:[355,415],cortical:[530,275],meiosisii:[765,380]});
+ place('placentaanatomy','reprovillus','villi fetalcapillary intervillous placentalbarrier gasexchange',{villi:[380,420],fetalcapillary:[385,320],intervillous:[270,560],placentalbarrier:[400,500],gasexchange:[430,460]});
+ place('embryodevelopment','reproneural','disc primitive gastrulation ectoderm mesoderm endoderm notochord neuralplate neuraltube somites folding gut',{disc:[500,420],primitive:[500,220],gastrulation:[500,450],ectoderm:[220,290],mesoderm:[210,560],endoderm:[500,720],notochord:[500,550],neuralplate:[500,320],neuraltube:[500,380],somites:[300,365],folding:[780,520],gut:[500,660]});
+ place('laborthirdstage','reprovillus','intervillous vessels',{intervillous:[270,560],vessels:[385,320]});
 })();
 
 /* ---------------------------------------------------------------------------
@@ -138,23 +138,23 @@ Object.assign(MICRO_ORIGINS,{tissuefoundations:[500,380],brain:[500,420],cerebra
    if(points[p.n])p.microPoint=points[p.n];
   }
  };
- place('tissuefoundations','tissuecell',['Human cell','Plasma membrane','Cytoplasm and cytosol','Nucleus','Mitochondria','Ribosomes and rough ER','Golgi apparatus']);
- place('tissuefoundations','tissueconnective',['Extracellular matrix','Fibroblast','Collagen fibers','Connective-tissue capillary','Connective tissue']);
- place('tissuefoundations','tissueskeletal',['Skeletal muscle fiber','Endomysium','Muscle tissue']);
- place('tissuefoundations','tissuecardiac',['Cardiac muscle']);
- place('tissuefoundations','tissuesmooth',['Smooth muscle']);
- place('tissuefoundations','tissueneural',['Nervous tissue','Neuron cell body and dendrites','Axon','Myelin sheath and nodes','Glial support cells']);
- place('brain','tissueneural',['Cortical gray matter']);
- place('cerebraldeep','tissueneural',['Cortical gray matter','Layer I · molecular','Layer II · external granular','Layer III · external pyramidal','Layer IV · internal granular','Layer V · internal pyramidal','Layer VI · multiform']);
- place('brainstemdeep','tissueneural',['Purkinje cell','Cerebellar cortex','Deep cerebellar nuclei']);
- place('heart','tissuecardiac',['Myocardium']);
- place('cleavageblastocyst','reprozygote',['Zygote']);
- place('cleavageblastocyst','reprotwo',['First cleavage','Blastomere']);
- place('cleavageblastocyst','reprofour',['Four-cell stage']);
- place('cleavageblastocyst','reproeight',['Eight-cell stage']);
- place('cleavageblastocyst','repromorula',['Morula','Compaction']);
- place('implantation','reproblastocyst',['Hatched blastocyst']);
- place('implantation','reprovillus',['Cytotrophoblast','Syncytiotrophoblast']);
+ place('tissuefoundations','tissuecell',['Human cell','Plasma membrane','Cytoplasm and cytosol','Nucleus','Mitochondria','Ribosomes and rough ER','Golgi apparatus'],{'Human cell':[500,500],'Plasma membrane':[855,480],'Cytoplasm and cytosol':[280,370],'Nucleus':[555,245],'Mitochondria':[445,725],'Ribosomes and rough ER':[420,485],'Golgi apparatus':[640,625]});
+ place('tissuefoundations','tissueconnective',['Extracellular matrix','Fibroblast','Collagen fibers','Connective-tissue capillary','Connective tissue'],{'Extracellular matrix':[350,520],'Connective tissue':[490,460],'Fibroblast':[425,315],'Collagen fibers':[550,210],'Connective-tissue capillary':[650,560]});
+ place('tissuefoundations','tissueskeletal',['Skeletal muscle fiber','Endomysium','Muscle tissue'],{'Muscle tissue':[480,245],'Skeletal muscle fiber':[480,480],'Endomysium':[590,645]});
+ place('tissuefoundations','tissuecardiac',['Cardiac muscle'],{'Cardiac muscle':[420,445]});
+ place('tissuefoundations','tissuesmooth',['Smooth muscle'],{'Smooth muscle':[500,485]});
+ place('tissuefoundations','tissueneural',['Nervous tissue','Neuron cell body and dendrites','Axon','Myelin sheath and nodes','Glial support cells'],{'Nervous tissue':[315,485],'Neuron cell body and dendrites':[315,465],'Axon':[630,480],'Myelin sheath and nodes':[735,445],'Glial support cells':[805,335]});
+ place('brain','tissueneural',['Cortical gray matter'],{'Cortical gray matter':[315,465]});
+ place('cerebraldeep','tissueneural',['Cortical gray matter','Layer I · molecular','Layer II · external granular','Layer III · external pyramidal','Layer IV · internal granular','Layer V · internal pyramidal','Layer VI · multiform'],{'Cortical gray matter':[315,465]});
+ place('brainstemdeep','tissueneural',['Purkinje cell','Cerebellar cortex','Deep cerebellar nuclei'],{'Cerebellar cortex':[315,465]});
+ place('heart','tissuecardiac',['Myocardium'],{'Myocardium':[420,445]});
+ place('cleavageblastocyst','reprozygote',['Zygote'],{'Zygote':[500,500]});
+ place('cleavageblastocyst','reprotwo',['First cleavage','Blastomere'],{'First cleavage':[500,500],'Blastomere':[405,500]});
+ place('cleavageblastocyst','reprofour',['Four-cell stage'],{'Four-cell stage':[410,325]});
+ place('cleavageblastocyst','reproeight',['Eight-cell stage'],{'Eight-cell stage':[450,380]});
+ place('cleavageblastocyst','repromorula',['Morula','Compaction'],{'Morula':[500,500],'Compaction':[450,450]});
+ place('implantation','reproblastocyst',['Hatched blastocyst'],{'Hatched blastocyst':[290,395]});
+ place('implantation','reprovillus',['Cytotrophoblast','Syncytiotrophoblast'],{'Cytotrophoblast':[470,330],'Syncytiotrophoblast':[500,392]});
 
  // Exact points on dedicated tissue cutaways; never borrow a gross-image point
  // for a cell layer or conduction pathway that the gross plate cannot resolve.

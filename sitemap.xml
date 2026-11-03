@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://corpus-anatomy-atlas.netlify.app/</loc><lastmod>2026-10-19</lastmod></url>
+<url><loc>https://corpus-anatomy-atlas.netlify.app/body-map/</loc><lastmod>2026-10-19</lastmod></url>
+<url><loc>https://corpus-anatomy-atlas.netlify.app/all-organs/</loc><lastmod>2026-10-19</lastmod></url>
+<url><loc>https://corpus-anatomy-atlas.netlify.app/male-anatomy/</loc><lastmod>2026-10-19</lastmod></url>
+<url><loc>https://corpus-anatomy-atlas.netlify.app/female-anatomy/</loc><lastmod>2026-10-19</lastmod></url>
+<url><loc>https://corpus-anatomy-atlas.netlify.app/anatomy-quiz/</loc><lastmod>2026-10-19</lastmod></url>
+<url><loc>https://corpus-anatomy-atlas.netlify.app/deep-anatomy-study-path/</loc><lastmod>2026-10-19</lastmod></url>
+<url><loc>https://corpus-anatomy-atlas.netlify.app/body-systems/</loc><lastmod>2026-10-19</lastmod></url>
+<url><loc>https://corpus-anatomy-atlas.netlify.app/anatomical-layers/</loc><lastmod>2026-10-19</lastmod></url>
+<url><loc>https://corpus-anatomy-atlas.netlify.app/gynecology-study-path/</loc><lastmod>2026-10-19</lastmod></url>
 <url><loc>https://corpus-anatomy-atlas.netlify.app/learn/</loc><lastmod>2026-10-19</lastmod></url>
 <url><loc>https://corpus-anatomy-atlas.netlify.app/blog/</loc><lastmod>2026-10-19</lastmod></url>
-<url><loc>https://corpus-anatomy-atlas.netlify.app/blog/human-heart-layers-chambers-and-conduction-system/</loc><lastmod>2026-11-02</lastmod></url>
-<url><loc>https://corpus-anatomy-atlas.netlify.app/blog/cranial-nerves-1-to-12-complete-guide/</loc><lastmod>2026-11-02</lastmod></url>
+<url><loc>https://corpus-anatomy-atlas.netlify.app/blog/heart-layers-chambers-conduction/</loc><lastmod>2026-11-02</lastmod></url>
+<url><loc>https://corpus-anatomy-atlas.netlify.app/blog/cranial-nerves-1-12-guide/</loc><lastmod>2026-11-02</lastmod></url>
 <url><loc>https://corpus-anatomy-atlas.netlify.app/learn/heart-anatomy/</loc><lastmod>2026-11-02</lastmod></url>
 <url><loc>https://corpus-anatomy-atlas.netlify.app/learn/lung-anatomy/</loc><lastmod>2026-11-02</lastmod></url>
 <url><loc>https://corpus-anatomy-atlas.netlify.app/learn/brain-anatomy/</loc><lastmod>2026-11-02</lastmod></url>
@@ -80,5 +89,5 @@
 <url><loc>https://corpus-anatomy-atlas.netlify.app/learn/second-stage-of-labor/</loc><lastmod>2026-11-02</lastmod></url>
 <url><loc>https://corpus-anatomy-atlas.netlify.app/learn/third-stage-of-labor/</loc><lastmod>2026-11-02</lastmod></url>
 <url><loc>https://corpus-anatomy-atlas.netlify.app/about.html</loc><lastmod>2026-10-19</lastmod></url>
-<url><loc>https://corpus-anatomy-atlas.netlify.app/privacy.html</loc><lastmod>2026-10-19</lastmod></url>
+<url><loc>https://corpus-anatomy-atlas.netlify.app/privacy-policy/</loc><lastmod>2026-10-19</lastmod></url>
 </urlset>

@@ -20,6 +20,11 @@
     Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://upload.wikimedia.org https://thumb.wikimedia.org https://*.wikimedia.org https://*.wikipedia.org; font-src 'self' data:; connect-src 'self' https://en.wikipedia.org https://*.wikipedia.org https://www.wikidata.org https://api.mymemory.translated.net; upgrade-insecure-requests"
 
 [[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
   for = "/404.html"
   [headers.values]
     X-Robots-Tag = "noindex, follow"
@@ -399,3 +404,31 @@
   from = "/learn/dentition/*"
   to = "/learn/tooth-anatomy-guide/:splat"
   status = 301
+
+# === PRIVACY POLICY & BLOG SLUG 301 REDIRECTS ===
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy-policy/"
+  status = 301
+
+[[redirects]]
+  from = "/privacy.html"
+  to = "/privacy-policy/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/human-heart-layers-chambers-and-conduction-system/*"
+  to = "/blog/heart-layers-chambers-conduction/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/blog/cranial-nerves-1-to-12-complete-guide/*"
+  to = "/blog/cranial-nerves-1-12-guide/:splat"
+  status = 301
+
+# === HASHLESS INTERACTIVE CHAPTER ROUTES (SPA 200 REWRITE) ===
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+

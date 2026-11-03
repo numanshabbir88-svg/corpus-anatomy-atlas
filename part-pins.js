@@ -408,9 +408,68 @@
     brainstemdeep:{ 'detail_brainstemdeep_0':[520,520] },
     pulmonaryacinus:{ 'detail_pulmonaryacinus_0':[400,520] },
     nephron:{ 'detail_nephron_1':[660,300] },
-    dentition:{ v2:[500,220] },
+    dentition:{ v2:[500,220], 'primary-vs-permanent':[500,320], numbers:[500,200] },
     skullface:{
       lparietal:[310,120], ltemporal:[250,470], llacrimal:[332,470]
+    },
+    autonomic:{
+      'detail_autonomic_5':[265,155], 'detail_autonomic_6':[252,125], 'detail_autonomic_7':[275,185]
+    },
+    gynvulva:{
+      barthol:[430,600], skene:[478,350], detail_vulva_glandduct:[520,590], lymphvul:[355,295]
+    },
+    facialnerve:{
+      'detail_facialnerve_0':[470,500],
+      'detail_facialnerve_1':[560,700], 'detail_facialnerve_2':[575,730],
+      'detail_facialnerve_3':[640,720]
+    },
+    anatomicallanguage:{
+      position:[508,128], side:[358,518], parasagittal:[445,275], oblique:[458,368],
+      anterior:[510,290], superior:[508,92], medial:[518,255], proximal:[405,248],
+      superficial:[435,330], ipsilateral:[448,610], surface:[510,222], section:[545,420],
+      'anatomic-variation':[508,360]
+    },
+    spermanatomy:{
+      acrosome:[70,470], nucleus:[95,505], neck:[130,500], axoneme:[520,500],
+      capacitation:[82,485], variation:[105,500]
+    },
+    oocyteanatomy:{
+      secondary:[540,200], perivitelline:[480,240], oolemma:[440,420],
+      ooplasm:[620,500], spindle:[500,330], meiosisii:[520,360]
+    },
+    fertilization:{
+      tube:[300,120], tubalmovement:[250,170], oocyte:[570,500],
+      capacitated:[215,600], coronapassage:[470,420], zonabinding:[480,468],
+      acrosomereaction:[465,505], membranefusion:[478,522], cortical:[522,430],
+      timing:[300,145], uncertainty:[575,510]
+    },
+    cleavageblastocyst:{
+      zonaretained:[420,220], trophectoderm:[440,320], blastocoel:[600,500],
+      innercell:[345,650], pole:[355,560], hatching:[270,380],
+      cavitation:[580,480], twins:[355,620], transition:[290,395]
+    },
+    implantation:{
+      hatched:[478,250], endometrium:[300,580], apposition:[430,430],
+      adhesion:[450,470], cytotrophoblast:[470,330], syncytiotrophoblast:[500,392],
+      decidua:[600,600], glands:[660,600], maternalvessels:[130,600],
+      lacunae:[520,380], hcg:[560,480], innercell:[430,470], chorion:[500,300],
+      epiblast:[500,495], hypoblast:[500,555], amnion:[500,455], yolksac:[500,620], dating:[480,395]
+    },
+    embryodevelopment:{
+      amnion:[200,150], hearttube:[535,555], heartloop:[545,575], pharyngeal:[510,470],
+      limbbud:[545,600], optic:[485,360], yolksac:[375,585], transition:[560,320]
+    },
+    fetaldevelopment:{
+      foramenovale:[455,425], ductusarteriosus:[470,410], ductusvenosus:[420,460],
+      secondtrimester:[460,360]
+    },
+    laborthirdstage:{
+      attached:[560,240], myometrium:[350,300], retraction:[400,190],
+      decidualplane:[510,370], intervillous:[545,270], vessels:[335,240],
+      separation:[495,430], placentadelivery:[460,620], membranes:[430,500],
+      cord:[300,600], arteries:[285,630], vein:[315,585], fetalface:[575,205],
+      maternalface:[535,330], cotyledons:[560,300], uterinetone:[380,255],
+      bleeding:[430,690], infantborn:[445,760], end:[520,310], variation:[395,240]
     }
   };
   for(const [chapter,map] of Object.entries(PINS3)){
@@ -429,7 +488,9 @@
       ethmoid:['skull-face-medial.png',[380,420]],
       rlacrimal:['skull-face-medial.png',[300,480]],
       rpalatine:['skull-face-medial.png',[480,620]],
+      lpalatine:['skull-face-medial.png',[415,610]],
       rconcha:['skull-face-medial.png',[320,580]],
+      lconcha:['skull-face-medial.png',[355,535]],
       vomer:['skull-face-medial.png',[420,550]],
       palate:['skull-face-medial.png',[450,620]],
       septum:['skull-face-medial.png',[380,520]]
@@ -446,6 +507,75 @@
   /* Batch 3 · same rule for the composite "context" plates: a cross-referenced
      structure that is not drawn on this plate points at the plate that draws it. */
   const PLATES3={
+    facialnerve:{
+      stylomastoidforamen:['skull-face-medial.png',[570,620]]
+    },
+    anatomicallanguage:{
+      flexion:['elbow.jpg',[545,445]],
+      pronation:['elbow.jpg',[420,480]],
+      abduction:['shoulder.jpg',[430,390]],
+      rotation:['shoulder.jpg',[355,435]],
+      circumduction:['shoulder.jpg',[495,430]],
+      dorsi:['ankle.jpg',[355,420]],
+      inversion:['ankle.jpg',[335,555]],
+      opposition:['wrist.jpg',[450,185]]
+    },
+    dentition:{
+      u01:['tooth-molar-section.png',[465,560]], u02:['tooth-molar-section.png',[535,245]], u03:['tooth-molar-section.png',[485,215]],
+      u04:['tooth-premolar.png',[515,245]], u05:['tooth-premolar.png',[455,195]], u06:['tooth-canine.png',[500,225]],
+      u07:['tooth-incisor.png',[500,265]], u08:['tooth-incisor.png',[500,210]], u09:['tooth-incisor.png',[500,210]],
+      u10:['tooth-incisor.png',[500,265]], u11:['tooth-canine.png',[500,225]], u12:['tooth-premolar.png',[455,195]],
+      u13:['tooth-premolar.png',[515,245]], u14:['tooth-molar-section.png',[485,215]], u15:['tooth-molar-section.png',[535,245]],
+      u16:['tooth-molar-section.png',[465,560]], u17:['tooth-molar-section.png',[465,560]], u18:['tooth-molar-section.png',[535,245]],
+      u19:['tooth-molar-section.png',[485,215]], u20:['tooth-premolar.png',[515,245]], u21:['tooth-premolar.png',[455,195]],
+      u22:['tooth-canine.png',[500,225]], u23:['tooth-incisor.png',[500,265]], u24:['tooth-incisor.png',[500,210]],
+      u25:['tooth-incisor.png',[500,210]], u26:['tooth-incisor.png',[500,265]], u27:['tooth-canine.png',[500,225]],
+      u28:['tooth-premolar.png',[455,195]], u29:['tooth-premolar.png',[515,245]], u30:['tooth-molar-section.png',[485,215]],
+      u31:['tooth-molar-section.png',[535,245]], u32:['tooth-molar-section.png',[465,560]],
+      pa:['tooth-molar-section.png',[535,245]], pb:['tooth-molar-section.png',[485,215]], pc:['tooth-canine.png',[500,225]],
+      pd:['tooth-incisor.png',[500,265]], pe:['tooth-incisor.png',[500,210]], pf:['tooth-incisor.png',[500,210]],
+      pg:['tooth-incisor.png',[500,265]], ph:['tooth-canine.png',[500,225]], pi:['tooth-molar-section.png',[485,215]],
+      pj:['tooth-molar-section.png',[535,245]], pk:['tooth-molar-section.png',[535,245]], pl:['tooth-molar-section.png',[485,215]],
+      pm:['tooth-canine.png',[500,225]], pn:['tooth-incisor.png',[500,265]], po:['tooth-incisor.png',[500,210]],
+      pp:['tooth-incisor.png',[500,210]], pq:['tooth-incisor.png',[500,265]], pr:['tooth-canine.png',[500,225]],
+      ps:['tooth-molar-section.png',[485,215]], pt:['tooth-molar-section.png',[535,245]]
+    },
+    spermanatomy:{
+      epididymis:['male-testis-detail.jpg',[605,420]],
+      vas:['male-pelvis.jpg',[535,360]],
+      seminalfluid:['male-prostate-detail.jpg',[645,240]]
+    },
+    oocyteanatomy:{
+      ovulation:['gyn-adnexa.jpg',[335,675]],
+      fimbriae:['gyn-adnexa.jpg',[435,430]]
+    },
+    fertilization:{
+      vaginaldeposition:['male-pelvis.jpg',[480,480]],
+      uterinepath:['gyn-uterus.jpg',[500,450]],
+      femalepronucleus:['repro-cortical-reaction.png',[715,435]],
+      malepronucleus:['repro-cortical-reaction.png',[395,455]],
+      zygote:['repro-zygote-diagram.png',[500,500]],
+      twins:['repro-zygote-diagram.png',[465,465]],
+      ectopic:['gyn-adnexa.jpg',[680,465]]
+    },
+    cleavageblastocyst:{
+      transport:['gyn-adnexa.jpg',[760,505]],
+      uterineentry:['gyn-uterus.jpg',[365,195]],
+      secretions:['gyn-uterus.jpg',[435,370]],
+      variability:['repro-zygote-diagram.png',[545,455]]
+    },
+    implantation:{
+      corpusluteum:['repro-ovary-micro.png',[680,740]],
+      ectopic:['gyn-adnexa.jpg',[680,465]]
+    },
+    fetaldevelopment:{
+      gestationalage:['repro-embryo.png',[480,450]],
+      postfertage:['repro-embryo.png',[535,520]],
+      firsttrimester:['repro-embryo.png',[520,380]],
+      thirdtrimester:['repro-fetus-third-trimester.png',[480,450]],
+      growth:['repro-fetus-third-trimester.png',[520,520]],
+      transition:['repro-fetus-third-trimester.png',[475,660]]
+    },
     nervous:{
       ctx_cerebraldeep_corticalgraymatter:['cerebral-deep.jpg',[290,260]],
       ctx_brainstemdeep_midbrain:['brainstem-cerebellum.jpg',[430,185]],
@@ -538,10 +668,10 @@
      from a similar name or a different image. */
   const validPoint=xy=>Array.isArray(xy)&&xy.length===2&&xy.every(v=>Number.isFinite(v)&&v>=0&&v<=1000);
   const imageKey=file=>String(file||'').split(/[\\/]/).pop().replace(/\.(?:jpe?g|png|webp)$/i,'').toLowerCase();
-  const applyContextTarget=(chapter,pid,targetChapter,targetPid)=>{
+  const applyContextTarget=(chapter,pid,targetChapter,targetPid,allowRename=false)=>{
     const o=ORGANS[chapter],p=o?.parts?.[pid],target=ORGANS[targetChapter],q=target?.parts?.[targetPid];
     const point=target?.photo?.hot?.[targetPid];
-    if(!p?.contextOnly||p.pinPlate?.file||(p.microLens&&validPoint(p.microPoint))||!q||q.contextOnly||q.n!==p.n||!target.photo?.file||!validPoint(point))return false;
+    if(!p?.contextOnly||p.pinPlate?.file||(p.microLens&&validPoint(p.microPoint))||!q||q.contextOnly||(!allowRename&&q.n!==p.n)||!target.photo?.file||!validPoint(point))return false;
     p.pinPlate={file:target.photo.file,hot:point.slice(),reference:targetChapter};
     return true;
   };
@@ -573,18 +703,22 @@
       detail_malebody_spleen:['lymph','spleenl'],
       detail_malebody_adrenals:['endocrine','adr'],
       detail_malebody_diaphragm:['lungs','diaphragm'],
-      detail_malebody_spinalcord:['nervous','spinalcord']
+      detail_malebody_spinalcord:['nervous','spinalcord'],
+      detail_malebody_kidneys:['kidney','cortex'],
+      detail_malebody_pancreas:['pancreas','body']
     },
     femalebody:{
       detail_femalebody_spleen:['lymph','spleenl'],
       detail_femalebody_adrenals:['endocrine','adr'],
       detail_femalebody_diaphragm:['lungs','diaphragm'],
-      detail_femalebody_spinalcord:['nervous','spinalcord']
+      detail_femalebody_spinalcord:['nervous','spinalcord'],
+      detail_femalebody_kidneys:['kidney','cortex'],
+      detail_femalebody_pancreas:['pancreas','body']
     }
   };
   for(const [chapter,map] of Object.entries(BODY_CONTEXT_TARGETS))
     for(const [pid,[targetChapter,targetPid]] of Object.entries(map))
-      applyContextTarget(chapter,pid,targetChapter,targetPid);
+      applyContextTarget(chapter,pid,targetChapter,targetPid,true);
 
   for(const [chapter,map] of Object.entries(LENSES)){
     const o=ORGANS[chapter]; if(!o)continue;
@@ -593,6 +727,18 @@
       p.microLens=lens;
       if(MICRO_ORIGINS[chapter]&&!p.microOrigin)p.microOrigin=MICRO_ORIGINS[chapter];
       lensed++;
+    }
+  }
+
+  /* Every entry that has an authentic coordinate on the main plate, a dedicated
+     pinPlate, or a high-magnification microLens is a fully pinned structure
+     rather than a context-only placeholder. */
+  for(const o of Object.values(ORGANS)){
+    const hot=(o.photo&&o.photo.hot)||{};
+    for(const [pid,p] of Object.entries(o.parts||{})){
+      if(validPoint(hot[pid])||validPoint(p.pinPlate?.hot)||(p.microLens&&validPoint(p.microPoint))){
+        delete p.contextOnly;
+      }
     }
   }
   if(unknown.length)console.warn('part-pins: skipped',unknown.join(', '));

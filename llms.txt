@@ -4,14 +4,20 @@
 
 ## Core Sections
 - [Interactive Atlas Home](https://corpus-anatomy-atlas.netlify.app/): Interactive body map, layered human anatomy showcase, and Corpus AI Assistant.
+- [Interactive Body Map](https://corpus-anatomy-atlas.netlify.app/body-map/): Anterior and posterior clickable human organ map.
+- [All 74 Organs & Chapters](https://corpus-anatomy-atlas.netlify.app/all-organs/): Complete searchable index of 74 chapters and 1,586 structures.
+- [Male Anatomy](https://corpus-anatomy-atlas.netlify.app/male-anatomy/): Full-body male surface landmarks, internal organs, and pelvic floor.
+- [Female Anatomy](https://corpus-anatomy-atlas.netlify.app/female-anatomy/): Full-body female surface landmarks, internal organs, and pelvic floor.
+- [Interactive Anatomy Quiz](https://corpus-anatomy-atlas.netlify.app/anatomy-quiz/): 446 multiple-choice and visual spot-identification questions.
+- [Deep Anatomy Study Path](https://corpus-anatomy-atlas.netlify.app/deep-anatomy-study-path/): 17 advanced microanatomy and neurovascular chapters.
 - [Anatomy Study Guides Hub](https://corpus-anatomy-atlas.netlify.app/learn/): Full index of 74 long-form anatomical & physiological study guides.
 - [Anatomy Blog & Study Articles](https://corpus-anatomy-atlas.netlify.app/blog/): In-depth educational articles, cranial nerve tables, and physiological guides.
 - [About & Editorial Policy](https://corpus-anatomy-atlas.netlify.app/about.html): Educational scope, citation standards, and contact information.
-- [Privacy Policy](https://corpus-anatomy-atlas.netlify.app/privacy.html): Privacy and cookie disclosure.
+- [Privacy Policy](https://corpus-anatomy-atlas.netlify.app/privacy-policy/): Privacy and cookie disclosure.
 
 ## Published Blog Articles
-- [Human Heart Layers, Chambers, Valves & Conduction Paths](https://corpus-anatomy-atlas.netlify.app/blog/human-heart-layers-chambers-and-conduction-system/): Explore the human heart wall layers, four chambers, atrioventricular and semilunar valves, coronary arteries, and the SA-to-Purkinje electrical conduction.
-- [12 Cranial Nerves (CN I–XII): Nuclei, Foramina & Guides](https://corpus-anatomy-atlas.netlify.app/blog/cranial-nerves-1-to-12-complete-guide/): Study all 12 cranial nerves (CN I–XII) in order with brainstem nuclei, skull base foramina, sensory and motor modalities, parasympathetic paths, and tests.
+- [Human Heart Layers, Chambers, Valves & Conduction Paths](https://corpus-anatomy-atlas.netlify.app/blog/heart-layers-chambers-conduction/): Explore the human heart wall layers, four chambers, atrioventricular and semilunar valves, coronary arteries, and the SA-to-Purkinje electrical conduction.
+- [12 Cranial Nerves (CN I–XII): Nuclei, Foramina & Guides](https://corpus-anatomy-atlas.netlify.app/blog/cranial-nerves-1-12-guide/): Study all 12 cranial nerves (CN I–XII) in order with brainstem nuclei, skull base foramina, sensory and motor modalities, parasympathetic paths, and tests.
 
 ## All 74 Anatomy Study Guides
 - [Heart (Cor)](https://corpus-anatomy-atlas.netlify.app/learn/heart-anatomy/): Two synchronized muscular pumps in one organ: four chambers, four one-way valves, coronary arteries, and the intrinsic SA-to-Purkinje electrical pacemaker.

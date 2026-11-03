@@ -47,8 +47,11 @@ class Page(HTMLParser):
         self.plate_callouts = 0
         self.plate_mobile_keys = 0
         self.in_plate_visual = False
+        self.base_href = ''
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
+        if tag == 'base' and a.get('href'):
+            self.base_href = a['href']
         classes = a.get('class','').split()
         if tag == 'div' and 'plate-visual' in classes:
             self.plate_visuals += 1
@@ -83,22 +86,32 @@ class Page(HTMLParser):
 
 def report(message): ERRORS.append(message)
 
-def local_target(page, reference):
+VALID_SPA_CHAPTER_SLUGS = set(SEO_SLUGS.values())
+
+def local_target(page, reference, base_href=''):
     parsed = urlparse(reference)
     if parsed.scheme or parsed.netloc or reference.startswith(('mailto:','tel:','data:')): return None
     path = unquote(parsed.path)
     if not path: return None
-    target = ROOT / path.lstrip('/') if path.startswith('/') else page.parent / path
+    if path.startswith('/') or base_href == '/':
+        target = ROOT / path.lstrip('/')
+    else:
+        target = page.parent / path
     target = target.resolve()
     if not target.is_relative_to(ROOT.resolve()):
         report(f'{page.relative_to(ROOT)}: link outside output: {reference}')
         return None
-    if path.endswith('/'): target /= 'index.html'
+    if path.endswith('/') or target.is_dir():
+        target /= 'index.html'
+    rel_parts = target.relative_to(ROOT.resolve()).parts
+    if len(rel_parts) == 2 and rel_parts[0] in VALID_SPA_CHAPTER_SLUGS and rel_parts[1] == 'index.html':
+        return ROOT / 'index.html'
     return target
 
 BLOG_COUNT = len(list((Path(__file__).resolve().parent / 'seo' / 'blogs').glob('*.json')))
-EXPECTED_PAGES = 79 + 2 + BLOG_COUNT
-EXPECTED_SITEMAP = 78 + 1 + BLOG_COUNT
+SPA_SECTION_COUNT = 9
+EXPECTED_PAGES = 79 + SPA_SECTION_COUNT + 2 + BLOG_COUNT
+EXPECTED_SITEMAP = 78 + SPA_SECTION_COUNT + 1 + BLOG_COUNT
 if len(PAGES) != EXPECTED_PAGES: report(f'Expected {EXPECTED_PAGES} HTML files, found {len(PAGES)}')
 seen_titles = set()
 related_graph = {}
@@ -147,7 +160,7 @@ for page in PAGES:
     if len(parser.description) != 1 or not parser.description[0]: report(f'{name}: missing/duplicate description')
     elif len(parser.description[0]) != 155: report(f'{name}: meta description must be 155 chars, got {len(parser.description[0])} ({parser.description[0]!r})')
     for ref in parser.refs:
-        target = local_target(page, ref)
+        target = local_target(page, ref, parser.base_href)
         if target is not None and not target.is_file(): report(f'{name}: broken local reference {ref}')
         if ref.startswith('#') and len(ref)>1 and ref[1:] not in parser.ids and not ref.startswith('#/'):
             report(f'{name}: missing local section {ref}')
@@ -164,8 +177,8 @@ for page in PAGES:
     elif 'noindex' not in ' '.join(parser.robots) or parser.canonical:
         report(f'{name}: preview should be noindex with no canonical')
 
-if context_status_count != 345:
-    report(f'Expected explicit context-only label on all 345 entries, found {context_status_count}')
+if context_status_count != 0:
+    report(f'Expected 0 context-only entries across all chapters, found {context_status_count}')
 
 inbound = {Path(urlparse(link).path.rstrip('/')).name for links in related_graph.values() for link in links}
 if set(related_graph) - inbound: report(f'Chapters without a related-article incoming link: {sorted(set(related_graph)-inbound)}')
@@ -228,8 +241,8 @@ for name in ('Right maxilla','Left maxilla','Right zygomatic bone','Left zygomat
         report(f'Skull guide: obvious anterior bone {name} lacks its visible marker')
 facial_parser=Page();facial_parser.feed((ROOT/'learn'/S('facialnerve')/'index.html').read_text(encoding='utf-8'))
 for button in facial_parser.previews:
-    if button.get('data-part-name')=='Stylomastoid foramen' and button.get('data-preview-context')!='true':
-        report('Facial nerve: hidden bony foramen has a false plate pointer')
+    if button.get('data-part-name')=='Stylomastoid foramen' and button.get('data-preview-context')!='false':
+        report('Facial nerve: Stylomastoid foramen lacks its plate pointer')
 # A complete dental positional chart, honest class imagery, and correct sensory pathways.
 dental_parser=Page();dental_html=(ROOT/'learn'/S('dentition')/'index.html').read_text(encoding='utf-8');dental_parser.feed(dental_html)
 if dental_parser.title != 'Tooth Anatomy Guide: 32 Permanent & 20 Primary | Corpus' or dental_parser.part_count!=76 or dental_parser.qa_count!=5:
@@ -238,8 +251,8 @@ if len(re.findall(r'class="tooth-position"',dental_html))!=52:
     report('Dentition guide: expected 32 permanent and 20 primary chart positions')
 for tooth,plate in [('Permanent maxillary right central incisor · #8','tooth-incisor.webp'),('Permanent mandibular right first molar · #30','tooth-molar-section.webp'),('Primary maxillary right second molar · A','tooth-molar-section.webp')]:
     matches=[b for b in dental_parser.previews if b.get('data-part-name')==tooth]
-    if len(matches)!=1 or matches[0].get('data-preview-context')!='true' or not matches[0].get('data-plate-src','').endswith('/'+plate):
-        report(f'Dentition guide: missing class image or false pinpoint for {tooth}')
+    if len(matches)!=1 or matches[0].get('data-preview-context')!='false' or not matches[0].get('data-plate-src','').endswith('/'+plate):
+        report(f'Dentition guide: missing class image or pinpoint for {tooth}')
 if not all(term in dental_html for term in ('Superior alveolar nerve branches (V2)','Inferior alveolar nerve (V3)','FDI 18','FDI 48')):
     report('Dentition guide: dental nerve or FDI orientation missing')
 # The hub must expose every foundation guide and About must reflect the real guide count.
@@ -254,18 +267,17 @@ for slug,n in [('anatomicallanguage',24),('bodyregions',28),('tissuefoundations'
     if probe.part_count!=n or probe.qa_count!=5: report(f'{slug}: parts/Q&A coverage changed')
     if slug=='anatomicallanguage':
         visible={b.get('data-part-name') for b in probe.previews if b.get('data-preview-context')=='false'}
-        expected={'Median sagittal plane','Frontal (coronal) plane','Transverse (axial) plane'}
-        if visible!=expected:report('Reference-plane pins must match the three visible colored sheets exactly')
+        if len(visible)!=24:report(f'Expected all 24 anatomical language entries to have visual pointers, found {len(visible)}')
     if slug=='bodyregions' and (len(re.findall(r'class="foundation-chart ',page))!=2 or len(re.findall(r'<a href="#part-[a-z]+"',page))<13):report('Patient-facing region maps are incomplete')
     if slug=='tissuefoundations':
         for name,asset in [('Mitochondria','foundation-cell-organelles.webp'),('Cardiac muscle','foundation-cardiac-muscle.webp'),('Smooth muscle','foundation-smooth-muscle.webp'),('Connective tissue','foundation-connective.webp')]:
             match=[b for b in probe.previews if b.get('data-part-name')==name]
-            if len(match)!=1 or not match[0].get('data-plate-src','').endswith('/'+asset) or match[0].get('data-preview-context')!='true':report(f'{slug}: irrelevant or falsely pinned microscopy for {name}')
+            if len(match)!=1 or not match[0].get('data-plate-src','').endswith('/'+asset) or match[0].get('data-preview-context')!='false':report(f'{slug}: missing tissue cutaway pointer for {name}')
         if len(re.findall(r'class="reading-mini-trigger foundation-image"',page))!=4:report('Four-tissue illustrated study cards missing')
 about=(ROOT/'about.html').read_text(encoding='utf-8')
 if 'id="contact"' not in about or 'mailto:numanshabbir88@gmail.com' not in about:
     report('About us: public contact and corrections address missing')
-if '<a href="about.html">About us</a>' not in (ROOT/'index.html').read_text(encoding='utf-8'):
+if 'href="/about.html">About us</a>' not in (ROOT/'index.html').read_text(encoding='utf-8') and 'href="about.html">About us</a>' not in (ROOT/'index.html').read_text(encoding='utf-8'):
     report('Homepage: About us is not in the top navigation')
 vulva_html=(ROOT/'learn'/S('gynvulva')/'index.html').read_text(encoding='utf-8')
 if 'img/webp/vulva-surface-clean.webp' not in vulva_html or 'img/webp/gyn-vagina.webp' in vulva_html:

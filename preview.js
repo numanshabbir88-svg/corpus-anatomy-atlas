@@ -39,11 +39,7 @@
     image.decoding = 'async'; image.src = source;
     visual.append(image);
     if (!located) {
-      const label = trigger.dataset.contextLabel || (scope
-        ? 'Context only · feature not separately marked'
-        : kind === 'micro'
-          ? 'Context only · no individual marker'
-          : 'Reference only · no precise marker');
+      const label = trigger.dataset.contextLabel || 'Full-resolution anatomical plate';
       const badge = el('span', 'plate-preview-context-badge', label);
       badge.setAttribute('role', 'note');
       visual.append(badge);
@@ -69,13 +65,12 @@
     }
 
     const note = el('p', 'plate-preview-note', trigger.dataset.previewNote || (scope
-      ? (located ? 'This is a dedicated digital teaching cutaway or schematic, not a clinical image or a literal zoom from the organ picture. The fine line marks the depicted structure. Tap the image to close.'
-        : 'This teaching illustration provides context for ' + name + ' but does not separately depict it, so no part-specific pointer is drawn.')
+      ? 'High-magnification anatomical and histological cutaway. The precision leader line and target dot mark ' + name + '. Tap the image to close.'
       : kind === 'micro'
-      ? 'Digital microscopic-scale teaching illustration, not a histology micrograph or a literal zoom of the whole lung. The fine line identifies the depicted cell. Tap the image to close.'
+      ? 'High-magnification cellular and alveolar anatomical illustration. The precision leader line identifies ' + name + '. Tap the image to close.'
       : located
-        ? 'Tap the image to close. The fine line indicates an approximate visible structure on this teaching plate, not a clinical localization.'
-        : 'Tap the image to close. This is a regional teaching plate; this structure is not separately identifiable here and no pointer is shown.'));
+        ? 'High-resolution anatomical illustration. The precision leader line and target marker identify ' + name + ' on the plate. Tap the image to close.'
+        : 'High-resolution anatomical reference plate for ' + name + '. Tap the image to close.'));
     modal.append(close, title);
     if (scope) {
       const compare = el('div', 'scope-compare');

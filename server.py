@@ -22,18 +22,25 @@ class AtlasHandler(SimpleHTTPRequestHandler):
         super().__init__(*args, directory=str(ROOT), **kwargs)
 
     def end_headers(self):
-        if self.path.split('?')[0].startswith('/img/'):
-            self.send_header('Cache-Control', 'public, max-age=604800')
-        elif self.path.split('?')[0].endswith(('.js', '.css')):
-            self.send_header('Cache-Control', 'public, max-age=86400')
-        else:
-            self.send_header('Cache-Control', 'no-cache')
+        self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+        self.send_header('Pragma', 'no-cache')
+        self.send_header('Expires', '0')
         super().end_headers()
 
     def send_head(self):
         path = self.translate_path(self.path)
         if os.path.isdir(path):
             path = os.path.join(path, 'index.html')
+        if not os.path.isfile(path):
+            req_path = self.path.split('?')[0].rstrip('/')
+            if req_path in ('/privacy', '/privacy.html', '/privacy-policy'):
+                alt = os.path.join(str(ROOT), 'privacy-policy', 'index.html')
+                if os.path.isfile(alt):
+                    path = alt
+            elif '.' not in os.path.basename(req_path):
+                spa_index = os.path.join(str(ROOT), 'index.html')
+                if os.path.isfile(spa_index):
+                    path = spa_index
         if os.path.isfile(path) and path.endswith(('.html', '.css', '.js', '.svg', '.txt', '.json')):
             st = os.stat(path)
             etag = f'"{st.st_mtime_ns:x}-{st.st_size:x}"'

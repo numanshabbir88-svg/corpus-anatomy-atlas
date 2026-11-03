@@ -474,30 +474,142 @@ a[href*="utm_source=netlify"],
 
 /* ---------- Visual Anatomy Image Card & Full-Screen Lightbox ---------- */
 .cbot-media-card {
-  margin: 6px 0 6px;
-  border-radius: 8px;
+  margin: 6px 0 7px;
+  border-radius: 9px;
   overflow: hidden;
-  border: 1px solid #bfd7d5;
-  background: #0c1d1c;
+  border: 1.5px solid #9fcac6;
+  background: #081514;
   cursor: zoom-in;
   transition: transform 0.16s ease, box-shadow 0.16s ease;
 }
 
 .cbot-media-card:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(13, 59, 57, 0.18);
+  box-shadow: 0 6px 16px rgba(13, 59, 57, 0.22);
+}
+
+.cbot-media-stage {
+  position: relative;
+  width: 100%;
+  height: 148px;
+  background: radial-gradient(circle at 50% 50%, #173835 0%, #071211 100%);
+  overflow: hidden;
+}
+
+.cbot-media-card.is-featured .cbot-media-stage {
+  height: 162px;
 }
 
 .cbot-media-img {
   width: 100%;
-  height: 120px;
+  height: 100%;
   object-fit: contain;
   display: block;
-  background: radial-gradient(circle at 50% 50%, #183835 0%, #0a1716 100%);
 }
 
-.cbot-media-card.is-featured .cbot-media-img {
-  height: 144px;
+.cbot-pin-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.cbot-pin-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: cbotPinPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes cbotPinPulse {
+  0%, 100% { transform: scale(1); opacity: 0.92; }
+  50% { transform: scale(1.65); opacity: 0.35; }
+}
+
+.cbot-latin-sub {
+  display: block;
+  font-size: 10.6px;
+  font-style: italic;
+  color: #3f6a66;
+  margin-top: 1px;
+}
+
+.cbot-assign-sec {
+  margin-top: 6px;
+  padding-top: 5px;
+  border-top: 1px solid #e1ecea;
+}
+
+.cbot-assign-sec h4 {
+  margin: 0 0 3px;
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #0d3b39;
+}
+
+.cbot-assign-sec p {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.46;
+  color: #1c3331;
+}
+
+.cbot-subparts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.cbot-subchip {
+  font-size: 10px;
+  font-weight: 600;
+  background: #eaf3f2;
+  color: #0d3b39;
+  border: 1px solid #c6dcd9;
+  padding: 1.5px 6px;
+  border-radius: 99px;
+}
+
+.cbot-tool-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 7px;
+  padding-top: 6px;
+  border-top: 1px dashed #cfe0de;
+}
+
+.cbot-tool-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10.2px;
+  font-weight: 700;
+  color: #ffffff;
+  background: #0d3b39;
+  border: 1px solid #0d3b39;
+  padding: 3px 7px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.cbot-tool-btn:hover {
+  background: #165955;
+}
+
+.cbot-tool-btn.alt {
+  background: #f0f7f6;
+  color: #0d3b39;
+  border-color: #b5d0cd;
+}
+
+.cbot-tool-btn.alt:hover {
+  background: #dceCEa;
 }
 
 .cbot-media-cap {
