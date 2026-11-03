@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corpus — Consistent Navbar Example</title>
+<link rel="stylesheet" href="navbar.css">
+<style>
+  body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+  .page { padding: 2rem 1.5rem; max-width: 1000px; margin: 0 auto; }
+  .page h1 { margin-top: 0; }
+  .note { background: #eef4f2; border: 1px solid #bfe3ce; border-radius: 8px; padding: 1rem; margin-top: 1.5rem; color: #0e3b32; }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR — same on EVERY page -->
+<nav class="corpus-navbar" aria-label="Main navigation">
+  <a href="/" class="corpus-navbar__brand">
+    <span class="corpus-navbar__logo">❤</span>
+    <span>Corpus</span>
+  </a>
+
+  <div class="corpus-navbar__links">
+    <!-- Home link; add class corpus-navbar__link--active on whichever page is current -->
+    <a href="/" class="corpus-navbar__link corpus-navbar__link--active">Home</a>
+    <a href="/body-map/" class="corpus-navbar__link">Body map</a>
+    <a href="/all-organs/" class="corpus-navbar__link">Chapters</a>
+    <a href="/male-anatomy/" class="corpus-navbar__link">Male</a>
+    <a href="/female-anatomy/" class="corpus-navbar__link">Female</a>
+    <a href="/learn/" class="corpus-navbar__link">Learn</a>
+    <a href="/blog/" class="corpus-navbar__link">Blog</a>
+    <a href="/anatomy-quiz/" class="corpus-navbar__link">Quiz</a>
+    <a href="/about-us/" class="corpus-navbar__link">About us</a>
+
+    <div class="corpus-navbar__search">
+      <span>🔍</span>
+      <input type="search" placeholder="Find an organ or body part..." aria-label="Search anatomy">
+    </div>
+
+    <button class="corpus-navbar__icon" aria-label="Voice">🎙</button>
+  </div>
+</nav>
+
+<main class="page">
+  <h1>Home Page (example)</h1>
+  <p>Yeh navbar har page par ek jaise rang aur links ke saath dikhegi. Sirf <code>corpus-navbar__link--active</code> class current page ke link par dalein.</p>
+  <div class="note">
+    <strong>Integration tip:</strong> Apne server-side template ya JavaScript router mein, current URL ke hisay se
+    <code>corpus-navbar__link--active</code> class usi <code>&lt;a&gt;</code> par lagayein jo current page hai. Baaki saare links same rahein.
+  </div>
+</main>
+
+</body>
+</html>
