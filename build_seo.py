@@ -481,7 +481,8 @@ def article(key,o):
     notes=f'<section id="sources" class="content-section sources"><div class="eyebrow">Reference desk</div><h2>Further reading</h2><p class="section-lead">General anatomy references and related source chapters for continued study. These links do not make the digital illustrations clinical images or certify every anatomical variant.</p><ul>{source_list}</ul><p class="disclaimer">This educational page is not medical advice and has not undergone formal clinical peer review. Spotted an error? <a href="../../about.html#contact">Contact the editor</a>.</p></section>'
     connect=f'<div class="end-link"><div><strong>See the structures in context</strong><p>{"Open the regional digital plate, study entries and a short self-test. Visible markers occur only for identifiable sperm and oocyte structures." if key in LIFE_PATH else "Open the realistic interactive plate, label lines, focus view and self-test."}</p></div><a class="button" href="../../{E(seo_slug)}/">Open interactive view →</a></div>'
     sidebar=f'<aside class="sidebar" aria-label="On this page"><div class="side-card"><h2>In this guide</h2><a href="#overview">Overview</a><a href="#parts">{("Illustrated structures ("+str(len(pinned))+")") if pinned else ("Study entries ("+str(len(deep))+")")}</a>'+(f'<a href="#deep">Deep study notes ({len(deep)})</a>' if deep and pinned else '')+('<a href="#under-the-lens">Under the lens</a>' if micro_html else '')+('<a href="#skull-views">Skull perspectives</a>' if skull_html else '')+('<a href="#dental-chart">Tooth charts</a>' if dental_html else '')+('<a href="#region-chart">Region charts</a>' if key=='bodyregions' else '')+('<a href="#tissue-gallery">Four tissue images</a>' if key=='tissuefoundations' else '')+('<a href="#repro-path">Conception to birth path</a>' if reproduction_html else '')+('<a href="#repro-gallery">Picture library</a>' if repro_gallery_html else '')+'<a href="#questions">Five questions &amp; answers</a><a href="#related">Related guides</a><a href="#sources">Further reading</a></div><div class="side-card"><div class="count">20+</div><p>Documented anatomy and developmental entries in every Corpus chapter. Images are orientation aids, not clinical evidence.</p></div></aside>'
-    overview_html=''.join(f'<p class="intro-text"{(" style=\"margin-top:14px\"" if idx>0 else "")}>{E(para)}</p>' for idx,para in enumerate(overview_paras))
+    overview_gap=' style="margin-top:14px"'
+    overview_html=''.join(f'<p class="intro-text"{overview_gap if idx>0 else ""}>{E(para)}</p>' for idx,para in enumerate(overview_paras))
     rel_inline=', '.join(f'<a href="../{E(S(ref))}/">{E(ORGANS[ref]["title"])}</a>' for ref in related[:3])
     overview_rel=(f'<p class="note" style="margin-top:14px">Connected study pathways in this atlas: {rel_inline}.</p>' if rel_inline else '')
     body='<div class="reading-track" aria-hidden="true"><span id="reading-progress"></span></div>'+opening+f'<div class="shell article-grid"><main id="content">{photo}<section id="overview"><div class="eyebrow">Overview</div><h2>How this part of the body works</h2>{overview_html}{overview_rel}{facts_html}</section>{micro_html}{skull_html}{dental_html}{foundation_html}{reproduction_html}{repro_gallery_html}{pinned_html}{deep_html}{faq_html}{related_html}{notes}{connect}</main>{sidebar}</div>'
@@ -523,7 +524,7 @@ hub_body=(
 )
 # A planning map: natural search intent, not traffic or ranking claims.
 with (ROOT/'seo-keyword-map.csv').open('w',newline='',encoding='utf-8') as fh:
-    writer=csv.writer(fh)
+    writer=csv.writer(fh,lineterminator='\n')
     writer.writerow(['chapter','url','primary_keyword','secondary_keywords','long_tail_keywords','semantic_terms','page_title_55','meta_description_155'])
     for key,o in ORGANS.items():
         kw=GUIDES[key].get('keywords',{})
@@ -648,7 +649,7 @@ def build_blog_article(post):
             'mainEntity':[{'@type':'Question','name':q['question'],'acceptedAnswer':{'@type':'Answer','text':q['answer']}} for q in q_list]
         })
     extra_json = '<script type="application/ld+json">' + json.dumps(schema_objs, separators=(',',':')).replace('<','\\u003c') + '</script>'
-    return document(title, desc, f'/blog/{slug}/', body, depth=2, image=f'webp/{hero_stem}.webp', extra=extra_json).replace('<script defer src="../../corpus-bot.js?v=16"></script></body>','<script defer src="../../reading.js?v=33"></script><script defer src="../../corpus-bot.js?v=16"></script></body>')
+    return document(title, desc, f'/blog/{slug}/', body, depth=2, image=f'/img/webp/{hero_stem}.webp', extra=extra_json).replace('<script defer src="../../corpus-bot.js?v=16"></script></body>','<script defer src="../../reading.js?v=33"></script><script defer src="../../corpus-bot.js?v=16"></script></body>')
 
 for post in BLOG_POSTS:
     write(BLOG_OUT / post['slug'] / 'index.html', build_blog_article(post))
