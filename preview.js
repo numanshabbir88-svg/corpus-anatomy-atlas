@@ -167,9 +167,14 @@
     image.addEventListener('error', () => {
       note.textContent = 'This image could not be loaded. Close the preview and try again.';
     }, {once:true});
+    close.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (modal.open) modal.close();
+    });
     modal.addEventListener('click', event => {
-      if (event.target === modal || event.target.closest('.plate-preview-close, .plate-preview-visual'))
-        modal.close();
+      if (event.target === modal && modal.open) modal.close();
+      else if (event.target.closest('.plate-preview-visual') && modal.open) modal.close();
     });
     modal.addEventListener('close', () => {
       removeEventListener('resize', fit);

@@ -1,0 +1,21 @@
+CORPUS ANATOMY ATLAS — CORRECT ROOT-LEVEL SITE PATCH
+
+IMPORTANT: Extract this ZIP directly INTO THE ROOT of your existing local GitHub repository, keeping the folder paths in the ZIP. Do NOT copy the ZIP's files into a new corpus-final-fix/ subfolder. Netlify serves the repository root; nested sample files won't replace /blog/.
+
+Why the old 2-article count remained:
+- The live page is rendered from the existing root path blog/index.html.
+- That file literally had “2 published articles” and only two hard-coded cards.
+- The prior sample package was in corpus-final-fix/blog.html and corpus-final-fix/blog/, so it did not update the live /blog/ route.
+
+This patch updates the real files:
+- blog/index.html: keeps the existing design and 2 existing articles, adds 13 new article cards and updates the count to 15.
+- blog/<article-slug>/index.html: adds 13 actual routes, responsive on mobile, with 5 Q&A, references and medical disclaimer.
+- editorial.css and all existing editorial-page HTML headers: same homepage branding and the same 9 navigation options on Learn, Blog, article pages, About, and other editorial routes. On narrow screens the links stay in a scrollable row; there is no new hamburger-only replacement.
+- preview.js: direct X-button close handler for the enlarged image dialog.
+- sitemap.xml: lists all 15 article routes.
+
+The 15 articles are the site's existing Heart and Cranial Nerves articles plus 13 new topics: anatomical planes, hair, skeleton, eye, brain, lungs, kidney, digestive system, muscular system, skin, male reproductive system, cell anatomy, and liver anatomy.
+
+After extraction, use GitHub Desktop to review the changes. Do not commit the old nested corpus-final-fix sample package as a substitute for these root paths. Commit and push only when the diff shows blog/index.html and the real blog/<slug>/ folders changed. Netlify will then deploy from the repository root.
+
+No changes were pushed by the assistant.
