@@ -1,0 +1,127 @@
+{
+  "slug": "anatomical-planes-directions",
+  "title": "Anatomical Planes and Directional Terms: A Guide",
+  "displayTitle": "Anatomical Planes and Directional Terms",
+  "h1": "Anatomical Position, Body Planes and Directional Terms",
+  "description": "Learn the standard anatomical position, sagittal, coronal and transverse planes, plus directional pairs used to describe regions and medical images clearly.",
+  "category": "Foundations · Anatomy Study Guide",
+  "updated": "2026-11-04",
+  "readTime": "6 min read",
+  "relatedOrgan": "anatomicallanguage",
+  "heroImage": "foundation-planes.webp",
+  "heroAlt": "Educational illustration of the three standard anatomical planes through the human body",
+  "heroCaption": "Sagittal, coronal and transverse planes are shared reference surfaces for describing sections through the body.",
+  "takeaways": [
+    "Anatomical directions are named from the subject’s standard position, not from the viewer’s left or right.",
+    "Sagittal separates right and left; coronal (frontal) separates anterior and posterior; transverse separates superior and inferior.",
+    "Proximal and distal are most useful along limbs, while medial and lateral refer to distance from the midline."
+  ],
+  "sections": [
+    {
+      "id": "standard-position",
+      "heading": "Start with standard anatomical position",
+      "paragraphs": [
+        "Anatomical position is a shared starting posture for describing the body: standing upright, facing forward, head level, feet directed forward, arms alongside the trunk, and palms facing anteriorly. The thumbs point away from the midline. This convention stays fixed even when a person is lying down, turning, or holding a limb in a different posture. Without that reference, “left” and “right” can become ambiguous between the observer and the person being described.",
+        "In clinical notes, right and left always mean the patient’s right and left. For example, the patient’s right upper quadrant is on the patient’s right, even though it appears on the viewer’s left when facing the person. Anatomical position does not imply that a person should stand this way during an examination; it is a coordinate convention for consistent communication."
+      ]
+    },
+    {
+      "id": "body-planes",
+      "heading": "The three principal body planes",
+      "paragraphs": [
+        "A plane is an imaginary flat surface passing through a three-dimensional structure. A section is the resulting view when a structure is cut or imaged along a chosen plane. The plane can pass through the whole body or through a single organ, so “sagittal section of the brain” and “sagittal plane of the body” use the same geometric idea at different scales.",
+        "A sagittal plane runs vertically from front to back and separates right from left. A midsagittal (median) plane passes through the midline and divides the body into equal right and left halves; a parasagittal plane is offset and produces unequal parts. The coronal or frontal plane runs vertically from side to side, separating anterior from posterior. The transverse or horizontal plane runs across the body and separates superior from inferior. An oblique section crosses at an angle rather than following one of these standard planes."
+      ],
+      "table": {
+        "headers": [
+          "Plane",
+          "Main division",
+          "Common imaging phrase"
+        ],
+        "rows": [
+          [
+            "Sagittal",
+            "Right and left portions",
+            "Midline or parasagittal view"
+          ],
+          [
+            "Coronal (frontal)",
+            "Anterior and posterior portions",
+            "Frontal section"
+          ],
+          [
+            "Transverse (horizontal)",
+            "Superior and inferior portions",
+            "Axial or cross-sectional view"
+          ],
+          [
+            "Oblique",
+            "Parts at an angle",
+            "Angled section"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "directional-pairs",
+      "heading": "Directional pairs describe relationships",
+      "paragraphs": [
+        "Directional terms compare one structure with another; they are not measurements and do not describe a symptom. Anterior (ventral) means toward the front, while posterior (dorsal) means toward the back. Superior (cranial) means toward the head, and inferior (caudal) means toward the feet. Medial means nearer the midline; lateral means farther from it. These pairs can be combined: the sternum is anterior to the heart, and the lungs are lateral to the mediastinum.",
+        "Proximal and distal describe relative distance from a point of attachment or the trunk, especially along an extremity. The elbow is proximal to the wrist, while the fingers are distal to the wrist. Superficial means closer to the body surface; deep means farther beneath it. Ipsilateral structures lie on the same side and contralateral structures lie on opposite sides. Every comparison needs a reference: “the shoulder is lateral to the sternum” is more informative than calling the shoulder simply lateral."
+      ],
+      "bullets": [
+        "The nose is medial to the eyes; the ears are lateral to the eyes.",
+        "The skin is superficial to skeletal muscle; the femur is deep to the thigh skin.",
+        "The wrist is distal to the elbow, and the elbow is proximal to the wrist."
+      ]
+    },
+    {
+      "id": "regions-and-cavities",
+      "heading": "Regional names and body cavities add location",
+      "paragraphs": [
+        "Regional terms name body areas such as cephalic (head), cervical (neck), thoracic (chest), abdominal, pelvic, brachial (arm), femoral (thigh), and plantar (sole of the foot). The same directional vocabulary then locates a structure inside a region. For example, a structure may be described as medial in the thorax or distal in the forearm. Region labels are useful shorthand, but they do not replace precise descriptions of boundaries or tissue layers.",
+        "Body cavities provide another map. The dorsal cavity contains the cranial cavity and vertebral canal; the ventral cavity includes thoracic and abdominopelvic subdivisions. Serous membranes line closed ventral cavities and cover many organs. When learning a term, pair the word with a landmark or diagram rather than memorizing an isolated definition; this helps transfer the coordinate system to dissection, radiology, and atlas views."
+      ]
+    },
+    {
+      "id": "use-in-imaging",
+      "heading": "Why planes matter in diagrams and imaging",
+      "paragraphs": [
+        "A radiology image is a two-dimensional representation of a three-dimensional body. Naming its plane tells a reader which direction the slice follows, while laterality markers show which side is displayed. A transverse image can be viewed from a convention that makes the patient’s right appear on the viewer’s left. The image orientation should be read from its labels and protocol rather than guessed from the screen.",
+        "The same terms also help describe motion and anatomy outside medical imaging. A sagittal view may reveal front-to-back relationships, a coronal view may show paired organs side by side, and a transverse view may clarify what lies anterior or posterior at one level. These are complementary slices, not competing “correct” pictures. When a structure is angled or curved, more than one plane may be needed to explain it."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "question": "What does the sagittal plane separate?",
+      "answer": "A sagittal plane separates right and left portions of the body or an organ. A midsagittal plane runs exactly through the midline and makes equal halves; a parasagittal plane is offset."
+    },
+    {
+      "question": "Is the viewer’s left the patient’s left?",
+      "answer": "Not necessarily. Anatomical right and left refer to the person being described. When you face a person, their right side is on your left, so use image markers or the patient’s perspective."
+    },
+    {
+      "question": "What is the difference between medial and lateral?",
+      "answer": "Medial means closer to the body’s midline; lateral means farther from it. The sternum is medial to the lungs, while the lungs are lateral to the heart’s midline position."
+    },
+    {
+      "question": "When should proximal and distal be used?",
+      "answer": "Proximal and distal compare distance along a limb or structure from its attachment or a defined point. The elbow is proximal to the wrist; the fingers are distal to it."
+    },
+    {
+      "question": "What is an oblique section?",
+      "answer": "An oblique section passes through a structure at an angle rather than following the usual sagittal, coronal, or transverse planes. It can be chosen to display an angled structure more clearly."
+    }
+  ],
+  "sources": [
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 1.6 Anatomical Terminology",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-6-anatomical-terminology"
+    },
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · Chapter 1 review",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-chapter-review"
+    }
+  ]
+}

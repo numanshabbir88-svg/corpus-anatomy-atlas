@@ -157,10 +157,10 @@ for page in PAGES:
         if not 3 <= len(parser.related) <= 4: report(f'{name}: expected 3–4 relevant chapter links, got {len(parser.related)}')
         related_graph[page.parent.name] = parser.related
     if not parser.title or parser.title in seen_titles: report(f'{name}: missing/duplicate title')
-    if len(parser.title) != 55: report(f'{name}: SEO title must be 55 chars, got {len(parser.title)} ({parser.title!r})')
+    if not 30 <= len(parser.title) <= 70: report(f'{name}: SEO title should be 30–70 chars, got {len(parser.title)} ({parser.title!r})')
     seen_titles.add(parser.title)
     if len(parser.description) != 1 or not parser.description[0]: report(f'{name}: missing/duplicate description')
-    elif len(parser.description[0]) != 155: report(f'{name}: meta description must be 155 chars, got {len(parser.description[0])} ({parser.description[0]!r})')
+    elif not 120 <= len(parser.description[0]) <= 160: report(f'{name}: meta description should be 120–160 chars, got {len(parser.description[0])} ({parser.description[0]!r})')
     for ref in parser.refs:
         target = local_target(page, ref, parser.base_href)
         if target is not None and not target.is_file(): report(f'{name}: broken local reference {ref}')

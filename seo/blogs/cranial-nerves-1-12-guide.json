@@ -175,5 +175,15 @@
       "question": "What is the difference between trigeminal and facial nerve motor targets?",
       "answer": "The trigeminal nerve (CN V3) supplies the muscles of mastication (masseter, temporalis, medial and lateral pterygoids), whereas the facial nerve (CN VII) supplies the superficial muscles of facial expression, stapedius, stylohyoid, and posterior belly of digastric."
     }
+  ],
+  "sources": [
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 13.4 The Peripheral Nervous System",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-4-the-peripheral-nervous-system"
+    },
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 13.2 The Central Nervous System",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    }
   ]
 }

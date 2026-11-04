@@ -88,5 +88,15 @@
       "question": "Which layer of the heart wall contains the Purkinje fibres?",
       "answer": "Purkinje fibres travel within the subendocardial layer (deep part of the endocardium) lining the interventricular septum and ventricular walls."
     }
+  ],
+  "sources": [
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 19.1 Heart Anatomy",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy"
+    },
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 19.2 Cardiac Muscle and Electrical Activity",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-2-cardiac-muscle-and-electrical-activity"
+    }
   ]
 }

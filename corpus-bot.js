@@ -1342,6 +1342,9 @@
     } else {
       resolvedSrc = generateBlueprintSvgDataUri(title, tag, diagramMeta);
     }
+    /* Keep ordinary bot cards lightweight; the click-to-zoom target retains the original WebP. */
+    var displaySrc = resolvedSrc.replace('img/webp/', 'img/medium/');
+    if (displaySrc !== resolvedSrc && displaySrc.indexOf('?') === -1) displaySrc += '?v=1';
     var shortTitle = String(title || 'Anatomy Plate').split('·')[0].trim();
     /* Always render featured size for anatomical queries so students see a clear visual plate */
     var cardClass = 'cbot-media-card is-featured';
@@ -1353,7 +1356,7 @@
     return (
       '<div class="' + cardClass + '" data-cbot-zoom-src="' + escapeHtml(resolvedSrc) + '" data-cbot-zoom-title="' + escapeHtml(title || shortTitle) + '"' + wikiAttr + hotAttr + '>' +
         '<div class="cbot-media-stage">' +
-          '<img class="cbot-media-img" src="' + escapeHtml(resolvedSrc) + '" alt="' + escapeHtml(shortTitle) + ' anatomy illustration" width="320" height="180" loading="lazy" />' +
+          '<img class="cbot-media-img" src="' + escapeHtml(displaySrc) + '" alt="' + escapeHtml(shortTitle) + ' anatomy illustration" width="320" height="180" loading="lazy" />' +
           pinSvg +
         '</div>' +
         '<div class="cbot-media-cap">' +
@@ -2086,7 +2089,7 @@
 
     root.innerHTML =
       /* Full-Screen HD Anatomy Image Lightbox Modal */
-      '<div class="cbot-lightbox" id="cbotLightbox" aria-hidden="true">' +
+      '<div class="cbot-lightbox" id="cbotLightbox" role="dialog" aria-modal="true" aria-label="Enlarged anatomy image" aria-hidden="true" tabindex="-1">' +
         '<div class="cbot-lightbox-box">' +
           '<button type="button" class="cbot-lightbox-close" id="cbotLightboxClose" aria-label="Close image preview">×</button>' +
           '<img class="cbot-lightbox-img" id="cbotLightboxImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Anatomy visual preview" width="640" height="420" />' +
@@ -2218,14 +2221,49 @@
     var lightboxTitle = root.querySelector('#cbotLightboxTitle');
     var lightboxClose = root.querySelector('#cbotLightboxClose');
 
+    var lightboxReturnFocus = null;
+    var previousBodyOverflow = '';
+    var previousDocumentOverflow = '';
+    var LIGHTBOX_PLACEHOLDER = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+    function openLightbox(src, title) {
+      if (!lightbox || !lightboxImg || !src) return;
+      if (!lightbox.classList.contains('is-active')) {
+        lightboxReturnFocus = document.activeElement;
+        previousBodyOverflow = document.body.style.overflow;
+        previousDocumentOverflow = document.documentElement.style.overflow;
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+      }
+      lightboxImg.src = src;
+      lightboxImg.alt = title || 'Anatomy visual preview';
+      if (lightboxTitle) lightboxTitle.textContent = title || 'Anatomy visual preview';
+      lightbox.classList.add('is-active');
+      lightbox.setAttribute('aria-hidden', 'false');
+      if (lightboxClose) {
+        try { lightboxClose.focus({ preventScroll: true }); }
+        catch (_) { lightboxClose.focus(); }
+      }
+    }
+
     function closeLightbox() {
-      if (!lightbox) return;
+      if (!lightbox || !lightbox.classList.contains('is-active')) return;
       lightbox.classList.remove('is-active');
       lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousDocumentOverflow;
+      if (lightboxImg) lightboxImg.src = LIGHTBOX_PLACEHOLDER;
+      var returnFocus = lightboxReturnFocus;
+      lightboxReturnFocus = null;
+      if (returnFocus && returnFocus.isConnected && typeof returnFocus.focus === 'function') {
+        try { returnFocus.focus({ preventScroll: true }); }
+        catch (_) { returnFocus.focus(); }
+      }
     }
 
     if (lightboxClose) {
       lightboxClose.addEventListener('click', function (e) {
+        e.preventDefault();
         e.stopPropagation();
         closeLightbox();
       });
@@ -2235,6 +2273,17 @@
         if (e.target === lightbox) closeLightbox();
       });
     }
+    document.addEventListener('keydown', function (e) {
+      if (!lightbox || !lightbox.classList.contains('is-active')) return;
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closeLightbox();
+      } else if (e.key === 'Tab' && lightboxClose) {
+        // The close control is the only focusable element in this modal.
+        e.preventDefault();
+        lightboxClose.focus();
+      }
+    });
 
     messages.addEventListener('click', function (e) {
       /* 1. Copy Assignment Study Notes button */
@@ -2267,12 +2316,7 @@
         e.stopPropagation();
         var diagSrc = diagBtn.getAttribute('data-cbot-diag');
         var diagTitle = diagBtn.getAttribute('data-cbot-diag-title') || 'Labeled Study Diagram';
-        if (diagSrc) {
-          lightboxImg.src = diagSrc;
-          if (lightboxTitle) lightboxTitle.textContent = diagTitle;
-          lightbox.classList.add('is-active');
-          lightbox.setAttribute('aria-hidden', 'false');
-        }
+        if (diagSrc) openLightbox(diagSrc, diagTitle);
         return;
       }
 
@@ -2281,12 +2325,7 @@
       if (mediaCard && lightbox && lightboxImg) {
         var zoomSrc = mediaCard.getAttribute('data-cbot-zoom-src');
         var zoomTitle = mediaCard.getAttribute('data-cbot-zoom-title') || 'Anatomy Visual';
-        if (zoomSrc) {
-          lightboxImg.src = zoomSrc;
-          if (lightboxTitle) lightboxTitle.textContent = zoomTitle;
-          lightbox.classList.add('is-active');
-          lightbox.setAttribute('aria-hidden', 'false');
-        }
+        if (zoomSrc) openLightbox(zoomSrc, zoomTitle);
         return;
       }
 

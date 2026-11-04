@@ -1,0 +1,122 @@
+{
+  "slug": "human-kidney-urinary-guide",
+  "title": "Kidney Anatomy: Nephron, Blood Flow and Urine",
+  "displayTitle": "Human Kidney: Structure, Nephron and Urinary System",
+  "h1": "Kidney Anatomy: Cortex, Medulla, Nephron and Urine Flow",
+  "description": "Follow the kidney from cortex and medulla to nephron, glomerulus and collecting duct, and learn how filtration and tubular processing form urine.",
+  "category": "Urinary System · Kidney Study Guide",
+  "updated": "2026-11-04",
+  "readTime": "8 min read",
+  "relatedOrgan": "kidney",
+  "heroImage": "kidney.webp",
+  "heroAlt": "Educational cross-section illustration of kidney regions and urinary anatomy",
+  "heroCaption": "The kidney combines gross regions, microscopic nephrons and a branching collecting system.",
+  "takeaways": [
+    "The kidneys lie retroperitoneally; cortex, medulla, papillae and calyces direct urine toward the renal pelvis.",
+    "A nephron includes a renal corpuscle and tubule; collecting ducts receive fluid from multiple nephrons.",
+    "Urine formation combines filtration, selective reabsorption and secretion, followed by collection and drainage."
+  ],
+  "sections": [
+    {
+      "id": "gross-kidney",
+      "heading": "Gross anatomy: cortex to renal pelvis",
+      "paragraphs": [
+        "The kidneys are paired retroperitoneal organs on the posterior abdominal wall. The right kidney is often positioned slightly lower than the left because of the liver. Each kidney has a medial hilum through which the renal vessels, nerves, lymphatics, and ureter pass. Surrounding fat and connective-tissue layers help protect and stabilize the organ.",
+        "A coronal section shows an outer cortex and inner medulla. The medulla contains renal pyramids whose papillae project toward minor calyces. Minor calyces join into major calyces, which drain into the renal pelvis; the pelvis narrows into the ureter. This sequence is a collecting route, not the path blood takes through the kidney."
+      ],
+      "table": {
+        "headers": [
+          "Structure",
+          "Position or connection",
+          "Study cue"
+        ],
+        "rows": [
+          [
+            "Cortex",
+            "Outer region",
+            "Contains renal corpuscles and convoluted tubules"
+          ],
+          [
+            "Medulla",
+            "Inner region",
+            "Organized into pyramids and columns"
+          ],
+          [
+            "Papilla → calyx",
+            "Pyramid tip into collecting space",
+            "Urine drains toward renal pelvis"
+          ],
+          [
+            "Renal pelvis → ureter",
+            "Central collecting funnel",
+            "Urine leaves the kidney"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "nephron",
+      "heading": "The nephron is the kidney’s functional unit",
+      "paragraphs": [
+        "A nephron begins with a renal corpuscle, where a glomerular capillary tuft is surrounded by Bowman’s (glomerular) capsule. Filtrate passes into the proximal convoluted tubule, then the loop of Henle, distal convoluted tubule, and a connecting segment that drains toward a collecting duct. Nephrons differ in loop length and position; cortical and juxtamedullary nephrons contribute differently to the medullary concentration gradient.",
+        "A collecting duct is not part of an individual nephron in the same way as its renal tubule, and each duct receives fluid from multiple nephrons. The juxtaglomerular apparatus, formed by specialized cells near the glomerulus and distal tubule, helps regulate filtration and renin release. These relationships link microscopic kidney anatomy to control of fluid and electrolyte balance."
+      ]
+    },
+    {
+      "id": "renal-blood-flow",
+      "heading": "Blood supply and filtration are connected",
+      "paragraphs": [
+        "Renal arteries branch from the abdominal aorta and divide into smaller vessels that supply the cortex and medulla. Blood enters glomerular capillaries through afferent arterioles and leaves through efferent arterioles. This arrangement places a second capillary network downstream: peritubular capillaries around cortical tubules and vasa recta associated with many long loops in the medulla.",
+        "The glomerular filtration barrier includes fenestrated capillary endothelium, a shared basement membrane, and podocyte filtration slits. It permits water and many small solutes to enter filtrate while retaining most cells and large proteins. The filtrate is not finished urine; it is extensively modified as it travels through renal tubules. Filtration rate and composition depend on physiological regulation, so a diagram alone cannot interpret a laboratory result."
+      ]
+    },
+    {
+      "id": "tubular-processing",
+      "heading": "Tubular processing changes the filtrate",
+      "paragraphs": [
+        "The proximal tubule reabsorbs a large proportion of filtered water and useful solutes and also secretes selected substances. The loop of Henle establishes conditions that help concentrate or dilute tubular fluid. The distal tubule and collecting system make further adjustments to ions and water. Reabsorption moves material from tubular fluid back toward blood; secretion moves selected material from blood into the tubule.",
+        "Hormones influence parts of this process. Antidiuretic hormone changes water permeability in collecting ducts, while aldosterone affects sodium handling in distal segments. The renal system also participates in acid-base balance and blood-pressure regulation. These mechanisms work together with circulation and endocrine signaling; they are not performed by the kidney’s gross cortex and medulla alone."
+      ]
+    },
+    {
+      "id": "urine-outflow",
+      "heading": "Urine drains through a collecting pathway",
+      "paragraphs": [
+        "After tubular processing, fluid flows through collecting ducts, papillary ducts, minor and major calyces, the renal pelvis, and ureter. Smooth muscle in the ureter propels urine toward the urinary bladder. This route is separate from venous outflow: blood leaves through renal veins that drain to the inferior vena cava.",
+        "The nephron’s microscopic path and the kidney’s gross collecting path are often drawn in different diagrams. Learn them as two connected tracks: blood enters the glomerulus and passes through renal vessels; filtrate moves through tubules and collecting structures. This helps prevent confusing the renal pelvis with a nephron segment or assuming the ureter carries filtered blood."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "question": "Where are the kidneys located?",
+      "answer": "The kidneys lie retroperitoneally on the posterior abdominal wall, one on each side of the vertebral column. The right is often slightly lower than the left because of the liver."
+    },
+    {
+      "question": "What are the main regions of a kidney?",
+      "answer": "A coronal section shows an outer cortex and inner medulla. Medullary pyramids drain at papillae into minor calyces, then major calyces and the renal pelvis."
+    },
+    {
+      "question": "What are the main parts of a nephron?",
+      "answer": "A nephron includes a renal corpuscle and renal tubule: proximal tubule, loop of Henle, and distal tubule. It drains toward collecting ducts, which receive fluid from multiple nephrons."
+    },
+    {
+      "question": "Is filtrate the same as urine?",
+      "answer": "No. Glomerular filtrate is the starting fluid that enters the renal tubule. Reabsorption and secretion along the tubules change its composition before final urine drains into the collecting system."
+    },
+    {
+      "question": "What is the urine pathway out of the kidney?",
+      "answer": "Urine passes from collecting ducts through papillary ducts, minor and major calyces, the renal pelvis, and ureter, then reaches the urinary bladder."
+    }
+  ],
+  "sources": [
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 25.3 Gross Anatomy of the Kidney",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/25-3-gross-anatomy-of-the-kidney"
+    },
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 25.4 Microscopic Anatomy of the Kidney",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/25-4-microscopic-anatomy-of-the-kidney"
+    }
+  ]
+}

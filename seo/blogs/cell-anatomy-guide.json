@@ -1,0 +1,123 @@
+{
+  "slug": "cell-anatomy-guide",
+  "title": "Human Cell Anatomy: Organelles and Their Functions",
+  "displayTitle": "Human Cell Anatomy: Organelles and Their Functions",
+  "h1": "Human Cell Anatomy: Membrane, Organelles and Cytoskeleton",
+  "description": "Learn how the plasma membrane, nucleus, ribosomes, endoplasmic reticulum, Golgi, mitochondria and cytoskeleton support a specialized human cell.",
+  "category": "Foundations · Cell Biology Study Guide",
+  "updated": "2026-11-04",
+  "readTime": "8 min read",
+  "relatedOrgan": "tissuefoundations",
+  "heroImage": "foundation-cell-organelles.webp",
+  "heroAlt": "Illustrated human cell with a membrane and major internal organelles",
+  "heroCaption": "A generalized cell diagram groups organelles by structure and function; individual cell types vary.",
+  "takeaways": [
+    "The plasma membrane separates intracellular and extracellular environments and selectively regulates exchange.",
+    "Organelles specialize in genetic information, protein handling, energy conversion and recycling.",
+    "Not every human cell has the same organelles or shape; mature red blood cells are a familiar nucleus-free example."
+  ],
+  "sections": [
+    {
+      "id": "plasma-membrane",
+      "heading": "The plasma membrane defines a selective boundary",
+      "paragraphs": [
+        "The plasma membrane is a flexible phospholipid bilayer with proteins, cholesterol, and carbohydrate-bearing molecules. Hydrophilic heads face watery environments; hydrophobic tails form an interior barrier. Membrane proteins act as channels, carriers, pumps, receptors, enzymes, and attachment points. The membrane is selectively permeable, not an impermeable wall.",
+        "Small nonpolar molecules can cross the lipid bilayer more readily than many charged or large substances. Channels and carriers provide routes for selected solutes. Active transport uses energy directly or indirectly to move substances against a gradient. Endocytosis and exocytosis move larger cargo using membrane-bound vesicles. These mechanisms let cells maintain different internal conditions from their surroundings."
+      ],
+      "table": {
+        "headers": [
+          "Structure",
+          "Example role",
+          "Key distinction"
+        ],
+        "rows": [
+          [
+            "Phospholipid bilayer",
+            "Boundary and barrier",
+            "Fluid matrix, not a rigid shell"
+          ],
+          [
+            "Channel or carrier protein",
+            "Selective transport",
+            "Specific route for molecules or ions"
+          ],
+          [
+            "Receptor protein",
+            "Signal detection",
+            "Converts an external signal into cell response"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "nucleus",
+      "heading": "The nucleus stores and uses genetic instructions",
+      "paragraphs": [
+        "Most human cells contain a nucleus surrounded by a double membrane called the nuclear envelope. DNA associates with proteins as chromatin. When a gene is expressed, RNA is transcribed from DNA and can leave through nuclear pores. The nucleolus is a prominent region where components of ribosomes are assembled.",
+        "The nucleus does not directly build every protein. Messenger RNA carries a sequence to ribosomes, where amino acids are assembled into a polypeptide. Cell types regulate different genes, so a neuron and a liver cell use much of the same genome but have distinct patterns of expression and specialized functions."
+      ]
+    },
+    {
+      "id": "protein-pathway",
+      "heading": "Ribosomes, ER and Golgi process many proteins",
+      "paragraphs": [
+        "Ribosomes translate messenger RNA into protein. Free ribosomes usually synthesize proteins that remain in the cytosol or are directed to certain internal destinations. Ribosomes associated with rough endoplasmic reticulum make many proteins destined for membranes, secretion, or the endomembrane system. The rough ER folds and begins processing selected proteins; smooth ER participates in lipid synthesis, calcium handling, and other metabolic roles.",
+        "Transport vesicles carry cargo from ER to Golgi stacks. The Golgi apparatus modifies, sorts, and packages many proteins and lipids for their destinations. Vesicles may deliver cargo to the plasma membrane, lysosomes, or other compartments. This is a useful pathway model, but not every protein travels through the same route; targeting signals and cell-specific machinery matter."
+      ],
+      "bullets": [
+        "Ribosome: protein synthesis from an RNA message.",
+        "Rough ER: processing of many secreted and membrane proteins.",
+        "Smooth ER: lipid metabolism and calcium-related functions.",
+        "Golgi apparatus: modification, sorting and packaging of cargo."
+      ]
+    },
+    {
+      "id": "energy-and-recycling",
+      "heading": "Mitochondria and lysosomes support metabolism",
+      "paragraphs": [
+        "Mitochondria have outer and inner membranes; the folded inner membrane forms cristae. They participate in oxidative metabolism and produce much of the ATP used by many cells. Mitochondria also participate in signaling and other pathways. The amount and organization of mitochondria vary with cell type and workload.",
+        "Lysosomes contain enzymes that digest selected material delivered from outside the cell or from internal compartments. Peroxisomes carry out oxidation reactions, including breakdown of selected fatty acids and handling of reactive products. These compartments interact with the endoplasmic reticulum and other organelles. They are not simply “waste bins”; they are regulated parts of cellular maintenance and metabolism."
+      ]
+    },
+    {
+      "id": "cytoskeleton-and-specialization",
+      "heading": "The cytoskeleton supports shape and movement",
+      "paragraphs": [
+        "The cytoskeleton is built from actin filaments, intermediate filaments, and microtubules. These elements support cell shape, provide tracks for intracellular transport, help position organelles, and participate in cell movement and division. Motor proteins interact with cytoskeletal elements to move cargo or generate force.",
+        "A generalized cell illustration cannot represent every human cell. Mature red blood cells lack a nucleus and mitochondria; skeletal muscle fibers contain multiple nuclei; neurons have long processes; epithelial cells may have specialized apical surfaces. Organelles and cell shape should therefore be learned with the phrase “typical human cell” in mind, not as a universal checklist."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "question": "What does the plasma membrane do?",
+      "answer": "The plasma membrane forms a selectively permeable boundary, helps control movement of substances, supports cell signaling, and anchors structural components. It is a dynamic lipid-and-protein bilayer."
+    },
+    {
+      "question": "What is the role of the nucleus?",
+      "answer": "The nucleus stores most of a cell’s DNA and regulates gene expression. RNA copies of selected genes can leave through nuclear pores and be translated by ribosomes."
+    },
+    {
+      "question": "How do rough and smooth ER differ?",
+      "answer": "Rough ER has ribosomes and processes many membrane and secreted proteins. Smooth ER lacks attached ribosomes and contributes to lipid synthesis, calcium handling and metabolism."
+    },
+    {
+      "question": "Which organelle makes most ATP in many cells?",
+      "answer": "Mitochondria produce much of the ATP used by many human cells through oxidative metabolism, although ATP production and mitochondrial abundance vary by cell type."
+    },
+    {
+      "question": "Do all human cells contain a nucleus?",
+      "answer": "No. Mature red blood cells lack a nucleus. Most other human cells contain one, while some specialized cell types can have multiple nuclei."
+    }
+  ],
+  "sources": [
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 3.1 The Cell Membrane",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/3-1-the-cell-membrane"
+    },
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 3.2 The Cytoplasm and Cellular Organelles",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/3-2-the-cytoplasm-and-cellular-organelles"
+    }
+  ]
+}

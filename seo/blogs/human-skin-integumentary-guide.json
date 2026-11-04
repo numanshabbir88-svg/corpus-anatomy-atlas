@@ -1,0 +1,133 @@
+{
+  "slug": "human-skin-integumentary-guide",
+  "title": "Skin Anatomy: Layers, Cells and Appendages",
+  "displayTitle": "Human Skin: Layers, Appendages and Function",
+  "h1": "Skin Anatomy: Epidermis, Dermis, Hypodermis and Appendages",
+  "description": "Explore epidermal strata, dermal connective tissue, the underlying hypodermis, hair follicles, glands and nails in this structured skin anatomy overview.",
+  "category": "Integumentary System · Skin Study Guide",
+  "updated": "2026-11-04",
+  "readTime": "8 min read",
+  "relatedOrgan": "skin",
+  "heroImage": "skin.webp",
+  "heroAlt": "Educational cutaway illustration of skin layers and accessory structures",
+  "heroCaption": "Skin anatomy includes the epidermis and dermis; the subcutaneous hypodermis lies beneath and connects with deeper tissues.",
+  "takeaways": [
+    "The epidermis is avascular epithelium; the dermis is connective tissue containing vessels, nerves and appendages.",
+    "Thick skin has five epidermal strata, including stratum lucidum; thin skin generally has four.",
+    "Hair, nails and glands are accessory structures, while the hypodermis is commonly described beneath the skin proper."
+  ],
+  "sections": [
+    {
+      "id": "epidermis",
+      "heading": "The epidermis is a renewing epithelial barrier",
+      "paragraphs": [
+        "The epidermis is keratinized stratified squamous epithelium and has no blood vessels of its own. Its most abundant cells are keratinocytes, which move through a differentiation process toward the surface. In thick skin, typically on palms and soles, the strata include basale, spinosum, granulosum, lucidum, and corneum. Thin skin generally lacks a distinct lucidum layer.",
+        "The stratum basale contains dividing keratinocytes and melanocytes. Melanocytes produce melanin and transfer pigment to surrounding keratinocytes. The stratum spinosum contains cells joined by strong contacts and includes immune cells. The granulosum participates in barrier formation; the corneum consists of flattened keratinized cells. These layers change in thickness by location and mechanical demand."
+      ],
+      "table": {
+        "headers": [
+          "Epidermal stratum",
+          "Position",
+          "Study cue"
+        ],
+        "rows": [
+          [
+            "Basale",
+            "Deepest",
+            "Renewal and melanocytes"
+          ],
+          [
+            "Spinosum",
+            "Above basale",
+            "Keratinocytes with strong cell connections"
+          ],
+          [
+            "Granulosum",
+            "Upper living region",
+            "Barrier-related differentiation"
+          ],
+          [
+            "Lucidum",
+            "Present in thick skin",
+            "Clear layer in palms and soles"
+          ],
+          [
+            "Corneum",
+            "Superficial",
+            "Flattened keratinized cells"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "dermis",
+      "heading": "Dermis supports the epidermis and houses appendages",
+      "paragraphs": [
+        "The dermis lies below the epidermis and is made largely of connective tissue with collagen and elastic fibers. Its papillary layer is more superficial and forms projections that interlock with the epidermis. The deeper reticular layer is denser and contains larger bundles of collagen. Blood vessels in the dermis help support the avascular epidermis by diffusion from below.",
+        "The dermis also contains sensory nerve endings, hair follicles, sweat glands, sebaceous glands, and small smooth muscles. The arrangement and density of these structures vary across body regions. Skin is therefore not a uniform sheet; a palm, eyelid, scalp, and sole have different thicknesses and accessory structures."
+      ]
+    },
+    {
+      "id": "hypodermis",
+      "heading": "The hypodermis lies beneath skin proper",
+      "paragraphs": [
+        "The hypodermis, also called subcutaneous tissue, lies deep to the dermis and connects skin with fascia and deeper structures. It contains variable amounts of loose connective tissue and adipose tissue, as well as vessels and nerves. It is often included in skin diagrams, but many anatomical descriptions reserve “skin proper” for the epidermis and dermis.",
+        "Its thickness varies among people and regions. The hypodermis can provide cushioning, insulation, and a plane that allows skin to move over deeper tissues. The boundaries are useful for orientation rather than a rigid visual seam: skin, superficial fascia, and deeper fascia meet through continuous connective-tissue relationships."
+      ]
+    },
+    {
+      "id": "accessory-structures",
+      "heading": "Hair, nails and glands are accessory structures",
+      "paragraphs": [
+        "Hair grows from follicles that extend into the dermis; the exposed shaft consists of keratinized cells. A sebaceous gland commonly opens into a follicle and releases sebum. Arrector pili smooth muscle attaches to many follicles. Nails are plates of hard keratin produced by a nail matrix, protecting distal digits and assisting fine manipulation.",
+        "Eccrine sweat glands open onto the skin surface and contribute to thermoregulation. Apocrine glands are concentrated in selected regions and often associate with hair follicles. Gland distribution, hair density, and nail growth vary by location and person. These accessory structures work with the skin barrier but are not additional epidermal strata."
+      ],
+      "bullets": [
+        "Hair follicle: produces and anchors a hair.",
+        "Sebaceous gland: releases sebum near a follicle or onto the surface.",
+        "Sweat glands: release secretions that contribute to cooling or local skin functions.",
+        "Nail matrix: produces the growing keratinized nail plate."
+      ]
+    },
+    {
+      "id": "skin-functions",
+      "heading": "Skin combines barrier, sensation and temperature roles",
+      "paragraphs": [
+        "The integumentary system limits water loss, provides a physical and chemical barrier, senses environmental contact, and participates in thermoregulation. Blood vessels in the dermis can alter heat transfer, and sweat evaporation can cool the body. Skin also participates in vitamin D synthesis through a pathway that depends on ultraviolet exposure; the amount produced varies with many environmental and biological factors.",
+        "No single layer performs every function. The epidermis forms the outer barrier, the dermis supplies vascular and sensory support, and accessory structures contribute to hair, lubrication, and sweating. This anatomy guide is educational and does not evaluate rashes, wounds, pigmentation changes, or other personal health concerns; those require professional assessment."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "question": "What are the two layers of skin proper?",
+      "answer": "Skin proper consists of the epidermis and dermis. The hypodermis, or subcutaneous tissue, lies beneath them and connects the skin with deeper fascia and tissues."
+    },
+    {
+      "question": "Which epidermal layer is found in thick skin but not usually thin skin?",
+      "answer": "Stratum lucidum is a distinct layer in thick skin, especially on palms and soles. Thin skin generally has four recognizable strata rather than five."
+    },
+    {
+      "question": "Does the epidermis contain blood vessels?",
+      "answer": "No. The epidermis is avascular. It receives nutrients by diffusion from vessels in the underlying dermis."
+    },
+    {
+      "question": "Where are hair follicles and sweat glands located?",
+      "answer": "Many follicles and sweat glands extend into the dermis, and some reach deeper. Their number and arrangement vary by region; they are accessory structures rather than epidermal layers."
+    },
+    {
+      "question": "Is the hypodermis part of the skin?",
+      "answer": "Usage varies, but many anatomy texts describe skin proper as epidermis plus dermis and call the hypodermis subcutaneous tissue beneath it. It connects skin with underlying structures."
+    }
+  ],
+  "sources": [
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 5.1 Layers of the Skin",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/5-1-layers-of-the-skin"
+    },
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 5.2 Accessory Structures of the Skin",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/5-2-accessory-structures-of-the-skin"
+    }
+  ]
+}

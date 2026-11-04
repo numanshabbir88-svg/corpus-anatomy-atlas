@@ -1,0 +1,122 @@
+{
+  "slug": "human-muscular-system-guide",
+  "title": "Human Muscular System: Muscle Types and Movement",
+  "displayTitle": "Human Muscular System: Types and Contraction",
+  "h1": "Muscular System Anatomy: Tissue Types, Force and Movement",
+  "description": "Compare skeletal, cardiac and smooth muscle, then follow muscle organization from fascicle to sarcomere and connect contraction to joint movement.",
+  "category": "Muscular System · Study Guide",
+  "updated": "2026-11-04",
+  "readTime": "8 min read",
+  "relatedOrgan": "muscle",
+  "heroImage": "muscle.webp",
+  "heroAlt": "Educational illustration of human skeletal muscle anatomy",
+  "heroCaption": "Skeletal muscles transmit force through tendons, while cardiac and smooth muscle perform specialized involuntary functions.",
+  "takeaways": [
+    "Skeletal, cardiac and smooth muscle differ in structure, control and location.",
+    "A skeletal muscle is organized into bundles of fibers; myofibrils contain repeating sarcomeres.",
+    "Nervous input, calcium, actin and myosin coordinate force; tendons transmit force to bones."
+  ],
+  "sections": [
+    {
+      "id": "three-muscle-types",
+      "heading": "Three muscle tissue types serve different roles",
+      "paragraphs": [
+        "Skeletal muscle is striated and usually under voluntary control; it attaches to the skeleton or other structures and produces movement, posture, and heat. Cardiac muscle is striated, branched, and specialized for rhythmic contraction in the heart wall. Smooth muscle is nonstriated and generally involuntary; it occurs in walls of hollow organs and vessels and around structures such as hair follicles.",
+        "The three tissues share contractile proteins and use calcium-dependent mechanisms, but their cellular organization and regulation differ. Cardiac cells connect through intercalated discs that support mechanical and electrical coordination. Smooth muscle can maintain tone for extended periods. Skeletal muscle fibers are long multinucleated cells activated by motor neurons at neuromuscular junctions."
+      ],
+      "table": {
+        "headers": [
+          "Type",
+          "Appearance/control",
+          "Typical location"
+        ],
+        "rows": [
+          [
+            "Skeletal",
+            "Striated; generally voluntary",
+            "Muscles attached to the skeleton"
+          ],
+          [
+            "Cardiac",
+            "Striated; involuntary rhythmic tissue",
+            "Myocardium of the heart"
+          ],
+          [
+            "Smooth",
+            "Nonstriated; involuntary",
+            "Walls of hollow organs and vessels"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "skeletal-organization",
+      "heading": "Skeletal muscle has nested levels of organization",
+      "paragraphs": [
+        "A whole skeletal muscle is wrapped by epimysium and contains fascicles surrounded by perimysium. Each muscle fiber is surrounded by endomysium. Within a fiber, myofibrils contain sarcomeres arranged in series. Sarcomeres contain thin actin and thick myosin filaments arranged between Z discs. This nested plan explains how microscopic shortening can contribute to force in a whole muscle.",
+        "Connective-tissue layers blend into tendons or aponeuroses that attach muscle to bone or other tissues. The names origin and insertion are traditional descriptors for attachment points, often indicating relatively less- and more-movable ends in a particular action. Real movement depends on posture and joint mechanics, so these labels are not absolute. Muscles may have multiple heads, attachments, or actions."
+      ]
+    },
+    {
+      "id": "contraction",
+      "heading": "Excitation and contraction link nerves to force",
+      "paragraphs": [
+        "A motor neuron releases acetylcholine at a neuromuscular junction, initiating an electrical signal in the muscle-fiber membrane. The signal travels along the sarcolemma and into transverse tubules, leading to calcium release from the sarcoplasmic reticulum. Calcium binds regulatory proteins and exposes actin binding sites so myosin heads can cycle, using ATP to generate force and filament sliding.",
+        "The sliding-filament model describes how sarcomeres shorten; the actin and myosin filaments themselves do not simply become shorter. When calcium is returned to storage and regulatory sites are covered, cross-bridge activity decreases and the fiber relaxes. A muscle can generate force without changing length (isometric) or change length as it moves a load (isotonic), with real contractions often combining these conditions."
+      ]
+    },
+    {
+      "id": "force-and-joints",
+      "heading": "Muscle actions depend on joints and leverage",
+      "paragraphs": [
+        "Muscles create force, but bones and joints determine how that force moves a body segment. An agonist contributes to a specified action, while an antagonist can oppose or control it; stabilizers and synergists may assist. These roles are task-dependent, and the same muscle can contribute to different actions as joint position changes.",
+        "The skeleton provides levers and joints provide axes of rotation. A tendon’s line of pull, its distance from the joint axis, and the load’s position influence mechanical advantage. A simple elbow-flexion example helps connect biceps contraction with forearm movement, but no muscle works in isolation during daily activity. Motor-unit recruitment and firing rate adjust force to task demands."
+      ],
+      "bullets": [
+        "Agonist: contributes to a named movement in a given task.",
+        "Antagonist: produces an opposing action or controls movement.",
+        "Synergist/stabilizer: assists the action or holds a segment steady."
+      ]
+    },
+    {
+      "id": "adaptation",
+      "heading": "Muscle anatomy varies with tissue and training",
+      "paragraphs": [
+        "Skeletal muscle fibers are often grouped by contraction speed and metabolic characteristics, and a single muscle can contain more than one fiber type. Training and disuse can change muscle performance and size through several mechanisms. Adult skeletal muscle has limited regenerative support from satellite cells; it does not regenerate like a simple layer of skin.",
+        "Muscle counts differ depending on whether paired structures, heads, slips, or small variants are counted separately. An atlas list is a study inventory rather than a promise that every human has an identical set of named muscles. For learning, focus on attachments, innervation, action, tissue type, and relationships to nearby vessels, nerves, and joints."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "question": "What are the three types of muscle tissue?",
+      "answer": "The three types are skeletal, cardiac and smooth muscle. Skeletal muscle is usually voluntary and striated; cardiac is striated myocardium; smooth muscle is nonstriated and commonly found in hollow organs."
+    },
+    {
+      "question": "What is a sarcomere?",
+      "answer": "A sarcomere is the repeating contractile unit between Z discs in striated muscle. Its actin and myosin filaments interact to produce force and shortening."
+    },
+    {
+      "question": "What role does calcium play in skeletal-muscle contraction?",
+      "answer": "Calcium released from the sarcoplasmic reticulum binds regulatory proteins and permits myosin to interact with actin. Calcium removal helps end cross-bridge activity and supports relaxation."
+    },
+    {
+      "question": "What connects skeletal muscle to bone?",
+      "answer": "Tendons and aponeuroses are connective tissues that commonly transmit force from muscle to bone or other structures. Some muscles attach to skin, fascia, or neighboring tissues."
+    },
+    {
+      "question": "Do muscles work independently during a movement?",
+      "answer": "Usually not. Agonists, antagonists, synergists and stabilizers coordinate around joints; their roles depend on the movement, posture, load and direction of force."
+    }
+  ],
+  "sources": [
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 10.1 Overview of Muscle Tissues",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/10-1-overview-of-muscle-tissues"
+    },
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 11.1 Interactions of Skeletal Muscles",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/11-1-interactions-of-skeletal-muscles-their-fascicle-arrangement-and-their-lever-systems"
+    }
+  ]
+}

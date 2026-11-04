@@ -1,0 +1,117 @@
+{
+  "slug": "human-lungs-respiratory-guide",
+  "title": "Human Lungs: Airways, Pleura and Gas Exchange",
+  "displayTitle": "Human Lungs: Structure, Airways and Breathing",
+  "h1": "Lung Anatomy: Airways, Lobes, Pleura and Alveolar Exchange",
+  "description": "Trace air from the conducting passages to alveoli, compare right and left lung lobes, and learn how pleura and pulmonary capillaries support gas exchange.",
+  "category": "Respiratory System · Lung Study Guide",
+  "updated": "2026-11-04",
+  "readTime": "8 min read",
+  "relatedOrgan": "lungs",
+  "heroImage": "lungs.webp",
+  "heroAlt": "Educational illustration showing lungs and major respiratory passages",
+  "heroCaption": "Airways conduct air to microscopic respiratory regions, where alveolar walls lie close to pulmonary capillaries.",
+  "takeaways": [
+    "Conducting airways move and condition air; the respiratory zone contains surfaces where gas exchange occurs.",
+    "The right lung typically has three lobes and the left two, with a cardiac notch for the heart.",
+    "Alveoli, surfactant, thin barriers and pulmonary blood flow work together in gas exchange."
+  ],
+  "sections": [
+    {
+      "id": "airway-tree",
+      "heading": "Air moves through conducting and respiratory zones",
+      "paragraphs": [
+        "The respiratory tract begins at the nose and mouth and continues through the pharynx, larynx, trachea, bronchi, and progressively smaller airways. The conducting zone transports, warms, humidifies, and filters air. It includes the terminal bronchioles. The respiratory zone begins where respiratory bronchioles give rise to alveolar ducts and sacs, bringing inhaled gas close to pulmonary capillary blood.",
+        "Branching divides airflow across the lungs, but airway names matter. The trachea divides into main bronchi; lobar bronchi serve lung lobes and segmental bronchi serve bronchopulmonary segments. Bronchi have cartilage and smooth muscle; smaller bronchioles lack cartilage plates and have proportionally greater smooth-muscle influence on their lumen. The conducting tree is not itself the entire gas-exchange surface."
+      ],
+      "table": {
+        "headers": [
+          "Region",
+          "Representative structures",
+          "Main role"
+        ],
+        "rows": [
+          [
+            "Conducting zone",
+            "Trachea, bronchi and terminal bronchioles",
+            "Transport and condition air"
+          ],
+          [
+            "Respiratory zone",
+            "Respiratory bronchioles, alveolar ducts and alveoli",
+            "Bring air next to pulmonary capillaries"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "lung-lobes-pleura",
+      "heading": "Lobes, fissures and pleural membranes orient the lungs",
+      "paragraphs": [
+        "The right lung usually has superior, middle, and inferior lobes separated by oblique and horizontal fissures. The left lung generally has superior and inferior lobes, with a cardiac notch accommodating the heart. Each lung has an apex superiorly and a base resting on the diaphragm. The hilum is the gateway where bronchi, vessels, lymphatics, and nerves enter or leave the lung.",
+        "Each lung is covered by visceral pleura, which reflects onto the thoracic wall as parietal pleura. The thin pleural cavity between them contains a small amount of lubricating fluid. Its low-friction surface allows the lungs to move with the thoracic wall during breathing. The pleural cavity is a potential space, not a large air-filled room in a healthy chest."
+      ]
+    },
+    {
+      "id": "alveoli",
+      "heading": "Alveoli create a large, thin exchange interface",
+      "paragraphs": [
+        "Alveoli are small air spaces surrounded by a dense network of pulmonary capillaries. Type I pneumocytes form much of the thin gas-exchange surface. Type II pneumocytes secrete pulmonary surfactant and can contribute to repair of alveolar epithelium. Alveolar macrophages help remove particles and debris. The alveolar wall and capillary wall together form a short diffusion path between air and blood.",
+        "Surfactant reduces surface tension at the air-liquid interface and helps stabilize alveoli, especially smaller ones. Elastic fibers in the lung contribute to recoil during expiration. The alveolar-capillary barrier must be thin enough for diffusion yet structurally supported. A simplified anatomy diagram may enlarge microscopic structures for visibility; proportions in such illustrations are explanatory, not literal."
+      ],
+      "bullets": [
+        "Type I cells: thin surface cells associated with diffusion.",
+        "Type II cells: surfactant-producing cells that also support epithelial renewal.",
+        "Alveolar macrophages: immune cells that clear inhaled particles and cellular debris."
+      ]
+    },
+    {
+      "id": "ventilation",
+      "heading": "Ventilation changes thoracic volume",
+      "paragraphs": [
+        "During quiet inspiration, the diaphragm contracts and descends, and external intercostal muscles elevate the ribs. Increasing thoracic volume lowers intrapulmonary pressure relative to atmospheric pressure, so air flows inward. During quiet expiration, respiratory muscles relax and elastic recoil helps move air outward. Forced breathing recruits additional muscles and changes the contribution of chest-wall mechanics.",
+        "Ventilation moves air; perfusion moves blood through pulmonary capillaries. Effective gas exchange requires both. Regional differences in air and blood flow influence how well oxygen enters blood and carbon dioxide leaves it. The description here is a basic mechanical model and does not assess breathing symptoms or lung disease."
+      ]
+    },
+    {
+      "id": "pulmonary-circulation",
+      "heading": "Pulmonary blood flow meets alveolar air",
+      "paragraphs": [
+        "Deoxygenated blood leaves the right ventricle through the pulmonary trunk and pulmonary arteries, which branch alongside airways. In alveolar capillaries, oxygen and carbon dioxide diffuse down partial-pressure gradients across the respiratory membrane. Oxygenated blood returns to the left atrium through pulmonary veins. This is distinct from the bronchial circulation, which supplies tissues of the airways and supporting lung structures.",
+        "The lungs do not pump blood through the systemic circulation; the heart provides the driving force. Pulmonary arteries carry blood away from the heart despite its lower oxygen content, while pulmonary veins carry blood toward the heart after gas exchange. Remembering direction relative to the heart prevents the common mistake of naming vessels by oxygen level rather than flow direction."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "question": "What is the difference between conducting and respiratory zones?",
+      "answer": "The conducting zone transports and conditions air but is not the primary site of gas exchange. The respiratory zone includes respiratory bronchioles, alveolar ducts and alveoli near pulmonary capillaries."
+    },
+    {
+      "question": "How many lobes are in each lung?",
+      "answer": "The right lung typically has three lobes; the left typically has two and a cardiac notch. Fissures divide lobes, although individual anatomy may show variation."
+    },
+    {
+      "question": "What does pulmonary surfactant do?",
+      "answer": "Surfactant produced mainly by type II pneumocytes reduces surface tension at alveolar air-liquid interfaces and helps stabilize alveoli during breathing."
+    },
+    {
+      "question": "Which cells form most of the thin alveolar surface?",
+      "answer": "Type I pneumocytes form much of the thin epithelial surface associated with gas exchange. Type II pneumocytes produce surfactant, and alveolar macrophages help clear particles."
+    },
+    {
+      "question": "Which vessels carry blood to and from the lungs?",
+      "answer": "Pulmonary arteries carry blood from the right ventricle toward lung capillaries. Pulmonary veins return oxygenated blood to the left atrium."
+    }
+  ],
+  "sources": [
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 22.1 Organs and Structures of the Respiratory System",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/22-1-organs-and-structures-of-the-respiratory-system"
+    },
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 22.2 The Lungs",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/22-2-the-lungs"
+    }
+  ]
+}

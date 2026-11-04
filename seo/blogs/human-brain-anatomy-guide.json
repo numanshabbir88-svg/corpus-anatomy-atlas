@@ -1,0 +1,122 @@
+{
+  "slug": "human-brain-anatomy-guide",
+  "title": "Human Brain Anatomy: Lobes, Regions and Pathways",
+  "displayTitle": "Human Brain: Lobes, Structures and Functions",
+  "h1": "Human Brain Anatomy: Major Regions, Protection and Connections",
+  "description": "Map the cerebrum, diencephalon, brainstem and cerebellum, then connect their major landmarks to meninges, cerebrospinal fluid and blood supply.",
+  "category": "Nervous System · Brain Study Guide",
+  "updated": "2026-11-04",
+  "readTime": "8 min read",
+  "relatedOrgan": "brain",
+  "heroImage": "brain.webp",
+  "heroAlt": "Educational illustration of the human brain and brainstem",
+  "heroCaption": "The adult brain is described through connected regions rather than isolated parts; each region contains multiple functional networks.",
+  "takeaways": [
+    "Four broad adult brain regions are the cerebrum, diencephalon, brainstem and cerebellum.",
+    "Cortical lobes provide a useful map, but complex tasks depend on distributed networks.",
+    "Meninges, cerebrospinal fluid and cerebral vessels protect and support the central nervous system."
+  ],
+  "sections": [
+    {
+      "id": "major-regions",
+      "heading": "Four major regions orient the adult brain",
+      "paragraphs": [
+        "The adult brain is commonly divided into the cerebrum, diencephalon, brainstem, and cerebellum. The cerebrum includes two cerebral hemispheres with a folded cortex and deeper nuclei. The diencephalon includes the thalamus and hypothalamus. The brainstem consists of the midbrain, pons, and medulla oblongata. The cerebellum lies posterior to the brainstem and connects with it through large fiber pathways.",
+        "These regions are a structural map, not four separate machines. Neural information moves through white-matter tracts, synapses, and networks that cross boundaries. The brain’s surface folds increase cortical area within the skull. Gyri are raised ridges and sulci are grooves; the longitudinal fissure separates the cerebral hemispheres. A midsagittal view exposes some midline structures but cannot show every lateral relationship."
+      ],
+      "table": {
+        "headers": [
+          "Region",
+          "Examples of major components",
+          "Orientation cue"
+        ],
+        "rows": [
+          [
+            "Cerebrum",
+            "Cerebral cortex and subcortical nuclei",
+            "Largest paired hemispheres"
+          ],
+          [
+            "Diencephalon",
+            "Thalamus and hypothalamus",
+            "Deep central region around the third ventricle"
+          ],
+          [
+            "Brainstem",
+            "Midbrain, pons and medulla",
+            "Connects brain with spinal cord"
+          ],
+          [
+            "Cerebellum",
+            "Two hemispheres and vermis",
+            "Posterior to the brainstem"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "cerebral-lobes",
+      "heading": "Cortical lobes are landmarks, not isolated modules",
+      "paragraphs": [
+        "The frontal lobe lies anterior to the central sulcus and includes areas involved in voluntary motor control, planning, and other higher functions. The parietal lobe receives and integrates somatic sensory information. The temporal lobe includes auditory areas and networks important for language and memory, while the occipital lobe is central to visual processing. These are broad descriptions; their boundaries and contributions are more complex than a single function label.",
+        "The cortex is a thin sheet of gray matter covering the hemispheres, while white matter contains many myelinated axons connecting cortical and subcortical regions. Deep nuclei such as the basal nuclei participate in motor and cognitive loops. The thalamus relays and modulates information to cortex, and the hypothalamus helps coordinate autonomic and endocrine homeostasis. Learning pathways and relationships is more useful than assigning every behavior to one lobe."
+      ]
+    },
+    {
+      "id": "brainstem-cerebellum",
+      "heading": "Brainstem and cerebellum support vital and coordinated activity",
+      "paragraphs": [
+        "The midbrain, pons, and medulla form the brainstem. They contain nuclei and pathways involved in cranial nerve functions, sensory and motor connections, and regulation of important autonomic activities. The medulla continues into the spinal cord; the pons forms a major bridge between cerebral and cerebellar circuits. A brainstem cross-section is densely organized, so a surface view alone cannot identify every nucleus or tract.",
+        "The cerebellum receives copies of motor commands and sensory feedback, helping calibrate timing, balance, and coordination. It does not initiate every movement independently; it contributes to the refinement of movement through loops with cerebral and brainstem networks. Its folded cortex and deep nuclei create a compact structure with many connections. These roles help explain why cerebellar anatomy is studied alongside motor pathways rather than as a detached “balance center.”"
+      ]
+    },
+    {
+      "id": "meninges-csf",
+      "heading": "Meninges and cerebrospinal fluid surround the CNS",
+      "paragraphs": [
+        "The brain and spinal cord are enclosed by three meninges: dura mater, arachnoid mater, and pia mater. In the cranium, the dura has layers and forms dural venous sinuses. The arachnoid lies deep to the dura, while the pia closely follows the surface of neural tissue. The subarachnoid space between arachnoid and pia contains cerebrospinal fluid and major surface vessels.",
+        "Cerebrospinal fluid is produced mainly by choroid plexuses and circulates through the ventricular system and subarachnoid spaces before being returned to venous blood. The ventricles are connected cavities within the brain; their shape and position help orient a sectional image. Meningeal folds and CSF spaces are not empty decorative gaps in a diagram—they are part of the protective environment of the central nervous system."
+      ]
+    },
+    {
+      "id": "blood-supply-networks",
+      "heading": "Blood supply and network connections complete the map",
+      "paragraphs": [
+        "The brain receives arterial blood mainly through internal carotid and vertebral artery systems, which connect through vessels at the base of the brain. Venous blood drains through dural venous sinuses. The blood-brain barrier is formed by specialized vascular and supporting-cell relationships that regulate exchange between blood and neural tissue; it is not a single wall that blocks every substance.",
+        "Functional anatomy is distributed. A movement involves cortical areas, basal nuclei, cerebellum, brainstem, spinal pathways, and sensory feedback. Language, attention, emotion, memory, and perception also depend on interacting regions. A diagram can orient the landmarks, while text and clinical references describe connections. No single illustration can be used to diagnose a neurologic condition or predict an individual’s function."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "question": "What are the four broad regions of the adult brain?",
+      "answer": "A common structural division includes the cerebrum, diencephalon, brainstem, and cerebellum. Each contains multiple subdivisions and interacts with other regions through pathways and networks."
+    },
+    {
+      "question": "Which structures form the brainstem?",
+      "answer": "The brainstem includes the midbrain, pons, and medulla oblongata. It connects with the spinal cord and contains important cranial-nerve nuclei and autonomic pathways."
+    },
+    {
+      "question": "What is the difference between gray and white matter?",
+      "answer": "Gray matter contains neuronal cell bodies, dendrites, synapses and supporting cells; white matter is rich in myelinated axons that connect regions. Both occur in organized CNS circuits."
+    },
+    {
+      "question": "Where does cerebrospinal fluid circulate?",
+      "answer": "Cerebrospinal fluid circulates through the brain’s ventricles and the subarachnoid spaces around the brain and spinal cord, then returns to venous blood through resorption pathways."
+    },
+    {
+      "question": "Does one brain lobe control a complex behavior by itself?",
+      "answer": "Usually not. Lobes are useful landmarks, but complex behavior depends on distributed networks that include cortical, subcortical, brainstem and cerebellar connections."
+    }
+  ],
+  "sources": [
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 13.2 The Central Nervous System",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    },
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 13.3 Circulation and the Central Nervous System",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-3-circulation-and-the-central-nervous-system"
+    }
+  ]
+}

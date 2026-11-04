@@ -1,0 +1,122 @@
+{
+  "slug": "human-eye-anatomy-guide",
+  "title": "Eye Anatomy: Layers, Light Path and the Retina",
+  "displayTitle": "Human Eye: Structure, Layers and Vision",
+  "h1": "Eye Anatomy: The Three Tunics, Chambers and Visual Pathway",
+  "description": "Follow light through the cornea, pupil and lens to the retina, and learn how the eye’s fibrous, vascular and neural tunics support vision.",
+  "category": "Sensory System · Eye Study Guide",
+  "updated": "2026-11-04",
+  "readTime": "7 min read",
+  "relatedOrgan": "eye",
+  "heroImage": "eye.webp",
+  "heroAlt": "Educational cross-section illustration of human eye anatomy",
+  "heroCaption": "The eye’s coats and internal chambers guide light to the neural retina, where photoreceptors begin visual signaling.",
+  "takeaways": [
+    "The eye wall is commonly organized into fibrous, vascular and neural tunics.",
+    "Light passes through the cornea and aqueous spaces, then the pupil, lens and vitreous before reaching the retina.",
+    "Rods and cones transduce light; the optic nerve carries retinal ganglion-cell axons toward the brain."
+  ],
+  "sections": [
+    {
+      "id": "three-tunics",
+      "heading": "Three tunics form the wall of the eye",
+      "paragraphs": [
+        "The fibrous tunic is the outer coat. Its transparent anterior portion is the cornea, which contributes much of the eye’s refractive power; the opaque sclera forms most of the remainder and provides a tough attachment surface for extraocular muscles. The vascular tunic, or uvea, includes the choroid, ciliary body, and iris. The neural tunic is the retina, which contains the light-sensitive circuitry.",
+        "These layers are continuous in some regions but serve different roles. The choroid contains vessels and pigment; the ciliary body participates in aqueous-humor production and lens accommodation; the iris regulates pupil diameter. The retina lines the back of the eye and is not a camera film: it is neural tissue that transforms patterns of light into electrical signals for processing along visual pathways."
+      ],
+      "table": {
+        "headers": [
+          "Tunica",
+          "Major parts",
+          "Broad function"
+        ],
+        "rows": [
+          [
+            "Fibrous",
+            "Cornea and sclera",
+            "Protection, shape and optical entry"
+          ],
+          [
+            "Vascular (uvea)",
+            "Choroid, ciliary body and iris",
+            "Vascular support, accommodation and pupil control"
+          ],
+          [
+            "Neural",
+            "Retina",
+            "Photoreception and early visual processing"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "path-of-light",
+      "heading": "The optical path focuses light on the retina",
+      "paragraphs": [
+        "Incoming light is refracted first by the cornea, then passes through the aqueous humor in the anterior segment. It enters the pupil, the opening in the iris, and travels through the crystalline lens. Behind the lens, it crosses the vitreous humor before reaching the retina. The pupil is not a separate lens; it is an adjustable aperture whose size changes with lighting and other neural influences.",
+        "Accommodation adjusts lens shape to help focus objects at different distances. Ciliary muscle contraction changes tension on the zonular fibers that suspend the lens. The cornea provides a fixed major part of the eye’s focusing power, while the lens is more adjustable. This simplified sequence explains where light travels, but a functional visual examination also depends on eye alignment, optics, retina, optic nerve, and central visual pathways."
+      ],
+      "bullets": [
+        "Cornea → aqueous humor → pupil → lens → vitreous humor → retina.",
+        "The iris changes pupil diameter; the lens changes curvature for accommodation.",
+        "Extraocular muscles move the globe so both eyes can direct gaze."
+      ]
+    },
+    {
+      "id": "retina-and-photoreceptors",
+      "heading": "The retina converts light into neural signals",
+      "paragraphs": [
+        "The retina contains rods and cones, photoreceptor cells with different operating properties. Rods are highly sensitive under dim conditions and do not encode colour in the same way as cones. Cones support colour vision and high spatial detail, especially where they are densely concentrated. Photoreceptors alter neurotransmitter release in response to light, influencing bipolar and horizontal cells; retinal ganglion cells provide the output axons that form the optic nerve.",
+        "The macula is a central retinal region important for detailed vision, and the fovea at its center has a high cone density. The optic disc is where ganglion-cell axons and retinal vessels pass; it lacks photoreceptors and corresponds to the physiologic blind spot. These landmarks help students relate a retinal cross-section to visual function without treating a single cell type as the whole visual pathway."
+      ]
+    },
+    {
+      "id": "chambers-and-humors",
+      "heading": "Aqueous and vitreous occupy different spaces",
+      "paragraphs": [
+        "The anterior segment lies between the cornea and lens. It includes the anterior chamber between cornea and iris and the posterior chamber between iris and lens. Aqueous humor circulates through these spaces and drains through pathways at the iridocorneal angle. The posterior cavity, behind the lens and in front of the retina, is filled with vitreous humor, a gel-like material that helps maintain the shape of the globe.",
+        "The terms “posterior chamber” and “posterior cavity” are not interchangeable: the posterior chamber is a small aqueous space in the anterior segment, while the vitreous-filled posterior cavity is much larger. This naming distinction is useful in anatomy questions and clinical communication. Diagrams sometimes simplify fluid dynamics; they should orient a learner rather than substitute for an ophthalmic examination."
+      ]
+    },
+    {
+      "id": "visual-pathway",
+      "heading": "Retinal output continues through visual pathways",
+      "paragraphs": [
+        "Retinal ganglion-cell axons exit the globe as the optic nerve. At the optic chiasm, some fibers cross to the opposite side; others remain on the same side. The optic tracts then carry visual information toward thalamic and midbrain structures, with projections continuing to visual cortex. A visual field is represented across both eyes, so the brain combines inputs rather than reading one eye as a wholly separate half of the world.",
+        "This article describes structural orientation, not vision testing or diagnosis. The orbit also contains extraocular muscles, nerves, vessels, eyelids, and tear-producing structures that protect and move the eye. To study an illustration, identify the coats first, then trace light inward and neural information outward. That two-direction map links gross anatomy to the retina’s processing role."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "question": "What are the three tunics of the eye?",
+      "answer": "The eye wall is organized into the fibrous tunic (cornea and sclera), vascular tunic or uvea (choroid, ciliary body and iris), and neural tunic (retina)."
+    },
+    {
+      "question": "What is the order in which light reaches the retina?",
+      "answer": "A simplified route is cornea, aqueous humor, pupil, lens, vitreous humor, and retina. The pupil is an opening in the iris, not a separate focusing structure."
+    },
+    {
+      "question": "What does the iris do?",
+      "answer": "The iris contains muscles that alter pupil diameter, regulating how much light enters the eye. It surrounds the pupil and is part of the vascular tunic."
+    },
+    {
+      "question": "What is the difference between the optic disc and the fovea?",
+      "answer": "The fovea is a central retinal region with dense cones for detailed vision. The optic disc is where ganglion-cell axons exit and vessels pass; it has no photoreceptors."
+    },
+    {
+      "question": "How do rods and cones differ?",
+      "answer": "Rods are more sensitive in dim light and support low-light vision; cones support colour vision and fine detail, especially in the foveal region. Both are retinal photoreceptors."
+    }
+  ],
+  "sources": [
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 14.1 Sensory Perception",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/14-1-sensory-perception"
+    },
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 14.2 Central Processing",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/14-2-central-processing"
+    }
+  ]
+}

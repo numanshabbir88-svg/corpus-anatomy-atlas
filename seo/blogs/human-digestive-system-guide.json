@@ -1,0 +1,122 @@
+{
+  "slug": "human-digestive-system-guide",
+  "title": "Digestive System Anatomy: Organs, Layers and Flow",
+  "displayTitle": "Human Digestive System: Organs and Function",
+  "h1": "Digestive System Anatomy: The GI Tract and Accessory Organs",
+  "description": "Trace food through the mouth, esophagus, stomach and intestines, and connect digestive-tract wall layers with the liver, gallbladder and pancreas.",
+  "category": "Digestive System · Study Guide",
+  "updated": "2026-11-04",
+  "readTime": "8 min read",
+  "relatedOrgan": "gut",
+  "heroImage": "gut.webp",
+  "heroAlt": "Educational illustration of the digestive tract and abdominal organs",
+  "heroCaption": "The alimentary canal and accessory digestive organs coordinate movement, chemical breakdown and absorption.",
+  "takeaways": [
+    "The alimentary canal runs from the mouth to the anus; accessory organs add secretions that support digestion.",
+    "The gut wall is organized into mucosa, submucosa, muscularis externa and an outer serosa or adventitia.",
+    "Digestion, absorption, motility and secretion are distinct processes coordinated by neural and hormonal signals."
+  ],
+  "sections": [
+    {
+      "id": "digestive-route",
+      "heading": "The alimentary canal is a continuous passage",
+      "paragraphs": [
+        "The alimentary canal begins in the oral cavity and continues through the pharynx, esophagus, stomach, small intestine, large intestine, rectum, and anal canal. Food is ingested, mechanically processed, moved forward, chemically digested, and exposed to absorptive surfaces. Material that is not absorbed proceeds toward elimination. The pharynx and oral cavity also participate in functions beyond digestion, so their anatomy overlaps with respiratory and sensory systems.",
+        "The small intestine consists of duodenum, jejunum, and ileum. The large intestine includes cecum, colon, rectum, and anal canal. These names describe different regions along the tract, not interchangeable labels for a single “gut tube.” Peristalsis and segmentation move and mix contents, while sphincters regulate passage between selected regions."
+      ],
+      "table": {
+        "headers": [
+          "Region",
+          "Main anatomical contribution",
+          "Study note"
+        ],
+        "rows": [
+          [
+            "Mouth and pharynx",
+            "Ingestion, chewing and swallowing",
+            "Begins mechanical processing"
+          ],
+          [
+            "Stomach",
+            "Storage, mixing and acid-enzyme digestion",
+            "Chyme enters the duodenum"
+          ],
+          [
+            "Small intestine",
+            "Most digestion and nutrient absorption",
+            "Duodenum, jejunum, ileum"
+          ],
+          [
+            "Large intestine",
+            "Water/electrolyte handling and fecal formation",
+            "Cecum, colon and rectum"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "gut-wall",
+      "heading": "Four wall layers repeat along much of the tract",
+      "paragraphs": [
+        "From the lumen outward, the typical gastrointestinal wall includes mucosa, submucosa, muscularis externa, and serosa or adventitia. The mucosa includes epithelium, lamina propria, and muscularis mucosae; it participates in protection, secretion, and absorption. The submucosa contains connective tissue, larger vessels, lymphatics, and a nerve plexus. The muscularis externa usually has inner circular and outer longitudinal smooth-muscle layers.",
+        "The serosa is a visceral peritoneal covering on organs within the peritoneal cavity; adventitia blends with surrounding connective tissue where an organ is anchored. The pattern varies by region. The esophagus, stomach, and intestine do not have identical lining cells or specialized structures, even though their walls share a general plan."
+      ]
+    },
+    {
+      "id": "mouth-stomach",
+      "heading": "Mouth and stomach begin processing",
+      "paragraphs": [
+        "Teeth and tongue mechanically break food into smaller pieces, while saliva lubricates the bolus and begins chemical digestion. Swallowing transfers material through the pharynx into the esophagus. Coordinated muscle activity moves the bolus toward the stomach, where muscular mixing combines food with gastric secretions to form chyme.",
+        "The stomach’s mucosa contains specialized cells. Parietal cells secrete hydrochloric acid and intrinsic factor; chief cells release pepsinogen, which can be activated in the acidic environment; mucous cells help protect the lining. The stomach begins substantial protein digestion and regulates release of chyme into the duodenum. It is not the primary site for absorption of most nutrients."
+      ]
+    },
+    {
+      "id": "small-large-intestine",
+      "heading": "Intestinal surfaces specialize for digestion and absorption",
+      "paragraphs": [
+        "The duodenum receives chyme from the stomach along with bile and pancreatic secretions. Villi and microvilli increase the small intestine’s mucosal surface area. Epithelial cells transport digested nutrients into blood or lymphatic pathways, while local enzymes complete parts of digestion. The jejunum and ileum continue absorption and contain region-specific structures and immune tissue.",
+        "The large intestine receives residual material, reabsorbs water and electrolytes, supports microbial metabolism, and compacts contents into feces. It has a different mucosal architecture from the small intestine and does not have the same villi. The ileocecal junction marks the transition between small and large bowel. This functional outline avoids the misconception that all absorption happens only in one segment."
+      ]
+    },
+    {
+      "id": "accessory-organs",
+      "heading": "Accessory organs deliver digestive secretions",
+      "paragraphs": [
+        "The liver makes bile, the gallbladder stores and concentrates it, and the pancreas supplies digestive enzymes and bicarbonate-rich fluid. Bile salts help emulsify dietary fats; pancreatic enzymes act on carbohydrates, proteins, lipids, and nucleic acids. The pancreas also has endocrine functions that regulate blood glucose, so it is not exclusively a digestive gland.",
+        "The enteric nervous system coordinates local activity in the gut wall, while autonomic pathways and hormones alter secretion and motility. Signals such as secretin and cholecystokinin respond to the chemical conditions of the duodenum and influence pancreatic and biliary output. These relationships show why anatomy is best learned as routes and connections: an organ’s duct, lumen, wall, and blood supply all matter."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "question": "What organs make up the alimentary canal?",
+      "answer": "The canal extends from mouth through pharynx, esophagus, stomach, small intestine, large intestine, rectum and anal canal. Accessory organs contribute secretions but are not part of the canal lumen."
+    },
+    {
+      "question": "What are the four general layers of the digestive tract wall?",
+      "answer": "From inside outward, the typical plan is mucosa, submucosa, muscularis externa, and serosa or adventitia. The details differ by region and its function."
+    },
+    {
+      "question": "Where does most nutrient absorption occur?",
+      "answer": "Most nutrient absorption takes place in the small intestine, whose folds, villi and microvilli expand the available surface. Individual nutrients use different transport routes."
+    },
+    {
+      "question": "What does bile do in digestion?",
+      "answer": "Bile salts help emulsify dietary fats in the small intestine. The liver produces bile; the gallbladder stores and concentrates it before release."
+    },
+    {
+      "question": "What is the difference between digestion and absorption?",
+      "answer": "Digestion breaks food into smaller molecules through mechanical and chemical processes. Absorption moves those products across the intestinal lining into blood or lymphatic pathways."
+    }
+  ],
+  "sources": [
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 23.1 Overview of the Digestive System",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/23-1-overview-of-the-digestive-system"
+    },
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 23.2 Digestive System Processes and Regulation",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/23-2-digestive-system-processes-and-regulation"
+    }
+  ]
+}

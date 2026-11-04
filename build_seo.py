@@ -185,8 +185,8 @@ def footer(depth=0):
 def document(title,description,path,body,depth=0,image='',extra='',keywords=''):
     root='../'*depth or './'
     full_title=title if len(title)==55 else f'{title} | Corpus'
-    head=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#125e58"><title>{E(full_title)}</title>{meta(full_title,description,path,image,keywords)}{extra}<link rel="icon" href="{root}favicon.svg"><link rel="stylesheet" href="{root}editorial.css?v=63"><link rel="stylesheet" href="{root}corpus-bot.css?v=16"></head><body>'
-    return head+header(depth)+body+footer(depth)+f'<script defer src="{root}corpus-bot.js?v=16"></script></body></html>'
+    head=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#125e58"><title>{E(full_title)}</title>{meta(full_title,description,path,image,keywords)}{extra}<link rel="icon" href="{root}favicon.svg"><link rel="stylesheet" href="{root}editorial.css?v=63"><link rel="stylesheet" href="{root}corpus-bot.css?v=17"></head><body>'
+    return head+header(depth)+body+footer(depth)+f'<script defer src="{root}corpus-bot.js?v=17"></script></body></html>'
 
 def write(path,text):
     path.parent.mkdir(parents=True,exist_ok=True);path.write_text(text,encoding='utf-8')
@@ -279,9 +279,9 @@ def photo_annotations(o,image):
     return f'<svg class="plate-annotations" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">{"".join(paths)}</svg>{"".join(labels)}',len(pins),mobile_key
 
 def photo_figure(o,image,stage_note=''):
-    relative=f'../../img/webp/{Path(image).stem}.webp'
+    relative=f'../../img/medium/{Path(image).stem}.webp?v=1'
     overlay,count,mobile_key=photo_annotations(o,image)
-    dimensions_html=dimensions(f'webp/{Path(image).stem}.webp')
+    dimensions_html=dimensions(f'medium/{Path(image).stem}.webp')
     alt=f'Digital educational or regional anatomy illustration for {o["title"]}; {stage_note}'
     if count:
         caption=f'Thin leader lines label {count} visible structures on this teaching plate. {stage_note}'.strip()
@@ -552,6 +552,48 @@ if BLOG_DIR.exists():
         BLOG_POSTS.append(json.loads(bp.read_text(encoding='utf-8')))
 BLOG_POSTS.sort(key=lambda item: (item.get('updated',''), item.get('slug','')), reverse=True)
 
+# AdSense-facing editorial guardrails: ship a complete, substantive, reference-linked
+# library rather than counting placeholder or near-empty pages as articles.
+if len(BLOG_POSTS) != 15:
+    raise SystemExit(f'Expected exactly 15 published blog articles, found {len(BLOG_POSTS)}')
+_seen_blog_slugs = set()
+for _post in BLOG_POSTS:
+    _slug = _post.get('slug', '')
+    if not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', _slug) or _slug in _seen_blog_slugs:
+        raise SystemExit(f'Invalid or duplicate blog slug: {_slug!r}')
+    _seen_blog_slugs.add(_slug)
+    if not 35 <= len(_post.get('title', '')) <= 55 or not 120 <= len(_post.get('description', '')) <= 160:
+        raise SystemExit(f'{_slug}: use a clear 35–55 character title and a 120–160 character description')
+    try:
+        date.fromisoformat(_post.get('updated', ''))
+    except (TypeError, ValueError):
+        raise SystemExit(f'{_slug}: updated must be an editorial date in YYYY-MM-DD format')
+    if _post.get('relatedOrgan') not in ORGANS:
+        raise SystemExit(f'{_slug}: relatedOrgan must match a real atlas chapter')
+    if len(_post.get('questions') or []) != 5:
+        raise SystemExit(f'{_slug}: exactly five original, visible question-and-answer pairs are required')
+    if len(_post.get('takeaways') or []) < 3 or len(_post.get('sections') or []) < 2:
+        raise SystemExit(f'{_slug}: key takeaways and multiple substantive sections are required')
+    _article_text = ' '.join([
+        _post.get('title', ''), _post.get('h1', ''), _post.get('description', ''),
+        *(_post.get('takeaways') or []),
+        *[s.get('heading', '') + ' ' + ' '.join(s.get('paragraphs') or []) + ' ' + ' '.join(s.get('bullets') or []) for s in (_post.get('sections') or [])],
+        *[q.get('question', '') + ' ' + q.get('answer', '') for q in (_post.get('questions') or [])]
+    ])
+    if len(re.findall(r"\b[\w’'-]+\b", _article_text)) < 500:
+        raise SystemExit(f'{_slug}: article needs at least 500 substantive words, excluding shared page chrome')
+    _hero_stem = Path(_post.get('heroImage', '')).stem
+    for _folder in ('webp', 'medium', 'thumb'):
+        if not (ROOT / 'img' / _folder / f'{_hero_stem}.webp').is_file():
+            raise SystemExit(f'{_slug}: missing {_folder} WebP hero asset for {_hero_stem}')
+    _sources = _post.get('sources') or []
+    if len(_sources) < 2:
+        raise SystemExit(f'{_slug}: include at least two named references')
+    for _source in _sources:
+        _url = urlparse(_source.get('url', ''))
+        if not _source.get('title') or _url.scheme != 'https' or not _url.netloc:
+            raise SystemExit(f'{_slug}: every reference needs a title and HTTPS URL')
+
 def build_blog_article(post):
     slug = post['slug']
     title = post['title']
@@ -564,7 +606,7 @@ def build_blog_article(post):
     if rel_key not in ORGANS: rel_key = 'heart'
     rel_organ = ORGANS[rel_key]
     hero_stem = Path(post.get('heroImage', 'heart.webp')).stem
-    hero_dims = dimensions(f'webp/{hero_stem}.webp')
+    hero_dims = dimensions(f'medium/{hero_stem}.webp')
     hero_alt = post.get('heroAlt') or f'Anatomical illustration for {h1_title}'
     hero_cap = post.get('heroCaption') or f'Educational anatomy illustration accompanying {h1_title}.'
 
@@ -578,7 +620,7 @@ def build_blog_article(post):
     )
     hero_fig = (
         f'<figure class="plate"><div class="plate-visual">'
-        f'<img src="../../img/webp/{E(hero_stem)}.webp" alt="{E(hero_alt)}" {hero_dims} loading="eager" fetchpriority="high" decoding="async">'
+        f'<img src="../../img/medium/{E(hero_stem)}.webp?v=1" alt="{E(hero_alt)}" {hero_dims} loading="eager" fetchpriority="high" decoding="async">'
         f'</div><figcaption>{E(hero_cap)}</figcaption></figure>'
     )
     takeaways = post.get('takeaways') or []
@@ -603,10 +645,10 @@ def build_blog_article(post):
         img_html = ''
         if s.get('image'):
             s_stem = Path(s['image']).stem
-            s_dims = dimensions(f'webp/{s_stem}.webp')
+            s_dims = dimensions(f'medium/{s_stem}.webp')
             s_alt = s.get('imageAlt') or f'Anatomical illustration for {sh2}'
             s_cap = s.get('imageCaption') or f'Educational anatomy plate for {sh2}.'
-            img_html = f'<figure class="blog-sec-fig"><img src="../../img/webp/{E(s_stem)}.webp" alt="{E(s_alt)}" {s_dims} loading="lazy" decoding="async"><figcaption>{E(s_cap)}</figcaption></figure>'
+            img_html = f'<figure class="blog-sec-fig"><img src="../../img/medium/{E(s_stem)}.webp?v=1" alt="{E(s_alt)}" {s_dims} loading="lazy" decoding="async"><figcaption>{E(s_cap)}</figcaption></figure>'
         tbl_html = ''
         if s.get('table') and s['table'].get('headers') and s['table'].get('rows'):
             th = ''.join(f'<th>{E(h_col)}</th>' for h_col in s['table']['headers'])
@@ -621,6 +663,21 @@ def build_blog_article(post):
         q_items = ''.join(f'<div class="qa-item"><h3>{E(q["question"])}</h3><p>{E(q["answer"])}</p></div>' for q in q_list)
         faq_html = f'<section id="questions" class="content-section questions"><div class="eyebrow">Questions people ask</div><h2>Frequently asked questions</h2><div class="qa-list">{q_items}</div></section>'
 
+    sources = post.get('sources') or []
+    source_html = ''
+    if sources:
+        toc_links.append('<a href="#sources">References and further reading</a>')
+        source_links = ''.join(
+            f'<li><a href="{E(item["url"])}" target="_blank" rel="noopener noreferrer">{E(item["title"])} ↗</a></li>'
+            for item in sources
+        )
+        source_html = (
+            f'<section id="sources" class="content-section sources"><div class="eyebrow">Editorial scope &amp; references</div>'
+            f'<h2>References and further reading</h2>'
+            f'<p class="disclaimer">This page is an anatomy-learning reference, not medical advice, diagnosis or treatment guidance. Individual anatomy and clinical questions require qualified professional context. Content was reviewed for this edition on {E(updated)}. <a href="../../about.html#contact">Send an editorial correction</a>.</p>'
+            f'<ul>{source_links}</ul></section>'
+        )
+
     rel_thumb = Path(rel_organ['photo']['file']).stem
     rel_dims = dimensions(f'thumb/{rel_thumb}.webp')
     connect_html = (
@@ -634,13 +691,13 @@ def build_blog_article(post):
     )
     toc_links.append('<a href="#related-atlas">Connected atlas chapter</a>')
     sidebar = f'<aside class="sidebar" aria-label="On this page"><div class="side-card"><h2>In this article</h2>{"".join(toc_links)}</div><div class="side-card"><div class="count">Atlas</div><p>Connected to {len(ORGANS)} interactive chapters and {sum(len(o["parts"]) for o in ORGANS.values()):,} documented anatomical structures.</p></div></aside>'
-    body = f'<div class="reading-track" aria-hidden="true"><span id="reading-progress"></span></div>{crumb}{hero_sec}<div class="shell article-grid"><main id="content">{hero_fig}{takeaways_html}{"".join(sec_html_list)}{faq_html}{connect_html}</main>{sidebar}</div>'
+    body = f'<div class="reading-track" aria-hidden="true"><span id="reading-progress"></span></div>{crumb}{hero_sec}<div class="shell article-grid"><main id="content">{hero_fig}{takeaways_html}{"".join(sec_html_list)}{faq_html}{source_html}{connect_html}</main>{sidebar}</div>'
     schema_objs = [
-        {'@context':'https://schema.org','@type':'BlogPosting','headline':title,'description':desc,'dateModified':updated,'url':url(f'/blog/{slug}/')},
+        {'@context':'https://schema.org','@type':'BlogPosting','headline':h1_title,'description':desc,'datePublished':updated,'dateModified':updated,'url':url(f'/blog/{slug}/')},
         {'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':[
             {'@type':'ListItem','position':1,'name':'Home','item':url('/')},
             {'@type':'ListItem','position':2,'name':'Blog','item':url('/blog/')},
-            {'@type':'ListItem','position':3,'name':title,'item':url(f'/blog/{slug}/')}
+            {'@type':'ListItem','position':3,'name':h1_title,'item':url(f'/blog/{slug}/')}
         ]}
     ]
     if q_list:
@@ -649,7 +706,7 @@ def build_blog_article(post):
             'mainEntity':[{'@type':'Question','name':q['question'],'acceptedAnswer':{'@type':'Answer','text':q['answer']}} for q in q_list]
         })
     extra_json = '<script type="application/ld+json">' + json.dumps(schema_objs, separators=(',',':')).replace('<','\\u003c') + '</script>'
-    return document(title, desc, f'/blog/{slug}/', body, depth=2, image=f'/img/webp/{hero_stem}.webp', extra=extra_json).replace('<script defer src="../../corpus-bot.js?v=16"></script></body>','<script defer src="../../reading.js?v=33"></script><script defer src="../../corpus-bot.js?v=16"></script></body>')
+    return document(title, desc, f'/blog/{slug}/', body, depth=2, image=f'/img/webp/{hero_stem}.webp', extra=extra_json).replace('<script defer src="../../corpus-bot.js?v=17"></script></body>','<script defer src="../../reading.js?v=33"></script><script defer src="../../corpus-bot.js?v=17"></script></body>')
 
 for post in BLOG_POSTS:
     write(BLOG_OUT / post['slug'] / 'index.html', build_blog_article(post))
@@ -657,22 +714,22 @@ for post in BLOG_POSTS:
 blog_cards = ''.join(
     f'<a class="hub-card" href="{E(p["slug"])}/">'
     f'<img src="../img/thumb/{E(Path(p.get("heroImage","heart.webp")).stem)}.webp" {dimensions("thumb/"+Path(p.get("heroImage","heart.webp")).stem+".webp")} loading="lazy" decoding="async" alt="{E(p.get("heroAlt") or p["title"])}">'
-    f'<span class="copy"><small>{E(p.get("category","Study Guide"))} · {E(p.get("readTime","6 min read"))}</small><strong>{E(p["title"])}</strong><em>{E(p["description"])}</em></span></a>'
+    f'<span class="copy"><small>{E(p.get("category","Study Guide"))} · {E(p.get("readTime","6 min read"))}</small><strong>{E(p.get("displayTitle") or p["title"])}</strong><em>{E(p["description"])}</em></span></a>'
     for p in BLOG_POSTS
 )
 blog_hub_body = (
     '<main id="content"><section class="shell hub-hero">'
     '<div class="hub-intro"><div class="eyebrow">Corpus / anatomy blog &amp; study articles</div>'
     '<h1>In-depth anatomy articles, reference tables and exam guides.</h1>'
-    '<p>Explore long-form human-written study articles covering cranial nerves, cardiovascular layers, skeletal pathways and regional clinical correlations—each connected directly to our 74 interactive chapters.</p>'
+    '<p>Explore detailed, source-linked anatomy articles with clear explanations, study diagrams and practical reference tables—each connected to an illustrated chapter in the interactive atlas.</p>'
     '<div class="action-row"><a class="button" href="#articles-list">Browse articles <span aria-hidden="true">↓</span></a>'
     '<a class="button alt" href="../learn/">All 74 study guides →</a></div>'
     f'<p class="byline">{len(BLOG_POSTS)} published articles <span aria-hidden="true">·</span> Connected to {len(ORGANS)} interactive chapters</p></div>'
     + (
-        f'<a class="hero-feature" href="{E(BLOG_POSTS[0]["slug"])}/" aria-label="Read featured article: {E(BLOG_POSTS[0]["title"])}">'
+        f'<a class="hero-feature" href="{E(BLOG_POSTS[0]["slug"])}/" aria-label="Read featured article: {E(BLOG_POSTS[0].get("displayTitle") or BLOG_POSTS[0]["title"])}">'
         f'<span class="feature-top">Featured article <span>{E(BLOG_POSTS[0].get("readTime","8 min read"))}</span></span>'
         f'<span class="feature-visual"><img src="../img/thumb/{E(Path(BLOG_POSTS[0].get("heroImage","cranial.webp")).stem)}.webp" {dimensions("thumb/"+Path(BLOG_POSTS[0].get("heroImage","cranial.webp")).stem+".webp")} alt="{E(BLOG_POSTS[0].get("heroAlt") or BLOG_POSTS[0]["title"])}" fetchpriority="high" decoding="async"></span>'
-        f'<span class="feature-bottom"><span><strong>{E(BLOG_POSTS[0]["title"])}</strong><small>{E(BLOG_POSTS[0].get("category","Study Guide"))}</small></span><b aria-hidden="true">↗</b></span></a>'
+        f'<span class="feature-bottom"><span><strong>{E(BLOG_POSTS[0].get("displayTitle") or BLOG_POSTS[0]["title"])}</strong><small>{E(BLOG_POSTS[0].get("category","Study Guide"))}</small></span><b aria-hidden="true">↗</b></span></a>'
         if BLOG_POSTS else ''
     )
     + '</section>'
@@ -852,7 +909,7 @@ shutil.copytree(BLOG_OUT,OUT/'blog')
 shutil.copytree(ROOT/'privacy-policy',OUT/'privacy-policy')
 for _sec_slug in SPA_SECTIONS:
     shutil.copytree(ROOT/_sec_slug,OUT/_sec_slug)
-for kind in ['webp','thumb']: shutil.copytree(ROOT/'img'/kind,OUT/'img'/kind)
+for kind in ['webp','thumb','medium']: shutil.copytree(ROOT/'img'/kind,OUT/'img'/kind)
 write(OUT/'favicon.svg','<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#125e58"/><path d="M16 26C8 20 5 16 5 12c0-6 7-8 11-3 4-5 11-3 11 3 0 4-3 8-11 14Z" fill="#e47b72"/></svg>')
 write(ROOT/'favicon.svg',(OUT/'favicon.svg').read_text())
 ROBOTS_AGENTS = [
@@ -934,7 +991,7 @@ if BASE:
     write(OUT/'sitemap.xml',xml)
     write(ROOT/'sitemap.xml',xml)
 if PUB: write(OUT/'ads.txt',f'google.com, {PUB}, DIRECT, f08c47fec0942fa0\n')
-write(OUT/'_headers','/img/*\n  Cache-Control: public, max-age=604800\n\n/*.js\n  Cache-Control: public, max-age=0, must-revalidate\n\n/*.css\n  Cache-Control: public, max-age=0, must-revalidate\n')
+write(OUT/'_headers','/img/*\n  Cache-Control: public, max-age=31536000, immutable\n\n/*.js\n  Cache-Control: public, max-age=31536000, immutable\n\n/*.css\n  Cache-Control: public, max-age=31536000, immutable\n')
 print(f'Built {len(ORGANS)} crawlable study pages + {len(SPA_SECTIONS)} hashless SPA routes in {OUT}.')
 print('Canonical/sitemap:',BASE or 'pending SITE_URL on production deployment')
 print('Public contact:',CONTACT or 'pending CONTACT_EMAIL before monetization')

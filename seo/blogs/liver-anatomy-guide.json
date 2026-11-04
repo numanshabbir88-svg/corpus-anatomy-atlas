@@ -1,0 +1,127 @@
+{
+  "slug": "liver-anatomy-guide",
+  "title": "Liver Anatomy: Lobes, Lobules, Blood Flow and Bile",
+  "displayTitle": "Liver Anatomy: Lobes, Lobules, Blood Flow and Bile",
+  "h1": "Liver Anatomy: Lobes, Portal Triads, Blood and Bile Flow",
+  "description": "Map the liver’s lobes and porta hepatis, trace portal and arterial inflow through sinusoids, and follow bile in the opposite direction toward ducts.",
+  "category": "Digestive System · Liver Study Guide",
+  "updated": "2026-11-04",
+  "readTime": "8 min read",
+  "relatedOrgan": "liver",
+  "heroImage": "liver.webp",
+  "heroAlt": "Educational illustration of the human liver and its major regions",
+  "heroCaption": "The liver receives dual blood inflow and organizes hepatocytes, sinusoids and bile channels into functional microanatomy.",
+  "takeaways": [
+    "The porta hepatis is a gateway on the visceral surface where major vessels and ducts pass.",
+    "Portal-vein and hepatic-artery branches supply sinusoids; blood drains toward central veins.",
+    "Bile moves from hepatocytes toward portal bile ducts, generally opposite sinusoidal blood flow."
+  ],
+  "sections": [
+    {
+      "id": "location-lobes",
+      "heading": "Location, surfaces and lobes orient the liver",
+      "paragraphs": [
+        "The liver lies mainly in the right upper abdomen beneath the diaphragm, with part extending across the midline. Its diaphragmatic surface follows the diaphragm, while the visceral surface faces abdominal organs and bears impressions and the porta hepatis. Anatomical descriptions identify right and left lobes; caudate and quadrate regions are visible on the visceral surface.",
+        "Surface lobes are helpful landmarks, but functional divisions used in surgery follow portal and biliary territories. Peritoneal reflections and ligaments connect the liver to the diaphragm and abdominal wall. The gallbladder sits on the inferior surface and stores bile; it is a separate organ, not a liver lobe."
+      ],
+      "table": {
+        "headers": [
+          "Landmark",
+          "Position",
+          "Study use"
+        ],
+        "rows": [
+          [
+            "Diaphragmatic surface",
+            "Superior/anterior-facing region",
+            "Follows the diaphragm"
+          ],
+          [
+            "Visceral surface",
+            "Inferior/posterior-facing region",
+            "Shows impressions and porta hepatis"
+          ],
+          [
+            "Porta hepatis",
+            "Gateway on visceral surface",
+            "Vessels, ducts, nerves and lymphatics pass"
+          ],
+          [
+            "Caudate and quadrate lobes",
+            "Visceral surface regions",
+            "Named surface landmarks"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "porta-hepatis",
+      "heading": "The porta hepatis carries vessels and ducts",
+      "paragraphs": [
+        "The hepatic portal vein brings nutrient-rich blood from the digestive tract and spleen. The hepatic artery brings oxygenated blood from the systemic arterial circulation. Their branches travel through portal tracts alongside branches of bile ducts. This arrangement is often summarized as the portal triad, although small nerve and lymphatic structures also travel in the region.",
+        "The portal vein and hepatic artery are inflow vessels; hepatic veins are outflow. At the liver’s microscopic scale, branches distribute blood into sinusoids. Blood from the portal venous and arterial supplies mixes and passes alongside hepatocytes before draining toward central veins, larger hepatic veins, and the inferior vena cava."
+      ]
+    },
+    {
+      "id": "lobules-and-sinusoids",
+      "heading": "Lobules organize hepatocytes and sinusoidal flow",
+      "paragraphs": [
+        "A classical hepatic lobule is a useful model: a central vein lies near the center, and plates of hepatocytes with sinusoids extend toward portal regions. Sinusoids are specialized vascular channels where blood comes close to hepatocytes. Kupffer cells are resident macrophages associated with the sinusoidal lining, and hepatic stellate cells occupy a perisinusoidal space involved in storage and extracellular-matrix regulation.",
+        "The liver can also be described using a portal lobule or hepatic acinus, each emphasizing different relationships such as bile drainage or gradients in blood supply and oxygen. These models do not contradict one another; they highlight distinct features of a complex three-dimensional tissue. A flat diagram may exaggerate boundaries to make the units easier to learn."
+      ]
+    },
+    {
+      "id": "blood-and-bile",
+      "heading": "Blood and bile move in generally opposite directions",
+      "paragraphs": [
+        "Blood flows from branches of the portal vein and hepatic artery through sinusoids toward the central vein. In contrast, hepatocytes secrete bile into canaliculi formed between adjacent cells. Bile moves toward bile ductules and ducts in portal tracts, generally opposite the direction of sinusoidal blood flow. This opposing arrangement is a core orientation cue when reading a lobule diagram.",
+        "Bile drains from small ducts into larger hepatic ducts and then into the extrahepatic biliary tree. Depending on digestive state and sphincter activity, it can enter the gallbladder for storage or pass toward the duodenum. Bile supports fat digestion in the intestine, but bile itself is not an enzyme."
+      ],
+      "bullets": [
+        "Blood: portal region → sinusoids → central vein → hepatic veins.",
+        "Bile: hepatocytes → canaliculi → portal bile ducts → larger ducts.",
+        "The liver receives both portal venous and hepatic arterial inflow."
+      ]
+    },
+    {
+      "id": "liver-functions",
+      "heading": "Hepatocytes integrate metabolism and secretion",
+      "paragraphs": [
+        "Hepatocytes process absorbed nutrients, synthesize many plasma proteins, produce bile, store selected nutrients, and metabolize or clear many substances. Their functions depend on access to both portal and arterial blood. Sinusoidal proximity supports exchange, while bile canaliculi collect secretions on the opposite side of the hepatocyte polarity axis.",
+        "Anatomy helps explain how the liver performs multiple functions, but it cannot determine an individual’s liver health or interpret symptoms and laboratory tests. The liver also has substantial functional reserve and can respond to injury in complex ways. This overview is for structural learning; medical decisions require qualified clinicians and appropriate evidence."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "question": "What is the porta hepatis?",
+      "answer": "The porta hepatis is a gateway on the liver’s visceral surface where major vessels, hepatic ducts, nerves and lymphatic structures enter or leave the organ."
+    },
+    {
+      "question": "Which two vessels supply blood to the liver?",
+      "answer": "The hepatic portal vein brings nutrient-rich blood from digestive organs, while the hepatic artery brings oxygenated blood. Their branches supply liver sinusoids."
+    },
+    {
+      "question": "Which direction does blood flow through a classical lobule?",
+      "answer": "Blood enters from portal regions through sinusoidal channels and generally drains toward the central vein, then into hepatic veins."
+    },
+    {
+      "question": "Does bile flow in the same direction as sinusoidal blood?",
+      "answer": "Generally not. Bile moves through canaliculi toward bile ducts in portal regions, while blood flows through sinusoids toward central veins."
+    },
+    {
+      "question": "Is the gallbladder part of the liver?",
+      "answer": "No. The gallbladder is a separate organ attached to the liver’s inferior surface. It stores and concentrates bile produced by the liver."
+    }
+  ],
+  "sources": [
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 23.6 Accessory Digestive Organs: Liver, Pancreas and Gallbladder",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/23-6-accessory-organs-in-digestion-the-liver-pancreas-and-gallbladder"
+    },
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · Chapter 23 review",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/23-chapter-review"
+    }
+  ]
+}

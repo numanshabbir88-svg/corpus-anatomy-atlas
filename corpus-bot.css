@@ -650,15 +650,21 @@ a[href*="utm_source=netlify"],
   align-items: center;
   justify-content: center;
   padding: 18px;
+  pointer-events: none;
+  touch-action: manipulation;
   animation: cbotMsgIn 0.18s ease-out;
 }
 
+/* .cbot-root is a click-through floating widget; explicitly restore hit-testing
+   for the active lightbox so the backdrop and its close control receive taps. */
 .cbot-lightbox.is-active {
   display: flex;
+  pointer-events: auto;
 }
 
 .cbot-lightbox-box {
   position: relative;
+  z-index: 1;
   max-width: min(820px, 94vw);
   max-height: 86vh;
   background: #0d2220;
@@ -673,8 +679,10 @@ a[href*="utm_source=netlify"],
 
 .cbot-lightbox-close {
   position: absolute;
+  z-index: 2;
   top: 10px;
   right: 10px;
+  pointer-events: auto;
   width: 32px;
   height: 32px;
   border-radius: 50%;

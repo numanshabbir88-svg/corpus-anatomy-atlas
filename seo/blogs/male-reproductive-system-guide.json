@@ -1,0 +1,117 @@
+{
+  "slug": "male-reproductive-system-guide",
+  "title": "Male Reproductive Anatomy: Organs and Sperm Path",
+  "displayTitle": "Male Reproductive System: Anatomy and Function",
+  "h1": "Male Reproductive Anatomy: Testes, Ducts, Glands and Penis",
+  "description": "Follow sperm production and transport from seminiferous tubules through the reproductive ducts, and map the glands, external organs and hormone signals.",
+  "category": "Reproductive System · Male Anatomy",
+  "updated": "2026-11-04",
+  "readTime": "8 min read",
+  "relatedOrgan": "male",
+  "heroImage": "male.webp",
+  "heroAlt": "Educational illustration of male reproductive anatomy",
+  "heroCaption": "The testicular reproductive system includes paired gonads, ducts, accessory glands, external genital structures and endocrine regulation.",
+  "takeaways": [
+    "Testes produce sperm and androgens; sperm mature in the epididymides before transport through the ducts.",
+    "Seminal vesicles, prostate and bulbourethral glands add secretions along the reproductive pathway.",
+    "The hypothalamus and pituitary regulate testicular function through hormonal feedback loops."
+  ],
+  "sections": [
+    {
+      "id": "testes",
+      "heading": "Testes contain seminiferous tubules and interstitial cells",
+      "paragraphs": [
+        "The testes are paired gonads in the scrotum. Each testis is divided into lobules containing seminiferous tubules, where spermatogenesis takes place. Developing germ cells progress through mitosis and meiosis, then undergo spermiogenesis to acquire the shape of a spermatozoon. Sertoli cells support developing germ cells and help regulate the local environment.",
+        "Leydig cells in the interstitial tissue between tubules produce testosterone in response to luteinizing hormone. Sertoli-cell function is influenced by follicle-stimulating hormone and local signals. The scrotum and its muscles help regulate testicular temperature relative to core body temperature. These structures act as an integrated system; a section through one tubule shows only a small part of testicular organization."
+      ],
+      "table": {
+        "headers": [
+          "Structure",
+          "Location",
+          "Main study role"
+        ],
+        "rows": [
+          [
+            "Seminiferous tubules",
+            "Within testicular lobules",
+            "Site of sperm production"
+          ],
+          [
+            "Sertoli cells",
+            "Inside tubules",
+            "Support germ-cell development"
+          ],
+          [
+            "Leydig cells",
+            "Interstitial tissue",
+            "Produce testosterone"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "sperm-pathway",
+      "heading": "Sperm mature and travel through a series of ducts",
+      "paragraphs": [
+        "Sperm leave seminiferous tubules through a network of channels and enter the epididymis, a long coiled duct along the posterior testis. They mature and are stored there. During emission, smooth-muscle contraction moves sperm through the ductus deferens, which travels within the spermatic cord, then toward the ejaculatory duct and prostatic urethra.",
+        "The urethra carries urine at some times and semen during ejaculation; it is not solely a reproductive duct. Sperm are only one component of semen, which includes secretions added by accessory glands. This pathway is best learned in sequence: testis, epididymis, ductus deferens, ejaculatory duct, and urethra."
+      ]
+    },
+    {
+      "id": "accessory-glands",
+      "heading": "Accessory glands contribute seminal fluid",
+      "paragraphs": [
+        "The seminal vesicles contribute a substantial portion of seminal fluid, including substances that support sperm function. Their ducts join the ductus deferens to form ejaculatory ducts. The prostate surrounds the proximal urethra and adds prostatic secretions. Paired bulbourethral glands lie inferior to the prostate and contribute mucus-like secretion into the urethra.",
+        "These glands do not produce sperm; sperm are made in the seminiferous tubules. Their ducts and position explain how secretions enter the reproductive passage. The composition of seminal fluid varies, and this anatomy overview is not a fertility or semen-analysis guide."
+      ]
+    },
+    {
+      "id": "external-anatomy",
+      "heading": "Scrotum and penis complete the external anatomy",
+      "paragraphs": [
+        "The scrotum is a skin and smooth-muscle sac that houses the testes. Dartos smooth muscle changes scrotal skin tension; the cremaster muscle, derived from abdominal wall muscle, elevates the testes. These responses contribute to temperature regulation and positioning. The scrotum is divided internally by a septum into right and left compartments.",
+        "The penis contains erectile tissues: paired corpora cavernosa and a corpus spongiosum surrounding the spongy urethra. The glans is the expanded distal end of the corpus spongiosum. Blood-flow changes within erectile tissue produce erection. External anatomy, erectile tissue, vessels, nerves, and the urethra are connected but should not be treated as identical structures."
+      ]
+    },
+    {
+      "id": "hormonal-regulation",
+      "heading": "Hormonal feedback coordinates testicular function",
+      "paragraphs": [
+        "The hypothalamus releases gonadotropin-releasing hormone in pulses, stimulating the anterior pituitary to release luteinizing hormone and follicle-stimulating hormone. Luteinizing hormone acts on Leydig cells to support testosterone production. Follicle-stimulating hormone acts mainly on Sertoli-cell functions that support spermatogenesis. Testosterone and inhibin contribute feedback to the hypothalamus and pituitary.",
+        "This hypothalamic-pituitary-gonadal axis links reproductive anatomy with endocrine regulation. Hormone levels and reproductive function vary through development and among individuals. Diagrams explain the pathways but cannot diagnose infertility, hormone disorders, or sexual-health concerns. Such questions require qualified care and appropriate clinical context."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "question": "Where does sperm production occur?",
+      "answer": "Spermatogenesis occurs within seminiferous tubules in the testes. Developing germ cells are supported by Sertoli cells and pass through several developmental stages."
+    },
+    {
+      "question": "What is the role of the epididymis?",
+      "answer": "The epididymis is a long coiled duct where sperm mature and are stored before transport through the ductus deferens."
+    },
+    {
+      "question": "Which glands add fluid to semen?",
+      "answer": "The seminal vesicles, prostate and bulbourethral glands contribute secretions to the reproductive tract. Sperm originate in the testes, not these glands."
+    },
+    {
+      "question": "What is the pathway sperm follow out of the testis?",
+      "answer": "A simplified route is seminiferous tubules, testicular channels, epididymis, ductus deferens, ejaculatory duct, and prostatic urethra, followed by the remainder of the urethra."
+    },
+    {
+      "question": "Which hormones regulate the testes?",
+      "answer": "Gonadotropin-releasing hormone from the hypothalamus influences pituitary luteinizing hormone and follicle-stimulating hormone. These signals regulate Leydig- and Sertoli-cell functions, with feedback from testicular hormones."
+    }
+  ],
+  "sources": [
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · 27.1 Testicular Reproductive System",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/27-1-anatomy-and-physiology-of-the-testicular-reproductive-system"
+    },
+    {
+      "title": "OpenStax Anatomy and Physiology 2e · Chapter 27 review",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/27-chapter-review"
+    }
+  ]
+}
