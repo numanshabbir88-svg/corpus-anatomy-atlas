@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Corpus Anatomy Atlas</title>
+<style>
+  :root{--brand:#0e3b32;--brand-light:#e3efe8;--bg:#faf9f6;--text:#111;--muted:#5a6368;--border:#eae7e0;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+  .container{max-width:1000px;margin:0 auto;padding:2rem 1.5rem}
+  header{background:var(--brand);color:#fff;padding:2rem 1.5rem;border-radius:0 0 16px 16px;margin-bottom:2rem}
+  header h1{font-size:1.75rem;margin-bottom:0.25rem}
+  header p{opacity:0.9;font-size:0.95rem}
+  nav a{color:#fff;text-decoration:none;margin-right:1.5rem;font-size:0.9rem}
+  nav a:hover{text-decoration:underline}
+  .stats{display:flex;gap:2rem;margin-bottom:2rem;background:#fff;padding:1.5rem;border-radius:12px;border:1px solid var(--border)}
+  .stat-item{text-align:center}
+  .stat-number{font-size:1.5rem;font-weight:700;color:var(--brand)}
+  .stat-label{font-size:0.85rem;color:var(--muted)}
+  .article-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+  article{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.5rem;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;flex-direction:column}
+  h2{font-size:1.1rem;margin-bottom:0.5rem}
+  h2 a{color:var(--brand);text-decoration:none;font-weight:700}
+  h2 a:hover{text-decoration:underline}
+  p.excerpt{color:#33414d;font-size:0.9rem;margin-bottom:1rem;flex-grow:1}
+  .meta{font-size:0.8rem;color:var(--muted);margin-bottom:1rem}
+  .read-more{display:inline-block;padding:0.5rem 1rem;background:var(--brand-light);color:var(--brand);border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85rem;margin-top:auto}
+  .read-more:hover{opacity:0.9}
+  .tags{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.75rem}
+  .tag{background:#eef4f2;color:var(--brand);padding:0.2rem 0.5rem;border-radius:10px;font-size:0.75rem;font-weight:600}
+  footer{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border);color:var(--muted);font-size:0.85rem}
+  @media(max-width:600px){header{padding:1.5rem 1rem}article{padding:1.25rem}}
+</style>
+</head>
+<body>
+
+<header>
+  <nav><a href="/">Home</a><a href="/contact.html">Contact</a><a href="/privacy-policy.html">Privacy Policy</a></nav>
+  <h1>Study Guides &amp; Blog</h1>
+  <p>Original, medically reviewed anatomy articles and study notes.</p>
+</header>
+
+<div class="container">
+  <div class="stats">
+    <div class="stat-item"><div class="stat-number">13</div><div class="stat-label">Original Articles</div></div>
+    <div class="stat-item"><div class="stat-number">74</div><div class="stat-label">Interactive Chapters</div></div>
+    <div class="stat-item"><div class="stat-number">1,586</div><div class="stat-label">Documented Parts</div></div>
+  </div>
+
+  <div class="article-grid">
+    <article>
+      <div class="tags"><span class="tag">Integumentary</span><span class="tag">Hair</span></div>
+      <h2><a href="/blog/hair-anatomy-complete-guide.html">Inside a Single Hair: Complete Anatomy Guide</a></h2>
+      <div class="meta">Updated November 2026 · 6 min read</div>
+      <p class="excerpt">What is actually inside a single hair? We break down the hair shaft, cuticle, cortex, medulla, follicle, dermal papilla, keratin, melanin, sebaceous gland, and arrector pili muscle.</p>
+      <a href="/blog/hair-anatomy-complete-guide.html" class="read-more">Read article →</a>
+    </article>
+
+    <article>
+      <div class="tags"><span class="tag">Circulatory</span><span class="tag">Heart</span></div>
+      <h2><a href="/blog/heart-anatomy-complete-guide.html">The Human Heart: Chambers, Valves &amp; Blood Flow</a></h2>
+      <div class="meta">Updated November 2026 · 7 min read</div>
+      <p class="excerpt">A complete guide to the heart's four chambers, four one-way valves, coronary circulation, and the SA-to-Purkinje electrical conduction system that drives every heartbeat.</p>
+      <a href="/blog/heart-anatomy-complete-guide.html" class="read-more">Read article →</a>
+    </article>
+
+    <article>
+      <div class="tags"><span class="tag">Foundations</span><span class="tag">Anatomy</span></div>
+      <h2><a href="/blog/anatomical-planes-directions.html">Anatomical Planes and Directional Terms</a></h2>
+      <div class="meta">Updated November 2026 · 5 min read</div>
+      <p class="excerpt">Master the universal coordinate system of medicine: standard anatomical position, sagittal, coronal, and transverse planes, plus directional pairs like anterior/posterior.</p>
+      <a href="/blog/anatomical-planes-directions.html" class="read-more">Read article →</a>
+    </article>
+
+    <article>
+      <div class="tags"><span class="tag">Neuroanatomy</span><span class="tag">Cranial Nerves</span></div>
+      <h2><a href="/blog/cranial-nerves-complete-guide.html">12 Cranial Nerves (CN I–XII): Complete Anatomy Guide</a></h2>
+      <div class="meta">Updated November 2026 · 8 min read</div>
+      <p class="excerpt">All 12 cranial nerves in order — names, functions, sensory vs motor vs mixed, and clinical testing with a mnemonic to remember them.</p>
+      <a href="/blog/cranial-nerves-complete-guide.html" class="read-more">Read article →</a>
+    </article>
+
+    <article>
+      <div class="tags"><span class="tag">Skeletal</span><span class="tag">Bones</span></div>
+      <h2><a href="/blog/human-skeleton-complete-guide.html">Human Skeleton: 206 Bones &amp; Joints</a></h2>
+      <div class="meta">Updated November 2026 · 7 min read</div>
+      <p class="excerpt">Axial and appendicular skeleton, bone classification, joint types, and bone histology — the complete guide to the human skeletal system.</p>
+      <a href="/blog/human-skeleton-complete-guide.html" class="read-more">Read article →</a>
+    </article>
+
+    <article>
+      <div class="tags"><span class="tag">Sensory</span><span class="tag">Eye</span></div>
+      <h2><a href="/blog/human-eye-anatomy-guide.html">Human Eye: Structure, Layers &amp; Vision</a></h2>
+      <div class="meta">Updated November 2026 · 6 min read</div>
+      <p class="excerpt">The three layers of the eyeball, photoreceptors (rods and cones), visual pathway, and common refractive errors explained.</p>
+      <a href="/blog/human-eye-anatomy-guide.html" class="read-more">Read article →</a>
+    </article>
+
+    <article>
+      <div class="tags"><span class="tag">Nervous</span><span class="tag">Brain</span></div>
+      <h2><a href="/blog/human-brain-anatomy-guide.html">Human Brain: Lobes, Structures &amp; Functions</a></h2>
+      <div class="meta">Updated November 2026 · 8 min read</div>
+      <p class="excerpt">Cerebrum, cerebellum, brainstem, cerebral lobes, deep structures, and hemisphere specialization — the brain's command center explained.</p>
+      <a href="/blog/human-brain-anatomy-guide.html" class="read-more">Read article →</a>
+    </article>
+
+    <article>
+      <div class="tags"><span class="tag">Respiratory</span><span class="tag">Lungs</span></div>
+      <h2><a href="/blog/human-lungs-respiratory-guide.html">Human Lungs: Structure, Airways &amp; Breathing</a></h2>
+      <div class="meta">Updated November 2026 · 7 min read</div>
+      <p class="excerpt">Lung anatomy, the airway tree, alveoli gas exchange, breathing mechanics, and lung volumes — how the respiratory system works.</p>
+      <a href="/blog/human-lungs-respiratory-guide.html" class="read-more">Read article →</a>
+    </article>
+
+    <article>
+      <div class="tags"><span class="tag">Urinary</span><span class="tag">Kidney</span></div>
+      <h2><a href="/blog/human-kidney-urinary-guide.html">Human Kidney: Structure, Nephron &amp; Urinary System</a></h2>
+      <div class="meta">Updated November 2026 · 7 min read</div>
+      <p class="excerpt">Kidney anatomy, the nephron (functional unit), filtration pathway, and key kidney functions including blood pressure regulation.</p>
+      <a href="/blog/human-kidney-urinary-guide.html" class="read-more">Read article →</a>
+    </article>
+
+    <article>
+      <div class="tags"><span class="tag">Digestive</span><span class="tag">Stomach</span></div>
+      <h2><a href="/blog/human-digestive-system-guide.html">Human Digestive System: Organs, Process &amp; Function</a></h2>
+      <div class="meta">Updated November 2026 · 7 min read</div>
+      <p class="excerpt">The alimentary canal, accessory organs (liver, pancreas, gallbladder), and the digestive process from ingestion to defecation.</p>
+      <a href="/blog/human-digestive-system-guide.html" class="read-more">Read article →</a>
+    </article>
+
+    <article>
+      <div class="tags"><span class="tag">Muscular</span><span class="tag">Movement</span></div>
+      <h2><a href="/blog/human-muscular-system-guide.html">Human Muscular System: Types, Function &amp; Contraction</a></h2>
+      <div class="meta">Updated November 2026 · 7 min read</div>
+      <p class="excerpt">Three muscle tissue types, skeletal muscle structure, sliding filament theory, and major muscle groups with origins and insertions.</p>
+      <a href="/blog/human-muscular-system-guide.html" class="read-more">Read article →</a>
+    </article>
+
+    <article>
+      <div class="tags"><span class="tag">Integumentary</span><span class="tag">Skin</span></div>
+      <h2><a href="/blog/human-skin-integumentary-guide.html">Human Skin: Layers, Appendages &amp; Function</a></h2>
+      <div class="meta">Updated November 2026 · 7 min read</div>
+      <p class="excerpt">The three layers of skin, epidermal strata, skin appendages (hair, nails, glands), and functions including thermoregulation and vitamin D synthesis.</p>
+      <a href="/blog/human-skin-integumentary-guide.html" class="read-more">Read article →</a>
+    </article>
+
+    <article>
+      <div class="tags"><span class="tag">Male Reproductive</span><span class="tag">Testes</span></div>
+      <h2><a href="/blog/male-reproductive-system-guide.html">Male Reproductive System: Anatomy &amp; Function</a></h2>
+      <div class="meta">Updated November 2026 · 6 min read</div>
+      <p class="excerpt">External and internal organs, spermatogenesis, testosterone, sperm pathway, and FAQ about the male reproductive system.</p>
+      <a href="/blog/male-reproductive-system-guide.html" class="read-more">Read article →</a>
+    </article>
+  </div>
+
+  <footer>
+    <p>© 2026 Corpus Anatomy Atlas. All rights reserved.</p>
+  </footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corpus — Navbar Fix Example</title>
+<link rel="stylesheet" href="navbar-fix.css">
+<style>
+  body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: #faf9f6; }
+  .page-content { padding: 2rem 1.5rem; max-width: 1000px; margin: 0 auto; }
+  .page-content h1 { margin-top: 0; }
+</style>
+</head>
+<body>
+
+<!-- ============================================
+   NAVBAR — HAR PAGE PAR EK JAISA (Same on all pages)
+   ============================================ -->
+<nav class="corpus-navbar" aria-label="Main navigation">
+  <a href="/" class="corpus-navbar__brand">
+    <span class="corpus-navbar__logo">❤</span>
+    <span>Corpus</span>
+  </a>
+
+  <div class="corpus-navbar__links">
+    <!-- Sirf current page par class "corpus-navbar__link--active" lagayein, baaki same rahein -->
+    <a href="/" class="corpus-navbar__link corpus-navbar__link--active">Home</a>
+    <a href="/body-map/" class="corpus-navbar__link">Body map</a>
+    <a href="/all-organs/" class="corpus-navbar__link">Chapters</a>
+    <a href="/male-anatomy/" class="corpus-navbar__link">Male</a>
+    <a href="/female-anatomy/" class="corpus-navbar__link">Female</a>
+    <a href="/learn/" class="corpus-navbar__link">Learn</a>
+    <a href="/blog/" class="corpus-navbar__link">Blog</a>
+    <a href="/anatomy-quiz/" class="corpus-navbar__link">Quiz</a>
+    <a href="/about-us/" class="corpus-navbar__link">About us</a>
+
+    <div class="corpus-navbar__search">
+      <span>🔍</span>
+      <input type="search" placeholder="Find an organ or body part..." aria-label="Search anatomy">
+    </div>
+
+    <button class="corpus-navbar__icon" aria-label="Voice">🎙</button>
+  </div>
+</nav>
+
+<main class="page-content">
+  <h1>Example Page (Learn / Blog / Quiz / etc.)</h1>
+  <p>Yeh navbar har page par ek jaise rang aur links ke sath dikhegi.</p>
+</main>
+
+</body>
+</html>

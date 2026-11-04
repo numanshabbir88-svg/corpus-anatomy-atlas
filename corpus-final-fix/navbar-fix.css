@@ -1,0 +1,105 @@
+/*
+ * Corpus Anatomy Atlas — Navbar Fix CSS
+ * Is CSS ka use har page par karein taake navbar same rahe.
+ */
+
+.corpus-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #faf9f6;           /* Same light cream on all pages */
+  border-bottom: 1px solid #eae7e0;
+  padding: 0 1.5rem;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.corpus-navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #111;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.corpus-navbar__logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #0e3b32;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.corpus-navbar__links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.corpus-navbar__link {
+  text-decoration: none;
+  color: #5a6368;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.corpus-navbar__link:hover {
+  color: #0e3b32;
+  background: #eef4f2;
+}
+
+/* Active link — same color on every page */
+.corpus-navbar__link--active {
+  color: #0e3b32;
+  background: #e3efe8;
+  font-weight: 600;
+}
+
+.corpus-navbar__search {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d8d5ce;
+  background: #fff;
+  border-radius: 24px;
+  padding: 0.35rem 0.8rem;
+  width: 260px;
+}
+
+.corpus-navbar__search input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.corpus-navbar__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f3f1ec;
+  border: 1px solid #d8d5ce;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #111;
+}
+
+@media (max-width: 768px) {
+  .corpus-navbar__links { gap: 1rem; }
+  .corpus-navbar__link { font-size: 0.85rem; padding: 0.3rem 0.5rem; }
+  .corpus-navbar__search { width: 180px; }
+}
