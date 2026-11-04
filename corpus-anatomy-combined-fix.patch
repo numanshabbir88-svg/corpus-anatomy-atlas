@@ -1,0 +1,1972 @@
+diff --git a/app.js b/app.js
+index 4b7dd5e..c92ec65 100644
+--- a/app.js
++++ b/app.js
+@@ -296,7 +296,7 @@ function viewHome(){
+     return `<a class="chip" href="/all-organs/?sys=${k}">${s.name}<i>${n}</i></a>`;
+   }).join('');
+   return `
+-  <section class="hero wrap">
++  <section class="hero wrap" data-home-hero>
+     <div class="hero-grid">
+       <div class="rv in">
+         <div class="eyebrow">Interactive Human Anatomy Atlas</div>
+@@ -312,7 +312,11 @@ function viewHome(){
+       <div class="showcase face-hero-showcase rv in" data-d="1">
+         <div class="sc-stage face-hero-stage" id="scStage">
+           <div class="photo-wrap face-live-wrap">
+-            <img class="face-live-img" src="img/webp/hero-human-face.webp?v=20" alt="Human face and cranial anatomy" width="1040" height="580" fetchpriority="high" decoding="async">
++            <img class="face-live-img" src="/img/webp/hero-human-face.webp?v=21" alt="Human face and cranial anatomy" width="1040" height="580" fetchpriority="high" decoding="async">
++            <svg class="face-blink-svg" viewBox="0 0 1000 558" preserveAspectRatio="none" aria-hidden="true">
++              <path class="face-blink-lid" d="M382 226 Q402 214 422 226 Q403 239 382 226 Z"/>
++              <path class="face-blink-lid right" d="M479 224 Q499 212 521 224 Q500 238 479 224 Z"/>
++            </svg>
+           </div>
+         </div>
+       </div>
+@@ -1321,6 +1325,8 @@ function bindSearch(){
+     else if(e.key==='Escape'){hide();input.blur();closeMobile()}
+   });
+   document.addEventListener('click',e=>{if(!box.contains(e.target)&&!mobileBtn?.contains(e.target)){hide();closeMobile()}});
++  const initialQuery=new URLSearchParams(location.search).get('q');
++  if(initialQuery){input.value=initialQuery;show(initialQuery)}
+ }
+ 
+ /* ---------- icons ---------- */
+@@ -1476,7 +1482,17 @@ function render(){
+   });
+   $('#nav').classList.remove('open'); $('#burger').setAttribute('aria-expanded','false');
+ 
+-  if(!key) app.innerHTML=viewHome();
++  const initialStaticHome=!key&&!!app.querySelector('[data-static-home-hero]');
++  if(!key){
++    const staticHero=app.querySelector('[data-static-home-hero]');
++    if(staticHero){
++      const template=document.createElement('template');
++      template.innerHTML=viewHome();
++      const generatedHero=template.content.querySelector('.hero');
++      if(generatedHero) generatedHero.remove();
++      app.append(template.content);
++    } else app.innerHTML=viewHome();
++  }
+   else if(key==='organs') app.innerHTML=viewOrgans(params);
+   else if(key==='map') app.innerHTML=viewMap();
+   else if(key==='systems') app.innerHTML=viewSystems();
+@@ -1529,7 +1545,8 @@ function render(){
+     if(params.has('g'))target=document.getElementById('mat-'+params.get('g'));
+     if(target){if(target.tagName==='DETAILS')target.open=true;setTimeout(()=>{target.scrollIntoView({block:'center'});target.classList.add('flash');setTimeout(()=>target.classList.remove('flash'),1800)},220)}
+   }
+-  app.classList.remove('vin'); void app.offsetWidth; app.classList.add('vin');
++  document.documentElement.classList.remove('spa-route-pending');
++  if(!initialStaticHome){app.classList.remove('vin'); void app.offsetWidth; app.classList.add('vin')}
+   reveal();
+   window.scrollTo({top:0,behavior:'instant'});
+ }
+diff --git a/build_seo.py b/build_seo.py
+index 6f8c4e2..68204de 100644
+--- a/build_seo.py
++++ b/build_seo.py
+@@ -173,9 +173,44 @@ def schema(path,crumbs,questions=None):
+ 
+ def header(depth=0,current=''):
+     root='../'*depth or './'
+-    links=[('Study guides',root+'learn/','learn'),('Blog',root+'blog/','blog'),('Interactive atlas',root,'atlas'),('Body map',root+'body-map/','map'),('Quiz',root+'anatomy-quiz/','quiz'),('About us',root+'about.html','about')]
+-    nav=''.join(f'<a href="{E(link)}" {"aria-current=page" if key==current else ""}>{E(label)}</a>' for label,link,key in links)
+-    return f'<a class="skip" href="#content">Skip to content</a><header class="site-head"><div class="shell head-inner"><a class="brand" href="{root}" aria-label="Corpus Anatomy Atlas home"><span class="brand-mark">♥</span><span class="brand-name">Corpus<small>Anatomy Atlas</small></span></a><nav class="head-nav" aria-label="Main navigation">{nav}</nav></div></header>'
++    links=[
++        ('Home',root,'home'),('Body map',root+'body-map/','map'),
++        ('Chapters',root+'all-organs/','chapters'),('Male',root+'male-anatomy/','male'),
++        ('Female',root+'female-anatomy/','female'),('Learn',root+'learn/','learn'),
++        ('Blog',root+'blog/','blog'),('Quiz',root+'anatomy-quiz/','quiz'),
++        ('About us',root+'about.html','about')]
++    nav=''.join(
++        f'<a href="{E(link)}"'+(' aria-current="page"' if key==current else '')+f'>{E(label)}</a>'
++        for label,link,key in links)
++    return (
++        f'<a class="skip" href="#content">Skip to content</a>'
++        f'<header class="site-head corpus-global-head"><div class="shell corpus-head-inner">'
++        f'<a class="corpus-brand" href="{E(root)}" aria-label="Corpus Anatomy Atlas home">'
++        f'<span class="corpus-brand-mark" aria-hidden="true">♥</span>'
++        f'<span class="corpus-brand-name">Corpus<small>Anatomy Atlas</small></span></a>'
++        f'<nav class="corpus-head-nav" aria-label="Main navigation">{nav}</nav>'
++        f'<div class="corpus-head-tools"><label class="corpus-search">'
++        f'<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.8" cy="8.8" r="5.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m13.2 13.2 4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>'
++        f'<input type="search" placeholder="Find an organ or body part…" aria-label="Find an organ or body part"><kbd>/</kbd>'
++        f'</label><button class="corpus-motion" type="button" aria-label="Reduce motion" title="Reduce motion">'
++        f'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l3-7 4 14 3-7h4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>'
++        f'</button></div></div></header>')
++
++def nav_controls(depth=0):
++    root='../'*depth or './'
++    return f'''<script>
++(()=>{{
++  const base={json.dumps(root)};
++  document.querySelectorAll('.corpus-search input').forEach(input=>input.addEventListener('keydown',event=>{{
++    if(event.key==='Enter'&&input.value.trim()) location.href=base+'?q='+encodeURIComponent(input.value.trim());
++  }}));
++  document.querySelectorAll('.corpus-motion').forEach(button=>button.addEventListener('click',()=>{{
++    const active=document.documentElement.classList.toggle('reduced-motion-user');
++    button.setAttribute('aria-pressed',String(active));
++    button.title=active?'Restore motion':'Reduce motion';
++  }}));
++}})();
++</script>'''
+ 
+ def footer(depth=0):
+     root='../'*depth or './'
+@@ -185,8 +220,9 @@ def footer(depth=0):
+ def document(title,description,path,body,depth=0,image='',extra='',keywords=''):
+     root='../'*depth or './'
+     full_title=title if len(title)==55 else f'{title} | Corpus'
+-    head=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#125e58"><title>{E(full_title)}</title>{meta(full_title,description,path,image,keywords)}{extra}<link rel="icon" href="{root}favicon.svg"><link rel="stylesheet" href="{root}editorial.css?v=63"><link rel="stylesheet" href="{root}corpus-bot.css?v=16"></head><body>'
+-    return head+header(depth)+body+footer(depth)+f'<script defer src="{root}corpus-bot.js?v=16"></script></body></html>'
++    current='blog' if path.startswith('/blog/') else 'learn' if path.startswith('/learn/') else 'about' if path.startswith('/privacy-policy/') or path.endswith('about.html') else ''
++    head=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f4f1ea"><title>{E(full_title)}</title>{meta(full_title,description,path,image,keywords)}{extra}<link rel="icon" href="{root}favicon.svg"><link rel="stylesheet" href="{root}editorial.css?v=64"><link rel="stylesheet" href="{root}corpus-bot.css?v=17"></head><body>'
++    return head+header(depth,current)+body+footer(depth)+nav_controls(depth)+f'<script defer src="{root}corpus-bot.js?v=17"></script></body></html>'
+ 
+ def write(path,text):
+     path.parent.mkdir(parents=True,exist_ok=True);path.write_text(text,encoding='utf-8')
+@@ -489,7 +525,7 @@ def article(key,o):
+     article_json=schema(f'/learn/{seo_slug}/',crumb,GUIDES[key]['questions'])
+     kw_obj=GUIDES[key].get('keywords',{})
+     kw_str=', '.join(dict.fromkeys([kw_obj.get('primary','')]+list(kw_obj.get('secondary',[]))+list(kw_obj.get('semantic',[]))[:4]))
+-    return document(title,desc,f'/learn/{seo_slug}/',body,depth=2,image=img,extra=article_json,keywords=kw_str).replace('<script defer src="../../corpus-bot.js?v=16"></script></body>','<script defer src="../../reading.js?v=33"></script><script defer src="../../preview.js?v=49"></script><script defer src="../../corpus-bot.js?v=16"></script></body>')
++    return document(title,desc,f'/learn/{seo_slug}/',body,depth=2,image=img,extra=article_json,keywords=kw_str).replace('<script defer src="../../corpus-bot.js?v=17"></script></body>','<script defer src="../../reading.js?v=33"></script><script defer src="../../preview.js?v=49"></script><script defer src="../../corpus-bot.js?v=17"></script></body>')
+ 
+ # Build every chapter from the exact atlas data. No automatic keyword stuffing or fabricated bylines.
+ learn=ROOT/'learn'
+@@ -551,12 +587,23 @@ if BLOG_DIR.exists():
+     for bp in sorted(BLOG_DIR.glob('*.json')):
+         BLOG_POSTS.append(json.loads(bp.read_text(encoding='utf-8')))
+ BLOG_POSTS.sort(key=lambda item: (item.get('updated',''), item.get('slug','')), reverse=True)
++if len(BLOG_POSTS) != 15:
++    raise SystemExit(f'Expected 15 blog articles (2 existing + 13 added); found {len(BLOG_POSTS)} in seo/blogs')
++if len({post.get('slug') for post in BLOG_POSTS}) != 15:
++    raise SystemExit('Blog article slugs must be unique')
++for post in BLOG_POSTS:
++    if len(post.get('questions') or []) != 5:
++        raise SystemExit(f'{post.get("slug")}: exactly five distinct article FAQs are required')
++    if not post.get('references'):
++        raise SystemExit(f'{post.get("slug")}: add at least one reference before building')
+ 
+ def build_blog_article(post):
+     slug = post['slug']
+     title = post['title']
+     h1_title = post.get('h1') or title
+     desc = post['description']
++    seo_title = post.get('seoTitle') or title
++    seo_desc = post.get('seoDescription') or desc
+     cat = post.get('category', 'Anatomy · Study Article')
+     updated = post.get('updated', CONTENT_UPDATED)
+     read_time = post.get('readTime', '6 min read')
+@@ -621,6 +668,20 @@ def build_blog_article(post):
+         q_items = ''.join(f'<div class="qa-item"><h3>{E(q["question"])}</h3><p>{E(q["answer"])}</p></div>' for q in q_list)
+         faq_html = f'<section id="questions" class="content-section questions"><div class="eyebrow">Questions people ask</div><h2>Frequently asked questions</h2><div class="qa-list">{q_items}</div></section>'
+ 
++    references = post.get('references') or []
++    references_html = ''
++    if references:
++        toc_links.append('<a href="#references">References and further reading</a>')
++        ref_items=[]
++        for ref in references:
++            if isinstance(ref,dict):
++                label=ref.get('title') or ref.get('url') or ''
++                href=ref.get('url','')
++                ref_items.append(f'<li><a href="{E(href)}" target="_blank" rel="noopener noreferrer">{E(label)}</a></li>' if href.startswith('https://') else f'<li>{E(label)}</li>')
++            else:
++                ref_items.append(f'<li>{E(ref)}</li>')
++        references_html='<section id="references" class="content-section sources"><div class="eyebrow">Reference desk</div><h2>References and further reading</h2><ul>'+''.join(ref_items)+'</ul></section>'
++
+     rel_thumb = Path(rel_organ['photo']['file']).stem
+     rel_dims = dimensions(f'thumb/{rel_thumb}.webp')
+     connect_html = (
+@@ -634,7 +695,7 @@ def build_blog_article(post):
+     )
+     toc_links.append('<a href="#related-atlas">Connected atlas chapter</a>')
+     sidebar = f'<aside class="sidebar" aria-label="On this page"><div class="side-card"><h2>In this article</h2>{"".join(toc_links)}</div><div class="side-card"><div class="count">Atlas</div><p>Connected to {len(ORGANS)} interactive chapters and {sum(len(o["parts"]) for o in ORGANS.values()):,} documented anatomical structures.</p></div></aside>'
+-    body = f'<div class="reading-track" aria-hidden="true"><span id="reading-progress"></span></div>{crumb}{hero_sec}<div class="shell article-grid"><main id="content">{hero_fig}{takeaways_html}{"".join(sec_html_list)}{faq_html}{connect_html}</main>{sidebar}</div>'
++    body = f'<div class="reading-track" aria-hidden="true"><span id="reading-progress"></span></div>{crumb}{hero_sec}<div class="shell article-grid"><main id="content">{hero_fig}{takeaways_html}{"".join(sec_html_list)}{faq_html}{references_html}{connect_html}</main>{sidebar}</div>'
+     schema_objs = [
+         {'@context':'https://schema.org','@type':'BlogPosting','headline':title,'description':desc,'dateModified':updated,'url':url(f'/blog/{slug}/')},
+         {'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':[
+@@ -649,7 +710,7 @@ def build_blog_article(post):
+             'mainEntity':[{'@type':'Question','name':q['question'],'acceptedAnswer':{'@type':'Answer','text':q['answer']}} for q in q_list]
+         })
+     extra_json = '<script type="application/ld+json">' + json.dumps(schema_objs, separators=(',',':')).replace('<','\\u003c') + '</script>'
+-    return document(title, desc, f'/blog/{slug}/', body, depth=2, image=f'/img/webp/{hero_stem}.webp', extra=extra_json).replace('<script defer src="../../corpus-bot.js?v=16"></script></body>','<script defer src="../../reading.js?v=33"></script><script defer src="../../corpus-bot.js?v=16"></script></body>')
++    return document(seo_title, seo_desc, f'/blog/{slug}/', body, depth=2, image=f'/img/webp/{hero_stem}.webp', extra=extra_json).replace('<script defer src="../../corpus-bot.js?v=17"></script></body>','<script defer src="../../reading.js?v=33"></script><script defer src="../../corpus-bot.js?v=17"></script></body>')
+ 
+ for post in BLOG_POSTS:
+     write(BLOG_OUT / post['slug'] / 'index.html', build_blog_article(post))
+@@ -664,7 +725,7 @@ blog_hub_body = (
+     '<main id="content"><section class="shell hub-hero">'
+     '<div class="hub-intro"><div class="eyebrow">Corpus / anatomy blog &amp; study articles</div>'
+     '<h1>In-depth anatomy articles, reference tables and exam guides.</h1>'
+-    '<p>Explore long-form human-written study articles covering cranial nerves, cardiovascular layers, skeletal pathways and regional clinical correlations—each connected directly to our 74 interactive chapters.</p>'
++    '<p>Explore 15 original long-form anatomy guides covering cranial nerves, cardiovascular layers, skeleton, skin, cells, liver, and other structures—each connected to our 74 interactive chapters.</p>'
+     '<div class="action-row"><a class="button" href="#articles-list">Browse articles <span aria-hidden="true">↓</span></a>'
+     '<a class="button alt" href="../learn/">All 74 study guides →</a></div>'
+     f'<p class="byline">{len(BLOG_POSTS)} published articles <span aria-hidden="true">·</span> Connected to {len(ORGANS)} interactive chapters</p></div>'
+@@ -678,7 +739,7 @@ blog_hub_body = (
+     + '</section>'
+     f'<div class="shell" id="articles-list" style="padding-bottom:64px"><section><h2 class="group-title">Latest anatomy study articles</h2><div class="hub-grid">{blog_cards}</div></section></div></main>'
+ )
+-write(BLOG_OUT / 'index.html', document('Human Anatomy Blog: Study Articles & Clinical Exam Maps', 'Read in-depth human anatomy study articles, cranial nerve tables, heart conduction guides, and clinical study notes connected to our 74 illustrated guides.', '/blog/', blog_hub_body, depth=1, extra=schema('/blog/', [('Home','/'),('Blog','/blog/')])))
++write(BLOG_OUT / 'index.html', document('Human Anatomy Blog: Study Articles & Clinical Exam Maps', 'Browse 15 anatomy study articles on human structures and body systems, with five FAQs and references, connected to our 74 illustrated chapters. Learn more.', '/blog/', blog_hub_body, depth=1, extra=schema('/blog/', [('Home','/'),('Blog','/blog/')])))
+ 
+ contact_html=(f'<a href="mailto:{E(CONTACT)}">{E(CONTACT)}</a>' if CONTACT else 'A public publisher contact address has not yet been provided. The publisher must add one before a monetization application.')
+ about=f'''<main id="content" class="shell about-profile">
+diff --git a/corpus-bot.css b/corpus-bot.css
+index a5a8074..25ad308 100644
+--- a/corpus-bot.css
++++ b/corpus-bot.css
+@@ -640,6 +640,8 @@ a[href*="utm_source=netlify"],
+ }
+ 
+ .cbot-lightbox {
++  /* The widget root is pointer-events:none so it does not block the page; opt this full-screen overlay back into hit-testing. */
++  pointer-events: auto;
+   position: fixed;
+   inset: 0;
+   z-index: 2147483647;
+diff --git a/corpus-bot.js b/corpus-bot.js
+index 92e2380..67514d2 100644
+--- a/corpus-bot.js
++++ b/corpus-bot.js
+@@ -2226,6 +2226,7 @@
+ 
+     if (lightboxClose) {
+       lightboxClose.addEventListener('click', function (e) {
++        e.preventDefault();
+         e.stopPropagation();
+         closeLightbox();
+       });
+@@ -2234,6 +2235,9 @@
+       lightbox.addEventListener('click', function (e) {
+         if (e.target === lightbox) closeLightbox();
+       });
++      document.addEventListener('keydown', function (e) {
++        if (e.key === 'Escape' && lightbox.classList.contains('is-active')) closeLightbox();
++      });
+     }
+ 
+     messages.addEventListener('click', function (e) {
+diff --git a/editorial.css b/editorial.css
+index 3f0f6ef..5274311 100644
+--- a/editorial.css
++++ b/editorial.css
+@@ -285,3 +285,5 @@
+ @media(max-width:1120px){.corpus-head-inner{flex-wrap:wrap;gap:8px 12px;padding-top:9px;padding-bottom:9px}.corpus-head-nav{order:3;width:100%;margin:0;overflow-x:auto;scrollbar-width:thin;padding:2px 0 4px}.corpus-head-nav a{flex:none}.corpus-head-tools{margin-left:auto}.corpus-search{width:min(270px,32vw)}}
+ @media(max-width:600px){.corpus-head-inner{padding-left:16px;padding-right:16px}.corpus-brand-name{font-size:20px}.corpus-head-tools{gap:6px}.corpus-search{width:42px;padding:0;justify-content:center;border-color:#dedbd1}.corpus-search input,.corpus-search kbd{display:none}.corpus-search:focus-within{width:min(68vw,270px);padding:0 10px;justify-content:flex-start}.corpus-search:focus-within input{display:block}.corpus-head-nav{gap:3px}.corpus-head-nav a{font-size:12px;padding:8px 10px}}
+ @media(prefers-reduced-motion:reduce){.corpus-head-nav a{transition:none}}
++
++html.reduced-motion-user *,html.reduced-motion-user *::before,html.reduced-motion-user *::after{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+diff --git a/index.html b/index.html
+index 27131ae..a4eed77 100644
+--- a/index.html
++++ b/index.html
+@@ -15,10 +15,12 @@
+ <meta property="og:description" content="Explore Corpus, a free interactive human anatomy atlas with 74 illustrated study guides, 1,586 documented structures, 206 bones, 312 muscles, and 3D views.">
+ <meta property="og:type" content="website">
+ <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d3b39'/%3E%3Cpath d='M16 26C9 21 5 17 5 12.5 5 9 7.7 6.5 11 6.5c2.2 0 4 1.2 5 2.9 1-1.7 2.8-2.9 5-2.9 3.3 0 6 2.5 6 6C27 17 23 21 16 26z' fill='%23e0645c'/%3E%3C/svg%3E">
+-<link rel="preload" as="image" href="/img/webp/hero-human-face.webp?v=20" type="image/webp" fetchpriority="high">
+-<link rel="stylesheet" href="styles.css?v=72">
+-<link rel="stylesheet" href="corpus-bot.css?v=16">
+-<meta name="robots" content="index,follow,max-image-preview:large"><link rel="publisher" href="https://corpus-anatomy-atlas.netlify.app/"><link rel="canonical" href="https://corpus-anatomy-atlas.netlify.app/"><meta property="og:url" content="https://corpus-anatomy-atlas.netlify.app/"></head>
++<link rel="preload" as="image" href="/img/webp/hero-human-face.webp?v=21" type="image/webp" fetchpriority="high">
++<link rel="stylesheet" href="styles.css?v=73">
++<link rel="stylesheet" href="corpus-bot.css?v=17">
++
++<script>if(location.pathname!=="/"&&location.pathname!=="/index.html")document.documentElement.classList.add("spa-route-pending")</script>
++<style>html.spa-route-pending #app{visibility:hidden}</style><meta name="robots" content="index,follow,max-image-preview:large"><link rel="publisher" href="https://corpus-anatomy-atlas.netlify.app/"><link rel="canonical" href="https://corpus-anatomy-atlas.netlify.app/"><meta property="og:url" content="https://corpus-anatomy-atlas.netlify.app/"></head>
+ <body>
+ 
+ <a class="skip" href="#app">Skip to content</a>
+@@ -65,7 +67,32 @@
+   </header>
+ 
+   <main id="app" tabindex="-1">
+-    <div class="load-state wrap" role="status" aria-live="polite"><span class="load-symbol" aria-hidden="true">♥</span><h1>Understand the human body, layer by living layer.</h1><p>Explore 74 illustrated human anatomy study guides, 1,586 documented structures, 206 adult bones, 312 skeletal muscles, and our interactive body map.</p><a href="learn/">Browse all 74 anatomy study guides →</a><small>Interactive anatomical plates load as you explore.</small></div>
++    <section class="hero wrap" data-static-home-hero>
++      <div class="hero-grid">
++        <div class="rv in">
++          <div class="eyebrow">Interactive Human Anatomy Atlas</div>
++          <h1>Understand the human body, <span class="accent">layer by living layer<svg viewBox="0 0 300 12" preserveAspectRatio="none" aria-hidden="true"><path d="M4 8 C60 2 120 10 176 5 C220 2 262 8 296 5"/></svg></span>.</h1>
++          <p class="lead">Why does a heartbeat sound like two distinct thumps, and how do twelve pairs of cranial nerves wire sight, balance, expression, and speech through tiny openings in the skull base? Corpus lets you trace human anatomy from surface landmarks down to muscles, nerves, blood vessels, bones, and microscopic tissue architecture—pairing 74 illustrated study guides and 1,586 documented structures with Latin nomenclature, physiological function, and clinical context.</p>
++          <div class="hero-cta">
++            <a class="btn primary" href="/body-map/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2zM9 4v14M15 6v14"/></svg> Explore the body map</a>
++            <a class="btn" href="/all-organs/">Browse chapters</a>
++            <a class="btn" href="/anatomy-quiz/">Practice quiz</a>
++          </div>
++          <div class="hero-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg> Surface-to-deep anatomical cutaways · Latin &amp; clinical reference · Microscopic tissue lenses</div>
++        </div>
++        <div class="showcase face-hero-showcase rv in" data-d="1">
++          <div class="sc-stage face-hero-stage" id="scStage">
++            <div class="photo-wrap face-live-wrap">
++              <img class="face-live-img" src="/img/webp/hero-human-face.webp?v=21" alt="Human face and cranial anatomy" width="1040" height="580" fetchpriority="high" decoding="async">
++              <svg class="face-blink-svg" viewBox="0 0 1000 558" preserveAspectRatio="none" aria-hidden="true">
++                <path class="face-blink-lid" d="M382 226 Q402 214 422 226 Q403 239 382 226 Z"/>
++                <path class="face-blink-lid right" d="M479 224 Q499 212 521 224 Q500 238 479 224 Z"/>
++              </svg>
++            </div>
++          </div>
++        </div>
++      </div>
++    </section>
+   </main>
+   <noscript><p class="wrap" style="padding:25px 16px">Please enable JavaScript to explore the interactive atlas.</p></noscript>
+ 
+@@ -115,21 +142,21 @@
+   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6M6 12l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+ </button>
+ 
+-<script src="organs.js?v=39"></script>
+-<script src="brain-and-micro-chapters.js?v=33"></script>
+-<script src="deep-chapters.js?v=33"></script>
+-<script src="part-enrichment-notes.js?v=33"></script>
+-<script src="chapter-enrichment.js?v=38"></script>
+-<script src="muscle-atlas.js?v=33"></script>
+-<script src="skull-chapter.js?v=40"></script>
+-<script src="dental-chapter.js?v=42"></script>
+-<script src="foundations-chapters.js?v=46"></script>
+-<script src="reproduction-stages.js?v=48"></script>
+-<script src="repro-image-enrichment.js?v=48"></script>
+-<script src="micro-lens.js?v=64"></script>
+-<script src="part-pins.js?v=69"></script>
+-<script src="app.js?v=77"></script>
++<script src="organs.js?v=39" defer></script>
++<script src="brain-and-micro-chapters.js?v=33" defer></script>
++<script src="deep-chapters.js?v=33" defer></script>
++<script src="part-enrichment-notes.js?v=33" defer></script>
++<script src="chapter-enrichment.js?v=38" defer></script>
++<script src="muscle-atlas.js?v=33" defer></script>
++<script src="skull-chapter.js?v=40" defer></script>
++<script src="dental-chapter.js?v=42" defer></script>
++<script src="foundations-chapters.js?v=46" defer></script>
++<script src="reproduction-stages.js?v=48" defer></script>
++<script src="repro-image-enrichment.js?v=48" defer></script>
++<script src="micro-lens.js?v=64" defer></script>
++<script src="part-pins.js?v=69" defer></script>
++<script src="app.js?v=78" defer></script>
+ <script src="preview.js?v=65" defer></script>
+-<script src="corpus-bot.js?v=16" defer></script>
++<script src="corpus-bot.js?v=17" defer></script>
+ </body>
+ </html>
+diff --git a/styles.css b/styles.css
+index 94ba4a4..8e30264 100644
+--- a/styles.css
++++ b/styles.css
+@@ -1070,3 +1070,10 @@ body.nomotion .rv{opacity:1;transform:none}
+ /* Explicitly distinguish a contextual illustration from a localized pin. */
+ .plate-preview-context-badge{position:absolute;top:10px;left:10px;z-index:3;max-width:calc(100% - 20px);padding:6px 9px;border:1px solid rgba(255,219,140,.72);border-radius:8px;background:rgba(7,30,28,.93);color:#fff7df;box-shadow:0 2px 9px #0007;font:800 clamp(10px,1.4vw,12px)/1.35 var(--sans);letter-spacing:.04em;text-transform:uppercase;overflow-wrap:anywhere;pointer-events:none}
+ @media(max-width:620px){.plate-preview-context-badge{top:6px;left:6px;max-width:calc(100% - 12px);padding:4px 7px;font-size:9px}}
++
++/* Subtle anatomical eyelid blink on the static face plate; no layout dimensions change. */
++.face-blink-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3;overflow:visible}
++.face-blink-lid{fill:#93665d;stroke:#563d38;stroke-width:1.4;stroke-linejoin:round;transform-box:fill-box;transform-origin:center;opacity:0;animation:faceEyelidBlink 5.8s ease-in-out infinite}
++.face-blink-lid.right{animation-delay:.045s;fill:#90635b}
++@keyframes faceEyelidBlink{0%,91%,94%,100%{transform:scaleY(.035);opacity:0}92%,93%{transform:scaleY(1);opacity:.94}}
++@media(prefers-reduced-motion:reduce){.face-blink-lid{animation:none;opacity:0}}
+diff --git a/seo/blogs/anatomical-planes-directions.json b/seo/blogs/anatomical-planes-directions.json
+new file mode 100644
+index 0000000..72bcb90
+--- /dev/null
++++ b/seo/blogs/anatomical-planes-directions.json
+@@ -0,0 +1,161 @@
++{
++  "slug": "anatomical-planes-directions",
++  "title": "Anatomical Planes and Directional Terms",
++  "h1": "Anatomical Planes and Directional Terms",
++  "description": "Before studying any organ, medical students learn the \"universal coordinate system\" of the human body. Anatomical position and directional terms allow doctors, scientists, and students…",
++  "category": "Foundations · Anatomy",
++  "updated": "2026-11-04",
++  "readTime": "5 min read",
++  "relatedOrgan": "anatomicallanguage",
++  "heroImage": "foundation-planes.webp",
++  "heroAlt": "Educational anatomy illustration: Anatomical Planes and Directional Terms",
++  "heroCaption": "Digital educational illustration for Anatomical Planes and Directional Terms. This plate is a learning aid, not a clinical photograph.",
++  "takeaways": [
++    "All descriptions assume the body is in standard anatomical position : standing upright, facing forward, feet flat and slightly apart, arms at the sides with palms facing forward, a",
++    "Quick reference: Sagittal = left/right · Coronal = front/back · Transverse = top/bottom"
++  ],
++  "sections": [
++    {
++      "id": "1-standard-anatomical-position",
++      "heading": "1. Standard Anatomical Position",
++      "paragraphs": [
++        "All descriptions assume the body is in standard anatomical position : standing upright, facing forward, feet flat and slightly apart, arms at the sides with palms facing forward, and thumbs pointing outward. Directional terms always refer to this position, regardless of how the person is actually positioned."
++      ]
++    },
++    {
++      "id": "2-the-three-major-body-planes",
++      "heading": "2. The Three Major Body Planes",
++      "paragraphs": [
++        "Quick reference: Sagittal = left/right · Coronal = front/back · Transverse = top/bottom"
++      ],
++      "table": {
++        "headers": [
++          "Plane",
++          "Description",
++          "Divides body into"
++        ],
++        "rows": [
++          [
++            "Sagittal plane",
++            "A vertical plane running from front to back",
++            "Left and right sections"
++          ],
++          [
++            "Midsagittal (median) plane",
++            "A sagittal plane exactly down the middle",
++            "Equal left and right halves"
++          ],
++          [
++            "Coronal (frontal) plane",
++            "A vertical plane running from side to side",
++            "Front (anterior) and back (posterior) sections"
++          ],
++          [
++            "Transverse (horizontal/axial) plane",
++            "A horizontal plane running parallel to the ground",
++            "Top (superior) and bottom (inferior) sections"
++          ]
++        ]
++      }
++    },
++    {
++      "id": "3-directional-terms-opposite-pairs",
++      "heading": "3. Directional Terms (Opposite Pairs)",
++      "table": {
++        "headers": [
++          "Term",
++          "Meaning",
++          "Opposite"
++        ],
++        "rows": [
++          [
++            "Anterior (ventral)",
++            "Toward the front of the body",
++            "Posterior (dorsal)"
++          ],
++          [
++            "Posterior (dorsal)",
++            "Toward the back of the body",
++            "Anterior (ventral)"
++          ],
++          [
++            "Superior (cranial)",
++            "Toward the head / upper part",
++            "Inferior (caudal)"
++          ],
++          [
++            "Inferior (caudal)",
++            "Away from the head / lower part",
++            "Superior (cranial)"
++          ],
++          [
++            "Medial",
++            "Toward the midline of the body",
++            "Lateral"
++          ],
++          [
++            "Lateral",
++            "Away from the midline / toward the side",
++            "Medial"
++          ],
++          [
++            "Proximal",
++            "Closer to the point of attachment (limb)",
++            "Distal"
++          ],
++          [
++            "Distal",
++            "Farther from the point of attachment (limb)",
++            "Proximal"
++          ],
++          [
++            "Superficial",
++            "Close to the body surface",
++            "Deep"
++          ],
++          [
++            "Deep",
++            "Away from the body surface",
++            "Superficial"
++          ]
++        ]
++      }
++    },
++    {
++      "id": "4-why-it-matters",
++      "heading": "4. Why It Matters",
++      "paragraphs": [
++        "Using these standardized terms prevents dangerous misunderstandings. For example, saying \"the injury is on the left side of the chest\" is ambiguous without anatomical position, but \"the injury is on the anterior-lateral aspect of the right thoracic wall\" is precise and actionable in clinical settings."
++      ]
++    }
++  ],
++  "questions": [
++    {
++      "question": "Q1. What is standard anatomical position?",
++      "answer": "Standard anatomical position is the reference pose: standing upright, facing forward, feet flat and slightly apart, arms at sides with palms facing forward, and thumbs pointing outward. All directional terms assume this position."
++    },
++    {
++      "question": "Q2. What are the three major body planes?",
++      "answer": "Sagittal (divides left/right), coronal/frontal (divides front/back), and transverse/horizontal (divides top/bottom)."
++    },
++    {
++      "question": "Q3. What is the difference between anterior and posterior?",
++      "answer": "Anterior (ventral) means toward the front of the body; posterior (dorsal) means toward the back."
++    },
++    {
++      "question": "Q4. What does proximal versus distal mean?",
++      "answer": "Proximal means closer to the point of attachment to the trunk; distal means farther away (used mainly for limbs)."
++    },
++    {
++      "question": "Q5. Why are anatomical terms important in medicine?",
++      "answer": "They provide a precise, universal language so doctors and students can describe locations unambiguously, avoiding dangerous misunderstandings."
++    }
++  ],
++  "references": [
++    "Standring, S. (ed.) Gray's Anatomy: The Anatomical Basis of Clinical Practice. Elsevier — anatomical terminology.",
++    "Terminologia Anatomica — International anatomical terminology standard.",
++    "Corpus Anatomy Atlas — Anatomy Foundations chapter (corpus-anatomy-atlas.netlify.app)."
++  ],
++  "seoTitle": "Anatomical Planes: Direction and Position Terms | Atlas",
++  "seoDescription": "Explore anatomical planes and directional terms: key structures, relationships, and function. Read five FAQs and cited references. For education and study."
++}
+diff --git a/seo/blogs/cell-anatomy-guide.json b/seo/blogs/cell-anatomy-guide.json
+new file mode 100644
+index 0000000..5fac1c2
+--- /dev/null
++++ b/seo/blogs/cell-anatomy-guide.json
+@@ -0,0 +1,89 @@
++{
++  "slug": "cell-anatomy-guide",
++  "title": "Human Cell Anatomy: Organelles and Their Functions",
++  "h1": "Human Cell Anatomy: Organelles and Their Functions",
++  "description": "A human cell is a small, organized living system. Its membrane controls exchange with the environment, while internal compartments coordinate genetic instructions, energy production,…",
++  "category": "Foundations · Cell Biology",
++  "updated": "2026-11-04",
++  "readTime": "7 min read",
++  "relatedOrgan": "tissuefoundations",
++  "heroImage": "foundation-cell-organelles.webp",
++  "heroAlt": "Educational anatomy illustration: Human Cell Anatomy: Organelles and Their Functions",
++  "heroCaption": "Digital educational illustration for Human Cell Anatomy: Organelles and Their Functions. This plate is a learning aid, not a clinical photograph.",
++  "takeaways": [
++    "The plasma membrane is a flexible boundary built mainly from a phospholipid bilayer with embedded proteins. It separates intracellular fluid from the extracellular environment whil",
++    "Most human cells contain a nucleus enclosed by a double nuclear envelope. DNA is packaged with proteins as chromatin; specific DNA regions can be transcribed into RNA. Nuclear pore",
++    "Ribosomes assemble amino acids into proteins by reading messenger RNA. Free ribosomes mainly make proteins used in the cytosol, while ribosomes attached to rough endoplasmic reticu"
++  ],
++  "sections": [
++    {
++      "id": "the-plasma-membrane",
++      "heading": "The plasma membrane",
++      "paragraphs": [
++        "The plasma membrane is a flexible boundary built mainly from a phospholipid bilayer with embedded proteins. It separates intracellular fluid from the extracellular environment while allowing selective movement of water, ions, nutrients, and waste. Channels, carriers, pumps, and receptors give the membrane many of its transport and signaling functions."
++      ]
++    },
++    {
++      "id": "nucleus-and-genetic-material",
++      "heading": "Nucleus and genetic material",
++      "paragraphs": [
++        "Most human cells contain a nucleus enclosed by a double nuclear envelope. DNA is packaged with proteins as chromatin; specific DNA regions can be transcribed into RNA. Nuclear pores regulate traffic between the nucleus and cytoplasm. Mature red blood cells are an important exception: they lose the nucleus as they develop."
++      ]
++    },
++    {
++      "id": "ribosomes-and-the-endoplasmic-reticulum",
++      "heading": "Ribosomes and the endoplasmic reticulum",
++      "paragraphs": [
++        "Ribosomes assemble amino acids into proteins by reading messenger RNA. Free ribosomes mainly make proteins used in the cytosol, while ribosomes attached to rough endoplasmic reticulum make many secreted, membrane, or organelle-targeted proteins. Smooth ER has no attached ribosomes and participates in lipid synthesis, calcium handling, and chemical processing."
++      ]
++    },
++    {
++      "id": "golgi-apparatus-and-vesicles",
++      "heading": "Golgi apparatus and vesicles",
++      "paragraphs": [
++        "The Golgi apparatus modifies, sorts, and packages many proteins and lipids arriving from the ER. Membrane-bound vesicles carry this cargo to the cell surface, to other compartments, or outside the cell. Sorting signals help route molecules to the correct destination."
++      ]
++    },
++    {
++      "id": "mitochondria-lysosomes-and-the-cytoskeleton",
++      "heading": "Mitochondria, lysosomes, and the cytoskeleton",
++      "paragraphs": [
++        "Mitochondria convert energy from nutrients into ATP through cellular respiration and also participate in metabolic signaling. Lysosomes contain enzymes that break down selected materials for recycling. The cytoskeleton—microtubules, actin filaments, and intermediate filaments—supports cell shape, internal transport, movement, and division. These structures cooperate rather than operating as isolated parts."
++      ]
++    }
++  ],
++  "questions": [
++    {
++      "question": "What is the basic unit of the human body?",
++      "answer": "The cell is the smallest structural and functional living unit of the human body. Cells specialize and work together to form tissues and organs."
++    },
++    {
++      "question": "What does the cell membrane do?",
++      "answer": "It forms a selective boundary, helps regulate movement of substances, and carries receptors and other proteins involved in cell communication."
++    },
++    {
++      "question": "Which organelle makes most cellular ATP?",
++      "answer": "Mitochondria produce much of the ATP used by many human cells, although the amount varies by cell type and energy demand."
++    },
++    {
++      "question": "What is the difference between rough and smooth ER?",
++      "answer": "Rough ER has ribosomes and helps make and process many proteins. Smooth ER lacks ribosomes and contributes to lipid synthesis, calcium storage, and other metabolic processes."
++    },
++    {
++      "question": "Do all human cells have a nucleus?",
++      "answer": "No. For example, mature red blood cells lack a nucleus. Most other human cells have one, and some specialized cells can contain multiple nuclei."
++    }
++  ],
++  "references": [
++    {
++      "title": "OpenStax, Anatomy and Physiology 2e, The Cellular Level of Organization",
++      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/4-introduction"
++    },
++    {
++      "title": "National Human Genome Research Institute, Talking Glossary of Genomic and Genetic Terms",
++      "url": "https://www.genome.gov/genetics-glossary"
++    }
++  ],
++  "seoTitle": "Human Cell: Organelles, Structure and Functions | Atlas",
++  "seoDescription": "Explore human cell anatomy: key structures, relationships, and function. Read five FAQs and cited references. For anatomy students. Read the cited sources."
++}
+diff --git a/seo/blogs/cranial-nerves-1-12-guide.json b/seo/blogs/cranial-nerves-1-12-guide.json
+index ea58427..5f1c7e4 100644
+--- a/seo/blogs/cranial-nerves-1-12-guide.json
++++ b/seo/blogs/cranial-nerves-1-12-guide.json
+@@ -175,5 +175,12 @@
+       "question": "What is the difference between trigeminal and facial nerve motor targets?",
+       "answer": "The trigeminal nerve (CN V3) supplies the muscles of mastication (masseter, temporalis, medial and lateral pterygoids), whereas the facial nerve (CN VII) supplies the superficial muscles of facial expression, stapedius, stylohyoid, and posterior belly of digastric."
+     }
++  ],
++  "references": [
++    {
++      "title": "OpenStax, Anatomy and Physiology 2e — The Central Nervous System",
++      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
++    },
++    "Standring, S. (ed.). Gray’s Anatomy: The Anatomical Basis of Clinical Practice — Cranial Nerves."
+   ]
+ }
+diff --git a/seo/blogs/hair-anatomy-complete-guide.json b/seo/blogs/hair-anatomy-complete-guide.json
+new file mode 100644
+index 0000000..ee7d3e4
+--- /dev/null
++++ b/seo/blogs/hair-anatomy-complete-guide.json
+@@ -0,0 +1,99 @@
++{
++  "slug": "hair-anatomy-complete-guide",
++  "title": "Inside a Single Hair: Complete Anatomy Guide",
++  "h1": "Inside a Single Hair: Complete Anatomy Guide",
++  "description": "Have you ever wondered what is actually inside a single hair ? Although a hair strand looks simple from the outside, it is a complex biological structure with multiple layers, a living…",
++  "category": "Integumentary · Hair",
++  "updated": "2026-11-04",
++  "readTime": "6 min read",
++  "relatedOrgan": "skin",
++  "heroImage": "skin.webp",
++  "heroAlt": "Educational anatomy illustration: Inside a Single Hair: Complete Anatomy Guide",
++  "heroCaption": "Digital educational illustration for Inside a Single Hair: Complete Anatomy Guide. This plate is a learning aid, not a clinical photograph.",
++  "takeaways": [
++    "The hair shaft is the portion of the hair that projects above the surface of the skin. It is made of dead, keratinized cells and consists of three concentric layers:",
++    "Below the skin surface, the hair grows from a tunnel-like structure called the hair follicle . This is where the living part of the hair resides.",
++    "Sebaceous gland (oil gland): Attached to the follicle, it secretes sebum to lubricate the hair and skin, keeping them flexible and waterproof."
++  ],
++  "sections": [
++    {
++      "id": "1-the-hair-shaft-visible-part",
++      "heading": "1. The Hair Shaft (Visible Part)",
++      "paragraphs": [
++        "The hair shaft is the portion of the hair that projects above the surface of the skin. It is made of dead, keratinized cells and consists of three concentric layers:"
++      ],
++      "bullets": [
++        "Cuticle: The outermost thin layer made of overlapping, scale-like cells. It protects the inner layers and controls moisture movement.",
++        "Cortex: The middle and thickest layer. It contains bundles of keratin proteins and melanin pigment, which determine hair strength, texture, and color.",
++        "Medulla: The innermost core. It may be absent in fine hairs and is more prominent in thick, coarse hairs."
++      ]
++    },
++    {
++      "id": "2-the-hair-follicle-the-living-anchor",
++      "heading": "2. The Hair Follicle (The Living Anchor)",
++      "paragraphs": [
++        "Below the skin surface, the hair grows from a tunnel-like structure called the hair follicle . This is where the living part of the hair resides.",
++        "Simple cross-section of a hair: Cuticle → Cortex → Medulla (center) Surrounded by: Hair follicle → Hair bulb → Dermal papilla"
++      ],
++      "bullets": [
++        "Hair root: The portion of the hair located within the follicle, beneath the skin surface.",
++        "Hair bulb: The expanded base of the follicle where the hair matrix cells divide rapidly to produce new hair.",
++        "Dermal papilla: A small nipple of connective tissue at the base of the bulb. It contains blood vessels that deliver oxygen and nutrients to the growing hair."
++      ]
++    },
++    {
++      "id": "3-supporting-structures",
++      "heading": "3. Supporting Structures",
++      "bullets": [
++        "Sebaceous gland (oil gland): Attached to the follicle, it secretes sebum to lubricate the hair and skin, keeping them flexible and waterproof.",
++        "Arrector pili muscle: A tiny smooth muscle attached to the follicle. When it contracts (for example, from cold or fear), it pulls the hair upright — producing \"goosebumps.\""
++      ]
++    },
++    {
++      "id": "4-what-gives-hair-its-strength-and-color",
++      "heading": "4. What Gives Hair Its Strength and Color?",
++      "bullets": [
++        "Keratin: A tough, fibrous structural protein that makes up the bulk of the hair shaft, giving it strength and resilience.",
++        "Melanin: The pigment produced by melanocytes in the hair bulb. Eumelanin creates brown/black tones; pheomelanin creates red/yellow tones. As we age, melanin production decreases, leading to gray or white hair."
++      ]
++    },
++    {
++      "id": "5-hair-growth-cycle",
++      "heading": "5. Hair Growth Cycle",
++      "bullets": [
++        "Anagen (growth phase): Cells in the hair bulb divide actively; hair grows ~1 cm per month. Lasts 2–6 years.",
++        "Catagen (transition phase): Growth stops; the follicle shrinks. Lasts ~2–3 weeks.",
++        "Telogen (resting phase): The old hair is shed and a new cycle begins. Lasts ~3 months."
++      ]
++    }
++  ],
++  "questions": [
++    {
++      "question": "Q1. What is inside a single hair shaft?",
++      "answer": "The hair shaft has three layers: cuticle (outer), cortex (middle, with keratin and melanin), and medulla (inner core)."
++    },
++    {
++      "question": "Q2. What protein is hair mainly made of?",
++      "answer": "Hair is mainly made of keratin, a tough fibrous structural protein."
++    },
++    {
++      "question": "Q3. What gives hair its color?",
++      "answer": "Melanin pigment produced by melanocytes in the hair bulb determines hair color."
++    },
++    {
++      "question": "Q4. What is the dermal papilla?",
++      "answer": "The dermal papilla is a connective tissue nipple at the base of the hair bulb that supplies blood and nutrients to growing hair."
++    },
++    {
++      "question": "Q5. What causes goosebumps?",
++      "answer": "Contraction of the arrector pili muscles pulls hairs upright, producing goosebumps."
++    }
++  ],
++  "references": [
++    "Ross, M. H., & Pawlina, W. Histology: A Text and Atlas. Wolters Kluwer — chapters on integumentary system and skin appendages.",
++    "Marieb, E. N., & Hoehn, K. Human Anatomy & Physiology. Pearson — skin and hair follicles.",
++    "Corpus Anatomy Atlas — Integumentary System chapter (corpus-anatomy-atlas.netlify.app)."
++  ],
++  "seoTitle": "Inside a Single Hair: Anatomy and Growth | Corpus Atlas",
++  "seoDescription": "Explore hair anatomy: key structures, relationships, and function. Read five FAQs and cited references. For anatomy learning and review. For classroom use."
++}
+diff --git a/seo/blogs/heart-layers-chambers-conduction.json b/seo/blogs/heart-layers-chambers-conduction.json
+index 1088f8b..b057b1b 100644
+--- a/seo/blogs/heart-layers-chambers-conduction.json
++++ b/seo/blogs/heart-layers-chambers-conduction.json
+@@ -88,5 +88,12 @@
+       "question": "Which layer of the heart wall contains the Purkinje fibres?",
+       "answer": "Purkinje fibres travel within the subendocardial layer (deep part of the endocardium) lining the interventricular septum and ventricular walls."
+     }
++  ],
++  "references": [
++    {
++      "title": "OpenStax, Anatomy and Physiology 2e — Heart Anatomy",
++      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy"
++    },
++    "OpenStax, Anatomy and Physiology 2e — Cardiac Muscle and Electrical Activity."
+   ]
+ }
+diff --git a/seo/blogs/human-brain-anatomy-guide.json b/seo/blogs/human-brain-anatomy-guide.json
+new file mode 100644
+index 0000000..4951e05
+--- /dev/null
++++ b/seo/blogs/human-brain-anatomy-guide.json
+@@ -0,0 +1,118 @@
++{
++  "slug": "human-brain-anatomy-guide",
++  "title": "Human Brain: Lobes, Major Structures & Functions",
++  "h1": "Human Brain: Lobes, Major Structures & Functions",
++  "description": "The human brain is the command center of the nervous system, weighing about 1.4 kg and containing roughly 86 billion neurons. It controls everything from breathing and heartbeat to…",
++  "category": "Nervous · Brain",
++  "updated": "2026-11-04",
++  "readTime": "8 min read",
++  "relatedOrgan": "brain",
++  "heroImage": "brain.webp",
++  "heroAlt": "Educational anatomy illustration: Human Brain: Lobes, Major Structures & Functions",
++  "heroCaption": "Digital educational illustration for Human Brain: Lobes, Major Structures & Functions. This plate is a learning aid, not a clinical photograph.",
++  "takeaways": [
++    "Cerebrum: Largest part; divided into left and right hemispheres; handles conscious thought, memory, sensation, and voluntary movement.",
++    "Key deep structures: • Thalamus — sensory relay station • Hypothalamus — homeostasis, hunger, thirst, body temperature • Hippocampus — memory formation • Amygdala — emotion, fear r",
++    "Meninges: Three protective layers — dura mater (outer), arachnoid mater (middle), pia mater (inner)."
++  ],
++  "sections": [
++    {
++      "id": "1-three-major-divisions",
++      "heading": "1. Three Major Divisions",
++      "bullets": [
++        "Cerebrum: Largest part; divided into left and right hemispheres; handles conscious thought, memory, sensation, and voluntary movement.",
++        "Cerebellum: \"Little brain\" at the back; coordinates balance, posture, and fine motor control.",
++        "Brainstem: Connects brain to spinal cord; includes midbrain, pons, medulla oblongata; controls vital autonomic functions (breathing, heart rate, blood pressure)."
++      ]
++    },
++    {
++      "id": "2-cerebral-lobes-and-functions",
++      "heading": "2. Cerebral Lobes and Functions",
++      "paragraphs": [
++        "Key deep structures: • Thalamus — sensory relay station • Hypothalamus — homeostasis, hunger, thirst, body temperature • Hippocampus — memory formation • Amygdala — emotion, fear response • Basal ganglia — movement coordination"
++      ],
++      "table": {
++        "headers": [
++          "Lobe",
++          "Location",
++          "Primary Functions"
++        ],
++        "rows": [
++          [
++            "Frontal lobe",
++            "Front of cerebrum",
++            "Executive function, planning, decision-making, voluntary movement (motor cortex), speech production (Broca's area)"
++          ],
++          [
++            "Parietal lobe",
++            "Top/back of cerebrum",
++            "Somatosensation (touch, pain, temperature), spatial awareness, language comprehension"
++          ],
++          [
++            "Temporal lobe",
++            "Side of cerebrum",
++            "Hearing, memory (hippocampus), language comprehension (Wernicke's area), smell"
++          ],
++          [
++            "Occipital lobe",
++            "Back of cerebrum",
++            "Visual processing (primary visual cortex)"
++          ],
++          [
++            "Insula (hidden)",
++            "Deep within lateral sulcus",
++            "Taste, interoception, autonomic regulation"
++          ]
++        ]
++      }
++    },
++    {
++      "id": "3-protection-and-support",
++      "heading": "3. Protection and Support",
++      "bullets": [
++        "Meninges: Three protective layers — dura mater (outer), arachnoid mater (middle), pia mater (inner).",
++        "Cerebrospinal fluid (CSF): Cushions the brain; produced in the choroid plexus; circulates in ventricles and subarachnoid space.",
++        "Blood-brain barrier: Selective barrier protecting brain tissue from harmful blood-borne substances."
++      ]
++    },
++    {
++      "id": "4-hemisphere-specialization",
++      "heading": "4. Hemisphere Specialization",
++      "bullets": [
++        "Left hemisphere: Typically dominant for language, logic, analytical tasks, and right-side body control.",
++        "Right hemisphere: Typically involved in spatial ability, facial recognition, music, intuition, and left-side body control.",
++        "Note: Functions are not strictly divided; both hemispheres work together via the corpus callosum."
++      ]
++    }
++  ],
++  "questions": [
++    {
++      "question": "Q1. What are the three major divisions of the brain?",
++      "answer": "Cerebrum, cerebellum, and brainstem."
++    },
++    {
++      "question": "Q2. Which lobe processes vision?",
++      "answer": "The occipital lobe contains the primary visual cortex."
++    },
++    {
++      "question": "Q3. What does the cerebellum do?",
++      "answer": "The cerebellum coordinates balance, posture, and fine motor control."
++    },
++    {
++      "question": "Q4. What is the blood-brain barrier?",
++      "answer": "A selective barrier that protects brain tissue from harmful substances in the blood."
++    },
++    {
++      "question": "Q5. How do the two hemispheres communicate?",
++      "answer": "Via the corpus callosum, a thick band of nerve fibers connecting left and right hemispheres."
++    }
++  ],
++  "references": [
++    "Standring, S. (ed.) Gray's Anatomy: The Anatomical Basis of Clinical Practice. Elsevier — central nervous system.",
++    "Purves, D., et al. Neuroscience. Sinauer Associates — brain structure and function.",
++    "Kandel, E. R., et al. Principles of Neural Science. McGraw-Hill — neural systems.",
++    "Corpus Anatomy Atlas — Nervous System chapter (corpus-anatomy-atlas.netlify.app)."
++  ],
++  "seoTitle": "Brain Lobes, Regions, and Major Functions | Study Guide",
++  "seoDescription": "Explore human brain anatomy: key structures, relationships, and function. Read five FAQs and cited references. For educational context and further reading."
++}
+diff --git a/seo/blogs/human-digestive-system-guide.json b/seo/blogs/human-digestive-system-guide.json
+new file mode 100644
+index 0000000..3f2e91e
+--- /dev/null
++++ b/seo/blogs/human-digestive-system-guide.json
+@@ -0,0 +1,115 @@
++{
++  "slug": "human-digestive-system-guide",
++  "title": "Human Digestive System: Organs, Process & Function",
++  "h1": "Human Digestive System: Organs, Process & Function",
++  "description": "The human digestive system is a continuous tube from mouth to anus, supported by accessory organs (liver, pancreas, gallbladder). Its job is to ingest food, break it down mechanically…",
++  "category": "Digestive · System",
++  "updated": "2026-11-04",
++  "readTime": "7 min read",
++  "relatedOrgan": "gut",
++  "heroImage": "gut.webp",
++  "heroAlt": "Educational anatomy illustration: Human Digestive System: Organs, Process & Function",
++  "heroCaption": "Digital educational illustration for Human Digestive System: Organs, Process & Function. This plate is a learning aid, not a clinical photograph.",
++  "takeaways": [
++    "Digestive path: Mouth → Esophagus → Stomach → Small intestine → Large intestine → Rectum → Anus (Accessory: Liver → Gallbladder → Bile ducts → Duodenum; Pancreas → Pancreatic duct ",
++    "Ingestion: Taking food into the mouth."
++  ],
++  "sections": [
++    {
++      "id": "1-alimentary-canal-gi-tract",
++      "heading": "1. Alimentary Canal (GI Tract)",
++      "table": {
++        "headers": [
++          "Organ",
++          "Function"
++        ],
++        "rows": [
++          [
++            "Mouth",
++            "Mechanical digestion (chewing); chemical digestion begins with salivary amylase."
++          ],
++          [
++            "Pharynx",
++            "Passageway for food and air; triggers swallowing."
++          ],
++          [
++            "Esophagus",
++            "Transports food to stomach via peristalsis."
++          ],
++          [
++            "Stomach",
++            "Churns food; secretes acid and pepsin for protein digestion."
++          ],
++          [
++            "Small intestine",
++            "Major site of digestion and nutrient absorption (duodenum, jejunum, ileum)."
++          ],
++          [
++            "Large intestine",
++            "Absorbs water and electrolytes; forms feces (cecum, colon, rectum, anal canal)."
++          ]
++        ]
++      }
++    },
++    {
++      "id": "2-accessory-digestive-organs",
++      "heading": "2. Accessory Digestive Organs",
++      "paragraphs": [
++        "Digestive path: Mouth → Esophagus → Stomach → Small intestine → Large intestine → Rectum → Anus (Accessory: Liver → Gallbladder → Bile ducts → Duodenum; Pancreas → Pancreatic duct → Duodenum)"
++      ],
++      "bullets": [
++        "Liver: Produces bile; processes nutrients; detoxifies substances.",
++        "Gallbladder: Stores and concentrates bile; releases it into the duodenum.",
++        "Pancreas: Secretes digestive enzymes (amylase, lipase, proteases) and bicarbonate; also has endocrine function (insulin, glucagon)."
++      ]
++    },
++    {
++      "id": "3-the-digestive-process",
++      "heading": "3. The Digestive Process",
++      "bullets": [
++        "Ingestion: Taking food into the mouth.",
++        "Mechanical digestion: Chewing and stomach churning break food into smaller pieces.",
++        "Chemical digestion: Enzymes break down macromolecules (carbs, proteins, fats).",
++        "Absorption: Nutrients pass through the intestinal wall into blood/lymph (mainly in small intestine).",
++        "Defecation: Elimination of indigestible waste."
++      ]
++    },
++    {
++      "id": "4-peristalsis",
++      "heading": "4. Peristalsis",
++      "paragraphs": [
++        "Peristalsis is the wave-like contraction of smooth muscle in the GI wall that pushes food forward, regardless of body position."
++      ]
++    }
++  ],
++  "questions": [
++    {
++      "question": "Q1. What is the alimentary canal?",
++      "answer": "The continuous tube from mouth to anus including mouth, pharynx, esophagus, stomach, small intestine, and large intestine."
++    },
++    {
++      "question": "Q2. Where does most nutrient absorption occur?",
++      "answer": "In the small intestine, especially the jejunum and ileum."
++    },
++    {
++      "question": "Q3. What does the liver produce for digestion?",
++      "answer": "The liver produces bile, which emulsifies fats."
++    },
++    {
++      "question": "Q4. What is peristalsis?",
++      "answer": "Wave-like contractions of smooth muscle that push food through the digestive tract."
++    },
++    {
++      "question": "Q5. What are accessory digestive organs?",
++      "answer": "The liver, gallbladder, and pancreas — they aid digestion but food does not pass through them."
++    }
++  ],
++  "references": [
++    "Standring, S. (ed.) Gray's Anatomy: The Anatomical Basis of Clinical Practice. Elsevier — digestive system.",
++    "Moore, K. L., et al. Clinically Oriented Anatomy. Wolters Kluwer — abdomen and GI tract.",
++    "Marieb, E. N., & Hoehn, K. Human Anatomy & Physiology. Pearson — digestive system.",
++    "Corpus Anatomy Atlas — Digestive System chapter (corpus-anatomy-atlas.netlify.app)."
++  ],
++  "seoTitle": "Digestive System: Organs, Process, and Function | Atlas",
++  "seoDescription": "Explore human digestive system: key structures, relationships, and function. Read five FAQs and cited references. Continue learning with the cited sources."
++}
+diff --git a/seo/blogs/human-eye-anatomy-guide.json b/seo/blogs/human-eye-anatomy-guide.json
+new file mode 100644
+index 0000000..b46ca0e
+--- /dev/null
++++ b/seo/blogs/human-eye-anatomy-guide.json
+@@ -0,0 +1,117 @@
++{
++  "slug": "human-eye-anatomy-guide",
++  "title": "Human Eye: Anatomy, Layers & How We See",
++  "h1": "Human Eye: Anatomy, Layers & How We See",
++  "description": "The human eye is a sophisticated optical organ that converts light into neural signals, enabling vision. Often called the \"camera of the body,\" it focuses light onto the retina, where…",
++  "category": "Sensory · Eye",
++  "updated": "2026-11-04",
++  "readTime": "6 min read",
++  "relatedOrgan": "eye",
++  "heroImage": "eye.webp",
++  "heroAlt": "Educational anatomy illustration: Human Eye: Anatomy, Layers & How We See",
++  "heroCaption": "Digital educational illustration for Human Eye: Anatomy, Layers & How We See. This plate is a learning aid, not a clinical photograph.",
++  "takeaways": [
++    "Light path through the eye: Cornea → Aqueous humor → Pupil → Lens → Vitreous humor → Retina → Optic nerve → Brain",
++    "Rods (~120 million): Sensitive to low light; black-and-white vision; night vision."
++  ],
++  "sections": [
++    {
++      "id": "1-three-layers-of-the-eyeball",
++      "heading": "1. Three Layers of the Eyeball",
++      "table": {
++        "headers": [
++          "Layer",
++          "Name",
++          "Key Structures",
++          "Function"
++        ],
++        "rows": [
++          [
++            "Outer (fibrous)",
++            "Tunica fibrosa",
++            "Cornea, sclera",
++            "Protection and shape; cornea refracts light"
++          ],
++          [
++            "Middle (vascular)",
++            "Tunica vasculosa (uvea)",
++            "Iris, ciliary body, choroid",
++            "Blood supply; iris controls pupil size"
++          ],
++          [
++            "Inner (nervous)",
++            "Tunica interna (retina)",
++            "Photoreceptors, bipolar cells, ganglion cells",
++            "Converts light to neural signals"
++          ]
++        ]
++      }
++    },
++    {
++      "id": "2-key-internal-structures",
++      "heading": "2. Key Internal Structures",
++      "paragraphs": [
++        "Light path through the eye: Cornea → Aqueous humor → Pupil → Lens → Vitreous humor → Retina → Optic nerve → Brain"
++      ],
++      "bullets": [
++        "Cornea: Transparent front surface; does ~2/3 of light refraction.",
++        "Iris: Colored part; adjusts pupil diameter to control light entry.",
++        "Pupil: Central opening; lets light into the eye.",
++        "Lens: Fine-focuses light onto the retina; changes shape via ciliary muscles (accommodation).",
++        "Vitreous humor: Gel-like substance filling the main cavity; maintains shape.",
++        "Retina: Contains rods (dim light) and cones (color, detail).",
++        "Macula & fovea: Central retina for sharp, detailed vision.",
++        "Optic nerve (CN II): Carries visual signals to the brain.",
++        "Blind spot: Where the optic nerve exits; no photoreceptors."
++      ]
++    },
++    {
++      "id": "3-photoreceptors-rods-and-cones",
++      "heading": "3. Photoreceptors: Rods and Cones",
++      "bullets": [
++        "Rods (~120 million): Sensitive to low light; black-and-white vision; night vision.",
++        "Cones (~6 million): Sensitive to bright light and color; three types — S (blue), M (green), L (red)."
++      ]
++    },
++    {
++      "id": "4-common-refractive-errors",
++      "heading": "4. Common Refractive Errors",
++      "bullets": [
++        "Myopia (nearsightedness): Image focuses in front of retina; corrected with concave lenses.",
++        "Hyperopia (farsightedness): Image focuses behind retina; corrected with convex lenses.",
++        "Astigmatism: Irregular cornea/lens curvature; distorted vision.",
++        "Presbyopia: Age-related loss of lens flexibility; difficulty focusing near objects."
++      ]
++    }
++  ],
++  "questions": [
++    {
++      "question": "Q1. What are the three layers of the eyeball?",
++      "answer": "Outer fibrous layer (cornea, sclera), middle vascular layer/uvea (iris, ciliary body, choroid), and inner nervous layer (retina)."
++    },
++    {
++      "question": "Q2. What is the function of the iris?",
++      "answer": "The iris controls the size of the pupil, regulating how much light enters the eye."
++    },
++    {
++      "question": "Q3. What are rods and cones?",
++      "answer": "Rods detect dim light (black-and-white); cones detect color and detail in bright light."
++    },
++    {
++      "question": "Q4. Where is the blind spot?",
++      "answer": "At the point where the optic nerve exits the retina — there are no photoreceptors there."
++    },
++    {
++      "question": "Q5. What causes myopia?",
++      "answer": "Myopia (nearsightedness) occurs when the image focuses in front of the retina instead of on it."
++    }
++  ],
++  "references": [
++    "Standring, S. (ed.) Gray's Anatomy: The Anatomical Basis of Clinical Practice. Elsevier — eye and orbit.",
++    "Marieb, E. N., & Hoehn, K. Human Anatomy & Physiology. Pearson — special senses: vision.",
++    "Kaufman, P. L., & Alm, A. Adler's Physiology of the Eye. Elsevier — ocular anatomy and physiology.",
++    "Corpus Anatomy Atlas — Sensory System chapter (corpus-anatomy-atlas.netlify.app)."
++  ],
++  "seoTitle": "Human Eye: Anatomy, Layers, Vision and Pathways | Atlas",
++  "seoDescription": "Explore human eye anatomy: key structures, relationships, and function. Read five FAQs and cited references. Content is educational and not medical advice."
++}
+diff --git a/seo/blogs/human-kidney-urinary-guide.json b/seo/blogs/human-kidney-urinary-guide.json
+new file mode 100644
+index 0000000..63e3d30
+--- /dev/null
++++ b/seo/blogs/human-kidney-urinary-guide.json
+@@ -0,0 +1,98 @@
++{
++  "slug": "human-kidney-urinary-guide",
++  "title": "Human Kidney: Structure, Nephron & the Urinary System",
++  "h1": "Human Kidney: Structure, Nephron & the Urinary System",
++  "description": "The human kidneys are bean-shaped organs, about the size of a fist, located retroperitoneally on either side of the spine. Their primary role is to filter blood, remove waste products,…",
++  "category": "Urinary · Kidney",
++  "updated": "2026-11-04",
++  "readTime": "7 min read",
++  "relatedOrgan": "kidney",
++  "heroImage": "kidney.webp",
++  "heroAlt": "Educational anatomy illustration: Human Kidney: Structure, Nephron & the Urinary System",
++  "heroCaption": "Digital educational illustration for Human Kidney: Structure, Nephron & the Urinary System. This plate is a learning aid, not a clinical photograph.",
++  "takeaways": [
++    "Renal capsule: Tough fibrous layer covering the kidney.",
++    "Each kidney contains about 1 million nephrons . A nephron is the microscopic structure that performs filtration:",
++    "Kidneys (2): Produce urine."
++  ],
++  "sections": [
++    {
++      "id": "1-external-kidney-anatomy",
++      "heading": "1. External Kidney Anatomy",
++      "bullets": [
++        "Renal capsule: Tough fibrous layer covering the kidney.",
++        "Renal cortex: Outer region; contains glomeruli and convoluted tubules.",
++        "Renal medulla: Inner region with renal pyramids.",
++        "Renal pelvis: Funnel-shaped structure that collects urine before it enters the ureter.",
++        "Hilum: Entry/exit point for renal artery, renal vein, ureter, and nerves."
++      ]
++    },
++    {
++      "id": "2-the-nephron-functional-unit",
++      "heading": "2. The Nephron: Functional Unit",
++      "paragraphs": [
++        "Each kidney contains about 1 million nephrons . A nephron is the microscopic structure that performs filtration:",
++        "Filtration path: Blood → Glomerulus → Bowman's capsule → PCT → Loop of Henle → DCT → Collecting duct → Renal pelvis → Ureter"
++      ],
++      "bullets": [
++        "Renal corpuscle: Glomerulus (capillary ball) + Bowman's capsule.",
++        "Proximal convoluted tubule (PCT): Reabsorbs most water, glucose, and ions.",
++        "Loop of Henle: Concentrates urine; creates medullary osmotic gradient.",
++        "Distal convoluted tubule (DCT): Fine-tunes ion balance under hormonal control.",
++        "Collecting duct: Collects urine from multiple nephrons; carries it to the renal pelvis."
++      ]
++    },
++    {
++      "id": "3-urinary-pathway",
++      "heading": "3. Urinary Pathway",
++      "bullets": [
++        "Kidneys (2): Produce urine.",
++        "Ureters (2): Tubes carrying urine from kidneys to bladder.",
++        "Urinary bladder: Stores urine.",
++        "Urethra: Expels urine from the body."
++      ]
++    },
++    {
++      "id": "4-key-kidney-functions",
++      "heading": "4. Key Kidney Functions",
++      "bullets": [
++        "Filter ~180 liters of blood daily.",
++        "Regulate blood pressure via the renin-angiotensin system.",
++        "Maintain electrolyte balance (sodium, potassium, calcium).",
++        "Regulate blood pH.",
++        "Produce erythropoietin (stimulates red blood cell production).",
++        "Activate vitamin D for calcium absorption."
++      ]
++    }
++  ],
++  "questions": [
++    {
++      "question": "Q1. How many nephrons are in each kidney?",
++      "answer": "About 1 million nephrons per kidney."
++    },
++    {
++      "question": "Q2. Where does blood filtration occur in the kidney?",
++      "answer": "In the renal corpuscle — the glomerulus and Bowman's capsule."
++    },
++    {
++      "question": "Q3. What is the order of the urinary pathway?",
++      "answer": "Kidneys → ureters → urinary bladder → urethra."
++    },
++    {
++      "question": "Q4. What does the loop of Henle do?",
++      "answer": "It concentrates urine and creates the medullary osmotic gradient for water reabsorption."
++    },
++    {
++      "question": "Q5. What hormone do kidneys produce for red blood cells?",
++      "answer": "Erythropoietin stimulates red blood cell production in the bone marrow."
++    }
++  ],
++  "references": [
++    "Standring, S. (ed.) Gray's Anatomy: The Anatomical Basis of Clinical Practice. Elsevier — urinary system.",
++    "Hall, J. E. Guyton and Hall Textbook of Medical Physiology. Elsevier — renal physiology.",
++    "Moore, K. L., et al. Clinically Oriented Anatomy. Wolters Kluwer — retroperitoneal organs.",
++    "Corpus Anatomy Atlas — Urinary System chapter (corpus-anatomy-atlas.netlify.app)."
++  ],
++  "seoTitle": "Kidney Anatomy: Nephrons, Filtration and Urine | Corpus",
++  "seoDescription": "Explore kidney and urinary anatomy: key structures, relationships, and function. Read five FAQs and cited references. Explore related anatomy in the atlas."
++}
+diff --git a/seo/blogs/human-lungs-respiratory-guide.json b/seo/blogs/human-lungs-respiratory-guide.json
+new file mode 100644
+index 0000000..d2d004b
+--- /dev/null
++++ b/seo/blogs/human-lungs-respiratory-guide.json
+@@ -0,0 +1,116 @@
++{
++  "slug": "human-lungs-respiratory-guide",
++  "title": "Human Lungs: Structure, Airways & How Breathing Works",
++  "h1": "Human Lungs: Structure, Airways & How Breathing Works",
++  "description": "The human lungs are the primary organs of the respiratory system. They take in oxygen from the air and expel carbon dioxide — a process called gas exchange. An average adult takes about…",
++  "category": "Respiratory · Lungs",
++  "updated": "2026-11-04",
++  "readTime": "7 min read",
++  "relatedOrgan": "lungs",
++  "heroImage": "lungs.webp",
++  "heroAlt": "Educational anatomy illustration: Human Lungs: Structure, Airways & How Breathing Works",
++  "heroCaption": "Digital educational illustration for Human Lungs: Structure, Airways & How Breathing Works. This plate is a learning aid, not a clinical photograph.",
++  "takeaways": [
++    "Right lung: Larger; divided into 3 lobes (upper, middle, lower).",
++    "Air travels through a branching system before reaching the gas-exchange surface:",
++    "Approximately 300–500 million alveoli in both lungs combined."
++  ],
++  "sections": [
++    {
++      "id": "1-lung-anatomy-right-vs-left",
++      "heading": "1. Lung Anatomy: Right vs Left",
++      "bullets": [
++        "Right lung: Larger; divided into 3 lobes (upper, middle, lower).",
++        "Left lung: Slightly smaller (to make room for the heart); divided into 2 lobes (upper, lower).",
++        "Pleura: Double-layered membrane surrounding each lung; pleural fluid reduces friction during breathing.",
++        "Hilum: The central region where bronchi, blood vessels, nerves, and lymphatics enter and exit."
++      ]
++    },
++    {
++      "id": "2-the-airway-tree-conducting-zone",
++      "heading": "2. The Airway Tree (Conducting Zone)",
++      "paragraphs": [
++        "Air travels through a branching system before reaching the gas-exchange surface:",
++        "Air path: Nose → Pharynx → Larynx → Trachea → Right/Left Bronchi → Bronchioles → Alveoli"
++      ],
++      "bullets": [
++        "Nose/Nasal cavity → Pharynx → Larynx → Trachea → Bronchi → Bronchioles → Terminal bronchioles",
++        "The trachea splits into the right and left primary bronchi at the carina.",
++        "Bronchi further divide into smaller bronchioles, ending in terminal bronchioles."
++      ]
++    },
++    {
++      "id": "3-alveoli-the-gas-exchange-surface",
++      "heading": "3. Alveoli: The Gas-Exchange Surface",
++      "bullets": [
++        "Approximately 300–500 million alveoli in both lungs combined.",
++        "Alveoli are tiny air sacs surrounded by capillaries — the site where oxygen enters the blood and CO₂ leaves.",
++        "Type I pneumocytes: Thin cells forming the gas-exchange barrier.",
++        "Type II pneumocytes: Produce pulmonary surfactant, which prevents alveolar collapse."
++      ]
++    },
++    {
++      "id": "4-breathing-mechanics",
++      "heading": "4. Breathing Mechanics",
++      "bullets": [
++        "Inhalation (inspiration): Diaphragm contracts and flattens; intercostal muscles lift ribs; chest volume increases; pressure drops; air rushes in.",
++        "Exhalation (expiration): Diaphragm relaxes; chest volume decreases; pressure rises; air is pushed out.",
++        "Diaphragm: Dome-shaped muscle at the base of the thorax; the main muscle of breathing."
++      ]
++    },
++    {
++      "id": "5-lung-volumes-capacities",
++      "heading": "5. Lung Volumes & Capacities",
++      "table": {
++        "headers": [
++          "Term",
++          "Meaning"
++        ],
++        "rows": [
++          [
++            "Tidal volume",
++            "Air inhaled/exhaled in a normal breath (~500 mL)"
++          ],
++          [
++            "Vital capacity",
++            "Maximum air exhaled after maximum inhalation (~3,500–4,500 mL)"
++          ],
++          [
++            "Residual volume",
++            "Air remaining after maximum exhalation (~1,200 mL)"
++          ]
++        ]
++      }
++    }
++  ],
++  "questions": [
++    {
++      "question": "Q1. How many lobes does each lung have?",
++      "answer": "Right lung: 3 lobes. Left lung: 2 lobes."
++    },
++    {
++      "question": "Q2. Where does gas exchange occur?",
++      "answer": "In the alveoli — tiny air sacs surrounded by capillaries."
++    },
++    {
++      "question": "Q3. What is the main muscle of breathing?",
++      "answer": "The diaphragm — it contracts and flattens during inhalation."
++    },
++    {
++      "question": "Q4. What does surfactant do?",
++      "answer": "Pulmonary surfactant (from Type II pneumocytes) reduces surface tension and prevents alveolar collapse."
++    },
++    {
++      "question": "Q5. What is tidal volume?",
++      "answer": "The volume of air inhaled or exhaled in a normal breath, about 500 mL."
++    }
++  ],
++  "references": [
++    "Standring, S. (ed.) Gray's Anatomy: The Anatomical Basis of Clinical Practice. Elsevier — respiratory system.",
++    "West, J. B. Respiratory Physiology: The Essentials. Wolters Kluwer — lung function and mechanics.",
++    "Moore, K. L., et al. Clinically Oriented Anatomy. Wolters Kluwer — thorax and lungs.",
++    "Corpus Anatomy Atlas — Respiratory System chapter (corpus-anatomy-atlas.netlify.app)."
++  ],
++  "seoTitle": "Human Lungs: Structure, Airways and Breathing | Anatomy",
++  "seoDescription": "Explore lung and respiratory anatomy: key structures, relationships, and function. Read five FAQs and cited references. For students and anatomy educators."
++}
+diff --git a/seo/blogs/human-muscular-system-guide.json b/seo/blogs/human-muscular-system-guide.json
+new file mode 100644
+index 0000000..6e6a69d
+--- /dev/null
++++ b/seo/blogs/human-muscular-system-guide.json
+@@ -0,0 +1,127 @@
++{
++  "slug": "human-muscular-system-guide",
++  "title": "Human Muscular System: Types, Function & How Muscles Contract",
++  "h1": "Human Muscular System: Types, Function & How Muscles Contract",
++  "description": "The human muscular system consists of over 600 muscles that enable movement, maintain posture, stabilize joints, and generate heat. Muscles are made of specialized contractile cells…",
++  "category": "Muscular · Movement",
++  "updated": "2026-11-04",
++  "readTime": "7 min read",
++  "relatedOrgan": "muscle",
++  "heroImage": "muscle.webp",
++  "heroAlt": "Educational anatomy illustration: Human Muscular System: Types, Function & How Muscles Contract",
++  "heroCaption": "Digital educational illustration for Human Muscular System: Types, Function & How Muscles Contract. This plate is a learning aid, not a clinical photograph.",
++  "takeaways": [
++    "Organization: Muscle → Fascicles → Muscle fibers → Myofibrils → Sarcomeres",
++    "Muscle contraction occurs when thin (actin) filaments slide over thick (myosin) filaments, shortening the sarcomere:"
++  ],
++  "sections": [
++    {
++      "id": "1-three-types-of-muscle-tissue",
++      "heading": "1. Three Types of Muscle Tissue",
++      "table": {
++        "headers": [
++          "Type",
++          "Control",
++          "Location",
++          "Function"
++        ],
++        "rows": [
++          [
++            "Skeletal",
++            "Voluntary",
++            "Attached to bones",
++            "Body movement, posture, heat production"
++          ],
++          [
++            "Smooth",
++            "Involuntary",
++            "Hollow organs (stomach, intestines, blood vessels)",
++            "Propels substances; regulates flow"
++          ],
++          [
++            "Cardiac",
++            "Involuntary",
++            "Heart wall (myocardium)",
++            "Pumps blood"
++          ]
++        ]
++      }
++    },
++    {
++      "id": "2-skeletal-muscle-structure",
++      "heading": "2. Skeletal Muscle Structure",
++      "paragraphs": [
++        "Organization: Muscle → Fascicles → Muscle fibers → Myofibrils → Sarcomeres"
++      ],
++      "bullets": [
++        "Epimysium: Outer connective tissue sheath around the whole muscle.",
++        "Fascicle: Bundle of muscle fibers.",
++        "Muscle fiber (cell): Long, multinucleated cell containing myofibrils.",
++        "Sarcomere: The basic contractile unit between two Z-lines; gives skeletal muscle its striped (striated) appearance."
++      ]
++    },
++    {
++      "id": "3-sliding-filament-theory-contraction",
++      "heading": "3. Sliding Filament Theory (Contraction)",
++      "paragraphs": [
++        "Muscle contraction occurs when thin (actin) filaments slide over thick (myosin) filaments, shortening the sarcomere:"
++      ],
++      "bullets": [
++        "Motor neuron releases acetylcholine at the neuromuscular junction.",
++        "Action potential travels along the muscle fiber and into the T-tubules.",
++        "Calcium is released from the sarcoplasmic reticulum.",
++        "Calcium binds troponin, exposing myosin-binding sites on actin.",
++        "Myosin heads bind actin, pull (power stroke), and detach using ATP.",
++        "When calcium is pumped back, the muscle relaxes."
++      ]
++    },
++    {
++      "id": "4-major-muscle-groups",
++      "heading": "4. Major Muscle Groups",
++      "bullets": [
++        "Head and neck: Temporalis, masseter (chewing), sternocleidomastoid (neck movement).",
++        "Trunk: Rectus abdominis (\"abs\"), erector spinae (back extension), diaphragm (breathing).",
++        "Upper limb: Biceps brachii, triceps brachii, deltoid, pectoralis major.",
++        "Lower limb: Gluteus maximus, quadriceps, hamstrings, gastrocnemius (calf)."
++      ]
++    },
++    {
++      "id": "5-origins-and-insertions",
++      "heading": "5. Origins and Insertions",
++      "bullets": [
++        "Origin: The relatively fixed attachment point of a muscle.",
++        "Insertion: The attachment that moves when the muscle contracts."
++      ]
++    }
++  ],
++  "questions": [
++    {
++      "question": "Q1. How many muscles are in the human body?",
++      "answer": "Over 600 muscles make up the human muscular system."
++    },
++    {
++      "question": "Q2. What are the three types of muscle tissue?",
++      "answer": "Skeletal (voluntary), smooth (involuntary), and cardiac (involuntary, heart only)."
++    },
++    {
++      "question": "Q3. What is a sarcomere?",
++      "answer": "The basic contractile unit of a muscle fiber, between two Z-lines."
++    },
++    {
++      "question": "Q4. What is the sliding filament theory?",
++      "answer": "It explains that actin filaments slide over myosin filaments during muscle contraction, shortening the sarcomere."
++    },
++    {
++      "question": "Q5. What is the difference between origin and insertion?",
++      "answer": "Origin is the fixed attachment; insertion is the attachment that moves when the muscle contracts."
++    }
++  ],
++  "references": [
++    "Standring, S. (ed.) Gray's Anatomy: The Anatomical Basis of Clinical Practice. Elsevier — muscular system.",
++    "Moore, K. L., et al. Clinically Oriented Anatomy. Wolters Kluwer — muscles and movement.",
++    "Marieb, E. N., & Hoehn, K. Human Anatomy & Physiology. Pearson — muscular system and contraction.",
++    "Corpus Anatomy Atlas — Muscular System chapter (corpus-anatomy-atlas.netlify.app)."
++  ],
++  "seoTitle": "Muscular System: Types and Muscle Function | Body Atlas",
++  "seoDescription": "Explore human muscular system: key structures, relationships, and function. Read five FAQs and cited references. For classroom use. Read the cited sources."
++}
+diff --git a/seo/blogs/human-skeleton-complete-guide.json b/seo/blogs/human-skeleton-complete-guide.json
+new file mode 100644
+index 0000000..f13d7a7
+--- /dev/null
++++ b/seo/blogs/human-skeleton-complete-guide.json
+@@ -0,0 +1,124 @@
++{
++  "slug": "human-skeleton-complete-guide",
++  "title": "Human Skeleton: 206 Bones, Axial & Appendicular Divisions",
++  "h1": "Human Skeleton: 206 Bones, Axial & Appendicular Divisions",
++  "description": "The adult human skeleton consists of 206 named bones that provide structure, protect organs, enable movement, produce blood cells, and store minerals. The skeleton is divided into two…",
++  "category": "Skeletal · Bones",
++  "updated": "2026-11-04",
++  "readTime": "7 min read",
++  "relatedOrgan": "skeleton",
++  "heroImage": "skeleton.webp",
++  "heroAlt": "Educational anatomy illustration: Human Skeleton: 206 Bones, Axial & Appendicular Divisions",
++  "heroCaption": "Digital educational illustration for Human Skeleton: 206 Bones, Axial & Appendicular Divisions. This plate is a learning aid, not a clinical photograph.",
++  "takeaways": [
++    "The axial skeleton forms the central axis of the body:",
++    "The appendicular skeleton includes the limbs and their girdles:"
++  ],
++  "sections": [
++    {
++      "id": "1-axial-skeleton-80-bones",
++      "heading": "1. Axial Skeleton (80 bones)",
++      "paragraphs": [
++        "The axial skeleton forms the central axis of the body:"
++      ],
++      "bullets": [
++        "Skull (22 bones): 8 cranial bones (frontal, parietal x2, temporal x2, occipital, sphenoid, ethmoid) + 14 facial bones (maxilla x2, zygomatic x2, mandible, nasal x2, etc.)",
++        "Vertebral column (26 bones): 7 cervical, 12 thoracic, 5 lumbar, 1 sacrum (5 fused), 1 coccyx (4 fused)",
++        "Thoracic cage (25 bones): Sternum (1) + 24 ribs (12 pairs)",
++        "Auditory ossicles (6): Malleus, incus, stapes (2 in each ear)",
++        "Hyoid bone (1): U-shaped bone in the neck supporting the tongue"
++      ]
++    },
++    {
++      "id": "2-appendicular-skeleton-126-bones",
++      "heading": "2. Appendicular Skeleton (126 bones)",
++      "paragraphs": [
++        "The appendicular skeleton includes the limbs and their girdles:",
++        "Quick count: Axial: 80 · Appendicular: 126 · Total adult: 206 bones (Infants are born with ~270 bones; many fuse during growth.)"
++      ],
++      "bullets": [
++        "Pectoral girdle (4 bones): Clavicle (2) + scapula (2)",
++        "Upper limbs (60 bones): Humerus, radius, ulna, carpals (8), metacarpals (5), phalanges (14) — per arm",
++        "Pelvic girdle (2 bones): Hip bones (ossa coxae, 2)",
++        "Lower limbs (60 bones): Femur, patella, tibia, fibula, tarsals (7), metatarsals (5), phalanges (14) — per leg"
++      ]
++    },
++    {
++      "id": "3-bone-classification-by-shape",
++      "heading": "3. Bone Classification by Shape",
++      "table": {
++        "headers": [
++          "Type",
++          "Description",
++          "Examples"
++        ],
++        "rows": [
++          [
++            "Long bones",
++            "Longer than wide; designed for movement",
++            "Femur, humerus, phalanges"
++          ],
++          [
++            "Short bones",
++            "Cube-shaped; provide stability",
++            "Carpals, tarsals"
++          ],
++          [
++            "Flat bones",
++            "Thin, flattened; protect organs",
++            "Skull bones, sternum, ribs"
++          ],
++          [
++            "Irregular bones",
++            "Complex shapes; varied function",
++            "Vertebrae, sacrum, mandible"
++          ],
++          [
++            "Sesamoid bones",
++            "Embedded in tendons; reduce friction",
++            "Patella (kneecap)"
++          ]
++        ]
++      }
++    },
++    {
++      "id": "4-joints-articulations",
++      "heading": "4. Joints (Articulations)",
++      "bullets": [
++        "Fibrous joints (immovable): Sutures of the skull",
++        "Cartilaginous joints (slightly movable): Intervertebral discs, pubic symphysis",
++        "Synovial joints (freely movable): Hinge (elbow, knee), ball-and-socket (shoulder, hip), pivot (atlanto-axial), gliding (carpals)"
++      ]
++    }
++  ],
++  "questions": [
++    {
++      "question": "Q1. How many bones are in the adult human body?",
++      "answer": "206 named bones in the adult skeleton."
++    },
++    {
++      "question": "Q2. What is the axial skeleton?",
++      "answer": "The axial skeleton (80 bones) includes the skull, vertebral column, and thoracic cage — the central axis."
++    },
++    {
++      "question": "Q3. What is the appendicular skeleton?",
++      "answer": "The appendicular skeleton (126 bones) includes the limbs and their girdles (pectoral and pelvic)."
++    },
++    {
++      "question": "Q4. Which bone is the kneecap?",
++      "answer": "The patella is a sesamoid bone in the knee tendon."
++    },
++    {
++      "question": "Q5. What are the three types of joints by movement?",
++      "answer": "Fibrous (immovable), cartilaginous (slightly movable), and synovial (freely movable)."
++    }
++  ],
++  "references": [
++    "Standring, S. (ed.) Gray's Anatomy: The Anatomical Basis of Clinical Practice. Elsevier — skeletal system.",
++    "Moore, K. L., et al. Clinically Oriented Anatomy. Wolters Kluwer — bones and joints.",
++    "Marieb, E. N., & Hoehn, K. Human Anatomy & Physiology. Pearson — bone classification and joints.",
++    "Corpus Anatomy Atlas — Skeletal System chapter (corpus-anatomy-atlas.netlify.app)."
++  ],
++  "seoTitle": "Human Skeleton: 206 Bones, Axial & Appendicular | Atlas",
++  "seoDescription": "Explore human skeletal anatomy: key structures, relationships, and function. Read five FAQs and cited references. Continue learning with the cited sources."
++}
+diff --git a/seo/blogs/human-skin-integumentary-guide.json b/seo/blogs/human-skin-integumentary-guide.json
+new file mode 100644
+index 0000000..e3fb81b
+--- /dev/null
++++ b/seo/blogs/human-skin-integumentary-guide.json
+@@ -0,0 +1,119 @@
++{
++  "slug": "human-skin-integumentary-guide",
++  "title": "Human Skin: Layers, Appendages & Functions",
++  "h1": "Human Skin: Layers, Appendages & Functions",
++  "description": "The skin is the largest organ of the human body, covering about 2 square meters and weighing roughly 3–4 kg. It forms the integumentary system along with hair, nails, and glands. The…",
++  "category": "Integumentary · Skin",
++  "updated": "2026-11-04",
++  "readTime": "7 min read",
++  "relatedOrgan": "skin",
++  "heroImage": "skin.webp",
++  "heroAlt": "Educational anatomy illustration: Human Skin: Layers, Appendages & Functions",
++  "heroCaption": "Digital educational illustration for Human Skin: Layers, Appendages & Functions. This plate is a learning aid, not a clinical photograph.",
++  "takeaways": [
++    "Skin cross-section: Epidermis → Dermis → Hypodermis Appendages: Hair follicle, sweat gland, sebaceous gland, nail",
++    "Hair follicles: Produce hair; associated with arrector pili muscle and sebaceous glands."
++  ],
++  "sections": [
++    {
++      "id": "1-three-layers-of-the-skin",
++      "heading": "1. Three Layers of the Skin",
++      "table": {
++        "headers": [
++          "Layer",
++          "Composition",
++          "Key Features"
++        ],
++        "rows": [
++          [
++            "Epidermis",
++            "Keratinized stratified squamous epithelium (no blood vessels)",
++            "Keratinocytes, melanocytes, Langerhans cells, Merkel cells; stratified into strata (basale, spinosum, granulosum, licidum, corneum)"
++          ],
++          [
++            "Dermis",
++            "Dense irregular connective tissue",
++            "Blood vessels, nerves, hair follicles, sweat glands, sebaceous glands, collagen and elastin fibers"
++          ],
++          [
++            "Hypodermis (subcutaneous)",
++            "Loose connective tissue and adipose (fat)",
++            "Insulation, energy storage, cushioning; anchors skin to underlying tissue"
++          ]
++        ]
++      }
++    },
++    {
++      "id": "2-epidermal-layers-deep-to-superficial",
++      "heading": "2. Epidermal Layers (Deep to Superficial)",
++      "paragraphs": [
++        "Skin cross-section: Epidermis → Dermis → Hypodermis Appendages: Hair follicle, sweat gland, sebaceous gland, nail"
++      ],
++      "bullets": [
++        "Stratum basale: Deepest; where keratinocytes divide.",
++        "Stratum spinosum: \"Spiny\" layer; immune function via Langerhans cells.",
++        "Stratum granulosum: Keratohyalin granules; waterproofing begins.",
++        "Stratum lucidum: Thin clear layer (only in thick skin like palms/soles).",
++        "Stratum corneum: Outermost; dead, keratinized cells that shed continuously."
++      ]
++    },
++    {
++      "id": "3-skin-appendages",
++      "heading": "3. Skin Appendages",
++      "bullets": [
++        "Hair follicles: Produce hair; associated with arrector pili muscle and sebaceous glands.",
++        "Sebaceous glands: Secrete sebum (oil) to lubricate hair and skin.",
++        "Sweat glands (sudoriferous): Eccrine (cooling, all over body) and apocrine (armpits/groin, activated at puberty).",
++        "Nails: Hard keratin plates protecting fingertips and toes."
++      ]
++    },
++    {
++      "id": "4-key-skin-functions",
++      "heading": "4. Key Skin Functions",
++      "bullets": [
++        "Protection: Barrier against microbes, UV radiation, and physical injury.",
++        "Thermoregulation: Sweat cools the body; blood vessels dilate or constrict.",
++        "Sensation: Touch, pain, temperature, pressure via cutaneous receptors.",
++        "Vitamin D synthesis: UVB radiation converts 7-dehydrocholesterol to vitamin D precursor.",
++        "Excretion: Small amounts of salts and urea lost in sweat."
++      ]
++    },
++    {
++      "id": "5-melanin-and-skin-color",
++      "heading": "5. Melanin and Skin Color",
++      "paragraphs": [
++        "Melanin is produced by melanocytes in the stratum basale. It protects DNA from UV damage. Everyone has roughly the same number of melanocytes; differences in skin color reflect the amount and type of melanin produced, not the number of cells."
++      ]
++    }
++  ],
++  "questions": [
++    {
++      "question": "Q1. What is the largest organ of the human body?",
++      "answer": "The skin is the largest organ."
++    },
++    {
++      "question": "Q2. What are the three layers of the skin?",
++      "answer": "Epidermis (outer), dermis (middle), and hypodermis/subcutaneous (inner)."
++    },
++    {
++      "question": "Q3. What produces melanin?",
++      "answer": "Melanocytes in the stratum basale of the epidermis produce melanin."
++    },
++    {
++      "question": "Q4. What is the difference between eccrine and apocrine sweat glands?",
++      "answer": "Eccrine glands cool the body and are widespread; apocrine glands are in armpits/groin and activate at puberty."
++    },
++    {
++      "question": "Q5. How does skin synthesize vitamin D?",
++      "answer": "UVB radiation converts 7-dehydrocholesterol in the skin to a vitamin D precursor."
++    }
++  ],
++  "references": [
++    "Standring, S. (ed.) Gray's Anatomy: The Anatomical Basis of Clinical Practice. Elsevier — integumentary system.",
++    "Marieb, E. N., & Hoehn, K. Human Anatomy & Physiology. Pearson — integumentary system.",
++    "Bolognia, J. L., et al. Dermatology. Elsevier — skin structure and disease.",
++    "Corpus Anatomy Atlas — Integumentary System chapter (corpus-anatomy-atlas.netlify.app)."
++  ],
++  "seoTitle": "Skin Anatomy: Layers, Hair, Glands and Function | Atlas",
++  "seoDescription": "Explore human skin anatomy: key structures, relationships, and function. Read five FAQs and cited references. For anatomy students. Read the cited sources."
++}
+diff --git a/seo/blogs/liver-anatomy-guide.json b/seo/blogs/liver-anatomy-guide.json
+new file mode 100644
+index 0000000..acc304a
+--- /dev/null
++++ b/seo/blogs/liver-anatomy-guide.json
+@@ -0,0 +1,93 @@
++{
++  "slug": "liver-anatomy-guide",
++  "title": "Liver Anatomy: Lobes, Lobules, Blood Flow and Bile",
++  "h1": "Liver Anatomy: Lobes, Lobules, Blood Flow and Bile",
++  "description": "The liver is a large metabolic organ in the upper right abdomen. Its microscopic organization allows blood arriving from the digestive tract to pass close to hepatocytes, while bile…",
++  "category": "Digestive · Liver",
++  "updated": "2026-11-04",
++  "readTime": "8 min read",
++  "relatedOrgan": "liver",
++  "heroImage": "liver.webp",
++  "heroAlt": "Educational anatomy illustration: Liver Anatomy: Lobes, Lobules, Blood Flow and Bile",
++  "heroCaption": "Digital educational illustration for Liver Anatomy: Lobes, Lobules, Blood Flow and Bile. This plate is a learning aid, not a clinical photograph.",
++  "takeaways": [
++    "The liver lies mainly beneath the right dome of the diaphragm, with part extending across the midline. Its diaphragmatic surface follows the diaphragm; its visceral surface faces a",
++    "The porta hepatis is a gateway on the visceral surface. The hepatic portal vein brings nutrient-rich blood from much of the gastrointestinal tract and spleen; the hepatic artery br",
++    "A classical hepatic lobule is a useful microscopic model centered on a central vein, with plates of hepatocytes and sinusoids radiating toward it. Sinusoids are specialized vascula"
++  ],
++  "sections": [
++    {
++      "id": "location-surfaces-and-lobes",
++      "heading": "Location, surfaces, and lobes",
++      "paragraphs": [
++        "The liver lies mainly beneath the right dome of the diaphragm, with part extending across the midline. Its diaphragmatic surface follows the diaphragm; its visceral surface faces abdominal organs and carries important impressions and the porta hepatis. Anatomical descriptions commonly identify right and left lobes, with caudate and quadrate regions on the visceral surface. Functional divisions used in surgery follow vascular and biliary territories rather than only the surface landmarks."
++      ]
++    },
++    {
++      "id": "the-porta-hepatis-and-portal-triad",
++      "heading": "The porta hepatis and portal triad",
++      "paragraphs": [
++        "The porta hepatis is a gateway on the visceral surface. The hepatic portal vein brings nutrient-rich blood from much of the gastrointestinal tract and spleen; the hepatic artery brings oxygenated blood. Branches of these vessels travel with bile ducts in portal tracts. Together, a small portal venous branch, hepatic arterial branch, and bile duct are commonly described as components of a portal triad."
++      ]
++    },
++    {
++      "id": "hepatic-lobules-and-sinusoids",
++      "heading": "Hepatic lobules and sinusoids",
++      "paragraphs": [
++        "A classical hepatic lobule is a useful microscopic model centered on a central vein, with plates of hepatocytes and sinusoids radiating toward it. Sinusoids are specialized vascular channels where portal and arterial blood mix and pass alongside hepatocytes. Kupffer cells, specialized resident macrophages, are associated with the sinusoidal lining. The liver also has other functional models, including portal lobules and acini, each emphasizing different relationships."
++      ]
++    },
++    {
++      "id": "opposing-paths-of-blood-and-bile",
++      "heading": "Opposing paths of blood and bile",
++      "paragraphs": [
++        "Blood generally flows from portal regions through sinusoids toward central veins, then into hepatic veins and the inferior vena cava. Bile made by hepatocytes enters small canaliculi and flows toward bile ductules and ducts in portal regions—generally opposite the direction of sinusoidal blood flow. Bile eventually leaves the liver through hepatic ducts and can pass into the gallbladder or intestine through the biliary tree."
++      ]
++    },
++    {
++      "id": "what-the-liver-does",
++      "heading": "What the liver does",
++      "paragraphs": [
++        "The liver processes absorbed nutrients, produces many plasma proteins, makes bile, stores selected nutrients, and metabolizes or clears many substances. These jobs depend on blood supply and hepatocyte organization. Anatomy supports function, but this educational overview cannot assess an individual person’s liver health."
++      ]
++    }
++  ],
++  "questions": [
++    {
++      "question": "Where is the liver located?",
++      "answer": "It lies mainly in the upper right abdomen, immediately below the diaphragm, and extends toward the midline."
++    },
++    {
++      "question": "What is the porta hepatis?",
++      "answer": "It is a gateway on the visceral surface where major vessels, nerves, lymphatics, and hepatic ducts enter or leave the liver."
++    },
++    {
++      "question": "What structures make up the portal triad?",
++      "answer": "A typical portal triad includes a branch of the hepatic portal vein, a branch of the hepatic artery, and a bile duct within a portal tract."
++    },
++    {
++      "question": "Do blood and bile flow in the same direction through a lobule?",
++      "answer": "Generally, no. Blood flows from portal regions through sinusoids toward a central vein, while bile flows through canaliculi toward bile ducts in portal regions."
++    },
++    {
++      "question": "What is a hepatic sinusoid?",
++      "answer": "It is a specialized vascular channel between plates of hepatocytes. Blood from portal and arterial branches passes through sinusoids toward central veins."
++    }
++  ],
++  "references": [
++    {
++      "title": "OpenStax, Anatomy and Physiology 2e, Digestive System",
++      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/23-introduction"
++    },
++    {
++      "title": "MedlinePlus, Liver Diseases",
++      "url": "https://medlineplus.gov/liverdiseases.html"
++    },
++    {
++      "title": "NCBI Bookshelf, Liver Anatomy and Function (Bookshelf search)",
++      "url": "https://www.ncbi.nlm.nih.gov/books/?term=liver+anatomy"
++    }
++  ],
++  "seoTitle": "Liver: Lobes, Lobules, Blood Flow and Bile | Full Guide",
++  "seoDescription": "Explore liver anatomy: key structures, relationships, and function. Read five FAQs and cited references. For anatomy students. The material is educational."
++}
+diff --git a/seo/blogs/male-reproductive-system-guide.json b/seo/blogs/male-reproductive-system-guide.json
+new file mode 100644
+index 0000000..b114a2c
+--- /dev/null
++++ b/seo/blogs/male-reproductive-system-guide.json
+@@ -0,0 +1,114 @@
++{
++  "slug": "male-reproductive-system-guide",
++  "title": "Male Reproductive System: Anatomy, Organs & Function",
++  "h1": "Male Reproductive System: Anatomy, Organs & Function",
++  "description": "The male reproductive system produces sperm (male gametes), delivers them to the female reproductive tract, and secretes sex hormones — primarily testosterone. It includes external…",
++  "category": "Reproductive · Male",
++  "updated": "2026-11-04",
++  "readTime": "6 min read",
++  "relatedOrgan": "male",
++  "heroImage": "male.webp",
++  "heroAlt": "Educational anatomy illustration: Male Reproductive System: Anatomy, Organs & Function",
++  "heroCaption": "Digital educational illustration for Male Reproductive System: Anatomy, Organs & Function. This plate is a learning aid, not a clinical photograph.",
++  "takeaways": [
++    "Penis: External organ for urination and sexual intercourse; contains erectile tissue.",
++    "Sperm pathway: Testes → Epididymis → Vas deferens → Ejaculatory duct → Urethra → External orifice",
++    "Spermatogenesis is the process of sperm production in the seminiferous tubules of the testes. It takes about 64–74 days from stem cell to mature sperm. Sperm production requires te"
++  ],
++  "sections": [
++    {
++      "id": "1-external-organs",
++      "heading": "1. External Organs",
++      "bullets": [
++        "Penis: External organ for urination and sexual intercourse; contains erectile tissue.",
++        "Scrotum: Sac of skin and muscle that holds the testes outside the body, keeping them cooler than core body temperature for sperm production."
++      ]
++    },
++    {
++      "id": "2-internal-organs",
++      "heading": "2. Internal Organs",
++      "paragraphs": [
++        "Sperm pathway: Testes → Epididymis → Vas deferens → Ejaculatory duct → Urethra → External orifice"
++      ],
++      "table": {
++        "headers": [
++          "Organ",
++          "Function"
++        ],
++        "rows": [
++          [
++            "Testes (2)",
++            "Produce sperm and testosterone; located in scrotum."
++          ],
++          [
++            "Epididymis (2)",
++            "Stores and matures sperm; sits on top/back of each testis."
++          ],
++          [
++            "Vas deferens (2)",
++            "Transports sperm from epididymis to urethra during ejaculation."
++          ],
++          [
++            "Seminal vesicles (2)",
++            "Secrete fructose-rich fluid that forms most of semen volume."
++          ],
++          [
++            "Prostate gland",
++            "Secretes alkaline fluid that nourishes and protects sperm."
++          ],
++          [
++            "Bulbourethral glands (2)",
++            "Secrete pre-ejaculatory fluid that lubricates the urethra."
++          ],
++          [
++            "Urethra",
++            "Carries both urine and semen out through the penis (not at the same time)."
++          ]
++        ]
++      }
++    },
++    {
++      "id": "3-spermatogenesis",
++      "heading": "3. Spermatogenesis",
++      "paragraphs": [
++        "Spermatogenesis is the process of sperm production in the seminiferous tubules of the testes. It takes about 64–74 days from stem cell to mature sperm. Sperm production requires temperature about 2–3°C below normal body temperature — which is why testes are in the scrotum."
++      ]
++    },
++    {
++      "id": "4-testosterone",
++      "heading": "4. Testosterone",
++      "paragraphs": [
++        "Produced by Leydig cells in the testes, testosterone drives male secondary sexual characteristics (facial hair, deep voice, muscle mass), libido, and sperm production. It is regulated by the hypothalamic-pituitary-gonadal axis (GnRH → LH/FSH → testosterone)."
++      ]
++    }
++  ],
++  "questions": [
++    {
++      "question": "Q1. What is the main function of the male reproductive system?",
++      "answer": "The male reproductive system produces sperm (male gametes), delivers semen during ejaculation, and secretes testosterone — the primary male sex hormone responsible for sperm production and secondary sexual characteristics."
++    },
++    {
++      "question": "Q2. Where are sperm produced and stored?",
++      "answer": "Sperm are produced in the seminiferous tubules of the testes and stored/matured in the epididymis before ejaculation."
++    },
++    {
++      "question": "Q3. Why are testes located outside the body in the scrotum?",
++      "answer": "Spermatogenesis requires a temperature about 2–3°C below normal body temperature. The scrotum keeps the testes cooler, which is essential for viable sperm production."
++    },
++    {
++      "question": "Q4. What is semen made of?",
++      "answer": "Semen is a mixture of sperm (from testes), seminal vesicle fluid (fructose-rich, most of volume), prostate fluid (alkaline, protects sperm), and bulbourethral gland fluid (lubrication)."
++    },
++    {
++      "question": "Q5. What role does the prostate gland play?",
++      "answer": "The prostate secretes a milky, alkaline fluid that makes up part of semen. This fluid nourishes sperm, helps neutralize vaginal acidity, and aids sperm motility during ejaculation."
++    }
++  ],
++  "references": [
++    "Standring, S. (ed.) Gray's Anatomy: The Anatomical Basis of Clinical Practice. Elsevier — male reproductive system.",
++    "Moore, K. L., et al. Clinically Oriented Anatomy. Wolters Kluwer — pelvis and perineum.",
++    "Corpus Anatomy Atlas — Male Reproductive chapter (corpus-anatomy-atlas.netlify.app)."
++  ],
++  "seoTitle": "Male Reproductive Anatomy: Organs and Functions | Atlas",
++  "seoDescription": "Explore male reproductive anatomy: key structures, relationships, and function. Read five FAQs and cited references. This guide presents anatomy for study."
++}
