@@ -193,7 +193,10 @@ function rankAtlasQA(question, minimumTopicCoverage = 0.66) {
   const rawQuestion = String(question || '').toLowerCase();
   const comparisonQuery = /\b(compare|comparison|difference|different|versus|\bvs\b|contrast|farq|muqabla)\b/.test(rawQuestion);
   const categoryQuery = /\b(types|kinds|classification|categories|systems?|overview)\b/.test(rawQuestion);
-  // This dataset has no comparison/classification-specific answer kind; do not return a coincidental single-structure record.
+  const genericMuscleQuery = /^(?:(?:what\s+(?:is|are)|tell\s+me\s+about|explain|describe)\s+)?(?:the\s+)?(?:(?:skeletal|smooth|cardiac)\s+)?muscles?\s*[?.!]*$/i.test(rawQuestion.trim());
+  // Broad body-category questions must route to the system chapter, not one alias-matching muscle record.
+  if (genericMuscleQuery) return null;
+  // This dataset has no comparison-specific answer kind; do not return a coincidental single-structure record.
   if (comparisonQuery) return null;
   let queryTerms = qaTokens(question);
   if (!queryTerms.length) return null;

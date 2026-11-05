@@ -182,11 +182,11 @@ a{color:inherit}
 .face-live-img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
 /* The eyelid frame is an overlay, so it must keep filling the stage: scoped here
    (.photo-wrap .face-live-blink-img) to outrank the .photo-wrap img sizing below. */
-.photo-wrap .face-live-blink-img{position:absolute;inset:0;z-index:1;display:block;width:100%;height:100%;object-fit:cover;opacity:0;pointer-events:none;user-select:none;-webkit-user-drag:none;animation:faceEyeBlink 8s linear infinite}
-/* Calm 8s default cycle (app.js re-times it to 6.4s-10.4s per blink, with an
-   occasional double blink). 0% = eyes open frame, 1 = eyes closed frame. */
-@keyframes faceEyeBlink{0%,52%{opacity:0}54.5%,56.5%{opacity:1}59%,100%{opacity:0}}
-@keyframes faceEyeBlinkDouble{0%,52%{opacity:0}54%,55.4%{opacity:1}57%,58.6%{opacity:0}60.4%,61.8%{opacity:1}64%,100%{opacity:0}}
+.photo-wrap .face-live-blink-img{position:absolute;inset:0;z-index:1;display:block;width:100%;height:100%;object-fit:cover;opacity:0;pointer-events:none;user-select:none;-webkit-user-drag:none;animation:faceEyeBlink 8s steps(1,end) infinite}
+/* Fast, discrete eyelid frames: avoid cross-fading open and closed eyes, which
+   creates a smeared/ghosted eye. The irregular relaxed cycle remains JS-retimed. */
+@keyframes faceEyeBlink{0%,52%,100%{opacity:0}54%,55.2%{opacity:1}56.8%{opacity:0}}
+@keyframes faceEyeBlinkDouble{0%,51%,100%{opacity:0}52%,53.1%{opacity:1}54.4%{opacity:0}55.6%,56.7%{opacity:1}58%{opacity:0}}
 @media(prefers-reduced-motion:reduce){.face-live-blink-img{animation:none;opacity:0}}
 body.nomotion .face-live-blink-img{animation:none;opacity:0}
 

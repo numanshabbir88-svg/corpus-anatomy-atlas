@@ -321,7 +321,7 @@ const HOME_HERO = `  <section class="hero wrap" id="homeHero">
           <div class="photo-wrap face-live-wrap">
             <div class="face-live-motion">
               <img class="face-live-img" src="img/medium/hero-human-face.webp?v=1" alt="Human face and cranial anatomy" width="1040" height="580" fetchpriority="high" decoding="async">
-              <img class="face-live-blink-img" src="img/medium/hero-human-face-blink.webp?v=1" alt="Human face with eyelids closed during the blink animation" aria-hidden="true" width="1040" height="580" decoding="async" fetchpriority="low">
+              <img class="face-live-blink-img" src="img/medium/hero-human-face-blink.webp?v=2" alt="Human face with eyelids closed during the blink animation" aria-hidden="true" width="1040" height="580" decoding="async" fetchpriority="low">
             </div>
           </div>
         </div>
