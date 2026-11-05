@@ -1129,15 +1129,27 @@
     /* Remove attached CJK/Japanese/Korean question particles so CJK organ names match cleanly */
     q = q.replace(/(什么是|是什么|的作用|的功能|在哪里|とは何ですか|とは|の働き|の役割|이란|란 무엇인가|은 무엇인가|는 무엇인가|의 기능)/g, ' ').replace(/\s+/g, ' ').trim();
 
-    /* Detect specific user intent */
+    /* Classify the communicative task separately from the anatomy topic. */
     var intent = {
       wantsFunction: /\b(function|functions|role|what does|how does|work|works|kaam|kam|karta|funciona|función|fonctionne|funktioniert|fungsi|وظيفة|يعمل|کام|काम)\b/.test(q),
-      wantsLocation: /\b(where|location|located|region|position|situated|kahan|kaha|dónde|donde|où|wo|nerede|dimana|где|أين|کہاں|कहाँ)\b/.test(q),
-      wantsClinical: /\b(clinical|disease|disorder|injury|damage|pain|pathology|bimari|masla|symptom|مرض|بیماری|बीमारी)\b/.test(q),
+      wantsLocation: /\b(where|location|located|region|position|situated|kahan|kaha|kidhar|dónde|donde|où|wo|nerede|dimana|где|أين|کہاں)\b/.test(q),
+      wantsClinical: /\b(clinical|disease|disorder|injury|damage|pain|pathology|fracture|bimari|masla|symptom|مرض|بیماری|बीमारी)\b/.test(q),
       wantsSupply: /\b(blood|artery|vein|supply|nerve|innervation|khoon|sangre|sang|blut|خون|دم|रक्त)\b/.test(q),
       wantsCurrentChapter: /\b(this chapter|current chapter|this page|this organ|is chapter|is page)\b/.test(q),
-      wantsImage: /\b(image|images|picture|pictures|photo|photos|pic|pics|diagram|diagrams|illustration|draw|generate|visual|tasveer|tasvir|fotu|dikhao|dekhao|dikha|show|imagen|foto|bild|صورة|تصویر|رسم|चित्र|तस्वीर|दिखाओ)\b/.test(q)
+      wantsImage: /\b(image|images|picture|pictures|photo|photos|pic|pics|diagram|diagrams|illustration|draw|generate|visual|tasveer|tasvir|fotu|dikhao|dekhao|dikha|show|imagen|foto|bild|صورة|تصویر|رسم|चित्र|तस्वीर|दिखाओ)\b/.test(q),
+      wantsComparison: /\b(compare|comparison|difference|different|versus|vs|contrast|farq|muqabla)\b/.test(q),
+      wantsExamples: /\b(example|examples|such as|like|misal|misalen)\b/.test(q),
+      wantsClassification: /\b(types|kinds|classification|classify|categories|classes)\b/.test(q),
+      wantsProcess: /\b(process|mechanism|cycle|pathway|how does|how do|kaise|kaisay)\b/.test(q),
+      wantsDefinition: /\b(what is|what are|define|definition|meaning|kya hota|kia hota)\b/.test(q),
+      wantsAnatomy: /\b(structure|anatomy|anatomical|parts|layers|composition|made of|bana hota)\b/.test(q),
+      wantsRelationship: /\b(connect|connected|relationship|related|attach|attachment|between|link)\b/.test(q),
+      wantsBroad: /\b(system|overview|generally|in general|tell me about|broad|all about|major)\b/.test(q),
+      wantsSpecific: false,
+      wantsMultiPart: /\b(and|also|plus|as well as)\b/.test(q),
+      wantsFollowUp: /\b(it|its|they|their|them|this|that|these|those|his|her|uska|iski|iske|ye|woh)\b/.test(q)
     };
+    intent.type = intent.wantsComparison ? 'comparison' : intent.wantsClinical ? 'clinical' : intent.wantsExamples ? 'examples' : intent.wantsClassification ? 'classification' : intent.wantsProcess ? 'process' : intent.wantsLocation ? 'location' : intent.wantsFunction ? 'function' : intent.wantsSupply ? 'relationship' : intent.wantsAnatomy ? 'anatomy' : intent.wantsDefinition ? 'definition' : 'general';
 
     /* Replace multi-word & single-word synonyms (Unicode & CJK safe) */
     var mapped = ' ' + q + ' ';
@@ -1163,12 +1175,18 @@
 
     var tokens = mapped.split(' ').filter(function (w) {
       return w.length > 1 && !STOP_WORDS.has(w);
+    }).map(function (w) {
+      if (w.length > 5 && w.slice(-3) === 'ies') return w.slice(0, -3) + 'y';
+      if (w.length > 4 && w.slice(-2) === 'es') return w.slice(0, -2);
+      if (w.length > 4 && w.slice(-1) === 's' && w.slice(-2) !== 'ss') return w.slice(0, -1);
+      return w;
     });
 
     /* If all words were stop words (e.g. "what does it do"), keep original tokens */
     if (!tokens.length) {
       tokens = q.split(' ').filter(Boolean);
     }
+    intent.wantsSpecific = !intent.wantsBroad && tokens.length <= 5 && !intent.wantsClassification;
 
     var corePhrase = tokens.join(' ').trim();
     return {
@@ -1176,7 +1194,8 @@
       clean: q,
       corePhrase: corePhrase,
       tokens: tokens,
-      intent: intent
+      intent: intent,
+      specificity: intent.wantsBroad ? 'broad' : 'specific'
     };
   }
 
@@ -1319,12 +1338,90 @@
     /* Allow prefix match on multi-syllable anatomical roots >= 5 chars (e.g. "ventric" -> "ventricle") */
     if (t.length >= 5) {
       var prefRe = new RegExp('(^|[\\s\\-·(),/:;])' + escapeRegexToken(t), 'i');
-      return prefRe.test(h);
+      if (prefRe.test(h)) return true;
+      /* One-character spelling slips on longer anatomy terms; never fuzzy-match short/common words. */
+      var words = h.match(/[a-z][a-z-]*/g) || [];
+      for (var wi = 0; wi < words.length; wi++) {
+        var w = words[wi];
+        if (Math.abs(w.length - t.length) > 1 || w.length < 5) continue;
+        var i = 0, j = 0, edits = 0;
+        while (i < t.length && j < w.length) {
+          if (t.charAt(i) === w.charAt(j)) { i++; j++; continue; }
+          if (++edits > 1) break;
+          if (t.length > w.length) i++;
+          else if (w.length > t.length) j++;
+          else { i++; j++; }
+        }
+        if (i < t.length || j < w.length) edits++;
+        if (edits <= 1) return true;
+      }
     }
     return false;
   }
 
-  /* ---------- 7. Internal Corpus Search (Instant <100ms, Strict Word-Boundary Scoring) ---------- */
+  var BM25_CACHE = typeof WeakMap === 'function' ? new WeakMap() : null;
+  function bm25EvidenceScore(queryTokens, fields, kb) {
+    function terms(value) { return String(value || '').toLowerCase().match(/[a-z0-9]+/g) || []; }
+    var index = BM25_CACHE && BM25_CACHE.get(kb);
+    if (!index) {
+      var docs = [];
+      (kb.chapters || []).forEach(function (x) { docs.push([x.t, x.l, x.s, x.k].join(' ')); });
+      (kb.parts || []).forEach(function (x) { docs.push([x.n, x.l, x.ct, x.d, x.f].join(' ')); });
+      (kb.faqs || []).forEach(function (x) { docs.push([x.q, x.a, x.ct].join(' ')); });
+      (kb.muscles || []).forEach(function (x) { docs.push([x.n, x.g, x.loc, x.a].join(' ')); });
+      (kb.tendons || []).forEach(function (x) { docs.push([x.n, x.at, x.a].join(' ')); });
+      (kb.bones || []).forEach(function (x) { docs.push([x.n, x.g].join(' ')); });
+      var df = Object.create(null);
+      docs.forEach(function (doc) {
+        var seen = Object.create(null);
+        terms(doc).forEach(function (term) { seen[term] = true; });
+        Object.keys(seen).forEach(function (term) { df[term] = (df[term] || 0) + 1; });
+      });
+      index = { count: docs.length, df: df };
+      if (BM25_CACHE) BM25_CACHE.set(kb, index);
+    }
+    var body = terms(fields.join(' '));
+    var counts = Object.create(null);
+    body.forEach(function (term) { counts[term] = (counts[term] || 0) + 1; });
+    var score = 0;
+    queryTokens.forEach(function (queryTerm) {
+      var term = String(queryTerm).toLowerCase();
+      var tf = counts[term] || 0;
+      if (!tf && term.length >= 5) {
+        var candidate = Object.keys(counts).find(function (w) {
+          return w.length >= 5 && Math.abs(w.length - term.length) <= 1 && hasWordToken(w, term);
+        });
+        if (candidate) tf = Math.min(1, counts[candidate] * 0.35);
+      }
+      if (!tf) return;
+      var df = index.df[term] || 0;
+      var idf = Math.log(1 + (index.count - df + 0.5) / (df + 0.5));
+      score += idf * (tf * 2.2) / (tf + 1.2 * (0.25 + 0.75 * body.length / 120));
+    });
+    return score;
+  }
+
+  function decorateInternalEvidence(html, score, type) {
+    if (!html) return html;
+    var level = score >= 105 ? 'High match' : score >= 85 ? 'Relevant match' : 'Possible match';
+    return html + '<div class="cbot-evidence-note" role="note"><span>Atlas knowledge</span><span>' + level + '</span></div>';
+  }
+
+  function formatArteryVeinComparison(kb) {
+    var vascular = (kb.chapters || []).find(function (c) { return c.k === 'vascular'; });
+    var heart = (kb.chapters || []).find(function (c) { return c.k === 'heart'; });
+    if (!vascular || !heart) return null;
+    var image = vascular.img || 'img/webp/vascular.webp';
+    LAST_TOPIC = { type: 'chapter', item: vascular };
+    return '<div class="cbot-topic-head"><span class="cbot-topic-title">Arteries vs Veins</span><span class="cbot-topic-tag">Atlas comparison</span></div>' +
+      buildMediaCard(image, 'Vascular system', null) +
+      '<div class="cbot-assign-sec"><h4>Arteries</h4><p>Carry blood away from the heart. The Atlas describes the aorta as distributing oxygenated blood to the systemic circulation; pulmonary arteries are an important exception and carry deoxygenated blood to the lungs.</p></div>' +
+      '<div class="cbot-assign-sec"><h4>Veins</h4><p>Return blood toward the heart. The venae cavae return deoxygenated blood to the right atrium, while pulmonary veins carry oxygenated blood from the lungs to the left atrium.</p></div>' +
+      '<div class="cbot-evidence-note" role="note"><span>Corpus Anatomy Atlas · Heart &amp; Vascular System</span><span>Atlas-supported comparison</span></div>' +
+      buildNavButtons('vascular', '') + buildNavButtons('heart', '');
+  }
+
+  /* ---------- 7. Internal Corpus Search (BM25-inspired lexical evidence + metadata reranking) ---------- */
   function searchInternalKB(parsed, kb) {
     var core = parsed.corePhrase;
     var tokens = parsed.tokens;
@@ -1339,8 +1436,17 @@
       }
     }
 
+    /* Atlas-backed comparison: answer only when both requested vessel classes are explicit. */
+    var asksArteryVeinCompare = parsed.intent.wantsComparison &&
+      tokens.some(function (t) { return t === 'artery' || t === 'arterial'; }) &&
+      tokens.some(function (t) { return t === 'vein' || t === 'venous'; });
+    if (asksArteryVeinCompare) {
+      var vesselComparison = formatArteryVeinComparison(kb);
+      if (vesselComparison) return vesselComparison;
+    }
+
     /* 0b. Conversational Follow-up on LAST_TOPIC */
-    var isFollowUp = /\b(tell me more|more detail|more details|aur batao|or batao|iske bare|iske baray|iska kaam|iska kam|iska function|iski location|ye kahan|iski blood|its function|its location|its blood|its nerve|what does it do|where is it)\b/.test(parsed.clean);
+    var isFollowUp = parsed.intent.wantsFollowUp && /\b(its|it|their|they|iska|iski|iske|uska|uski|ye|woh|this|that|tell me more|more detail|more details|aur batao|or batao|iske bare|iske baray)\b/.test(parsed.clean) || /\b(tell me more|more detail|more details|aur batao|or batao|iske bare|iske baray|iska kaam|iska kam|iska function|iski location|ye kahan|iski blood|its function|its location|its blood|its nerve|what does it do|where is it|what about its|what about their)\b/.test(parsed.clean);
     if (LAST_TOPIC && (isFollowUp || (!core && (parsed.intent.wantsImage || parsed.intent.wantsFunction || parsed.intent.wantsLocation || parsed.intent.wantsSupply || parsed.intent.wantsClinical)))) {
       if (LAST_TOPIC.type === 'chapter') return formatChapterReply(LAST_TOPIC.item, parsed.intent);
       if (LAST_TOPIC.type === 'part') return formatPartReply(LAST_TOPIC.item, parsed.intent);
@@ -1393,6 +1499,11 @@
         });
         if (matched.length === tokens.length && tokens.length >= 1) {
           score = 78 + matched.length * 4;
+        } else if (matched.length === 1 && tokens.length >= 2) {
+          var conceptTerms = ['chamber', 'structure', 'anatomy', 'part', 'layer', 'function', 'blood', 'supply', 'nerve', 'innervation', 'location', 'circulation', 'type', 'classification', 'example', 'process'];
+          var queryHasConcept = tokens.some(function (t) { return conceptTerms.indexOf(t) !== -1; });
+          var anchorCount = tokens.filter(function (t) { return t.length >= 3 && (hasWordToken(titleLow, t) || hasWordToken(latinLow, t) || keyLow === t); }).length;
+          if (queryHasConcept && anchorCount === 1) score = 84;
         }
       }
 
@@ -1525,7 +1636,20 @@
       { type: 'muscle', score: bestMuscleScore, item: bestMuscle },
       { type: 'tendon', score: bestTendonScore, item: bestTendon },
       { type: 'bone', score: bestBoneScore, item: bestBone }
-    ].sort(function (a, b) { return b.score - a.score; });
+    ].map(function (candidate) {
+      if (!candidate.item) return candidate;
+      var rerank = candidate.score;
+      var rankFields = [candidate.item.t, candidate.item.n, candidate.item.q, candidate.item.l, candidate.item.ct, candidate.item.s, candidate.item.g, candidate.item.loc, candidate.item.d, candidate.item.f, candidate.item.a, candidate.item.r, candidate.item.bl].filter(Boolean);
+      rerank += Math.min(12, bm25EvidenceScore(tokens, rankFields, kb) * 3);
+      /* Metadata-aware reranking: broad system queries favor chapter over a coincidental structure hit. */
+      if (parsed.specificity === 'broad' && candidate.type === 'chapter') rerank += 24;
+      if (parsed.specificity === 'broad' && ['muscle', 'tendon', 'bone', 'part'].indexOf(candidate.type) !== -1) rerank -= 8;
+      if (parsed.intent.wantsSpecific && ['part', 'muscle', 'tendon', 'bone'].indexOf(candidate.type) !== -1) rerank += 10;
+      /* Exact title/topic evidence is stronger than incidental token overlap. */
+      var title = String(candidate.item.t || candidate.item.n || candidate.item.q || '').toLowerCase();
+      if (parsed.clean === title || parsed.corePhrase === title) rerank += 12;
+      return { type: candidate.type, score: candidate.score, rankScore: rerank, item: candidate.item };
+    }).sort(function (a, b) { return (b.rankScore || b.score) - (a.rankScore || a.score); });
 
     var winner = candidates[0];
     if (!winner || winner.score < 75 || !winner.item) {
@@ -1534,11 +1658,11 @@
 
     if (winner.type === 'chapter') {
       LAST_TOPIC = { type: 'chapter', item: winner.item };
-      return formatChapterReply(winner.item, parsed.intent);
+      return decorateInternalEvidence(formatChapterReply(winner.item, parsed.intent), winner.score, winner.type);
     }
     if (winner.type === 'part') {
       LAST_TOPIC = { type: 'part', item: winner.item };
-      return formatPartReply(winner.item, parsed.intent);
+      return decorateInternalEvidence(formatPartReply(winner.item, parsed.intent), winner.score, winner.type);
     }
     if (winner.type === 'faq') {
       var faqChap = (kb.chapters || []).find(function (c) { return c.k === winner.item.ck; });
@@ -1558,7 +1682,8 @@
         buildMediaCard(faqImg, winner.item.ct, null) +
         '<div class="cbot-assign-sec"><h4>Detailed Answer &amp; Mechanism</h4><p>' + escapeHtml(winner.item.a) + '</p></div>' +
         buildStudyToolbar(winner.item.q, winner.item.ct, faqMeta) +
-        buildNavButtons(winner.item.ck, '')
+        buildNavButtons(winner.item.ck, '') +
+        '<div class="cbot-evidence-note" role="note"><span>Atlas knowledge</span><span>' + (winner.score >= 105 ? 'High match' : 'Relevant match') + '</span></div>'
       );
     }
     if (winner.type === 'muscle') {
@@ -1585,7 +1710,8 @@
           (m.loc ? '<li><b>Anatomical Region:</b> ' + escapeHtml(m.loc) + '</li>' : '') +
         '</ul>' +
         buildStudyToolbar(m.n, 'Muscle · ' + m.g, mMeta) +
-        buildNavButtons('muscle', '')
+        buildNavButtons('muscle', '') +
+        '<div class="cbot-evidence-note" role="note"><span>Atlas knowledge</span><span>' + (winner.score >= 105 ? 'High match' : 'Relevant match') + '</span></div>'
       );
     }
     if (winner.type === 'tendon') {
@@ -1608,7 +1734,8 @@
           (td.at ? '<li><b>Bony &amp; Muscular Attachment:</b> ' + escapeHtml(td.at) + '</li>' : '') +
         '</ul>' +
         buildStudyToolbar(td.n, 'Tendon Atlas', tdMeta) +
-        buildNavButtons('muscle', '')
+        buildNavButtons('muscle', '') +
+        '<div class="cbot-evidence-note" role="note"><span>Atlas knowledge</span><span>' + (winner.score >= 105 ? 'High match' : 'Relevant match') + '</span></div>'
       );
     }
     if (winner.type === 'bone') {
@@ -1628,7 +1755,8 @@
         buildMediaCard(bn.img || 'img/webp/skeleton.webp', bn.n, null) +
         '<div class="cbot-assign-sec"><h4>Skeletal Classification &amp; Osteology</h4><p><b>' + escapeHtml(bn.n) + '</b> belongs to the <b>' + escapeHtml(bn.g) + '</b> division of the 206-bone adult human skeleton (Documented bilateral/axial count in adult body: <b>' + escapeHtml(String(bn.c)) + '</b>). Composed of an outer dense cortical (compact) bone shell and internal trabecular (cancellous) bone lattice engineered to resist compressive and tensile loads.</p></div>' +
         buildStudyToolbar(bn.n, '206-Bone Atlas · ' + bn.g, bnMeta) +
-        buildNavButtons('skeleton', '')
+        buildNavButtons('skeleton', '') +
+        '<div class="cbot-evidence-note" role="note"><span>Atlas knowledge</span><span>' + (winner.score >= 105 ? 'High match' : 'Relevant match') + '</span></div>'
       );
     }
     return null;
@@ -1639,6 +1767,9 @@
     var para1 = ovArr[0] || c.sum || c.bl || '';
     var para2 = ovArr[1] || '';
     var para3 = ovArr[2] || '';
+    var classificationHtml = intent && intent.wantsClassification && c.k === 'muscle'
+      ? '<div class="cbot-assign-sec"><h4>Major Muscle Tissue Types</h4><ul class="cbot-point-list"><li><b>Skeletal:</b> striated muscle, usually under voluntary control, attached to the skeleton.</li><li><b>Cardiac:</b> striated, involuntary muscle forming the myocardium.</li><li><b>Smooth:</b> non-striated, involuntary muscle in many hollow-organ and vessel walls.</li></ul></div>'
+      : '';
 
     var bullets = [];
     if (c.r) bullets.push(['Anatomical Location & Boundaries', c.r]);
@@ -1686,6 +1817,7 @@
       '<div class="cbot-assign-sec"><h4>1. Anatomical Overview &amp; Gross Structure</h4><p>' + escapeHtml(para1) + '</p></div>' +
       (para2 ? '<div class="cbot-assign-sec"><h4>2. Architecture &amp; Tissue Organization</h4><p>' + escapeHtml(para2) + '</p></div>' : '') +
       (para3 ? '<div class="cbot-assign-sec"><h4>3. Physiological Mechanism &amp; Clinical Relevance</h4><p>' + escapeHtml(para3) + '</p></div>' : '') +
+      classificationHtml +
       listHtml +
       topChips +
       microHtml +
@@ -1759,6 +1891,7 @@
       '<div class="cbot-assign-sec"><h4>Anatomical &amp; Physiological Breakdown</h4><p>' + escapeHtml(item.summary) + '</p></div>' +
       listHtml +
       buildStudyToolbar(item.title, item.tag || 'Anatomy Reference', diagMeta) +
+      '<div class="cbot-evidence-note" role="note"><span>Curated Atlas reference</span><span>Atlas topic match</span></div>' +
       (chapKey ? buildNavButtons(chapKey, '') : '')
     );
   }
@@ -1812,11 +1945,29 @@
     return '<div class="cbot-nav-actions"><a class="cbot-nav-btn" href="' + escapeHtml(safeHref) + '">' + escapeHtml(label || 'Open Atlas topic ↗') + '</a></div>';
   }
 
+  function currentTopicLabel() {
+    if (!LAST_TOPIC) return '';
+    if (LAST_TOPIC.type === 'atlas') return String(LAST_TOPIC.item && LAST_TOPIC.item.topic || '');
+    var item = LAST_TOPIC.item || {};
+    return String(item.t || item.n || item.title || LAST_TOPIC.key || '');
+  }
+
+  function resolveFollowUpQuestion(question) {
+    var raw = String(question || '').trim();
+    var topic = currentTopicLabel();
+    if (!raw || !topic || topic.length < 2) return raw;
+    var cleanTopic = topic.toLowerCase();
+    if (raw.toLowerCase().indexOf(cleanTopic) !== -1) return raw; /* named new subject: do not override */
+    if (!/\b(its|it|their|they|them|this|that|uska|uski|iske|iski|iska|ye|woh)\b/i.test(raw)) return raw;
+    return raw.replace(/\b(its|it|their|they|them|this|that|uska|uski|iske|iski|iska|iski|ye|woh)\b/ig, topic);
+  }
+
   function formatAtlasQAAnswer(data, lang, question) {
     var clean = cleanAIAnswerForDisplay(data && data.answer);
     if (!clean) return null;
     if (data && data.kind === 'clinical') clean += '\n\nEducational correlation only; not a diagnosis or personal medical advice.';
     var topic = String((data && data.topic) || 'Atlas topic');
+    LAST_TOPIC = { type: 'atlas', item: { topic: topic } };
     var imagePath = String((data && data.imagePath) || '');
     var hasLocalImage = /^\/?img\/(webp|medium|thumb)\/[A-Za-z0-9_.-]+$/i.test(imagePath);
     var hotCoords = Array.isArray(data && data.hot) && data.hot.length >= 2 ? data.hot : null;
@@ -1831,6 +1982,7 @@
       imageHtml +
       '<div class="cbot-body-text"' + dir + '>' + escapeHtml(clean).replace(/\n/g, '<br>') + '</div>' +
       noImageNote +
+      '<div class="cbot-evidence-note" role="note"><span>Corpus Anatomy Atlas Q&amp;A</span><span>Matched Atlas record</span></div>' +
       buildAtlasLink(data && data.atlasUrl, 'Open Atlas topic ↗');
     return localizeReplyForLanguage(html, lang);
   }
@@ -1842,6 +1994,7 @@
     var html =
       '<div class="cbot-topic-head"><span class="cbot-topic-title">Web-grounded answer</span></div>' +
       '<div class="cbot-body-text"' + dir + '>' + escapeHtml(clean).replace(/\n/g, '<br>') + '</div>' +
+      '<div class="cbot-evidence-note" role="note"><span>External web research</span><span>Atlas search had no verified match</span></div>' +
       '<div class="cbot-body-text" style="font-size:12px;opacity:.78">For learning only; not personal medical advice.</div>' +
       buildAtlasLink(data && data.relatedAtlasUrl, 'Related Atlas guide ↗');
     return localizeReplyForLanguage(html, lang);
@@ -2426,8 +2579,9 @@
             }
           }
 
-          var enParsed = normalizeQuery(enQuestion);
-          var atlasQuestion = enQuestion || rawQuestion;
+          var resolvedQuestion = resolveFollowUpQuestion(enQuestion || rawQuestion);
+          var enParsed = normalizeQuery(resolvedQuestion);
+          var atlasQuestion = resolvedQuestion || rawQuestion;
           return requestAIWebFallback(atlasQuestion, userLang, { qaOnly: true }).then(function (atlasReply) {
             if (atlasReply) return atlasReply;
 
