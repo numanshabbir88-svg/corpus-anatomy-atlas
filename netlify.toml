@@ -43,6 +43,54 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Versioned first-party assets (?v=N) can be cached forever; HTML must revalidate.
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js.map"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css.map"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Unversioned data files get a short revalidation window plus stale-while-revalidate
+# so they stay correct across deploys and still avoid a cold fetch on repeat visits.
+[[headers]]
+  for = "/bot-knowledge.json"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+
+[[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
 [[headers]]
   for = "/404.html"
   [headers.values]
@@ -444,6 +492,16 @@
   from = "/blog/cranial-nerves-1-to-12-complete-guide/*"
   to = "/blog/cranial-nerves-1-12-guide/:splat"
   status = 301
+
+# === AGENT DISCOVERY PATHS ===
+# /.well-known/* is reserved for machine-readable discovery documents. The site has no
+# MCP/A2A/skill catalog to publish, so these paths must answer with a real 404 instead of
+# falling through to the app shell: the SPA rewrite would serve index.html with a 200 and
+# Lighthouse's Agentic Browsing audit (ard-schema) reads that HTML as a broken ARD manifest.
+[[redirects]]
+  from = "/.well-known/*"
+  to = "/404.html"
+  status = 404
 
 # === HASHLESS INTERACTIVE CHAPTER ROUTES (SPA 200 REWRITE) ===
 [[redirects]]

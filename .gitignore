@@ -1,3 +1,5 @@
+# Dependencies installed by Netlify (esbuild is used to minify published assets).
+/node_modules/
 # Built files are generated on Netlify from this repository.
 /site/
 # Generated at build time; keep the server-side Q&A payload out of public Git history.

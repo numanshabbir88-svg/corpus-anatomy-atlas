@@ -1,6 +1,10 @@
 {
   "devDependencies": {
-    "@netlify/plugin-csp-nonce": "1.6.4"
+    "@netlify/plugin-csp-nonce": "1.6.4",
+    "esbuild": "^0.25.12"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
   },
   "name": "corpus-anatomy-atlas",
   "private": true,

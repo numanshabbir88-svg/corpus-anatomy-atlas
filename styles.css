@@ -175,14 +175,20 @@ a{color:inherit}
 .face-hero-showcase{padding:8px;border:1px solid rgba(110,231,183,.18);box-shadow:0 24px 60px rgba(7,22,20,.34),inset 0 1px 0 rgba(255,255,255,.06);pointer-events:none;user-select:none}
 .face-hero-stage{background:#12181a;border-radius:calc(var(--r-xl) - 5px);overflow:hidden}
 .face-live-wrap{position:relative;overflow:hidden;background:#12181a}
-.face-live-motion{position:relative;width:100%;animation:faceCinemaTopDown 6.4s ease-in-out infinite}
+/* The hero plate keeps its intrinsic 1040x580 box from the first paint (the <img>
+   carries width/height in index.html and app.js) so the hero never resizes. */
+.face-live-wrap{aspect-ratio:1040/580}
+.face-live-motion{position:relative;width:100%}
 .face-live-img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
-.face-live-blink-img{position:absolute;inset:0;z-index:1;display:block;width:100%;height:100%;object-fit:cover;opacity:0;pointer-events:none;user-select:none;-webkit-user-drag:none;animation:faceEyeBlink 5s linear infinite}
-@keyframes faceCinemaTopDown{0%,100%{transform:scale(1) translateY(0);filter:brightness(1) contrast(1)}50%{transform:scale(1) translateY(0);filter:brightness(1) contrast(1)}}
-@keyframes faceEyeBlink{0%,82%,100%{opacity:0}82%,84%{opacity:1}84%,88%{opacity:0}}
-/* Override: 5s blink cycle (requested) */
-.face-live-blink-img{animation:faceEyeBlink 5s linear infinite}
-@media(prefers-reduced-motion:reduce){.face-live-motion{animation:none}.face-live-blink-img{animation:none;opacity:0}}
+/* The eyelid frame is an overlay, so it must keep filling the stage: scoped here
+   (.photo-wrap .face-live-blink-img) to outrank the .photo-wrap img sizing below. */
+.photo-wrap .face-live-blink-img{position:absolute;inset:0;z-index:1;display:block;width:100%;height:100%;object-fit:cover;opacity:0;pointer-events:none;user-select:none;-webkit-user-drag:none;animation:faceEyeBlink 8s linear infinite}
+/* Calm 8s default cycle (app.js re-times it to 6.4s-10.4s per blink, with an
+   occasional double blink). 0% = eyes open frame, 1 = eyes closed frame. */
+@keyframes faceEyeBlink{0%,52%{opacity:0}54.5%,56.5%{opacity:1}59%,100%{opacity:0}}
+@keyframes faceEyeBlinkDouble{0%,52%{opacity:0}54%,55.4%{opacity:1}57%,58.6%{opacity:0}60.4%,61.8%{opacity:1}64%,100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.face-live-blink-img{animation:none;opacity:0}}
+body.nomotion .face-live-blink-img{animation:none;opacity:0}
 
 /* ---------- organ grid / tiles ---------- */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:18px}
@@ -594,7 +600,7 @@ body.nomotion .rv{opacity:1;transform:none}
 
 /* ---- realistic photo stage + hotspot pins ---- */
 .photo-wrap{position:relative;border-radius:var(--r-m);overflow:hidden;background:#0b1716}
-.photo-wrap img{width:100%;display:block;user-select:none;-webkit-user-drag:none}
+.photo-wrap img{width:100%;height:auto;display:block;user-select:none;-webkit-user-drag:none}
 .pins{position:absolute;inset:0}
 .pin{position:absolute;transform:translate(-50%,-50%);width:30px;height:30px;background:none;border:0;padding:0;cursor:pointer;z-index:3}
 .pin i{position:absolute;inset:4px;border-radius:50%;background:#eafff9;border:2px solid var(--teal-d);box-shadow:0 0 0 3px rgba(13,111,104,.35),0 2px 8px rgba(0,0,0,.5);transition:.18s;display:grid;place-items:center;font:800 10.5px var(--mono);color:#0a1c1b;font-style:normal}
@@ -628,7 +634,7 @@ body.nomotion .rv{opacity:1;transform:none}
 .showcase .pin i{inset:5px;font-size:9.5px}
 
 /* ---- section intro animation ---- */
-#app.vin{animation:viewIn .38s var(--ease)}
+#app.vin,#appBody.vin{animation:viewIn .38s var(--ease)}
 @keyframes viewIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 .sec-intro{background:linear-gradient(180deg,#0e211f,#0a1615 70%);color:#e7f2ef;padding:56px 0 40px;overflow:hidden}
 .sec-intro .eyebrow{color:var(--accent)}
@@ -846,7 +852,16 @@ body.nomotion .rv{opacity:1;transform:none}
   .showcase-tabs{overflow-x:auto;scrollbar-width:thin}
   .sc-tab{font-size:10.5px;padding:5px 7px;flex:none}
 }
-.load-state{min-height:48vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:7px;color:var(--ink-2)}
+/* The homepage ships its hero as static HTML and fills the rest below it after the
+   deferred datasets parse. The placeholder reserves the space so the footer cannot
+   sit inside the first viewport and then jump away when content arrives. */
+#appBody.app-pending{min-height:70vh}
+/* Auto ads inject <ins class="adsbygoogle"> in flow. The slot reserves a standard
+   rectangle while it is still empty, so the ad cannot push text and plates down
+   once it fills. The rule stops applying as soon as AdSense writes into the slot. */
+ins.adsbygoogle{display:block;width:100%}
+ins.adsbygoogle:empty{min-height:250px}
+.load-state{min-height:78vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:7px;color:var(--ink-2)}
 .load-state .load-symbol{display:grid;place-items:center;width:52px;height:52px;border-radius:17px;color:#e8776e;background:var(--teal-d);font-size:25px;box-shadow:var(--shadow-1)}
 .load-state h1{font:600 28px/1.2 var(--serif);margin:8px 0 0}.load-state p{font-size:14px;max-width:410px;margin:0;color:var(--mute)}.load-state a{font-size:13px;font-weight:700;color:var(--teal-d)}
 .load-state small{font-size:13px;color:var(--mute)}
