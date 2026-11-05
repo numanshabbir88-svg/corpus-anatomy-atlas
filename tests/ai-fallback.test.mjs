@@ -64,6 +64,14 @@ test('serves an Atlas Q&A match without an API key or upstream request', async (
   assert.equal(called, false);
 });
 
+test('does not answer a broad muscles question with the Papillary muscles substructure', async () => {
+  delete process.env.GROQ_API_KEY;
+  const response = await handler(makeRequest({ body: { question: 'what is muscles', language: 'en' } }), { ip: 'test-broad-muscle-category' });
+  const payload = await response.json();
+  assert.equal(payload.source, 'no_answer');
+  assert.notEqual(payload.topic, 'Papillary muscles');
+});
+
 test('recovers a one-character anatomy typo, understands Roman Urdu, and declines mismatched concepts', async () => {
   delete process.env.GROQ_API_KEY;
   const typoResponse = await handler(makeRequest({ body: { question: 'What is the supreior vena cava?', language: 'en' } }), { ip: 'test-typo-topic' });

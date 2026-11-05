@@ -76,8 +76,9 @@ test('the blink overlay is slower than the old 5s metronome and keeps reduced-mo
   const css = read('styles.css');
   const rule = css.match(/\.photo-wrap \.face-live-blink-img\{[^}]*\}/);
   assert.ok(rule, 'blink overlay rule missing');
-  const seconds = Number((rule[0].match(/(\d+(?:\.\d+)?)s linear infinite/) || [])[1]);
+  const seconds = Number((rule[0].match(/(\d+(?:\.\d+)?)s (?:linear|steps\(1,end\)) infinite/) || [])[1]);
   assert.ok(seconds >= 8, `blink cycle should be at least 8s, got ${seconds}s`);
+  assert.match(rule[0], /steps\(1,end\)/, 'closed-eye frame should switch crisply instead of cross-fading into a blur');
   assert.match(css, /@media\(prefers-reduced-motion:reduce\)\{\.face-live-blink-img\{animation:none/);
   assert.match(css, /@keyframes faceEyeBlinkDouble\{/);
   assert.match(appJs, /function setupFaceBlink\(\)/);

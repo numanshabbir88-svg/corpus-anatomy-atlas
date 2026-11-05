@@ -19,7 +19,7 @@ The existing client search relied on stop-word stripping, a large synonym map, e
 
 The runtime remains a source-first hybrid of Atlas Q&A, existing Atlas records, BM25-style lexical evidence, synonym/typo matching, intent and metadata reranking, then optional web-grounded retrieval. It is not vector-semantic RAG: there are no pre-existing embeddings to reuse, and adding an embedding model/service would add unsupported infrastructure. There is no claim of calibrated probabilistic confidence; the UI calls its labels match strength, not medical certainty. When the curated brain cannot support a topic, its strict mode returns a miss so the browser can try the Atlas KB; if neither local layer nor the optional provider can verify an answer, it declines.
 
-The implemented comparison path currently handles the vessel-class pair for which the Atlas provides direct comparative evidence. Other comparison pairs and additional Roman Urdu vocabulary should be added only with explicit evaluation cases and Atlas-supported evidence. Conversation state remains per-page-session and limited to the latest relevant Atlas topic.
+The implemented comparison path currently handles the vessel-class pair for which the Atlas provides direct comparative evidence. Broad muscle-category questions are routed away from single-muscle Q&A aliases so the client can answer from the muscular-system chapter. Other comparison pairs and additional Roman Urdu vocabulary should be added only with explicit evaluation cases and Atlas-supported evidence. Conversation state remains per-page-session and limited to the latest relevant Atlas topic.
 
 ## Verification
 
