@@ -2465,7 +2465,7 @@
     /* Website complete open -> Show "Hi! Ask AI" for 3 seconds, then repeat every 30 seconds for 3 seconds! */
     setTimeout(function () {
       showBriefGreeting();
-    }, 400);
+    }, 0);
 
     WAVE_TIMER = setInterval(function () {
       showBriefGreeting();
