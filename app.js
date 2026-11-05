@@ -313,7 +313,10 @@ function viewHome(){
       <div class="showcase face-hero-showcase rv in" data-d="1">
         <div class="sc-stage face-hero-stage" id="scStage">
           <div class="photo-wrap face-live-wrap">
-            <img class="face-live-img" src="img/medium/hero-human-face.webp?v=1" alt="Human face and cranial anatomy" width="1040" height="580" fetchpriority="high" decoding="async">
+            <div class="face-live-motion">
+              <img class="face-live-img" src="img/medium/hero-human-face.webp?v=1" alt="Human face and cranial anatomy" width="1040" height="580" fetchpriority="high" decoding="async">
+              <img class="face-live-blink-img" src="img/medium/hero-human-face-blink.webp?v=1" alt="" aria-hidden="true" width="1040" height="580" decoding="async">
+            </div>
           </div>
         </div>
       </div>
@@ -378,7 +381,7 @@ function viewHome(){
 
 function tile(k,o,i){
   const sys=SYSTEMS[o.system];
-  return `<a class="tile rv" data-d="${i%4}" href="${routeFor(k)}">
+  return `<a class="tile rv" data-d="${i%4}" data-organ="${esc(k)}" href="${routeFor(k)}">
     <span class="badge pill live">Live</span>
     <div class="thumb">${o.photo?`<img src="${imgSrc(o.photo.file,true)}" alt="" loading="lazy">`:thumbSVG(o)}</div>
     <div class="tile-body">
@@ -1254,9 +1257,10 @@ function bindOrgansFilter(){
     const q=input.value.trim().toLowerCase();
     let shown=0;
     tiles.forEach(t=>{
-      const slug=t.getAttribute('href').slice(2);
-      const k=slug==='maleoverview'?'male':slug==='femaleoverview'?'female':slug;
+      const slug=t.dataset.organ||'';
+      const k=window.SLUG_TO_KEY?.[slug]||slug;
       const o=ORGANS[k];
+      if(!o){t.style.display='none';return;}
       const okSys=!sys||o.system===sys;
       const hay=(o.title+' '+o.latin+' '+o.blurb+' '+Object.values(o.parts).map(p=>p.n).join(' ')).toLowerCase();
       const okQ=!q||hay.includes(q);

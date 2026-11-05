@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "@netlify/plugin-csp-nonce": "1.6.4"
+  },
+  "name": "corpus-anatomy-atlas",
+  "private": true,
+  "version": "1.0.0"
+}

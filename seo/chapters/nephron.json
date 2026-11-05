@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What are the main parts of a nephron?",
-      "answer": "A renal corpuscle filters plasma; proximal tubule, loop of Henle and distal tubule modify filtrate. Collecting ducts receive fluid from multiple nephrons. The collecting duct (Ductus colligens) receives distal connecting tubules from multiple nephrons and descends through medulla. Physiologically, the collecting duct governs ADH-sensitive water reabsorption and acid/base regulation."
+      "answer": "A renal corpuscle filters plasma; proximal tubule, loop of Henle and distal tubule modify filtrate. Collecting ducts receive fluid from multiple nephrons."
     },
     {
       "question": "Where does filtration occur in the kidney?",
-      "answer": "Filtration occurs across the glomerular capillary barrier into Bowman space in the renal corpuscle, mainly in the kidney cortex. Structurally, the glomerular capillaries (Glomerulus) comprises fenestrated capillary loops between afferent and efferent arterioles. Physiologically, the glomerular capillaries pass plasma water and small solutes toward Bowman space."
+      "answer": "Filtration occurs across glomerular capillaries into Bowman’s space in renal corpuscles, mainly in the kidney cortex."
     },
     {
-      "question": "What is the bowman capsule?",
-      "answer": "Parietal squamous layer and visceral podocyte layer enclosing Bowman space. Functionally, it collects primary filtrate from glomerulus. In clinical pathology involving the Bowman capsule, filtrate flows from urinary pole to proximal tubule."
+      "question": "What is Bowman’s capsule?",
+      "answer": "Bowman’s capsule has a parietal squamous layer and a visceral podocyte layer enclosing Bowman’s space."
     },
     {
       "question": "Where are the podocyte foot processes located?",
-      "answer": "Interdigitating podocyte extensions with slit diaphragms over glomerular capillaries. Functionally, it governs final cellular component of filtration barrier. Medical evaluation of the podocyte foot processes also notes that effacement accompanies proteinuric disease."
+      "answer": "Podocyte foot processes cover the outer surface of glomerular capillaries and form filtration slits facing Bowman’s space."
     },
     {
       "question": "What is the function of the collecting duct?",
-      "answer": "Functionally, it governs ADH-sensitive water reabsorption and acid/base regulation. Receives distal connecting tubules from multiple nephrons and descends through medulla. Structurally, the intercalated cells (Cellulae intercalatae) comprises acid/base-specialized collecting duct cells with subtype-dependent transport. Physiologically, the intercalated cells secrete hydrogen or bicarbonate as appropriate."
+      "answer": "The collecting duct adjusts water reabsorption in response to antidiuretic hormone and contributes to acid–base regulation."
     }
   ]
 }

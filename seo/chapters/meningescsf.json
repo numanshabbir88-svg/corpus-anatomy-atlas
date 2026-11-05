@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What are the three meninges around the brain?",
-      "answer": "From outside inward they are dura mater, arachnoid mater and pia mater. Cerebrospinal fluid occupies the subarachnoid space. The arachnoid mater (Arachnoidea mater) is thin membrane deep to dura spanning over sulci; trabeculae bridge to pia. Physiologically, the arachnoid mater governs bounds CSF-filled subarachnoid space."
+      "answer": "From outside inward they are dura mater, arachnoid mater and pia mater. Cerebrospinal fluid occupies the subarachnoid space."
     },
     {
       "question": "Where does cerebrospinal fluid flow?",
-      "answer": "CSF circulates through the ventricles and subarachnoid spaces before being returned to venous or lymphatic drainage pathways. Structurally, the choroid plexus (Plexus choroideus) comprises vascular core with specialized epithelial covering in ventricles. Physiologically, the choroid plexus secretes much of cerebrospinal fluid and forms blood–CSF barrier."
+      "answer": "CSF circulates through the ventricles and subarachnoid spaces before being returned to venous or lymphatic drainage pathways."
     },
     {
       "question": "What is the periosteal cranial dura?",
-      "answer": "Outer cranial dural layer adherent to inner skull. Functionally, it forms tough outer covering and part of sinus walls. In clinical pathology involving the periosteal cranial dura, spinal epidural space differs from cranial periosteal interface."
+      "answer": "The periosteal layer of cranial dura is the outer dural layer adherent to the inner surface of the skull."
     },
     {
       "question": "Where is the falx cerebri located?",
-      "answer": "Vertical sickle-shaped dural sheet between hemispheres. Functionally, it supports superior and inferior sagittal sinuses. Medical evaluation of the falx cerebri also notes that bridging veins cross toward its superior sinus."
+      "answer": "The falx cerebri is a vertical fold of dura mater between the cerebral hemispheres."
     },
     {
       "question": "What is the function of the superior sagittal sinus?",
-      "answer": "Functionally, it receives superficial cerebral veins and arachnoid granulation drainage. Midline dural channel at upper attached edge of falx. Clinically, regarding the superior sagittal sinus, sinus thrombosis impairs venous outflow."
+      "answer": "The superior sagittal sinus receives superficial cerebral veins and cerebrospinal fluid from arachnoid granulations."
     }
   ]
 }

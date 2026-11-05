@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What do the kidneys do?",
-      "answer": "Kidneys filter blood, return most water and useful solutes to circulation, and excrete wastes in urine. They also help regulate electrolytes, blood pressure and acid-base balance. The glomerulus & Bowman's capsule (Corpusculum renale) is a tuft of fenestrated capillaries invaginating a double-walled capsule. Between them, the filtration barrier: fenestrated endothelium, fused basement membrane and podocyte foot processes with slit diaphragms. Physiologically, the glomerulus & Bowman's capsule governs ultrafiltration of plasma — water and small solutes pass; cells and proteins do not."
+      "answer": "Kidneys filter blood, return most water and useful solutes to circulation, and excrete wastes in urine. They also help regulate electrolytes, blood pressure and acid-base balance."
     },
     {
       "question": "How does urine travel from the kidney to the bladder?",
-      "answer": "Filtrate passes through nephron tubules into collecting ducts, then through calyces and the renal pelvis. A ureter carries the resulting urine to the bladder. The renal pyramid (Pyramides renales) is 8–18 cone-shaped regions of medulla, striped by the straight loops of Henle, vasa recta and collecting ducts that run through them. Physiologically, the renal pyramid governs create and exploit the osmotic gradient that concentrates urine."
+      "answer": "Filtrate passes through nephron tubules and collecting ducts into the calyces and renal pelvis; a ureter then carries urine to the bladder."
     },
     {
       "question": "What is the renal cortex?",
-      "answer": "The outer 1 cm, containing all the renal corpuscles, the proximal and distal convoluted tubules, and cortical tissue dipping between pyramids as the renal columns. Functionally, it governs site of blood filtration and most solute reabsorption. In clinical pathology involving the renal cortex, thinning or scarring of the cortex on ultrasound indicates chronic kidney disease."
+      "answer": "The renal cortex is the kidney’s outer region. It contains renal corpuscles and most proximal and distal convoluted tubules, and extends between medullary pyramids as renal columns."
     },
     {
-      "question": "Where is the glomerulus & Bowman's capsule located?",
-      "answer": "A tuft of fenestrated capillaries invaginating a double-walled capsule. Between them, the filtration barrier: fenestrated endothelium, fused basement membrane and podocyte foot processes with slit diaphragms. Functionally, it governs ultrafiltration of plasma — water and small solutes pass; cells and proteins do not. Structurally, the glomerular capillaries (Glomerulus) comprises fenestrated capillary loops between afferent and efferent arterioles. Physiologically, the glomerular capillaries pass plasma water and small solutes toward Bowman space."
+      "question": "Where is the renal corpuscle (glomerulus and Bowman’s capsule) located?",
+      "answer": "The renal corpuscle—glomerulus enclosed by Bowman’s capsule—is located in the kidney cortex."
     },
     {
       "question": "What is the function of the loop of Henle?",
-      "answer": "Functionally, it governs countercurrent multiplication builds the medullary osmotic gradient that allows urine to be concentrated. A hairpin with a thin descending limb (water-permeable) and a thick ascending limb (actively pumps out NaCl but is water-impermeable), dipping into the medulla. Clinically, regarding the loop of Henle, loop diuretics such as furosemide block the Na-K-2Cl cotransporter here and are the most powerful diuretics."
+      "answer": "The loop of Henle builds the medullary osmotic gradient that helps concentrate urine through countercurrent multiplication."
     }
   ]
 }

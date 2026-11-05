@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What is the path of air through the upper airway?",
-      "answer": "Air enters the nose or mouth, passes through the pharynx and larynx, then moves down the trachea toward the bronchi. The epiglottis is elastic leaf above the larynx. Physiologically, the epiglottis governs flips to cover the larynx during swallowing."
+      "answer": "Air passes from the nose or mouth through the pharynx and larynx, then down the trachea toward the bronchi."
     },
     {
       "question": "What does the epiglottis do during swallowing?",
-      "answer": "The epiglottis is one structure involved in protecting the laryngeal entrance during swallowing; coordinated movement of the larynx and vocal folds also matters. Structurally, the vocal folds (Plicae vocales) comprises ligament + muscle under mucosa, glottis between. Physiologically, the vocal folds governs vibrate to phonate; close to protect lungs."
+      "answer": "The epiglottis is one structure involved in protecting the laryngeal entrance during swallowing; coordinated movement of the larynx and vocal folds also matters."
     },
     {
-      "question": "What is the nasal cavity & conchae?",
-      "answer": "Three conchae turbo-charge the surface area. Functionally, it warms, humidifies and filters inspired air. In clinical pathology involving the nasal cavity & conchae, deviated septum + turbinate hypertrophy = blocked nose."
+      "question": "What are the nasal cavity and nasal conchae?",
+      "answer": "The nasal cavity is divided by a septum and contains three conchae on each side that increase surface area and create airflow turbulence."
     },
     {
-      "question": "Where is the nasopharynx & adenoid located?",
-      "answer": "Posterior nasal chamber with lymphoid adenoid. Functionally, it governs air passage; immune sampling in childhood. Medical evaluation of the nasopharynx & adenoid also notes that adenoid hypertrophy causes snoring and glue ear in kids."
+      "question": "Where are the nasopharynx and adenoid located?",
+      "answer": "The nasopharynx lies behind the nasal cavity and above the soft palate; the adenoid is in its roof and posterior wall."
     },
     {
-      "question": "What is the function of the epiglottis?",
-      "answer": "Functionally, it governs flips to cover the larynx during swallowing. Elastic leaf above the larynx. Anatomically, the oropharynx lies behind the mouth, tonsils at its sides. Physiologically, the oropharynx governs shared food–air corridor; speech resonance."
+      "question": "Where is the epiglottis located?",
+      "answer": "The epiglottis is an elastic-cartilage flap at the laryngeal inlet, behind the tongue base and attached to the thyroid cartilage by a ligament."
     }
   ]
 }

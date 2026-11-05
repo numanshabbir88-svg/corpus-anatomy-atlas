@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "How does the urinary bladder store and release urine?",
-      "answer": "A stretchable urothelial lining and detrusor muscle allow filling. During urination, coordinated detrusor contraction and sphincter relaxation empty the bladder. The detrusor muscle (Musculus detrusor) is three layers of interlacing smooth muscle with the wall thickened into trabeculae when obstructed. Physiologically, the detrusor muscle governs contraction empties the bladder; relaxation allows storage at low pressure."
+      "answer": "A stretchable urothelial lining and detrusor muscle allow filling. During urination, coordinated detrusor contraction and sphincter relaxation empty the bladder."
     },
     {
       "question": "What is the trigone of the bladder?",
-      "answer": "The trigone is a triangular region on the internal bladder floor between the two ureteric openings and the internal urethral opening. The trigone (Trigonum vesicae) is the smooth triangle bounded by the two ureteric orifices and the internal urethral orifice; mucosa firmly bound to muscle. Physiologically, the trigone governs funnel for emptying; its stretch receptors trigger the micturition reflex."
+      "answer": "The trigone is a smooth triangular area on the bladder floor bounded by the two ureteric openings and the internal urethral opening."
     },
     {
       "question": "What is the detrusor muscle?",
-      "answer": "Three layers of interlacing smooth muscle with the wall thickened into trabeculae when obstructed. Functionally, it governs contraction empties the bladder; relaxation allows storage at low pressure. The internal & external sphincters (Sphincteres urethrae) is the internal sphincter is smooth muscle of the bladder neck (sympathetic); the external is skeletal muscle in the urogenital diaphragm (pudendal, voluntary). Physiologically, the internal & external sphincters governs maintain continence; the external sphincter is under conscious control."
+      "answer": "The detrusor is the interlacing smooth muscle of the bladder wall; it contracts to expel urine."
     },
     {
       "question": "Where is the urothelium located?",
-      "answer": "Stratified transitional epithelium with umbrella cells whose plaques make it impermeable to urine. Functionally, it serves as a stretch-tolerant, urine-proof lining. Medical evaluation of the urothelium also notes that its instability to carcinogens (smoking, aniline dyes) makes transitional-cell carcinoma the classic bladder cancer."
+      "answer": "Urothelium lines the renal calyces and pelvis, ureters, urinary bladder and proximal urethra."
     },
     {
       "question": "What is the function of the trigone?",
-      "answer": "Functionally, it governs funnel for emptying; its stretch receptors trigger the micturition reflex. The smooth triangle bounded by the two ureteric orifices and the internal urethral orifice; mucosa firmly bound to muscle. The internal urethral orifice (Ostium urethrae internum) is the inferior angle of the trigone where the bladder neck meets the urethra. Physiologically, the internal urethral orifice governs outlet guarded by the internal sphincter."
+      "answer": "The bladder trigone helps direct urine toward the internal urethral opening; its stretch receptors contribute to the micturition reflex."
     }
   ]
 }

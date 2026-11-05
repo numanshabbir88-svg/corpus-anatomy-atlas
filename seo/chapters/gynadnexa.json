@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "Where does an egg go after ovulation?",
-      "answer": "After release from an ovarian follicle, the oocyte is taken up near the fimbriae and usually enters the uterine tube before moving toward the uterus. Structurally, the fimbriae (Fimbriae tubae) comprises fringed distal projections adjacent to ovary. Physiologically, the fimbriae governs sweep oocyte toward tubal abdominal ostium."
+      "answer": "After release from an ovarian follicle, the oocyte is taken up near the fimbriae and usually enters the uterine tube before moving toward the uterus."
     },
     {
       "question": "Which part of the fallopian tube is the usual site of fertilization?",
-      "answer": "The ampulla, a wider segment of the uterine tube, is the most common site of fertilization. Structurally, the ampulla (Ampulla tubae) comprises wide, folded lateral tubal segment. Physiologically, the ampulla governs usual site of fertilization."
+      "answer": "The ampulla, a wider segment of the uterine tube, is the most common site of fertilization."
     },
     {
       "question": "What is the ovarian cortex?",
-      "answer": "Outer ovarian zone with follicles at several stages. Functionally, it houses the oocyte reserve. In clinical pathology involving the ovarian cortex, cortical tissue is considered in fertility-preserving surgery."
+      "answer": "The ovarian cortex is the outer region of the ovary containing follicles at different stages of development."
     },
     {
       "question": "Where are the primordial follicles located?",
-      "answer": "Small oocyte with flat granulosa cells in outer cortex. Functionally, it governs dormant ovarian reserve pool. Medical evaluation of the primordial follicles also notes that reserve declines with age and treatment exposure."
+      "answer": "Primordial follicles lie in the ovarian cortex and contain an oocyte surrounded by a single layer of flattened follicular cells."
     },
     {
       "question": "What is the function of the dominant antral follicle?",
-      "answer": "Functionally, it releases a secondary oocyte after the LH surge. Large fluid-filled preovulatory follicle. Clinically, regarding the dominant antral follicle, functional cysts may arise from follicular persistence."
+      "answer": "After the luteinizing hormone surge, the dominant antral follicle releases a secondary oocyte at ovulation."
     }
   ]
 }

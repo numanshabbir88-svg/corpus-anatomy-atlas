@@ -36,24 +36,24 @@
   },
   "questions": [
     {
-      "question": "Where are sperm made in the testis?",
-      "answer": "Sperm develop within seminiferous tubules. Supporting Sertoli cells and hormone-producing interstitial Leydig cells occupy different microscopic compartments. The rete testis channels within mediastinum draining straight tubules. Physiologically, the rete testis collect sperm from seminiferous system."
+      "question": "What is the interstitial tissue of the testis?",
+      "answer": "Interstitial tissue lies between seminiferous tubules and contains Leydig cells, which produce testosterone. Sertoli cells instead support developing germ cells within the tubules."
     },
     {
       "question": "How do sperm leave the testis?",
-      "answer": "They move from seminiferous tubules through a collecting network and efferent ductules into the epididymis, where maturation and storage continue. Structurally, the epididymal head (Caput epididymidis) comprises enlarged superior epididymis receiving efferent ductules. Physiologically, the epididymal head governs starts sperm maturation."
+      "answer": "They move from seminiferous tubules through a collecting network and efferent ductules into the epididymis, where maturation and storage continue."
     },
     {
       "question": "What is the tunica vaginalis?",
-      "answer": "Serous covering with visceral and parietal layers. Functionally, it allows mobile testis within scrotum. In clinical pathology involving the tunica vaginalis, fluid accumulation in the cavity forms a hydrocele."
+      "answer": "The tunica vaginalis is a double-layered serous sac covering the testis, with visceral and parietal layers."
     },
     {
       "question": "Where is the mediastinum testis located?",
-      "answer": "Posterior thickening of albuginea containing rete testis. Functionally, it governs organizes lobules and duct outflow. Medical evaluation of the mediastinum testis also notes that important landmark in testicular ultrasound."
+      "answer": "The mediastinum testis is a posterior thickening of the tunica albuginea that contains the rete testis."
     },
     {
       "question": "What is the function of the seminiferous tubules?",
-      "answer": "Functionally, it governs spermatogenesis. Coiled tubules lined by developing germ cells and Sertoli cells. Clinically, regarding the seminiferous tubules, tubular atrophy reduces fertility."
+      "answer": "Seminiferous tubules are the site of sperm production, where developing germ cells are supported by Sertoli cells."
     }
   ]
 }

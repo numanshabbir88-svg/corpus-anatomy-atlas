@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What are the three main structural parts of a human sperm cell and what does each part do?",
-      "answer": "A mature human sperm cell (spermatozoon) is divided into a flattened head, a cylindrical midpiece, and a whip-like flagellum (tail). The head carries a tightly condensed haploid nucleus with 23 chromosomes capped by the enzyme-filled acrosome; the midpiece wraps a helical sheath of mitochondria around the upper tail core to generate ATP energy; and the flagellum uses its internal microtubule axoneme to propel the cell through fluid in the reproductive tract."
+      "answer": "A sperm cell has a head (haploid nucleus and acrosome), a midpiece (mitochondria) and a tail (flagellum) that propels it."
     },
     {
       "question": "Where are sperm cells produced in the male body, and how long does spermatogenesis take?",
-      "answer": "Human sperm production (spermatogenesis) takes place inside the tightly coiled seminiferous tubules of the testes, where Sertoli nurse cells nourish and shield developing germ cells behind the blood-testis barrier. From the moment a diploid spermatogonium commits to division until a streamlined spermatozoon is released into the tubule lumen, the full cycle takes roughly 64 to 74 days, followed by further maturation in the epididymis."
+      "answer": "Spermatogenesis occurs in the seminiferous tubules of the testes and takes roughly 64–74 days; sperm then mature further in the epididymis."
     },
     {
       "question": "How does spermiogenesis differ from meiosis during sperm development?",
-      "answer": "Meiosis is the two-step nuclear division that halves the chromosome number from 46 (diploid) in primary spermatocytes to 23 (haploid) in round spermatids. Spermiogenesis is the dramatic morphological remodeling phase that follows without any further cell division: the round spermatid compacts its DNA with protamines, builds an anterior acrosomal cap from the Golgi apparatus, packs mitochondria into a midpiece, and grows a motile flagellum."
+      "answer": "Meiosis reduces the chromosome number from 46 to 23; spermiogenesis then remodels the nondividing spermatids into sperm cells, forming the acrosome, midpiece and flagellum."
     },
     {
       "question": "Why are sperm leaving the seminiferous tubules not yet ready to fertilize an oocyte?",
-      "answer": "When newly formed spermatozoa first exit the seminiferous tubules into the rete testis, they are structurally complete but functionally immotile. As they travel slowly through the head, body, and tail of the coiled epididymis, they acquire forward progressive motility and membrane stability, and they only gain full fertilizing ability after undergoing capacitation inside the female reproductive tract."
+      "answer": "New sperm leaving seminiferous tubules are usually immotile and not fully capable of fertilization. They mature in the epididymis and gain fertilizing capacity after capacitation in the female reproductive tract."
     },
     {
       "question": "What is the difference between sperm capacitation and the acrosome reaction?",
-      "answer": "Capacitation is a series of physiological changes in the female reproductive tract that strips stabilizing cholesterol and glycoproteins from the sperm head membrane and triggers vigorous hyperactivated tail beating. Once a capacitated sperm binds to the zona pellucida of the oocyte, it undergoes the acrosome reaction—releasing hydrolytic enzymes from the acrosomal cap so the sperm can penetrate the egg coverings."
+      "answer": "Capacitation involves membrane and signaling changes that prepare sperm for fertilization and hyperactivated motility. The acrosome reaction is exocytosis from the sperm head that helps it cross the zona pellucida."
     }
   ]
 }

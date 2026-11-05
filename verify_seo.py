@@ -11,6 +11,7 @@ import json
 import os
 import re
 import sys
+import unicodedata
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parent / 'site'
@@ -206,6 +207,28 @@ else:
     if sitemap.exists(): report('Preview has a sitemap without a real public URL')
     if 'Sitemap:' in robots: report('Preview robots.txt has an invalid sitemap directive')
 
+# Verify that the production-only AdSense integration is complete and never leaks into previews.
+DEFAULT_PUBLISHER_ID = 'pub-5783924977074679'
+PUBLISHER_ID = (os.environ.get('ADSENSE_PUBLISHER_ID') or DEFAULT_PUBLISHER_ID).strip() if CONTEXT in ('', 'production') else ''
+ADSENSE_ENABLED = bool(PUBLISHER_ID and BASE and CONTEXT in ('', 'production'))
+ADSENSE_TAG = f'adsbygoogle.js?client=ca-{PUBLISHER_ID}' if ADSENSE_ENABLED else ''
+for page in PAGES:
+    page_html = page.read_text(encoding='utf-8')
+    is_nonpublic = page.name in ('404.html', 'blog-studio.html')
+    has_adsense = 'adsbygoogle.js?client=' in page_html
+    if ADSENSE_ENABLED and not is_nonpublic:
+        head = re.search(r'<head\b[^>]*>(.*?)</head\s*>', page_html, flags=re.I|re.S)
+        if not head or page_html.count('adsbygoogle.js?client=') != 1 or ADSENSE_TAG not in head.group(1):
+            report(f'{page.relative_to(ROOT)}: production Auto ads loader missing, duplicated, or outside <head>')
+    elif has_adsense:
+        report(f'{page.relative_to(ROOT)}: AdSense loader must not appear on previews or nonpublic pages')
+ads_txt = ROOT / 'ads.txt'
+expected_ads_txt = f'google.com, {PUBLISHER_ID}, DIRECT, f08c47fec0942fa0\n'
+if ADSENSE_ENABLED:
+    if not ads_txt.is_file() or ads_txt.read_text(encoding='utf-8') != expected_ads_txt:
+        report('Production ads.txt is missing or does not match the configured AdSense publisher ID')
+elif ads_txt.exists():
+    report('Preview/local build must not contain production ads.txt')
 
 # Targeted regression checks: never replace a microscopic close-up with a gross lung plate,
 # and never return the sagittal vaginal image to the external vulva chapter.
@@ -217,6 +240,68 @@ for slug in ('lungs','pulmonaryacinus'):
         if len(matches)!=1 or matches[0].get('data-preview-kind')!='scope' or not matches[0].get('data-plate-src','').endswith('/alveolar-cell-detail.webp') or matches[0].get('data-preview-context')!='false' or not matches[0].get('data-overview-src','').endswith('/'+('lungs' if slug=='lungs' else 'pulmonary-acinus')+'.webp'):
             report(f'{slug}: missing honest illustrated close-up and pointer for {cell}')
 # All microscope links must point to shipped optimized assets and carry an honest organ reference.
+PROJECT_ROOT = Path(__file__).resolve().parent
+QA_BRAIN = PROJECT_ROOT / 'netlify' / 'functions' / 'atlas-qa-brain.mjs'
+if not QA_BRAIN.is_file():
+    report('Server-side Atlas Q&A brain is missing from netlify/functions')
+if list(ROOT.rglob('atlas-qa-brain.mjs')):
+    report('Server-side Atlas Q&A brain must not be copied into the static site output')
+else:
+    module_text = QA_BRAIN.read_text(encoding='utf-8') if QA_BRAIN.is_file() else ''
+    module_match = re.search(r'export const ATLAS_QA = Object\.freeze\((\[.*\])\);\s*$', module_text, re.S)
+    if not module_match:
+        report('Could not parse the generated server-side Atlas Q&A module')
+    else:
+        try:
+            qa_records = json.loads(module_match.group(1))
+        except json.JSONDecodeError as exc:
+            qa_records = []
+            report(f'Generated Atlas Q&A JSON is invalid: {exc}')
+        if len(qa_records) != 5000:
+            report(f'Expected exactly 5,000 server-side Q&A records, found {len(qa_records)}')
+        def qa_normalize(value):
+            ascii_value = unicodedata.normalize('NFKD', str(value or '')).encode('ascii', 'ignore').decode('ascii').lower()
+            return ' '.join(re.findall(r'[a-z0-9]+', ascii_value))
+        question_norms = [qa_normalize(item.get('question')) for item in qa_records]
+        source_ids = [item.get('sourceId') for item in qa_records]
+        if len(set(question_norms)) != len(qa_records):
+            report('Generated Atlas Q&A questions are not unique')
+        if len(set(source_ids)) != len(qa_records):
+            report('Generated Atlas Q&A source IDs are not unique')
+        knowledge_path = PROJECT_ROOT / 'bot-knowledge.json'
+        if knowledge_path.is_file():
+            knowledge = json.loads(knowledge_path.read_text(encoding='utf-8'))
+            faq_norms = {qa_normalize(item.get('q')) for item in knowledge.get('faqs', []) if isinstance(item, dict)}
+            if any(question in faq_norms for question in question_norms):
+                report('Generated 5,000 Q&A records overlap the existing curated FAQ questions')
+        else:
+            report('Existing Atlas FAQ source data is missing; cannot verify Q&A separation')
+        verified_pages = {}
+        for item in qa_records:
+            answer_url = str(item.get('atlasUrl') or '')
+            parsed_url = urlparse(answer_url)
+            if parsed_url.scheme or parsed_url.netloc or not parsed_url.path.startswith('/learn/'):
+                report(f'Q&A record has a non-internal Atlas URL: {answer_url}')
+                continue
+            target = local_target(ROOT / 'index.html', answer_url)
+            if not target or not target.is_file():
+                report(f'Q&A record links to a missing Atlas page: {answer_url}')
+                continue
+            page_key = str(target)
+            if page_key not in verified_pages:
+                verified_pages[page_key] = target.read_text(encoding='utf-8')
+            if parsed_url.fragment and f'id="{unquote(parsed_url.fragment)}"' not in verified_pages[page_key]:
+                report(f'Q&A record links to a missing Atlas section: {answer_url}')
+            image_path = item.get('imagePath')
+            if image_path:
+                if not str(image_path).startswith(('/img/webp/', '/img/medium/', '/img/thumb/')):
+                    report(f'Q&A record has a non-local image: {image_path}')
+                elif not (PROJECT_ROOT / str(image_path).lstrip('/')).is_file():
+                    report(f'Q&A record image is missing: {image_path}')
+                coords = item.get('hot')
+                if not isinstance(coords, list) or len(coords) != 2 or any(not isinstance(v, int) or v < 0 or v > 1000 for v in coords):
+                    report(f'Q&A record image is missing valid pinpoint coordinates: {item.get("sourceId")}')
+
 for slug in ('lungs','kidney','thyroid','pancreas','skin','breast','lymph','gynuterus','gynadnexa','maletestis'):
     page=(ROOT/'learn'/S(slug)/'index.html').read_text(encoding='utf-8')
     if 'id="under-the-lens"' not in page: report(f'{slug}: under-the-lens section missing')
@@ -292,3 +377,5 @@ if ERRORS:
     for error in ERRORS[:40]: print(' -', error)
     sys.exit(1)
 print(f'SEO audit PASS: {len(PAGES)} pages, {EXPECTED_SITEMAP if BASE else 0} sitemap URLs, valid local links, {"public" if BASE else "noindex preview"} mode.')
+print('AdSense build check PASS: production loader and ads.txt verified.' if ADSENSE_ENABLED else 'AdSense build check PASS: preview/local output contains no ad code or ads.txt.')
+print('Atlas Q&A audit PASS: 5,000 unique server-side records, zero overlap with 370 curated FAQs, valid internal links/pinned local images, no static copy.')

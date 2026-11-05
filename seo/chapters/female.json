@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What organs are included in the female reproductive system?",
-      "answer": "The system includes ovaries, uterine tubes, uterus, cervix, vagina and external genital structures. Each has distinct roles in cycles, reproduction and pelvic support. Structurally, the broad & suspensory ligaments (Ligamentum latum) comprises peritoneal folds (broad, round, ovarian, suspensory) carrying the tubes, vessels and ureters. Physiologically, the broad & suspensory ligaments governs suspend the uterus and convey its vessels."
+      "answer": "The system includes ovaries, uterine tubes, uterus, cervix, vagina and external genital structures. Each has distinct roles in cycles, reproduction and pelvic support."
     },
     {
-      "question": "Where does fertilization usually occur?",
-      "answer": "Fertilization most often occurs in the ampulla of a uterine tube. The resulting early embryo travels toward the uterine cavity. The uterine tube (Tuba uterina) is a 10 cm ciliated duct with interstitial, isthmic, ampullary and infundibular parts. Physiologically, the uterine tube governs captures the oocyte, is the site of fertilisation (ampulla) and transports the embryo by ciliary beat and peristalsis."
+      "question": "What role does the uterus play in reproduction?",
+      "answer": "The uterus provides a site for blastocyst implantation and supports embryo and fetal development; the myometrium contracts during labor."
     },
     {
-      "question": "What is the fundus & body?",
-      "answer": "The domed fundus above the tubal openings and the tapering body, of smooth muscle (myometrium) lined by endometrium. Functionally, it houses and nourishes a pregnancy; the myometrium generates labour. In clinical pathology involving the fundus & body, fibroids (leiomyomas) arise in the myometrium and cause heavy bleeding and pressure symptoms."
+      "question": "How are the uterine fundus and body distinguished?",
+      "answer": "The uterine fundus is the domed top above the tubal openings; the body is the main muscular portion below it."
     },
     {
       "question": "Where is the cervix located?",
-      "answer": "The fibrous neck projecting into the vagina, with an endocervical canal of mucus-secreting columnar epithelium and a squamous ectocervix. Functionally, it keeps pregnancy in and microbes out; dilates 10 cm in labour. Medical evaluation of the cervix also notes that the squamocolumnar junction is where cervical cancer begins — the target of smear tests and HPV vaccination."
+      "answer": "The cervix is the lower part of the uterus that projects into the vagina. Its canal is lined by mucus-secreting columnar epithelium, while the ectocervix is covered by stratified squamous epithelium."
     },
     {
       "question": "What is the function of the uterine tube?",
-      "answer": "Functionally, it governs captures the oocyte, is the site of fertilisation (ampulla) and transports the embryo by ciliary beat and peristalsis. A 10 cm ciliated duct with interstitial, isthmic, ampullary and infundibular parts. The uterine cornua (Cornua uteri) is upper lateral junctions where uterine tubes enter. Physiologically, the uterine cornua governs communicate with intramural tube segments."
+      "answer": "Uterine tubes capture the oocyte and transport the early embryo toward the uterus through ciliary action and smooth-muscle contractions."
     }
   ]
 }

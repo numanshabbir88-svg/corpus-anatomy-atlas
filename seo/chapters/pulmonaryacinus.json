@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What is a pulmonary acinus?",
-      "answer": "An acinus is the lung region distal to a terminal bronchiole where respiratory bronchioles, alveolar ducts and alveoli participate in gas exchange. It is a microanatomical unit, not a whole lung lobe. Structurally, the respiratory bronchiole (Bronchiolus respiratorius) comprises first airway segment with alveoli interrupting its wall. Physiologically, the respiratory bronchiole governs combines air conduction and some gas exchange."
+      "answer": "An acinus is the lung region distal to a terminal bronchiole where respiratory bronchioles, alveolar ducts and alveoli participate in gas exchange. It is a microanatomical unit, not a whole lung lobe."
     },
     {
       "question": "How do Type I and Type II alveolar cells differ?",
-      "answer": "Type I pneumocytes are thin squamous lining cells specialized for gas exchange. Type II pneumocytes are plumper cells that make surfactant and help replenish the alveolar lining. Structurally, the type I pneumocyte (Pneumocytus typus I) comprises very thin squamous alveolar epithelial cell covering most alveolar surface. Physiologically, the type I pneumocyte governs minimizes gas diffusion distance."
+      "answer": "Type I pneumocytes are thin squamous lining cells specialized for gas exchange. Type II pneumocytes are plumper cells that make surfactant and help replenish the alveolar lining."
     },
     {
       "question": "What is the alveolar–capillary barrier?",
-      "answer": "It is the thin interface separating air in an alveolus from blood in a nearby capillary, involving alveolar epithelium, shared basement membranes and capillary endothelium. Its short diffusion distance supports gas exchange. The pulmonary interstitium is thin connective compartment between epithelium and capillary endothelium. Physiologically, the pulmonary interstitium supports cells, matrix and diffusion interface."
+      "answer": "It is the thin interface separating air in an alveolus from blood in a nearby capillary, involving alveolar epithelium, shared basement membranes and capillary endothelium. Its short diffusion distance supports gas exchange."
     },
     {
       "question": "Are alveolar macrophages attached to the wall?",
-      "answer": "Alveolar macrophages can move on the air-facing surface of alveoli and engulf inhaled particles and debris. They are not the same as Type I or Type II epithelial cells. Structurally, the alveolar epithelial tight junctions comprises sealing contacts between adjacent alveolar epithelial cells. Physiologically, the alveolar epithelial tight junctions governs maintain fluid barrier despite thin gas-exchange surface."
+      "answer": "Alveolar macrophages can move on the air-facing surface of alveoli and engulf inhaled particles and debris. They are not the same as Type I or Type II epithelial cells."
     },
     {
       "question": "Is the Type I cell image a histology photograph?",
-      "answer": "No. The separate alveolar cell view is a digital teaching illustration. The thin lining and plumper Type II cell are depicted for learning, not presented as a clinical slide or a literal lung-image zoom. Structurally, the type II pneumocyte (Pneumocytus typus II) comprises cuboidal cell with lamellar bodies, commonly at alveolar corners. Physiologically, the type II pneumocyte secretes surfactant and contributes to epithelial renewal."
+      "answer": "No. It is a digital teaching illustration of an alveolar cell, not a tissue specimen or clinical slide."
     }
   ]
 }

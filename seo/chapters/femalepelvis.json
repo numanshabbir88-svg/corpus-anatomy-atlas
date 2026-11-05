@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "Which organs are located in the female pelvis?",
-      "answer": "The female pelvis contains bladder, uterus, cervix, vagina and rectum, with ovaries and uterine tubes toward the lateral pelvic regions. The vagina is muscular canal from cervix to vestibule. Physiologically, the vagina governs intercourse, menstrual flow, birth canal."
+      "answer": "The female pelvis contains the bladder, uterus, cervix, vagina and rectum; the ovaries and uterine tubes lie laterally."
     },
     {
       "question": "What supports the uterus and pelvic organs?",
-      "answer": "Pelvic-floor muscles and connective-tissue attachments provide key support. The broad ligament is a peritoneal fold, not the sole load-bearing support. The broad ligament (Ligamentum latum uteri) is double peritoneal sheet draped over uterus, tubes and associated structures. Physiologically, the broad ligament supports relationships but is not the main mechanical uterine support."
+      "answer": "The levator ani and coccygeus form the pelvic diaphragm, supporting pelvic viscera and helping maintain continence; connective-tissue attachments also stabilize the uterus."
     },
     {
       "question": "Where is the urinary bladder in the female pelvis?",
-      "answer": "Reservoir behind the pubic symphysis. Functionally, it stores urine. In clinical pathology involving the urinary bladder, stress incontinence follows pelvic-floor weakness."
+      "answer": "In the female pelvis, the bladder lies anterior to the vagina and uterus."
     },
     {
       "question": "Where is the vagina located?",
-      "answer": "Muscular canal from cervix to vestibule. Functionally, it governs intercourse, menstrual flow, birth canal. Structurally, the cardinal & uterosacral ligaments (Ligg. cardinalia) comprises condensed endopelvic fascia at cervix sides. Physiologically, the cardinal & uterosacral ligaments governs suspend cervix and upper vagina."
+      "answer": "The vagina is a muscular canal extending from the cervix to the vestibule."
     },
     {
-      "question": "What is the function of the vesico- & recto-uterine pouches?",
-      "answer": "Functionally, it allow organ movement; collect free fluid. Peritoneal recesses front and back of uterus. Clinically, regarding the vesico- & recto-uterine pouches, the recto-uterine pouch is the most dependent — pus collects there."
+      "question": "What do the vesicouterine and rectouterine pouches do?",
+      "answer": "These peritoneal recesses accommodate movement of pelvic organs and can collect free fluid."
     }
   ]
 }

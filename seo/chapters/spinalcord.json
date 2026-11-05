@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "Where does the spinal cord end in adults?",
-      "answer": "The spinal cord usually tapers to the conus medullaris near the L1-L2 vertebral level in adults; nerve roots continue below it as the cauda equina. Structurally, the conus medullaris comprises tapered end of adult spinal cord, usually near L1–L2 vertebral level. Physiologically, the conus medullaris contains terminal sacral cord segments."
+      "answer": "In most adults, the spinal cord ends as the conus medullaris near the L1–L2 vertebral level; nerve roots continue below as the cauda equina."
     },
     {
       "question": "What is the difference between gray and white matter in the spinal cord?",
-      "answer": "Central gray matter contains neuronal cell bodies and local circuits; surrounding white matter carries ascending sensory and descending motor pathways. Structurally, the dorsal root & ganglion (Radix dorsalis) comprises sensory rootlets converging on the oval dorsal root ganglion of pseudo-unipolar cell bodies. Physiologically, the dorsal root & ganglion carries all afferent input from one dermatome."
+      "answer": "Central gray matter contains neuronal cell bodies and local circuits; surrounding white matter carries ascending sensory and descending motor pathways."
     },
     {
       "question": "What is the posterior (dorsal) horn?",
-      "answer": "The slender upper horns receiving sensory afferents; laminae I–VI including the substantia gelatinosa. Functionally, it governs first synapse for pain, temperature and touch; gate control of nociception happens here. In clinical pathology involving the posterior (dorsal) horn, loss of the spinothalamic decussation at a segment causes a segmental band of lost pain and temperature (syringomyelia)."
+      "answer": "The posterior horn is the dorsal gray-matter region of the spinal cord that receives and processes sensory afferents."
     },
     {
       "question": "Where is the lateral horn located?",
-      "answer": "Present only in T1–L2, holding preganglionic sympathetic neurons (and S2–S4 parasympathetic equivalents). Functionally, it governs origin of the sympathetic outflow. Medical evaluation of the lateral horn also notes that horner syndrome follows interruption of the T1 lateral horn or its pathway (e.g. Pancoast tumour)."
+      "answer": "The lateral horn is in the spinal gray matter, most distinctly at thoracic and upper lumbar levels (classically T1–L2)."
     },
     {
       "question": "What is the function of the white funiculi & tracts?",
-      "answer": "Functionally, it governs highways for sensation upward and motor commands downward. Dorsal columns (fasciculus gracilis & cuneatus), lateral spinothalamic and corticospinal tracts, and spinocerebellar tracts. Clinically, regarding the white funiculi & tracts, b12 deficiency (subacute combined degeneration) damages dorsal columns and corticospinal tracts together."
+      "answer": "Spinal white-matter tracts carry sensory information upward and motor commands downward between the body and brain."
     }
   ]
 }

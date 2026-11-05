@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What are the layers of the uterine wall?",
-      "answer": "The uterus has an inner endometrium, muscular myometrium and outer serosal or connective covering depending on the region. The endometrial–myometrial junction (Zona junctionalis) is inner myometrial zone adjacent to the endometrium. Physiologically, the endometrial–myometrial junction governs interface for cyclical uterine peristalsis and implantation."
+      "answer": "The uterus has an inner endometrium, muscular myometrium and outer serosal or connective covering depending on the region."
     },
     {
       "question": "What happens to the endometrium during the menstrual cycle?",
-      "answer": "The endometrium responds to changing ovarian hormones. Its functional layer grows and changes during the cycle and is shed if pregnancy does not occur. The endometrial glands is simple tubular glands extending through uterine mucosa into stroma. Physiologically, the endometrial glands governs change secretion and shape during menstrual cycle."
+      "answer": "The endometrium responds to changing ovarian hormones. Its functional layer grows and changes during the cycle and is shed if pregnancy does not occur."
     },
     {
-      "question": "What is the fundus?",
-      "answer": "Dome above the two tubal openings. Functionally, it expands in pregnancy; fundal position is an obstetric landmark. In clinical pathology involving the fundus, fundal height is a rough gestational growth marker."
+      "question": "What is the uterine fundus?",
+      "answer": "The uterine fundus is the rounded upper part of the uterus above the openings of the uterine tubes."
     },
     {
       "question": "Where are the uterine cornua located?",
-      "answer": "Upper lateral junctions where uterine tubes enter. Functionally, it governs communicate with intramural tube segments. Medical evaluation of the uterine cornua also notes that interstitial ectopic pregnancy arises near the cornu."
+      "answer": "The uterine cornua are the upper lateral corners of the uterus where the uterine tubes enter."
     },
     {
-      "question": "What is the function of the endometrium — functionalis?",
-      "answer": "Functionally, it governs proliferates under estrogen and becomes secretory under progesterone. Superficial cyclic glandular layer; sheds with menses. Clinically, regarding the endometrium — functionalis, abnormal bleeding can arise from altered endometrial architecture."
+      "question": "What does the uterine endometrial functionalis do?",
+      "answer": "The endometrial functionalis proliferates under estrogen, becomes secretory under progesterone, and is shed during menstruation."
     }
   ]
 }

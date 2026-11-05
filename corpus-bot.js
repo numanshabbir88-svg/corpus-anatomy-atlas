@@ -1204,114 +1204,49 @@
 
   /* ---------- 6b. Visual Anatomy Image Card, Target Callout Overlay & Labeled Diagram Generator ---------- */
   var EXTRA_REF_IMG_MAP = {
-    'gallbladder': { img: 'img/webp/liver.webp', wiki: 'Gallbladder' },
-    'appendix': { img: 'img/webp/intestinal-wall-deep.webp', wiki: 'Appendix_(anatomy)' },
-    'pineal gland': { img: 'img/webp/endocrine.webp', wiki: 'Pineal_gland' },
-    'pituitary gland': { img: 'img/webp/endocrine.webp', wiki: 'Pituitary_gland' },
-    'thymus': { img: 'img/webp/lymph.webp', wiki: 'Thymus' },
-    'parathyroid': { img: 'img/webp/thyroid-follicle-closeup.webp', wiki: 'Parathyroid_gland' },
-    'epiglottis': { img: 'img/webp/larynx.webp', wiki: 'Epiglottis' },
-    'trachea': { img: 'img/webp/lungs.webp', wiki: 'Trachea' },
-    'esophagus': { img: 'img/webp/gut.webp', wiki: 'Esophagus' },
-    'duodenum': { img: 'img/webp/intestinal-wall-deep.webp', wiki: 'Duodenum' },
-    'vagus nerve': { img: 'img/webp/cranial.webp', wiki: 'Vagus_nerve' },
-    'sciatic nerve': { img: 'img/webp/nervous.webp', wiki: 'Sciatic_nerve' },
-    'circle of willis': { img: 'img/webp/vascular.webp', wiki: 'Circle_of_Willis' },
-    'femur': { img: 'img/webp/skeleton.webp', wiki: 'Femur' },
-    'islets of langerhans': { img: 'img/webp/pancreas-micro-closeup.webp', wiki: 'Pancreatic_islets' },
-    'peyer patches': { img: 'img/webp/intestinal-wall-deep.webp', wiki: 'Peyer%27s_patch' },
-    'bundle of his': { img: 'img/webp/cardiac-conduction-system.webp', wiki: 'Bundle_of_His' },
-    'adrenal gland': { img: 'img/webp/endocrine.webp', wiki: 'Adrenal_gland' },
-    'mitochondria': { img: 'img/webp/foundation-cell-organelles.webp', wiki: 'Mitochondrion' },
-    'ribosome': { img: 'img/webp/foundation-cell-organelles.webp', wiki: 'Ribosome' },
-    'endoplasmic reticulum': { img: 'img/webp/foundation-cell-organelles.webp', wiki: 'Endoplasmic_reticulum' },
-    'golgi apparatus': { img: 'img/webp/foundation-cell-organelles.webp', wiki: 'Golgi_apparatus' },
-    'lysosome': { img: 'img/webp/foundation-cell-organelles.webp', wiki: 'Lysosome' },
-    'sarcomere': { img: 'img/webp/foundation-skeletal-muscle.webp', wiki: 'Sarcomere' },
-    'osteon': { img: 'img/webp/skeleton.webp', wiki: 'Osteon' },
-    'synapse': { img: 'img/webp/foundation-neural.webp', wiki: 'Synapse' },
-    'neuromuscular junction': { img: 'img/webp/foundation-skeletal-muscle.webp', wiki: 'Neuromuscular_junction' },
-    'blood brain barrier': { img: 'img/webp/meninges-csf.webp', wiki: 'Blood%E2%80%93brain_barrier' },
-    'organ of corti': { img: 'img/webp/cochlea-organ-corti-closeup.webp', wiki: 'Organ_of_Corti' },
-    'juxtaglomerular apparatus': { img: 'img/webp/nephron-deep.webp', wiki: 'Juxtaglomerular_apparatus' },
-    'stapes': { img: 'img/webp/ear.webp', wiki: 'Stapes' },
-    'meissner corpuscle': { img: 'img/webp/skin-layers-deep.webp', wiki: 'Tactile_corpuscle' },
-    'pacinian corpuscle': { img: 'img/webp/skin-layers-deep.webp', wiki: 'Pacinian_corpuscle' },
-    'muscle spindle': { img: 'img/webp/foundation-skeletal-muscle.webp', wiki: 'Muscle_spindle' },
-    'crypts of lieberkuhn': { img: 'img/webp/intestinal-wall-deep.webp', wiki: 'Intestinal_gland' },
-    'brunner glands': { img: 'img/webp/intestinal-wall-deep.webp', wiki: 'Brunner%27s_glands' },
-    'carotid body': { img: 'img/webp/vascular.webp', wiki: 'Carotid_body' },
-    'interstitium': { img: 'img/webp/foundation-connective.webp', wiki: 'Interstitium' },
-    'mesentery': { img: 'img/webp/gut.webp', wiki: 'Mesentery' },
-    'meibomian gland': { img: 'img/webp/eye-layers-deep.webp', wiki: 'Meibomian_gland' },
-    'bartholin gland': { img: 'img/webp/vulva-surface-clean.webp', wiki: 'Bartholin%27s_gland' },
-    'bulbourethral gland': { img: 'img/webp/male-prostate-detail.webp', wiki: 'Bulbourethral_gland' }
+    'gallbladder': { img: 'img/webp/liver.webp' },
+    'appendix': { img: 'img/webp/intestinal-wall-deep.webp' },
+    'pineal gland': { img: 'img/webp/endocrine.webp' },
+    'pituitary gland': { img: 'img/webp/endocrine.webp' },
+    'thymus': { img: 'img/webp/lymph.webp' },
+    'parathyroid': { img: 'img/webp/thyroid-follicle-closeup.webp' },
+    'epiglottis': { img: 'img/webp/larynx.webp' },
+    'trachea': { img: 'img/webp/lungs.webp' },
+    'esophagus': { img: 'img/webp/gut.webp' },
+    'duodenum': { img: 'img/webp/intestinal-wall-deep.webp' },
+    'vagus nerve': { img: 'img/webp/cranial.webp' },
+    'sciatic nerve': { img: 'img/webp/nervous.webp' },
+    'circle of willis': { img: 'img/webp/vascular.webp' },
+    'femur': { img: 'img/webp/skeleton.webp' },
+    'islets of langerhans': { img: 'img/webp/pancreas-micro-closeup.webp' },
+    'peyer patches': { img: 'img/webp/intestinal-wall-deep.webp' },
+    'bundle of his': { img: 'img/webp/cardiac-conduction-system.webp' },
+    'adrenal gland': { img: 'img/webp/endocrine.webp' },
+    'mitochondria': { img: 'img/webp/foundation-cell-organelles.webp' },
+    'ribosome': { img: 'img/webp/foundation-cell-organelles.webp' },
+    'endoplasmic reticulum': { img: 'img/webp/foundation-cell-organelles.webp' },
+    'golgi apparatus': { img: 'img/webp/foundation-cell-organelles.webp' },
+    'lysosome': { img: 'img/webp/foundation-cell-organelles.webp' },
+    'sarcomere': { img: 'img/webp/foundation-skeletal-muscle.webp' },
+    'osteon': { img: 'img/webp/skeleton.webp' },
+    'synapse': { img: 'img/webp/foundation-neural.webp' },
+    'neuromuscular junction': { img: 'img/webp/foundation-skeletal-muscle.webp' },
+    'blood brain barrier': { img: 'img/webp/meninges-csf.webp' },
+    'organ of corti': { img: 'img/webp/cochlea-organ-corti-closeup.webp' },
+    'juxtaglomerular apparatus': { img: 'img/webp/nephron-deep.webp' },
+    'stapes': { img: 'img/webp/ear.webp' },
+    'meissner corpuscle': { img: 'img/webp/skin-layers-deep.webp' },
+    'pacinian corpuscle': { img: 'img/webp/skin-layers-deep.webp' },
+    'muscle spindle': { img: 'img/webp/foundation-skeletal-muscle.webp' },
+    'crypts of lieberkuhn': { img: 'img/webp/intestinal-wall-deep.webp' },
+    'brunner glands': { img: 'img/webp/intestinal-wall-deep.webp' },
+    'carotid body': { img: 'img/webp/vascular.webp' },
+    'interstitium': { img: 'img/webp/foundation-connective.webp' },
+    'mesentery': { img: 'img/webp/gut.webp' },
+    'meibomian gland': { img: 'img/webp/eye-layers-deep.webp' },
+    'bartholin gland': { img: 'img/webp/vulva-surface-clean.webp' },
+    'bulbourethral gland': { img: 'img/webp/male-prostate-detail.webp' }
   };
-
-  function generateBlueprintSvgDataUri(title, tag, detailsObj) {
-    var cleanTitle = String(title || 'Human Anatomy').split('·')[0].trim().slice(0, 38).replace(/[<>&"']/g, '');
-    var cleanLatin = String((detailsObj && detailsObj.latin) || '').slice(0, 42).replace(/[<>&"']/g, '');
-    var cleanTag = String(tag || 'Corpus Visual Schematic').slice(0, 40).replace(/[<>&"']/g, '');
-    var regTxt = String((detailsObj && detailsObj.region) || 'Human Anatomical System').slice(0, 58).replace(/[<>&"']/g, '');
-    var bldTxt = String((detailsObj && detailsObj.blood) || 'Regional arterial & venous network').slice(0, 58).replace(/[<>&"']/g, '');
-    var nrvTxt = String((detailsObj && detailsObj.nerve) || 'Autonomic / somatic innervation').slice(0, 58).replace(/[<>&"']/g, '');
-    var fnTxt = String((detailsObj && detailsObj.func) || 'Specialized structural & physiological role in homeostasis.').slice(0, 74).replace(/[<>&"']/g, '');
-
-    var svg =
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" width="720" height="440">' +
-        '<defs>' +
-          '<radialGradient id="bg" cx="32%" cy="48%" r="70%">' +
-            '<stop offset="0%" stop-color="#17423e"/>' +
-            '<stop offset="100%" stop-color="#071413"/>' +
-          '</radialGradient>' +
-        '</defs>' +
-        '<rect width="720" height="440" fill="url(#bg)"/>' +
-        '<g stroke="#2a6b64" stroke-width="0.7" opacity="0.28">' +
-          '<line x1="0" y1="70" x2="720" y2="70"/><line x1="0" y1="140" x2="720" y2="140"/>' +
-          '<line x1="0" y1="210" x2="720" y2="210"/><line x1="0" y1="280" x2="720" y2="280"/>' +
-          '<line x1="0" y1="350" x2="720" y2="350"/>' +
-          '<line x1="120" y1="0" x2="120" y2="440"/><line x1="240" y1="0" x2="240" y2="440"/>' +
-          '<line x1="360" y1="0" x2="360" y2="440"/><line x1="480" y1="0" x2="480" y2="440"/>' +
-          '<line x1="600" y1="0" x2="600" y2="440"/>' +
-        '</g>' +
-        /* Header Banner */
-        '<rect x="24" y="20" width="672" height="58" rx="10" fill="#0d2c29" stroke="#4fd1c5" stroke-width="1.2"/>' +
-        '<text x="42" y="46" fill="#ecfdf5" font-family="system-ui,sans-serif" font-size="20" font-weight="800">' + cleanTitle + '</text>' +
-        '<text x="42" y="66" fill="#6ee7b7" font-family="system-ui,sans-serif" font-size="12" font-style="italic">' + (cleanLatin ? cleanLatin + ' · ' : '') + cleanTag.toUpperCase() + '</text>' +
-        /* Left Schematic Organ Node */
-        '<circle cx="170" cy="225" r="88" fill="none" stroke="#4fd1c5" stroke-width="1.6" stroke-dasharray="6,5" opacity="0.75"/>' +
-        '<circle cx="170" cy="225" r="64" fill="#113e3a" stroke="#6ee7b7" stroke-width="2.2"/>' +
-        '<ellipse cx="170" cy="225" rx="44" ry="28" fill="#175650" stroke="#a7f3d0" stroke-width="1.8"/>' +
-        '<path d="M138,225 Q154,202 170,225 T202,225" fill="none" stroke="#ecfdf5" stroke-width="2.2"/>' +
-        '<circle cx="170" cy="225" r="7" fill="#ff5a5f" stroke="#ffffff" stroke-width="2"/>' +
-        /* Leader Callout Lines to Right Study Cards */
-        '<line x1="234" y1="190" x2="305" y2="128" stroke="#6ee7b7" stroke-width="1.8"/>' +
-        '<line x1="234" y1="215" x2="305" y2="198" stroke="#6ee7b7" stroke-width="1.8"/>' +
-        '<line x1="234" y1="238" x2="305" y2="268" stroke="#6ee7b7" stroke-width="1.8"/>' +
-        '<line x1="234" y1="260" x2="305" y2="338" stroke="#6ee7b7" stroke-width="1.8"/>' +
-        /* 4 Labeled Study Callout Boxes */
-        '<rect x="305" y="98" width="390" height="54" rx="8" fill="#0d2c29" stroke="#38b2ac" stroke-width="1.2"/>' +
-        '<text x="320" y="118" fill="#6ee7b7" font-family="system-ui,sans-serif" font-size="11" font-weight="800">1. ANATOMICAL LOCATION &amp; REGION</text>' +
-        '<text x="320" y="138" fill="#ecfdf5" font-family="system-ui,sans-serif" font-size="12.5">' + regTxt + '</text>' +
-
-        '<rect x="305" y="168" width="390" height="54" rx="8" fill="#0d2c29" stroke="#38b2ac" stroke-width="1.2"/>' +
-        '<text x="320" y="188" fill="#6ee7b7" font-family="system-ui,sans-serif" font-size="11" font-weight="800">2. ARTERIAL &amp; VENOUS BLOOD SUPPLY</text>' +
-        '<text x="320" y="208" fill="#ecfdf5" font-family="system-ui,sans-serif" font-size="12.5">' + bldTxt + '</text>' +
-
-        '<rect x="305" y="238" width="390" height="54" rx="8" fill="#0d2c29" stroke="#38b2ac" stroke-width="1.2"/>' +
-        '<text x="320" y="258" fill="#6ee7b7" font-family="system-ui,sans-serif" font-size="11" font-weight="800">3. NERVE SUPPLY (INNERVATION)</text>' +
-        '<text x="320" y="278" fill="#ecfdf5" font-family="system-ui,sans-serif" font-size="12.5">' + nrvTxt + '</text>' +
-
-        '<rect x="305" y="308" width="390" height="54" rx="8" fill="#0d2c29" stroke="#38b2ac" stroke-width="1.2"/>' +
-        '<text x="320" y="328" fill="#6ee7b7" font-family="system-ui,sans-serif" font-size="11" font-weight="800">4. PRIMARY PHYSIOLOGICAL FUNCTION</text>' +
-        '<text x="320" y="348" fill="#ecfdf5" font-family="system-ui,sans-serif" font-size="12">' + fnTxt + '</text>' +
-
-        '<text x="360" y="414" text-anchor="middle" fill="#81e6d9" font-family="system-ui,sans-serif" font-size="11" font-weight="600" letter-spacing="0.8">' +
-          'CORPUS HUMAN ANATOMY ATLAS · LABELED ASSIGNMENT STUDY DIAGRAM' +
-        '</text>' +
-      '</svg>';
-    return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
-  }
 
   function buildPinOverlaySvg(hotCoords, labelText) {
     if (!Array.isArray(hotCoords) || hotCoords.length < 2) return '';
@@ -1331,30 +1266,24 @@
     );
   }
 
-  function buildMediaCard(rawImgSrc, title, tag, isFeatured, wikiSlug, hotCoords, diagramMeta) {
-    var resolvedSrc = '';
-    if (rawImgSrc) {
-      if (/^(https?:|data:)/i.test(rawImgSrc)) {
-        resolvedSrc = rawImgSrc;
-      } else {
-        resolvedSrc = ROOT_PREFIX + rawImgSrc.replace(/^\.?\//, '');
-      }
-    } else {
-      resolvedSrc = generateBlueprintSvgDataUri(title, tag, diagramMeta);
+  function buildMediaCard(rawImgSrc, title, hotCoords) {
+    /* Pilot policy: bot visuals must be existing local Atlas assets, never generated or hotlinked. */
+    var sourcePath = String(rawImgSrc || '').trim().replace(/^\.?\//, '').replace(/^\/+/, '');
+    if (!sourcePath || /^(https?:|data:|blob:)/i.test(sourcePath) || !/^img\/(webp|medium|thumb)\//i.test(sourcePath)) {
+      return '';
     }
-    /* Keep ordinary bot cards lightweight; the click-to-zoom target retains the original WebP. */
+    var resolvedSrc = ROOT_PREFIX + sourcePath;
+    /* Use a generated medium preview when available, with the original reviewed Atlas image as fallback. */
     var displaySrc = resolvedSrc.replace('img/webp/', 'img/medium/');
     if (displaySrc !== resolvedSrc && displaySrc.indexOf('?') === -1) displaySrc += '?v=1';
     var shortTitle = String(title || 'Anatomy Plate').split('·')[0].trim();
-    /* Always render featured size for anatomical queries so students see a clear visual plate */
     var cardClass = 'cbot-media-card is-featured';
-    var wikiAttr = wikiSlug ? ' data-cbot-wiki="' + escapeHtml(wikiSlug) + '"' : '';
     var pinSvg = buildPinOverlaySvg(hotCoords, shortTitle);
     var hotAttr = (Array.isArray(hotCoords) && hotCoords.length >= 2)
       ? ' data-cbot-hx="' + Number(hotCoords[0]) + '" data-cbot-hy="' + Number(hotCoords[1]) + '"'
       : '';
     return (
-      '<div class="' + cardClass + '" data-cbot-zoom-src="' + escapeHtml(resolvedSrc) + '" data-cbot-zoom-title="' + escapeHtml(title || shortTitle) + '"' + wikiAttr + hotAttr + '>' +
+      '<div class="' + cardClass + '" data-cbot-zoom-src="' + escapeHtml(resolvedSrc) + '" data-cbot-zoom-title="' + escapeHtml(title || shortTitle) + '"' + hotAttr + '>' +
         '<div class="cbot-media-stage">' +
           '<img class="cbot-media-img" src="' + escapeHtml(displaySrc) + '" alt="' + escapeHtml(shortTitle) + ' anatomy illustration" width="320" height="180" loading="lazy" />' +
           pinSvg +
@@ -1367,12 +1296,10 @@
     );
   }
 
-  function buildStudyToolbar(title, tag, diagramMeta) {
-    var diagUri = generateBlueprintSvgDataUri(title, tag, diagramMeta);
+  function buildStudyToolbar() {
     return (
       '<div class="cbot-tool-row">' +
-        '<button type="button" class="cbot-tool-btn" data-cbot-copy="1" title="Copy structured study notes for your assignment">📋 Copy Assignment Notes</button>' +
-        '<button type="button" class="cbot-tool-btn alt" data-cbot-diag="' + escapeHtml(diagUri) + '" data-cbot-diag-title="' + escapeHtml(title + ' — Labeled Study Diagram') + '" title="Generate Labeled Schematic Study Diagram">🎨 Labeled Diagram</button>' +
+        '<button type="button" class="cbot-tool-btn" data-cbot-copy="1" title="Copy structured study notes for your assignment">📋 Copy Study Notes</button>' +
       '</div>'
     );
   }
@@ -1628,7 +1555,7 @@
           '<span class="cbot-topic-title">' + escapeHtml(winner.item.q) + '</span>' +
           '<span class="cbot-topic-tag">' + escapeHtml(winner.item.ct) + '</span>' +
         '</div>' +
-        buildMediaCard(faqImg, winner.item.ct, 'Corpus Study Guide', true, '', null, faqMeta) +
+        buildMediaCard(faqImg, winner.item.ct, null) +
         '<div class="cbot-assign-sec"><h4>Detailed Answer &amp; Mechanism</h4><p>' + escapeHtml(winner.item.a) + '</p></div>' +
         buildStudyToolbar(winner.item.q, winner.item.ct, faqMeta) +
         buildNavButtons(winner.item.ck, '')
@@ -1648,7 +1575,7 @@
           '<span class="cbot-topic-title">' + escapeHtml(m.n) + '</span>' +
           '<span class="cbot-topic-tag">Muscle · ' + escapeHtml(m.g) + '</span>' +
         '</div>' +
-        buildMediaCard(m.img || 'img/webp/muscle.webp', m.n, m.g, true, '', null, mMeta) +
+        buildMediaCard(m.img || 'img/webp/muscle.webp', m.n, null) +
         '<div class="cbot-assign-sec"><h4>Anatomical Classification</h4><p><b>' + escapeHtml(m.n) + '</b> is a documented skeletal muscle of the <b>' + escapeHtml(m.g) + '</b> compartment.</p></div>' +
         '<ul class="cbot-point-list">' +
           (m.a ? '<li><b>Primary Action:</b> ' + escapeHtml(m.a) + '</li>' : '') +
@@ -1675,7 +1602,7 @@
           '<span class="cbot-topic-title">' + escapeHtml(td.n) + '</span>' +
           '<span class="cbot-topic-tag">Tendon Atlas</span>' +
         '</div>' +
-        buildMediaCard(td.img || 'img/webp/muscle.webp', td.n, 'Tendon Atlas', true, '', null, tdMeta) +
+        buildMediaCard(td.img || 'img/webp/muscle.webp', td.n, null) +
         '<ul class="cbot-point-list">' +
           (td.a ? '<li><b>Biomechanical Function:</b> ' + escapeHtml(td.a) + '</li>' : '') +
           (td.at ? '<li><b>Bony &amp; Muscular Attachment:</b> ' + escapeHtml(td.at) + '</li>' : '') +
@@ -1698,7 +1625,7 @@
           '<span class="cbot-topic-title">' + escapeHtml(bn.n) + '</span>' +
           '<span class="cbot-topic-tag">206-Bone Atlas · ' + escapeHtml(bn.g) + '</span>' +
         '</div>' +
-        buildMediaCard(bn.img || 'img/webp/skeleton.webp', bn.n, bn.g, true, '', null, bnMeta) +
+        buildMediaCard(bn.img || 'img/webp/skeleton.webp', bn.n, null) +
         '<div class="cbot-assign-sec"><h4>Skeletal Classification &amp; Osteology</h4><p><b>' + escapeHtml(bn.n) + '</b> belongs to the <b>' + escapeHtml(bn.g) + '</b> division of the 206-bone adult human skeleton (Documented bilateral/axial count in adult body: <b>' + escapeHtml(String(bn.c)) + '</b>). Composed of an outer dense cortical (compact) bone shell and internal trabecular (cancellous) bone lattice engineered to resist compressive and tensile loads.</p></div>' +
         buildStudyToolbar(bn.n, '206-Bone Atlas · ' + bn.g, bnMeta) +
         buildNavButtons('skeleton', '')
@@ -1755,7 +1682,7 @@
         (c.l ? '<span class="cbot-latin-sub">' + escapeHtml(c.l) + '</span>' : '') + '</div>' +
         '<span class="cbot-topic-tag">' + escapeHtml(c.s || 'Anatomy') + '</span>' +
       '</div>' +
-      buildMediaCard(chapImg, c.t, c.s || 'Anatomy', true, '', null, diagMeta) +
+      buildMediaCard(chapImg, c.t, null) +
       '<div class="cbot-assign-sec"><h4>1. Anatomical Overview &amp; Gross Structure</h4><p>' + escapeHtml(para1) + '</p></div>' +
       (para2 ? '<div class="cbot-assign-sec"><h4>2. Architecture &amp; Tissue Organization</h4><p>' + escapeHtml(para2) + '</p></div>' : '') +
       (para3 ? '<div class="cbot-assign-sec"><h4>3. Physiological Mechanism &amp; Clinical Relevance</h4><p>' + escapeHtml(para3) + '</p></div>' : '') +
@@ -1793,7 +1720,7 @@
         (p.l && p.l !== p.n ? '<span class="cbot-latin-sub">' + escapeHtml(p.l) + '</span>' : '') + '</div>' +
         '<span class="cbot-topic-tag">' + escapeHtml(p.ct) + '</span>' +
       '</div>' +
-      buildMediaCard(partImg, p.lt || p.n, p.ct, true, '', p.hot, diagMeta) +
+      buildMediaCard(partImg, p.lt || p.n, p.hot) +
       '<div class="cbot-assign-sec"><h4>1. Anatomical Structure &amp; Morphology</h4><p>' + escapeHtml(p.d) + '</p></div>' +
       (p.f ? '<div class="cbot-assign-sec"><h4>2. Physiological Function &amp; Mechanism</h4><p>' + escapeHtml(p.f) + '</p></div>' : '') +
       (p.c ? '<div class="cbot-assign-sec"><h4>3. Clinical Correlation &amp; Pathology</h4><p>' + escapeHtml(p.c) + '</p></div>' : '') +
@@ -1816,7 +1743,6 @@
       : '';
     var mediaMeta = (refKey && EXTRA_REF_IMG_MAP[refKey]) || {};
     var imgSrc = mediaMeta.img || (chapKey ? 'img/webp/' + chapKey + '.webp' : 'img/webp/foundation-cell-organelles.webp');
-    var wikiSlug = mediaMeta.wiki || '';
     var diagMeta = {
       latin: item.tag || 'Anatomy Reference',
       region: (rows[0] && rows[0][1]) || 'Human Body',
@@ -1829,7 +1755,7 @@
         '<span class="cbot-topic-title">' + escapeHtml(item.title) + '</span>' +
         '<span class="cbot-topic-tag">' + escapeHtml(item.tag || 'Anatomy Reference') + '</span>' +
       '</div>' +
-      buildMediaCard(imgSrc, item.title, item.tag || 'Anatomy Reference', true, wikiSlug, null, diagMeta) +
+      buildMediaCard(imgSrc, item.title, null) +
       '<div class="cbot-assign-sec"><h4>Anatomical &amp; Physiological Breakdown</h4><p>' + escapeHtml(item.summary) + '</p></div>' +
       listHtml +
       buildStudyToolbar(item.title, item.tag || 'Anatomy Reference', diagMeta) +
@@ -1837,7 +1763,7 @@
     );
   }
 
-  /* ---------- 8. External Background Medical Search (Max 3s, NO External Links) ---------- */
+  /* ---------- 8. Translation network helper ---------- */
   function fetchWithTimeout(url, timeoutMs) {
     var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
     var timer = setTimeout(function () {
@@ -1855,97 +1781,135 @@
       });
   }
 
-  function cleanEncyclopediaExtract(text) {
-    var s = String(text || '').trim();
-    /* Remove phonetic/pronunciation parentheses clutter while keeping clean medical prose */
-    s = s.replace(/\s*\([^()]*\/[^()]*\/[^()]*\)/g, '');
-    s = s.replace(/\s+/g, ' ').trim();
-    return s;
+  /* ---------- 8a. Site-Miss Web-Grounded AI Fallback (Netlify Function) ---------- */
+  var AI_FALLBACK_CACHE = {};
+  var AI_FALLBACK_COOLDOWN_UNTIL = 0;
+
+  function cleanAIAnswerForDisplay(text) {
+    var clean = String(text || '').trim();
+    clean = clean.replace(/【[^】]*】/g, '');
+    clean = clean.replace(/\[[^\]]+\]\((?:https?:\/\/)[^)]+\)/gi, '');
+    clean = clean.replace(/https?:\/\/[^\s)]+/gi, '');
+    clean = clean.replace(/\n?\s*(?:sources?|references?)\s*:\s*[\s\S]*$/i, '');
+    return clean.replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim().slice(0, 6000);
   }
 
-  var EXT_CACHE = {};
-
-  function isRelevantMedicalResult(title, desc, extract) {
-    var t = String(title || '').toLowerCase();
-    var d = String(desc || '').toLowerCase();
-    var combined = (t + ' ' + d + ' ' + String(extract || '')).toLowerCase();
-    /* Strictly reject TV series, films, episodes, games, music, sports, biographies, and places */
-    if (/^(list of|index of|outline of|timeline of|category:|disambiguation)/.test(t)) return false;
-    if (/\b(television series|tv series|web series|miniseries|episode|season|sitcom|telenovela|soap opera|anime|manga|film|films|movie|album|song|single|band|rapper|singer|actor|actress|football|footballer|player|politician|novel|book|video game|card game|board game|municipality|district|village|province|airline|software|company)\b/.test(combined)) {
-      return false;
+  function safeInternalAtlasUrl(value) {
+    var raw = String(value || '').trim();
+    if (!raw || raw.indexOf('/learn/') !== 0) return '';
+    try {
+      var url = new URL(raw, window.location.origin);
+      if (url.origin !== window.location.origin || url.pathname.indexOf('/learn/') !== 0) return '';
+      return url.pathname + url.hash;
+    } catch (_) {
+      return '';
     }
-    /* Require genuine anatomical / microscopic / histological / biological / medical context */
-    return /\b(anatomy|anatomical|human body|organ|organs|organelle|mitochondri|ribosom|cytoplasm|nucleus|nuclei|membrane|microscopic|histolog|corpuscle|papilla|follicle|sinusoid|canal|duct|plexus|ganglion|ossicle|vestibul|mucosa|submucosa|serosa|lumen|endotheli|mesotheli|connective|collagen|elastin|keratin|melanin|myosin|actin|tubule|glomerul|alveol|bronchiol|villi|microvilli|cilia|flagell|axon|dendrite|myelin|schwann|glial|macrophage|lymphocyte|neutrophil|erythrocyte|platelet|chromosome|dna|rna|tissue|cell|cells|bone|bones|skeletal|muscle|muscles|muscular|nerve|nervous|neural|brain|cerebral|spinal|heart|cardiac|vascular|blood|artery|arterial|vein|venous|capillary|lung|pulmonary|respiratory|liver|hepatic|kidney|renal|stomach|gastric|intestine|intestinal|digestive|colon|pancreas|spleen|gallbladder|bladder|urinary|reproductive|uterus|ovary|testis|prostate|gland|endocrine|hormone|lymph|lymphatic|immune|skin|epidermis|dermis|eye|retina|cornea|ear|cochlea|vestibular|tooth|dental|tongue|pharynx|larynx|trachea|bronchus|diaphragm|thorax|abdomen|pelvis|cranium|skull|vertebra|joint|ligament|tendon|cartilage|fascia|epithelium|neuron|synapse|receptor|enzyme|protein|physiology|pathology|disease|syndrome|clinical|medical|medicine)\b/.test(combined);
   }
 
-  function formatExternalExtract(title, desc, rawExtract, thumbUrl, isFeatured) {
-    var cleanText = cleanEncyclopediaExtract(rawExtract);
-    var sentences = cleanText.match(/[^.!?]+[.!?]+/g) || [cleanText];
-    var lead = sentences.slice(0, 3).join(' ').trim();
-    var more = sentences.slice(3, 6).join(' ').trim();
-    var descTag = desc ? truncateSentences(desc, 1).slice(0, 36) : 'Anatomy Reference';
-
-    /* IMPORTANT: Never include any external URL link or external site name in text! */
-    return (
-      '<div class="cbot-topic-head">' +
-        '<span class="cbot-topic-title">' + escapeHtml(title) + '</span>' +
-        '<span class="cbot-topic-tag">' + escapeHtml(descTag) + '</span>' +
-      '</div>' +
-      buildMediaCard(thumbUrl || '', title, descTag, isFeatured, '') +
-      '<div class="cbot-body-text">' + escapeHtml(lead) + '</div>' +
-      (more ? '<ul class="cbot-point-list"><li><b>Key Detail:</b>' + escapeHtml(more) + '</li></ul>' : '')
-    );
+  function buildAtlasLink(url, label) {
+    var safeHref = safeInternalAtlasUrl(url);
+    if (!safeHref) return '';
+    return '<div class="cbot-nav-actions"><a class="cbot-nav-btn" href="' + escapeHtml(safeHref) + '">' + escapeHtml(label || 'Open Atlas topic ↗') + '</a></div>';
   }
 
-  function searchExternalMedicalWeb(parsed) {
-    var queryTerm = parsed.corePhrase || parsed.clean;
-    if (!queryTerm || queryTerm.length < 3) return Promise.resolve(null);
-    var cacheKey = queryTerm + (parsed.intent && parsed.intent.wantsImage ? '|img' : '');
-    if (EXT_CACHE[cacheKey]) return Promise.resolve(EXT_CACHE[cacheKey]);
+  function formatAtlasQAAnswer(data, lang, question) {
+    var clean = cleanAIAnswerForDisplay(data && data.answer);
+    if (!clean) return null;
+    if (data && data.kind === 'clinical') clean += '\n\nEducational correlation only; not a diagnosis or personal medical advice.';
+    var topic = String((data && data.topic) || 'Atlas topic');
+    var imagePath = String((data && data.imagePath) || '');
+    var hasLocalImage = /^\/?img\/(webp|medium|thumb)\/[A-Za-z0-9_.-]+$/i.test(imagePath);
+    var hotCoords = Array.isArray(data && data.hot) && data.hot.length >= 2 ? data.hot : null;
+    var imageHtml = hasLocalImage ? buildMediaCard(imagePath, topic, hotCoords) : '';
+    var asksForImage = /\b(image|picture|photo|diagram|illustration|show|draw)\b/i.test(String(question || ''));
+    var noImageNote = asksForImage && !imageHtml
+      ? '<div class="cbot-body-text" style="font-size:12px;opacity:.78">No matching reviewed image is available in the Atlas; here is the text explanation and related Atlas guide.</div>'
+      : '';
+    var dir = /^(ar|ur|fa|he)$/.test(String(lang || '')) ? ' dir="rtl" style="text-align:right;"' : '';
+    var html =
+      '<div class="cbot-topic-head"><span class="cbot-topic-title">Atlas answer</span></div>' +
+      imageHtml +
+      '<div class="cbot-body-text"' + dir + '>' + escapeHtml(clean).replace(/\n/g, '<br>') + '</div>' +
+      noImageNote +
+      buildAtlasLink(data && data.atlasUrl, 'Open Atlas topic ↗');
+    return localizeReplyForLanguage(html, lang);
+  }
 
-    /* Fast single-request MediaWiki generator=search with pageimages (1 HTTP roundtrip, ~300-600ms, full CORS origin=*) */
-    var singleCallUrl = 'https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=' +
-      encodeURIComponent(queryTerm + ' human anatomy') +
-      '&gsrlimit=1&prop=extracts|description|pageimages&pithumbsize=640&exintro=1&explaintext=1&exsentences=4&redirects=1&format=json&origin=*';
+  function formatWebAIAnswer(data, lang) {
+    var clean = cleanAIAnswerForDisplay(data && data.answer);
+    if (!clean) return null;
+    var dir = /^(ar|ur|fa|he)$/.test(String(lang || '')) ? ' dir="rtl" style="text-align:right;"' : '';
+    var html =
+      '<div class="cbot-topic-head"><span class="cbot-topic-title">Web-grounded answer</span></div>' +
+      '<div class="cbot-body-text"' + dir + '>' + escapeHtml(clean).replace(/\n/g, '<br>') + '</div>' +
+      '<div class="cbot-body-text" style="font-size:12px;opacity:.78">For learning only; not personal medical advice.</div>' +
+      buildAtlasLink(data && data.relatedAtlasUrl, 'Related Atlas guide ↗');
+    return localizeReplyForLanguage(html, lang);
+  }
 
-    return fetchWithTimeout(singleCallUrl, 2400)
-      .then(function (data) {
-        var pages = (data && data.query && data.query.pages) || {};
-        var pageList = Object.keys(pages).map(function (k) { return pages[k]; });
-        if (pageList.length && pageList[0].extract && pageList[0].extract.length > 40) {
-          var p = pageList[0];
-          if (isRelevantMedicalResult(p.title, p.description, p.extract)) {
-            var thumb = (p.thumbnail && p.thumbnail.source) || '';
-            var html = formatExternalExtract(p.title || queryTerm, p.description || 'Anatomy Reference', p.extract, thumb, parsed.intent && parsed.intent.wantsImage);
-            EXT_CACHE[cacheKey] = html;
-            return html;
+  function formatNoAnswer(data, lang) {
+    var text = data && data.reason === 'web_search_not_configured'
+      ? 'I could not verify this in the Atlas Q&A yet, and external search is not enabled. I will not guess.'
+      : 'I could not verify a reliable answer right now. Please try a more specific anatomy topic.';
+    var html =
+      '<div class="cbot-topic-head"><span class="cbot-topic-title">Not found in Atlas Q&amp;A</span></div>' +
+      '<div class="cbot-body-text">' + escapeHtml(text) + '</div>' +
+      buildAtlasLink(data && data.relatedAtlasUrl, 'Related Atlas guide ↗');
+    return localizeReplyForLanguage(html, lang);
+  }
+
+  function requestAIWebFallback(question, lang, options) {
+    var q = String(question || '').trim();
+    var qaOnly = !!(options && options.qaOnly);
+    if (!q || q.length < 3) return Promise.resolve(null);
+    var cacheKey = String(lang || 'en') + '|' + q.toLowerCase() + (qaOnly ? '|atlas-only' : '|full');
+    if (AI_FALLBACK_CACHE[cacheKey]) return Promise.resolve(AI_FALLBACK_CACHE[cacheKey]);
+
+    var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    var timer = setTimeout(function () {
+      if (controller) controller.abort();
+    }, 20000);
+    var endpoint = new URL('/.netlify/functions/ai-fallback', window.location.origin).toString();
+    var localOnly = Date.now() < AI_FALLBACK_COOLDOWN_UNTIL;
+
+    return fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: q.slice(0, 1200), language: lang || 'en', localOnly: localOnly, qaOnly: qaOnly }),
+      signal: controller ? controller.signal : undefined
+    })
+      .then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (data) {
+          if (!res.ok) {
+            var retryAfter = parseInt(res.headers.get('retry-after') || '0', 10);
+            if (res.status === 429) {
+              AI_FALLBACK_COOLDOWN_UNTIL = Date.now() + Math.max(15, Math.min(retryAfter || 60, 600)) * 1000;
+            } else if (res.status === 404 || res.status === 503) {
+              AI_FALLBACK_COOLDOWN_UNTIL = Date.now() + 5 * 60 * 1000;
+            } else if (res.status >= 500) {
+              AI_FALLBACK_COOLDOWN_UNTIL = Date.now() + 60 * 1000;
+            }
+            data.httpStatus = res.status;
           }
-        }
-        throw new Error('Try direct REST summary');
-      })
-      .catch(function () {
-        var directSlug = encodeURIComponent(queryTerm.replace(/\s+/g, '_'));
-        var summaryUrl = 'https://en.wikipedia.org/api/rest_v1/page/summary/' + directSlug;
-        return fetchWithTimeout(summaryUrl, 1800).then(function (summaryData) {
-          if (!summaryData || !summaryData.extract) return null;
-          if (!isRelevantMedicalResult(summaryData.title, summaryData.description, summaryData.extract)) {
-            return null;
-          }
-          var thumb = (summaryData.originalimage && summaryData.originalimage.source) ||
-                      (summaryData.thumbnail && summaryData.thumbnail.source) || '';
-          var html = formatExternalExtract(
-            summaryData.title || queryTerm,
-            summaryData.description || 'Anatomy Reference',
-            summaryData.extract,
-            thumb,
-            parsed.intent && parsed.intent.wantsImage
-          );
-          EXT_CACHE[cacheKey] = html;
-          return html;
+          return data;
         });
       })
-      .catch(function () {
-        return null;
+      .then(function (data) {
+        if (qaOnly && (!data || data.source !== 'atlas_qa')) return null;
+        var html = null;
+        if (data && data.source === 'atlas_qa') html = formatAtlasQAAnswer(data, lang, q);
+        else if (data && data.source === 'web' && data.answer) html = formatWebAIAnswer(data, lang);
+        else if (data && (data.source === 'no_answer' || data.httpStatus || data.error)) html = formatNoAnswer(data, lang);
+        if (html) AI_FALLBACK_CACHE[cacheKey] = html;
+        return html;
+      })
+      .catch(function () { return null; })
+      .then(function (result) {
+        clearTimeout(timer);
+        return result;
+      }, function (err) {
+        clearTimeout(timer);
+        throw err;
       });
   }
 
@@ -2309,18 +2273,7 @@
         return;
       }
 
-      /* 2. Generate Labeled Study Diagram button */
-      var diagBtn = e.target.closest ? e.target.closest('[data-cbot-diag]') : null;
-      if (diagBtn && lightbox && lightboxImg) {
-        e.preventDefault();
-        e.stopPropagation();
-        var diagSrc = diagBtn.getAttribute('data-cbot-diag');
-        var diagTitle = diagBtn.getAttribute('data-cbot-diag-title') || 'Labeled Study Diagram';
-        if (diagSrc) openLightbox(diagSrc, diagTitle);
-        return;
-      }
-
-      /* 3. Media Card Zoom */
+      /* 2. Media Card Zoom */
       var mediaCard = e.target.closest ? e.target.closest('.cbot-media-card') : null;
       if (mediaCard && lightbox && lightboxImg) {
         var zoomSrc = mediaCard.getAttribute('data-cbot-zoom-src');
@@ -2401,7 +2354,6 @@
       for (var i = 0; i < cards.length; i++) {
         (function (card) {
           var img = card.querySelector('.cbot-media-img');
-          var title = card.getAttribute('data-cbot-zoom-title') || 'Human Anatomy';
           if (img) {
             if (img.complete && img.naturalWidth > 0) {
               calibratePinSvg(card, img);
@@ -2411,26 +2363,16 @@
               });
             }
             img.addEventListener('error', function () {
-              var fallback = generateBlueprintSvgDataUri(title, 'Anatomy Visual');
-              if (img.src !== fallback) {
-                img.src = fallback;
-                card.setAttribute('data-cbot-zoom-src', fallback);
+              var originalSrc = card.getAttribute('data-cbot-zoom-src') || '';
+              var alreadyTriedOriginal = img.getAttribute('data-cbot-original-fallback') === '1';
+              if (!alreadyTriedOriginal && originalSrc && img.getAttribute('src') !== originalSrc) {
+                img.setAttribute('data-cbot-original-fallback', '1');
+                img.setAttribute('src', originalSrc);
+                return;
               }
+              /* Never replace a failed reviewed asset with a generated or external illustration. */
+              card.style.display = 'none';
             });
-          }
-          /* Optional background upgrade to specific organelle/structure diagram from Wikimedia if available */
-          var wikiSlug = card.getAttribute('data-cbot-wiki');
-          if (wikiSlug && img) {
-            fetchWithTimeout('https://en.wikipedia.org/api/rest_v1/page/summary/' + wikiSlug, 1800)
-              .then(function (data) {
-                var thumb = (data && data.originalimage && data.originalimage.source) ||
-                            (data && data.thumbnail && data.thumbnail.source) || '';
-                if (thumb && /\.(png|jpg|jpeg|webp|svg)/i.test(thumb)) {
-                  img.src = thumb;
-                  card.setAttribute('data-cbot-zoom-src', thumb);
-                }
-              })
-              .catch(function () {});
           }
         })(cards[i]);
       }
@@ -2461,33 +2403,10 @@
         return;
       }
 
-      var parsed = normalizeQuery(rawQuestion);
-
       loadKnowledgeBase().then(function (kb) {
-        /* 1. Try Instant Internal Corpus Search (<100ms) */
-        var internalReply = searchInternalKB(parsed, kb);
-        if (internalReply) {
-          if (userLang === 'en' || userLang === 'ur-Latn') {
-            localizeReplyForLanguage(internalReply, userLang).then(function (locHtml) {
-              appendMessage(locHtml, false);
-            });
-            return;
-          }
-          /* For other world languages, localize internal Corpus answer into userLang (~400-800ms) */
-          var trBubble = appendMessage(
-            '<div class="cbot-typing"><span>Translating answer</span><span class="cbot-typing-dots"><i></i><i></i><i></i></span></div>',
-            false
-          );
-          localizeReplyForLanguage(internalReply, userLang).then(function (locHtml) {
-            if (trBubble && trBubble.parentNode) trBubble.parentNode.removeChild(trBubble);
-            appendMessage(locHtml, false);
-          });
-          return;
-        }
-
-        /* 2. Not matched directly -> Show brief typing indicator, translate foreign query if needed, search KB + medical ref, and reply in userLang */
+        /* The server-only 5,000 Q&A brain is checked before the existing website KB (including its 370 FAQs). */
         var loadingBubble = appendMessage(
-          '<div class="cbot-typing"><span>Searching medical reference</span><span class="cbot-typing-dots"><i></i><i></i><i></i></span></div>',
+          '<div class="cbot-typing"><span>Searching Atlas Q&amp;A first</span><span class="cbot-typing-dots"><i></i><i></i><i></i></span></div>',
           false
         );
 
@@ -2508,14 +2427,16 @@
           }
 
           var enParsed = normalizeQuery(enQuestion);
-          var kbMatchAfterTrans = (userLang !== 'en' && userLang !== 'ur-Latn') ? searchInternalKB(enParsed, kb) : null;
-          if (kbMatchAfterTrans) {
-            return localizeReplyForLanguage(kbMatchAfterTrans, userLang);
-          }
+          var atlasQuestion = enQuestion || rawQuestion;
+          return requestAIWebFallback(atlasQuestion, userLang, { qaOnly: true }).then(function (atlasReply) {
+            if (atlasReply) return atlasReply;
 
-          return searchExternalMedicalWeb(enParsed).then(function (externalReply) {
-            if (!externalReply) return null;
-            return localizeReplyForLanguage(externalReply, userLang);
+            /* The existing 370 curated FAQs and other website knowledge remain the second Atlas source. */
+            var kbMatchAfterTrans = searchInternalKB(enParsed, kb);
+            if (kbMatchAfterTrans) return localizeReplyForLanguage(kbMatchAfterTrans, userLang);
+
+            /* On a miss in both Atlas layers, use the optional server-side web fallback only if configured. */
+            return requestAIWebFallback(atlasQuestion, userLang);
           });
         }).then(function (finalReply) {
           if (finalReply === null && !loadingBubble.parentNode) return; /* already handled by trConv */
@@ -2525,19 +2446,11 @@
           if (finalReply) {
             appendMessage(finalReply, false);
           } else {
-            var fallbackEn = 'I am here to chat and help with human anatomy! 😊 Try asking me about any organ, bone, muscle, nerve, or body structure (e.g. Heart, Brain, Liver, Kidney, or Femur).';
+            var fallbackEn = 'I could not access the Atlas Q&A service right now. Please try a specific anatomy topic again shortly.';
             if (userLang === 'ur-Latn') {
-              appendMessage(
-                '<strong>Main aapki baat samajhne ki koshish kar rahi hoon! 😊</strong><br>' +
-                'Aap mujh se human body ke kisi bhi organ, bone, muscle ya nerve ke baare mein pooch sakte hain (maslan: <b>Heart / Dil</b>, <b>Brain / Dimagh</b>, <b>Liver / Jigar</b>, <b>Kidney / Gurda</b>, ya <b>Femur</b>).',
-                false
-              );
+              appendMessage('<strong>Atlas Q&amp;A abhi available nahi hai.</strong><br>Agar aap image maang rahe hain aur site par exact image nahi milti, to main image generate nahi karungi; sirf related Atlas page ya text context de sakti hoon.', false);
             } else if (userLang === 'en') {
-              appendMessage(
-                '<strong>I’m here to chat and help with human anatomy! 😊</strong><br>' +
-                'Try asking me about any organ, bone, muscle, nerve, or body structure (e.g. <b>Heart</b>, <b>Brain</b>, <b>Liver</b>, <b>Gallbladder</b>, <b>Sciatic nerve</b>, or <b>Femur</b>).',
-                false
-              );
+              appendMessage('<strong>The Atlas Q&amp;A service is unavailable right now.</strong><br>Please try a specific anatomy topic again shortly.', false);
             } else {
               translateText(fallbackEn, 'en', userLang).then(function (trFallback) {
                 var dirAttr = isRtl ? ' dir="rtl" style="text-align:right;"' : '';

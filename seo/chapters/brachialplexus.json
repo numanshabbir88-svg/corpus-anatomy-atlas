@@ -36,24 +36,24 @@
   },
   "questions": [
     {
-      "question": "Which spinal nerves form the brachial plexus?",
-      "answer": "Its main roots usually arise from ventral rami C5 through T1. They organize into trunks, divisions, cords and terminal branches. The c5–T1 ventral rami (Rami anteriores C5–T1) is five spinal nerve ventral rami build the typical plexus; not the intrathecal dorsal/ventral rootlets. Physiologically, the c5–T1 ventral rami provide segmental motor and sensory fibers to upper limb."
+      "question": "Which spinal nerve roots usually contribute to the brachial plexus?",
+      "answer": "The brachial plexus usually receives fibers from the ventral rami of C5 through T1, though anatomical variants can extend to C4 or T2."
     },
     {
       "question": "What are the five major terminal branches of the brachial plexus?",
-      "answer": "Musculocutaneous, axillary, radial, median and ulnar nerves are the five commonly taught terminal branches. Structurally, the medial cord (Fasciculus medialis) comprises continuation of lower trunk anterior division, medial to axillary artery. Physiologically, the medial cord gives ulnar and medial root of median nerve."
+      "answer": "Musculocutaneous, axillary, radial, median and ulnar nerves are the five commonly taught terminal branches."
     },
     {
-      "question": "What is the C5–T1 ventral rami?",
-      "answer": "Five spinal nerve ventral rami build the typical plexus; not the intrathecal dorsal/ventral rootlets. Functionally, it provide segmental motor and sensory fibers to upper limb. Structurally, the upper trunk (Truncus superior) comprises formed by union of C5 and C6 ventral rami. Physiologically, the upper trunk governs redistributes upper-root fibers into divisions."
+      "question": "What do the C5–T1 ventral rami contribute to the brachial plexus?",
+      "answer": "The C5–T1 ventral rami form its roots and carry mixed sensory and motor fibers; dorsal rami do not join the plexus and supply intrinsic back muscles and overlying skin."
     },
     {
       "question": "Where is the upper trunk located?",
-      "answer": "Formed by union of C5 and C6 ventral rami. Functionally, it governs redistributes upper-root fibers into divisions. Structurally, the lower trunk (Truncus inferior) comprises formed by C8 and T1 ventral rami. Physiologically, the lower trunk carries lower-root fibers toward hand pathways."
+      "answer": "The upper trunk of the brachial plexus forms in the neck from the union of the C5 and C6 ventral rami."
     },
     {
       "question": "What is the function of the lower trunk?",
-      "answer": "Functionally, it carries lower-root fibers toward hand pathways. Formed by C8 and T1 ventral rami. The posterior divisions (Divisiones posteriores) is one posterior division from each trunk converges on posterior cord. Physiologically, the posterior divisions governs feed extensor-compartment pathways."
+      "answer": "The lower trunk carries C8–T1 fibers into the brachial plexus pathways that supply the hand."
     }
   ]
 }

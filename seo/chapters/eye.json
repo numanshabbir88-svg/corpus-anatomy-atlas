@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "How does the eye focus light on the retina?",
-      "answer": "The cornea provides much of the eye's focusing power, while the lens changes shape for near and far vision. Light is converted into neural signals by retinal photoreceptors. Structurally, the cornea comprises transparent, avascular, five-layered dome at the front of the eye. Provides about two-thirds of the eye's refractive power. Physiologically, the cornea bends and transmits light; its endothelium pumps water out to stay clear."
+      "answer": "The cornea provides much of the eye's focusing power, while the lens changes shape for near and far vision. Light is converted into neural signals by retinal photoreceptors."
     },
     {
       "question": "What is the difference between the retina and the optic nerve?",
-      "answer": "The retina is the light-sensitive neural tissue lining the back of the eye. Its ganglion-cell axons bundle together to form the optic nerve. The retina is ten-layered neural film: photoreceptors outermost (light must pass through the inner layers first), then bipolar and ganglion cells. Physiologically, the retina transduces light into nerve impulses."
+      "answer": "The retina is the light-sensitive neural tissue lining the back of the eye; axons from its ganglion cells converge to form the optic nerve."
     },
     {
       "question": "What is the cornea?",
-      "answer": "Transparent, avascular, five-layered dome at the front of the eye. Provides about two-thirds of the eye's refractive power. Functionally, it bends and transmits light; its endothelium pumps water out to stay clear. The iris is the coloured diaphragm of smooth muscle (sphincter and dilator pupillae) in front of the lens. Physiologically, the iris controls pupil diameter and therefore light entry and depth of focus."
+      "answer": "The cornea is a transparent, avascular, five-layered dome at the front of the eye that provides most of the eye’s refractive power."
     },
     {
       "question": "Where is the retina located?",
-      "answer": "Ten-layered neural film: photoreceptors outermost (light must pass through the inner layers first), then bipolar and ganglion cells. Functionally, it transduces light into nerve impulses. Structurally, the optic disc (Discus opticus) comprises where ganglion axons and the central retinal vessels pierce the sclera. It has no photoreceptors. Physiologically, the optic disc governs exit point of the optic nerve and entry of the central retinal artery."
+      "answer": "The retina lines the inner back wall of the eye, between the vitreous body and the retinal pigment epithelium, choroid and sclera."
     },
     {
-      "question": "What is the function of the macula & fovea?",
-      "answer": "Functionally, it governs high-acuity central vision for reading and faces. A 5.5 mm yellow-pigmented area at the posterior pole; its centre, the fovea, contains cones only and no vessels. Clinically, regarding the macula & fovea, age-related macular degeneration destroys the fovea and central vision while sparing peripheral sight."
+      "question": "Where are the macula and fovea located?",
+      "answer": "The macula is the central region of the retina; the fovea lies at its center, temporal to the optic disc."
     }
   ]
 }

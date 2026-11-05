@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "How do the outer, middle and inner ear work together?",
-      "answer": "The outer ear collects sound, the eardrum and three middle-ear bones transmit vibration, and the cochlea in the inner ear converts movement into nerve signals. The external acoustic meatus (Meatus acusticus externus) is a 2.5 cm S-shaped canal, cartilaginous outer third and bony inner two-thirds, lined by skin with ceruminous glands. Physiologically, the external acoustic meatus conducts sound to the eardrum; cerumen traps dust and insects."
+      "answer": "The outer ear collects sound, the eardrum and three middle-ear bones transmit vibration, and the cochlea in the inner ear converts movement into nerve signals."
     },
     {
       "question": "Which part of the ear helps with balance?",
-      "answer": "The vestibular organs of the inner ear, including the semicircular canals and otolith organs, detect head rotation and linear movement. The vestibule (utricle & saccule) (Vestibulum) is two otolith organs whose hair cells carry crystals of calcium carbonate. Physiologically, the vestibule (utricle & saccule) governs sense linear acceleration and head tilt — gravity sensing."
+      "answer": "The vestibular organs of the inner ear, including the semicircular canals and otolith organs, detect head rotation and linear movement."
     },
     {
       "question": "What is the tympanic membrane?",
-      "answer": "A 9 × 10 mm cone of three layers, tilted so its umbo points medially; pars tensa below, pars flaccida above. Functionally, it converts sound pressure into mechanical vibration of the malleus. In clinical pathology involving the tympanic membrane, a red bulging drum means otitis media; a pearly white mass behind it suggests cholesteatoma."
+      "answer": "The tympanic membrane is a thin, cone-shaped partition between the external ear canal and middle ear; the umbo is its inward-pointing center."
     },
     {
       "question": "Where is the stapes located?",
-      "answer": "The stirrup: the smallest bone in the body (~3 mm), its footplate closing the oval window. Functionally, it delivers amplified vibration into the cochlear fluid."
+      "answer": "The stapes is a middle-ear ossicle; its footplate sits in the oval window."
     },
     {
-      "question": "What is the function of the vestibule (utricle & saccule)?",
-      "answer": "Functionally, it governs sense linear acceleration and head tilt — gravity sensing. Two otolith organs whose hair cells carry crystals of calcium carbonate. Structurally, the macula of utricle comprises otolith-bearing sensory patch in utricle oriented mainly for horizontal acceleration. Physiologically, the macula of utricle detects linear head acceleration and gravity component."
+      "question": "What do the utricle and saccule do?",
+      "answer": "The utricle and saccule sense linear acceleration and head tilt relative to gravity."
     }
   ]
 }

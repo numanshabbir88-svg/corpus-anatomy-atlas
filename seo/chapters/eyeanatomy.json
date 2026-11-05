@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What are the three main coats of the eyeball?",
-      "answer": "The outer fibrous coat is cornea and sclera; the middle vascular coat is the uvea; the inner neural coat includes the retina. Structurally, the choroid (Choroidea) comprises pigmented vascular layer between retina and sclera. Physiologically, the choroid supplies outer retina, especially photoreceptors."
+      "answer": "The outer fibrous coat is cornea and sclera; the middle vascular coat is the uvea; the inner neural coat includes the retina."
     },
     {
       "question": "Which layers make up the cornea?",
-      "answer": "Corneal epithelium, stroma and endothelium are major components, with Bowman and Descemet layers between them in standard descriptions. Structurally, the corneal epithelium (Epithelium anterius corneae) comprises surface stratified nonkeratinizing epithelial layer. Physiologically, the corneal epithelium governs barrier and smooth refractive surface."
+      "answer": "Corneal epithelium, stroma and endothelium are major components, with Bowman and Descemet layers between them in standard descriptions."
     },
     {
       "question": "What is the corneal epithelium?",
-      "answer": "Surface stratified nonkeratinizing epithelial layer. Functionally, it governs barrier and smooth refractive surface. Structurally, the Bowman layer (Lamina limitans anterior) comprises acellular anterior limiting layer beneath epithelium. Physiologically, the Bowman layer governs adds anterior structural support."
+      "answer": "The corneal epithelium is the nonkeratinized stratified cell layer covering the front of the cornea."
     },
     {
       "question": "Where is the corneal stroma located?",
-      "answer": "Organized collagen lamellae form most of corneal thickness. Functionally, it governs precise collagen arrangement maintains transparency. Medical evaluation of the corneal stroma also notes that edema disrupts transparency."
+      "answer": "The corneal stroma lies between Bowman’s layer anteriorly and Descemet’s membrane posteriorly; it forms most of the corneal thickness."
     },
     {
       "question": "What is the function of the corneal endothelium?",
-      "answer": "Functionally, it pumps fluid from stroma to maintain optical clarity. Single posterior cell layer lining anterior chamber. Clinically, regarding the corneal endothelium, cell loss may cause persistent edema."
+      "answer": "The corneal endothelium pumps fluid from the stroma to help maintain corneal transparency."
     }
   ]
 }

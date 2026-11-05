@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What are the five epidermal layers in thick skin?",
-      "answer": "From deep to superficial they are stratum basale, spinosum, granulosum, lucidum and corneum. Thin skin does not have a distinct lucidum. The stratum lucidum is thin translucent transition zone most apparent in glabrous palms and soles. Physiologically, the stratum lucidum governs adds specialized layer in thick skin."
+      "answer": "From deep to superficial they are stratum basale, spinosum, granulosum, lucidum and corneum. Thin skin does not have a distinct lucidum."
     },
     {
       "question": "Does the epidermis have its own blood vessels?",
-      "answer": "No. The epidermis receives nutrients by diffusion from capillaries in the underlying dermis. The papillary dermis (Stratum papillare dermis) is superficial loose connective tissue with capillaries and fine collagen. Physiologically, the papillary dermis nourishes avascular epidermis by diffusion."
+      "answer": "No. The epidermis receives nutrients by diffusion from capillaries in the underlying dermis."
     },
     {
       "question": "What is the stratum basale?",
-      "answer": "Deep single proliferative keratinocyte layer adjoining basement membrane. Functionally, it governs renews overlying epidermis. In clinical pathology involving the stratum basale, basal-cell carcinoma derives from basal-type cells."
+      "answer": "The stratum basale is the deep, single-cell layer of proliferative keratinocytes adjoining the basement membrane."
     },
     {
       "question": "Where is the stratum granulosum located?",
-      "answer": "Flattened keratinocytes with keratohyalin granules and lipid-releasing lamellar bodies. Functionally, it governs builds the water-permeability barrier. Medical evaluation of the stratum granulosum also notes that barrier injury increases transepidermal water loss."
+      "answer": "The stratum granulosum lies between the stratum spinosum and stratum corneum in the epidermis."
     },
     {
       "question": "What is the function of the stratum corneum?",
-      "answer": "Functionally, it governs principal external permeability barrier. Anucleate flattened corneocytes surrounded by intercellular lipid lamellae. Clinically, regarding the stratum corneum, loss in large burns causes fluid and heat loss."
+      "answer": "The stratum corneum forms the epidermis’s outer permeability barrier and helps limit water loss."
     }
   ]
 }

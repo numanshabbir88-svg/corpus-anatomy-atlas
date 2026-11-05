@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What are the four basic types of tissue?",
-      "answer": "The broad categories are epithelial, connective, muscle and nervous tissue. Most organs contain multiple types; the images show specific teaching examples, not all subtypes. Physiologically, the four fundamental tissue categories provides a framework for reading tissue architecture. Clinically, regarding the four fundamental tissue categories, an organ usually contains more than one tissue type."
+      "answer": "The broad categories are epithelial, connective, muscle and nervous tissue. Most organs contain multiple types; the images show specific teaching examples, not all subtypes."
     },
     {
       "question": "What makes epithelial tissue different from connective tissue?",
-      "answer": "Epithelia form close-packed sheets with apical and basal surfaces and little extracellular space. Connective-tissue cells are often dispersed in extracellular matrix. Epithelium is generally avascular and nourished from underlying tissues. The epithelial tissue close-packed cell sheets cover body surfaces, line passages and form much glandular tissue; the image depicts one simple columnar example. Physiologically, the epithelial tissue provides selective barrier, absorption, transport and secretion."
+      "answer": "Epithelia form closely packed sheets with little extracellular space and usually lack blood vessels. Connective-tissue cells are more dispersed in an extracellular matrix."
     },
     {
       "question": "Are these four pictures actual microscope slides?",
-      "answer": "No. They are digitally generated microscopic-scale educational cutaways rather than histology specimens, patient images, measured magnifications or diagnostic evidence. Structurally, the histology versus digital cutaway comprises histology examines prepared tissue sections with microscopy; these four generated images are stylized educational cutaways. Physiologically, the histology versus digital cutaway governs distinguishes tissue concepts from diagnostic specimens."
+      "answer": "No. They are digitally generated microscopic-scale educational cutaways rather than histology specimens, patient images, measured magnifications or diagnostic evidence."
     },
     {
       "question": "Which muscle type is shown in the foundation plate?",
-      "answer": "The striated, multinucleated parallel fibers depict a skeletal-muscle example. Smooth muscle is not striated, and cardiac muscle differs in branching and intercalated discs; neither has a dedicated picture in this batch. Structurally, the muscle tissue comprises excitable cells shorten and produce force; skeletal, cardiac and smooth muscle are three distinct types. Physiologically, the muscle tissue supports movement, circulation and organ wall function."
+      "answer": "The striated, multinucleated parallel fibers depict a skeletal-muscle example. Smooth muscle is not striated, and cardiac muscle differs in branching and intercalated discs; neither has a dedicated picture in this batch."
     },
     {
       "question": "What structures make up nervous tissue?",
-      "answer": "Nervous tissue contains signaling neurons and supporting glial cells. The example shows a multipolar neuron with dendrites, an axon and myelin on some axon segments, not a map of a named clinical nerve. Physiologically, the nervous tissue detects, processes and transmits information."
+      "answer": "Nervous tissue contains signaling neurons and supporting glial cells. The example shows a multipolar neuron with dendrites, an axon and myelin on some axon segments, not a map of a named clinical nerve."
     }
   ]
 }

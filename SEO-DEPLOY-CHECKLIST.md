@@ -31,7 +31,7 @@ Build command `python3 build_seo.py && python3 verify_seo.py`, publish directory
 
 ## AdSense apply karne se pehle
 - Real owner/publisher ka public contact email aur valid privacy disclosures final karein. Site live, public aur complete honi chahiye. Publisher account applicant Google ki age/eligibility requirements poori kare.
-- Account milne par sirf **real** `pub-...` ID ko `ADSENSE_PUBLISHER_ID` environment variable mein set karein; build root `/ads.txt` produce karega. Verification code account ke exact instructions ke mutabiq lagayen. Is preview mein ad code **nahin** hai.
+- `pub-5783924977074679` aur Auto ads loader ab production build mein wired hain: code public pages ke `<head>` mein aur root `/ads.txt` mein sirf production build par add hota hai; branch previews ad-free/noindex rehte hain. Netlify CSP nonce plugin bhi configured hai. Push ke baad `/ads.txt` verify karein, phir AdSense **Sites → Connect your site → Let's go** se existing code-snippet verify karke site review request karein. Manual slot IDs ki zaroorat nahi.
 - Ads shuru karne se pehle privacy policy ko actual ad vendors, cookies aur data uses ke mutabiq update karein. EEA/UK/Switzerland users ko personalized ads ke liye Google-certified TCF CMP ki zarurat ho sakti hai. Blank/fake cookie banner compliance nahin hota.
 - Medical reproductive illustrations (breast/genital anatomy included) publisher policy mein sensitive inventory ho sakti hain. Un pages par ad placement ka alag policy review karein; restricted demand ya no ads possible hain. Educational content ko falsely explicit ya ad-safe guarantee na samjhein.
 - AdSense approval ka faisla Google karta hai; layout, SEO ya `ads.txt` approval guarantee nahin karte.

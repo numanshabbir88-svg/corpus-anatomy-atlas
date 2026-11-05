@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What does the lymphatic system do?",
-      "answer": "It returns excess interstitial fluid to the bloodstream, transports absorbed fats from the intestine and supports immune surveillance through nodes and lymphoid organs. Structurally, the lymphatic vessels (Vasa lymphatica) comprises blind-start capillaries to trunks. Physiologically, the lymphatic vessels returns 3 L of interstitial fluid daily."
+      "answer": "It returns excess interstitial fluid to the bloodstream, transports absorbed fats from the intestine and supports immune surveillance through nodes and lymphoid organs."
     },
     {
       "question": "Where does lymph drain back into the blood?",
-      "answer": "Large lymphatic ducts empty near the junctions of the internal jugular and subclavian veins. The thoracic duct drains most of the body. Structurally, the thoracic duct (Ductus thoracicus) comprises largest lymph channel, cisterna chyli to left venous angle. Physiologically, the thoracic duct returns 3/4 of body lymph."
+      "answer": "The major lymphatic ducts empty near the junctions of the internal jugular and subclavian veins; the thoracic duct drains most of the body."
     },
     {
-      "question": "What is the cervical nodes?",
-      "answer": "Chains along jugular and spine. Functionally, it drain head and neck. In clinical pathology involving the cervical nodes, rubbery vs hard-fixed distinguishes infection from malignancy."
+      "question": "Where are the cervical lymph nodes located?",
+      "answer": "Cervical lymph nodes are arranged in chains along the internal jugular vessels and through the posterior neck."
     },
     {
-      "question": "Where is the inguinal nodes located?",
-      "answer": "Horizontal + vertical groups in the groin. Functionally, it drain leg, perineum and lower abdominal wall. Medical evaluation of the inguinal nodes also notes that enlarge in leg infections and STIs."
+      "question": "Where are the inguinal lymph nodes located?",
+      "answer": "Inguinal lymph nodes form superficial horizontal and vertical groups in the groin."
     },
     {
       "question": "What is the function of the thymus?",
-      "answer": "Functionally, it governs t-cell maturation in childhood. Bilobed school for T cells, behind sternum. Clinically, regarding the thymus, thymic hyperplasia accompanies myasthenia gravis."
+      "answer": "The thymus supports T-lymphocyte maturation, especially during childhood; it lies behind the sternum."
     }
   ]
 }

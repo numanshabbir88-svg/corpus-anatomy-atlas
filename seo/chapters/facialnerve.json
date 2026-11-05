@@ -36,24 +36,24 @@
   },
   "questions": [
     {
-      "question": "What does the facial nerve control?",
-      "answer": "Cranial nerve VII supplies muscles of facial expression and also carries taste and parasympathetic fibers through specific branches. The parotid plexus (Plexus intraparotideus) is branching motor network within parotid gland. Physiologically, the parotid plexus distributes facial expression motor fibers."
+      "question": "Which non-motor functions does the facial nerve carry?",
+      "answer": "The facial nerve carries taste from the anterior two-thirds of the tongue and parasympathetic fibers to lacrimal, submandibular and sublingual glands."
     },
     {
       "question": "Does the facial nerve provide most facial skin sensation?",
-      "answer": "No. Most facial skin sensation travels in branches of the trigeminal nerve; the facial nerve is mainly known for its motor supply to facial expression. Structurally, the facial sensation · CN V (Nervus trigeminus) comprises v1/V2/V3 provide most cutaneous sensory input from face, unlike VII expression branches. Physiologically, the facial sensation · CN V separates sensory testing from facial movement testing."
+      "answer": "No. Most facial skin sensation travels through branches of the trigeminal nerve (CN V)."
     },
     {
       "question": "What is the facial motor nucleus?",
-      "answer": "Motor cell bodies in pons send axons looping around abducens nucleus before exit. Functionally, it controls muscles of facial expression. In clinical pathology involving the facial motor nucleus, upper face often retains bilateral cortical input in supranuclear lesions."
+      "answer": "The facial motor nucleus is a group of pontine motor neurons whose axons loop around the abducens nucleus before exiting the brainstem."
     },
     {
       "question": "Where is the internal acoustic meatus located?",
-      "answer": "Temporal-bone canal shared by CN VII, CN VIII and labyrinthine artery. Functionally, it governs conveys nerve toward facial canal. Medical evaluation of the internal acoustic meatus also notes that lesions here may affect facial movement and hearing/balance."
+      "answer": "The internal acoustic meatus is a canal in the petrous temporal bone that transmits cranial nerves VII and VIII and the labyrinthine vessels."
     },
     {
       "question": "What is the function of the greater petrosal nerve?",
-      "answer": "Functionally, it supports lacrimal and nasal/palatine gland secretion. Carries preganglionic fibers toward pterygopalatine ganglion. Clinically, regarding the greater petrosal nerve, a lesion proximal to branch can impair lacrimation."
+      "answer": "The greater petrosal nerve carries preganglionic parasympathetic fibers toward the pterygopalatine ganglion, supporting lacrimal and nasal/palatal gland secretion."
     }
   ]
 }

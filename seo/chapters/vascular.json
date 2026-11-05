@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What is the difference between arteries and veins?",
-      "answer": "Arteries carry blood away from the heart and veins return it. The distinction is direction of flow, not oxygen level: pulmonary arteries carry less-oxygenated blood. The superior vena cava (V. cava superior) is short trunk from brachiocephalic veins. Physiologically, the superior vena cava governs upper-body return to right atrium."
+      "answer": "Arteries carry blood away from the heart; veins return it. This describes direction of flow, not oxygen content—pulmonary arteries carry less-oxygenated blood."
     },
     {
       "question": "What is the aorta's role in circulation?",
-      "answer": "The aorta receives blood from the left ventricle and supplies the systemic arterial tree through branches serving the head, trunk and limbs. Structurally, the aortic arch (Arcus aortae) comprises curve giving brachiocephalic, left carotid, left subclavian. Physiologically, the aortic arch distributes to head and arms."
+      "answer": "The aorta receives blood from the left ventricle and supplies the systemic arterial tree through branches serving the head, trunk and limbs."
     },
     {
       "question": "What is the aortic arch?",
-      "answer": "Curve giving brachiocephalic, left carotid, left subclavian. Functionally, it distributes to head and arms. Structurally, the common carotid artery (A. carotis communis) comprises neck artery bifurcating at C4. Physiologically, the common carotid artery governs brain and face supply."
+      "answer": "The aortic arch is the curved part of the aorta that gives rise to the brachiocephalic trunk and the left common carotid and left subclavian arteries."
     },
     {
       "question": "Where is the subclavian artery located?",
-      "answer": "Under clavicle to axillary artery. Functionally, it governs arm supply; gives vertebral to brain. Medical evaluation of the subclavian artery also notes that subclavian steal reverses vertebral flow on exertion."
+      "answer": "The subclavian artery passes beneath the clavicle and continues as the axillary artery at the lateral border of the first rib."
     },
     {
       "question": "What is the function of the descending aorta?",
-      "answer": "Functionally, it governs segmental branches to wall and viscera. Thoracic then abdominal aorta. Clinically, regarding the descending aorta, aneurysm screening in male smokers over 65."
+      "answer": "The descending aorta supplies the thorax and abdomen through branches to the body wall and visceral organs."
     }
   ]
 }

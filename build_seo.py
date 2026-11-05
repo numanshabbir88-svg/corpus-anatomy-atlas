@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Build a crawlable reading edition alongside the original interactive atlas.
-Set SITE_URL (or Netlify's URL) on a real deployment for canonicals and sitemap.
-No keyword-stuffed pages, fabricated credentials, ad code, or placeholder publisher IDs.
+"""Build the crawlable reading edition and production-only AdSense integration.
+Set SITE_URL (or rely on Netlify's URL) on production for canonicals, sitemap, Auto ads and ads.txt.
+The publisher/client ID is public; no account secrets or credentials belong in this project.
 """
 from __future__ import annotations
 from collections import defaultdict
@@ -13,13 +13,18 @@ from datetime import date
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / 'site'
-CONTENT_UPDATED = "2026-10-19"  # Static hub/policy baseline; chapters have their own updated dates in seo/chapters/.
+CONTENT_UPDATED = "2026-10-19"  # Static content baseline; chapters have their own updated dates in seo/chapters/.
+PRIVACY_UPDATED = "2026-11-04"
 # Netlify previews/branch builds stay noindex; only production receives canonicals and sitemap.
 CONTEXT = os.environ.get('CONTEXT', '')
 BASE = (os.environ.get('SITE_URL') or os.environ.get('URL') or os.environ.get('RENDER_EXTERNAL_URL') or '').rstrip('/') if CONTEXT in ('', 'production') else ''
 # User-provided public publisher email; Netlify CONTACT_EMAIL can override it later.
 CONTACT = (os.environ.get('CONTACT_EMAIL') or 'numanshabbir88@gmail.com').strip()
-PUB = os.environ.get('ADSENSE_PUBLISHER_ID','').strip() if CONTEXT in ('', 'production') else ''
+# Public publisher ID supplied by the site owner. A Netlify production env var may override it.
+DEFAULT_PUBLISHER_ID = 'pub-5783924977074679'
+PUB = (os.environ.get('ADSENSE_PUBLISHER_ID') or DEFAULT_PUBLISHER_ID).strip() if CONTEXT in ('', 'production') else ''
+ADSENSE_ENABLED = bool(PUB and BASE and CONTEXT in ('', 'production'))
+ADSENSE_TAG = (f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-{PUB}" crossorigin="anonymous"></script>' if ADSENSE_ENABLED else '')
 if BASE:
     parsed = urlparse(BASE)
     if parsed.scheme != 'https' or not parsed.netloc or parsed.path not in ('','/') or parsed.query or parsed.fragment:
@@ -185,8 +190,8 @@ def footer(depth=0):
 def document(title,description,path,body,depth=0,image='',extra='',keywords=''):
     root='../'*depth or './'
     full_title=title if len(title)==55 else f'{title} | Corpus'
-    head=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#125e58"><title>{E(full_title)}</title>{meta(full_title,description,path,image,keywords)}{extra}<link rel="icon" href="{root}favicon.svg"><link rel="stylesheet" href="{root}editorial.css?v=63"><link rel="stylesheet" href="{root}corpus-bot.css?v=17"></head><body>'
-    return head+header(depth)+body+footer(depth)+f'<script defer src="{root}corpus-bot.js?v=17"></script></body></html>'
+    head=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#125e58"><title>{E(full_title)}</title>{meta(full_title,description,path,image,keywords)}{extra}<link rel="icon" href="{root}favicon.svg"><link rel="stylesheet" href="{root}editorial.css?v=63"><link rel="stylesheet" href="{root}corpus-bot.css?v=18"></head><body>'
+    return head+header(depth)+body+footer(depth)+f'<script defer src="{root}corpus-bot.js?v=19"></script></body></html>'
 
 def write(path,text):
     path.parent.mkdir(parents=True,exist_ok=True);path.write_text(text,encoding='utf-8')
@@ -489,7 +494,7 @@ def article(key,o):
     article_json=schema(f'/learn/{seo_slug}/',crumb,GUIDES[key]['questions'])
     kw_obj=GUIDES[key].get('keywords',{})
     kw_str=', '.join(dict.fromkeys([kw_obj.get('primary','')]+list(kw_obj.get('secondary',[]))+list(kw_obj.get('semantic',[]))[:4]))
-    return document(title,desc,f'/learn/{seo_slug}/',body,depth=2,image=img,extra=article_json,keywords=kw_str).replace('<script defer src="../../corpus-bot.js?v=16"></script></body>','<script defer src="../../reading.js?v=33"></script><script defer src="../../preview.js?v=49"></script><script defer src="../../corpus-bot.js?v=16"></script></body>')
+    return document(title,desc,f'/learn/{seo_slug}/',body,depth=2,image=img,extra=article_json,keywords=kw_str).replace('<script defer src="../../corpus-bot.js?v=19"></script></body>','<script defer src="../../reading.js?v=33"></script><script defer src="../../preview.js?v=49"></script><script defer src="../../corpus-bot.js?v=19"></script></body>')
 
 # Build every chapter from the exact atlas data. No automatic keyword stuffing or fabricated bylines.
 learn=ROOT/'learn'
@@ -706,7 +711,7 @@ def build_blog_article(post):
             'mainEntity':[{'@type':'Question','name':q['question'],'acceptedAnswer':{'@type':'Answer','text':q['answer']}} for q in q_list]
         })
     extra_json = '<script type="application/ld+json">' + json.dumps(schema_objs, separators=(',',':')).replace('<','\\u003c') + '</script>'
-    return document(title, desc, f'/blog/{slug}/', body, depth=2, image=f'/img/webp/{hero_stem}.webp', extra=extra_json).replace('<script defer src="../../corpus-bot.js?v=17"></script></body>','<script defer src="../../reading.js?v=33"></script><script defer src="../../corpus-bot.js?v=17"></script></body>')
+    return document(title, desc, f'/blog/{slug}/', body, depth=2, image=f'/img/webp/{hero_stem}.webp', extra=extra_json).replace('<script defer src="../../corpus-bot.js?v=19"></script></body>','<script defer src="../../reading.js?v=33"></script><script defer src="../../corpus-bot.js?v=19"></script></body>')
 
 for post in BLOG_POSTS:
     write(BLOG_OUT / post['slug'] / 'index.html', build_blog_article(post))
@@ -753,9 +758,9 @@ about=f'''<main id="content" class="shell about-profile">
 </main>''' 
 
 write(ROOT/'about.html',document('About Corpus Anatomy Atlas: Editorial Policy & Approach','Learn how Corpus Anatomy Atlas builds illustrated human anatomy study guides, tissue-scale cutaways, interactive maps, and transparent editorial standards.','/about.html',about,extra=schema('/about.html',[('Home','/'),('About','/about.html')])))
-privacy=f'''<main id="content" class="shell policy"><div class="eyebrow">Privacy &amp; data transparency</div><h1>Privacy Policy &amp; Cookie Disclosure</h1><p>Last updated {CONTENT_UPDATED}. Editorial &amp; privacy contact: {contact_html}</p><h2>How Corpus Anatomy Atlas works in your browser</h2><p>Corpus Anatomy Atlas is an open educational website that requires no user registration, login account, or personal profile. Interactive anatomical diagrams, instant search across our 74 study guides, and self-test quizzes run directly inside your web browser. Standard web hosting logs (such as IP address, browser user-agent, timestamp, and requested page URL) are processed by our hosting provider solely to deliver pages reliably and protect site security.</p><h2>Cookies &amp; Google AdSense advertising disclosure</h2><p>Third-party vendors, including Google, use cookies (such as the Google DoubleClick DART cookie and AdSense cookies) to serve ads based on a user's prior visits to this website or other websites on the internet. Google's use of advertising cookies enables it and its partners to serve ads to users based on their visit to this site and/or other sites on the internet.</p><p>Users may opt out of personalized advertising at any time by visiting <a href="https://adssettings.google.com/" rel="noopener noreferrer">Google Ads Settings</a> or <a href="https://www.aboutads.info/choices/" rel="noopener noreferrer">www.aboutads.info</a>. To learn more about how Google processes data in advertising products, please review <a href="https://policies.google.com/technologies/partner-sites" rel="noopener noreferrer">How Google uses information from sites or apps that use our services</a>. Where required by applicable law (including for visitors in the European Economic Area, the United Kingdom, and Switzerland), consent choices are presented via a Google-certified consent management platform (CMP).</p><h2>External educational references</h2><p>Our study guides include further-reading links to trusted public educational resources such as OpenStax Anatomy and Physiology, NCBI Bookshelf, and MedlinePlus. When you follow an external link, that destination website is governed by its own privacy policy and cookie practices.</p><h2>Contact for privacy questions</h2><p>If you have any questions about this privacy policy or data practices on Corpus Anatomy Atlas, please contact {contact_html}.</p></main>'''
+privacy=f'''<main id="content" class="shell policy"><div class="eyebrow">Privacy &amp; data transparency</div><h1>Privacy Policy &amp; Cookie Disclosure</h1><p>Last updated {PRIVACY_UPDATED}. Editorial &amp; privacy contact: {contact_html}</p><h2>How Corpus Anatomy Atlas works in your browser</h2><p>Corpus Anatomy Atlas is an open educational website that requires no user registration, login account, or personal profile. Interactive anatomical diagrams, instant search across our 74 study guides, and self-test quizzes run directly inside your web browser. Standard web hosting logs (such as IP address, browser user-agent, timestamp, and requested page URL) are processed by our hosting provider to deliver pages reliably and protect site security.</p><h2>Atlas Q&amp;A, optional AI answers, and external search</h2><p>The assistant searches Atlas material first, including a server-side module of 5,000 Atlas-grounded Q&amp;A records that is not copied into static website pages. A question answered by this local Atlas knowledge base is processed by the site's function and is not sent to an external search provider. External web search is currently not enabled because no provider credential is configured; an out-of-set question is not used to scrape Google or arbitrary websites, and the assistant may say it cannot verify an answer. If an optional server-side AI/search provider is enabled in the future, the question and selected response language may be sent to that provider under its terms and retention rules. For non-English requests, the assistant may also send the question or answer text to a translation service for translation under that service's own terms. Please do not submit names, identifying details, or sensitive personal/medical information. Provider credentials, if configured, are kept on the server and are not included in public JavaScript. The site does not intentionally write the question or generated answer to its function audit log; when an external provider is used, the server may record an audit ID, timestamp, model name, and public source titles/URLs returned by the provider. Hosting and security logs may separately include network information such as an IP address. External source names and links are not displayed in assistant answers; internal Atlas links are shown when relevant. The assistant uses reviewed Atlas images only and does not create new anatomy illustrations for answers. AI-generated answers can be incomplete or wrong and are for general education, not diagnosis or treatment.</p><h2>Cookies &amp; Google AdSense advertising disclosure</h2><p>Third-party vendors, including Google, use cookies (such as the Google DoubleClick DART cookie and AdSense cookies) to serve ads based on a user's prior visits to this website or other websites on the internet. Google's use of advertising cookies enables it and its partners to serve ads to users based on their visit to this site and/or other sites on the internet.</p><p>Users may opt out of personalized advertising at any time by visiting <a href="https://adssettings.google.com/" rel="noopener noreferrer">Google Ads Settings</a> or <a href="https://www.aboutads.info/choices/" rel="noopener noreferrer">www.aboutads.info</a>. To learn more about how Google processes data in advertising products, please review <a href="https://policies.google.com/technologies/partner-sites" rel="noopener noreferrer">How Google uses information from sites or apps that use our services</a>. Where required by applicable law (including for visitors in the European Economic Area, the United Kingdom, and Switzerland), consent choices are presented via a Google-certified consent management platform (CMP).</p><h2>External educational references</h2><p>Our study guides include further-reading links to trusted public educational resources such as OpenStax Anatomy and Physiology, NCBI Bookshelf, and MedlinePlus. When you follow an external link, that destination website is governed by its own privacy policy and cookie practices.</p><h2>Contact for privacy questions</h2><p>If you have any questions about this privacy policy or data practices on Corpus Anatomy Atlas, please contact {contact_html}.</p></main>'''
 if (ROOT/'privacy.html').exists(): (ROOT/'privacy.html').unlink()
-write(ROOT/'privacy-policy'/'index.html',document('Privacy Policy & Cookie Disclosure | Corpus Atlas Guide','Read the Corpus Anatomy Atlas privacy policy covering browser-based study tools, hosting logs, external medical references, and Google AdSense disclosures.','/privacy-policy/',privacy,depth=1,extra=schema('/privacy-policy/',[('Home','/'),('Privacy Policy','/privacy-policy/')])))
+write(ROOT/'privacy-policy'/'index.html',document('Privacy Policy & Cookie Disclosure | Corpus Atlas Guide','Read the Corpus Anatomy Atlas privacy policy covering browser-based tools, optional AI search, hosting logs, external references, and advertising.','/privacy-policy/',privacy,depth=1,extra=schema('/privacy-policy/',[('Home','/'),('Privacy Policy','/privacy-policy/')])))
 not_found='<main id="content" class="shell policy"><div class="eyebrow">404 · Page not found</div><h1>Page Not Found: Browse All Human Anatomy Guides</h1><p>The anatomy page or study guide URL you requested could not be found or may have moved to a new chapter address. Use the links below to browse all 74 illustrated human anatomy study guides or return to the interactive body map.</p><p><a class="button" href="/learn/">Browse all 74 study guides →</a> <a class="button alt" href="/">Return to interactive atlas →</a></p></main>'
 write(ROOT/'404.html',document('Page Not Found: Browse All Human Anatomy Guides | Atlas','The requested human anatomy page could not be found. Return to the interactive Corpus Anatomy Atlas or browse our 74 illustrated organ system study guides.','/404.html',not_found))
 
@@ -990,9 +995,29 @@ if BASE:
     xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{E(url(path))}</loc><lastmod>{last_modified(path)}</lastmod></url>\n' for path in paths)+'</urlset>\n'
     write(OUT/'sitemap.xml',xml)
     write(ROOT/'sitemap.xml',xml)
-if PUB: write(OUT/'ads.txt',f'google.com, {PUB}, DIRECT, f08c47fec0942fa0\n')
+adsense_pages = 0
+if ADSENSE_ENABLED:
+    # Put the owner-provided Auto ads loader in the shared <head> of every public HTML page.
+    # Netlify's CSP nonce plugin adds a fresh per-request nonce to each script element.
+    for page in OUT.rglob('*.html'):
+        if page.name in {'404.html', 'blog-studio.html'}:
+            continue
+        page_html = page.read_text(encoding='utf-8')
+        if 'adsbygoogle.js?client=' in page_html:
+            if f'adsbygoogle.js?client=ca-{PUB}' not in page_html:
+                raise SystemExit(f'{page.relative_to(OUT)} contains a different AdSense client ID')
+            continue
+        if not re.search(r'</head\s*>', page_html, flags=re.I):
+            raise SystemExit(f'{page.relative_to(OUT)} has no </head> for the AdSense loader')
+        page_html = re.sub(r'</head\s*>', ADSENSE_TAG + '</head>', page_html, count=1, flags=re.I)
+        page.write_text(page_html, encoding='utf-8')
+        adsense_pages += 1
+    if not adsense_pages:
+        raise SystemExit('AdSense is enabled for production, but no public HTML pages received the loader')
+    write(OUT/'ads.txt',f'google.com, {PUB}, DIRECT, f08c47fec0942fa0\n')
 write(OUT/'_headers','/img/*\n  Cache-Control: public, max-age=31536000, immutable\n\n/*.js\n  Cache-Control: public, max-age=31536000, immutable\n\n/*.css\n  Cache-Control: public, max-age=31536000, immutable\n')
 print(f'Built {len(ORGANS)} crawlable study pages + {len(SPA_SECTIONS)} hashless SPA routes in {OUT}.')
 print('Canonical/sitemap:',BASE or 'pending SITE_URL on production deployment')
 print('Public contact:',CONTACT or 'pending CONTACT_EMAIL before monetization')
-print('ads.txt:',PUB or 'not created until real ADSENSE_PUBLISHER_ID is provided')
+print('Auto ads:',f'loader added to {adsense_pages} public HTML pages' if ADSENSE_ENABLED else 'production-only; not added to this preview/local build')
+print('ads.txt:',f'generated for {PUB}' if ADSENSE_ENABLED else 'production-only; not generated in this preview/local build')

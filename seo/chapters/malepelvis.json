@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "Which organs are located in the male pelvis?",
-      "answer": "The male pelvis contains bladder, prostate and rectum, along with parts of the urethra, reproductive ducts, pelvic vessels and nerves. Structurally, the ejaculatory ducts (Ductus ejaculatorii) comprises vas + seminal vesicle ducts through prostate. Physiologically, the ejaculatory ducts deliver sperm into prostatic urethra."
+      "answer": "The male pelvis contains bladder, prostate and rectum, along with parts of the urethra, reproductive ducts, pelvic vessels and nerves."
     },
     {
       "question": "What is the pelvic floor's role in men?",
-      "answer": "Pelvic-floor muscles support pelvic organs and contribute to continence. Their relationship to the urethra and perineal structures is important in regional anatomy. Structurally, the perineal body (Centrum perineale) comprises fibromuscular node between anus and bulb. Physiologically, the perineal body anchor for nine perineal muscles."
+      "answer": "Pelvic-floor muscles support pelvic organs and contribute to continence. Their relationship to the urethra and perineal structures is important in regional anatomy."
     },
     {
       "question": "Where is the urinary bladder in the male pelvis?",
-      "answer": "Reservoir behind the pubis. Functionally, it stores urine; trigone is its smooth base. In clinical pathology involving the urinary bladder, outlet obstruction in men is usually prostatic."
+      "answer": "In the male pelvis, the bladder lies superior to the prostate; the prostatic urethra begins at the bladder neck."
     },
     {
-      "question": "Where is the prostatic & membranous urethra located?",
-      "answer": "Urethra traversing prostate and perineum. Functionally, it governs conduit for urine and semen; sphincters here. Medical evaluation of the prostatic & membranous urethra also notes that catheterisation respects the puboprostatic curve."
+      "question": "Where are the prostatic and membranous urethral segments?",
+      "answer": "The prostatic urethra passes through the prostate; the membranous urethra continues through the pelvic floor and perineal membrane."
     },
     {
       "question": "What is the function of the rectum?",
-      "answer": "Functionally, it stores stool before defecation. Terminal 12–15 cm with three valves. Clinically, regarding the rectum, rectal exam reaches prostate anteriorly, rectum all round."
+      "answer": "The rectum temporarily stores feces before defecation and empties into the anal canal."
     }
   ]
 }

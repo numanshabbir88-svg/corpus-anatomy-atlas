@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What is the spleen's function?",
-      "answer": "The spleen filters blood, removes aging red blood cells and helps immune cells respond to blood-borne material. Its red and white pulp perform different tasks. Structurally, the periarteriolar lymphoid sheath comprises t-cell-rich white-pulp cylinder surrounding a central arteriole. Physiologically, the periarteriolar lymphoid sheath governs samples blood-borne antigens with nearby immune cells."
+      "answer": "The spleen filters blood, removes aging red blood cells and helps immune cells respond to blood-borne material. Its red and white pulp perform different tasks."
     },
     {
       "question": "Can you feel a normal spleen?",
-      "answer": "A normal adult spleen is usually protected beneath the left lower ribs and is not readily felt on examination; enlargement is a medical finding, not something this atlas can diagnose. The splenic vein (Vena lienalis) drains the spleen and joins the superior mesenteric vein behind the pancreatic neck to form the portal vein. Physiologically, the splenic vein returns filtered blood to the portal system."
+      "answer": "A normal adult spleen is usually protected beneath the left lower ribs and is not readily felt on examination; enlargement is a medical finding, not something this atlas can diagnose."
     },
     {
-      "question": "What is the capsule & trabeculae?",
-      "answer": "A fibroelastic capsule sending trabeculae into the pulp, carrying the vessels. Functionally, it governs structural framework and conduit for vessels. In clinical pathology involving the capsule & trabeculae, the capsule is thin and the pulp fragile — the spleen tears easily in blunt abdominal trauma and bleeds briskly."
+      "question": "What are the splenic capsule and trabeculae?",
+      "answer": "The spleen’s fibroelastic capsule sends trabeculae into the pulp; these trabeculae carry blood vessels."
     },
     {
       "question": "Where is the white pulp located?",
-      "answer": "Periarteriolar lymphoid sheaths (T cells), follicles (B cells) and a marginal zone rich in macrophages. Functionally, it governs immune surveillance of blood: antibody and opsonin production, especially against capsules. Medical evaluation of the white pulp also notes that its loss explains why asplenic patients are vulnerable to pneumococcus, meningococcus and H. influenzae."
+      "answer": "White pulp is within the spleen, surrounding central arterioles as periarteriolar lymphoid sheaths and follicles."
     },
     {
-      "question": "What is the function of the hilum?",
-      "answer": "Functionally, it governs vascular gateway; also the site of accessory spleens in ~15% of people. The notched medial border where splenic vessels enter and the tail of pancreas and stomach fundus relate. Clinically, regarding the hilum, a missed accessory spleen can cause relapse of disease after splenectomy for ITP."
+      "question": "What structures pass through the splenic hilum?",
+      "answer": "The splenic artery and vein, lymphatics and nerves pass through the hilum; the pancreatic tail lies nearby."
     }
   ]
 }

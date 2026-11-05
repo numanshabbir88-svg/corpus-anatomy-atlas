@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What structures make up breast tissue?",
-      "answer": "Breast tissue includes glandular lobules, a branching duct network, connective-tissue support, fat, vessels and nerves. Ducts open at the nipple. Structurally, the lobules (glandular) (Lobuli glandulae) comprises secretory alveolar clusters at duct ends. Physiologically, the lobules (glandular) governs milk production under prolactin."
+      "answer": "Breast tissue includes glandular lobules, a branching duct network, connective-tissue support, fat, vessels and nerves. Ducts open at the nipple."
     },
     {
       "question": "Are breast lobules and milk ducts the same thing?",
-      "answer": "No. Lobules contain milk-producing units; ducts transport secretions toward the nipple. Both are embedded in supporting connective and fatty tissue. The subareolar lactiferous ducts (Ductus lactiferi) is branching ducts converge near the nipple; classic large lactiferous sinuses are not consistently seen on ultrasound. Physiologically, the subareolar lactiferous ducts carry milk from alveoli and lobules toward nipple openings, rather than acting as a major storage reservoir."
+      "answer": "No. Lobules contain milk-producing units; ducts transport secretions toward the nipple. Both are embedded in supporting connective and fatty tissue."
     },
     {
-      "question": "What are the lobules (glandular)?",
-      "answer": "Secretory alveolar clusters at duct ends. Functionally, it governs milk production under prolactin. The terminal duct lobular unit is small duct and associated glandular acini forming a functional breast unit. Physiologically, the terminal duct lobular unit produces milk in lactation and drains into larger duct tree."
+      "question": "What are the glandular lobules of the breast?",
+      "answer": "Glandular lobules are clusters of milk-secreting alveoli within the breast."
     },
     {
-      "question": "Where is the lactiferous ducts located?",
-      "answer": "15–20 branching channels to the nipple. Functionally, it transport milk. Medical evaluation of the lactiferous ducts also notes that ductal carcinoma in situ stays inside this lining."
+      "question": "Where are the lactiferous ducts located?",
+      "answer": "Lactiferous ducts pass through the breast from glandular lobules toward openings at the nipple."
     },
     {
       "question": "What is the function of the axillary lymph nodes?",
-      "answer": "Functionally, it governs immune surveillance of the breast. 75% of breast lymph drains here. Clinically, regarding the axillary lymph nodes, sentinel node biopsy stages cancer spread."
+      "answer": "Axillary lymph nodes filter lymph from the upper limb and much of the breast."
     }
   ]
 }

@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What holds a joint together?",
-      "answer": "A joint may be supported by a capsule, ligaments, tendons and nearby muscles. Exact stabilizers vary between joints; the knee also has menisci and cruciate ligaments. Structurally, the menisci (medial & lateral) (Menisci) comprises fibrocartilage crescents on the tibial plateau. Physiologically, the menisci (medial & lateral) governs load sharing, shock absorption, joint lubrication."
+      "answer": "A joint may be supported by a capsule, ligaments, tendons and nearby muscles. Exact stabilizers vary between joints; the knee also has menisci and cruciate ligaments."
     },
     {
       "question": "What do the ACL and PCL do in the knee?",
-      "answer": "The anterior and posterior cruciate ligaments resist different directions of tibial translation and help stabilize the knee during movement. Structurally, the anterior cruciate ligament (Lig. cruciatum anterius) comprises from lateral femoral condyle to anterior tibial plateau. Physiologically, the anterior cruciate ligament governs blocks anterior tibial translation; pivots in rotation."
+      "answer": "The anterior and posterior cruciate ligaments resist different directions of tibial translation and help stabilize the knee during movement."
     },
     {
       "question": "What is the anterior cruciate ligament?",
-      "answer": "From lateral femoral condyle to anterior tibial plateau. Functionally, it governs blocks anterior tibial translation; pivots in rotation. The posterior cruciate ligament (Lig. cruciatum posterius) is medial femoral condyle to posterior tibia. Physiologically, the posterior cruciate ligament governs blocks posterior tibial slide (dashboard injury)."
+      "answer": "The anterior cruciate ligament runs from the lateral femoral condyle to the anterior intercondylar area of the tibia."
     },
     {
       "question": "Where is the posterior cruciate ligament located?",
-      "answer": "Medial femoral condyle to posterior tibia. Functionally, it governs blocks posterior tibial slide (dashboard injury). Structurally, the medial collateral ligament (Lig. collaterale tibiale) comprises femoral epicondyle to tibial shaft, fused with meniscus. Physiologically, the medial collateral ligament governs resists valgus stress."
+      "answer": "The posterior cruciate ligament runs from the medial femoral condyle to the posterior intercondylar area of the tibia."
     },
     {
       "question": "What is the function of the menisci (medial & lateral)?",
-      "answer": "Functionally, it governs load sharing, shock absorption, joint lubrication. Fibrocartilage crescents on the tibial plateau. The articular cartilage (Cartilago articularis) is hyaline cartilage 2–4 mm on joint surfaces. Physiologically, the articular cartilage governs near-frictionless load bearing."
+      "answer": "The medial and lateral menisci distribute load, absorb shock and help reduce friction in the knee joint."
     }
   ]
 }

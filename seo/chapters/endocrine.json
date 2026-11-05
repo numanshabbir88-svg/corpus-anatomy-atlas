@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What organs make up the endocrine system?",
-      "answer": "The endocrine system includes hormone-producing structures such as the pituitary, thyroid, parathyroids, adrenals and pancreatic islets, with other organs also contributing hormones. Structurally, the pancreatic beta cells comprises insulin-producing cells of endocrine pancreatic islets. Physiologically, the pancreatic beta cells lower circulating glucose by promoting uptake/storage."
+      "answer": "The endocrine system includes hormone-producing structures such as the pituitary, thyroid, parathyroids, adrenals and pancreatic islets, with other organs also contributing hormones."
     },
     {
       "question": "How do endocrine glands differ from exocrine glands?",
-      "answer": "Endocrine tissue releases hormones into the blood. Exocrine glands deliver products through ducts to a surface or lumen, as pancreatic acini do for digestion. The parathyroid chief cells is small endocrine cells of parathyroid glands. Physiologically, the parathyroid chief cells secrete PTH in response to falling ionized calcium."
+      "answer": "Endocrine glands release hormones into the blood; exocrine glands send products through ducts to a surface or lumen."
     },
     {
       "question": "What is the pituitary gland?",
-      "answer": "Pea-sized master gland in the sella turcica. Functionally, it releases ACTH, TSH, GH, LH/FSH, prolactin, ADH/oxytocin store. In clinical pathology involving the pituitary gland, pituitary adenoma → visual field loss (optic chiasm above)."
+      "answer": "The pituitary is an endocrine gland in the sella turcica that releases hormones regulating other glands and body functions."
     },
     {
-      "question": "Where in the neck is the thyroid gland located?",
-      "answer": "Butterfly gland on the trachea. Functionally, it governs t3/T4 metabolic rate; calcitonin. Medical evaluation of the thyroid gland also notes that goitre and thyrotoxicosis are common presentations."
+      "question": "Which structures lie posterior to the thyroid gland?",
+      "answer": "The parathyroid glands usually lie on the posterior thyroid surface; the recurrent laryngeal nerves ascend nearby in the tracheoesophageal grooves."
     },
     {
       "question": "What is the function of the adrenal glands?",
-      "answer": "Functionally, it governs cortisol, aldosterone, adrenaline. Caps on each kidney: cortex + medulla. Clinically, regarding the adrenal glands, addison's: hypotension, pigmentation, fatigue."
+      "answer": "The adrenal cortex releases cortisol for stress metabolism and aldosterone for sodium, potassium and blood-pressure regulation; the medulla releases epinephrine and norepinephrine for rapid sympathetic responses."
     }
   ]
 }

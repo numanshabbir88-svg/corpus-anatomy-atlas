@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "Where are the main organs in the female body?",
-      "answer": "The brain lies in the skull; lungs and heart in the chest; digestive and urinary organs in the abdomen; and uterus, tubes and ovaries in the pelvis. The lungs (Pulmones) is paired thoracic organs flanking the heart. Physiologically, the lungs governs gas exchange across ~300 million alveoli."
+      "answer": "The brain is in the skull; heart and lungs are in the chest; digestive and urinary organs are in the abdomen; and the uterus, uterine tubes, ovaries and vagina are in the pelvis. The breasts lie on the anterior chest wall."
     },
     {
-      "question": "Does a female body map show every deep structure?",
-      "answer": "No. It is a regional orientation view. Detailed chapters explain deeper pelvic supports, breast tissue, nerves and microscopic layers that a single image cannot resolve. Structurally, the adrenal glands comprises endocrine glands positioned on the superior aspects of the kidneys. Physiologically, the adrenal glands governs release corticosteroids and catecholamines."
+      "question": "Which female structures need a deeper pelvic or breast view?",
+      "answer": "Ovaries, uterine tubes, cervix, pelvic supports and breast-tissue layers require dedicated regional chapters beyond the whole-body orientation view."
     },
     {
-      "question": "Where is the brain shown on the female body map?",
-      "answer": "Control centre housed in the skull, glowing through the translucent scalp. Functionally, it integrates sensation, movement, thought, memory and autonomic drive. In clinical pathology involving the brain, stroke risk rises with age — remember FAST: face, arms, speech, time."
+      "question": "Where are the ovaries located on the female body map?",
+      "answer": "The ovaries lie on either side of the uterus in the lateral pelvis; the uterine tubes extend from the uterus toward them."
     },
     {
-      "question": "Where are the lungs in the female body map?",
-      "answer": "Paired thoracic organs flanking the heart. Functionally, it governs gas exchange across ~300 million alveoli. The kidneys is paired retroperitoneal organs beside the upper lumbar spine. Physiologically, the kidneys filter plasma and regulate fluid, electrolytes and blood pressure."
+      "question": "Where is the uterus located on the female body map?",
+      "answer": "The uterus lies in the midline of the pelvis, posterior to the bladder and anterior to the rectum."
     },
     {
-      "question": "What does the liver do in the female body?",
-      "answer": "Functionally, it governs metabolism, detoxification, bile, plasma proteins. Largest internal organ, right upper quadrant. Clinically, regarding the liver, cirrhosis scars the parenchyma (alcohol, hepatitis)."
+      "question": "Where is breast tissue located on the female body map?",
+      "answer": "The breasts lie on the anterior chest wall over the pectoral fascia; mammary tissue is within them, with ducts converging toward the nipple."
     }
   ]
 }

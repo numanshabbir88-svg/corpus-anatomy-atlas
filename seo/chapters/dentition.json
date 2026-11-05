@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What are the main layers of a tooth crown and root?",
-      "answer": "Crown dentin is covered by enamel; root dentin is covered by cementum. Pulp occupies the central chamber and canals, while the periodontal ligament connects the root to its alveolar socket. These are distinct tissues, not interchangeable layers. Structurally, the tooth root (Radix dentis) comprises portion anchored below the crown in an alveolar socket; molar roots may be multiple but number and canal shape vary. Physiologically, the tooth root anchors the tooth through periodontal ligament and cementum."
+      "answer": "Crown dentin is covered by enamel; root dentin is covered by cementum. Pulp occupies the central chamber and canals, while the periodontal ligament connects the root to its alveolar socket. These are distinct tissues, not interchangeable layers."
     },
     {
       "question": "Which nerves carry sensation from upper and lower teeth?",
-      "answer": "Upper tooth sensory fibers generally travel through superior alveolar branches of maxillary trigeminal CN V2; lower tooth fibers travel through the inferior alveolar branch of mandibular CN V3. Facial CN VII supplies facial-expression muscles, not dental pulp sensation. Structurally, the inferior alveolar nerve (V3) (Nervus alveolaris inferior) comprises mandibular division branch entering the mandibular foramen and canal; dental branches serve lower teeth. Physiologically, the inferior alveolar nerve (V3) carries sensory fibers from mandibular teeth; its terminal mental branch supplies chin and lower lip."
+      "answer": "Upper teeth receive sensation mainly through superior alveolar branches of CN V2; lower teeth receive it through the inferior alveolar branch of CN V3."
     },
     {
       "question": "How are permanent and primary teeth numbered?",
-      "answer": "The Universal system labels 32 conventional permanent positions 1–32 and 20 primary positions A–T. The two-digit FDI system uses quadrants 1–4 for permanent teeth and 5–8 for primary teeth, with a second digit for position within each quadrant. Structurally, the universal and FDI tooth designation (Numeratio dentium) comprises universal 1–32 names permanent teeth and A–T primary teeth in US practice; two-digit FDI identifies quadrant and position internationally. Physiologically, the universal and FDI tooth designation governs lets students locate a tooth unambiguously before describing its anatomy."
+      "answer": "The Universal system labels 32 conventional permanent positions 1–32 and 20 primary positions A–T. The two-digit FDI system uses quadrants 1–4 for permanent teeth and 5–8 for primary teeth, with a second digit for position within each quadrant."
     },
     {
       "question": "Do adults always have 32 teeth and do primary teeth have premolars?",
-      "answer": "Thirty-two is the full conventional permanent set including third molars, but actual adult counts vary because third molars may be absent, unerupted or removed. Primary dentition typically has 20 teeth and no premolars; primary molars are succeeded by permanent premolars. The primary and permanent dentitions (Dentes decidui et permanentes) is the usual primary dentition has 20 teeth; the conventional full permanent dentition has 32 including third molars. Physiologically, the primary and permanent dentitions governs primary teeth support chewing, speech and the developing dental arches."
+      "answer": "The full permanent dentition usually has 32 teeth, including third molars, but some adults have fewer because third molars may be absent or removed. Primary dentition has 20 teeth and no premolars."
     },
     {
       "question": "Can one molar cutaway show the exact canal and root shape of every tooth?",
-      "answer": "No. Root number, canal configuration and cusp morphology vary between tooth classes and individuals. The illustration is a representative digital teaching model; each chart position has a name and class, but is not a patient scan or an individually rendered tooth. Structurally, the permanent maxillary right third molar · #1 (FDI 18) comprises right maxillary third molar, Universal #1 (FDI 18). Most posterior permanent molar; development, eruption, presence and root configuration are highly variable. This position is a dental-arch location, not a pin on the representative molar section. Physiologically, the permanent maxillary right third molar · #1 governs has a broad cusp-bearing crown for grinding food. It is anchored in the maxilla."
+      "answer": "No. Root, canal and cusp anatomy vary by tooth class and individual. This is a representative teaching model, not a patient scan or a rendering of every tooth."
     }
   ]
 }

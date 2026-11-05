@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What is the difference between sympathetic and parasympathetic nerves?",
-      "answer": "Both are autonomic pathways. Sympathetic activity often prepares organs for exertion; parasympathetic pathways support many resting functions. Their effects depend on the organ and receptor. The inferior hypogastric plexus is paired pelvic autonomic networks lateral to rectum, bladder and reproductive organs. Physiologically, the inferior hypogastric plexus governs distribute sympathetic and parasympathetic fibers to pelvic organs."
+      "answer": "Both are autonomic pathways. Sympathetic activity often prepares organs for exertion; parasympathetic pathways support many resting functions. Their effects depend on the organ and receptor."
     },
     {
       "question": "Where are autonomic ganglia located?",
-      "answer": "Sympathetic ganglia lie in chains beside the spine or in prevertebral groups; many parasympathetic ganglia lie near or within their target organs. The sympathetic trunk (Truncus sympathicus) is paired chain from neck to sacrum beside vertebrae. Physiologically, the sympathetic trunk governs mass fight-or-flight discharge."
+      "answer": "Sympathetic ganglia lie in chains beside the spine or in prevertebral groups; many parasympathetic ganglia lie near or within their target organs."
     },
     {
       "question": "What is the sympathetic trunk?",
-      "answer": "Paired chain from neck to sacrum beside vertebrae. Functionally, it governs mass fight-or-flight discharge. Structurally, the adrenal medulla (Medulla glandulae suprarenalis) comprises modified sympathetic ganglion releasing adrenaline. Physiologically, the adrenal medulla governs hormonal fight-or-flight broadcast."
+      "answer": "The sympathetic trunks are paired chains of ganglia that run alongside the vertebral column from the neck to the sacrum."
     },
     {
-      "question": "Where is the coeliac ganglion & plexus located?",
-      "answer": "Largest prevertebral relay at T12/L1, around coeliac trunk. Functionally, it governs foregut sympathetic supply. Medical evaluation of the coeliac ganglion & plexus also notes that coeliac plexus block for pancreatic cancer pain."
+      "question": "Where are the coeliac plexus and ganglia located?",
+      "answer": "The coeliac plexus and ganglia surround the origin of the coeliac trunk, anterior to the aorta near the T12–L1 level."
     },
     {
       "question": "What is the function of the inferior mesenteric ganglion?",
-      "answer": "Functionally, it governs hindgut and pelvic sympathetic supply. Relay at IMA origin. Clinically, regarding the inferior mesenteric ganglion, involved in post-ejaculatory pain syndromes."
+      "answer": "The inferior mesenteric ganglion relays sympathetic signals to the hindgut and contributes to pelvic visceral pathways."
     }
   ]
 }

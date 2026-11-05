@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What is the difference between red and yellow bone marrow?",
-      "answer": "Red marrow supports blood-cell production. Yellow marrow contains more fat; distribution changes with age and differs across skeletal sites. The red marrow (Medulla ossium rubra) is spongy bone of vertebrae, pelvis, sternum, epiphyses. Physiologically, the red marrow governs haematopoiesis: all blood cell lines."
+      "answer": "Red marrow produces blood cells; yellow marrow contains more fat. Their distribution changes with age and varies by skeletal site."
     },
     {
-      "question": "Where are blood cells made in adults?",
-      "answer": "Most adult blood-cell production occurs in red marrow of axial bones and selected proximal long-bone regions. The sinusoidal endothelium is specialized discontinuous lining of marrow venous sinuses. Physiologically, the sinusoidal endothelium allows mature blood cells to enter bloodstream."
+      "question": "What does red bone marrow produce?",
+      "answer": "Red bone marrow produces red blood cells, most white blood cells and platelets from hematopoietic stem and progenitor cells."
     },
     {
-      "question": "What is the red marrow?",
-      "answer": "Spongy bone of vertebrae, pelvis, sternum, epiphyses. Functionally, it governs haematopoiesis: all blood cell lines. Structurally, the trabecular (spongy) bone (Os spongiosum) comprises latticework of struts along stress lines. Physiologically, the trabecular (spongy) bone governs strength at low weight; houses red marrow."
+      "question": "What is red bone marrow?",
+      "answer": "Red bone marrow is blood-forming tissue within spongy bone, especially in adult vertebrae, pelvis and sternum."
     },
     {
       "question": "Where is the trabecular (spongy) bone located?",
-      "answer": "Latticework of struts along stress lines. Functionally, it governs strength at low weight; houses red marrow. The haversian canal is central canal of compact-bone osteon containing vessels and nerves. Physiologically, the haversian canal supplies concentric lamellae."
+      "answer": "Trabecular bone lies inside many bones, especially at the ends of long bones and within flat bones; its struts align with mechanical stresses."
     },
     {
-      "question": "What is the function of the endosteum & osteoblasts?",
-      "answer": "Functionally, it governs remodelling: osteoblasts build, osteoclasts eat. Cellular lining of all internal bone surfaces. Clinically, regarding the endosteum & osteoblasts, paget's disease is remodelling gone chaotic."
+      "question": "How do osteoblasts and the endosteum contribute to bone remodeling?",
+      "answer": "Osteoblasts build bone and osteoclasts resorb it; the endosteum lines internal bone surfaces where remodeling occurs."
     }
   ]
 }

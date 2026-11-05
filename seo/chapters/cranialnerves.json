@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "How many cranial nerves are there?",
-      "answer": "There are 12 paired cranial nerves, numbered I through XII. Their functions include smell, vision, eye movement, facial sensation, hearing, swallowing and tongue movement. Structurally, the internal acoustic meatus (Meatus acusticus internus) comprises temporal-bone canal shared by CN VII, CN VIII and labyrinthine artery. Physiologically, the internal acoustic meatus governs conveys nerve toward facial canal."
+      "answer": "There are 12 paired cranial nerves, numbered I through XII. Their functions include smell, vision, eye movement, facial sensation, hearing, swallowing and tongue movement."
     },
     {
       "question": "Which cranial nerve controls facial expression?",
-      "answer": "The facial nerve, cranial nerve VII, supplies most muscles of facial expression. The trigeminal nerve, cranial nerve V, carries most facial skin sensation. The v · Trigeminal nerve (N. trigeminus) is three divisions: ophthalmic, maxillary, mandibular. Physiologically, the v · Trigeminal nerve governs face sensation + muscles of mastication."
+      "answer": "The facial nerve (cranial nerve VII) supplies most muscles of facial expression."
     },
     {
       "question": "What is the olfactory nerve (CN I)?",
-      "answer": "Sensory filaments from nasal epithelium to bulb. Functionally, it governs smell. In clinical pathology involving the i · Olfactory nerve, lesion: anosmia — test each nostril with coffee."
+      "answer": "The olfactory nerve consists of sensory axons from the nasal olfactory epithelium that pass through the cribriform plate to the olfactory bulb."
     },
     {
       "question": "Where does the oculomotor nerve (CN III) originate?",
-      "answer": "Midbrain nerve to four eye muscles + lid + pupil. Functionally, it governs eye elevation/adduction, lid lift, pupil constriction. Medical evaluation of the III · Oculomotor nerve also notes that first sign of uncal herniation: a blown pupil."
+      "answer": "The oculomotor nerve emerges from the ventral midbrain at the interpeduncular fossa; its motor nuclei lie in the midbrain."
     },
     {
       "question": "What does the trigeminal nerve (CN V) do?",
-      "answer": "Functionally, it governs face sensation + muscles of mastication. Three divisions: ophthalmic, maxillary, mandibular. Structurally, the VII · Facial nerve (N. facialis) comprises motor to face, taste anterior 2/3, lacrimal/salivary. Physiologically, the VII · Facial nerve governs facial expression."
+      "answer": "The trigeminal nerve provides most facial sensation and motor supply to muscles of mastication through its three divisions: V1, V2 and V3."
     }
   ]
 }

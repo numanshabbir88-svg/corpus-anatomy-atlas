@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "Where are rods and cones located in the retina?",
-      "answer": "Photoreceptors lie in the outer neural retina next to retinal pigment epithelium, even though incoming light first passes through more internal layers. Structurally, the retinal pigment epithelium (Epithelium pigmentosum retinae) comprises pigmented monolayer adjacent to photoreceptors and Bruch membrane. Physiologically, the retinal pigment epithelium governs recycles visual pigment, phagocytoses shed discs and forms outer blood–retinal barrier."
+      "answer": "Rods and cones are photoreceptors in the outer neural retina, adjacent to the retinal pigment epithelium."
     },
     {
       "question": "What is the difference between rods and cones?",
-      "answer": "Rods are especially sensitive in low light; cones support high-acuity and color vision, particularly near the fovea. Structurally, the cones (Coni) comprises color- and acuity-sensitive photoreceptors concentrated at fovea. Physiologically, the cones governs high-resolution daylight and color vision."
+      "answer": "Rods are especially sensitive in low light; cones support high-acuity and color vision, particularly near the fovea."
     },
     {
       "question": "What are the photoreceptor segments?",
-      "answer": "Rod and cone inner/outer segments facing RPE. Functionally, it governs capture photons and start phototransduction. In clinical pathology involving the photoreceptor segments, outer-segment injury impairs vision despite intact inner retina."
+      "answer": "Rod and cone photoreceptors have inner and outer segments; their outer segments lie next to the retinal pigment epithelium."
     },
     {
       "question": "Where is the retinal pigment epithelium located?",
-      "answer": "Pigmented monolayer adjacent to photoreceptors and Bruch membrane. Functionally, it governs recycles visual pigment, phagocytoses shed discs and forms outer blood–retinal barrier. Structurally, the external limiting membrane (Membrana limitans externa) comprises adherens junction belt between Müller cells and photoreceptors. Physiologically, the external limiting membrane provides organized retinal scaffold."
+      "answer": "The retinal pigment epithelium is a pigmented cell layer between the photoreceptors and Bruch’s membrane."
     },
     {
       "question": "What is the function of the fovea centralis?",
-      "answer": "Functionally, it governs peak spatial acuity. Small central pit with closely spaced cones and displaced inner layers. Clinically, regarding the fovea centralis, foveal injury causes major central visual impairment."
+      "answer": "The fovea centralis provides the highest spatial acuity, with densely packed cones and displaced inner retinal layers."
     }
   ]
 }

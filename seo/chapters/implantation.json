@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "Where does a blastocyst normally implant?",
-      "answer": "It typically attaches to receptive uterine endometrium, often in the upper or posterior uterus. Implantation within a uterine tube is ectopic and requires medical assessment. Structurally, the ectopic implantation comprises blastocyst may implant outside the uterine cavity, commonly in a uterine tube. Physiologically, the ectopic implantation governs explains why normal tube fertilization must be followed by uterine transport."
+      "answer": "It typically attaches to receptive uterine endometrium, often in the upper or posterior uterus. Implantation within a uterine tube is ectopic and requires medical assessment."
     },
     {
       "question": "When does implantation begin after fertilization?",
-      "answer": "Attachment commonly begins around the end of the first post-fertilization week, with variation. This is not the same as obstetric weeks counted from the last menstrual period. Structurally, the implantation time variation comprises attachment commonly starts roughly one week after fertilization, with individual variation. Physiologically, the implantation time variation separates postfertilization age from LMP-based obstetric age."
+      "answer": "Attachment commonly begins around the end of the first post-fertilization week, with variation. This is not the same as obstetric weeks counted from the last menstrual period."
     },
     {
       "question": "What is the difference between cytotrophoblast and syncytiotrophoblast?",
-      "answer": "Cytotrophoblast is a cellular proliferative component; the outer syncytiotrophoblast is multinucleated and invades the endometrium. Both are early trophoblastic components, not a mature placenta by themselves. The syncytiotrophoblast is outer multinucleated trophoblast layer invades the decidualizing endometrium. Physiologically, the syncytiotrophoblast anchors conceptus and participates in hormone production."
+      "answer": "Cytotrophoblast is the inner cellular, proliferative layer; syncytiotrophoblast is the outer multinucleated layer that invades the endometrium."
     },
     {
       "question": "What does early pregnancy hCG support?",
-      "answer": "Trophoblast-derived hCG maintains the ovarian corpus luteum so it continues progesterone production early in pregnancy. Later placental hormone production develops as the pregnancy progresses. Structurally, the corpus luteum support comprises ovarian progesterone secretion persists in early pregnancy under hCG influence. Physiologically, the corpus luteum support maintains receptive endometrium before placental steroid output predominates."
+      "answer": "Trophoblast-derived hCG maintains the ovarian corpus luteum so it continues progesterone production early in pregnancy. Later placental hormone production develops as the pregnancy progresses."
     },
     {
       "question": "Are uterine implantation and tubal fertilization the same event?",
-      "answer": "No. Gamete fusion normally happens in a uterine tube. The conceptus then develops through divisions and reaches the uterus before a hatched blastocyst attaches to endometrium. Structurally, the secretory endometrium comprises progesterone-conditioned uterine mucosa provides glands, vessels and receptive tissue. Physiologically, the secretory endometrium supports embryo–maternal interaction."
+      "answer": "No. Gamete fusion normally happens in a uterine tube. The conceptus then develops through divisions and reaches the uterus before a hatched blastocyst attaches to endometrium."
     }
   ]
 }

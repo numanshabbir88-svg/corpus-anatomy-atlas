@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What are the layers of the small intestinal wall?",
-      "answer": "From lumen outward they include mucosa, submucosa, muscularis externa and serosa or adventitia depending on the segment. Structurally, the villus (Villus intestinalis) comprises fingerlike projection of small-intestinal mucosa with epithelial cover and lamina propria core. Physiologically, the villus expands absorptive surface."
+      "answer": "From lumen outward they include mucosa, submucosa, muscularis externa and serosa or adventitia depending on the segment."
     },
     {
       "question": "What do intestinal villi and crypts do?",
-      "answer": "Villi expand the absorptive surface. Crypts contain renewing epithelial cells and other specialized cells that help maintain the mucosa. Structurally, the crypt stem cells (Cellulae stipitales cryptarum) comprises progenitor population near crypt base continuously renewing epithelium. Physiologically, the crypt stem cells governs replaces short-lived epithelial lineages."
+      "answer": "Villi expand the absorptive surface. Crypts contain renewing epithelial cells and other specialized cells that help maintain the mucosa."
     },
     {
       "question": "What is the villus?",
-      "answer": "Fingerlike projection of small-intestinal mucosa with epithelial cover and lamina propria core. Functionally, it expands absorptive surface. Structurally, the enterocyte (Enterocytus) comprises absorptive columnar epithelial cell with apical microvilli. Physiologically, the enterocyte governs takes up digested nutrients."
+      "answer": "A villus is a finger-like projection of small-intestinal mucosa covered by epithelium and containing a lamina propria core."
     },
     {
       "question": "Where is the enterocyte located?",
-      "answer": "Absorptive columnar epithelial cell with apical microvilli. Functionally, it governs takes up digested nutrients. Structurally, the enteroendocrine cell (Cellula enteroendocrina) comprises scattered hormone-secreting epithelial cells. Physiologically, the enteroendocrine cell governs sense nutrients and release regulatory peptides."
+      "answer": "Enterocytes line the intestinal villi and crypts, with apical microvilli facing the intestinal lumen."
     },
     {
       "question": "What is the function of the goblet cell?",
-      "answer": "Functionally, it lubricates and helps protect mucosal surface. Mucin-producing epithelial cell scattered among enterocytes. Clinically, regarding the goblet cell, cell proportions vary along intestine."
+      "answer": "Goblet cells secrete mucus that lubricates and helps protect the intestinal mucosa."
     }
   ]
 }

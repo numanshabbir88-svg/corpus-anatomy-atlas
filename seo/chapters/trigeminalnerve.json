@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What are the three branches of the trigeminal nerve?",
-      "answer": "Ophthalmic V1, maxillary V2 and mandibular V3 supply different facial territories. V3 also carries motor fibers to muscles of mastication. Structurally, the mandibular V3 (Nervus mandibularis) comprises sensory and motor roots unite at foramen ovale. Physiologically, the mandibular V3 governs sensation lower face and motor to mastication."
+      "answer": "Ophthalmic V1, maxillary V2 and mandibular V3 supply different facial territories. V3 also carries motor fibers to muscles of mastication."
     },
     {
       "question": "Which nerve supplies sensation to the cornea?",
-      "answer": "The ophthalmic division of the trigeminal nerve, especially through the nasociliary pathway, carries most corneal sensation. Structurally, the nasociliary nerve (Nervus nasociliaris) comprises orbital V1 branch giving long ciliary, ethmoidal and infratrochlear fibers. Physiologically, the nasociliary nerve carries corneal sensation through long ciliary nerves."
+      "answer": "The ophthalmic division of the trigeminal nerve, especially through the nasociliary pathway, carries most corneal sensation."
     },
     {
       "question": "What is the trigeminal sensory root?",
-      "answer": "Large sensory root emerges from lateral pons into trigeminal cistern. Functionally, it governs conveys facial somatic sensation centrally. In clinical pathology involving the trigeminal sensory root, brainstem lesions can combine facial and body sensory findings."
+      "answer": "The trigeminal sensory root is a large bundle of sensory fibers that emerges from the lateral pons and enters the trigeminal cistern."
     },
     {
       "question": "Where is the ophthalmic V1 located?",
-      "answer": "Passes superior orbital fissure into orbit; gives frontal, lacrimal and nasociliary branches. Functionally, it governs sensation from forehead, upper lid and cornea. Medical evaluation of the ophthalmic V1 also notes that afferent limb of corneal reflex."
+      "answer": "The ophthalmic division (V1) passes through the superior orbital fissure into the orbit, where it divides into frontal, lacrimal and nasociliary branches."
     },
     {
       "question": "What is the function of the nasociliary nerve?",
-      "answer": "Functionally, it carries corneal sensation through long ciliary nerves. Orbital V1 branch giving long ciliary, ethmoidal and infratrochlear fibers. The frontal nerve (Nervus frontalis) is superior orbital branch dividing into supraorbital and supratrochlear nerves. Physiologically, the frontal nerve governs sensation over forehead and anterior scalp."
+      "answer": "The nasociliary nerve carries corneal sensation through the long ciliary nerves and also gives off ethmoidal and infratrochlear branches."
     }
   ]
 }

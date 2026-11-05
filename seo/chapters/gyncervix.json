@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What is the cervical transformation zone?",
-      "answer": "It is the region where squamous epithelium of the ectocervix and columnar epithelium of the endocervix meet and change over time. Structurally, the transformation zone (Zona transformationis) comprises region of squamous metaplasia between original and current SCJ. Physiologically, the transformation zone governs physiologic remodeling of exposed columnar epithelium."
+      "answer": "It is the region where squamous epithelium of the ectocervix and columnar epithelium of the endocervix meet and change over time."
     },
     {
       "question": "Why is the transformation zone important in cervical screening?",
-      "answer": "Many cervical precancerous changes arise near the squamocolumnar junction. Screening samples this region, but this atlas does not interpret individual test results. Structurally, the ectocervical squamous epithelium (Epithelium squamosum) comprises nonkeratinizing squamous epithelium continuous with vaginal mucosa. Physiologically, the ectocervical squamous epithelium protects exposed cervical surface."
+      "answer": "Many cervical precancerous changes arise near the squamocolumnar junction. Screening samples this region, but this atlas does not interpret individual test results."
     },
     {
       "question": "What is the ectocervix?",
-      "answer": "Part of cervix visible at the vaginal vault. Functionally, it governs covered by nonkeratinizing stratified squamous epithelium. In clinical pathology involving the ectocervix, visual examination and directed biopsy sample this surface."
+      "answer": "The ectocervix is the portion of the cervix that projects into the vagina and is visible during a speculum examination."
     },
     {
       "question": "Where is the endocervical columnar epithelium located?",
-      "answer": "Mucus-secreting simple columnar lining of the canal. Functionally, it produces cervical mucus under hormonal regulation. Medical evaluation of the endocervical columnar epithelium also notes that glandular lesions need distinct cytologic evaluation."
+      "answer": "Simple columnar epithelium lines the endocervical canal and secretes mucus."
     },
     {
-      "question": "What is the function of the squamocolumnar junction?",
-      "answer": "Functionally, it governs migrates with age, hormones and pregnancy. Border where glandular and squamous epithelia meet. Clinically, regarding the squamocolumnar junction, colposcopy assesses whether the entire junction is visible."
+      "question": "What is the squamocolumnar junction, and how does it change?",
+      "answer": "It is the boundary between glandular columnar and squamous epithelia; its position shifts with age, hormones and pregnancy."
     }
   ]
 }

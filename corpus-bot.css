@@ -876,6 +876,60 @@ a[href*="utm_source=netlify"],
     font-size: 16px;
     padding: 5px 8px;
   }
+
+  /* Keep the persistent assistant from covering mobile article text; open the
+     full pointing character only while the board itself is open. */
+  .cbot-avatar-btn {
+    flex: 0 0 58px;
+    width: 58px;
+    height: 58px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.96);
+    border-radius: 50%;
+    background: #0d3b39;
+    box-shadow: 0 4px 14px rgba(10, 32, 30, 0.24);
+  }
+
+  .cbot-char-wrap {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    animation: none;
+  }
+
+  .cbot-img,
+  .cbot-img-point {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 4%;
+    border-radius: 50%;
+  }
+
+  .cbot-root.is-open .cbot-avatar-btn {
+    flex: 0 0 auto;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .cbot-root.is-open .cbot-char-wrap {
+    width: auto;
+    height: auto;
+    overflow: visible;
+    animation: cbotRealisticPoint 4s infinite ease-in-out;
+  }
+
+  .cbot-root.is-open .cbot-img-point {
+    width: auto;
+    height: 164px;
+    object-fit: contain;
+    border-radius: 0;
+  }
 }
 
 @media print {

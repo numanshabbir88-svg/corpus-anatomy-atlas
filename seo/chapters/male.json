@@ -36,24 +36,24 @@
   },
   "questions": [
     {
-      "question": "How is sperm produced and transported?",
-      "answer": "Sperm develop in seminiferous tubules of the testes, mature in the epididymis and pass through the vas deferens and ejaculatory ducts into the urethra. The vas deferens (Ductus deferens) is a thick-walled 45 cm muscular duct from the epididymal tail, through the inguinal canal into the pelvis. Physiologically, the vas deferens propels sperm by powerful peristalsis at emission."
+      "question": "What route do sperm take from the testes to the urethra?",
+      "answer": "Sperm travel from seminiferous tubules through the rete testis, efferent ductules and epididymis, then through the vas deferens and ejaculatory ducts into the urethra."
     },
     {
       "question": "What do the prostate and seminal vesicles contribute?",
-      "answer": "The seminal vesicles and prostate add fluids to semen. Their ducts join the sperm outflow route near the prostate before ejaculation. The seminal vesicle (Vesicula seminalis) is a coiled sac behind the bladder whose duct joins the vas to form the ejaculatory duct. Physiologically, the seminal vesicle governs adds ~60% of semen volume: fructose, prostaglandins and clotting proteins."
+      "answer": "The seminal vesicles and prostate add fluids to semen. Their ducts join the sperm outflow route near the prostate before ejaculation."
     },
     {
-      "question": "What is the testis & seminiferous tubules?",
-      "answer": "250–300 lobules of coiled seminiferous tubules (total ~250 m) with Sertoli cells and developing germ cells, wrapped in tunica albuginea. Functionally, it governs spermatogenesis and testosterone production. In clinical pathology involving the testis & seminiferous tubules, undescended testis (cryptorchidism) raises infertility and germ-cell tumour risk; torsion is a 6-hour surgical emergency."
+      "question": "How is each testis organized?",
+      "answer": "Each testis is divided by septa into about 250–300 lobules containing coiled seminiferous tubules; a dense fibrous tunica albuginea surrounds the organ."
     },
     {
       "question": "Where is the vas deferens located?",
-      "answer": "A thick-walled 45 cm muscular duct from the epididymal tail, through the inguinal canal into the pelvis. Functionally, it propels sperm by powerful peristalsis at emission. The epididymis is a 6 m coiled duct (head, body, tail) applied to the posterior border of the testis. Physiologically, the epididymis governs sperm maturation, motility acquisition and storage (up to weeks)."
+      "answer": "The vas deferens runs from the tail of the epididymis through the inguinal canal into the pelvis, where it joins the duct of the seminal vesicle."
     },
     {
       "question": "What is the function of the prostate?",
-      "answer": "Functionally, it secretes citrate, zinc and PSA that liquefy the seminal coagulum. A walnut-sized fibromuscular gland around the urethra below the bladder, with peripheral, central and transition zones. Clinically, regarding the prostate, benign hyperplasia of the transition zone obstructs voiding; most cancers arise in the peripheral zone (felt on DRE)."
+      "answer": "The prostate adds citrate, zinc and prostate-specific antigen to seminal fluid; PSA helps liquefy semen after ejaculation."
     }
   ]
 }

@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What are the three embryonic germ layers?",
-      "answer": "Gastrulation establishes ectoderm, mesoderm and endoderm. Together they contribute to later organs and tissues, though any one organ often draws from more than one layer. Structurally, the gastrulation comprises cell movements establish three definitive germ layers. Physiologically, the gastrulation governs organizes major tissue lineages."
+      "answer": "Gastrulation establishes ectoderm, mesoderm and endoderm. Together they contribute to later organs and tissues, though any one organ often draws from more than one layer."
     },
     {
       "question": "What does the embryonic neural tube form?",
-      "answer": "It contributes to the brain and spinal cord. It forms after neural plate folding and closure; the microscopic folding process is not directly visible on the generic external development image. The neural tube is folded neural plate closes in stages along embryonic axis. Physiologically, the neural tube forms the brain and spinal cord primordium."
+      "answer": "The embryonic neural tube develops into the brain and spinal cord after the neural plate folds and closes."
     },
     {
       "question": "When does major embryonic organ formation occur?",
-      "answer": "A standard developmental convention describes much organ-plan formation during roughly weeks three through eight after fertilization. Obstetric gestational weeks counted from the LMP are usually about two weeks higher. Structurally, the transition to fetal period comprises after primary embryonic organ plans are laid down, growth and maturation become prominent in fetal period. Physiologically, the transition to fetal period separates organ formation from later growth emphasis."
+      "answer": "A standard developmental convention describes much organ-plan formation during roughly weeks three through eight after fertilization. Obstetric gestational weeks counted from the LMP are usually about two weeks higher."
     },
     {
       "question": "How does a flat embryonic disc become a body shape?",
-      "answer": "Head, tail and lateral folds transform the disc into a three-dimensional body and help position the primitive gut. The still digital plate shows a simplified later form, not actual folding in motion. Physiologically, the embryonic body folding governs brings internal tubes and body walls into position."
+      "answer": "Head, tail and lateral folds transform the disc into a three-dimensional body and help position the primitive gut. The still digital plate shows a simplified later form, not actual folding in motion."
     },
     {
       "question": "Is the illustrated early human an exact image of week eight?",
-      "answer": "No. It is a stylized non-diagnostic model rather than a measured clinical image or week-specific specimen. Form and timing vary, so age cannot be determined from the rendering. Structurally, the primitive streak comprises transient caudal midline feature supports migration of cells in gastrulation. Physiologically, the primitive streak governs organizes early layer formation."
+      "answer": "No. It is a stylized non-diagnostic model rather than a measured clinical image or week-specific specimen. Form and timing vary, so age cannot be determined from the rendering."
     }
   ]
 }

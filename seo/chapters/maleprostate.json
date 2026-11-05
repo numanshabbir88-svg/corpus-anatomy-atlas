@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "Where is the prostate located?",
-      "answer": "The prostate sits below the bladder and surrounds the first part of the urethra. Ducts from the reproductive tract open into the prostatic urethra. Structurally, the prostatic urethra (Pars prostatica urethrae) comprises urethra through prostate from bladder neck to membrane. Physiologically, the prostatic urethra conducts urine and semen in separate phases."
+      "answer": "The prostate sits below the bladder and surrounds the first part of the urethra. Ducts from the reproductive tract open into the prostatic urethra."
     },
     {
       "question": "What are the main anatomical zones of the prostate?",
-      "answer": "The transition, central and peripheral zones differ in location and surrounding structures. The peripheral zone occupies much of the posterior gland. Structurally, the anterior fibromuscular stroma comprises non-glandular anterior component of prostate rich in muscle and connective tissue. Physiologically, the anterior fibromuscular stroma provides structural support to prostatic urethra."
+      "answer": "The transition zone surrounds the proximal urethra, the central zone surrounds the ejaculatory ducts, and the peripheral zone forms much of the posterior gland."
     },
     {
-      "question": "What is the bladder neck / internal sphincter?",
-      "answer": "Smooth-muscle outlet superior to prostate. Functionally, it closes during emission to limit retrograde ejaculation. In clinical pathology involving the bladder neck / internal sphincter, bladder-neck dysfunction may affect voiding."
+      "question": "What are the bladder neck and internal urethral sphincter?",
+      "answer": "The bladder neck is a smooth-muscle outlet at the base of the bladder; its internal urethral sphincter helps regulate passage into the urethra."
     },
     {
       "question": "Where is the prostatic peripheral zone located?",
-      "answer": "Posterior-lateral zone palpable through rectum. Functionally, it produces prostatic secretions. Medical evaluation of the prostatic peripheral zone also notes that most prostatic cancers arise in this zone."
+      "answer": "The peripheral zone occupies the posterior and posterolateral parts of the prostate and can be examined through the rectal wall."
     },
     {
       "question": "What is the function of the prostatic urethra?",
-      "answer": "Functionally, it conducts urine and semen in separate phases. Urethra through prostate from bladder neck to membrane. Structurally, the prostatic venous plexus comprises veins around capsule, communicating with deep dorsal penile and vesical veins. Physiologically, the prostatic venous plexus drain gland and adjacent bladder neck."
+      "answer": "The prostatic urethra conducts urine during voiding and semen during ejaculation through the prostate."
     }
   ]
 }

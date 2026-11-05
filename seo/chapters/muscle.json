@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "How do skeletal muscles move joints?",
-      "answer": "Skeletal muscle fibers contract and transmit force through tendons or other attachments. When a muscle crosses a joint, its contraction can pull the attached bones; opposing muscles help control the movement. Structurally, the diaphragm central tendon comprises strong aponeurotic center receiving diaphragm muscle fibers. Physiologically, the diaphragm central tendon transmits inspiratory muscle force and supports pericardium."
+      "answer": "Skeletal muscle fibers contract and transmit force through tendons or other attachments. When a muscle crosses a joint, its contraction can pull the attached bones; opposing muscles help control the movement."
     },
     {
       "question": "Are all human muscles listed among the overview cards?",
-      "answer": "No. The overview cards introduce major regions, while the linked full-body muscle and tendon atlas contains hundreds of named records. A single fixed count of muscles varies with naming and counting conventions. Structurally, the rotator cuff muscle group comprises supraspinatus, infraspinatus, teres minor and subscapularis surround shoulder joint. Physiologically, the rotator cuff muscle group governs center humeral head during motion."
+      "answer": "No. The overview cards introduce major regions, while the linked full-body muscle and tendon atlas contains hundreds of named records. A single fixed count of muscles varies with naming and counting conventions."
     },
     {
       "question": "Where can I find posterior muscles such as the triceps and hamstrings?",
-      "answer": "The full-body muscle atlas groups them by arm and thigh region, including deeper layers and sex-specific pelvic floor views. The front-oriented overview image alone cannot identify posterior fibers. Structurally, the pelvic diaphragm comprises levator ani and coccygeus form muscular pelvic-floor support. Physiologically, the pelvic diaphragm supports pelvic viscera and continence."
+      "answer": "The full-body muscle atlas groups them by arm and thigh region, including deeper layers and sex-specific pelvic floor views. The front-oriented overview image alone cannot identify posterior fibers."
     },
     {
       "question": "What is the difference between a tendon and a ligament?",
-      "answer": "A tendon transfers muscular force to an attachment, commonly a bone; a ligament connects bones across a joint. Both consist largely of dense collagenous connective tissue but have different mechanical roles. Structurally, the biceps brachii (M. biceps brachii) comprises scapula to radial tuberosity. Physiologically, the biceps brachii governs elbow flexion + supination."
+      "answer": "A tendon transfers muscular force to an attachment, commonly a bone; a ligament connects bones across a joint. Both consist largely of dense collagenous connective tissue but have different mechanical roles."
     },
     {
       "question": "Is the diaphragm a skeletal muscle?",
-      "answer": "Yes. The diaphragm is a dome-shaped skeletal muscle separating the thoracic and abdominal cavities and is the primary muscle used during quiet inspiration. Its central tendon is an attachment region, not a separate muscle. The transversus abdominis is deep horizontal-fiber abdominal wall muscle beneath obliques. Physiologically, the transversus abdominis compresses abdominal contents and stabilizes trunk."
+      "answer": "Yes. The diaphragm is a dome-shaped skeletal muscle separating the thoracic and abdominal cavities and is the primary muscle used during quiet inspiration. Its central tendon is an attachment region, not a separate muscle."
     }
   ]
 }

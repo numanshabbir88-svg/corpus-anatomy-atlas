@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "How is gestational age different from conception age?",
-      "answer": "Obstetric gestational age counts from the first day of the last menstrual period. Age since fertilization is commonly about two weeks less in a typical cycle, but that difference varies with ovulation timing. Structurally, the gestational age (LMP) comprises obstetric clock begins on first day of last menstrual period, typically before fertilization. Physiologically, the gestational age (LMP) governs standardizes prenatal dating."
+      "answer": "Obstetric gestational age counts from the first day of the last menstrual period. Age since fertilization is commonly about two weeks less in a typical cycle, but that difference varies with ovulation timing."
     },
     {
       "question": "When do first, second and third trimesters fall?",
-      "answer": "A common LMP-based convention is first through 13 weeks and 6 days, second from 14 through 27 weeks and 6 days, and third from 28 weeks until delivery. These are clinical groupings, not exact developmental switches. Structurally, the first trimester comprises clinical period extends from LMP to 13 weeks and 6 days, encompassing fertilization and early organ formation. Physiologically, the first trimester provides a clinical pregnancy time frame."
+      "answer": "A common LMP-based convention is first through 13 weeks and 6 days, second from 14 through 27 weeks and 6 days, and third from 28 weeks until delivery. These are clinical groupings, not exact developmental switches."
     },
     {
       "question": "What is the fetal period mainly characterized by?",
-      "answer": "After embryonic organ plans are established, growth and functional maturation become prominent. Developing organs continue to change rather than all appearing suddenly complete. Structurally, the fetal lung maturation comprises airway and gas-exchange structures continue to develop; surfactant availability rises with maturity. Physiologically, the fetal lung maturation governs prepares for breathing after delivery."
+      "answer": "After embryonic organ plans are established, growth and functional maturation become prominent. Developing organs continue to change rather than all appearing suddenly complete."
     },
     {
       "question": "Why does a fetus have circulation shunts?",
-      "answer": "Before birth oxygen comes from placenta, not air-breathing lungs. The foramen ovale, ductus arteriosus and ductus venosus direct parts of fetal blood flow through specialized routes. Structurally, the foramen ovale comprises normal fetal atrial opening allows some blood to pass from right to left atrium before birth. Physiologically, the foramen ovale governs routes flow when lungs are not yet performing air exchange."
+      "answer": "Before birth oxygen comes from placenta, not air-breathing lungs. The foramen ovale, ductus arteriosus and ductus venosus direct parts of fetal blood flow through specialized routes."
     },
     {
       "question": "Can these fetal images date a pregnancy or confirm fetal health?",
-      "answer": "No. They are three digital educational plates showing undated early development and illustrative middle and later pregnancy. They are not prenatal ultrasounds or patient scans and cannot measure growth, determine exact weeks or assess viability; clinical care uses actual examinations and imaging. Structurally, the variable fetal growth comprises fetal size and growth trajectories differ; clinical assessment uses validated methods. Physiologically, the variable fetal growth supports monitoring across prenatal visits."
+      "answer": "No. They are educational illustrations, not prenatal scans; they cannot date a pregnancy, measure growth or assess fetal health."
     }
   ]
 }

@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "Why is the adult human skeleton usually counted as 206 bones?",
-      "answer": "The conventional adult count includes bones that have fused during development and six middle-ear ossicles. Individual counts can differ because accessory bones, variable sesamoids and fusion patterns vary among people. Structurally, the skull (Cranium) comprises fuses 8 cranial + 14 facial bones; houses brain and senses. Physiologically, the skull governs protection and mastication anchor."
+      "answer": "The conventional adult count includes bones that have fused during development and six middle-ear ossicles. Individual counts can differ because accessory bones, variable sesamoids and fusion patterns vary among people."
     },
     {
       "question": "What belongs to the axial skeleton?",
-      "answer": "The axial skeleton contains the skull, vertebral column and thoracic cage. It supports the head and trunk and helps protect the brain, spinal cord, heart and lungs. Structurally, the vertebral column (Columna vertebralis) comprises 7C-12T-5L-sacrum-coccyx with four curves. Physiologically, the vertebral column governs axial support and cord protection."
+      "answer": "The axial skeleton contains the skull, vertebral column and thoracic cage. It supports the head and trunk and helps protect the brain, spinal cord, heart and lungs."
     },
     {
       "question": "What belongs to the appendicular skeleton?",
-      "answer": "The shoulder and pelvic girdles, arms and legs form the appendicular skeleton. These bones provide attachment and leverage for movement and connect the limbs to the axial framework. Structurally, the clavicle (Clavicula) comprises s-strut between sternum and scapula. Physiologically, the clavicle holds the shoulder off the chest."
+      "answer": "The shoulder and pelvic girdles, arms and legs form the appendicular skeleton. These bones provide attachment and leverage for movement and connect the limbs to the axial framework."
     },
     {
       "question": "What is the difference between compact and spongy bone?",
-      "answer": "Compact bone forms a dense outer layer; spongy bone contains a lattice of trabeculae inside many bones. Both are living tissues, and marrow occupies spaces within bones. Structurally, the sternum comprises manubrium, body and xiphoid in the midline. Physiologically, the sternum governs rib anchor; marrow biopsy site."
+      "answer": "Compact bone forms a dense outer layer; spongy bone contains a lattice of trabeculae inside many bones. Both are living tissues, and marrow occupies spaces within bones."
     },
     {
       "question": "Where is blood cell production found in adult bones?",
-      "answer": "Red marrow produces blood cell precursors in selected adult bones, especially axial bones and the proximal ends of some long bones. Yellow marrow is richer in fat and has different activity. Structurally, the scapula comprises triangular shoulder blade with glenoid fossa. Physiologically, the scapula governs mobile socket for the arm."
+      "answer": "In adults, red marrow is found mainly in axial bones and the proximal ends of selected long bones."
     }
   ]
 }

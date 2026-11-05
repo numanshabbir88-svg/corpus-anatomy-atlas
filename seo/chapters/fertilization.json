@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "Where does fertilization normally occur in humans?",
-      "answer": "It usually occurs in the ampulla of a uterine tube near the ovary. The sperm and secondary oocyte meet there; normal later implantation is in the uterine endometrium, not inside the tube. Structurally, the uterine tube ampulla comprises distal wider segment of uterine tube near ovary is the most common site of normal sperm–oocyte encounter. Physiologically, the uterine tube ampulla provides site for fertilization and early conceptus transit."
+      "answer": "It usually occurs in the ampulla of a uterine tube near the ovary. The sperm and secondary oocyte meet there; normal later implantation is in the uterine endometrium, not inside the tube."
     },
     {
       "question": "Does intercourse always lead to fertilization?",
-      "answer": "No. Sperm transit, ovulation, timing, gamete function and other conditions affect whether fertilization occurs. Even after fertilization, development and uterine implantation are separate requirements for an ongoing pregnancy. Structurally, the semen deposition comprises semen is commonly deposited in vagina with sperm entering cervical mucus under favorable conditions. Physiologically, the semen deposition begins sperm transit toward uterine tubes."
+      "answer": "No. Sperm transit, ovulation, timing, gamete function and other conditions affect whether fertilization occurs. Even after fertilization, development and uterine implantation are separate requirements for an ongoing pregnancy."
     },
     {
       "question": "What is the acrosome reaction?",
-      "answer": "After appropriate sperm–oocyte coat interaction, acrosomal membrane changes help sperm cross the zona pellucida. The contact plate shows an earlier sperm at the outer zona, not the reaction at molecular resolution. Structurally, the acrosomal reaction comprises membrane and enzyme release from the sperm head facilitates passage through zona pellucida. Physiologically, the acrosomal reaction helps sperm reach oocyte plasma membrane."
+      "answer": "After appropriate sperm–oocyte coat interaction, acrosomal membrane changes help sperm cross the zona pellucida. The contact plate shows an earlier sperm at the outer zona, not the reaction at molecular resolution."
     },
     {
       "question": "How is fertilization by more than one sperm limited?",
-      "answer": "After one sperm fuses with the oocyte, cortical-granule changes modify the surrounding zona and help block polyspermy. This is a biological reaction, not a visible colored ring in the image. Structurally, the cortical reaction comprises oocyte cortical granules alter surrounding coat following sperm fusion. Physiologically, the cortical reaction helps limit polyspermy."
+      "answer": "After one sperm fuses with the oocyte, cortical-granule changes modify the surrounding zona and help block polyspermy. This is a biological reaction, not a visible colored ring in the image."
     },
     {
       "question": "What is the difference between fertilization and implantation?",
-      "answer": "Fertilization combines gamete genetic material into a zygote, usually in a uterine tube. Implantation happens later when a developing blastocyst attaches to receptive uterine lining. Structurally, the gamete membrane fusion comprises sperm and oocyte plasma membranes fuse after passage through outer coats. Physiologically, the gamete membrane fusion governs introduces paternal genetic material into oocyte."
+      "answer": "Fertilization combines gamete genetic material into a zygote, usually in a uterine tube. Implantation happens later when a developing blastocyst attaches to receptive uterine lining."
     }
   ]
 }

@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "How does blood flow through a hepatic lobule?",
-      "answer": "Branches of the portal vein and hepatic artery feed sinusoids near portal tracts; blood then drains toward the central vein. Structurally, the central vein (Vena centralis) comprises terminal hepatic venule at center of classical lobule. Physiologically, the central vein collects sinusoidal blood toward hepatic veins."
+      "answer": "Branches of the portal vein and hepatic artery deliver blood to sinusoids near portal tracts; blood then drains toward the central vein."
     },
     {
-      "question": "Does bile flow in the same direction as blood in a liver lobule?",
-      "answer": "No. Hepatocytes secrete bile into canaliculi that move toward bile ducts in portal tracts, generally opposite the sinusoidal blood flow. The bile canaliculi (Canaliculi biliferi) is tiny sealed channels formed between adjacent hepatocyte apical surfaces. Physiologically, the bile canaliculi move bile toward portal ductules opposite blood flow."
+      "question": "What are hepatic sinusoids?",
+      "answer": "Hepatic sinusoids are fenestrated channels between hepatocyte plates that allow plasma exchange with hepatocytes; Kupffer cells line their luminal surface."
     },
     {
       "question": "What is the portal venule?",
-      "answer": "Small portal vein branch delivering nutrient-rich splanchnic blood to sinusoids. Functionally, it feeds liver parenchyma. In clinical pathology involving the portal venule, portal obstruction can raise portal pressure."
+      "answer": "A portal venule is a small branch of the portal vein that delivers nutrient-rich blood to hepatic sinusoids."
     },
     {
       "question": "Where is the interlobular bile duct located?",
-      "answer": "Cholangiocyte-lined duct traveling with arterial and portal venous branches. Functionally, it receives bile from canalicular/ductular route. Medical evaluation of the interlobular bile duct also notes that duct injury causes cholestatic patterns."
+      "answer": "Interlobular bile ducts lie in portal tracts alongside branches of the hepatic artery and portal vein."
     },
     {
       "question": "What is the function of the central vein?",
-      "answer": "Functionally, it collects sinusoidal blood toward hepatic veins. Terminal hepatic venule at center of classical lobule. Structurally, the hepatic sinusoid (Sinusoideum hepaticum) comprises wide, discontinuous capillary channel between plates of hepatocytes. Physiologically, the hepatic sinusoid allows blood–hepatocyte exchange en route to central vein."
+      "answer": "The central vein collects sinusoidal blood from a hepatic lobule and drains toward hepatic veins."
     }
   ]
 }

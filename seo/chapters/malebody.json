@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "Where are the main organs in the male body?",
-      "answer": "The brain is in the skull; lungs and heart occupy the chest; liver, stomach, intestines and kidneys occupy the abdomen; and pelvic organs include bladder and reproductive structures. The lungs (Pulmones) is paired thoracic organs flanking the heart. Physiologically, the lungs governs gas exchange across ~300 million alveoli."
+      "answer": "The brain is in the skull; heart and lungs are in the chest; liver, stomach, intestines and kidneys are in the abdomen; and the bladder, prostate, seminal vesicles and rectum are in the pelvis. The testes and penis are external genital structures."
     },
     {
-      "question": "Does a male body map show every deep structure?",
-      "answer": "No. The overview is an orientation map; its chapter links provide deeper tissue, vascular, skeletal and nerve details not separately visible on one full-body plate. Structurally, the penis comprises external organ of urination and copulation. Physiologically, the penis governs erectile tissue engorges; delivers semen."
+      "question": "Which male structures need a deeper view than the body map?",
+      "answer": "The prostate, seminal vesicles, pelvic nerves and microscopic tissue layers require dedicated regional views; a whole-body plate is for orientation."
     },
     {
       "question": "Where is the brain shown on the male body map?",
-      "answer": "Control centre housed in the skull, glowing through the translucent scalp. Functionally, it integrates sensation, movement, thought, memory and autonomic drive. In clinical pathology involving the brain, stroke risk rises with age — remember FAST: face, arms, speech, time."
+      "answer": "The male body map shows the brain in the head, enclosed by the skull."
     },
     {
       "question": "Where are the lungs in the male body map?",
-      "answer": "Paired thoracic organs flanking the heart. Functionally, it governs gas exchange across ~300 million alveoli. The kidneys is paired retroperitoneal organs on either side of the upper lumbar spine. Physiologically, the kidneys filter plasma and regulate fluid, electrolytes and blood pressure."
+      "answer": "The male body map shows the lungs in the chest on either side of the heart."
     },
     {
-      "question": "What does the liver do in the male body?",
-      "answer": "Functionally, it governs metabolism, detoxification, bile, plasma proteins. Largest internal organ, right upper quadrant. Clinically, regarding the liver, cirrhosis scars the parenchyma (alcohol, hepatitis)."
+      "question": "What liver details are shown on the male body map?",
+      "answer": "The whole-body view marks the liver as a major upper-abdominal organ but does not show lobes, vessels or segmental anatomy; see the liver chapter for those details."
     }
   ]
 }

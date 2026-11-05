@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What are the lobes of the right and left lungs?",
-      "answer": "The right lung usually has superior, middle and inferior lobes; the left has superior and inferior lobes with a cardiac notch. Fissures divide the lobes, though normal anatomy can vary. Physiologically, the right lung — three lobes governs gas exchange across ~150 million alveoli. Clinically, regarding the right lung — three lobes, the right middle lobe is prone to collapse (middle-lobe syndrome) because its bronchus is narrow and surrounded by nodes."
+      "answer": "The right lung usually has superior, middle and inferior lobes; the left has superior and inferior lobes with a cardiac notch. Fissures divide the lobes, though normal anatomy can vary."
     },
     {
       "question": "Where does air go after the bronchi?",
-      "answer": "Air passes from progressively smaller bronchi to bronchioles, then through the respiratory zone toward alveoli. Exchange of oxygen and carbon dioxide occurs across the very thin alveolar–capillary barrier. The alveoli & capillary bed (Alveoli pulmonis) is thin-walled sacs of type I pneumocytes wrapped in capillaries; type II pneumocytes secrete surfactant and alveolar macrophages patrol the surface. Together they present ~70 m² of membrane only 0.5 µm thick. Physiologically, the alveoli & capillary bed governs diffusion of O₂ into blood and CO₂ out of it."
+      "answer": "Air passes from the bronchi into bronchioles and then through the respiratory zone to the alveoli, where gas exchange occurs."
     },
     {
       "question": "What is a Type I pneumocyte?",
-      "answer": "A Type I pneumocyte is a very thin squamous cell forming much of the alveolar gas-exchange surface. It can be recognized on the separate microscopic-scale teaching illustration, not on the whole-lung image. Structurally, the type I pneumocyte (Pneumocytus typus I) comprises very thin squamous alveolar epithelial cell covering most alveolar surface. Physiologically, the type I pneumocyte governs minimizes gas diffusion distance."
+      "answer": "A Type I pneumocyte is a very thin squamous cell forming much of the alveolar gas-exchange surface. It can be recognized on the separate microscopic-scale teaching illustration, not on the whole-lung image."
     },
     {
       "question": "What does a Type II pneumocyte do?",
-      "answer": "A Type II pneumocyte is a plumper alveolar cell that secretes pulmonary surfactant, which helps reduce surface tension. It also contributes to maintenance and repair of the alveolar lining. Structurally, the type II pneumocyte (Pneumocytus typus II) comprises cuboidal cell with lamellar bodies, commonly at alveolar corners. Physiologically, the type II pneumocyte secretes surfactant and contributes to epithelial renewal."
+      "answer": "A Type II pneumocyte is a plumper alveolar cell that secretes pulmonary surfactant, which helps reduce surface tension. It also contributes to maintenance and repair of the alveolar lining."
     },
     {
       "question": "Is the enlarged alveolar image an actual microscope slide?",
-      "answer": "No. It is a digital educational illustration that shows the thin Type I lining next to a plumper Type II cell. It is not histology or a literal magnification of the macroscopic lung image. Structurally, the bronchioles (Bronchioli) comprises airways under 1 mm with no cartilage and relatively more smooth muscle, ending in terminal then respiratory bronchioles. Physiologically, the bronchioles regulate airflow resistance and deliver air to the alveolar ducts."
+      "answer": "No. It is a digital educational illustration showing the relationship of alveolar lining cells to the air space, not a microscope slide or literal magnification."
     }
   ]
 }

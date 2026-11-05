@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What is the standard anatomical position?",
-      "answer": "The subject stands upright facing forward, with arms at the sides and palms facing anteriorly; thumbs point laterally. Right and left always belong to the subject, even when a patient is lying down. Structurally, the standard anatomical position comprises upright, face forward, upper limbs at sides with palms anterior and thumbs lateral; feet directed forward. Directions use the subject’s body, not the viewer’s. Physiologically, the standard anatomical position provides a consistent reference for locations and movements."
+      "answer": "The subject stands upright facing forward, with arms at the sides and palms facing anteriorly; thumbs point laterally. Right and left always belong to the subject, even when a patient is lying down."
     },
     {
       "question": "How do sagittal, coronal and transverse planes differ?",
-      "answer": "A sagittal plane separates right from left, a coronal plane separates anterior from posterior, and a transverse plane separates superior from inferior. The median sagittal plane passes through the midline. Structurally, the median sagittal plane comprises vertical plane through the midline dividing the body into equal right and left halves. The translucent sheet is a conceptual aid. Physiologically, the median sagittal plane governs defines exact midline relationships."
+      "answer": "A sagittal plane separates right from left, a coronal plane separates anterior from posterior, and a transverse plane separates superior from inferior. The median sagittal plane passes through the midline."
     },
     {
       "question": "What is the difference between proximal and distal?",
-      "answer": "Proximal means closer to the point where a limb joins the trunk; distal means farther from that attachment. The elbow is proximal to the wrist in the upper limb. Structurally, the proximal and distal comprises proximal is nearer a limb’s attachment to the trunk; distal farther away along the limb. Physiologically, the proximal and distal governs describes relative position along a limb."
+      "answer": "Proximal means closer to the point where a limb joins the trunk; distal means farther from that attachment. The elbow is proximal to the wrist in the upper limb."
     },
     {
       "question": "Why does patient right appear on the left side of a front-facing illustration?",
-      "answer": "An anterior image faces the patient. Their right side is therefore on the observer’s left. Anatomical descriptions use the patient’s own side, not the screen’s left or right. Structurally, the patient right and left comprises right and left always refer to the subject; on an anterior image, patient right usually appears on the viewer’s left. Physiologically, the patient right and left prevents reversal when describing a structure or reading a map."
+      "answer": "An anterior image faces the patient. Their right side is therefore on the observer’s left. Anatomical descriptions use the patient’s own side, not the screen’s left or right."
     },
     {
       "question": "Are the colored planes in this atlas real body membranes?",
-      "answer": "No. The translucent sheets are computer-generated reference planes used to explain sections. They are not physical tissues, and the chapter does not place false anatomical pins on them. Structurally, the frontal (coronal) plane comprises vertical plane dividing anterior and posterior portions; shown by a translucent sheet, not a real tissue boundary. Physiologically, the frontal (coronal) plane governs organizes front-to-back relationships."
+      "answer": "No. The translucent sheets are computer-generated reference planes used to explain sections. They are not physical tissues, and the chapter does not place false anatomical pins on them."
     }
   ]
 }

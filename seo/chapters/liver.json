@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What are the main functions of the liver?",
-      "answer": "The liver processes nutrients, makes bile and many blood proteins, stores glycogen and participates in drug and toxin metabolism. Its blood arrives from both the portal vein and hepatic artery. Structurally, the hepatic lobule & sinusoids (Lobulus hepaticus) comprises hexagonal units ~1 mm across: plates of hepatocytes radiating from a central vein, separated by sinusoids lined with endothelium and Kupffer macrophages; portal triads (artery, vein, bile duct) sit at the corners. Physiologically, the hepatic lobule & sinusoids governs blood flows from triad to central vein while bile flows the opposite way, from canaliculi to the triad bile duct."
+      "answer": "The liver processes nutrients, makes bile and many blood proteins, stores glycogen and participates in drug and toxin metabolism. Its blood arrives from both the portal vein and hepatic artery."
     },
     {
       "question": "Where is the liver located?",
-      "answer": "Most of the liver lies beneath the diaphragm in the right upper abdomen, with a smaller part extending across the midline. Structurally, the left lobe (Lobus sinister) comprises thinner and flatter, lying in the epigastrium and reaching across to the left. Separated from the right lobe on the diaphragmatic surface by the falciform ligament. Physiologically, the left lobe supplies the left half of the functional liver."
+      "answer": "Most of the liver lies beneath the diaphragm in the right upper abdomen, with a smaller part extending across the midline."
     },
     {
       "question": "What is the gallbladder?",
-      "answer": "A 7–10 cm pear-shaped sac on the visceral surface of the right lobe, with fundus, body and neck. Its wall concentrates bile up to tenfold. Functionally, it stores and concentrates bile, releasing it into the duodenum when fat arrives (CCK-mediated). In clinical pathology involving the gallbladder, gallstones (cholelithiasis) cause biliary colic; a stone impacted in the neck gives acute cholecystitis with Murphy's sign."
+      "answer": "The gallbladder is a pear-shaped sac on the liver’s visceral surface; it stores and concentrates bile by absorbing water and electrolytes."
     },
     {
       "question": "Where is the hepatic portal vein located?",
-      "answer": "Formed behind the pancreatic neck by the splenic and superior mesenteric veins; carries nutrient-rich, deoxygenated blood from gut, spleen and pancreas. Functionally, it delivers 75% of hepatic blood and everything absorbed from the gut for first-pass processing. Medical evaluation of the hepatic portal vein also notes that portal hypertension (cirrhosis) causes oesophageal varices, splenomegaly and ascites."
+      "answer": "The hepatic portal vein forms behind the neck of the pancreas and enters the liver at the porta hepatis."
     },
     {
-      "question": "What is the function of the hepatic lobule & sinusoids?",
-      "answer": "Functionally, it governs blood flows from triad to central vein while bile flows the opposite way, from canaliculi to the triad bile duct. Hexagonal units ~1 mm across: plates of hepatocytes radiating from a central vein, separated by sinusoids lined with endothelium and Kupffer macrophages; portal triads (artery, vein, bile duct) sit at the corners. Structurally, the hepatic sinusoid (Sinusoideum hepaticum) comprises wide, discontinuous capillary channel between plates of hepatocytes. Physiologically, the hepatic sinusoid allows blood–hepatocyte exchange en route to central vein."
+      "question": "How does bile flow through a hepatic lobule?",
+      "answer": "Bile produced by hepatocytes flows through canaliculi toward bile ductules in portal tracts, opposite to blood flow toward central veins."
     }
   ]
 }

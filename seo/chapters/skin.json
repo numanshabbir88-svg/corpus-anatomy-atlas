@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What are the main layers of the skin?",
-      "answer": "The epidermis is the outer epithelial barrier; the vascular dermis contains connective tissue, vessels and nerves. Subcutaneous tissue lies beneath the skin and varies by region. Structurally, the hypodermis (subcutis) (Tela subcutanea) comprises loose connective tissue and fat, with larger vessels and nerves and, in places, panniculus carnosus. Physiologically, the hypodermis (subcutis) governs insulation, energy store, shock absorption and skin mobility."
+      "answer": "The epidermis is the outer epithelial barrier; the vascular dermis contains connective tissue, vessels and nerves. Subcutaneous tissue lies beneath the skin and varies by region."
     },
     {
       "question": "How does skin help protect the body?",
-      "answer": "The keratinized epidermal surface limits water loss and helps block external injury and microbes, while deeper tissue supports sensation, repair and temperature regulation. Structurally, the stratum granulosum comprises flattened keratinocytes with keratohyalin granules and lipid-releasing lamellar bodies. Physiologically, the stratum granulosum governs builds the water-permeability barrier."
+      "answer": "The keratinized epidermal surface limits water loss and helps block external injury and microbes, while deeper tissue supports sensation, repair and temperature regulation."
     },
     {
       "question": "What is the stratum corneum?",
-      "answer": "15–20 layers of dead, flattened, keratin-filled corneocytes held by lipids — the \"brick and mortar\" barrier. Functionally, it governs waterproofing and the main barrier to microbes and chemicals. In clinical pathology involving the stratum corneum, its thickness defines palms and soles; loss in burns allows catastrophic fluid and heat loss."
+      "answer": "The stratum corneum is the outer epidermal layer, formed by flattened dead keratinocytes held together by intercellular lipids."
     },
     {
-      "question": "Where is the dermis (papillary & reticular) located?",
-      "answer": "Papillary layer of loose connective tissue forming dermal papillae; reticular layer of dense irregular collagen and elastin. Functionally, it governs strength, elasticity, sensation and the vascular supply of the epidermis. Clinically, the dermis (papillary & reticular) split-thickness grafts take from the dermal remnants left in the wound bed; keloids are dermal over-scarring."
+      "question": "Where are the papillary and reticular dermis layers?",
+      "answer": "The dermis lies beneath the epidermis and above the hypodermis; its papillary layer is superficial and its reticular layer is deeper."
     },
     {
-      "question": "What is the function of the hair shaft & follicle?",
-      "answer": "Functionally, it governs protection, sensation and (in other mammals) insulation. A keratinised shaft growing from a follicle that dips into dermis or fat, with a bulb around a dermal papilla and a bulge of stem cells. Clinically, regarding the hair shaft & follicle, follicular stem cells re-epithelialise partial-thickness wounds; follicles are the target of alopecias."
+      "question": "What roles do the hair shaft and follicle have?",
+      "answer": "Hair shafts provide protection and sensation; hair follicles anchor and produce the hair."
     }
   ]
 }

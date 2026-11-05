@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "Where is the thyroid gland located?",
-      "answer": "The thyroid has two lateral lobes joined by an isthmus in the front of the neck, close to the larynx and upper trachea. The berry ligament is dense posteromedial attachment of thyroid to cricoid and upper trachea. Physiologically, the berry ligament anchors gland during swallowing."
+      "answer": "The thyroid has two lateral lobes joined by an isthmus in the front of the neck, close to the larynx and upper trachea."
     },
     {
       "question": "What do thyroid follicles make?",
-      "answer": "Follicular cells use iodine and stored thyroglobulin in colloid to produce thyroid hormones. Nearby parafollicular cells produce calcitonin. Structurally, the follicle & colloid (Folliculi thyroidei) comprises spheres of follicular cells enclosing colloid (iodinated thyroglobulin). TSH stimulates iodide trapping, organification, coupling, and endocytosis of colloid to release T3/T4. Physiologically, the follicle & colloid governs synthesis and storage of thyroid hormone — the only endocrine gland that stores its product extracellularly."
+      "answer": "Follicular cells use iodine and stored thyroglobulin in colloid to produce thyroid hormones. Nearby parafollicular cells produce calcitonin."
     },
     {
       "question": "What is the isthmus?",
-      "answer": "The bridge crossing the 2nd–4th tracheal rings, joining the two lobes. Functionally, it connects the lobes into a single gland. In clinical pathology involving the isthmus, it is the landmark for emergency tracheostomy and cricothyroidotomy is performed above it."
+      "answer": "The thyroid isthmus is the narrow bridge crossing the second to fourth tracheal rings and joining the two lobes."
     },
     {
-      "question": "Where is the trachea & larynx located?",
-      "answer": "The gland wraps the airway; the cricoid cartilage and thyroid cartilage lie above. Functionally, it governs anatomical landmark and the reason goitres cause compressive symptoms. Medical evaluation of the trachea & larynx also notes that retrosternal extension of a goitre can be read on CT and may require sternotomy to remove."
+      "question": "Where are the larynx and trachea located?",
+      "answer": "The larynx lies above the trachea in the neck; the trachea descends from the larynx through the neck into the thorax."
     },
     {
-      "question": "What is the function of the follicle & colloid?",
-      "answer": "Functionally, it governs synthesis and storage of thyroid hormone — the only endocrine gland that stores its product extracellularly. Spheres of follicular cells enclosing colloid (iodinated thyroglobulin). TSH stimulates iodide trapping, organification, coupling, and endocytosis of colloid to release T3/T4. Structurally, the thyroglobulin-rich colloid comprises extracellular storage material in follicular lumen. Physiologically, the thyroglobulin-rich colloid stores iodinated precursor for thyroid hormones."
+      "question": "What do thyroid follicles and colloid do?",
+      "answer": "Thyroid follicles synthesize and store thyroid hormone in colloid; thyroid-stimulating hormone promotes iodine uptake and hormone production and release."
     }
   ]
 }

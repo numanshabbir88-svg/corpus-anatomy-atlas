@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What does the pancreas do?",
-      "answer": "Its exocrine tissue releases digestive enzymes into the small intestine. Endocrine islets release hormones such as insulin and glucagon into the blood. Structurally, the islets of Langerhans (Insulae pancreaticae) comprises 1–1.5 million microscopic clusters of alpha (glucagon), beta (insulin, amylin), delta (somatostatin) and PP cells, richly capillarised. Physiologically, the islets of Langerhans governs minute-to-minute control of blood glucose, plus intermediary metabolism."
+      "answer": "Its exocrine tissue releases digestive enzymes into the small intestine. Endocrine islets release hormones such as insulin and glucagon into the blood."
     },
     {
       "question": "Where is the pancreas located?",
-      "answer": "It lies behind the stomach across the upper abdomen. Its head sits near the duodenum, while its tail reaches toward the spleen. The head (Caput pancreatis) is the broad end nestled in the C-loop of the duodenum, with the uncinate process hooking behind the superior mesenteric vessels. Physiologically, the head houses much of the exocrine tissue and the terminal duct."
+      "answer": "The pancreas lies behind the stomach across the upper abdomen, with its head near the duodenum and tail toward the spleen."
     },
     {
       "question": "Where is the head of the pancreas?",
-      "answer": "The broad end nestled in the C-loop of the duodenum, with the uncinate process hooking behind the superior mesenteric vessels. Functionally, it houses much of the exocrine tissue and the terminal duct. Structurally, the uncinate process comprises hook-shaped pancreatic head extension passing posterior to superior mesenteric vessels. Physiologically, the uncinate process governs completes deep head contour around the mesenteric root."
+      "answer": "The pancreatic head sits within the C-shaped curve of the duodenum; the uncinate process extends behind the superior mesenteric vessels."
     },
     {
       "question": "Where is the main pancreatic duct located?",
-      "answer": "Runs the length of the gland from tail to head, joining the common bile duct at the ampulla in the second part of duodenum. Functionally, it delivers ~1.5 L of enzyme- and bicarbonate-rich juice daily. Medical evaluation of the main pancreatic duct also notes that a \"double duct sign\" (dilated pancreatic and bile ducts) on imaging suggests a head tumour."
+      "answer": "The main pancreatic duct runs from the tail toward the head of the pancreas and usually joins the common bile duct at the hepatopancreatic ampulla."
     },
     {
-      "question": "What is the function of the acinar cells & ductules?",
-      "answer": "Functionally, it secrete the pro-enzymes for digesting protein, fat and carbohydrate. Grape-like clusters of enzyme-packed cells draining into centroacinar cells and ductules. Clinically, regarding the acinar cells & ductules, premature activation of trypsin inside acinar cells is the initiating event of acute pancreatitis."
+      "question": "How do pancreatic acinar cells and ductules work together?",
+      "answer": "Pancreatic acinar cells secrete digestive enzyme precursors into ductules, which carry them toward the duodenum."
     }
   ]
 }

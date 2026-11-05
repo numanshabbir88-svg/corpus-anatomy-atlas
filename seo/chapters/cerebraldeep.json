@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What lies beneath the cerebral cortex?",
-      "answer": "Deep white-matter pathways connect cortical regions with each other and with subcortical structures, while deep gray nuclei and ventricles occupy related spaces. Structurally, the subcortical white matter (Substantia alba cerebri) comprises myelinated association, commissural and projection fibers beneath cortex. Physiologically, the subcortical white matter connects distributed gray-matter networks."
+      "answer": "Deep white-matter pathways connect cortical regions with each other and with subcortical structures, while deep gray nuclei and ventricles occupy related spaces."
     },
     {
       "question": "Does every part of the cerebral cortex have six layers?",
-      "answer": "Most neocortex has six layers, but cortical regions vary, and older cortical areas such as hippocampal cortex have a different laminar organization. The hippocampal formation (Formatio hippocampi) is medial temporal folded cortex with fewer layers than typical neocortex. Physiologically, the hippocampal formation governs participates in memory encoding and spatial processing."
+      "answer": "Most neocortex has six layers, but cortical regions vary, and older cortical areas such as hippocampal cortex have a different laminar organization."
     },
     {
       "question": "What is the cortical gray matter?",
-      "answer": "Neuronal cell-body sheet folded into gyri and sulci. Functionally, it integrates sensory, motor and association information. In clinical pathology involving the cortical gray matter, regional cortical lesions give different deficits."
+      "answer": "Cortical gray matter is the neuronal cell-body layer folded into gyri and sulci on the cerebral surface."
     },
     {
-      "question": "Where is the layer II · external granular located?",
-      "answer": "Small pyramidal and granule-cell zone. Functionally, it governs contributes intracortical signaling. Medical evaluation of the layer II · external granular also notes that cell density varies across sensory and motor cortex."
+      "question": "Where is cortical layer II located?",
+      "answer": "Layer II, the external granular layer, lies just beneath the molecular layer of the cerebral cortex and contains small granule and pyramidal cells."
     },
     {
       "question": "What is the function of the layer IV · internal granular?",
-      "answer": "Functionally, it receives major thalamocortical afferents. Prominent thalamic input layer, particularly in primary sensory cortex. Clinically, regarding the layer IV · internal granular, relatively thin in primary motor cortex."
+      "answer": "Layer IV of the cerebral cortex receives major thalamocortical input, especially in primary sensory areas."
     }
   ]
 }

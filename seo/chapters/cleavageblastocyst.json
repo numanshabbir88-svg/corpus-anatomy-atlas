@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "What does cleavage do to a newly formed zygote?",
-      "answer": "It produces more, initially smaller, blastomeres while the conceptus remains within the zona pellucida. Early divisions do not require the whole sphere to grow much larger at every division. Structurally, the eight-cell stage comprises further divisions make smaller blastomeres as the early conceptus approaches compaction. Physiologically, the eight-cell stage governs sets up more extensive cell-to-cell contact."
+      "answer": "It produces more, initially smaller, blastomeres while the conceptus remains within the zona pellucida. Early divisions do not require the whole sphere to grow much larger at every division."
     },
     {
       "question": "How is a morula different from a blastocyst?",
-      "answer": "A morula is a compact solid cluster. A blastocyst has a fluid-filled blastocoel, an outer cell layer and a localized inner cell mass; the illustration depicts the latter, not every earlier stage. The morula is solid compact cluster of blastomeres forms before a fluid-filled cavity develops. Physiologically, the morula governs transitional stage before blastocyst formation."
+      "answer": "A morula is a compact solid cluster of cells; a blastocyst has a fluid-filled cavity, an outer trophoblast and an inner cell mass."
     },
     {
       "question": "What does the inner cell mass become?",
-      "answer": "Its descendants contribute to the embryo proper and certain extraembryonic structures. A blastocyst cell cluster is not a miniature fully formed fetus. Structurally, the inner cell mass comprises localized cluster on one side of blastocyst contributes to embryo proper and some extraembryonic tissues. Physiologically, the inner cell mass governs seeds later embryonic development."
+      "answer": "Its descendants contribute to the embryo proper and certain extraembryonic structures. A blastocyst cell cluster is not a miniature fully formed fetus."
     },
     {
       "question": "Why does the blastocyst hatch from the zona pellucida?",
-      "answer": "Loss of the extracellular zona permits trophoblast contact with receptive uterine endometrium. A conceptus still enclosed by the zona is not already embedded in uterine tissue. Structurally, the hatching from zona comprises expanding blastocyst emerges from the zona pellucida. Physiologically, the hatching from zona allows cell surface to attach to receptive endometrium."
+      "answer": "Loss of the extracellular zona permits trophoblast contact with receptive uterine endometrium. A conceptus still enclosed by the zona is not already embedded in uterine tissue."
     },
     {
       "question": "Does a blastocyst in the uterus mean pregnancy has implanted?",
-      "answer": "Not necessarily. Arrival in the uterine cavity and hatching precede attachment to endometrium; implantation is a separate stage with variable timing. Structurally, the entry into uterine cavity comprises preimplantation conceptus reaches endometrial environment after tubal transit. Physiologically, the entry into uterine cavity provides setting for hatching and eventual attachment."
+      "answer": "Not necessarily. Arrival in the uterine cavity and hatching precede attachment to endometrium; implantation is a separate stage with variable timing."
     }
   ]
 }

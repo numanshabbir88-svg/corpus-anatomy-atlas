@@ -37,23 +37,23 @@
   "questions": [
     {
       "question": "How many chambers does the heart have?",
-      "answer": "The heart has two upper receiving chambers, the right and left atria, and two lower pumping chambers, the right and left ventricles. The right ventricle sends blood to the lungs; the left sends it to the body. The pulmonary trunk (Truncus pulmonalis) leaves the right ventricle and divides into right and left pulmonary arteries. Uniquely, it carries deoxygenated blood. Physiologically, the pulmonary trunk carries blood from the right ventricle to the lungs for oxygenation."
+      "answer": "The heart has two upper receiving chambers, the right and left atria, and two lower pumping chambers, the right and left ventricles. The right ventricle sends blood to the lungs; the left sends it to the body."
     },
     {
       "question": "What route does blood take through the heart?",
-      "answer": "Blood returns from the body to the right atrium, passes the tricuspid valve to the right ventricle, then crosses the pulmonary valve to the lungs. Oxygenated blood returns to the left atrium, passes the mitral valve to the left ventricle and leaves through the aortic valve. The left atrium (Atrium sinistrum) is the most posterior chamber, receiving the four pulmonary veins. Physiologically, the left atrium passes oxygenated blood to the left ventricle through the mitral valve."
+      "answer": "Body blood enters the right atrium, passes through the right ventricle to the lungs, returns to the left atrium, then moves through the left ventricle into the aorta."
     },
     {
       "question": "Why is the left ventricular wall thicker?",
-      "answer": "The left ventricle must generate greater pressure to move blood through the systemic circulation. Its myocardium is therefore thicker than that of the right ventricle, which pumps into the lower-pressure pulmonary circulation. The right ventricle (Ventriculus dexter) is crescent-shaped chamber with a thinner wall than the left, lined by trabeculae carneae and containing the moderator band. Physiologically, the right ventricle pumps deoxygenated blood through the pulmonary valve into the pulmonary trunk."
+      "answer": "The left ventricle must generate greater pressure to move blood through the systemic circulation. Its myocardium is therefore thicker than that of the right ventricle, which pumps into the lower-pressure pulmonary circulation."
     },
     {
       "question": "Do coronary arteries carry blood through the heart chambers?",
-      "answer": "No. Coronary arteries branch near the aortic root and supply the heart muscle itself. The blood passing through the chambers does not directly nourish the full thickness of the myocardium. Structurally, the coronary arteries (Arteriae coronariae) comprises right and left coronary arteries arising from the aortic sinuses. The left divides into the anterior interventricular (LAD) and circumflex branches. Physiologically, the coronary arteries supply the myocardium itself — the heart fills during diastole but perfuses itself only then."
+      "answer": "No. Coronary arteries branch near the aortic root and supply the heart muscle itself. The blood passing through the chambers does not directly nourish the full thickness of the myocardium."
     },
     {
       "question": "How do heart valves keep blood moving forward?",
-      "answer": "Tricuspid and mitral valves guard the atrioventricular openings; pulmonary and aortic valves guard ventricular outflow. They open and close in response to pressure changes, limiting backward flow rather than actively pumping blood. The myocardium is the thick middle layer of the heart wall, made of branching, interlinked cardiac muscle fibres joined by intercalated discs. Physiologically, the myocardium contracts to generate the pressure that ejects blood."
+      "answer": "Tricuspid and mitral valves guard the atrioventricular openings; pulmonary and aortic valves guard ventricular outflow. They open and close in response to pressure changes, limiting backward flow rather than actively pumping blood."
     }
   ]
 }
