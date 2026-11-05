@@ -937,3 +937,20 @@ a[href*="utm_source=netlify"],
     display: none !important;
   }
 }
+
+/* Source-first retrieval provenance and calibrated match label */
+.cbot-evidence-note {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0 2px;
+  padding: 7px 10px;
+  border: 1px solid rgba(13, 59, 57, .14);
+  border-radius: 8px;
+  background: #f2f8f6;
+  color: #315d57;
+  font-size: 11px;
+  font-weight: 650;
+}
+.cbot-evidence-note span:last-child { opacity: .78; font-weight: 550; }

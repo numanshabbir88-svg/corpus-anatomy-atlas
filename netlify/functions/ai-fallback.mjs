@@ -107,6 +107,14 @@ const QA_STOP_WORDS = new Set([
   'tell', 'that', 'the', 'this', 'to', 'was', 'what', 'when', 'where', 'which', 'who', 'why',
   'with', 'would', 'you', 'your', 'about', 'explain', 'describe', 'show', 'image', 'picture',
   'diagram', 'photo', 'illustration', 'generate', 'draw',
+  'kya', 'kia', 'hai', 'hain', 'ka', 'ki', 'ke', 'ko', 'se', 'mein', 'ma', 'par', 'batao', 'bataen', 'mujhe', 'mujy', 'kaam', 'kam', 'karta', 'karti', 'kahan', 'kidhar',
+]);
+
+const QA_QUERY_SYNONYMS = new Map([
+  ['dil', 'heart'], ['qalb', 'heart'], ['gurda', 'kidney'], ['gurday', 'kidney'],
+  ['jigar', 'liver'], ['phephra', 'lung'], ['phephray', 'lung'], ['dimagh', 'brain'],
+  ['haddi', 'bone'], ['haddiyan', 'bone'], ['patha', 'muscle'], ['pathay', 'muscle'],
+  ['rag', 'vessel'], ['nas', 'nerve'], ['khoon', 'blood'], ['saans', 'breathing'],
 ]);
 
 function qaTokens(value) {
@@ -114,10 +122,13 @@ function qaTokens(value) {
   const raw = ascii.match(/[a-z0-9]+/g) || [];
   const tokens = new Set();
   for (let token of raw) {
+    const synonym = QA_QUERY_SYNONYMS.get(token);
+    if (synonym) token = synonym;
     if (QA_STOP_WORDS.has(token) || token.length < 2) continue;
     tokens.add(token);
     if (token.length > 5 && token.endsWith('ies')) tokens.add(token.slice(0, -3) + 'y');
-    else if (token.length > 5 && token.endsWith('s')) tokens.add(token.slice(0, -1));
+    else if (token.length > 4 && token.endsWith('es')) tokens.add(token.slice(0, -2));
+    else if (token.length > 4 && token.endsWith('s')) tokens.add(token.slice(0, -1));
   }
   return Array.from(tokens);
 }
@@ -136,6 +147,7 @@ function buildQASearchIndex() {
 }
 
 const QA_SEARCH_INDEX = buildQASearchIndex();
+const QA_INTENT_TERMS = new Set(['function', 'functions', 'role', 'purpose', 'action', 'location', 'located', 'where', 'define', 'definition', 'meaning', 'structure', 'anatomy', 'clinical', 'significance', 'examples', 'example', 'types', 'classification', 'process', 'mechanism', 'compare', 'comparison', 'difference', 'versus', 'vs', 'explain', 'describe', 'overview']);
 
 function queryIntent(question) {
   const q = String(question || '').toLowerCase();
@@ -145,10 +157,30 @@ function queryIntent(question) {
   if (/\b(attach|attachment|attaches)\b/.test(q)) return 'tendon_attachment';
   if (/\borigin(?:ate|ates|ating)?\b/.test(q)) return 'muscle_origin';
   if (/\binsertion\b|\binsert(?:s|ed|ing)?\b/.test(q)) return 'muscle_insertion';
-  if (/\b(where|located|location|position)\b/.test(q)) return 'location';
-  if (/\b(function|role|purpose|action|perform|does|do|work|works|use)\b/.test(q)) return 'function';
-  if (/\b(define|definition|meaning|what is|describe|structure)\b/.test(q)) return 'definition';
+  if (/\b(where|located|location|position|kahan|kidhar)\b/.test(q)) return 'location';
+  if (/\b(function|role|purpose|action|perform|does|do|work|works|use|kaam|kam|karta|karti)\b/.test(q)) return 'function';
+  if (/\b(define|definition|meaning|what is|describe|structure|kya|kia)\b/.test(q)) return 'definition';
   return '';
+}
+
+function oneEditApart(left, right) {
+  if (left === right) return true;
+  if (Math.abs(left.length - right.length) > 1) return false;
+  let i = 0;
+  let j = 0;
+  let edits = 0;
+  while (i < left.length && j < right.length) {
+    if (left[i] === right[j]) { i += 1; j += 1; continue; }
+    edits += 1;
+    if (edits > 1) return false;
+    if (left.length === right.length) {
+      if (left[i] === right[j + 1] && left[i + 1] === right[j]) { i += 2; j += 2; }
+      else { i += 1; j += 1; }
+    } else if (left.length > right.length) i += 1;
+    else j += 1;
+  }
+  if (i < left.length || j < right.length) edits += 1;
+  return edits <= 1;
 }
 
 function kindMatchesIntent(kind, intent) {
@@ -158,8 +190,21 @@ function kindMatchesIntent(kind, intent) {
 }
 
 function rankAtlasQA(question, minimumTopicCoverage = 0.66) {
-  const queryTerms = qaTokens(question);
+  const rawQuestion = String(question || '').toLowerCase();
+  const comparisonQuery = /\b(compare|comparison|difference|different|versus|\bvs\b|contrast|farq|muqabla)\b/.test(rawQuestion);
+  const categoryQuery = /\b(types|kinds|classification|categories|systems?|overview)\b/.test(rawQuestion);
+  // This dataset has no comparison/classification-specific answer kind; do not return a coincidental single-structure record.
+  if (comparisonQuery) return null;
+  let queryTerms = qaTokens(question);
   if (!queryTerms.length) return null;
+  queryTerms = queryTerms.map((term) => {
+    if (QA_SEARCH_INDEX.has(term) || term.length < 5 || QA_INTENT_TERMS.has(term)) return term;
+    const near = [];
+    for (const indexedTerm of QA_SEARCH_INDEX.keys()) {
+      if (indexedTerm.length >= 5 && oneEditApart(term, indexedTerm)) near.push(indexedTerm);
+    }
+    return near.length === 1 ? near[0] : term;
+  });
   const candidateIds = new Set();
   for (const term of queryTerms) {
     const ids = QA_SEARCH_INDEX.get(term) || [];
@@ -172,17 +217,32 @@ function rankAtlasQA(question, minimumTopicCoverage = 0.66) {
   let best = null;
   for (const id of candidateIds) {
     const item = ATLAS_QA[id];
-    const topicGroups = [item.topic].concat(item.aliases || []).map(qaTokens).filter((tokens) => tokens.length);
-    let topicCoverage = 0;
-    for (const group of topicGroups) {
+    if (categoryQuery && !/\b(system|systems|classification|categories|overview)\b/i.test(item.topic)) continue;
+    const primaryTopicTerms = qaTokens(item.topic);
+    const primaryCoverage = primaryTopicTerms.length
+      ? primaryTopicTerms.filter((term) => querySet.has(term)).length / primaryTopicTerms.length
+      : 0;
+    let aliasCoverage = 0;
+    for (const alias of item.aliases || []) {
+      const group = qaTokens(alias);
+      if (!group.length) continue;
+      // A single generic alias (e.g. "heart" on a named substructure) must not
+      // outrank the actual topic unless the topic itself contains that term.
+      if (group.length === 1 && !primaryTopicTerms.includes(group[0])) continue;
       const overlap = group.filter((term) => querySet.has(term)).length / group.length;
-      if (overlap > topicCoverage) topicCoverage = overlap;
+      if (overlap > aliasCoverage) aliasCoverage = overlap;
     }
+    const topicCoverage = Math.max(primaryCoverage, aliasCoverage * 0.82);
     if (topicCoverage < minimumTopicCoverage) continue;
 
     const searchable = new Set(qaTokens([item.question, item.topic].concat(item.aliases || []).join(' ')));
-    const queryCoverage = queryTerms.filter((term) => searchable.has(term)).length / queryTerms.length;
+    const contentTerms = queryTerms.filter((term) => !QA_INTENT_TERMS.has(term));
+    const coverageTerms = contentTerms.length ? contentTerms : queryTerms;
+    const queryCoverage = coverageTerms.filter((term) => searchable.has(term)).length / coverageTerms.length;
+    // A topic hit alone is insufficient when the user asks about a second, distinct concept.
+    if (coverageTerms.length > 1 && queryCoverage < 0.6) continue;
     let score = topicCoverage * 0.68 + queryCoverage * 0.32;
+    if (primaryCoverage === 1) score += 0.12;
     if (!intent && item.kind === 'definition') score += 0.08;
     if (!intent && item.kind === 'muscle_action') score += 0.04;
     const isIntentMatch = kindMatchesIntent(item.kind, intent);

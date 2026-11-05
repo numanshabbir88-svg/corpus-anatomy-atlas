@@ -64,6 +64,24 @@ test('serves an Atlas Q&A match without an API key or upstream request', async (
   assert.equal(called, false);
 });
 
+test('recovers a one-character anatomy typo, understands Roman Urdu, and declines mismatched concepts', async () => {
+  delete process.env.GROQ_API_KEY;
+  const typoResponse = await handler(makeRequest({ body: { question: 'What is the supreior vena cava?', language: 'en' } }), { ip: 'test-typo-topic' });
+  const typoPayload = await typoResponse.json();
+  assert.equal(typoPayload.source, 'atlas_qa');
+  assert.equal(typoPayload.topic, 'Superior vena cava');
+
+  const romanResponse = await handler(makeRequest({ body: { question: 'Dil ka function kya hai?', language: 'ur-Latn' } }), { ip: 'test-roman-urdu' });
+  const romanPayload = await romanResponse.json();
+  assert.equal(romanPayload.source, 'atlas_qa');
+  assert.equal(romanPayload.topic, 'Heart');
+  assert.equal(romanPayload.kind, 'function');
+
+  const mismatchResponse = await handler(makeRequest({ body: { question: 'What are the heart chambers?', language: 'en' } }), { ip: 'test-mismatched-concept' });
+  const mismatchPayload = await mismatchResponse.json();
+  assert.equal(mismatchPayload.source, 'no_answer');
+});
+
 test('routes generated muscle, tendon, bone, and anatomy intents to the matching local record', async () => {
   delete process.env.GROQ_API_KEY;
   const kinds = [
