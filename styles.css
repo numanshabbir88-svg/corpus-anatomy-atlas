@@ -175,13 +175,13 @@ a{color:inherit}
 .face-hero-showcase{padding:8px;border:1px solid rgba(110,231,183,.18);box-shadow:0 24px 60px rgba(7,22,20,.34),inset 0 1px 0 rgba(255,255,255,.06);pointer-events:none;user-select:none}
 .face-hero-stage{background:#12181a;border-radius:calc(var(--r-xl) - 5px);overflow:hidden}
 .face-live-wrap{position:relative;overflow:hidden;background:#12181a}
-.face-live-motion{position:relative;width:100%;will-change:transform,filter;animation:faceCinemaTopDown 6.4s ease-in-out infinite}
+.face-live-motion{position:relative;width:100%;animation:faceCinemaTopDown 6.4s ease-in-out infinite}
 .face-live-img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
-.face-live-blink-img{position:absolute;inset:0;z-index:1;display:block;width:100%;height:100%;object-fit:cover;opacity:0;pointer-events:none;user-select:none;-webkit-user-drag:none;animation:faceEyeBlink 2s linear infinite}
-@keyframes faceCinemaTopDown{0%,100%{transform:scale(1.003) translateY(0);filter:brightness(.995) contrast(1.01)}50%{transform:scale(1.008) translateY(-1px);filter:brightness(1.015) contrast(1.02)}}
-@keyframes faceEyeBlink{0%,86.6%,100%{opacity:0}88.8%,93.3%{opacity:1}95.5%{opacity:0}}
-/* Override: 3s blink cycle (requested) */
-.face-live-blink-img{animation:faceEyeBlink 3s linear infinite}
+.face-live-blink-img{position:absolute;inset:0;z-index:1;display:block;width:100%;height:100%;object-fit:cover;opacity:0;pointer-events:none;user-select:none;-webkit-user-drag:none;animation:faceEyeBlink 5s linear infinite}
+@keyframes faceCinemaTopDown{0%,100%{transform:scale(1) translateY(0);filter:brightness(1) contrast(1)}50%{transform:scale(1) translateY(0);filter:brightness(1) contrast(1)}}
+@keyframes faceEyeBlink{0%,82%,100%{opacity:0}82%,84%{opacity:1}84%,88%{opacity:0}}
+/* Override: 5s blink cycle (requested) */
+.face-live-blink-img{animation:faceEyeBlink 5s linear infinite}
 @media(prefers-reduced-motion:reduce){.face-live-motion{animation:none}.face-live-blink-img{animation:none;opacity:0}}
 
 /* ---------- organ grid / tiles ---------- */
