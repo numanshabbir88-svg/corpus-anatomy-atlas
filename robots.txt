@@ -73,3 +73,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://corpus-anatomy-atlas.netlify.app/sitemap.xml
