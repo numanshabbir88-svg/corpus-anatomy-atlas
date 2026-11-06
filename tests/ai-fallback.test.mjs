@@ -5,6 +5,7 @@ import handler from '../netlify/functions/ai-fallback.mjs';
 import { ATLAS_QA } from '../netlify/functions/atlas-qa-brain.mjs';
 
 const atlasKnowledge = JSON.parse(readFileSync(new URL('../bot-knowledge.json', import.meta.url), 'utf8'));
+const browserBotSource = readFileSync(new URL('../corpus-bot.js', import.meta.url), 'utf8');
 const normalizeQuestion = (value) => String(value || '').normalize('NFKD').replace(/\p{M}/gu, '').toLowerCase().match(/[a-z0-9]+/g)?.join(' ') || '';
 
 function makeRequest({ method = 'POST', origin = 'https://atlas.test', body = { question: 'What is a test question?', language: 'en' } } = {}) {
@@ -64,12 +65,41 @@ test('serves an Atlas Q&A match without an API key or upstream request', async (
   assert.equal(called, false);
 });
 
-test('does not answer a broad muscles question with the Papillary muscles substructure', async () => {
+test('does not answer broad muscle-category questions with Papillary muscles', async () => {
   delete process.env.GROQ_API_KEY;
-  const response = await handler(makeRequest({ body: { question: 'what is muscles', language: 'en' } }), { ip: 'test-broad-muscle-category' });
-  const payload = await response.json();
-  assert.equal(payload.source, 'no_answer');
-  assert.notEqual(payload.topic, 'Papillary muscles');
+  for (const question of ['what is muscles', 'what do muscles do', 'what is the function of muscles', 'what are the muscles in the body', 'what are types of muscle']) {
+    const response = await handler(makeRequest({ body: { question, language: 'en' } }), { ip: `test-broad-muscle-${question}` });
+    const payload = await response.json();
+    assert.equal(payload.source, 'no_answer', question);
+    assert.notEqual(payload.topic, 'Papillary muscles', question);
+  }
+});
+
+test('searches verified browser Atlas records before generated Q&A and can route a broad muscle query to its chapter', () => {
+  const topicStart = browserBotSource.indexOf('var resolvedQuestion = resolveFollowUpQuestion');
+  const topicEnd = browserBotSource.indexOf('}).then(function (finalReply)', topicStart);
+  const questionFlow = browserBotSource.slice(topicStart, topicEnd);
+  const localSearch = questionFlow.indexOf('searchInternalKB(enParsed, kb)');
+  const generatedQA = questionFlow.indexOf("requestAIWebFallback(atlasQuestion, userLang, { qaOnly: true })");
+  assert.ok(topicStart >= 0 && topicEnd > topicStart);
+  assert.ok(localSearch >= 0 && generatedQA > localSearch, 'verified first-party knowledge should be checked before generated QA');
+  const muscleChapter = atlasKnowledge.chapters.find((chapter) => chapter.k === 'muscle');
+  assert.match(muscleChapter.t, /muscular system/i);
+});
+
+test('keeps the answer kind aligned to the requested task and falls back to definition evidence for location', async () => {
+  delete process.env.GROQ_API_KEY;
+  const location = await handler(makeRequest({ body: { question: 'Where is the liver located?', language: 'en' } }), { ip: 'test-liver-location-kind' });
+  const locationPayload = await location.json();
+  assert.equal(locationPayload.source, 'atlas_qa');
+  assert.equal(locationPayload.topic, 'Liver');
+  assert.equal(locationPayload.kind, 'definition');
+  assert.match(locationPayload.answer, /right upper quadrant/i);
+
+  const functionResponse = await handler(makeRequest({ body: { question: 'What does the heart do?', language: 'en' } }), { ip: 'test-heart-function-kind' });
+  const functionPayload = await functionResponse.json();
+  assert.equal(functionPayload.topic, 'Heart');
+  assert.equal(functionPayload.kind, 'function');
 });
 
 test('recovers a one-character anatomy typo, understands Roman Urdu, and declines mismatched concepts', async () => {

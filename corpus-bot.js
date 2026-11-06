@@ -47,6 +47,10 @@
     'phephre': 'lungs',
     'lung': 'lungs',
     'pulmonary': 'lungs',
+    'breathing': 'lungs',
+    'respiration': 'lungs',
+    'respiratory': 'lungs',
+    'saans': 'lungs',
     'gurda': 'kidney',
     'gurday': 'kidney',
     'kidneys': 'kidney',
@@ -1140,7 +1144,7 @@
       wantsComparison: /\b(compare|comparison|difference|different|versus|vs|contrast|farq|muqabla)\b/.test(q),
       wantsExamples: /\b(example|examples|such as|like|misal|misalen)\b/.test(q),
       wantsClassification: /\b(types|kinds|classification|classify|categories|classes)\b/.test(q),
-      wantsProcess: /\b(process|mechanism|cycle|pathway|how does|how do|kaise|kaisay)\b/.test(q),
+      wantsProcess: /\b(process|mechanism|cycle|pathway|how does|how do|breath|breathing|respiration|ventilation|inspiration|expiration|kaise|kaisay)\b/.test(q),
       wantsDefinition: /\b(what is|what are|define|definition|meaning|kya hota|kia hota)\b/.test(q),
       wantsAnatomy: /\b(structure|anatomy|anatomical|parts|layers|composition|made of|bana hota)\b/.test(q),
       wantsRelationship: /\b(connect|connected|relationship|related|attach|attachment|between|link)\b/.test(q),
@@ -1177,10 +1181,23 @@
       return w.length > 1 && !STOP_WORDS.has(w);
     }).map(function (w) {
       if (w.length > 5 && w.slice(-3) === 'ies') return w.slice(0, -3) + 'y';
-      if (w.length > 4 && w.slice(-2) === 'es') return w.slice(0, -2);
+      if (w.length > 5 && /(ches|shes|xes|zes|sses)$/.test(w)) return w.slice(0, -2);
       if (w.length > 4 && w.slice(-1) === 's' && w.slice(-2) !== 'ss') return w.slice(0, -1);
       return w;
     });
+
+    /* Bare category nouns should route to their system chapter, not an arbitrary sub-part. */
+    var broadCategoryTargets = { nerve: 'nervous', tissue: 'tissuefoundations', cell: 'tissuefoundations', joint: 'joints', vessel: 'vascular', artery: 'vascular', vein: 'vascular' };
+    if (tokens.length === 1 && broadCategoryTargets[tokens[0]]) {
+      tokens[0] = broadCategoryTargets[tokens[0]];
+      intent.wantsBroad = true;
+    }
+
+    /* In classification/examples requests, "skeletal muscle" names muscle tissue, not the skeleton. */
+    if ((intent.wantsExamples || intent.wantsClassification) && /\bskeletal\s+muscles?\b/.test(q)) {
+      tokens = tokens.filter(function (t) { return t !== 'skeleton'; });
+      if (tokens.indexOf('muscle') === -1) tokens.push('muscle');
+    }
 
     /* If all words were stop words (e.g. "what does it do"), keep original tokens */
     if (!tokens.length) {
@@ -1407,6 +1424,28 @@
     return html + '<div class="cbot-evidence-note" role="note"><span>Atlas knowledge</span><span>' + level + '</span></div>';
   }
 
+  function formatBreathingProcessReply(kb) {
+    var lungs = (kb.chapters || []).find(function (c) { return c.k === 'lungs'; });
+    var diaphragm = (kb.parts || []).find(function (p) { return /^thoracic diaphragm$/i.test(String(p.n || '').trim()); }) ||
+      (kb.parts || []).find(function (p) { return /^diaphragm$/i.test(String(p.n || '').trim()); });
+    if (!lungs || !diaphragm) return null;
+    var overview = Array.isArray(lungs.ov) ? lungs.ov.join(' ') : String(lungs.sum || lungs.bl || '');
+    var gasExchange = overview.match(/[^.]*alveoli[^.]*\./i);
+    var processText = gasExchange
+      ? gasExchange[0] + ' During quiet expiration, the diaphragm relaxes and elastic recoil helps move air out.'
+      : 'Oxygen moves from alveolar air into blood while carbon dioxide moves from blood into the alveoli. During quiet expiration, the diaphragm relaxes and elastic recoil helps move air out.';
+    LAST_TOPIC = { type: 'part', item: diaphragm };
+    return '<div class="cbot-topic-head"><span class="cbot-topic-title">How Breathing Works</span><span class="cbot-topic-tag">Respiratory process</span></div>' +
+      buildMediaCard(lungs.img || 'img/webp/lungs.webp', 'Lungs and gas exchange', null) +
+      '<div class="cbot-assign-sec"><h4>1. Inspiration</h4><p>' + escapeHtml(diaphragm.f || diaphragm.d || 'The diaphragm contracts and enlarges the thoracic cavity, drawing air into the lungs.') + '</p></div>' +
+      '<div class="cbot-assign-sec"><h4>2. Air travels to the alveoli</h4><p>Air passes from the trachea through branching bronchi and bronchioles to the alveoli, bringing it close to pulmonary capillaries.</p></div>' +
+      '<div class="cbot-assign-sec"><h4>3. Gas exchange and expiration</h4><p>' + escapeHtml(processText) + '</p></div>' +
+      '<div class="cbot-evidence-note" role="note"><span>Corpus Anatomy Atlas · Diaphragm &amp; Lungs</span><span>Atlas-supported process</span></div>' +
+      buildNavButtons('lungs', '') + buildNavButtons(diaphragmChapterKey(diaphragm), diaphragm.id);
+  }
+
+  function diaphragmChapterKey(part) { return (part && part.ck) || 'muscle'; }
+
   function formatArteryVeinComparison(kb) {
     var vascular = (kb.chapters || []).find(function (c) { return c.k === 'vascular'; });
     var heart = (kb.chapters || []).find(function (c) { return c.k === 'heart'; });
@@ -1434,6 +1473,12 @@
         LAST_TOPIC = { type: 'chapter', item: curChap };
         return formatChapterReply(curChap, parsed.intent);
       }
+    }
+
+    /* Use the Atlas diaphragm + lungs evidence together for a process question about breathing. */
+    if (parsed.intent.wantsProcess && tokens.some(function (t) { return t === 'lung' || t === 'lungs'; })) {
+      var breathingReply = formatBreathingProcessReply(kb);
+      if (breathingReply) return breathingReply;
     }
 
     /* Atlas-backed comparison: answer only when both requested vessel classes are explicit. */
@@ -2559,7 +2604,7 @@
       loadKnowledgeBase().then(function (kb) {
         /* The server-only 5,000 Q&A brain is checked before the existing website KB (including its 370 FAQs). */
         var loadingBubble = appendMessage(
-          '<div class="cbot-typing"><span>Searching Atlas Q&amp;A first</span><span class="cbot-typing-dots"><i></i><i></i><i></i></span></div>',
+          '<div class="cbot-typing"><span>Checking Atlas anatomy first</span><span class="cbot-typing-dots"><i></i><i></i><i></i></span></div>',
           false
         );
 
@@ -2582,13 +2627,14 @@
           var resolvedQuestion = resolveFollowUpQuestion(enQuestion || rawQuestion);
           var enParsed = normalizeQuery(resolvedQuestion);
           var atlasQuestion = resolvedQuestion || rawQuestion;
+          /* Verified first-party KB comes before the generated Q&A layer: this prevents broad aliases
+             (e.g. "muscles" on Papillary muscles) from pre-empting a chapter-level answer. */
+          var verifiedMatch = searchInternalKB(enParsed, kb);
+          if (verifiedMatch) return localizeReplyForLanguage(verifiedMatch, userLang);
+
+          /* Generated Atlas Q&A is the next retrieval tier, only when the direct Atlas KB misses. */
           return requestAIWebFallback(atlasQuestion, userLang, { qaOnly: true }).then(function (atlasReply) {
             if (atlasReply) return atlasReply;
-
-            /* The existing 370 curated FAQs and other website knowledge remain the second Atlas source. */
-            var kbMatchAfterTrans = searchInternalKB(enParsed, kb);
-            if (kbMatchAfterTrans) return localizeReplyForLanguage(kbMatchAfterTrans, userLang);
-
             /* On a miss in both Atlas layers, use the optional server-side web fallback only if configured. */
             return requestAIWebFallback(atlasQuestion, userLang);
           });
