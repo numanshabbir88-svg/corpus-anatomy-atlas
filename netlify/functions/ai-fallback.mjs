@@ -108,12 +108,13 @@ const QA_STOP_WORDS = new Set([
   'with', 'would', 'you', 'your', 'about', 'explain', 'describe', 'show', 'image', 'picture',
   'diagram', 'photo', 'illustration', 'generate', 'draw',
   'kya', 'kia', 'hai', 'hain', 'ka', 'ki', 'ke', 'ko', 'se', 'mein', 'ma', 'par', 'batao', 'bataen', 'mujhe', 'mujy', 'kaam', 'kam', 'karta', 'karti', 'kahan', 'kidhar',
+  'body', 'human', 'whole', 'all', 'people', 'person',
 ]);
 
 const QA_QUERY_SYNONYMS = new Map([
   ['dil', 'heart'], ['qalb', 'heart'], ['gurda', 'kidney'], ['gurday', 'kidney'],
   ['jigar', 'liver'], ['phephra', 'lung'], ['phephray', 'lung'], ['dimagh', 'brain'],
-  ['haddi', 'bone'], ['haddiyan', 'bone'], ['patha', 'muscle'], ['pathay', 'muscle'],
+  ['haddi', 'bone'], ['haddiyan', 'bone'], ['patha', 'muscle'], ['pathay', 'muscle'], ['muscular', 'muscle'], ['muscles', 'muscle'], ['bones', 'bone'], ['nerves', 'nerve'], ['vessels', 'vessel'], ['organs', 'organ'], ['joints', 'joint'], ['tissues', 'tissue'], ['cells', 'cell'], ['arteries', 'artery'], ['veins', 'vein'], ['lungs', 'lung'], ['kidneys', 'kidney'], ['hearts', 'heart'], ['brains', 'brain'], ['livers', 'liver'], ['femurs', 'femur'], ['vertebrae', 'vertebra'], ['musculus', 'muscle'],
   ['rag', 'vessel'], ['nas', 'nerve'], ['khoon', 'blood'], ['saans', 'breathing'],
 ]);
 
@@ -127,7 +128,7 @@ function qaTokens(value) {
     if (QA_STOP_WORDS.has(token) || token.length < 2) continue;
     tokens.add(token);
     if (token.length > 5 && token.endsWith('ies')) tokens.add(token.slice(0, -3) + 'y');
-    else if (token.length > 4 && token.endsWith('es')) tokens.add(token.slice(0, -2));
+    else if (token.length > 5 && /(ches|shes|xes|zes|sses)$/.test(token)) tokens.add(token.slice(0, -2));
     else if (token.length > 4 && token.endsWith('s')) tokens.add(token.slice(0, -1));
   }
   return Array.from(tokens);
@@ -147,7 +148,7 @@ function buildQASearchIndex() {
 }
 
 const QA_SEARCH_INDEX = buildQASearchIndex();
-const QA_INTENT_TERMS = new Set(['function', 'functions', 'role', 'purpose', 'action', 'location', 'located', 'where', 'define', 'definition', 'meaning', 'structure', 'anatomy', 'clinical', 'significance', 'examples', 'example', 'types', 'classification', 'process', 'mechanism', 'compare', 'comparison', 'difference', 'versus', 'vs', 'explain', 'describe', 'overview']);
+const QA_INTENT_TERMS = new Set(['function', 'functions', 'role', 'purpose', 'action', 'location', 'located', 'where', 'define', 'definition', 'meaning', 'structure', 'anatomy', 'clinical', 'significance', 'examples', 'example', 'types', 'classification', 'process', 'mechanism', 'compare', 'comparison', 'difference', 'versus', 'vs', 'explain', 'describe', 'overview', 'system', 'systems', 'general', 'basics']);
 
 function queryIntent(question) {
   const q = String(question || '').toLowerCase();
@@ -185,17 +186,26 @@ function oneEditApart(left, right) {
 
 function kindMatchesIntent(kind, intent) {
   if (intent === 'function') return ['function', 'muscle_action', 'tendon_function'].includes(kind);
-  if (intent === 'location') return kind === 'muscle_location';
+  if (intent === 'location') return ['muscle_location', 'definition'].includes(kind);
   return intent ? kind === intent : false;
+}
+
+function kindAllowedForIntent(kind, intent) {
+  if (!intent) return true;
+  if (intent === 'function') return ['function', 'muscle_action', 'tendon_function', 'definition'].includes(kind);
+  if (intent === 'location') return ['muscle_location', 'definition'].includes(kind);
+  return kind === intent;
 }
 
 function rankAtlasQA(question, minimumTopicCoverage = 0.66) {
   const rawQuestion = String(question || '').toLowerCase();
   const comparisonQuery = /\b(compare|comparison|difference|different|versus|\bvs\b|contrast|farq|muqabla)\b/.test(rawQuestion);
   const categoryQuery = /\b(types|kinds|classification|categories|systems?|overview)\b/.test(rawQuestion);
-  const genericMuscleQuery = /^(?:(?:what\s+(?:is|are)|tell\s+me\s+about|explain|describe)\s+)?(?:the\s+)?(?:(?:skeletal|smooth|cardiac)\s+)?muscles?\s*[?.!]*$/i.test(rawQuestion.trim());
-  // Broad body-category questions must route to the system chapter, not one alias-matching muscle record.
-  if (genericMuscleQuery) return null;
+  const categoryNouns = new Set(['muscle', 'bone', 'nerve', 'vessel', 'tissue', 'cell', 'organ', 'joint', 'blood', 'skeleton', 'muscular', 'nervous']);
+  const categoryTerms = qaTokens(rawQuestion).filter((term) => !QA_INTENT_TERMS.has(term) && !['skeletal', 'smooth', 'cardiac', 'body', 'human', 'whole', 'all'].includes(term));
+  const genericCategoryQuery = categoryTerms.length === 1 && categoryNouns.has(categoryTerms[0]);
+  // Bare body-category questions should be answered from a system/chapter overview, never a random substructure alias.
+  if (genericCategoryQuery) return null;
   // This dataset has no comparison-specific answer kind; do not return a coincidental single-structure record.
   if (comparisonQuery) return null;
   let queryTerms = qaTokens(question);
@@ -220,6 +230,7 @@ function rankAtlasQA(question, minimumTopicCoverage = 0.66) {
   let best = null;
   for (const id of candidateIds) {
     const item = ATLAS_QA[id];
+    if (!kindAllowedForIntent(item.kind, intent)) continue;
     if (categoryQuery && !/\b(system|systems|classification|categories|overview)\b/i.test(item.topic)) continue;
     const primaryTopicTerms = qaTokens(item.topic);
     const primaryCoverage = primaryTopicTerms.length
