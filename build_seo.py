@@ -980,7 +980,7 @@ write(ROOT/'bot-knowledge.json',json.dumps({'chapters':_kb_chapters,'parts':_kb_
 if OUT.exists(): shutil.rmtree(OUT)
 OUT.mkdir()
 dims_count=write_img_dims()
-for file in ['index.html','editorial.css','reading.js','preview.js','styles.css','corpus-bot.css','corpus-bot.js','bot-loader.js','img-dims.js','bot-knowledge.json','organs.js','brain-and-micro-chapters.js','deep-chapters.js','part-enrichment-notes.js','chapter-enrichment.js','skull-chapter.js','dental-chapter.js','foundations-chapters.js','reproduction-stages.js','repro-image-enrichment.js','micro-lens.js','part-pins.js','muscle-atlas.js','app.js','about.html','404.html','blog-studio.html']:
+for file in ['index.html','editorial.css','reading.js','preview.js','styles.css','corpus-bot.css','corpus-bot.js','bot-loader.js','data-loader.js','img-dims.js','bot-knowledge.json','organs.js','brain-and-micro-chapters.js','deep-chapters.js','part-enrichment-notes.js','chapter-enrichment.js','skull-chapter.js','dental-chapter.js','foundations-chapters.js','reproduction-stages.js','repro-image-enrichment.js','micro-lens.js','part-pins.js','muscle-atlas.js','app.js','about.html','404.html','blog-studio.html']:
     shutil.copy2(ROOT/file,OUT/file)
 shutil.copytree(learn,OUT/'learn')
 shutil.copytree(BLOG_OUT,OUT/'blog')

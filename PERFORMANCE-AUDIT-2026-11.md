@@ -180,3 +180,109 @@ still present and still loaded where they are needed.
 5. Confirm the chatbot launcher appears within ~1–2 s and that a question still answers
    (it now starts from the idle callback instead of immediately).
 6. Confirm the blink rhythm looks natural and that "Reduce motion" stops it.
+
+---
+
+# Pass 2 — measured with a real browser (2026-11-05)
+
+Pass 1 was verified by static analysis and jsdom only. This pass added a **real headless Chromium**
+(`HeadlessChrome 153`) inside the sandbox, so every number below comes from an actual browser:
+
+* **"Throttled"** columns: Chrome DevTools Protocol *real* network+CPU throttling (Moto-G-class:
+  412×823 @1.75 DPR, 1.6 Mbps down / 750 kbps up, 150 ms RTT, CPU 4×) — the same profile PSI uses.
+* **"Lighthouse"** columns: Lighthouse itself against a local server that gzips like Netlify does
+  (`styles.css` 92.5 KB → 20.4 KB on the wire), so render-blocking and transfer costs are realistic.
+* Both the pre-change build (`main`, deployed) and the new build were served and measured the same way.
+
+> These are **local emulations, not a PageSpeed Insights run**. PSI additionally loads AdSense from
+> Google's servers and sees real internet latency, neither of which is reachable from this sandbox.
+> Treat the delta as directional evidence; the score claim still needs a PSI run on the deployed build.
+
+## Results
+
+### Home page — throttled mobile (real CDP throttling)
+
+| Metric | Before (deployed) | After | Δ |
+| --- | --- | --- | --- |
+| First Contentful Paint | 1 068 ms | **840 ms** | −21 % |
+| Largest Contentful Paint | 1 068 ms | **840 ms** | −21 % |
+| Cumulative Layout Shift | 0 | **0** | — |
+| Total Blocking Time | 103 ms | **82 ms** | −20 % |
+| Long tasks | 2 | 1 | −1 |
+
+With the previous *uncompressed* local server the same page measured 2 956 ms → 908 ms FCP, i.e. the
+old build wasted almost 2 s of main-thread time before the first paint on a slow connection.
+
+### Home page — Lighthouse (mobile / desktop)
+
+| | Mobile before | Mobile after | Desktop before | Desktop after |
+| --- | --- | --- | --- | --- |
+| Performance | 100 | 100 | 100 | 100 |
+| Accessibility | 94 | **100** | 95 | **100** |
+| Best Practices | 96 | 96 | 96 | 96 |
+| SEO | 100 | 100 | 100 | 100 |
+| FCP / LCP | 0.9 s | 0.9 s | 0.3 s | 0.3 s |
+| TBT | 30 ms | 10 ms | 0 ms | 0 ms |
+| CLS | 0 | 0 | 0 | 0 |
+| Reduce unused JS | 124 KiB | **28 KiB** | 124 KiB | **28 KiB** |
+| Improve image delivery | 27 KiB | **5 KiB** | 27 KiB | **6 KiB** |
+
+Lighthouse is saturated locally (Performance 100 both builds), so the meaningful numbers are the
+throttled ones and the audit savings. Best Practices stays at 96 because the only failing audit is
+`errors-in-console`, produced by the AdSense request this sandbox cannot complete; that is third-party.
+
+## What changed in pass 2
+
+1. **`data-loader.js` (new)** — the 14 datasets plus `app.js` are no longer parser-inserted
+   `<script defer>` tags. They are appended **after the browser has committed its first frame**
+   (double `requestAnimationFrame`, with a `load` fallback for background tabs), with `async=false`
+   so execution order is byte-for-byte what it was. This is the change that moved FCP/LCP from
+   ~1.1 s to 0.84 s throttled (and from ~3 s to ~0.9 s when assets are uncompressed), because ~1.3 MB
+   of JS no longer competes with the hero for the main thread before the first paint.
+2. **Hero image variants** — `hero-human-face-720.webp` and `hero-human-face-blink-720.webp`
+   (720 px wide, ~12 KB each, generated once from the originals; the 1024 px files stay for retina).
+   The hero `<img>` now carries `srcset` + `sizes="(max-width: 720px) 92vw, 560px"`, and the preload
+   uses `imagesrcset`/`imagesizes` so the preload and the chosen candidate stay identical
+   (verified: exactly two hero requests on mobile, both 720 w, no double download).
+   Image-delivery savings: 27 KiB → 5 KiB.
+3. **Accessibility (94/95 → 100 on both form factors), no design change**:
+   `p.keys > kbd` and `.search kbd` inherited `--mute` (#697a77) on a near-white card = **4.15:1**;
+   they now use `#5c6d6a` = **5.0–5.4:1**. Footer column headings were `<h4>` after `<h2>` (skipped a
+   level) and are now `<h3>`, with `.ftr h3,.ftr h4` sharing the existing style. The logo link had
+   `aria-label="Corpus home"` while its visible text is "Corpus Anatomy Atlas" (a
+   `label-content-name-mismatch`); the redundant label was removed so the name is the visible text.
+4. **Cache-busting**: `styles.css?v=75` (content changed). `data-loader.js?v=1` is new and versioned.
+
+## Verified after the change
+
+* `python3 build_seo.py && python3 build_ai_knowledge.py && python3 verify_seo.py` → all PASS
+  (`SEO audit PASS: 105 pages, 103 sitemap URLs`, `AdSense build check PASS`, `Atlas Q&A PASS`).
+* `npm test` → **20/20** (3 new guards: data-loader wiring on all 10 pages, execution order and
+  first-frame start, hero srcset + preload parity + the 720 w files existing).
+* Real browser functional run on the built site: home renders 7 sections / 21 cards with no
+  horizontal overflow; in-app (pushState) navigation to `/body-map/` works; `/heart-anatomy/` renders
+  the plate with 27 SVG pin circles; `/anatomy-quiz/` renders; search returns 9 hits; the chatbot
+  launcher appears, opens, and answers "What is the left ventricle?" from the local knowledge base;
+  **zero first-party console errors** (only the sandbox-blocked AdSense request and the dev server's
+  missing POST endpoint, both absent on Netlify).
+
+## Still open (not fixed — needs either your decision or an environment I do not have)
+
+1. **CLS = 1 in your report vs 0 measured here.** Both builds measure CLS 0 with zero layout-shift
+   entries on mobile and desktop, so the 1 is not reproducible without AdSense actually filling.
+   Please send me the **"Layout shift culprits" element snippets** from that report (or a screenshot of
+   that audit) and I will target the exact nodes. The likeliest candidates are an Auto-ads container or
+   the Google CMP dialog, both third-party.
+2. **Unused CSS / render-blocking (≈17 KiB unused, ~300 ms)**: `styles.css` is one 92 KB file; a page
+   uses only a fraction. The safe fix is build-time per-page CSS bundles (home vs chapter vs quiz vs
+   editorial) generated from Chrome's CSS coverage — done properly this needs a rule-level splitter and
+   a regression pass on every page type. I did not want to half-split it and risk an unstyled state.
+3. **`part-pins.js` (465 KB raw / 113 KB gz)** is the single biggest first-party asset and is only
+   needed by chapter plates. It does **not** affect the chapter/part counts on the home page
+   (verified: 74 chapters / 1 586 parts both with and without it), so it can be split per chapter and
+   fetched on demand — but the SPA router must then await it before rendering a plate, otherwise
+   in-app navigation to a chapter would show a plate without pins. That is a router change, i.e. the
+   one place where a mistake would break a working feature, so it is proposed rather than done.
+4. **`app.js` is 75 % unused on the home route** (chapter/quiz/map renderers ship on every page).
+   Splitting it by route has the same router dependency as (3) and is the natural follow-up.
+5. **PSI/field verification** — needs the deployed build; this sandbox cannot reach Netlify or Google.

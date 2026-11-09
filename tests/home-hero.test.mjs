@@ -89,3 +89,42 @@ test('image dimensions are published for the plate reservation helper', () => {
   assert.ok(dims.includes('"img/medium/hero-human-face.webp"'));
   assert.match(appJs, /function reserveImageBoxes\(root\)/);
 });
+
+/* ---------- deferred data bootstrap ---------- */
+
+const SHELLS = ['all-organs','anatomical-layers','anatomy-quiz','body-map','body-systems',
+  'deep-anatomy-study-path','female-anatomy','gynecology-study-path','male-anatomy'];
+const dataLoader = read('data-loader.js');
+
+test('datasets load through data-loader.js, not as blocking script tags', () => {
+  for (const page of ['index.html', ...SHELLS.map((s) => `${s}/index.html`)]) {
+    const html = read(page);
+    assert.ok(html.includes('data-loader.js?v=1'), `${page} must request data-loader.js`);
+    for (const heavy of ['organs.js', 'part-pins.js', 'app.js']) {
+      assert.ok(
+        !new RegExp(`<script[^>]+src="${heavy.replace('.', '\\.')}`).test(html),
+        `${page} must not load ${heavy} directly — data-loader defers it past first paint`
+      );
+    }
+  }
+});
+
+test('data-loader keeps execution order and never blocks the first paint', () => {
+  const order = [...dataLoader.matchAll(/"(img-dims|organs|app)\.js\?/g)].map((m) => m[1]);
+  assert.deepEqual(order, ['img-dims', 'organs', 'app'], 'img-dims then datasets then app.js');
+  assert.match(dataLoader, /script\.async = false/, 'async=false preserves the old defer order');
+  assert.match(dataLoader, /requestAnimationFrame/, 'loading starts after the first frame');
+});
+
+test('the hero serves a smaller candidate and its preload matches it', () => {
+  const hero = staticHero(indexHtml);
+  assert.match(hero, /class="face-live-img"[^>]+srcset="[^"]*hero-human-face-720\.webp\?v=1 720w/);
+  assert.match(hero, /sizes="\(max-width: 720px\) 92vw, 560px"/);
+  assert.match(templateHero(appJs), /hero-human-face-720\.webp\?v=1 720w/,
+    'HOME_HERO must carry the same srcset as the static hero');
+  assert.match(indexHtml, /<link rel="preload" as="image" imagesrcset="[^"]*720w/,
+    'the preload must use imagesrcset so it picks the same candidate (no double download)');
+  for (const file of ['img/medium/hero-human-face-720.webp', 'img/medium/hero-human-face-blink-720.webp']) {
+    assert.ok(readFileSync(new URL(`../${file}`, import.meta.url)).length > 2000, `${file} must exist`);
+  }
+});
